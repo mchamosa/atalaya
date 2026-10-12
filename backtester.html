@@ -75,6 +75,17 @@ tr.sel td{background:var(--panel2)}
 .hidden{display:none}
 @media (max-width:600px){main{padding:10px}.chart{height:320px}}
 </style>
+<style>
+button.big{padding:11px 22px;font-size:15px}
+details.manual{border-top:1px dashed var(--line);margin-top:14px;padding-top:10px}
+details.manual>summary{cursor:pointer;color:var(--mut);font-size:13px;font-weight:600;list-style:none}
+details.manual>summary::before{content:'▸ ';color:var(--acc)}
+details.manual[open]>summary::before{content:'▾ '}
+details.all{margin-top:14px}
+details.all>summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:600}
+.lead{font-size:13px;color:var(--mut);margin:0 0 10px}
+.lead b{color:var(--txt)}
+</style>
 </head>
 <body>
 <header>
@@ -85,146 +96,137 @@ tr.sel td{background:var(--panel2)}
 <main>
 
 <section class="panel">
-  <h2>Configuración</h2>
+  <h2>Optimizador de estrategias</h2>
+  <p class="lead">Elige el par y la temporalidad. La página busca sola los <b>mejores parámetros y salidas</b> de 9 estrategias usando el tramo inicial de los datos, y después comprueba si siguen funcionando en el tramo final, que no se ha usado para elegirlos.</p>
 
-  <div class="group">
-    <h3>Mercado</h3>
-    <div class="grid">
-      <label>Par (Binance)
-        <input id="symbol" value="BTCUSDT" list="symbols">
-        <datalist id="symbols">
-          <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>BNBUSDT</option>
-          <option>XRPUSDT</option><option>DOGEUSDT</option><option>ADAUSDT</option><option>AVAXUSDT</option>
-          <option>LINKUSDT</option><option>SUIUSDT</option>
-        </datalist>
-      </label>
-      <label>Temporalidad
-        <select id="interval">
-          <option value="5m">5 min</option><option value="15m">15 min</option><option value="1h">1 hora</option>
-          <option value="4h" selected>4 horas</option><option value="1d">1 día</option>
-        </select>
-      </label>
-      <label>Nº de velas (máx. 20.000)
-        <input id="count" type="number" value="5000" min="300" max="20000" step="500">
-      </label>
-    </div>
-  </div>
-
-  <div class="group">
-    <h3>Estrategia</h3>
-    <div class="grid">
-      <label>Estrategia
-        <select id="strategy"></select>
-      </label>
-      <div id="stratParams" class="contents"></div>
-    </div>
-    <p class="note" id="stratDesc"></p>
-  </div>
-
-  <div class="group">
-    <h3>Ejecución y filtros</h3>
-    <div class="grid">
-      <label>Ejecución
-        <select id="exec">
-          <option value="close">Al cierre de la vela de señal</option>
-          <option value="open" selected>Apertura de la vela siguiente</option>
-        </select>
-      </label>
-      <label>Filtro volumen (× media 20, 0 = off)
-        <input id="volMult" type="number" value="0" min="0" step="0.1">
-      </label>
-      <label>Filtro tendencia: precio &gt; EMA (0 = off)
-        <input id="emaLen" type="number" value="0" min="0" max="500">
-      </label>
-    </div>
-  </div>
-
-  <div class="group">
-    <h3>Salida (la primera que ocurra)</h3>
-    <div class="grid">
-      <label>Tipo de stop
-        <select id="stopType">
-          <option value="pct" selected>Porcentaje</option>
-          <option value="atr">Múltiplo de ATR(14)</option>
-          <option value="none">Sin stop</option>
-        </select>
-      </label>
-      <label>Stop (% o × ATR)
-        <input id="stopVal" type="number" value="3" min="0" step="0.1">
-      </label>
-      <label>Take profit % (0 = off)
-        <input id="tp" type="number" value="0" min="0" step="0.1">
-      </label>
-      <label>Trailing stop % (0 = off)
-        <input id="trail" type="number" value="0" min="0" step="0.1">
-      </label>
-      <label>Ruptura de mínimo de M velas (0 = off)
-        <input id="exitLb" type="number" value="10" min="0" max="500">
-      </label>
-      <label>Salida por tiempo, velas (0 = off)
-        <input id="timeExit" type="number" value="0" min="0">
-      </label>
-      <label class="chk"><input id="ownExit" type="checkbox" checked> Usar la señal de salida propia de la estrategia</label>
-    </div>
-  </div>
-
-  <div class="group">
-    <h3>Costes y validación</h3>
-    <div class="grid">
-      <label>Comisión por lado %
-        <input id="fee" type="number" value="0.1" min="0" step="0.01">
-      </label>
-      <label>Slippage por lado %
-        <input id="slip" type="number" value="0.05" min="0" step="0.01">
-      </label>
-      <label>% de datos en muestra (resto = fuera de muestra)
-        <input id="split" type="number" value="70" min="30" max="95" step="5">
-      </label>
-    </div>
+  <div class="grid">
+    <label>Par (Binance)
+      <input id="symbol" value="BTCUSDT" list="symbols">
+      <datalist id="symbols">
+        <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>BNBUSDT</option>
+        <option>XRPUSDT</option><option>DOGEUSDT</option><option>ADAUSDT</option><option>AVAXUSDT</option>
+        <option>LINKUSDT</option><option>SUIUSDT</option>
+      </datalist>
+    </label>
+    <label>Temporalidad
+      <select id="interval">
+        <option value="5m">5 min</option><option value="15m">15 min</option><option value="1h">1 hora</option>
+        <option value="4h" selected>4 horas</option><option value="1d">1 día</option>
+      </select>
+    </label>
+    <label>Nº de velas (máx. 20.000)
+      <input id="count" type="number" value="5000" min="300" max="20000" step="500">
+    </label>
+    <label>Comisión por lado %
+      <input id="fee" type="number" value="0.1" min="0" step="0.01">
+    </label>
+    <label>Slippage por lado %
+      <input id="slip" type="number" value="0.05" min="0" step="0.01">
+    </label>
+    <label>Optimizar para
+      <select id="objective">
+        <option value="profit" selected>Máxima rentabilidad</option>
+        <option value="risk">Rentabilidad / drawdown</option>
+        <option value="pf">Máximo profit factor</option>
+      </select>
+    </label>
+    <label>% de datos para optimizar
+      <input id="split" type="number" value="70" min="30" max="95" step="5">
+    </label>
   </div>
 
   <div class="actions">
-    <button id="run">▶ Ejecutar esta estrategia</button>
-    <button id="compare" class="sec">⚖️ Comparar todas en paralelo</button>
-    <button id="explore" class="sec">🔍 Explorar todas las combinaciones</button>
+    <button id="optAll" class="big">🤖 Optimizar todas las estrategias</button>
+    <button id="optOne" class="sec">🤖 Optimizar solo la seleccionada</button>
+    <button id="run" class="sec">▶ Ejecutar con mis ajustes</button>
     <button id="csv" class="sec" disabled>Exportar operaciones (CSV)</button>
-    <span id="status" class="status"></span>
   </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="status" class="status" style="margin-top:6px"></div>
+
+  <details class="manual" id="manual">
+    <summary>Ajustes manuales (opcional; el optimizador los rellena solo)</summary>
+
+    <div class="group" style="border-top:0;margin-top:10px;padding-top:0">
+      <h3>Estrategia</h3>
+      <div class="grid">
+        <label>Estrategia
+          <select id="strategy"></select>
+        </label>
+        <div id="stratParams" class="contents"></div>
+      </div>
+      <p class="note" id="stratDesc"></p>
+    </div>
+
+    <div class="group">
+      <h3>Ejecución y filtros (no se optimizan)</h3>
+      <div class="grid">
+        <label>Ejecución
+          <select id="exec">
+            <option value="close">Al cierre de la vela de señal</option>
+            <option value="open" selected>Apertura de la vela siguiente</option>
+          </select>
+        </label>
+        <label>Filtro volumen (× media 20, 0 = off)
+          <input id="volMult" type="number" value="0" min="0" step="0.1">
+        </label>
+        <label>Filtro tendencia: precio &gt; EMA (0 = off)
+          <input id="emaLen" type="number" value="0" min="0" max="500">
+        </label>
+      </div>
+    </div>
+
+    <div class="group">
+      <h3>Salida (la primera que ocurra)</h3>
+      <div class="grid">
+        <label>Tipo de stop
+          <select id="stopType">
+            <option value="pct">Porcentaje</option>
+            <option value="atr" selected>Múltiplo de ATR(14)</option>
+            <option value="none">Sin stop</option>
+          </select>
+        </label>
+        <label>Stop (% o × ATR)
+          <input id="stopVal" type="number" value="2.5" min="0" step="0.1">
+        </label>
+        <label>Take profit % (0 = off)
+          <input id="tp" type="number" value="0" min="0" step="0.1">
+        </label>
+        <label>Trailing stop % (0 = off)
+          <input id="trail" type="number" value="0" min="0" step="0.1">
+        </label>
+        <label>Ruptura de mínimo de M velas (0 = off)
+          <input id="exitLb" type="number" value="10" min="0" max="500">
+        </label>
+        <label>Salida por tiempo, velas (0 = off)
+          <input id="timeExit" type="number" value="0" min="0">
+        </label>
+        <label class="chk"><input id="ownExit" type="checkbox" checked> Usar la señal de salida propia de la estrategia</label>
+      </div>
+    </div>
+  </details>
 </section>
 
 <section id="cmpPanel" class="panel hidden">
-  <h2>Comparativa en paralelo</h2>
-  <div class="grid" style="margin-bottom:8px">
-    <label>Parámetros de cada estrategia
-      <select id="cmpMode">
-        <option value="best" selected>Los mejores de cada una (elegidos solo con datos en muestra)</option>
-        <option value="saved">Los que tengo puestos / por defecto</option>
-      </select>
-    </label>
-  </div>
-  <p class="note">Todas usan el mismo par, temporalidad, filtros, salidas y costes del formulario. Pulsa una estrategia en la leyenda para ocultarla o mostrarla. La flecha marca el inicio del tramo fuera de muestra.</p>
+  <h2>Estrategias optimizadas</h2>
+  <div id="summary" class="verdict" style="margin-top:0"></div>
+  <div class="scroll" style="margin-top:12px"><table id="cmpTable"></table></div>
+  <p class="note">Pulsa una estrategia en la leyenda para ocultarla o mostrarla. La flecha marca el inicio del tramo fuera de muestra.</p>
   <div class="legend" id="cmpLegend"></div>
   <div id="cmpChart" class="chart"></div>
-  <div class="scroll" style="margin-top:12px"><table id="cmpTable"></table></div>
   <div class="mini-grid" id="cmpGrid"></div>
-</section>
-
-<section id="explorer" class="panel hidden">
-  <h2>Explorador de estrategias</h2>
-  <p class="note">Prueba cada estrategia con varias combinaciones de parámetros y salidas, usando tu par, temporalidad, filtros y costes. Las ordena <b>solo con los datos en muestra</b> y luego te enseña cómo se comportaron <b>fuera de muestra</b>, con datos que no se usaron para elegirlas. Así se ve qué estrategia aguanta y cuál solo encajaba con el pasado.</p>
-  <div class="grid" style="margin:8px 0">
-    <label class="chk"><input id="exTune" type="checkbox" checked> Afinar las salidas de las 5 mejores (stops, ATR, trailing)</label>
-    <label class="chk"><input id="exOnlyRobust" type="checkbox"> Mostrar solo las rentables en ambos tramos</label>
-  </div>
-  <div class="progress"><div id="exBar"></div></div>
-  <div id="exSummary" class="verdict hidden"></div>
-  <div class="scroll" style="margin-top:10px"><table id="exTable"></table></div>
+  <details class="all">
+    <summary id="allSummary">Ver todas las combinaciones probadas</summary>
+    <div class="grid" style="margin:8px 0"><label class="chk"><input id="onlyRobust" type="checkbox"> Mostrar solo las rentables en ambos tramos</label></div>
+    <div class="scroll"><table id="allTable"></table></div>
+  </details>
 </section>
 
 <section id="results" class="hidden">
 
   <section class="panel">
     <h2 id="resTitle">Resultados</h2>
+    <div id="resConfig" class="note" style="margin:-4px 0 10px"></div>
     <div class="cards" id="cards"></div>
     <div class="verdict" id="verdict"></div>
   </section>
@@ -232,7 +234,7 @@ tr.sel td{background:var(--panel2)}
   <section class="panel">
     <h2>En muestra vs fuera de muestra</h2>
     <div class="scroll"><table id="splitTable"></table></div>
-    <p class="note">La parte "fuera de muestra" son datos que no deberías haber usado para elegir los parámetros. Si la estrategia solo funciona en muestra, es casi seguro sobreajuste.</p>
+    <p class="note">Los parámetros se eligieron con el tramo "en muestra". El tramo "fuera de muestra" es la prueba de verdad: si solo funciona en muestra, es sobreajuste.</p>
   </section>
 
   <section class="panel">
@@ -250,7 +252,7 @@ tr.sel td{background:var(--panel2)}
   <section class="panel">
     <h2 id="sensTitle">Sensibilidad al parámetro principal</h2>
     <div class="scroll"><table id="sensTable"></table></div>
-    <p class="note">Resto de parámetros iguales. Una estrategia robusta da resultados parecidos en valores cercanos; si solo un valor funciona, desconfía.</p>
+    <p class="note">Resto de ajustes iguales. Una estrategia robusta da resultados parecidos en valores cercanos; si solo un valor funciona, desconfía.</p>
   </section>
 
   <section class="panel">
@@ -260,7 +262,7 @@ tr.sel td{background:var(--panel2)}
 
 </section>
 
-<p class="note">Datos: API pública de Binance (spot). Solo largos. Se asume el 100 % del capital por operación con interés compuesto. Si en una misma vela se tocan stop y take profit, se asume el stop (escenario conservador). Probar muchas combinaciones y quedarse con la mejor siempre infla el resultado en muestra: fíjate en el tramo fuera de muestra. Rendimientos pasados no garantizan resultados futuros; esto no es asesoramiento financiero.</p>
+<p class="note">Datos: API pública de Binance (spot). Solo largos. 100 % del capital por operación con interés compuesto. Si en una misma vela se tocan stop y take profit, se asume el stop. Al probar cientos de combinaciones, la mejor siempre parece buena en muestra: la columna "fuera de muestra" es la que cuenta. Rendimientos pasados no garantizan resultados futuros; esto no es asesoramiento financiero.</p>
 </main>
 
 <script id="engine">
@@ -531,9 +533,22 @@ function stats(trades, eqCurve){
   return s;
 }
 const splitIdx=(d,p)=>Math.floor(d.c.length*p.split/100);
-function splitStats(d,p,r){
+// En muestra = backtest con los datos CORTADOS en la frontera (las operaciones abiertas se cierran ahí),
+// para que el tramo de ajuste no se beneficie de nada que ocurra después.
+// Fuera de muestra = backtest que arranca sin posición en la frontera (solo entradas desde ahí).
+let _cut={d:null,k:0,v:null};
+function cutData(d,k){
+  if(_cut.d===d && _cut.k===k) return _cut.v;
+  const v={t:d.t.slice(0,k),o:d.o.slice(0,k),h:d.h.slice(0,k),l:d.l.slice(0,k),c:d.c.slice(0,k),v:d.v.slice(0,k)};
+  _cut={d,k,v}; return v;
+}
+function splitStats(d,p,r,sig){
   const si=splitIdx(d,p);
-  return {si, is:stats(r.trades.filter(t=>t.entryIdx<si)), oos:stats(r.trades.filter(t=>t.entryIdx>=si))};
+  const sIS={...sig, entry:sig.entry.slice(0,si), exit:sig.exit?sig.exit.slice(0,si):null};
+  const rIS=backtest(cutData(d,si),p,sIS);
+  const sOOS={...sig, entry:sig.entry.map((v,i)=>i>=si && v)};
+  const rOOS=backtest(d,p,sOOS);
+  return {si, rIS, rOOS, is:stats(rIS.trades,rIS.equity), oos:stats(rOOS.trades,rOOS.equity)};
 }
 
 // ================= Explorador =================
@@ -542,17 +557,56 @@ function combos(key){
   for(const pr of s.params) out=out.flatMap(o=>pr.grid.map(v=>({...o,[pr.k]:v})));
   return out.filter(q=>!s.valid||s.valid(q));
 }
-const EXIT_VARIANTS=[
-  {stopType:'pct',stopVal:2,trail:0},{stopType:'pct',stopVal:4,trail:0},{stopType:'pct',stopVal:6,trail:0},
-  {stopType:'atr',stopVal:2,trail:0},{stopType:'atr',stopVal:3,trail:0},
-  {stopType:'pct',stopVal:5,trail:5},{stopType:'pct',stopVal:10,trail:10}
-];
+
 // Puntuación: SOLO datos en muestra. Rentabilidad / drawdown, exige un mínimo de operaciones.
-function score(ss){ if(ss.n<10) return -Infinity; return ss.total/Math.max(0.05,Math.abs(ss.maxDD)); }
+// Objetivo de optimización (solo datos en muestra). Exige un mínimo de 10 operaciones.
+function score(ss,obj){
+  if(ss.n<10) return -Infinity;
+  if(obj==='risk') return ss.total/Math.max(0.05,Math.abs(ss.maxDD));
+  if(obj==='pf') return isFinite(ss.pf)?ss.pf:100;
+  return ss.total; // 'profit': máxima rentabilidad
+}
 function evalCombo(d,p,key,q,sig){
   sig = sig || STRATS[key].build(d,q);
-  const r=backtest(d,p,sig), sp=splitStats(d,p,r), all=stats(r.trades,r.equity);
-  return {key,q,p,sig,r, all, is:sp.is, oos:sp.oos, score:score(sp.is)};
+  const r=backtest(d,p,sig), sp=splitStats(d,p,r,sig), all=stats(r.trades,r.equity);
+  return {key,q,p,sig,r, all, is:sp.is, oos:sp.oos, score:score(sp.is,p.objective)};
+}
+
+// ================= Optimizador automático =================
+// Fase 1: prueba todas las combinaciones de parámetros de ENTRADA con una salida base.
+// Fase 2: a las mejores entradas les prueba 6 stops × 6 formas de gestionar la salida.
+// La mejor se elige SOLO con datos en muestra; el tramo fuera de muestra queda de testigo.
+const better=(e,b)=>!b || e.score>b.score || (e.score===b.score && e.is.total>b.is.total);
+const byBest=(a,b)=>better(a,b)?-1:(better(b,a)?1:0);
+const BASE_EXIT={stopType:'atr',stopVal:2.5,ownExit:true,exitLb:10,trail:0,tp:0,timeExit:0};
+const EXIT_STOPS=[
+  {stopType:'pct',stopVal:2},{stopType:'pct',stopVal:4},{stopType:'pct',stopVal:8},
+  {stopType:'atr',stopVal:1.5},{stopType:'atr',stopVal:2.5},{stopType:'atr',stopVal:4}
+];
+const EXIT_MGMT=[
+  {ownExit:true, exitLb:10,trail:0, tp:0, timeExit:0},  // señal propia + ruptura mín. 10
+  {ownExit:true, exitLb:0, trail:0, tp:0, timeExit:0},  // solo señal propia (o solo stop)
+  {ownExit:false,exitLb:20,trail:0, tp:0, timeExit:0},  // ruptura mín. 20 (estilo Turtle)
+  {ownExit:false,exitLb:0, trail:6, tp:0, timeExit:0},  // trailing 6 %
+  {ownExit:false,exitLb:0, trail:12,tp:0, timeExit:0},  // trailing 12 %
+  {ownExit:false,exitLb:0, trail:0, tp:10,timeExit:30}  // objetivo 10 % o 30 velas
+];
+const HAS_EXIT=['ema','supertrend','macd','bbBreak','bbRevert','rsi'];
+function optimizeStrategy(d,p,key,topK=3){
+  const rows=[]; let best=null;
+  const keep=e=>{ rows.push(e); if(better(e,best)){ if(best) delete best.r; best=e; } else delete e.r; };
+  const stage1=[];
+  for(const q of combos(key)){ const e=evalCombo(d,{...p,...BASE_EXIT},key,q); stage1.push(e); }
+  stage1.sort(byBest);
+  const top=stage1.slice(0,topK);
+  for(const e of stage1) keep(e);
+  for(const e of top){
+    for(const st of EXIT_STOPS) for(const m of EXIT_MGMT){
+      keep(evalCombo(d,{...p,...BASE_EXIT,...st,...m},key,e.q,e.sig));
+    }
+  }
+  rows.forEach(e=>delete e.sig);
+  return {best,rows};
 }
 </script>
 
@@ -583,7 +637,7 @@ async function fetchKlines(symbol, interval, count, onProgress){
   return {t:all.map(k=>k[0]),o:all.map(k=>+k[1]),h:all.map(k=>+k[2]),l:all.map(k=>+k[3]),c:all.map(k=>+k[4]),v:all.map(k=>+k[5])};
 }
 
-// ================= Utilidades UI =================
+// ================= Utilidades =================
 const $=id=>document.getElementById(id);
 const pct=(x,d=2)=>(isFinite(x)?(x*100).toFixed(d)+' %':'∞');
 const pf=x=>isFinite(x)?x.toFixed(2):'∞';
@@ -592,10 +646,14 @@ const tzOff=-new Date().getTimezoneOffset()*60;
 const ts=ms=>Math.floor(ms/1000)+tzOff;
 const fmtDate=ms=>new Date(ms).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
 const fmtPx=x=>x>=100?x.toFixed(2):x>=1?x.toFixed(4):x.toPrecision(5);
-const COMMON=['symbol','interval','count','exec','volMult','emaLen','stopType','stopVal','tp','trail','exitLb','timeExit','fee','slip','split'];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const COMMON=['objective','symbol','interval','count','exec','volMult','emaLen','stopType','stopVal','tp','trail','exitLb','timeExit','fee','slip','split'];
+const COLORS=['#f0b429','#3b82f6','#22c55e','#ef4444','#a855f7','#06b6d4','#f97316','#ec4899','#84cc16'];
+const bh=(d,a,b)=>d.c[b]/d.c[a]-1;
+const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
 
-let stratVals={}; // valores guardados por estrategia
+let stratVals={}, cache={key:null,data:null}, priceChart=null, eqChart=null, cmpCharts=[], cmpSeries={};
+let lastTrades=[], lastData=null, optBest=[], optRows=[];
 
 function renderStratParams(){
   const key=$('strategy').value, s=STRATS[key], v=stratVals[key]||{};
@@ -619,12 +677,12 @@ function saveAll(){
   try{
     const o={common:{},strategy:$('strategy').value,stratVals,ownExit:$('ownExit').checked};
     COMMON.forEach(f=>o.common[f]=$(f).value);
-    localStorage.setItem('atalaya-bt2',JSON.stringify(o));
+    localStorage.setItem('atalaya-bt3',JSON.stringify(o));
   }catch(e){}
 }
 function loadAll(){
   let o={};
-  try{ o=JSON.parse(localStorage.getItem('atalaya-bt2')||'{}'); }catch(e){}
+  try{ o=JSON.parse(localStorage.getItem('atalaya-bt3')||'{}'); }catch(e){}
   $('strategy').innerHTML=Object.entries(STRATS).map(([k,s])=>`<option value="${k}">${s.name}</option>`).join('');
   if(o.common) COMMON.forEach(f=>{ if(o.common[f]!=null) $(f).value=o.common[f]; });
   if(o.stratVals) stratVals=o.stratVals;
@@ -632,37 +690,160 @@ function loadAll(){
   if(o.ownExit!=null) $('ownExit').checked=o.ownExit;
   renderStratParams();
 }
-function qText(key,q){ return STRATS[key].params.map(pr=>`${pr.l.replace(/ \(.*\)/,'')}: ${q[pr.k]}`).join(' · '); }
+const qText=(key,q)=>STRATS[key].params.map(pr=>`${pr.l}: ${q[pr.k]}`).join(' · ');
 function exitText(p,key){
   const a=[];
   a.push(p.stopType==='pct'?`Stop ${p.stopVal}%`:p.stopType==='atr'?`Stop ${p.stopVal}×ATR`:'Sin stop');
   if(p.trail>0) a.push(`Trailing ${p.trail}%`);
-  if(p.tp>0) a.push(`TP ${p.tp}%`);
-  if(p.ownExit && STRATS[key] && ['ema','supertrend','macd','bbBreak','bbRevert','rsi'].includes(key)) a.push('Señal propia');
-  if(p.exitLb>0) a.push(`Mín. ${p.exitLb}`);
-  if(p.timeExit>0) a.push(`${p.timeExit} velas`);
+  if(p.tp>0) a.push(`Objetivo ${p.tp}%`);
+  if(p.ownExit && HAS_EXIT.includes(key)) a.push('Señal propia');
+  if(p.exitLb>0) a.push(`Mín. ${p.exitLb} velas`);
+  if(p.timeExit>0) a.push(`Máx. ${p.timeExit} velas`);
   return a.join(' · ');
 }
-
-let cache={key:null,data:null}, priceChart=null, eqChart=null, lastTrades=[], lastData=null, exRows=[];
+function verdictTag(e){
+  if(e.is.n<10||e.oos.n<5) return '<span class="tag wa">Pocas ops.</span>';
+  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>';
+  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>';
+  return '<span class="tag ko">No rentable</span>';
+}
+const isRobust=e=>e.is.n>=10 && e.oos.n>=5 && e.is.total>0 && e.oos.total>0 && e.oos.pf>1;
+function setBusy(b){ ['run','optAll','optOne'].forEach(id=>$(id).disabled=b); }
+function setStatus(t,err){ $('status').textContent=t; $('status').className='status'+(err?' err':''); }
+function setBar(f){ $('bar').style.width=(100*f)+'%'; }
 
 async function getData(p){
   const key=`${p.symbol}|${p.interval}|${p.count}`;
   if(cache.key===key) return cache.data;
-  const st=$('status');
-  st.textContent='Descargando velas de Binance…';
-  const d=await fetchKlines(p.symbol,p.interval,p.count,k=>st.textContent=`Descargando… ${k} velas`);
+  setStatus('Descargando velas de Binance…');
+  const d=await fetchKlines(p.symbol,p.interval,p.count,k=>setStatus(`Descargando… ${k} velas`));
   if(d.c.length<300) throw new Error('Muy pocas velas. Revisa el par (ej. BTCUSDT) o la temporalidad.');
   cache={key,data:d}; return d;
 }
-const bh=(d,a,b)=>d.c[b]/d.c[a]-1;
-const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
+
+// Pasa al formulario los ajustes de un resultado y muestra el detalle
+function applyToForm(e){
+  $('strategy').value=e.key; stratVals[e.key]={...e.q}; renderStratParams();
+  for(const f of ['stopType','stopVal','trail','tp','exitLb','timeExit']) $(f).value=e.p[f];
+  $('ownExit').checked=e.p.ownExit;
+  saveAll();
+}
+function loadCombo(e){ applyToForm(e); run().then(()=>$('results').scrollIntoView({behavior:'smooth'})); }
+
+// ================= Optimizar =================
+async function optimize(keys){
+  const p=readParams(); readStratParams(); saveAll();
+  setBusy(true); setBar(0);
+  try{
+    const d=await getData(p);
+    optBest=[]; optRows=[];
+    for(const [i,key] of keys.entries()){
+      setStatus(`Optimizando ${i+1}/${keys.length}: ${STRATS[key].name}…`); await sleep(0);
+      const {best,rows}=optimizeStrategy(d,p,key);
+      best.color=COLORS[Object.keys(STRATS).indexOf(key)%COLORS.length];
+      optBest.push(best); optRows.push(...rows);
+      stratVals[key]={...best.q};
+      setBar((i+1)/keys.length);
+    }
+    optRows.sort(byBest);
+    saveAll();
+    if(keys.length===1){
+      setStatus(`${STRATS[keys[0]].name} optimizada con ${optRows.length} combinaciones. Ajustes cargados abajo.`);
+      $('manual').open=true;
+      loadCombo(optBest[0]);
+    }else{
+      $('cmpPanel').classList.remove('hidden');
+      renderCompare(d,p);
+      setStatus(`Optimización terminada · ${p.symbol} ${p.interval} · ${d.c.length} velas · ${optRows.length} combinaciones probadas`);
+      $('cmpPanel').scrollIntoView({behavior:'smooth'});
+    }
+  }catch(e){ setStatus(e.message,true); console.error(e); }
+  finally{ setBusy(false); }
+}
+
+function renderCompare(d,p){
+  cmpCharts.forEach(c=>c.remove()); cmpCharts=[]; cmpSeries={};
+  const n=d.c.length, si=splitIdx(d,p), start=Math.min(...optBest.map(e=>e.r.start));
+  const bhIS=bh(d,start,si-1), bhOOS=bh(d,si,n-1), bhAll=bh(d,start,n-1);
+  const rows=[...optBest].sort(byBest);
+
+  // Resumen
+  const robust=rows.filter(isRobust), beatBH=robust.filter(e=>e.oos.total>bhOOS);
+  const validAll=optRows.filter(e=>e.is.n>=10&&e.oos.n>=5), isWin=validAll.filter(e=>e.is.total>0), bothAll=isWin.filter(isRobust);
+  $('summary').innerHTML=
+    `Optimizado con datos del ${fmtDate(d.t[0])} al ${fmtDate(d.t[si-1])} y comprobado del ${fmtDate(d.t[si])} al ${fmtDate(d.t[n-1])}.<br>`+
+    (robust.length
+      ? `✅ <b>${robust.length} de ${rows.length}</b> estrategias optimizadas siguen ganando fuera de muestra: ${robust.map(e=>STRATS[e.key].name).join(', ')}.`
+      : `❌ <b>Ninguna</b> de las ${rows.length} estrategias optimizadas sigue ganando fuera de muestra en ${p.symbol} ${p.interval}. Prueba otra temporalidad o par.`)+
+    (robust.length ? `<br>${beatBH.length ? `📈 ${beatBH.length} de ellas superan a comprar y mantener fuera de muestra (${pct(bhOOS,1)}).` : `ℹ️ Ninguna supera a comprar y mantener fuera de muestra (${pct(bhOOS,1)}), aunque están mucho menos tiempo expuestas.`}` : '')+
+    `<br><span class="note">De ${optRows.length} combinaciones probadas, ${isWin.length} ganaban en muestra y solo ${bothAll.length} siguieron ganando fuera. Por eso no basta con mirar el mejor resultado.</span>`;
+
+  // Tabla de mejores
+  $('cmpTable').innerHTML=`<tr><th class="l">Estrategia</th><th class="l">Parámetros óptimos</th><th class="l">Salidas óptimas</th><th>Ops.</th><th>En muestra</th><th>Fuera de muestra</th><th>PF fuera</th><th>% gan.</th><th>Drawdown</th><th>Exposición</th><th class="l">Resultado</th><th></th></tr>`+
+    rows.map(e=>`<tr><td class="l"><span class="dot" style="background:${e.color}"></span> ${STRATS[e.key].name}</td><td class="l">${qText(e.key,e.q)}</td><td class="l">${exitText(e.p,e.key)}</td>
+      <td>${e.all.n}</td><td class="${cls(e.is.total)}">${pct(e.is.total,1)}</td><td class="${cls(e.oos.total)}"><b>${pct(e.oos.total,1)}</b></td><td>${pf(e.oos.pf)}</td>
+      <td>${pct(e.all.win,0)}</td><td class="neg">${pct(e.all.maxDD,1)}</td><td>${pct(e.r.exposure,0)}</td>
+      <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-k="${e.key}">Ver</button></td></tr>`).join('')+
+    `<tr><td class="l"><span class="dot" style="background:#8a96ad"></span> Comprar y mantener</td><td class="l">—</td><td class="l">—</td><td>1</td><td class="${cls(bhIS)}">${pct(bhIS,1)}</td><td class="${cls(bhOOS)}"><b>${pct(bhOOS,1)}</b></td><td>—</td><td>—</td><td>—</td><td>100 %</td><td></td><td></td></tr>`;
+  $('cmpTable').querySelectorAll('button[data-k]').forEach(b=>b.addEventListener('click',()=>loadCombo(optBest.find(e=>e.key===b.dataset.k))));
+
+  // Todas las combinaciones
+  $('allSummary').textContent=`Ver las ${optRows.length} combinaciones probadas`;
+  renderAll();
+
+  if(typeof LightweightCharts==='undefined') return;
+  const fmt={type:'custom',formatter:v=>((v-1)*100).toFixed(1)+'%'};
+  const eqData=e=>d.t.map((t,i)=>i>=start?{time:ts(t),value:e.r.equity[i]??1}:null).filter(Boolean);
+  const bhData=d.t.map((t,i)=>i>=start?{time:ts(t),value:d.c[i]/d.c[start]}:null).filter(Boolean);
+
+  const ce=$('cmpChart'), ch=LightweightCharts.createChart(ce,chartOpts(ce)); cmpCharts.push(ch);
+  const bhs=ch.addLineSeries({color:'#8a96ad',lineWidth:1,lineStyle:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
+  bhs.setData(bhData);
+  bhs.setMarkers([{time:ts(d.t[si]),position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:'Fuera de muestra'}]);
+  cmpSeries.bh=bhs;
+  for(const e of optBest){
+    const s=ch.addLineSeries({color:e.color,lineWidth:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
+    s.setData(eqData(e)); cmpSeries[e.key]=s;
+  }
+  ch.timeScale().fitContent();
+  $('cmpLegend').innerHTML=optBest.map(e=>`<span data-k="${e.key}"><i style="background:${e.color}"></i>${STRATS[e.key].name}</span>`).join('')+
+    `<span data-k="bh"><i style="background:#8a96ad"></i>Comprar y mantener</span>`;
+  $('cmpLegend').querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{
+    const off=sp.classList.toggle('off'); cmpSeries[sp.dataset.k].applyOptions({visible:!off});
+  }));
+
+  $('cmpGrid').innerHTML=rows.map(e=>`<div class="mini"><h4><span class="dot" style="background:${e.color}"></span>${STRATS[e.key].name}</h4>
+    <div class="sub">Fuera de muestra <b class="${cls(e.oos.total)}">${pct(e.oos.total,1)}</b> · Total <b class="${cls(e.all.total)}">${pct(e.all.total,1)}</b> · DD <span class="neg">${pct(e.all.maxDD,1)}</span> ${verdictTag(e)}</div>
+    <div class="c" id="mini_${e.key}"></div></div>`).join('');
+  for(const e of rows){
+    const el=$('mini_'+e.key);
+    const mc=LightweightCharts.createChart(el,{...chartOpts(el),timeScale:{visible:false},rightPriceScale:{visible:false},handleScroll:false,handleScale:false});
+    cmpCharts.push(mc);
+    const b=mc.addLineSeries({color:'#8a96ad',lineWidth:1,lineStyle:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
+    b.setData(bhData);
+    const s=mc.addLineSeries({color:e.color,lineWidth:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
+    s.setData(eqData(e));
+    s.setMarkers([{time:ts(d.t[si]),position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:''}]);
+    mc.timeScale().fitContent();
+  }
+}
+
+function renderAll(){
+  const rows=optRows.filter(e=>!$('onlyRobust').checked||isRobust(e)).slice(0,150);
+  $('allTable').innerHTML=`<tr><th>#</th><th class="l">Estrategia</th><th class="l">Parámetros</th><th class="l">Salidas</th><th>Ops. muestra</th><th>En muestra</th><th>PF muestra</th><th>Ops. fuera</th><th>Fuera de muestra</th><th>PF fuera</th><th class="l">Resultado</th><th></th></tr>`+
+    rows.map((e,i)=>`<tr><td>${i+1}</td><td class="l">${STRATS[e.key].name}</td><td class="l">${qText(e.key,e.q)}</td><td class="l">${exitText(e.p,e.key)}</td>
+      <td>${e.is.n}</td><td class="${cls(e.is.total)}">${pct(e.is.total,1)}</td><td>${pf(e.is.pf)}</td>
+      <td>${e.oos.n}</td><td class="${cls(e.oos.total)}">${pct(e.oos.total,1)}</td><td>${pf(e.oos.pf)}</td><td class="l">${verdictTag(e)}</td>
+      <td><button class="mini sec" data-i="${optRows.indexOf(e)}">Ver</button></td></tr>`).join('');
+  $('allTable').querySelectorAll('button[data-i]').forEach(b=>b.addEventListener('click',()=>loadCombo(optRows[+b.dataset.i])));
+}
 
 // ================= Vista detallada =================
 function render(d,p,key,q,sig,r){
-  const s=stats(r.trades,r.equity), n=d.c.length, sp=splitStats(d,p,r), si=sp.si;
+  const s=stats(r.trades,r.equity), n=d.c.length, sp=splitStats(d,p,r,sig), si=sp.si;
   const bhAll=bh(d,r.start,n-1);
   $('resTitle').textContent=`Resultados · ${STRATS[key].name} · ${p.symbol} ${p.interval}`;
+  $('resConfig').textContent=`${qText(key,q)} — Salidas: ${exitText(p,key)}`;
   $('cards').innerHTML=
     card('Rentabilidad neta',pct(s.total),cls(s.total))+
     card('Comprar y mantener',pct(bhAll),cls(bhAll))+
@@ -687,7 +868,7 @@ function render(d,p,key,q,sig,r){
     row('% ganadoras',sIS.win,sOOS.win,x=>pct(x,1))+
     row('Profit factor',sIS.pf,sOOS.pf,pf)+
     row('Esperanza / op.',sIS.exp,sOOS.exp,x=>pct(x,3))+
-    row('Drawdown máx. (cerradas)',sIS.maxDD,sOOS.maxDD,x=>pct(x));
+    row('Drawdown máx.',sIS.maxDD,sOOS.maxDD,x=>pct(x));
 
   const msgs=[];
   if(s.n<30) msgs.push(`⚠️ Solo ${s.n} operaciones: muestra demasiado pequeña para sacar conclusiones.`);
@@ -705,7 +886,6 @@ function render(d,p,key,q,sig,r){
     r.trades.map((t,i)=>`<tr><td>${i+1}${t.entryIdx>=si?' <span class="note">OOS</span>':''}</td><td>${fmtDate(d.t[t.entryIdx])}</td><td>${fmtPx(t.entry)}</td><td>${fmtDate(d.t[t.exitIdx])}</td><td>${fmtPx(t.exit)}</td><td>${t.bars}</td><td class="l">${t.reason}</td><td class="${cls(t.ret)}">${pct(t.ret)}</td></tr>`).reverse().join('');
   $('csv').disabled=!r.trades.length;
 
-  // Sensibilidad al primer parámetro
   const s0=STRATS[key].params[0];
   $('sensTitle').textContent=`Sensibilidad a "${s0.l}"`;
   const vals=[...new Set([...s0.grid,q[s0.k]])].sort((a,b)=>a-b);
@@ -761,185 +941,21 @@ function drawCharts(d,r,sig,si){
 window.addEventListener('resize',()=>{
   if(priceChart) priceChart.applyOptions({width:$('priceChart').clientWidth});
   if(eqChart) eqChart.applyOptions({width:$('equityChart').clientWidth});
-  cmpCharts.forEach(c=>{ try{ const el=c.chartElement().parentElement; c.applyOptions({width:el.clientWidth}); }catch(e){} });
+  cmpCharts.forEach(c=>{ try{ c.applyOptions({width:c.chartElement().parentElement.clientWidth}); }catch(e){} });
 });
-
-function setBusy(b){ ['run','explore','compare'].forEach(id=>$(id).disabled=b); }
 
 async function run(){
   const p=readParams(), {key,q}=readStratParams(); saveAll();
-  const st=$('status'); st.className='status'; setBusy(true);
+  setBusy(true);
   try{
     const d=await getData(p);
-    st.textContent='Calculando…'; await sleep(10);
+    setStatus('Calculando…'); await sleep(10);
     const sig=STRATS[key].build(d,q), r=backtest(d,p,sig);
     $('results').classList.remove('hidden');
     render(d,p,key,q,sig,r);
-    st.textContent=`${p.symbol} · ${p.interval} · ${d.c.length} velas (${fmtDate(d.t[0])} → ${fmtDate(d.t[d.t.length-1])})`;
-  }catch(e){ st.className='status err'; st.textContent=e.message; console.error(e); }
+    setStatus(`${p.symbol} · ${p.interval} · ${d.c.length} velas (${fmtDate(d.t[0])} → ${fmtDate(d.t[d.t.length-1])})`);
+  }catch(e){ setStatus(e.message,true); console.error(e); }
   finally{ setBusy(false); }
-}
-
-// ================= Explorador (UI) =================
-function verdictTag(e){
-  if(e.is.n<10||e.oos.n<5) return '<span class="tag wa">Pocas ops.</span>';
-  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>';
-  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>';
-  return '<span class="tag ko">No rentable</span>';
-}
-function renderExplorer(){
-  const only=$('exOnlyRobust').checked;
-  const rows=exRows.filter(e=>!only||(e.is.total>0&&e.oos.total>0&&e.oos.pf>1&&e.oos.n>=5));
-  $('exTable').innerHTML=`<tr><th>#</th><th class="l">Estrategia</th><th class="l">Parámetros</th><th class="l">Salidas</th>
-    <th>Ops. muestra</th><th>Rent. muestra</th><th>PF muestra</th><th>DD muestra</th>
-    <th>Ops. fuera</th><th>Rent. fuera</th><th>PF fuera</th><th class="l">Resultado</th><th></th></tr>`+
-    rows.slice(0,60).map((e,i)=>`<tr><td>${i+1}</td><td class="l">${STRATS[e.key].name}</td><td class="l">${qText(e.key,e.q)}</td><td class="l">${exitText(e.p,e.key)}</td>
-      <td>${e.is.n}</td><td class="${cls(e.is.total)}">${pct(e.is.total,1)}</td><td>${pf(e.is.pf)}</td><td class="neg">${pct(e.is.maxDD,1)}</td>
-      <td>${e.oos.n}</td><td class="${cls(e.oos.total)}">${pct(e.oos.total,1)}</td><td>${pf(e.oos.pf)}</td><td class="l">${verdictTag(e)}</td>
-      <td><button class="mini sec" data-i="${exRows.indexOf(e)}">Ver</button></td></tr>`).join('');
-  $('exTable').querySelectorAll('button[data-i]').forEach(b=>b.addEventListener('click',()=>loadCombo(exRows[+b.dataset.i])));
-}
-function loadCombo(e){
-  $('strategy').value=e.key; stratVals[e.key]={...e.q}; renderStratParams();
-  for(const f of ['stopType','stopVal','trail','tp','exitLb','timeExit']) $(f).value=e.p[f];
-  $('ownExit').checked=e.p.ownExit;
-  run().then(()=>$('results').scrollIntoView({behavior:'smooth'}));
-}
-
-async function explore(){
-  const p=readParams(); readStratParams(); saveAll();
-  const st=$('status'); st.className='status'; setBusy(true);
-  $('explorer').classList.remove('hidden'); $('exSummary').classList.add('hidden');
-  $('exTable').innerHTML=''; $('exBar').style.width='0';
-  try{
-    const d=await getData(p);
-    const jobs=[]; for(const key of Object.keys(STRATS)) for(const q of combos(key)) jobs.push({key,q});
-    const tune=$('exTune').checked, total=jobs.length+(tune?5*EXIT_VARIANTS.length:0);
-    exRows=[]; let done=0;
-    for(const j of jobs){
-      exRows.push(evalCombo(d,p,j.key,j.q));
-      done++;
-      if(done%5===0){ $('exBar').style.width=(100*done/total)+'%'; st.textContent=`Probando ${done}/${total}…`; await sleep(0); }
-    }
-    if(tune){
-      const top=[...exRows].sort((a,b)=>b.score-a.score).filter(e=>isFinite(e.score)).slice(0,5);
-      for(const e of top){
-        for(const v of EXIT_VARIANTS){
-          const pp={...p,...v};
-          exRows.push(evalCombo(d,pp,e.key,e.q,e.sig));
-          done++;
-        }
-        $('exBar').style.width=(100*done/total)+'%'; st.textContent=`Afinando salidas ${done}/${total}…`; await sleep(0);
-      }
-    }
-    exRows.forEach(e=>{ delete e.sig; delete e.r; });
-    exRows.sort((a,b)=>b.score-a.score);
-    $('exBar').style.width='100%';
-
-    const valid=exRows.filter(e=>e.is.n>=10&&e.oos.n>=5);
-    const isWin=valid.filter(e=>e.is.total>0);
-    const both=isWin.filter(e=>e.oos.total>0&&e.oos.pf>1);
-    const top10=exRows.slice(0,10), top10ok=top10.filter(e=>e.oos.total>0&&e.oos.pf>1).length;
-    const byStrat={}; both.forEach(e=>byStrat[e.key]=(byStrat[e.key]||0)+1);
-    const bestFam=Object.entries(byStrat).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k,n])=>`${STRATS[k].name} (${n})`).join(', ');
-    const si=splitIdx(d,p);
-    $('exSummary').innerHTML=
-      `Probadas <b>${exRows.length}</b> combinaciones en ${p.symbol} ${p.interval}. Muestra: ${fmtDate(d.t[0])} → ${fmtDate(d.t[si-1])}; fuera de muestra: ${fmtDate(d.t[si])} → ${fmtDate(d.t[d.c.length-1])}.<br>`+
-      `${isWin.length} de ${valid.length} con suficientes operaciones ganaban en muestra; solo <b>${both.length}</b> siguieron ganando fuera de muestra.<br>`+
-      `De las 10 mejores en muestra, <b>${top10ok}</b> aguantaron fuera. `+
-      (bestFam?`Familias más robustas: ${bestFam}.`:'Ninguna familia aguanta de forma consistente en este mercado y temporalidad.')+
-      `<br><span class="note">Comprar y mantener fuera de muestra: ${pct(bh(d,si,d.c.length-1))}. Pulsa "Ver" en cualquier fila para el análisis completo.</span>`;
-    $('exSummary').classList.remove('hidden');
-    renderExplorer();
-    st.textContent=`Exploración terminada · ${p.symbol} ${p.interval} · ${d.c.length} velas`;
-    $('explorer').scrollIntoView({behavior:'smooth'});
-  }catch(e){ st.className='status err'; st.textContent=e.message; console.error(e); }
-  finally{ setBusy(false); }
-}
-
-// ================= Comparativa en paralelo =================
-const COLORS=['#f0b429','#3b82f6','#22c55e','#ef4444','#a855f7','#06b6d4','#f97316','#ec4899','#84cc16'];
-let cmpCharts=[], cmpSeries={}, cmpRes=[];
-const better=(e,b)=>!b || e.score>b.score || (e.score===b.score && e.is.total>b.is.total);
-
-async function compareAll(){
-  const p=readParams(); readStratParams(); saveAll();
-  const st=$('status'); st.className='status'; setBusy(true);
-  try{
-    const d=await getData(p), mode=$('cmpMode').value, keys=Object.keys(STRATS);
-    cmpRes=[];
-    for(const [idx,key] of keys.entries()){
-      let best=null;
-      if(mode==='best'){ for(const q of combos(key)){ const e=evalCombo(d,p,key,q); if(better(e,best)) best=e; } }
-      else{
-        const q=stratVals[key]||Object.fromEntries(STRATS[key].params.map(x=>[x.k,x.def]));
-        best=evalCombo(d,p,key,q);
-      }
-      best.color=COLORS[idx%COLORS.length]; delete best.sig;
-      cmpRes.push(best);
-      st.textContent=`Calculando ${idx+1}/${keys.length}: ${STRATS[key].name}…`; await sleep(0);
-    }
-    $('cmpPanel').classList.remove('hidden');
-    renderCompare(d,p);
-    st.textContent=`Comparativa · ${p.symbol} ${p.interval} · ${d.c.length} velas`;
-    $('cmpPanel').scrollIntoView({behavior:'smooth'});
-  }catch(e){ st.className='status err'; st.textContent=e.message; console.error(e); }
-  finally{ setBusy(false); }
-}
-
-function renderCompare(d,p){
-  cmpCharts.forEach(c=>c.remove()); cmpCharts=[]; cmpSeries={};
-  const si=splitIdx(d,p), n=d.c.length;
-  const start=Math.min(...cmpRes.map(e=>e.r.start));
-  const bhSi=bh(d,si,n-1), bhAll=bh(d,start,n-1);
-  const rows=[...cmpRes].sort((a,b)=>(b.score-a.score)||(b.is.total-a.is.total));
-
-  // Tabla comparativa
-  $('cmpTable').innerHTML=`<tr><th class="l">Estrategia</th><th class="l">Parámetros</th><th>Ops.</th><th>Rent. total</th><th>En muestra</th><th>Fuera de muestra</th><th>PF</th><th>% gan.</th><th>Drawdown</th><th>Exposición</th><th class="l">Resultado</th><th></th></tr>`+
-    rows.map(e=>`<tr><td class="l"><span class="dot" style="background:${e.color}"></span> ${STRATS[e.key].name}</td><td class="l">${qText(e.key,e.q)}</td>
-      <td>${e.all.n}</td><td class="${cls(e.all.total)}">${pct(e.all.total,1)}</td><td class="${cls(e.is.total)}">${pct(e.is.total,1)}</td><td class="${cls(e.oos.total)}">${pct(e.oos.total,1)}</td>
-      <td>${pf(e.all.pf)}</td><td>${pct(e.all.win,0)}</td><td class="neg">${pct(e.all.maxDD,1)}</td><td>${pct(e.r.exposure,0)}</td>
-      <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-k="${e.key}">Ver</button></td></tr>`).join('')+
-    `<tr><td class="l"><span class="dot" style="background:#8a96ad"></span> Comprar y mantener</td><td class="l">—</td><td>1</td><td class="${cls(bhAll)}">${pct(bhAll,1)}</td><td class="${cls(bh(d,start,si-1))}">${pct(bh(d,start,si-1),1)}</td><td class="${cls(bhSi)}">${pct(bhSi,1)}</td><td>—</td><td>—</td><td>—</td><td>100 %</td><td></td><td></td></tr>`;
-  $('cmpTable').querySelectorAll('button[data-k]').forEach(b=>b.addEventListener('click',()=>loadCombo(cmpRes.find(e=>e.key===b.dataset.k))));
-
-  if(typeof LightweightCharts==='undefined') return;
-  const fmt={type:'custom',formatter:v=>((v-1)*100).toFixed(1)+'%'};
-  const eqData=e=>d.t.map((t,i)=>i>=start?{time:ts(t),value:e.r.equity[i]??1}:null).filter(Boolean);
-  const bhData=d.t.map((t,i)=>i>=start?{time:ts(t),value:d.c[i]/d.c[start]}:null).filter(Boolean);
-
-  // Gráfico superpuesto
-  const ce=$('cmpChart'), ch=LightweightCharts.createChart(ce,chartOpts(ce)); cmpCharts.push(ch);
-  const bhs=ch.addLineSeries({color:'#8a96ad',lineWidth:1,lineStyle:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
-  bhs.setData(bhData);
-  bhs.setMarkers([{time:ts(d.t[si]),position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:'Fuera de muestra'}]);
-  cmpSeries.bh=bhs;
-  for(const e of cmpRes){
-    const s=ch.addLineSeries({color:e.color,lineWidth:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
-    s.setData(eqData(e)); cmpSeries[e.key]=s;
-  }
-  ch.timeScale().fitContent();
-  $('cmpLegend').innerHTML=cmpRes.map(e=>`<span data-k="${e.key}"><i style="background:${e.color}"></i>${STRATS[e.key].name}</span>`).join('')+
-    `<span data-k="bh"><i style="background:#8a96ad"></i>Comprar y mantener</span>`;
-  $('cmpLegend').querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{
-    const off=sp.classList.toggle('off'); cmpSeries[sp.dataset.k].applyOptions({visible:!off});
-  }));
-
-  // Mini gráficos, uno por estrategia
-  $('cmpGrid').innerHTML=rows.map(e=>`<div class="mini"><h4><span class="dot" style="background:${e.color}"></span>${STRATS[e.key].name}</h4>
-    <div class="sub">Total <b class="${cls(e.all.total)}">${pct(e.all.total,1)}</b> · Fuera <b class="${cls(e.oos.total)}">${pct(e.oos.total,1)}</b> · DD <span class="neg">${pct(e.all.maxDD,1)}</span> · ${e.all.n} ops. ${verdictTag(e)}</div>
-    <div class="c" id="mini_${e.key}"></div></div>`).join('');
-  for(const e of rows){
-    const el=$('mini_'+e.key);
-    const mc=LightweightCharts.createChart(el,{...chartOpts(el),timeScale:{visible:false},rightPriceScale:{visible:false},handleScroll:false,handleScale:false});
-    cmpCharts.push(mc);
-    const b=mc.addLineSeries({color:'#8a96ad',lineWidth:1,lineStyle:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
-    b.setData(bhData);
-    const s=mc.addLineSeries({color:e.color,lineWidth:2,priceFormat:fmt,lastValueVisible:false,priceLineVisible:false});
-    s.setData(eqData(e));
-    s.setMarkers([{time:ts(d.t[si]),position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:''}]);
-    mc.timeScale().fitContent();
-  }
 }
 
 function exportCSV(){
@@ -953,13 +969,12 @@ function exportCSV(){
 
 loadAll();
 $('strategy').addEventListener('change',()=>{ renderStratParams(); saveAll(); });
+$('optAll').addEventListener('click',()=>optimize(Object.keys(STRATS)));
+$('optOne').addEventListener('click',()=>optimize([$('strategy').value]));
 $('run').addEventListener('click',run);
-$('explore').addEventListener('click',explore);
-$('compare').addEventListener('click',compareAll);
-$('cmpMode').addEventListener('change',()=>{ if(!$('cmpPanel').classList.contains('hidden')) compareAll(); });
 $('csv').addEventListener('click',exportCSV);
-$('exOnlyRobust').addEventListener('change',renderExplorer);
-document.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')run();}));
+$('onlyRobust').addEventListener('change',renderAll);
+document.querySelectorAll('#manual input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')run();}));
 </script>
 </body>
 </html>
