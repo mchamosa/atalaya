@@ -96,8 +96,8 @@ details.all>summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:6
 <main>
 
 <section class="panel">
-  <h2>Optimizador de estrategias</h2>
-  <p class="lead">Elige el par y la temporalidad. La página busca sola los <b>mejores parámetros y salidas</b> de 9 estrategias usando el tramo inicial de los datos, y después comprueba si siguen funcionando en el tramo final, que no se ha usado para elegirlos.</p>
+  <h2>Laboratorio de estrategias</h2>
+  <p class="lead">Elige el par y la temporalidad. <b>🧬 Descubrir</b> inventa estrategias combinando piezas (rupturas, medias, RSI, volatilidad, volumen, velas, rachas, hora y día) y las hace evolucionar. <b>🔧 Mejorar</b> coge una estrategia y le va probando filtros y salidas, paso a paso, quedándose solo con lo que la mejora. Todo se busca con el tramo inicial de los datos y se comprueba en el tramo final, que nunca se usa para buscar. Hay <b id="nStrats">24</b> estrategias clásicas de partida.</p>
 
   <div class="grid">
     <label>Par (Binance)
@@ -130,13 +130,42 @@ details.all>summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:6
         <option value="pf">Máximo profit factor</option>
       </select>
     </label>
+    <label>Riesgo por operación % (0 = todo el capital)
+      <input id="riskPct" type="number" value="0" min="0" max="20" step="0.5">
+    </label>
     <label>% de datos para optimizar
       <input id="split" type="number" value="70" min="30" max="95" step="5">
     </label>
+    <label>Estrategia (para mejorar u optimizar una sola)
+      <select id="strategy"></select>
+    </label>
+  </div>
+
+  <div class="group" style="margin-top:12px">
+    <h3>Descubridor</h3>
+    <div class="grid">
+      <label>Intensidad de la búsqueda
+        <select id="dIntens">
+          <option value="rapida">Rápida (~500 reglas)</option>
+          <option value="normal" selected>Normal (~1.200 reglas)</option>
+          <option value="profunda">Profunda (~3.000 reglas)</option>
+        </select>
+      </label>
+      <label>Estrategias distintas a mostrar
+        <input id="dCount" type="number" value="8" min="3" max="20">
+      </label>
+      <label>Semilla (cámbiala para otra búsqueda)
+        <input id="dSeed" type="number" value="1" min="1">
+      </label>
+      <label class="chk"><input id="dNoise" type="checkbox" checked> Prueba de azar: repetir la búsqueda en datos barajados</label>
+      <label class="chk"><input id="iSafe" type="checkbox" checked> Mejora prudente: aceptar un cambio solo si mejora en las dos mitades del tramo de búsqueda</label>
+    </div>
   </div>
 
   <div class="actions">
-    <button id="optAll" class="big">🤖 Optimizar todas las estrategias</button>
+    <button id="discover" class="big">🧬 Descubrir estrategias nuevas</button>
+    <button id="improveBtn" class="sec">🔧 Mejorar paso a paso la seleccionada</button>
+    <button id="optAll" class="sec">🤖 Optimizar las 24 clásicas</button>
     <button id="optOne" class="sec">🤖 Optimizar solo la seleccionada</button>
     <button id="run" class="sec">▶ Ejecutar con mis ajustes</button>
     <button id="csv" class="sec" disabled>Exportar operaciones (CSV)</button>
@@ -150,9 +179,6 @@ details.all>summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:6
     <div class="group" style="border-top:0;margin-top:10px;padding-top:0">
       <h3>Estrategia</h3>
       <div class="grid">
-        <label>Estrategia
-          <select id="strategy"></select>
-        </label>
         <div id="stratParams" class="contents"></div>
       </div>
       <p class="note" id="stratDesc"></p>
@@ -207,11 +233,19 @@ details.all>summary{cursor:pointer;color:var(--acc);font-size:13px;font-weight:6
   </details>
 </section>
 
+<section id="impPanel" class="panel hidden">
+  <h2 id="impTitle">Mejora paso a paso</h2>
+  <div id="impSummary" class="verdict" style="margin-top:0"></div>
+  <div class="scroll" style="margin-top:12px"><table id="impTable"></table></div>
+  <p class="note" id="impRule"></p>
+  <p class="note">⚠️ = ese cambio mejoró en muestra pero empeoró fuera de muestra. "Ver" carga esa versión en el análisis detallado.</p>
+</section>
+
 <section id="cmpPanel" class="panel hidden">
-  <h2>Estrategias optimizadas</h2>
+  <h2 id="cmpTitle">Estrategias optimizadas</h2>
   <div id="summary" class="verdict" style="margin-top:0"></div>
   <div class="scroll" style="margin-top:12px"><table id="cmpTable"></table></div>
-  <p class="note">Pulsa una estrategia en la leyenda para ocultarla o mostrarla. La flecha marca el inicio del tramo fuera de muestra.</p>
+  <p class="note">De inicio solo se ven las que aguantan. Pulsa una estrategia en la leyenda para mostrarla u ocultarla. La flecha marca el inicio del tramo fuera de muestra.</p>
   <div class="legend" id="cmpLegend"></div>
   <div id="cmpChart" class="chart"></div>
   <div class="mini-grid" id="cmpGrid"></div>
@@ -454,14 +488,258 @@ const STRATS={
   }
 };
 
+
+// ================= Indicadores adicionales =================
+// Media simple que tolera NaN iniciales
+function smaN(a,n){
+  const out=arr(a.length,NaN); let f=0; while(f<a.length && !isFinite(a[f])) f++;
+  let s=0; for(let i=f;i<a.length;i++){ s+=a[i]; if(i-f>=n) s-=a[i-n]; if(i-f>=n-1) out[i]=s/n; }
+  return out;
+}
+// Máx./mín. de las n velas INCLUYENDO la actual
+function hhv(a,n){ const r=n>1?rollMax(a,n-1):a.map(()=>-Infinity); return a.map((v,i)=>n>1&&isNaN(r[i])?NaN:Math.max(v,r[i])); }
+function llv(a,n){ const r=n>1?rollMin(a,n-1):a.map(()=>Infinity);  return a.map((v,i)=>n>1&&isNaN(r[i])?NaN:Math.min(v,r[i])); }
+function dmi(d,n){
+  const len=d.c.length, pdi=arr(len,NaN), mdi=arr(len,NaN), adx=arr(len,NaN);
+  let sTR=0,sP=0,sM=0, dxs=[], adxv=NaN;
+  for(let i=1;i<len;i++){
+    const up=d.h[i]-d.h[i-1], dn=d.l[i-1]-d.l[i];
+    const p=(up>dn&&up>0)?up:0, m=(dn>up&&dn>0)?dn:0;
+    const tr=Math.max(d.h[i]-d.l[i],Math.abs(d.h[i]-d.c[i-1]),Math.abs(d.l[i]-d.c[i-1]));
+    if(i<=n){ sTR+=tr; sP+=p; sM+=m; if(i<n) continue; }
+    else { sTR=sTR-sTR/n+tr; sP=sP-sP/n+p; sM=sM-sM/n+m; }
+    pdi[i]=sTR?100*sP/sTR:0; mdi[i]=sTR?100*sM/sTR:0;
+    const dx=(pdi[i]+mdi[i])?100*Math.abs(pdi[i]-mdi[i])/(pdi[i]+mdi[i]):0;
+    if(isNaN(adxv)){ dxs.push(dx); if(dxs.length===n){ adxv=dxs.reduce((a,b)=>a+b,0)/n; adx[i]=adxv; } }
+    else { adxv=(adxv*(n-1)+dx)/n; adx[i]=adxv; }
+  }
+  return {pdi,mdi,adx};
+}
+function psar(d,step,max){
+  const n=d.c.length, sar=arr(n,NaN), up=arr(n,true);
+  let isUp=true, s=d.l[0], ep=d.h[0], af=step;
+  for(let i=1;i<n;i++){
+    s=s+af*(ep-s);
+    if(isUp){
+      s=Math.min(s,d.l[i-1],i>1?d.l[i-2]:d.l[i-1]);
+      if(d.l[i]<s){ isUp=false; s=ep; ep=d.l[i]; af=step; }
+      else if(d.h[i]>ep){ ep=d.h[i]; af=Math.min(af+step,max); }
+    }else{
+      s=Math.max(s,d.h[i-1],i>1?d.h[i-2]:d.h[i-1]);
+      if(d.h[i]>s){ isUp=true; s=ep; ep=d.h[i]; af=step; }
+      else if(d.l[i]<ep){ ep=d.l[i]; af=Math.min(af+step,max); }
+    }
+    sar[i]=s; up[i]=isUp;
+  }
+  return {sar,up};
+}
+function mfi(d,n){
+  const len=d.c.length, out=arr(len,NaN), tp=d.c.map((c,i)=>(d.h[i]+d.l[i]+c)/3);
+  const pos=arr(len,0), neg=arr(len,0);
+  for(let i=1;i<len;i++){ const f=tp[i]*d.v[i]; if(tp[i]>tp[i-1]) pos[i]=f; else if(tp[i]<tp[i-1]) neg[i]=f; }
+  let sp=0, sn=0;
+  for(let i=1;i<len;i++){
+    sp+=pos[i]; sn+=neg[i];
+    if(i>n){ sp-=pos[i-n]; sn-=neg[i-n]; }
+    if(i>=n) out[i]= sn===0 ? 100 : 100-100/(1+sp/sn);
+  }
+  return out;
+}
+
+// ================= Estrategias adicionales =================
+Object.assign(STRATS,{
+  volBreak:{
+    name:'Ruptura de máximos con volumen',
+    desc:'Compra cuando el cierre supera el máximo de N velas y el volumen de esa vela es al menos X veces su media de 20. Filtra rupturas sin participación.',
+    params:[{k:'n',l:'Máximo de N velas',def:20,grid:[10,20,50]},{k:'m',l:'Volumen × media',def:2,step:0.5,grid:[1.5,2,3]}],
+    build(d,q){
+      const mx=rollMax(d.h,q.n), va=rollExtAvg(d.v,20);
+      return {warm:Math.max(q.n,20), entry:d.c.map((c,i)=>c>mx[i] && d.v[i]>q.m*va[i]), exit:null,
+        overlays:[{name:`Máx. ${q.n} velas`,color:'#3b82f6',data:mx}]};
+    }
+  },
+  keltner:{
+    name:'Ruptura del canal de Keltner',
+    desc:'Compra cuando el cierre supera la EMA más K veces el ATR (expansión de volatilidad al alza). Salida propia: cierre por debajo de la EMA.',
+    params:[{k:'n',l:'Periodo',def:20,grid:[20,50]},{k:'k',l:'× ATR',def:2,step:0.5,grid:[1.5,2,2.5]}],
+    build(d,q){
+      const m=ema(d.c,q.n), a=atr(d,q.n), up=m.map((x,i)=>x+q.k*a[i]), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=crossUp(d.c,up,i); exit[i]=d.c[i]<m[i]; }
+      return {warm:q.n+1, entry, exit, overlays:[{name:'Keltner sup.',color:'#3b82f6',data:up},{name:`EMA ${q.n}`,color:'#8a96ad',data:m}]};
+    }
+  },
+  nr7:{
+    name:'Ruptura tras vela estrecha (NR)',
+    desc:'Detecta la vela con el rango más estrecho de las últimas K (NR7 clásico) y compra si la siguiente cierra por encima de su máximo. Compresión seguida de expansión.',
+    params:[{k:'k',l:'Vela más estrecha de K',def:7,grid:[4,7,10]}],
+    build(d,q){
+      const n=d.c.length, r=d.h.map((h,i)=>h-d.l[i]), mn=rollMin(r,q.k-1), entry=arr(n,false);
+      for(let i=1;i<n;i++) entry[i]= r[i-1]<mn[i-1] && d.c[i]>d.h[i-1];
+      return {warm:q.k+1, entry, exit:null, overlays:[]};
+    }
+  },
+  roc:{
+    name:'Momentum (ROC)',
+    desc:'Compra cuando la variación del precio en N velas supera el umbral X %. Salida propia: cuando el momentum vuelve a ser negativo.',
+    params:[{k:'n',l:'Periodo N',def:20,grid:[10,20,50]},{k:'thr',l:'Umbral %',def:5,grid:[0,5,10]}],
+    build(d,q){
+      const n=d.c.length, r=d.c.map((c,i)=>i>=q.n?100*(c/d.c[i-q.n]-1):NaN), th=arr(n,q.thr), entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=crossUp(r,th,i); exit[i]=r[i]<0; }
+      return {warm:q.n+1, entry, exit, overlays:[]};
+    }
+  },
+  aroon:{
+    name:'Aroon',
+    desc:'Compra cuando Aroon Up cruza por encima de Aroon Down y está por encima de 70 (máximos recientes dominan). Salida propia: el cruce contrario.',
+    params:[{k:'n',l:'Periodo',def:25,grid:[14,25,50]}],
+    build(d,q){
+      const n=d.c.length, upA=arr(n,NaN), dnA=arr(n,NaN), entry=arr(n,false), exit=arr(n,false);
+      for(let i=q.n;i<n;i++){
+        let hi=i, lo=i;
+        for(let k=i-q.n;k<=i;k++){ if(d.h[k]>=d.h[hi]) hi=k; if(d.l[k]<=d.l[lo]) lo=k; }
+        upA[i]=100*(q.n-(i-hi))/q.n; dnA[i]=100*(q.n-(i-lo))/q.n;
+      }
+      for(let i=1;i<n;i++){ entry[i]=crossUp(upA,dnA,i) && upA[i]>=70; exit[i]=crossDn(upA,dnA,i); }
+      return {warm:q.n+1, entry, exit, overlays:[]};
+    }
+  },
+  adx:{
+    name:'ADX / DMI',
+    desc:'Compra cuando +DI cruza al alza a −DI y el ADX supera el umbral (tendencia con fuerza). Salida propia: −DI cruza por encima de +DI.',
+    params:[{k:'th',l:'ADX mínimo',def:25,grid:[15,20,25,30]},{k:'n',l:'Periodo',def:14,grid:[14]}],
+    build(d,q){
+      const m=dmi(d,q.n), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=crossUp(m.pdi,m.mdi,i) && m.adx[i]>=q.th; exit[i]=crossDn(m.pdi,m.mdi,i); }
+      return {warm:2*q.n+1, entry, exit, overlays:[]};
+    }
+  },
+  tripleEma:{
+    name:'Alineación de 3 medias',
+    desc:'Compra cuando las tres EMAs quedan alineadas al alza (rápida > media > lenta). Salida propia: la rápida pierde la media.',
+    params:[{k:'set',l:'Juego de medias (1: 9/21/55 · 2: 20/50/100 · 3: 10/30/200)',def:2,grid:[1,2,3]}],
+    valid:q=>[1,2,3].includes(q.set),
+    build(d,q){
+      const S={1:[9,21,55],2:[20,50,100],3:[10,30,200]}[q.set]||[20,50,100];
+      const a=ema(d.c,S[0]), b=ema(d.c,S[1]), c=ema(d.c,S[2]), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      const al=i=>a[i]>b[i]&&b[i]>c[i];
+      for(let i=1;i<n;i++){ entry[i]=al(i)&&!al(i-1); exit[i]=a[i]<b[i]; }
+      return {warm:S[2]+1, entry, exit, overlays:[{name:`EMA ${S[0]}`,color:'#f0b429',data:a},{name:`EMA ${S[1]}`,color:'#a855f7',data:b},{name:`EMA ${S[2]}`,color:'#06b6d4',data:c}]};
+    }
+  },
+  ichimoku:{
+    name:'Ichimoku: ruptura de la nube',
+    desc:'Compra cuando el precio cierra por encima de la nube y Tenkan está por encima de Kijun. Salida propia: cierre por debajo de Kijun. La nube se calcula con datos pasados (desplazada hacia delante), sin mirar al futuro.',
+    params:[{k:'set',l:'Ajuste (1: 9/26/52 clásico · 2: 20/60/120 cripto)',def:1,grid:[1,2]}],
+    valid:q=>[1,2].includes(q.set),
+    build(d,q){
+      const [t,k,s]={1:[9,26,52],2:[20,60,120]}[q.set]||[9,26,52], n=d.c.length;
+      const mid=(m)=>{ const H=hhv(d.h,m), L=llv(d.l,m); return H.map((h,i)=>(h+L[i])/2); };
+      const ten=mid(t), kij=mid(k), sb=mid(s), sa=ten.map((x,i)=>(x+kij[i])/2);
+      const cA=arr(n,NaN), cB=arr(n,NaN), top=arr(n,NaN), entry=arr(n,false), exit=arr(n,false);
+      for(let i=k;i<n;i++){ cA[i]=sa[i-k]; cB[i]=sb[i-k]; top[i]=Math.max(cA[i],cB[i]); }
+      for(let i=1;i<n;i++){ entry[i]=crossUp(d.c,top,i) && ten[i]>kij[i]; exit[i]=d.c[i]<kij[i]; }
+      return {warm:s+k+1, entry, exit, overlays:[{name:'Nube A',color:'#22c55e',data:cA},{name:'Nube B',color:'#ef4444',data:cB},{name:'Kijun',color:'#a855f7',data:kij}]};
+    }
+  },
+  sar:{
+    name:'Parabolic SAR',
+    desc:'Compra cuando el SAR parabólico gira por debajo del precio. Salida propia: cuando vuelve a girar por encima.',
+    params:[{k:'step',l:'Aceleración',def:0.02,step:0.01,grid:[0.01,0.02,0.03]},{k:'max',l:'Máximo',def:0.2,step:0.05,grid:[0.1,0.2]}],
+    build(d,q){
+      const s=psar(d,q.step,q.max), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=2;i<n;i++){ entry[i]=s.up[i]&&!s.up[i-1]; exit[i]=!s.up[i]&&s.up[i-1]; }
+      return {warm:5, entry, exit, overlays:[{name:'SAR',color:'#06b6d4',data:s.sar}]};
+    }
+  },
+  heikin:{
+    name:'Heikin Ashi',
+    desc:'Compra tras N velas Heikin Ashi verdes seguidas después de una roja. Salida propia: la primera vela Heikin Ashi roja.',
+    params:[{k:'n',l:'Velas verdes seguidas',def:2,grid:[1,2,3]}],
+    build(d,q){
+      const len=d.c.length, hc=d.c.map((c,i)=>(d.o[i]+d.h[i]+d.l[i]+c)/4), ho=arr(len,0);
+      ho[0]=(d.o[0]+d.c[0])/2; for(let i=1;i<len;i++) ho[i]=(ho[i-1]+hc[i-1])/2;
+      const g=hc.map((c,i)=>c>ho[i]), entry=arr(len,false), exit=arr(len,false);
+      for(let i=q.n+1;i<len;i++){
+        let ok=!g[i-q.n]; for(let k=i-q.n+1;k<=i;k++) ok=ok&&g[k];
+        entry[i]=ok; exit[i]=!g[i];
+      }
+      return {warm:q.n+2, entry, exit, overlays:[]};
+    }
+  },
+  stoch:{
+    name:'Estocástico: sobreventa',
+    desc:'Compra cuando %K cruza al alza %D estando por debajo del nivel de sobreventa. Salida propia: %K por encima de 80.',
+    params:[{k:'n',l:'Periodo %K',def:14,grid:[14,21]},{k:'lvl',l:'Nivel sobreventa',def:20,grid:[20,30]}],
+    build(d,q){
+      const H=hhv(d.h,q.n), L=llv(d.l,q.n), K=d.c.map((c,i)=>H[i]>L[i]?100*(c-L[i])/(H[i]-L[i]):50), D=smaN(K,3);
+      const n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=crossUp(K,D,i) && K[i-1]<q.lvl; exit[i]=K[i]>80; }
+      return {warm:q.n+3, entry, exit, overlays:[]};
+    }
+  },
+  willr:{
+    name:'Williams %R: rebote',
+    desc:'Compra cuando el Williams %R sale de sobreventa (cruza al alza el nivel). Salida propia: %R por encima de −20 (sobrecompra).',
+    params:[{k:'n',l:'Periodo',def:14,grid:[14,21]},{k:'lvl',l:'Nivel sobreventa',def:-80,grid:[-90,-80]}],
+    build(d,q){
+      const H=hhv(d.h,q.n), L=llv(d.l,q.n), w=d.c.map((c,i)=>H[i]>L[i]?-100*(H[i]-c)/(H[i]-L[i]):-50);
+      const n=d.c.length, th=arr(n,q.lvl), entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=crossUp(w,th,i); exit[i]=w[i]>-20; }
+      return {warm:q.n+1, entry, exit, overlays:[]};
+    }
+  },
+  mfi:{
+    name:'MFI (RSI con volumen): sobreventa',
+    desc:'Compra cuando el Money Flow Index sale de sobreventa. Es un RSI que pondera el volumen. Salida propia: MFI por encima del nivel de venta.',
+    params:[{k:'buy',l:'Nivel compra',def:20,grid:[15,20,30]},{k:'sell',l:'Nivel venta',def:80,grid:[70,80]}],
+    valid:q=>q.buy<q.sell,
+    build(d,q){
+      const m=mfi(d,14), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=m[i]>q.buy && m[i-1]<=q.buy; exit[i]=m[i]>q.sell; }
+      return {warm:16, entry, exit, overlays:[]};
+    }
+  },
+  connors:{
+    name:'RSI(2) de Connors',
+    desc:'Compra retrocesos dentro de tendencia: precio por encima de la media larga y RSI de 2 periodos muy bajo. Salida propia: cierre por encima de la media de 5.',
+    params:[{k:'th',l:'RSI(2) por debajo de',def:10,grid:[5,10,15]},{k:'trend',l:'Media de tendencia',def:200,grid:[100,200]}],
+    build(d,q){
+      const r=rsi(d.c,2), t=sma(d.c,q.trend), m5=sma(d.c,5), n=d.c.length, entry=arr(n,false), exit=arr(n,false);
+      for(let i=1;i<n;i++){ entry[i]=d.c[i]>t[i] && r[i]<q.th; exit[i]=d.c[i]>m5[i]; }
+      return {warm:q.trend+1, entry, exit, overlays:[{name:`SMA ${q.trend}`,color:'#a855f7',data:t},{name:'SMA 5',color:'#8a96ad',data:m5}]};
+    }
+  },
+  redStreak:{
+    name:'Racha de velas bajistas',
+    desc:'Compra tras N cierres bajistas consecutivos (agotamiento a corto plazo). Salida propia: cierre por encima del máximo de la vela anterior.',
+    params:[{k:'n',l:'Cierres bajistas seguidos',def:4,grid:[3,4,5,6]}],
+    build(d,q){
+      const len=d.c.length, entry=arr(len,false), exit=arr(len,false);
+      let streak=0;
+      for(let i=1;i<len;i++){
+        streak = d.c[i]<d.c[i-1] ? streak+1 : 0;
+        entry[i]= streak===q.n; exit[i]= d.c[i]>d.h[i-1];
+      }
+      return {warm:q.n+1, entry, exit, overlays:[]};
+    }
+  }
+});
+['keltner','roc','aroon','adx','tripleEma','ichimoku','sar','heikin','stoch','willr','mfi','connors','redStreak'].forEach(k=>STRATS[k]._own=true);
+// Categorías para el desplegable
+const CATS=[
+  ['Rupturas',['donchian','ath','volBreak','squeeze','nr7','keltner','bbBreak']],
+  ['Tendencia',['ema','tripleEma','macd','supertrend','sar','adx','aroon','ichimoku','heikin','roc']],
+  ['Reversión a la media',['rsi','connors','stoch','willr','mfi','bbRevert','redStreak']]
+];
+
 // ================= Motor de backtest =================
 // d = {t,o,h,l,c,v}; p = parámetros comunes (salidas, costes, filtros); sig = salida de STRATS[x].build
 function backtest(d, p, sig){
   const n=d.c.length, fee=p.fee/100, slip=p.slip/100;
-  const emaArr = p.emaLen>0 ? ema(d.c,p.emaLen) : null;
-  const atrArr = p.stopType==='atr' ? atr(d,14) : null;
-  const minArr = p.exitLb>0 ? rollMin(d.l,p.exitLb) : null;
-  const volAvg = p.volMult>0 ? rollExtAvg(d.v,20) : null;
+  const emaArr = p.emaLen>0 ? M(d,'ema'+p.emaLen,()=>ema(d.c,p.emaLen)) : null;
+  const atrArr = p.stopType==='atr' ? M(d,'atr14',()=>atr(d,14)) : null;
+  const minArr = p.exitLb>0 ? M(d,'lmin'+p.exitLb,()=>rollMin(d.l,p.exitLb)) : null;
+  const volAvg = p.volMult>0 ? M(d,'vavg20',()=>rollExtAvg(d.v,20)) : null;
   const useOwn = p.ownExit && sig.exit;
   const start = Math.max(sig.warm, p.exitLb||0, p.volMult>0?20:0, p.emaLen||0, p.stopType==='atr'?15:0) + 1;
   const trades=[], equity=arr(n,null);
@@ -471,12 +749,15 @@ function backtest(d, p, sig){
     let stop=-Infinity;
     if(p.stopType==='pct' && p.stopVal>0) stop=px*(1-p.stopVal/100);
     if(p.stopType==='atr' && p.stopVal>0 && !isNaN(atrArr[sigIdx])) stop=px-p.stopVal*atrArr[sigIdx];
-    pos={entryIdx:idx, entry:px, entryEff:px*(1+slip), stop, tp:p.tp>0?px*(1+p.tp/100):Infinity, peak:px};
+    // Tamaño: con "riesgo por operación" se invierte la fracción del capital que hace que tocar el stop cueste ese %.
+    let frac=1;
+    if(p.riskPct>0 && isFinite(stop) && stop<px) frac=Math.min(1,(p.riskPct/100)/((px-stop)/px));
+    pos={entryIdx:idx, entry:px, entryEff:px*(1+slip), stop, tp:p.tp>0?px*(1+p.tp/100):Infinity, peak:px, frac};
   }
   function closePos(idx, px, reason){
-    const ret=(px*(1-slip))/pos.entryEff - 1 - 2*fee;
+    const raw=(px*(1-slip))/pos.entryEff - 1 - 2*fee, ret=pos.frac*raw;
     eq*=1+ret;
-    trades.push({entryIdx:pos.entryIdx, exitIdx:idx, entry:pos.entry, exit:px, ret, reason,
+    trades.push({entryIdx:pos.entryIdx, exitIdx:idx, entry:pos.entry, exit:px, ret, raw, frac:pos.frac, reason,
                  bars: idx-pos.entryIdx+(p.exec==='open'?1:0)});
     pos=null;
   }
@@ -506,7 +787,7 @@ function backtest(d, p, sig){
       }
     }
 
-    if(pos){ barsIn++; equity[i]=eq*((d.c[i]*(1-slip))/pos.entryEff - fee); }
+    if(pos){ barsIn++; equity[i]=eq*(1+pos.frac*((d.c[i]*(1-slip))/pos.entryEff - 1 - fee)); }
     else equity[i]=eq;
   }
   if(pos) closePos(n-1,d.c[n-1],'Fin de datos (abierta)');
@@ -591,7 +872,8 @@ const EXIT_MGMT=[
   {ownExit:false,exitLb:0, trail:12,tp:0, timeExit:0},  // trailing 12 %
   {ownExit:false,exitLb:0, trail:0, tp:10,timeExit:30}  // objetivo 10 % o 30 velas
 ];
-const HAS_EXIT=['ema','supertrend','macd','bbBreak','bbRevert','rsi'];
+const HAS_EXIT=['ema','supertrend','macd','bbBreak','bbRevert','rsi',...Object.keys(STRATS).filter(k=>STRATS[k]._own)];
+HAS_EXIT.forEach(k=>STRATS[k]._hasExit=true);
 function optimizeStrategy(d,p,key,topK=3){
   const rows=[]; let best=null;
   const keep=e=>{ rows.push(e); if(better(e,best)){ if(best) delete best.r; best=e; } else delete e.r; };
@@ -607,6 +889,342 @@ function optimizeStrategy(d,p,key,topK=3){
   }
   rows.forEach(e=>delete e.sig);
   return {best,rows};
+}
+
+// ================= Descubridor de estrategias =================
+// No usa estrategias predefinidas: combina "piezas" (condiciones) y deja que un algoritmo
+// genético evolucione reglas de entrada y salida. Solo mira el tramo en muestra.
+
+// Memoria de indicadores por conjunto de datos (evita recalcular)
+const _memo=new WeakMap();
+function M(d,key,fn){ let m=_memo.get(d); if(!m){ m=new Map(); _memo.set(d,m); } if(!m.has(key)) m.set(key,fn()); return m.get(key); }
+
+function rng32(seed){ let a=(seed>>>0)||1; return ()=>{ a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+const pickR=(R,a)=>a[Math.floor(R()*a.length)];
+
+const IND={
+  ema:(d,n)=>M(d,'ema'+n,()=>ema(d.c,n)),
+  sma:(d,n)=>M(d,'sma'+n,()=>sma(d.c,n)),
+  rsi:(d,n)=>M(d,'rsi'+n,()=>rsi(d.c,n)),
+  hmax:(d,n)=>M(d,'hmax'+n,()=>rollMax(d.h,n)),
+  lmin:(d,n)=>M(d,'lmin'+n,()=>rollMin(d.l,n)),
+  atr:(d)=>M(d,'atr14',()=>atr(d,14)),
+  atrp:(d)=>M(d,'atrp',()=>IND.atr(d).map((x,i)=>x/d.c[i])),
+  atrpAvg:(d,n)=>M(d,'atrpAvg'+n,()=>smaN(IND.atrp(d),n)),
+  z:(d,n)=>M(d,'z'+n,()=>{ const m=sma(d.c,n), s=stdev(d.c,n); return d.c.map((c,i)=>s[i]>0?(c-m[i])/s[i]:NaN); }),
+  roc:(d,n)=>M(d,'roc'+n,()=>d.c.map((c,i)=>i>=n?100*(c/d.c[i-n]-1):NaN)),
+  vavg:(d)=>M(d,'vavg20',()=>rollExtAvg(d.v,20)),
+  adx:(d)=>M(d,'adx14',()=>dmi(d,14).adx),
+  stoch:(d,n)=>M(d,'st'+n,()=>{ const H=hhv(d.h,n), L=llv(d.l,n); return d.c.map((c,i)=>H[i]>L[i]?100*(c-L[i])/(H[i]-L[i]):NaN); }),
+  hour:(d)=>M(d,'hour',()=>d.t.map(t=>new Date(t).getUTCHours())),
+  dow:(d)=>M(d,'dow',()=>d.t.map(t=>new Date(t).getUTCDay())),
+  dn:(d)=>M(d,'dn',()=>{ let s=0; return d.c.map((c,i)=>s=(i>0&&c<d.c[i-1])?s+1:0); }),
+  up:(d)=>M(d,'up',()=>{ let s=0; return d.c.map((c,i)=>s=(i>0&&c>d.c[i-1])?s+1:0); })
+};
+const DOW=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const pad2=h=>String(h).padStart(2,'0');
+
+// Piezas. Cada una devuelve, para cada vela, si la condición se cumple al CIERRE de esa vela.
+const PRIMS={
+  brk:{p:[{k:'n',v:[5,10,20,30,50,100,200]}], w:q=>q.n,
+    t:q=>`el cierre rompe el máximo de ${q.n} velas`,
+    f:(d,q)=>{ const m=IND.hmax(d,q.n); return d.c.map((c,i)=>c>m[i]); },
+    o:(d,q)=>[{name:`Máx. ${q.n}`,color:'#3b82f6',data:IND.hmax(d,q.n)}]},
+  nearHi:{p:[{k:'n',v:[50,100,200]},{k:'x',v:[1,3,5,10]}], w:q=>q.n,
+    t:q=>`el precio está a menos de un ${q.x} % del máximo de ${q.n} velas`,
+    f:(d,q)=>{ const m=IND.hmax(d,q.n); return d.c.map((c,i)=>c>=m[i]*(1-q.x/100)); },
+    o:(d,q)=>[{name:`Máx. ${q.n}`,color:'#3b82f6',data:IND.hmax(d,q.n)}]},
+  brkDn:{p:[{k:'n',v:[5,10,20,50]}], w:q=>q.n,
+    t:q=>`el cierre pierde el mínimo de ${q.n} velas`,
+    f:(d,q)=>{ const m=IND.lmin(d,q.n); return d.c.map((c,i)=>c<m[i]); },
+    o:(d,q)=>[{name:`Mín. ${q.n}`,color:'#ef4444',data:IND.lmin(d,q.n)}]},
+  aboveEma:{p:[{k:'n',v:[10,20,50,100,200]}], w:q=>q.n,
+    t:q=>`el precio está por encima de la EMA ${q.n}`,
+    f:(d,q)=>{ const e=IND.ema(d,q.n); return d.c.map((c,i)=>c>e[i]); },
+    o:(d,q)=>[{name:`EMA ${q.n}`,color:'#a855f7',data:IND.ema(d,q.n)}]},
+  belowEma:{p:[{k:'n',v:[10,20,50,100,200]}], w:q=>q.n,
+    t:q=>`el precio está por debajo de la EMA ${q.n}`,
+    f:(d,q)=>{ const e=IND.ema(d,q.n); return d.c.map((c,i)=>c<e[i]); },
+    o:(d,q)=>[{name:`EMA ${q.n}`,color:'#a855f7',data:IND.ema(d,q.n)}]},
+  emaBull:{p:[{k:'a',v:[5,10,20,50]},{k:'b',v:[20,50,100,200]}], valid:q=>q.a<q.b, w:q=>q.b,
+    t:q=>`la EMA ${q.a} está por encima de la EMA ${q.b}`,
+    f:(d,q)=>{ const a=IND.ema(d,q.a), b=IND.ema(d,q.b); return a.map((x,i)=>x>b[i]); },
+    o:(d,q)=>[{name:`EMA ${q.a}`,color:'#f0b429',data:IND.ema(d,q.a)},{name:`EMA ${q.b}`,color:'#06b6d4',data:IND.ema(d,q.b)}]},
+  crossEma:{p:[{k:'n',v:[10,20,50,100]}], w:q=>q.n+1,
+    t:q=>`el precio cruza al alza la EMA ${q.n}`,
+    f:(d,q)=>{ const e=IND.ema(d,q.n); return d.c.map((c,i)=>i>0 && c>e[i] && d.c[i-1]<=e[i-1]); },
+    o:(d,q)=>[{name:`EMA ${q.n}`,color:'#a855f7',data:IND.ema(d,q.n)}]},
+  rsiLow:{p:[{k:'n',v:[2,7,14]},{k:'x',v:[10,20,30,40]}], w:q=>q.n+1,
+    t:q=>`el RSI(${q.n}) está por debajo de ${q.x}`,
+    f:(d,q)=>IND.rsi(d,q.n).map(r=>r<q.x)},
+  rsiHigh:{p:[{k:'n',v:[7,14]},{k:'x',v:[50,60,70,80]}], w:q=>q.n+1,
+    t:q=>`el RSI(${q.n}) está por encima de ${q.x}`,
+    f:(d,q)=>IND.rsi(d,q.n).map(r=>r>q.x)},
+  rsiUp:{p:[{k:'x',v:[20,30,40,50]}], w:()=>16,
+    t:q=>`el RSI(14) cruza al alza ${q.x}`,
+    f:(d,q)=>{ const r=IND.rsi(d,14); return r.map((x,i)=>i>0 && x>q.x && r[i-1]<=q.x); }},
+  zLow:{p:[{k:'n',v:[20,50]},{k:'k',v:[1,1.5,2,2.5]}], w:q=>q.n,
+    t:q=>`el precio está ${q.k} desviaciones por debajo de su media de ${q.n}`,
+    f:(d,q)=>IND.z(d,q.n).map(z=>z<-q.k),
+    o:(d,q)=>[{name:`Media ${q.n}`,color:'#8a96ad',data:IND.sma(d,q.n)}]},
+  zHigh:{p:[{k:'n',v:[20,50]},{k:'k',v:[1,1.5,2,2.5]}], w:q=>q.n,
+    t:q=>`el precio está ${q.k} desviaciones por encima de su media de ${q.n}`,
+    f:(d,q)=>IND.z(d,q.n).map(z=>z>q.k),
+    o:(d,q)=>[{name:`Media ${q.n}`,color:'#8a96ad',data:IND.sma(d,q.n)}]},
+  rocUp:{p:[{k:'n',v:[5,10,20,50]},{k:'x',v:[0,2,5,10]}], w:q=>q.n+1,
+    t:q=>q.x?`ha subido más de un ${q.x} % en ${q.n} velas`:`está más alto que hace ${q.n} velas`,
+    f:(d,q)=>IND.roc(d,q.n).map(r=>r>q.x)},
+  rocDn:{p:[{k:'n',v:[5,10,20,50]},{k:'x',v:[2,5,10,20]}], w:q=>q.n+1,
+    t:q=>`ha caído más de un ${q.x} % en ${q.n} velas`,
+    f:(d,q)=>IND.roc(d,q.n).map(r=>r<-q.x)},
+  calm:{p:[{k:'f',v:[0.6,0.7,0.8]}], w:()=>115,
+    t:q=>`la volatilidad (ATR) está por debajo del ${Math.round(q.f*100)} % de su media de 100 velas`,
+    f:(d,q)=>{ const a=IND.atrp(d), m=IND.atrpAvg(d,100); return a.map((x,i)=>x<q.f*m[i]); }},
+  wild:{p:[{k:'f',v:[1.2,1.5,2]}], w:()=>115,
+    t:q=>`la volatilidad (ATR) supera el ${Math.round(q.f*100)} % de su media de 100 velas`,
+    f:(d,q)=>{ const a=IND.atrp(d), m=IND.atrpAvg(d,100); return a.map((x,i)=>x>q.f*m[i]); }},
+  volSpike:{p:[{k:'k',v:[1.5,2,3]}], w:()=>21,
+    t:q=>`el volumen supera ${q.k} veces su media de 20 velas`,
+    f:(d,q)=>{ const m=IND.vavg(d); return d.v.map((v,i)=>v>q.k*m[i]); }},
+  greenBar:{p:[{k:'k',v:[0,0.5,1]}], w:()=>15,
+    t:q=>q.k?`la vela cierra en verde con un cuerpo de al menos ${q.k}×ATR`:`la vela cierra en verde`,
+    f:(d,q)=>{ const a=IND.atr(d); return d.c.map((c,i)=>c>d.o[i] && (c-d.o[i])>=q.k*a[i]); }},
+  redBar:{p:[{k:'k',v:[0,0.5,1]}], w:()=>15,
+    t:q=>q.k?`la vela cierra en rojo con un cuerpo de al menos ${q.k}×ATR`:`la vela cierra en rojo`,
+    f:(d,q)=>{ const a=IND.atr(d); return d.c.map((c,i)=>c<d.o[i] && (d.o[i]-c)>=q.k*a[i]); }},
+  dnStreak:{p:[{k:'n',v:[2,3,4,5]}], w:q=>q.n+1,
+    t:q=>`lleva ${q.n} o más cierres bajistas seguidos`,
+    f:(d,q)=>IND.dn(d).map(s=>s>=q.n)},
+  upStreak:{p:[{k:'n',v:[2,3,4,5]}], w:q=>q.n+1,
+    t:q=>`lleva ${q.n} o más cierres alcistas seguidos`,
+    f:(d,q)=>IND.up(d).map(s=>s>=q.n)},
+  trend:{p:[{k:'x',v:[20,25,30]}], w:()=>30,
+    t:q=>`el ADX supera ${q.x} (hay tendencia fuerte)`,
+    f:(d,q)=>IND.adx(d).map(a=>a>q.x)},
+  range:{p:[{k:'x',v:[15,20]}], w:()=>30,
+    t:q=>`el ADX está por debajo de ${q.x} (mercado lateral)`,
+    f:(d,q)=>IND.adx(d).map(a=>a<q.x)},
+  stochLow:{p:[{k:'x',v:[10,20,30]}], w:()=>15,
+    t:q=>`el estocástico(14) está por debajo de ${q.x}`,
+    f:(d,q)=>IND.stoch(d,14).map(s=>s<q.x)},
+  hour:{intra:true, p:[{k:'h',v:[0,2,4,6,8,10,12,14,16,18,20,22]},{k:'w',v:[2,4,8]}], w:()=>1,
+    t:q=>`la vela cierra entre las ${pad2(q.h)}:00 y las ${pad2((q.h+q.w)%24)}:00 UTC`,
+    f:(d,q)=>{ // la hora de CIERRE de la vela = apertura + duración
+      const dt=d.t.length>1?d.t[1]-d.t[0]:3600000;
+      return d.t.map(t=>{ const h=new Date(t+dt).getUTCHours(); return ((h-q.h+24)%24)<q.w; }); }},
+  dow:{p:[{k:'k',v:[0,1,2,3,4,5,6,7,8]}], w:()=>1,
+    t:q=>q.k<7?`es ${DOW[q.k]} (UTC)`:q.k===7?`es día laborable, de lunes a viernes (UTC)`:`es fin de semana (UTC)`,
+    f:(d,q)=>IND.dow(d).map(w=>q.k<7?w===q.k:q.k===7?(w>=1&&w<=5):(w===0||w===6))}
+};
+// Piezas que tienen sentido como señal de VENTA
+const EXIT_PRIMS=['belowEma','rsiHigh','zHigh','brkDn','redBar','dnStreak','rocDn','wild','upStreak'];
+const GENE_EXIT={
+  stop:EXIT_STOPS, trail:[0,0,5,10,20], tp:[0,0,5,10,20], timeExit:[0,0,5,10,20,50], exitLb:[0,0,10,20]
+};
+
+function randQ(R,id){
+  const P=PRIMS[id];
+  for(let k=0;k<20;k++){ const q={}; for(const pr of P.p) q[pr.k]=pickR(R,pr.v); if(!P.valid||P.valid(q)) return q; }
+  const q={}; for(const pr of P.p) q[pr.k]=pr.v[0]; return q;
+}
+const BASE_KEYS=()=>CATS.flatMap(x=>x[1]).filter(k=>STRATS[k]);
+const randBase=R=>{ const key=pickR(R,BASE_KEYS()); return {key,q:pickR(R,combos(key))}; };
+function randGenome(R,ids){
+  // 40 %: parte de una de las estrategias clásicas y le añade 0-2 filtros; 60 %: solo piezas
+  if(R()<0.4){
+    const b=randBase(R), nc=R()<0.4?0:(R()<0.75?1:2), c=[], used=new Set();
+    while(c.length<nc){ const id=pickR(R,ids); if(used.has(id)) continue; used.add(id); c.push({id,q:randQ(R,id)}); }
+    return {b, c, x:null, ex:randExit(R)};
+  }
+  const nc=R()<0.35?1:(R()<0.7?2:3), c=[], used=new Set();
+  while(c.length<nc){ const id=pickR(R,ids); if(used.has(id)) continue; used.add(id); c.push({id,q:randQ(R,id)}); }
+  const x=R()<0.4 ? (()=>{ const id=pickR(R,EXIT_PRIMS); return {id,q:randQ(R,id)}; })() : null;
+  return {c, x, ex:randExit(R)};
+}
+function randExit(R){
+  const s=pickR(R,GENE_EXIT.stop);
+  return {stopType:s.stopType, stopVal:s.stopVal, trail:pickR(R,GENE_EXIT.trail), tp:pickR(R,GENE_EXIT.tp),
+          timeExit:pickR(R,GENE_EXIT.timeExit), exitLb:pickR(R,GENE_EXIT.exitLb), ownExit:true};
+}
+const cloneG=g=>JSON.parse(JSON.stringify(g));
+function genomeKey(g){
+  const c=[...g.c].sort((a,b)=>a.id<b.id?-1:1).map(x=>x.id+JSON.stringify(x.q)).join('&');
+  return (g.b?g.b.key+JSON.stringify(g.b.q):'')+'#'+c+'|'+(g.x?g.x.id+JSON.stringify(g.x.q):'-')+'|'+JSON.stringify(g.ex);
+}
+function mutate(R,g,ids){
+  const r=R();
+  if(g.b && r<0.12){ // ajusta la estrategia base
+    g.b.q=pickR(R,combos(g.b.key)); return g;
+  }
+  if(r<0.35 && g.c.length){ // cambia un parámetro de una pieza
+    const c=pickR(R,g.c), P=PRIMS[c.id], pr=pickR(R,P.p), i=pr.v.indexOf(c.q[pr.k]);
+    const j=Math.max(0,Math.min(pr.v.length-1,i+(R()<0.5?-1:1)));
+    const q={...c.q,[pr.k]:pr.v[j]}; if(!P.valid||P.valid(q)) c.q=q;
+  }else if(r<0.5){ // sustituye una pieza
+    const id=pickR(R,ids);
+    if(g.c.length && !g.c.some(x=>x.id===id)) g.c[Math.floor(R()*g.c.length)]={id,q:randQ(R,id)};
+  }else if(r<0.62){ // añade una pieza
+    if(g.c.length<(g.b?2:3)){ const id=pickR(R,ids); if(!g.c.some(x=>x.id===id)) g.c.push({id,q:randQ(R,id)}); }
+  }else if(r<0.72){ // quita una pieza
+    if(g.c.length>(g.b?0:1)) g.c.splice(Math.floor(R()*g.c.length),1);
+  }else if(r<0.92){ // cambia la gestión de la salida
+    const f=pickR(R,['stop','trail','tp','timeExit','exitLb']);
+    if(f==='stop'){ const s=pickR(R,GENE_EXIT.stop); g.ex.stopType=s.stopType; g.ex.stopVal=s.stopVal; }
+    else g.ex[f]=pickR(R,GENE_EXIT[f]);
+  }else{ // pone, quita o cambia la señal de venta
+    if(g.x && R()<0.5) g.x=null; else { const id=pickR(R,EXIT_PRIMS); g.x={id,q:randQ(R,id)}; }
+  }
+  return g;
+}
+function crossover(R,a,b){
+  const pool=[...a.c,...b.c], c=[], used=new Set(), nc=1+Math.floor(R()*Math.min(3,pool.length));
+  for(const x of pool.sort(()=>R()-0.5)){ if(c.length>=nc) break; if(used.has(x.id)) continue; used.add(x.id); c.push(cloneG(x)); }
+  const base=R()<0.5?a.b:b.b, out={c, x:cloneG(R()<0.5?a.x:b.x), ex:cloneG(R()<0.5?a.ex:b.ex)};
+  if(base){ out.b=cloneG(base); if(out.c.length>2) out.c.length=2; }
+  return out;
+}
+
+const baseText=b=>STRATS[b.key].name+(STRATS[b.key].params.length?' ('+STRATS[b.key].params.map(pr=>`${pr.l.replace(/ \(.*\)/,'')} ${b.q[pr.k]}`).join(', ')+')':'');
+function ruleText(g){
+  let s;
+  if(g.b){
+    s='Señal de '+baseText(g.b);
+    if(g.c.length) s+=', solo si además '+g.c.map(c=>PRIMS[c.id].t(c.q)).join(' y ');
+  } else s='Compra cuando '+g.c.map(c=>PRIMS[c.id].t(c.q)).join(' y ');
+  if(g.x) s+='. Vende cuando '+PRIMS[g.x.id].t(g.x.q);
+  else if(g.b && STRATS[g.b.key]._hasExit && g.ex.ownExit!==false) s+='. Vende con su señal de salida propia';
+  return s+'.';
+}
+const baseSig=(d,b)=>M(d,'B'+b.key+JSON.stringify(b.q),()=>STRATS[b.key].build(d,b.q));
+function buildGenome(d,g){
+  const n=d.c.length; let entry, warm=1, exit=null; const ov=new Map();
+  if(g.b){ const s=baseSig(d,g.b); entry=s.entry.slice(); warm=s.warm; exit=s.exit; for(const o of s.overlays) ov.set(o.name,o); }
+  else entry=arr(n,true);
+  for(const c of g.c){
+    const P=PRIMS[c.id], a=M(d,'P'+c.id+JSON.stringify(c.q),()=>P.f(d,c.q));
+    for(let i=0;i<n;i++) if(!a[i]) entry[i]=false;
+    warm=Math.max(warm,P.w(c.q)+1);
+    if(P.o) for(const o of P.o(d,c.q)) ov.set(o.name,o);
+  }
+  if(g.x){ const P=PRIMS[g.x.id]; exit=M(d,'P'+g.x.id+JSON.stringify(g.x.q),()=>P.f(d,g.x.q)); warm=Math.max(warm,P.w(g.x.q)+1); }
+  return {warm, entry, exit, overlays:[...ov.values()]};
+}
+const genParams=(p,g)=>({...p,...g.ex,ownExit:g.ex.ownExit!==false});
+
+// Evaluación rápida: SOLO tramo en muestra (dIS = datos cortados)
+function gaEval(dIS,p,g,minTr){
+  const pp=genParams(p,g), r=backtest(dIS,pp,buildGenome(dIS,g)), s=stats(r.trades,r.equity);
+  let fit=-Infinity;
+  if(s.n>=minTr){
+    fit=score({...s,n:Math.max(10,s.n)},p.objective);
+    const k=g.c.length-(g.b?0:1)+(g.x?1:0), pen=0.03*k; // ligera penalización por complejidad
+    fit = fit>0 ? fit*(1-pen) : fit*(1+pen);
+  }
+  // Resultado en cada mitad del tramo en muestra (para exigir mejoras consistentes)
+  const mid=Math.floor(dIS.c.length/2); let a=1,b=1;
+  for(const t of r.trades){ if(t.entryIdx<mid) a*=1+t.ret; else b*=1+t.ret; }
+  return {fit, s, h1:a-1, h2:b-1, entries:r.trades.map(t=>t.entryIdx)};
+}
+
+async function discover(d,p,opt,onProg){
+  const R=rng32(opt.seed), si=splitIdx(d,p), dIS=cutData(d,si);
+  const ids=Object.keys(PRIMS).filter(k=>!(PRIMS[k].intra && (opt.interval==='1d'||opt.interval==='1w')));
+  const cache=new Map();
+  const ev=g=>{ const key=genomeKey(g); let r=cache.get(key); if(!r){ r=gaEval(dIS,p,g,opt.minTr); r.g=g; r.key=key; cache.set(key,r); } return r; };
+  let pop=[]; for(let i=0;i<opt.pop;i++) pop.push(ev(randGenome(R,ids)));
+  const tour=()=>{ let b=null; for(let k=0;k<3;k++){ const x=pickR(R,pop); if(!b||x.fit>b.fit) b=x; } return b; };
+  for(let gen=0;gen<opt.gens;gen++){
+    pop.sort((a,b)=>b.fit-a.fit);
+    const next=pop.slice(0,Math.max(2,Math.round(opt.pop*0.06)));
+    let guard=0;
+    while(next.length<opt.pop && guard++<opt.pop*20){
+      let child;
+      if(R()<0.12) child=randGenome(R,ids);
+      else { const a=tour(), b=tour(); child = R()<0.6 ? crossover(R,a.g,b.g) : cloneG(a.g); mutate(R,child,ids); if(R()<0.3) mutate(R,child,ids); }
+      if(!child.c.length && !child.b) continue;
+      next.push(ev(child));
+    }
+    pop=next;
+    if(onProg) await onProg((gen+1)/opt.gens, cache.size, pop[0]);
+  }
+  return {archive:[...cache.values()], evals:cache.size, si};
+}
+
+// Elige K estrategias realmente distintas: que no compartan la mayoría de sus operaciones
+function pickDistinct(archive,K,maxJ=0.35){
+  const sorted=archive.filter(a=>isFinite(a.fit)).sort((a,b)=>b.fit-a.fit), out=[];
+  const bucket=e=>new Set(e.map(i=>Math.floor(i/3)));
+  const seen=new Set();
+  for(const a of sorted){
+    const ek=genomeKey({...a.g,x:null,ex:{}}).split('|')[0]; // misma regla de entrada = duplicado
+    if(seen.has(ek)) continue;
+    const A=bucket(a.entries);
+    const ok=out.every(b=>{ let inter=0; for(const x of A) if(b._set.has(x)) inter++; return inter/(A.size+b._set.size-inter) < maxJ; });
+    if(ok){ a._set=A; seen.add(ek); out.push(a); if(out.length>=K) break; }
+  }
+  return out;
+}
+// Evaluación completa (muestra + fuera de muestra) de una regla
+function finalEval(d,p,g){
+  const pp=genParams(p,g), sig=buildGenome(d,g), r=backtest(d,pp,sig), sp=splitStats(d,pp,r,sig);
+  return {g, p:pp, sig, r, all:stats(r.trades,r.equity), is:sp.is, oos:sp.oos, score:score(sp.is,p.objective)};
+}
+// Serie "sin patrones": las mismas velas (variaciones) del tramo en muestra, barajadas al azar
+function makeNoise(d,si,R){
+  const rel=[];
+  for(let i=1;i<si;i++){ const pc=d.c[i-1]; rel.push([d.o[i]/pc,d.h[i]/pc,d.l[i]/pc,d.c[i]/pc,d.v[i]]); }
+  for(let i=rel.length-1;i>0;i--){ const j=Math.floor(R()*(i+1)); [rel[i],rel[j]]=[rel[j],rel[i]]; }
+  const o=[d.o[0]],h=[d.h[0]],l=[d.l[0]],c=[d.c[0]],v=[d.v[0]];
+  for(const [ro,rh,rl,rc,rv] of rel){ const pc=c[c.length-1]; o.push(pc*ro); h.push(pc*rh); l.push(pc*rl); c.push(pc*rc); v.push(rv); }
+  return {t:d.t.slice(0,si),o,h,l,c,v};
+}
+
+// ================= Mejora paso a paso =================
+// Parte de una regla y, en cada paso, prueba todos los cambios posibles (añadir/quitar filtros,
+// ajustar la base, cambiar salidas). Acepta el que más mejora EN MUESTRA y repite hasta que nada mejore.
+function primCombos(id){ const P=PRIMS[id]; let out=[{}]; for(const pr of P.p) out=out.flatMap(o=>pr.v.map(v=>({...o,[pr.k]:v}))); return out.filter(q=>!P.valid||P.valid(q)); }
+function stopTxt(ex){ return ex.stopType==='pct'?`${ex.stopVal} %`:ex.stopType==='atr'?`${ex.stopVal}×ATR`:'sin stop'; }
+function improveCandidates(cur,ids){
+  const C=[], add=(desc,f)=>{ const g=cloneG(cur); f(g); C.push({g,desc}); };
+  const maxF=cur.b?3:4;
+  if(cur.c.length<maxF) for(const id of ids){ if(cur.c.some(c=>c.id===id)) continue;
+    for(const q of primCombos(id)) add(`Añadir filtro: ${PRIMS[id].t(q)}`,g=>g.c.push({id,q})); }
+  cur.c.forEach((c,k)=>{ if(cur.c.length>1||cur.b) add(`Quitar filtro: ${PRIMS[c.id].t(c.q)}`,g=>g.c.splice(k,1)); });
+  cur.c.forEach((c,k)=>{ for(const q of primCombos(c.id)) if(JSON.stringify(q)!==JSON.stringify(c.q)) add(`Ajustar filtro: ${PRIMS[c.id].t(q)}`,g=>g.c[k].q=q); });
+  if(cur.b) for(const q of combos(cur.b.key)) if(JSON.stringify(q)!==JSON.stringify(cur.b.q)) add(`Ajustar ${baseText({key:cur.b.key,q})}`,g=>g.b.q=q);
+  for(const s of EXIT_STOPS) if(s.stopType!==cur.ex.stopType||s.stopVal!==cur.ex.stopVal) add(`Stop a ${stopTxt(s)}`,g=>{g.ex.stopType=s.stopType;g.ex.stopVal=s.stopVal;});
+  for(const v of [0,5,10,15,20]) if(v!==cur.ex.trail) add(v?`Trailing stop del ${v} %`:'Quitar trailing stop',g=>g.ex.trail=v);
+  for(const v of [0,5,10,20,30]) if(v!==cur.ex.tp) add(v?`Objetivo de beneficio del ${v} %`:'Quitar objetivo de beneficio',g=>g.ex.tp=v);
+  for(const v of [0,5,10,20,50]) if(v!==cur.ex.timeExit) add(v?`Salir como máximo a las ${v} velas`:'Quitar salida por tiempo',g=>g.ex.timeExit=v);
+  for(const v of [0,10,20]) if(v!==cur.ex.exitLb) add(v?`Salir si pierde el mínimo de ${v} velas`:'Quitar salida por mínimo',g=>g.ex.exitLb=v);
+  for(const id of EXIT_PRIMS) for(const q of primCombos(id)) add(`Vender cuando ${PRIMS[id].t(q)}`,g=>g.x={id,q});
+  if(cur.x) add('Quitar la señal de venta',g=>g.x=null);
+  if(cur.b && STRATS[cur.b.key]._hasExit) add(cur.ex.ownExit===false?'Usar la salida propia de la estrategia':'No usar la salida propia de la estrategia',g=>g.ex.ownExit=(cur.ex.ownExit===false));
+  return C;
+}
+async function improve(d,p,g0,opt,onStep){
+  const si=splitIdx(d,p), dIS=cutData(d,si);
+  const ids=Object.keys(PRIMS).filter(k=>!(PRIMS[k].intra && (opt.interval==='1d'||opt.interval==='1w')));
+  let cur=cloneG(g0), curE=gaEval(dIS,p,cur,opt.minTr), tested=0;
+  // No se acepta una "mejora" que deje la estrategia con menos de la mitad de operaciones
+  opt={...opt,minTr:Math.max(opt.minTr,Math.ceil(curE.s.n*0.5))};
+  const steps=[{desc:'Punto de partida', g:cloneG(cur), fit:curE.fit, full:finalEval(d,p,cur)}];
+  if(onStep) await onStep(steps,0);
+  for(let step=0;step<opt.maxSteps;step++){
+    const cands=improveCandidates(cur,ids); let best=null;
+    for(const c of cands){
+      const e=gaEval(dIS,p,c.g,opt.minTr); tested++;
+      // Modo prudente: el cambio no puede empeorar ninguna de las dos mitades del tramo en muestra
+      if(opt.consistent && isFinite(curE.fit) && (e.h1<curE.h1-1e-9 || e.h2<curE.h2-1e-9)) continue;
+      if(!best||e.fit>best.e.fit) best={...c,e};
+    }
+    const need = isFinite(curE.fit) ? curE.fit+Math.max(0.01*Math.abs(curE.fit),1e-6) : -Infinity;
+    if(!best || !isFinite(best.e.fit) || best.e.fit<=need) break;
+    cur=best.g; curE=best.e;
+    steps.push({desc:best.desc, g:cloneG(cur), fit:curE.fit, full:finalEval(d,p,cur), tested:cands.length});
+    if(onStep) await onStep(steps,(step+1)/opt.maxSteps);
+  }
+  return {steps, tested};
 }
 </script>
 
@@ -647,8 +1265,8 @@ const ts=ms=>Math.floor(ms/1000)+tzOff;
 const fmtDate=ms=>new Date(ms).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'});
 const fmtPx=x=>x>=100?x.toFixed(2):x>=1?x.toFixed(4):x.toPrecision(5);
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const COMMON=['objective','symbol','interval','count','exec','volMult','emaLen','stopType','stopVal','tp','trail','exitLb','timeExit','fee','slip','split'];
-const COLORS=['#f0b429','#3b82f6','#22c55e','#ef4444','#a855f7','#06b6d4','#f97316','#ec4899','#84cc16'];
+const COMMON=['dIntens','dCount','dSeed','objective','riskPct','symbol','interval','count','exec','volMult','emaLen','stopType','stopVal','tp','trail','exitLb','timeExit','fee','slip','split'];
+const COLORS=['#f0b429','#3b82f6','#22c55e','#ef4444','#a855f7','#06b6d4','#f97316','#ec4899','#84cc16','#eab308','#14b8a6','#8b5cf6','#f43f5e','#0ea5e9','#65a30d','#d946ef','#fb923c','#2dd4bf','#818cf8','#facc15','#4ade80','#f87171','#38bdf8','#c084fc'];
 const bh=(d,a,b)=>d.c[b]/d.c[a]-1;
 const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
 
@@ -683,14 +1301,38 @@ function saveAll(){
 function loadAll(){
   let o={};
   try{ o=JSON.parse(localStorage.getItem('atalaya-bt3')||'{}'); }catch(e){}
-  $('strategy').innerHTML=Object.entries(STRATS).map(([k,s])=>`<option value="${k}">${s.name}</option>`).join('');
+  loadGens(); fillStrategySelect();
+  $('nStrats').textContent=BASE_KEYS().length;
   if(o.common) COMMON.forEach(f=>{ if(o.common[f]!=null) $(f).value=o.common[f]; });
   if(o.stratVals) stratVals=o.stratVals;
   if(o.strategy && STRATS[o.strategy]) $('strategy').value=o.strategy;
   if(o.ownExit!=null) $('ownExit').checked=o.ownExit;
   renderStratParams();
 }
-const qText=(key,q)=>STRATS[key].params.map(pr=>`${pr.l}: ${q[pr.k]}`).join(' · ');
+const qText=(key,q)=>STRATS[key].rule||STRATS[key].params.map(pr=>`${pr.l}: ${q[pr.k]}`).join(' · ');
+
+// ----- Estrategias descubiertas / mejoradas (se guardan en el navegador) -----
+let GENC=0;
+function registerGen(g,name,kind){
+  const key='gen'+(++GENC), rule=ruleText(g), own=!!g.x || !!(g.b && STRATS[g.b.key]._hasExit);
+  STRATS[key]={name, desc:rule, rule, params:[], genome:cloneG(g), gen:kind||'disc', _hasExit:own, build:(d)=>buildGenome(d,g)};
+  if(own) HAS_EXIT.push(key);
+  return key;
+}
+function clearGens(kind){ for(const k of Object.keys(STRATS)) if(STRATS[k].gen===kind) delete STRATS[k]; }
+function saveGens(){ try{ localStorage.setItem('atalaya-gen',JSON.stringify(Object.values(STRATS).filter(s=>s.gen).map(s=>({name:s.name,kind:s.gen,g:s.genome})))); }catch(e){} }
+function loadGens(){ try{ for(const s of JSON.parse(localStorage.getItem('atalaya-gen')||'[]')) registerGen(s.g,s.name,s.kind); }catch(e){} }
+function fillStrategySelect(){
+  const cur=$('strategy').value, gens=Object.keys(STRATS).filter(k=>STRATS[k].gen);
+  $('strategy').innerHTML=CATS.map(([cat,keys])=>`<optgroup label="${cat}">`+keys.filter(k=>STRATS[k]).map(k=>`<option value="${k}">${STRATS[k].name}</option>`).join('')+'</optgroup>').join('')+
+    (gens.length?`<optgroup label="Descubiertas y mejoradas">`+gens.map(k=>`<option value="${k}">${STRATS[k].name}</option>`).join('')+'</optgroup>':'');
+  if(cur && STRATS[cur]) $('strategy').value=cur;
+}
+const exFrom=p=>({stopType:p.stopType,stopVal:p.stopVal,trail:p.trail,tp:p.tp,timeExit:p.timeExit,exitLb:p.exitLb,ownExit:p.ownExit!==false});
+function toGenome(e){
+  const S=STRATS[e.key];
+  return S.genome ? {...cloneG(S.genome), ex:exFrom(e.p)} : {b:{key:e.key,q:{...e.q}}, c:[], x:null, ex:exFrom(e.p)};
+}
 function exitText(p,key){
   const a=[];
   a.push(p.stopType==='pct'?`Stop ${p.stopVal}%`:p.stopType==='atr'?`Stop ${p.stopVal}×ATR`:'Sin stop');
@@ -702,13 +1344,14 @@ function exitText(p,key){
   return a.join(' · ');
 }
 function verdictTag(e){
-  if(e.is.n<10||e.oos.n<5) return '<span class="tag wa">Pocas ops.</span>';
-  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>';
-  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>';
-  return '<span class="tag ko">No rentable</span>';
+  const nz = e.noise===true ? ' <span class="tag ok">Supera al azar</span>' : e.noise===false ? ' <span class="tag wa">Nivel del azar</span>' : '';
+  if(e.is.n<10||e.oos.n<5) return '<span class="tag wa">Pocas ops.</span>'+nz;
+  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>'+nz;
+  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>'+nz;
+  return '<span class="tag ko">No rentable</span>'+nz;
 }
 const isRobust=e=>e.is.n>=10 && e.oos.n>=5 && e.is.total>0 && e.oos.total>0 && e.oos.pf>1;
-function setBusy(b){ ['run','optAll','optOne'].forEach(id=>$(id).disabled=b); }
+function setBusy(b){ ['run','optAll','optOne','discover','improveBtn'].forEach(id=>$(id).disabled=b); }
 function setStatus(t,err){ $('status').textContent=t; $('status').className='status'+(err?' err':''); }
 function setBar(f){ $('bar').style.width=(100*f)+'%'; }
 
@@ -740,7 +1383,7 @@ async function optimize(keys){
     for(const [i,key] of keys.entries()){
       setStatus(`Optimizando ${i+1}/${keys.length}: ${STRATS[key].name}…`); await sleep(0);
       const {best,rows}=optimizeStrategy(d,p,key);
-      best.color=COLORS[Object.keys(STRATS).indexOf(key)%COLORS.length];
+      best.color=COLORS[Math.max(0,BASE_KEYS().indexOf(key))%COLORS.length];
       optBest.push(best); optRows.push(...rows);
       stratVals[key]={...best.q};
       setBar((i+1)/keys.length);
@@ -761,12 +1404,13 @@ async function optimize(keys){
   finally{ setBusy(false); }
 }
 
-function renderCompare(d,p){
+function renderCompare(d,p,opts={}){
   cmpCharts.forEach(c=>c.remove()); cmpCharts=[]; cmpSeries={};
   const n=d.c.length, si=splitIdx(d,p), start=Math.min(...optBest.map(e=>e.r.start));
   const bhIS=bh(d,start,si-1), bhOOS=bh(d,si,n-1), bhAll=bh(d,start,n-1);
   const rows=[...optBest].sort(byBest);
 
+  $('cmpTitle').textContent=opts.title||'Estrategias clásicas optimizadas';
   // Resumen
   const robust=rows.filter(isRobust), beatBH=robust.filter(e=>e.oos.total>bhOOS);
   const validAll=optRows.filter(e=>e.is.n>=10&&e.oos.n>=5), isWin=validAll.filter(e=>e.is.total>0), bothAll=isWin.filter(isRobust);
@@ -777,15 +1421,17 @@ function renderCompare(d,p){
       : `❌ <b>Ninguna</b> de las ${rows.length} estrategias optimizadas sigue ganando fuera de muestra en ${p.symbol} ${p.interval}. Prueba otra temporalidad o par.`)+
     (robust.length ? `<br>${beatBH.length ? `📈 ${beatBH.length} de ellas superan a comprar y mantener fuera de muestra (${pct(bhOOS,1)}).` : `ℹ️ Ninguna supera a comprar y mantener fuera de muestra (${pct(bhOOS,1)}), aunque están mucho menos tiempo expuestas.`}` : '')+
     `<br><span class="note">De ${optRows.length} combinaciones probadas, ${isWin.length} ganaban en muestra y solo ${bothAll.length} siguieron ganando fuera. Por eso no basta con mirar el mejor resultado.</span>`;
+  if(opts.summary) $('summary').innerHTML=opts.summary(robust,beatBH,bhOOS);
 
   // Tabla de mejores
-  $('cmpTable').innerHTML=`<tr><th class="l">Estrategia</th><th class="l">Parámetros óptimos</th><th class="l">Salidas óptimas</th><th>Ops.</th><th>En muestra</th><th>Fuera de muestra</th><th>PF fuera</th><th>% gan.</th><th>Drawdown</th><th>Exposición</th><th class="l">Resultado</th><th></th></tr>`+
-    rows.map(e=>`<tr><td class="l"><span class="dot" style="background:${e.color}"></span> ${STRATS[e.key].name}</td><td class="l">${qText(e.key,e.q)}</td><td class="l">${exitText(e.p,e.key)}</td>
+  $('cmpTable').innerHTML=`<tr><th class="l">Estrategia</th><th class="l">Regla / parámetros</th><th class="l">Salidas</th><th>Ops.</th><th>En muestra</th><th>Fuera de muestra</th><th>PF fuera</th><th>% gan.</th><th>Drawdown</th><th>Exposición</th><th class="l">Resultado</th><th></th></tr>`+
+    rows.map(e=>`<tr><td class="l"><span class="dot" style="background:${e.color}"></span> ${STRATS[e.key].name}</td><td class="l" style="white-space:normal;min-width:260px">${qText(e.key,e.q)}</td><td class="l">${exitText(e.p,e.key)}</td>
       <td>${e.all.n}</td><td class="${cls(e.is.total)}">${pct(e.is.total,1)}</td><td class="${cls(e.oos.total)}"><b>${pct(e.oos.total,1)}</b></td><td>${pf(e.oos.pf)}</td>
       <td>${pct(e.all.win,0)}</td><td class="neg">${pct(e.all.maxDD,1)}</td><td>${pct(e.r.exposure,0)}</td>
-      <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-k="${e.key}">Ver</button></td></tr>`).join('')+
+      <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-k="${e.key}">Ver</button> <button class="mini sec" data-m="${e.key}" title="Probar filtros y salidas paso a paso">🔧 Mejorar</button></td></tr>`).join('')+
     `<tr><td class="l"><span class="dot" style="background:#8a96ad"></span> Comprar y mantener</td><td class="l">—</td><td class="l">—</td><td>1</td><td class="${cls(bhIS)}">${pct(bhIS,1)}</td><td class="${cls(bhOOS)}"><b>${pct(bhOOS,1)}</b></td><td>—</td><td>—</td><td>—</td><td>100 %</td><td></td><td></td></tr>`;
   $('cmpTable').querySelectorAll('button[data-k]').forEach(b=>b.addEventListener('click',()=>loadCombo(optBest.find(e=>e.key===b.dataset.k))));
+  $('cmpTable').querySelectorAll('button[data-m]').forEach(b=>b.addEventListener('click',()=>improveUI(optBest.find(e=>e.key===b.dataset.m))));
 
   // Todas las combinaciones
   $('allSummary').textContent=`Ver las ${optRows.length} combinaciones probadas`;
@@ -808,6 +1454,12 @@ function renderCompare(d,p){
   ch.timeScale().fitContent();
   $('cmpLegend').innerHTML=optBest.map(e=>`<span data-k="${e.key}"><i style="background:${e.color}"></i>${STRATS[e.key].name}</span>`).join('')+
     `<span data-k="bh"><i style="background:#8a96ad"></i>Comprar y mantener</span>`;
+  // Visibles de inicio: las que aguantan fuera de muestra (o las 5 mejores si son menos de 3)
+  let vis=new Set(optBest.filter(isRobust).map(e=>e.key));
+  if(vis.size<3) vis=new Set([...optBest].sort(byBest).slice(0,5).map(e=>e.key));
+  $('cmpLegend').querySelectorAll('span').forEach(sp=>{
+    if(sp.dataset.k!=='bh' && !vis.has(sp.dataset.k)){ sp.classList.add('off'); cmpSeries[sp.dataset.k].applyOptions({visible:false}); }
+  });
   $('cmpLegend').querySelectorAll('span').forEach(sp=>sp.addEventListener('click',()=>{
     const off=sp.classList.toggle('off'); cmpSeries[sp.dataset.k].applyOptions({visible:!off});
   }));
@@ -826,6 +1478,100 @@ function renderCompare(d,p){
     s.setMarkers([{time:ts(d.t[si]),position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:''}]);
     mc.timeScale().fitContent();
   }
+}
+
+// ================= Descubrir (UI) =================
+async function discoverUI(){
+  const p=readParams(); readStratParams(); saveAll(); setBusy(true); setBar(0);
+  try{
+    const d=await getData(p), si=splitIdx(d,p), n=d.c.length;
+    const [pop,gens]={rapida:[40,12],normal:[60,25],profunda:[100,40]}[$('dIntens').value]||[60,25];
+    const seed=+$('dSeed').value||1, K=Math.min(20,Math.max(3,+$('dCount').value||8)), doNoise=$('dNoise').checked, parts=doNoise?2:1;
+    const opt={pop,gens,seed,interval:p.interval,minTr:15};
+    const res=await discover(d,p,opt,async(f,cnt)=>{ setBar(f/parts); setStatus(`🧬 Evolucionando… generación ${Math.round(f*gens)}/${gens} · ${cnt} reglas probadas`); await sleep(0); });
+    let nb=null;
+    if(doNoise){
+      const dn=makeNoise(d,si,rng32(seed*7919+13));
+      const nr=await discover(dn,{...p,split:100},{...opt,seed:seed+1000},async f=>{ setBar((1+f)/2); setStatus(`🎲 Prueba de azar: la misma búsqueda en datos barajados… ${Math.round(f*gens)}/${gens}`); await sleep(0); });
+      nb=nr.archive.filter(a=>isFinite(a.fit)).sort((a,b)=>b.fit-a.fit)[0]||null;
+    }
+    setStatus('Comprobando fuera de muestra…'); await sleep(0);
+    const ranked=res.archive.filter(a=>isFinite(a.fit)).sort((a,b)=>b.fit-a.fit);
+    if(!ranked.length) throw new Error('No apareció ninguna regla con suficientes operaciones. Carga más velas o usa una temporalidad más corta.');
+    const top=ranked.slice(0,150).map(a=>finalEval(d,p,a.g)), topRob=top.filter(isRobust).length;
+    const picks=pickDistinct(res.archive,K);
+    clearGens('disc');
+    optBest=picks.map((a,i)=>{
+      const f=finalEval(d,p,a.g), key=registerGen(a.g,`Descubierta ${i+1}`,'disc'); delete f.sig;
+      return {...f,key,q:{},color:COLORS[i%COLORS.length],noise: nb ? a.fit>nb.fit : undefined};
+    });
+    optRows=optBest; saveGens(); fillStrategySelect();
+    const above=optBest.filter(e=>e.noise===true).length, both=optBest.filter(e=>e.noise!==false && isRobust(e));
+    $('cmpPanel').classList.remove('hidden');
+    renderCompare(d,p,{title:`Estrategias descubiertas · ${p.symbol} ${p.interval}`, summary:(robust,beatBH,bhOOS)=>
+      `🧬 Probadas <b>${res.evals}</b> reglas distintas en ${gens} generaciones. Las ${K} que ves son las mejores en muestra que además <b>operan de forma diferente</b> entre sí.<br>`+
+      `Buscadas con datos del ${fmtDate(d.t[0])} al ${fmtDate(d.t[si-1])} y comprobadas del ${fmtDate(d.t[si])} al ${fmtDate(d.t[n-1])}.<br>`+
+      (robust.length ? `✅ <b>${robust.length} de ${optBest.length}</b> siguen ganando fuera de muestra.` : `❌ <b>Ninguna</b> sigue ganando fuera de muestra en ${p.symbol} ${p.interval}.`)+
+      (robust.length ? (beatBH.length ? ` 📈 ${beatBH.length} superan a comprar y mantener fuera de muestra (${pct(bhOOS,1)}).` : ` Ninguna supera a comprar y mantener fuera de muestra (${pct(bhOOS,1)}).`) : '')+
+      (nb ? `<br>🎲 <b>Prueba de azar:</b> con las mismas velas barajadas (mismas subidas y bajadas en otro orden, sin ningún patrón real), la búsqueda llegó a <b>${pct(nb.s.total,0)}</b> en muestra. <b>${above} de ${optBest.length}</b> descubiertas superan ese listón${above<optBest.length?'; las demás podrían ser casualidad':''}.`+
+            (both.length?` Las más serias (superan al azar y aguantan fuera): <b>${both.filter(e=>e.noise===true).map(e=>STRATS[e.key].name).join(', ')||'ninguna'}</b>.`:'') : '')+
+      `<br><span class="note">De las 150 mejores reglas en muestra, ${topRob} siguieron ganando fuera de muestra. Pulsa 🔧 Mejorar en cualquiera para seguir afinándola. Cambia la semilla para otra búsqueda distinta.</span>`});
+    setBar(1);
+    setStatus(`Descubrimiento terminado · ${res.evals} reglas probadas${nb?' + prueba de azar':''}`);
+    $('cmpPanel').scrollIntoView({behavior:'smooth'});
+  }catch(e){ setStatus(e.message,true); console.error(e); }
+  finally{ setBusy(false); }
+}
+
+// ================= Mejora paso a paso (UI) =================
+let lastImp=null;
+async function improveUI(src){
+  const p=readParams(); readStratParams(); saveAll(); setBusy(true); setBar(0);
+  try{
+    const d=await getData(p);
+    let g0, name;
+    if(src){ g0=toGenome(src); name=STRATS[src.key].name; }
+    else{
+      const key=$('strategy').value; name=STRATS[key].name;
+      if(STRATS[key].genome) g0={...cloneG(STRATS[key].genome)};
+      else{ setStatus(`Optimizando ${name} como punto de partida…`); await sleep(0); g0=toGenome(optimizeStrategy(d,p,key).best); }
+    }
+    name=name.replace(/ · paso \d+$/,'').replace(/ mejorada$/,'');
+    $('impPanel').classList.remove('hidden'); $('impPanel').scrollIntoView({behavior:'smooth'});
+    const res=await improve(d,p,g0,{maxSteps:8,interval:p.interval,minTr:15,consistent:$('iSafe').checked},async(steps,f)=>{
+      setBar(f); setStatus(`🔧 Paso ${steps.length-1}: ${steps.at(-1).desc}`);
+      lastImp={d,p,steps,name}; renderImprove(false); await sleep(0);
+    });
+    clearGens('imp');
+    lastImp={d,p,steps:res.steps,name,tested:res.tested};
+    renderImprove(true);
+    setBar(1); setStatus(`Mejora terminada: ${res.steps.length-1} cambios aceptados de ${res.tested} probados.`);
+  }catch(e){ setStatus(e.message,true); console.error(e); }
+  finally{ setBusy(false); }
+}
+function renderImprove(done){
+  const {steps,name,tested}=lastImp, a=steps[0].full, b=steps.at(-1).full;
+  $('impTitle').textContent=`Mejora paso a paso · ${name}`;
+  $('impTable').innerHTML=`<tr><th>Paso</th><th class="l">Cambio aceptado</th><th>Ops. muestra</th><th>En muestra</th><th>Ops. fuera</th><th>Fuera de muestra</th><th>PF fuera</th><th class="l">Resultado</th><th></th></tr>`+
+    steps.map((s,i)=>{ const f=s.full, warn=i>0 && f.oos.total<steps[i-1].full.oos.total ? ' ⚠️' : '';
+      return `<tr><td>${i}</td><td class="l" style="white-space:normal;min-width:260px">${s.desc}</td><td>${f.is.n}</td><td class="${cls(f.is.total)}">${pct(f.is.total,1)}</td>
+        <td>${f.oos.n}</td><td class="${cls(f.oos.total)}"><b>${pct(f.oos.total,1)}</b>${warn}</td><td>${pf(f.oos.pf)}</td><td class="l">${verdictTag(f)}</td>
+        <td>${done?`<button class="mini sec" data-s="${i}">Ver</button>`:''}</td></tr>`; }).join('');
+  $('impRule').textContent='Versión final: '+ruleText(steps.at(-1).g)+' Salidas: '+exitText(b.p,'x');
+  let msg;
+  if(steps.length===1) msg = done ? `No se encontró ningún cambio que mejore más de un 1 % en muestra${$('iSafe').checked?' en las dos mitades del tramo de búsqueda':''} sin quedarse con menos de la mitad de las operaciones. Con estas piezas, la estrategia ya está en su mejor versión.` : 'Probando cambios…';
+  else{
+    msg=`Se aceptaron <b>${steps.length-1}</b> cambios${tested?` de ${tested} probados`:''}. En muestra: ${pct(a.is.total,1)} → <b>${pct(b.is.total,1)}</b>. Fuera de muestra: ${pct(a.oos.total,1)} → <b>${pct(b.oos.total,1)}</b>.<br>`;
+    if(done) msg += b.oos.total>a.oos.total && b.oos.total>0
+      ? '✅ Las mejoras también se notan con datos que no se usaron para buscarlas. Buena señal; pruébala en otro par o temporalidad antes de fiarte.'
+      : '❌ Las mejoras no se confirman fuera de muestra: casi seguro es sobreajuste. Quédate con el punto de partida o con los pasos sin ⚠️.';
+  }
+  $('impSummary').innerHTML=msg;
+  if(done) $('impTable').querySelectorAll('button[data-s]').forEach(bt=>bt.addEventListener('click',()=>{
+    const i=+bt.dataset.s, s=lastImp.steps[i];
+    if(!s.key){ s.key=registerGen(s.g, i===steps.length-1&&i>0 ? `${name} mejorada` : `${name} · paso ${i}`,'imp'); saveGens(); fillStrategySelect(); }
+    loadCombo({key:s.key,q:{},p:s.full.p});
+  }));
 }
 
 function renderAll(){
@@ -882,11 +1628,13 @@ function render(d,p,key,q,sig,r){
   $('verdict').innerHTML=msgs.join('<br>')||'Sin observaciones.';
 
   lastTrades=r.trades; lastData=d;
-  $('tradesTable').innerHTML='<tr><th>#</th><th>Entrada</th><th>Precio</th><th>Salida</th><th>Precio</th><th>Velas</th><th class="l">Motivo</th><th>Resultado</th></tr>'+
-    r.trades.map((t,i)=>`<tr><td>${i+1}${t.entryIdx>=si?' <span class="note">OOS</span>':''}</td><td>${fmtDate(d.t[t.entryIdx])}</td><td>${fmtPx(t.entry)}</td><td>${fmtDate(d.t[t.exitIdx])}</td><td>${fmtPx(t.exit)}</td><td>${t.bars}</td><td class="l">${t.reason}</td><td class="${cls(t.ret)}">${pct(t.ret)}</td></tr>`).reverse().join('');
+  $('tradesTable').innerHTML='<tr><th>#</th><th>Entrada</th><th>Precio</th><th>Salida</th><th>Precio</th><th>Velas</th><th>Tamaño</th><th class="l">Motivo</th><th>Resultado</th></tr>'+
+    r.trades.map((t,i)=>`<tr><td>${i+1}${t.entryIdx>=si?' <span class="note">OOS</span>':''}</td><td>${fmtDate(d.t[t.entryIdx])}</td><td>${fmtPx(t.entry)}</td><td>${fmtDate(d.t[t.exitIdx])}</td><td>${fmtPx(t.exit)}</td><td>${t.bars}</td><td>${pct(t.frac,0)}</td><td class="l">${t.reason}</td><td class="${cls(t.ret)}">${pct(t.ret)}</td></tr>`).reverse().join('');
   $('csv').disabled=!r.trades.length;
 
   const s0=STRATS[key].params[0];
+  $('sensTitle').closest('section').classList.toggle('hidden',!s0);
+  if(s0){
   $('sensTitle').textContent=`Sensibilidad a "${s0.l}"`;
   const vals=[...new Set([...s0.grid,q[s0.k]])].sort((a,b)=>a-b);
   $('sensTable').innerHTML=`<tr><th>${s0.l}</th><th>Operaciones</th><th>Rentab. total</th><th>En muestra</th><th>Fuera de muestra</th><th>Profit factor</th><th>Drawdown</th></tr>`+
@@ -896,6 +1644,7 @@ function render(d,p,key,q,sig,r){
       const e=evalCombo(d,p,key,qq), cur=v===q[s0.k];
       return `<tr class="${cur?'sel':''}"><td>${v}${cur?' ◀':''}</td><td>${e.all.n}</td><td class="${cls(e.all.total)}">${pct(e.all.total)}</td><td class="${cls(e.is.total)}">${pct(e.is.total)}</td><td class="${cls(e.oos.total)}">${pct(e.oos.total)}</td><td>${pf(e.all.pf)}</td><td class="neg">${pct(e.all.maxDD)}</td></tr>`;
     }).join('');
+  }
 
   drawCharts(d,r,sig,si);
 }
@@ -905,7 +1654,7 @@ function chartOpts(el){
     layout:{background:{color:'#121826'},textColor:'#8a96ad'},
     grid:{vertLines:{color:'#1b2336'},horzLines:{color:'#1b2336'}},
     timeScale:{timeVisible:true,borderColor:'#253049'},rightPriceScale:{borderColor:'#253049'},
-    crosshair:{mode:0}};
+    crosshair:{mode:0}, localization:{locale:'es-ES'}};
 }
 function drawCharts(d,r,sig,si){
   if(typeof LightweightCharts==='undefined'){ $('priceChart').innerHTML='<p class="note">No se pudo cargar la librería de gráficos.</p>'; return; }
@@ -960,8 +1709,8 @@ async function run(){
 
 function exportCSV(){
   const p=readParams(), d=lastData;
-  const rows=[['n','entrada_fecha','entrada_precio','salida_fecha','salida_precio','velas','motivo','resultado_pct']];
-  lastTrades.forEach((t,i)=>rows.push([i+1,new Date(d.t[t.entryIdx]).toISOString(),t.entry,new Date(d.t[t.exitIdx]).toISOString(),t.exit,t.bars,t.reason,(t.ret*100).toFixed(4)]));
+  const rows=[['n','entrada_fecha','entrada_precio','salida_fecha','salida_precio','velas','tamano_pct','motivo','resultado_pct']];
+  lastTrades.forEach((t,i)=>rows.push([i+1,new Date(d.t[t.entryIdx]).toISOString(),t.entry,new Date(d.t[t.exitIdx]).toISOString(),t.exit,t.bars,(t.frac*100).toFixed(1),t.reason,(t.ret*100).toFixed(4)]));
   const blob=new Blob([rows.map(r=>r.join(';')).join('\n')],{type:'text/csv'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download=`atalaya_${p.symbol}_${p.interval}_${$('strategy').value}.csv`; a.click();
@@ -969,7 +1718,9 @@ function exportCSV(){
 
 loadAll();
 $('strategy').addEventListener('change',()=>{ renderStratParams(); saveAll(); });
-$('optAll').addEventListener('click',()=>optimize(Object.keys(STRATS)));
+$('optAll').addEventListener('click',()=>optimize(BASE_KEYS()));
+$('discover').addEventListener('click',discoverUI);
+$('improveBtn').addEventListener('click',()=>improveUI(null));
 $('optOne').addEventListener('click',()=>optimize([$('strategy').value]));
 $('run').addEventListener('click',run);
 $('csv').addEventListener('click',exportCSV);
