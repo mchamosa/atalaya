@@ -4,14 +4,14 @@
   "stocks": {
    "value": 20,
    "label": "Miedo extremo",
-   "prev_week": 30,
-   "prev_month": 35
+   "prev_week": 22,
+   "prev_month": 33
   },
   "crypto": {
-   "value": 68,
-   "label": "Codicia",
-   "prev_week": 53,
-   "prev_month": 78
+   "value": 50,
+   "label": "Neutral",
+   "prev_week": 63,
+   "prev_month": 71
   }
  },
  "assets": [
@@ -19,92 +19,92 @@
    "symbol": "GC=F",
    "name": "Oro",
    "group": "Materias primas",
-   "price": 4045.0,
-   "chg1d": -2.53,
-   "chg5d": -3.0,
-   "chg1m": -5.89,
-   "rsi": 33.1,
+   "price": 4038.0,
+   "chg1d": -0.55,
+   "chg5d": -3.42,
+   "chg1m": -6.55,
+   "rsi": 32.6,
    "above_sma50": false,
    "above_sma200": false,
-   "bias": -93
+   "bias": -95
   },
   {
    "symbol": "SI=F",
    "name": "Plata",
    "group": "Materias primas",
-   "price": 54.68,
-   "chg1d": -4.78,
-   "chg5d": -3.8,
-   "chg1m": -13.83,
-   "rsi": 31.7,
+   "price": 53.85,
+   "chg1d": -1.66,
+   "chg5d": -5.51,
+   "chg1m": -16.17,
+   "rsi": 30.0,
    "above_sma50": false,
    "above_sma200": false,
-   "bias": -98
+   "bias": -100
   },
   {
    "symbol": "CL=F",
    "name": "Petróleo WTI",
    "group": "Materias primas",
-   "price": 99.04,
-   "chg1d": 1.95,
-   "chg5d": 1.09,
-   "chg1m": 4.68,
-   "rsi": 57.2,
+   "price": 101.14,
+   "chg1d": 1.68,
+   "chg5d": -0.27,
+   "chg1m": 9.45,
+   "rsi": 60.3,
    "above_sma50": true,
    "above_sma200": true,
-   "bias": 69
+   "bias": 71
   },
   {
    "symbol": "EURUSD=X",
    "name": "EUR/USD",
    "group": "Divisas",
-   "price": 1.1225,
-   "chg1d": -0.02,
-   "chg5d": 0.26,
-   "chg1m": -1.38,
-   "rsi": 35.7,
+   "price": 1.1201,
+   "chg1d": -0.3,
+   "chg5d": -0.11,
+   "chg1m": -1.53,
+   "rsi": 33.6,
    "above_sma50": false,
    "above_sma200": false,
-   "bias": -64
+   "bias": -69
   },
   {
    "symbol": "GBPUSD=X",
    "name": "GBP/USD",
    "group": "Divisas",
-   "price": 1.3404,
-   "chg1d": 0.23,
-   "chg5d": 1.31,
-   "chg1m": 1.22,
-   "rsi": 58.8,
+   "price": 1.3378,
+   "chg1d": -0.13,
+   "chg5d": 0.79,
+   "chg1m": 1.27,
+   "rsi": 56.1,
    "above_sma50": false,
    "above_sma200": false,
-   "bias": -25
+   "bias": -31
   },
   {
    "symbol": "USDJPY=X",
    "name": "USD/JPY",
    "group": "Divisas",
    "price": 156.62,
-   "chg1d": -1.04,
-   "chg5d": -0.85,
-   "chg1m": -1.04,
-   "rsi": 41.0,
+   "chg1d": -0.96,
+   "chg5d": -0.96,
+   "chg1m": -1.38,
+   "rsi": 40.3,
    "above_sma50": false,
    "above_sma200": false,
-   "bias": -63
+   "bias": -65
   },
   {
    "symbol": "DX-Y.NYB",
    "name": "Índice dólar",
    "group": "Divisas",
-   "price": 101.62,
-   "chg1d": -0.16,
-   "chg5d": -0.38,
-   "chg1m": 0.32,
-   "rsi": 52.1,
+   "price": 101.73,
+   "chg1d": 0.12,
+   "chg5d": -0.11,
+   "chg1m": 0.75,
+   "rsi": 53.7,
    "above_sma50": true,
    "above_sma200": true,
-   "bias": 46
+   "bias": 51
   },
   {
    "symbol": "^GSPC",
@@ -136,27 +136,27 @@
    "symbol": "^GDAXI",
    "name": "DAX",
    "group": "Índices",
-   "price": 25645.04,
-   "chg1d": 1.35,
-   "chg5d": 1.37,
-   "chg1m": 0.92,
-   "rsi": 55.3,
+   "price": 25155.48,
+   "chg1d": -0.85,
+   "chg5d": -1.82,
+   "chg1m": -1.0,
+   "rsi": 45.2,
    "above_sma50": false,
    "above_sma200": true,
-   "bias": 20
+   "bias": -12
   },
   {
    "symbol": "^IBEX",
    "name": "IBEX 35",
    "group": "Índices",
-   "price": 19323.5,
-   "chg1d": 1.21,
-   "chg5d": 0.48,
-   "chg1m": -1.57,
-   "rsi": 49.2,
+   "price": 18863.8,
+   "chg1d": -0.26,
+   "chg5d": -2.39,
+   "chg1m": -4.25,
+   "rsi": 39.7,
    "above_sma50": false,
    "above_sma200": true,
-   "bias": 3
+   "bias": -28
   },
   {
    "symbol": "^TNX",
@@ -175,29 +175,29 @@
    "symbol": "^VIX",
    "name": "VIX",
    "group": "Volatilidad",
-   "price": 19.03,
-   "chg1d": 14.09,
-   "chg5d": 15.61,
-   "chg1m": 21.44,
-   "rsi": 60.1,
+   "price": 19.56,
+   "chg1d": 2.79,
+   "chg5d": -2.15,
+   "chg1m": 31.54,
+   "rsi": 61.7,
    "above_sma50": true,
    "above_sma200": true,
-   "bias": 88
+   "bias": 64
   },
   {
    "symbol": "BTC-USD",
    "name": "Bitcoin",
    "group": "Cripto",
-   "price": 81302.17,
-   "chg1d": -3.23,
-   "chg5d": -0.1,
-   "chg1m": -3.78,
-   "rsi": 46.0,
+   "price": 81521.38,
+   "chg1d": 0.26,
+   "chg5d": -0.61,
+   "chg1m": -3.82,
+   "rsi": 46.8,
    "above_sma50": false,
    "above_sma200": true,
-   "bias": -8
+   "bias": -10
   }
  ],
- "updated": "2026-10-22T22:40:05+00:00",
+ "updated": "2026-10-23T09:55:04+00:00",
  "sample": false
 }
