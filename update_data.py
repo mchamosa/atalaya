@@ -9,6 +9,7 @@ Descarga de fuentes gratuitas (sin API key) y guarda JSON en /data:
   - ath.json        todas las acciones de EE. UU. y grandes europeas en ruptura de máximos
                     históricos (se ejecuta aparte: python scripts/update_data.py --ath [--refresh])
   - stocks.json     acciones a vigilar: PER, analistas, momento y noticias (cada 6 h)
+  - valuation.json  valoración fundamental: estados financieros, previsiones y acciones (1 vez al día)
   - indicators.json indicadores clave (NFP, paro, IPC, PCE, PIB, ISM, tipos...) con histórico
 
 Cada fuente es independiente: si una falla, se conserva el último JSON bueno.
@@ -1141,6 +1142,185 @@ def update_ath(refresh: bool = False) -> None:
                       "filters": {"us_min_price": US_MIN_PRICE, "us_min_dollar_vol": US_MIN_DOLLAR_VOL},
                       "breadth": breadth, "stocks": rows})
 
+# --------------------------------------------------------------------------
+# 7. Valoración fundamental (página valoracion.html)
+#    Para cada acción de STOCKS guarda los estados financieros anuales (cuenta
+#    de resultados, flujos de caja y balance), las previsiones de ingresos y
+#    BPA de los analistas, las acciones en circulación y el precio al cierre de
+#    cada ejercicio. Los modelos (DCF, DCF inverso, escenarios a 5 años) se
+#    calculan en la página para poder cambiar los supuestos.
+#    Se recalcula como mucho una vez al día.
+# --------------------------------------------------------------------------
+VAL_MAX_AGE_H = 20
+
+_ROWS = {
+    "revenue":    ["Total Revenue", "Operating Revenue"],
+    "net_income": ["Net Income Common Stockholders", "Net Income"],
+    "eps":        ["Diluted EPS", "Basic EPS"],
+    "shares":     ["Diluted Average Shares", "Basic Average Shares"],
+    "ebitda":     ["EBITDA", "Normalized EBITDA"],
+    "op_income":  ["Operating Income", "EBIT"],
+    "ocf":        ["Operating Cash Flow", "Cash Flow From Continuing Operating Activities"],
+    "capex":      ["Capital Expenditure"],
+    "fcf":        ["Free Cash Flow"],
+    "sbc":        ["Stock Based Compensation"],
+    "buyback":    ["Repurchase Of Capital Stock", "Common Stock Payments"],
+    "dividends":  ["Cash Dividends Paid", "Common Stock Dividend Paid"],
+    "debt":       ["Total Debt"],
+    "cash":       ["Cash Cash Equivalents And Short Term Investments", "Cash And Cash Equivalents"],
+    "equity":     ["Stockholders Equity", "Common Stock Equity"],
+    "shares_out": ["Ordinary Shares Number", "Share Issued"],
+}
+
+
+def _stmt_value(df, key, col):
+    if df is None or getattr(df, "empty", True) or col not in df.columns:
+        return None
+    for name in _ROWS[key]:
+        if name in df.index:
+            v = _num(df.at[name, col])
+            if v is not None:
+                return v
+    return None
+
+
+def _estimates(df) -> dict:
+    """Tabla de previsiones de yfinance (0q, +1q, 0y, +1y) a dict sencillo."""
+    out = {}
+    if df is None or getattr(df, "empty", True):
+        return out
+    for per in ("0y", "+1y"):
+        if per not in df.index:
+            continue
+        r = df.loc[per]
+        out[per] = {k: _num(r.get(k)) for k in ("avg", "low", "high", "growth", "numberOfAnalysts",
+                                                "yearAgoRevenue", "yearAgoEps") if k in r.index}
+    return out
+
+
+def _price_at(monthly, when):
+    """Cierre mensual más cercano anterior o igual a la fecha indicada."""
+    if monthly is None or monthly.empty:
+        return None
+    try:
+        import pandas as pd
+        s = monthly.copy()
+        if s.index.tz is not None:
+            s.index = s.index.tz_localize(None)
+        ts = pd.Timestamp(when)
+        if ts.tz is not None:
+            ts = ts.tz_localize(None)
+        s = s[s.index <= ts]
+        return _num(s.iloc[-1]) if len(s) else None
+    except Exception:
+        return None
+
+
+def _valuation_one(sym: str, market: str) -> dict | None:
+    import yfinance as yf
+    tk = yf.Ticker(sym)
+    try:
+        info = tk.info or {}
+    except Exception:
+        info = {}
+    price = _num(info.get("currentPrice") or info.get("regularMarketPrice") or info.get("previousClose"))
+    if not price:
+        return None
+
+    def g(k):
+        return _num(info.get(k))
+
+    stmts = {}
+    for name, attr in (("inc", "income_stmt"), ("cf", "cashflow"), ("bs", "balance_sheet")):
+        try:
+            stmts[name] = getattr(tk, attr)
+        except Exception:
+            stmts[name] = None
+    try:
+        monthly = tk.history(period="6y", interval="1mo", auto_adjust=False)["Close"].dropna()
+    except Exception:
+        monthly = None
+
+    inc = stmts["inc"]
+    years = []
+    cols = list(inc.columns) if inc is not None and not inc.empty else []
+    for col in sorted(cols):
+        y = {"year": int(col.year), "end": str(col)[:10]}
+        for key in ("revenue", "net_income", "eps", "shares", "ebitda", "op_income"):
+            y[key] = _stmt_value(inc, key, col)
+        for key in ("ocf", "capex", "fcf", "sbc", "buyback", "dividends"):
+            y[key] = _stmt_value(stmts["cf"], key, col)
+        for key in ("debt", "cash", "equity", "shares_out"):
+            y[key] = _stmt_value(stmts["bs"], key, col)
+        if y["fcf"] is None and y["ocf"] is not None and y["capex"] is not None:
+            y["fcf"] = y["ocf"] + y["capex"]          # el capex viene en negativo
+        y["price"] = _price_at(monthly, col)
+        if y["revenue"] is None and y["net_income"] is None:
+            continue
+        years.append(y)
+
+    try:
+        rev_est = _estimates(tk.revenue_estimate)
+    except Exception:
+        rev_est = {}
+    try:
+        eps_est = _estimates(tk.earnings_estimate)
+    except Exception:
+        eps_est = {}
+
+    return {
+        "symbol": sym, "market": market,
+        "name": info.get("shortName") or info.get("longName") or sym,
+        "sector": info.get("sector") or "", "industry": info.get("industry") or "",
+        "currency": info.get("currency") or "", "fin_currency": info.get("financialCurrency") or "",
+        "price": price, "mcap": g("marketCap"), "ev": g("enterpriseValue"),
+        "shares": g("sharesOutstanding") or g("impliedSharesOutstanding"), "float": g("floatShares"),
+        "beta": g("beta"), "cash": g("totalCash"), "debt": g("totalDebt"),
+        "div_rate": g("dividendRate"), "payout": g("payoutRatio"),
+        "pe": g("trailingPE"), "fpe": g("forwardPE"), "ps": g("priceToSalesTrailing12Months"),
+        "pb": g("priceToBook"), "ev_ebitda": g("enterpriseToEbitda"),
+        "roe": g("returnOnEquity"), "roa": g("returnOnAssets"),
+        "gross_m": g("grossMargins"), "op_m": g("operatingMargins"), "net_m": g("profitMargins"),
+        "rev_ttm": g("totalRevenue"), "ebitda_ttm": g("ebitda"), "fcf_ttm": g("freeCashflow"),
+        "ocf_ttm": g("operatingCashflow"), "eps_ttm": g("trailingEps"), "eps_fwd": g("forwardEps"),
+        "bvps": g("bookValue"), "rev_growth": g("revenueGrowth"), "eps_growth": g("earningsGrowth"),
+        "insiders": g("heldPercentInsiders"), "short_float": g("shortPercentOfFloat"),
+        "target_mean": g("targetMeanPrice"), "target_low": g("targetLowPrice"),
+        "target_high": g("targetHighPrice"), "analysts": info.get("numberOfAnalystOpinions") or 0,
+        "rec": g("recommendationMean"),
+        "est": {"rev": rev_est, "eps": eps_est},
+        "years": years,
+    }
+
+
+def update_valuation() -> None:
+    f = DATA / "valuation.json"
+    if f.exists():
+        try:
+            old = json.loads(f.read_text(encoding="utf-8"))
+            age = datetime.now(timezone.utc) - datetime.fromisoformat(old["updated"])
+            if age.total_seconds() < VAL_MAX_AGE_H * 3600:
+                print(f"  valoración al día (hace {age.total_seconds() / 3600:.1f} h), se omite")
+                return
+        except Exception:
+            pass
+    rows = []
+    for market, tickers in STOCKS.items():
+        for sym in tickers:
+            try:
+                r = _valuation_one(sym, market)
+                if r:
+                    rows.append(r)
+                    print(f"  {sym}: {len(r['years'])} ejercicios")
+            except Exception as e:
+                print(f"  aviso {sym}: {e}")
+            time.sleep(0.4)
+    if len(rows) < 5:
+        raise RuntimeError("sin datos de valoración")
+    save("valuation.json", {"source": "Yahoo Finance (estados financieros anuales, previsiones de analistas y cotización)",
+                            "stocks": rows})
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if "--ath" in args:                      # escáner de máximos, workflow propio
@@ -1149,7 +1329,8 @@ if __name__ == "__main__":
         sys.exit(0)
     failed = 0
     jobs = [("calendario", update_calendar), ("sentimiento", update_sentiment),
-            ("noticias", update_news), ("indicadores", update_indicators), ("acciones", update_stocks)]
+            ("noticias", update_news), ("indicadores", update_indicators), ("acciones", update_stocks),
+            ("valoración", update_valuation)]
     for name, fn in jobs:
         print(f"Actualizando {name}...")
         try:

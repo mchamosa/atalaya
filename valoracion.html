@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Valoración</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1320px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 10px;font-size:15px;color:var(--acc);font-weight:600}
+.panel h3{margin:16px 0 8px;font-size:13px;color:var(--txt);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.lead{font-size:13px;color:var(--mut);margin:0 0 12px}
+.lead b{color:var(--txt)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:10px}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mut)}
+label.chk{flex-direction:row;align-items:center;gap:6px;color:var(--txt);font-size:13px}
+input,select{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 8px;font-size:14px}
+input[type=checkbox]{margin:0}
+input:focus,select:focus{outline:1px solid var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--panel);z-index:1}
+th.s{cursor:pointer;user-select:none}
+th.s:hover{color:var(--txt)}
+th.on{color:var(--acc)}
+td:first-child,th:first-child,td.l,th.l{text-align:left}
+#tbl tbody tr{cursor:pointer}
+#tbl tbody tr:hover td,#tbl tbody tr.sel td{background:var(--panel2)}
+.scroll{max-height:560px;overflow:auto}
+.nm{font-weight:600}.nm small{display:block;color:var(--mut);font-weight:400;font-size:11px}
+.pos{color:var(--up)}.neg{color:var(--dn)}.mut{color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card .k{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.card .v{font-size:20px;font-weight:700;margin-top:2px}
+.card .b{font-size:12px;color:var(--mut);margin-top:2px}
+.card.hl{border-color:var(--acc)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.assume{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.assume input{width:100%}
+.sc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:700px){.sc{grid-template-columns:1fr}}
+.scbox{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.scbox h4{margin:0 0 8px;font-size:13px}
+.scbox .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scbox .res{margin-top:10px;font-size:13px}
+.scbox .res b{font-size:18px}
+.charts{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.ch{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.ch h4{margin:0 0 4px;font-size:12px;color:var(--mut);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.ch svg{width:100%;height:auto;display:block}
+.sig{list-style:none;padding:0;margin:0}
+.sig li{padding:7px 10px;border-left:3px solid var(--line);background:var(--panel2);margin-bottom:6px;border-radius:0 6px 6px 0;font-size:13px}
+.sig li.p{border-left-color:var(--up)}.sig li.n{border-left-color:var(--dn)}
+.how{color:var(--mut);font-size:12px;white-space:normal;text-align:left;max-width:520px}
+.note{color:var(--mut);font-size:12px;margin-top:8px}
+.warn{background:#422006;border:1px solid #854d0e;color:#fde68a;border-radius:8px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.hidden{display:none}
+.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.tag.ok{background:#14532d;color:#86efac}.tag.ko{background:#450a0a;color:#fca5a5}.tag.wa{background:#422006;color:#fcd34d}
+@media (max-width:600px){main{padding:10px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Valoración</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="patrones.html">Patrones</a><a href="valoracion.html" aria-current="page">Valoración</a></nav>
+</header>
+<main>
+
+<section class="panel">
+  <h2>Valoración fundamental desde el precio actual</h2>
+  <p class="lead">Para cada empresa se calcula cuánto vale con varios métodos independientes (flujos de caja descontados, PER frente a su propia historia, precio objetivo de los analistas y, en bancos, valor contable justificado), qué crecimiento está <b>descontando el precio de hoy</b> y qué rentabilidad anual cabría esperar a 5 años comprando ahora, en tres escenarios. Todo sale de las cuentas anuales reales, las previsiones de los analistas y la cotización. Pulsa una empresa para ver su ficha y cambiar los supuestos.</p>
+  <div id="state" class="note">Cargando datos…</div>
+  <div class="filters hidden" id="filters">
+    <label>Mercado<select id="fMarket"><option value="">Todos</option></select></label>
+    <label>Sector<select id="fSector"><option value="">Todos</option></select></label>
+    <label>Buscar<input id="fText" placeholder="Nombre o ticker"></label>
+  </div>
+  <div class="scroll hidden" id="tblWrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+  <p class="note">Valores calculados con los supuestos por defecto de cada empresa. Columna "Crec. que descuenta": crecimiento anual del flujo de caja libre durante 5 años que justifica el precio actual. "Rent. anual 5 años": rentabilidad anual (revalorización más dividendos) del escenario base comprando hoy.</p>
+</section>
+
+<section class="panel hidden" id="detail"></section>
+
+</main>
+
+<script>
+// ================= Utilidades =================
+const $=id=>document.getElementById(id);
+const N=x=>(x==null||x===''||!isFinite(x))?NaN:+x;
+const ok=x=>typeof x==='number'&&isFinite(x);
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+const mean=a=>{a=a.filter(ok);return a.length?a.reduce((s,x)=>s+x,0)/a.length:NaN;};
+const med=a=>{a=a.filter(ok).sort((x,y)=>x-y);if(!a.length)return NaN;const k=a.length>>1;return a.length%2?a[k]:(a[k-1]+a[k])/2;};
+const first=(...a)=>{for(const x of a) if(ok(x)) return x; return NaN;};
+const rnd=(x,s)=>+(Math.round(x/s)*s).toFixed(4);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nf=(x,d=1)=>ok(x)?x.toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d}):'–';
+const pc=(x,d=1)=>ok(x)?(x>0?'+':'')+nf(x*100,d)+' %':'–';
+const pcu=(x,d=1)=>ok(x)?nf(x*100,d)+' %':'–';
+const mx=(x,d=1)=>ok(x)&&x>0?nf(x,d):'–';
+const cls=x=>ok(x)?(x>0?'pos':x<0?'neg':''):'';
+const cur=s=>({USD:'$',EUR:'€',GBP:'£',CHF:'CHF',GBp:'p'}[s.currency]||s.currency||'');
+const px=(x,s)=>ok(x)?nf(x,x>=1000?0:2)+' '+cur(s):'–';
+function big(x){ if(!ok(x)) return '–'; const a=Math.abs(x);
+  if(a>=1e9) return nf(x/1e9,a>=1e11?0:1)+' mil M'; if(a>=1e6) return nf(x/1e6,0)+' M'; return nf(x,0); }
+const isFinSector=s=>/financial/i.test(s.sector||'');
+
+// ================= Preparación de cada empresa =================
+function prep(s){
+  const Y=(s.years||[]).slice().sort((a,b)=>a.year-b.year), L=Y[Y.length-1]||{};
+  const m={s,Y,L};
+  m.isFin=isFinSector(s);
+  m.cm=!!(s.fin_currency&&s.currency&&s.fin_currency!==s.currency&&!(s.currency==='GBp'&&s.fin_currency==='GBP'));
+  m.price=N(s.price);
+  m.sh=first(N(s.shares),N(L.shares_out),N(L.shares));
+  m.mcap=first(N(s.mcap),m.price*m.sh);
+  m.debt=first(N(s.debt),N(L.debt),0); m.cash=first(N(s.cash),N(L.cash),0);
+  m.fcf=first(N(s.fcf_ttm),N(L.fcf));
+  m.sbc=first(N(L.sbc),0);
+  const l3=Y.slice(-3);
+  m.fcf3=mean(l3.map(y=>N(y.fcf))); m.sbc3=mean(l3.map(y=>first(N(y.sbc),0)));
+  m.ebitda=first(N(s.ebitda_ttm),N(L.ebitda));
+  m.rev=first(N(s.rev_ttm),N(L.revenue));
+  m.epsT=first(N(s.eps_ttm),N(L.eps));
+  const er=(s.est||{}).rev||{}, ee=(s.est||{}).eps||{};
+  m.eps0=N(ee['0y']?.avg); m.eps1=N(ee['+1y']?.avg); m.rev0=N(er['0y']?.avg); m.rev1=N(er['+1y']?.avg);
+  m.revG0=N(er['0y']?.growth); m.revG1=first(N(er['+1y']?.growth), m.rev0>0&&m.rev1>0?m.rev1/m.rev0-1:NaN);
+  m.epsG1=first(N(ee['+1y']?.growth), m.eps0>0&&m.eps1>0?m.eps1/m.eps0-1:NaN);
+  const cagr=(key)=>{ const a=Y.filter(y=>N(y[key])>0); if(a.length<2) return NaN; const f=a[0], l=a[a.length-1]; return l.year>f.year?Math.pow(l[key]/f[key],1/(l.year-f.year))-1:NaN; };
+  m.revCagr=cagr('revenue'); m.epsCagr=cagr('eps');
+  const shs=Y.map(y=>({year:y.year,v:first(N(y.shares),N(y.shares_out))})).filter(x=>x.v>0);
+  m.shCagr=shs.length>=2&&shs[shs.length-1].year>shs[0].year?Math.pow(shs[shs.length-1].v/shs[0].v,1/(shs[shs.length-1].year-shs[0].year))-1:NaN;
+  // Múltiplos de cada ejercicio con el precio al cierre del ejercicio
+  m.H=Y.map(y=>{ const sy=first(N(y.shares_out),N(y.shares)), p=N(y.price), mc=p*sy;
+    return {year:y.year, pe:N(y.eps)>0?p/y.eps:NaN, pfcf:N(y.fcf)>0?mc/y.fcf:NaN, ps:N(y.revenue)>0?mc/y.revenue:NaN,
+      eve:N(y.ebitda)>0?(mc+first(N(y.debt),0)-first(N(y.cash),0))/y.ebitda:NaN, pb:N(y.equity)>0?mc/y.equity:NaN}; });
+  const hm=k=>m.H.map(h=>h[k]).filter(v=>ok(v)&&v>0&&v<300);
+  m.hist={pe:hm('pe'),pfcf:hm('pfcf'),ps:hm('ps'),eve:hm('eve'),pb:hm('pb')};
+  m.now={pe:m.epsT>0?m.price/m.epsT:NaN, fpe0:m.eps0>0?m.price/m.eps0:NaN, fpe1:m.eps1>0?m.price/m.eps1:NaN,
+    pfcf:m.fcf>0?m.mcap/m.fcf:NaN, ps:m.rev>0?m.mcap/m.rev:NaN,
+    eve:first(N(s.ev_ebitda), m.ebitda>0?(m.mcap+m.debt-m.cash)/m.ebitda:NaN), pb:N(s.pb)};
+  m.fcfY=m.fcf/m.mcap;
+  m.ndE=m.ebitda>0?(m.debt-m.cash)/m.ebitda:NaN;
+  m.divY=N(s.div_rate)>0?s.div_rate/m.price:0;
+  m.bbY=N(L.buyback)<0?-L.buyback/m.mcap:0;
+  m.payout=clamp(first(N(s.payout), m.divY&&m.epsT>0?s.div_rate/m.epsT:NaN, 0),0,1);
+  m.conv=mean(l3.map(y=>N(y.net_income)>0?N(y.fcf)/y.net_income:NaN));
+  m.sbcF=m.fcf>0?m.sbc/m.fcf:NaN;
+  // Supuestos por defecto
+  const beta=N(s.beta);
+  const d={};
+  d.r=rnd(clamp(0.045+(ok(beta)?clamp(beta,0.5,2):1)*0.05,0.07,0.12),0.005);
+  d.gT=0.025;
+  d.g=rnd(clamp(first(m.revG1,m.revG0,m.revCagr,0.04),-0.05,0.25),0.005);
+  d.exitPF=rnd(clamp(first(med(m.hist.pfcf),18),8,35),0.5);
+  d.sbcAdj=!m.isFin;
+  // Proyección: BPA si es positivo; si no, ventas por acción
+  m.byEps = first(m.eps0,m.epsT)>0;
+  m.base0 = m.byEps ? first(m.eps0>0?m.eps0:NaN, m.epsT) : m.rev/m.sh;
+  m.base1 = m.byEps ? (m.eps1>0?m.eps1:NaN) : (m.rev1>0?m.rev1/m.sh:NaN);
+  m.curMult = m.price/m.base0;
+  const gE=rnd(clamp(m.byEps?first(m.epsG1,m.revG1,m.epsCagr,0.05):first(m.revG1,m.revG0,m.revCagr,0.05),-0.05,0.25),0.005);
+  const exitM=rnd(clamp(first(med(m.byEps?m.hist.pe:m.hist.ps), m.curMult), m.byEps?6:0.3, m.byEps?45:25), m.byEps?0.5:0.1);
+  const lo=m.byEps?5:0.2, hi=m.byEps?55:30;
+  d.sc=[
+    {k:'Pesimista', g:rnd(gE-Math.max(0.04,Math.abs(gE)*0.5),0.005), mult:rnd(clamp(Math.min(exitM,m.curMult)*0.8,lo,hi),m.byEps?0.5:0.1)},
+    {k:'Base', g:gE, mult:exitM},
+    {k:'Optimista', g:rnd(gE+Math.max(0.04,Math.abs(gE)*0.4),0.005), mult:rnd(clamp(Math.max(exitM,m.curMult),lo,hi),m.byEps?0.5:0.1)},
+  ];
+  m.def=d;
+  return m;
+}
+
+// ================= Modelos =================
+function dcfValue(f0,g,gT,r,exit){
+  let f=f0, pv=0;
+  for(let t=1;t<=10;t++){ const gt=t<=5?g:g+(gT-g)*(t-5)/5; f*=1+gt; pv+=f/Math.pow(1+r,t); }
+  const tv = exit ? f*exit : (r>gT ? f*(1+gT)/(r-gT) : NaN);
+  return pv+tv/Math.pow(1+r,10);
+}
+function solveG(f0,gT,r,price){
+  const v=g=>dcfValue(f0,g,gT,r);
+  let lo=-0.3, hi=0.6;
+  if(v(hi)<price) return {g:hi,flag:'>'}; if(v(lo)>price) return {g:lo,flag:'<'};
+  for(let i=0;i<70;i++){ const mid=(lo+hi)/2; if(v(mid)<price) lo=mid; else hi=mid; }
+  return {g:(lo+hi)/2,flag:''};
+}
+function project(m,sc,gBase){
+  const rows=[{t:0,b:m.base0,mult:m.curMult,price:m.price,div:0,tot:0}];
+  let b=m.base0, cum=0;
+  for(let t=1;t<=5;t++){
+    b = (t===1&&ok(m.base1)) ? m.base1*(1+(sc.g-gBase)) : b*(1+sc.g);
+    const mult=m.curMult+(sc.mult-m.curMult)*t/5, p=b*mult;
+    const dv=m.byEps?Math.max(0,b)*m.payout:m.divY*m.price*Math.pow(1+Math.max(sc.g,0),t);
+    cum+=dv;
+    rows.push({t,b,mult,price:p,div:cum,tot:(p+cum)/m.price-1});
+  }
+  const end=rows[5], irr=(end.price+end.div)>0?Math.pow((end.price+end.div)/m.price,1/5)-1:-1;
+  return {rows,irr,p5:end.price};
+}
+function model(m,a){
+  const o={methods:[]};
+  const price=m.price;
+  if(!m.isFin&&!m.cm){
+    let f=m.fcf-(a.sbcAdj?m.sbc:0), src='último año';
+    if(!(f>0)){ f=m.fcf3-(a.sbcAdj?m.sbc3:0); src='media de 3 años'; }
+    if(f>0&&m.sh>0){
+      o.fcfps=f/m.sh; o.fcfSrc=src;
+      o.dcf=dcfValue(o.fcfps,a.g,a.gT,a.r);
+      o.dcfX=dcfValue(o.fcfps,a.g,a.gT,a.r,a.exitPF);
+      o.rev=solveG(o.fcfps,a.gT,a.r,price);
+      o.methods.push({k:'Flujos de caja descontados (crecimiento perpetuo)',v:o.dcf,how:`Flujo de caja libre por acción de ${nf(o.fcfps,2)} (${src}${a.sbcAdj?', descontada la retribución en acciones':''}), creciendo un ${pcu(a.g)} anual 5 años y bajando poco a poco hasta el ${pcu(a.gT)}, descontado al ${pcu(a.r)}.`});
+      o.methods.push({k:'Flujos de caja descontados (múltiplo de salida)',v:o.dcfX,how:`Igual, pero en el año 10 se vende la acción a ${nf(a.exitPF,1)} veces su flujo de caja, el múltiplo habitual de la empresa.`});
+    }
+  }
+  const mpe=med(m.hist.pe);
+  if(ok(mpe)&&m.eps1>0) o.methods.push({k:'PER histórico',v:m.eps1*mpe,how:`BPA previsto para el año próximo (${nf(m.eps1,2)}) por el PER mediano de la empresa en sus últimos ejercicios (${nf(mpe,1)}).`});
+  if(m.isFin){
+    const roe=clamp(N(m.s.roe),0,0.3), bv=N(m.s.bvps);
+    if(roe>0&&bv>0&&a.r>a.gT){ const v=bv*(roe-a.gT)/(a.r-a.gT); o.pbv=v;
+      o.methods.push({k:'Valor contable justificado (bancos y seguros)',v,how:`Valor contable por acción (${nf(bv,2)}) por (rentabilidad sobre fondos propios ${pcu(roe)} menos crecimiento ${pcu(a.gT)}) dividido entre (coste del capital ${pcu(a.r)} menos crecimiento).`}); }
+  }
+  if(N(m.s.target_mean)>0) o.methods.push({k:'Precio objetivo de los analistas',v:m.s.target_mean,how:`Media de ${m.s.analysts||'varios'} analistas (rango ${px(N(m.s.target_low),m.s)} a ${px(N(m.s.target_high),m.s)}).`});
+  for(const x of o.methods) x.pot=x.v/price-1;
+  const vals=o.methods.map(x=>x.v).filter(v=>ok(v)&&v>0);
+  o.fair=med(vals); o.pot=o.fair/price-1;
+  const gBase=a.sc[1].g;
+  o.proj=a.sc.map(sc=>project(m,sc,gBase));
+  return o;
+}
+function signals(m,o,a){
+  const S=[], add=(p,t)=>S.push({p,t});
+  if(ok(m.shCagr)){ if(m.shCagr<-0.01) add(1,`Recompra acciones: las acciones en circulación bajan un ${pcu(-m.shCagr)} al año, cada acción es dueña de más empresa.`);
+    else if(m.shCagr>0.02) add(-1,`Dilución: las acciones en circulación suben un ${pcu(m.shCagr)} al año, el accionista pierde porcentaje de la empresa.`); }
+  if(ok(m.conv)&&!m.isFin){ if(m.conv<0.7) add(-1,`Convierte poco beneficio en caja: el flujo de caja libre es el ${pcu(m.conv,0)} del beneficio neto (media de 3 años).`);
+    else if(m.conv>1.05) add(1,`Beneficio de calidad: genera más caja libre que beneficio contable (${pcu(m.conv,0)}).`); }
+  if(!m.isFin&&ok(m.ndE)){ if(m.ndE>3) add(-1,`Deuda alta: la deuda neta equivale a ${nf(m.ndE,1)} años de EBITDA.`); else if(m.ndE<0) add(1,'Caja neta: tiene más dinero en caja que deuda.'); }
+  if(ok(m.sbcF)&&m.sbcF>0.2&&!m.isFin) add(-1,`La retribución en acciones a empleados se come el ${pcu(m.sbcF,0)} del flujo de caja libre.`);
+  if(o.rev&&ok(a.g)){ const gi=o.rev.g;
+    if(o.rev.flag==='>') add(-1,'El precio actual exige un crecimiento del flujo de caja superior al 60 % anual: muy exigente.');
+    else if(gi>a.g+0.05) add(-1,`El precio descuenta un crecimiento del ${pcu(gi)} anual, por encima del ${pcu(a.g)} que se espera.`);
+    else if(gi<a.g-0.03) add(1,`El precio solo descuenta un crecimiento del ${pcu(gi)} anual, por debajo del ${pcu(a.g)} esperado: hay margen.`); }
+  const mpe=med(m.hist.pe), pe=first(m.now.fpe0,m.now.pe);
+  if(ok(mpe)&&ok(pe)&&pe>0){ const d=pe/mpe-1; if(d>0.3) add(-1,`Cotiza caro frente a su propia historia: PER ${nf(pe,1)} frente a ${nf(mpe,1)} de mediana.`); else if(d<-0.2) add(1,`Cotiza barato frente a su propia historia: PER ${nf(pe,1)} frente a ${nf(mpe,1)} de mediana.`); }
+  if(ok(m.revG1)&&m.revG1<0) add(-1,`Los analistas prevén que los ingresos caigan el año próximo (${pc(m.revG1)}).`);
+  const e1=(m.s.est?.eps||{})['+1y']; if(e1&&N(e1.avg)>0&&N(e1.high)>0&&N(e1.low)>0&&(e1.high-e1.low)/e1.avg>0.4) add(-1,'Mucha diferencia entre analistas en el beneficio del año próximo: previsión poco fiable.');
+  if(N(m.s.short_float)>0.1) add(-1,`El ${pcu(m.s.short_float,0)} de las acciones disponibles está vendido en corto.`);
+  if(m.divY+m.bbY>0.05) add(1,`Devuelve mucho al accionista: ${pcu(m.divY)} en dividendo y ${pcu(m.bbY)} en recompras al año.`);
+  if(m.cm) add(0,`Las cuentas están en ${m.s.fin_currency} y la cotización en ${m.s.currency}; los métodos de flujo de caja no se aplican.`);
+  if(m.isFin) add(0,'Banco o aseguradora: el flujo de caja libre y el EBITDA no tienen sentido en su negocio; se valora por beneficios y valor contable.');
+  return S;
+}
+
+// ================= Tabla =================
+let ALL=[], VIEW=[], sortK='pot', sortDir=-1, selSym=null;
+const COLS=[
+  {k:'name',t:'Empresa',l:1,v:m=>m.s.name,f:m=>`<span class="nm">${esc(m.s.name)}<small>${esc(m.s.symbol)} · ${esc(m.s.sector||'')}</small></span>`},
+  {k:'price',t:'Precio',v:m=>m.price,f:m=>px(m.price,m.s)},
+  {k:'pe',t:'PER',v:m=>m.now.pe,f:m=>mx(m.now.pe)},
+  {k:'fpe',t:'PER año próx.',v:m=>m.now.fpe1,f:m=>mx(m.now.fpe1)},
+  {k:'pfcf',t:'P/FCF',v:m=>m.isFin?NaN:m.now.pfcf,f:m=>m.isFin?'–':mx(m.now.pfcf)},
+  {k:'fcfy',t:'Rent. FCF',v:m=>m.isFin?NaN:m.fcfY,f:m=>m.isFin?'–':`<span class="${cls(m.fcfY)}">${pcu(m.fcfY)}</span>`},
+  {k:'eve',t:'EV/EBITDA',v:m=>m.isFin?NaN:m.now.eve,f:m=>m.isFin?'–':mx(m.now.eve)},
+  {k:'revg',t:'Ingresos año próx.',v:m=>m.revG1,f:m=>`<span class="${cls(m.revG1)}">${pc(m.revG1)}</span>`},
+  {k:'shc',t:'Acciones/año',v:m=>m.shCagr,f:m=>`<span class="${cls(-m.shCagr)}">${pc(m.shCagr)}</span>`},
+  {k:'nde',t:'Deuda neta/EBITDA',v:m=>m.isFin?NaN:m.ndE,f:m=>m.isFin?'–':(ok(m.ndE)?nf(m.ndE,1):'–')},
+  {k:'gimp',t:'Crec. que descuenta',v:m=>m.o.rev?m.o.rev.g:NaN,f:m=>m.o.rev?(m.o.rev.flag==='>'?'> 60 %':m.o.rev.flag==='<'?'< −30 %':pcu(m.o.rev.g)):'–'},
+  {k:'fair',t:'Valor estimado',v:m=>m.o.fair,f:m=>px(m.o.fair,m.s)},
+  {k:'pot',t:'Potencial',v:m=>m.o.pot,f:m=>`<b class="${cls(m.o.pot)}">${pc(m.o.pot,0)}</b>`},
+  {k:'irr',t:'Rent. anual 5 años',v:m=>m.o.proj[1].irr,f:m=>`<b class="${cls(m.o.proj[1].irr)}">${pc(m.o.proj[1].irr)}</b>`},
+];
+function drawTable(){
+  const fm=$('fMarket').value, fs=$('fSector').value, ft=$('fText').value.trim().toLowerCase();
+  VIEW=ALL.filter(m=>(!fm||m.s.market===fm)&&(!fs||m.s.sector===fs)&&(!ft||m.s.name.toLowerCase().includes(ft)||m.s.symbol.toLowerCase().includes(ft)));
+  const col=COLS.find(c=>c.k===sortK);
+  VIEW.sort((a,b)=>{ const x=col.v(a), y=col.v(b);
+    if(typeof x==='string') return sortDir*x.localeCompare(y);
+    const ox=ok(x), oy=ok(y); if(!ox&&!oy) return 0; if(!ox) return 1; if(!oy) return -1; return sortDir*(x-y); });
+  document.querySelector('#tbl thead').innerHTML='<tr>'+COLS.map(c=>`<th class="s${c.l?' l':''}${c.k===sortK?' on':''}" data-k="${c.k}">${c.t}${c.k===sortK?(sortDir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
+  document.querySelector('#tbl tbody').innerHTML=VIEW.map(m=>`<tr data-s="${esc(m.s.symbol)}"${m.s.symbol===selSym?' class="sel"':''}>${COLS.map(c=>`<td${c.l?' class="l"':''}>${c.f(m)}</td>`).join('')}</tr>`).join('');
+}
+document.querySelector('#tbl thead').addEventListener('click',e=>{ const th=e.target.closest('th'); if(!th) return; const k=th.dataset.k; if(k===sortK) sortDir*=-1; else {sortK=k; sortDir=k==='name'?1:-1;} drawTable(); });
+document.querySelector('#tbl tbody').addEventListener('click',e=>{ const tr=e.target.closest('tr'); if(tr) openDetail(tr.dataset.s); });
+['fMarket','fSector','fText'].forEach(id=>$(id).addEventListener('input',drawTable));
+
+// ================= Gráficos de barras =================
+function bars(pts,fmt){
+  const vals=pts.map(p=>p.v).filter(ok);
+  if(vals.length<2) return '<div class="note">Sin datos suficientes</div>';
+  const W=320,H=150,top=16,bot=H-20, mxv=Math.max(0,...vals), mnv=Math.min(0,...vals), span=(mxv-mnv)||1;
+  const y=v=>top+(mxv-v)/span*(bot-top), y0=y(0), n=pts.length, bw=(W-10)/n;
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img"><line x1="0" x2="${W}" y1="${y0}" y2="${y0}" stroke="#253049"/>`;
+  pts.forEach((p,i)=>{ const x=5+i*bw+bw*0.18, w=bw*0.64;
+    if(ok(p.v)){ const yy=y(p.v), h=Math.max(1,Math.abs(yy-y0));
+      g+=`<rect x="${x}" y="${Math.min(yy,y0)}" width="${w}" height="${h}" rx="2" fill="${p.e?'#f0b429':(p.v<0?'#ef4444':'#3b82f6')}" fill-opacity="${p.e?0.55:0.9}"${p.e?' stroke="#f0b429" stroke-dasharray="3 2"':''}><title>${p.l}: ${fmt(p.v)}${p.e?' (previsión)':''}</title></rect>`;
+      g+=`<text x="${x+w/2}" y="${p.v>=0?Math.min(yy,y0)-3:Math.max(yy,y0)+10}" fill="#8a96ad" font-size="9" text-anchor="middle">${fmt(p.v)}</text>`; }
+    g+=`<text x="${x+w/2}" y="${H-5}" fill="#8a96ad" font-size="10" text-anchor="middle">${p.l}</text>`; });
+  return g+'</svg>';
+}
+
+// ================= Ficha =================
+let curM=null, curA=null;
+function openDetail(sym){
+  selSym=sym; curM=ALL.find(m=>m.s.symbol===sym); if(!curM) return;
+  curA=JSON.parse(JSON.stringify(curM.def));
+  drawTable(); renderDetail(true);
+  $('detail').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderDetail(full){
+  const m=curM, a=curA, s=m.s, o=model(m,a), P=$('detail');
+  if(full){
+    P.classList.remove('hidden');
+    const ly=m.Y.length?m.Y[m.Y.length-1].year:'';
+    P.innerHTML=`
+      <h2>${esc(s.name)} <span class="mut">· ${esc(s.symbol)} · ${esc(s.sector||'')}${s.industry?' · '+esc(s.industry):''}</span></h2>
+      ${m.Y.length<2?'<div class="warn">Hay muy pocos ejercicios con datos para esta empresa: los métodos históricos no son fiables.</div>':''}
+      <div class="cards" id="dCards"></div>
+      <h3>Supuestos (cámbialos y se recalcula todo)</h3>
+      <div class="assume">
+        <label>Tasa de descuento (%)<input type="number" step="0.5" data-a="r" value="${(a.r*100).toFixed(1)}"></label>
+        <label>Crecimiento años 1 a 5 (%)<input type="number" step="0.5" data-a="g" value="${(a.g*100).toFixed(1)}"></label>
+        <label>Crecimiento perpetuo (%)<input type="number" step="0.25" data-a="gT" value="${(a.gT*100).toFixed(2)}"></label>
+        <label>Múltiplo de salida P/FCF<input type="number" step="0.5" data-a="exitPF" value="${a.exitPF}"></label>
+        <label class="chk" style="align-self:end;padding-bottom:8px"><input type="checkbox" data-a="sbcAdj" ${a.sbcAdj?'checked':''}>Restar retribución en acciones</label>
+        <div style="align-self:end"><button type="button" id="resetA" style="background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:8px 12px;cursor:pointer">Volver a los supuestos por defecto</button></div>
+      </div>
+      <p class="note">Por defecto: tasa de descuento según el riesgo de la acción (beta ${ok(N(s.beta))?nf(N(s.beta),2):'no disponible'}), crecimiento según la previsión de ingresos de los analistas y múltiplo de salida igual al habitual de la empresa.</p>
+      <h3>Lo que vale con cada método</h3>
+      <div class="scroll" style="max-height:none"><table><thead><tr><th class="l">Método</th><th>Valor por acción</th><th>Frente al precio</th><th class="l">Cómo se calcula</th></tr></thead><tbody id="dMeth"></tbody></table></div>
+      <h3>Proyección a 5 años comprando hoy a ${px(m.price,s)}</h3>
+      <p class="lead">Se proyecta el ${m.byEps?'beneficio por acción (BPA)':'volumen de ventas por acción, porque la empresa no tiene beneficios'} desde la previsión de los analistas y se aplica un ${m.byEps?'PER':'múltiplo de ventas'} que pasa poco a poco del actual (${nf(m.curMult,1)}) al de salida. La rentabilidad anual incluye los dividendos cobrados.</p>
+      <div class="sc" id="dSc"></div>
+      <div class="scroll" style="max-height:none;margin-top:10px"><table><thead><tr><th class="l">Escenario base</th><th>Hoy</th><th>Año 1</th><th>Año 2</th><th>Año 3</th><th>Año 4</th><th>Año 5</th></tr></thead><tbody id="dProj"></tbody></table></div>
+      <h3>Historia y previsiones de los analistas</h3>
+      <div class="charts" id="dCharts"></div>
+      <div class="two" style="margin-top:12px">
+        <div><h3>Múltiplos frente a su propia historia</h3><table><thead><tr><th class="l">Múltiplo</th><th>Hoy</th><th>Mediana</th><th>Mínimo</th><th>Máximo</th></tr></thead><tbody id="dMult"></tbody></table></div>
+        <div><h3>Previsiones de los analistas</h3><table><thead><tr><th class="l">Ejercicio</th><th>Ingresos</th><th>Crec.</th><th>BPA</th><th>Rango BPA</th><th>Crec.</th></tr></thead><tbody id="dEst"></tbody></table></div>
+      </div>
+      <h3>Señales</h3>
+      <ul class="sig" id="dSig"></ul>
+      <p class="note">Cuentas anuales hasta ${ly}. Precio y ratios de hoy. Esto es un cálculo con supuestos, no una recomendación: cambia los supuestos para ver lo sensible que es el resultado.</p>`;
+    P.querySelectorAll('input[data-a]').forEach(inp=>inp.addEventListener('input',()=>{
+      const k=inp.dataset.a; if(k==='sbcAdj') a.sbcAdj=inp.checked; else { const v=parseFloat(inp.value); if(!isFinite(v)) return; a[k]=k==='exitPF'?v:v/100; } renderDetail(false); }));
+    $('resetA').addEventListener('click',()=>{ curA=JSON.parse(JSON.stringify(m.def)); renderDetail(true); });
+    drawCharts(m); drawMult(m); drawEst(m);
+  }
+  // Tarjetas
+  const pr=o.proj[1];
+  $('dCards').innerHTML=[
+    card('Valor estimado',px(o.fair,s),`<span class="${cls(o.pot)}">${pc(o.pot,0)}</span> frente a ${px(m.price,s)}`,'hl'),
+    card('Rentabilidad anual a 5 años',`<span class="${cls(pr.irr)}">${pc(pr.irr)}</span>`,`escenario base, precio ${px(pr.p5,s)}`,'hl'),
+    card('Crecimiento que descuenta el precio',o.rev?(o.rev.flag==='>'?'> 60 %':o.rev.flag==='<'?'< −30 %':pcu(o.rev.g)):'–',o.rev?`frente al ${pcu(a.g)} supuesto`:(m.isFin?'no aplica a bancos':'sin flujo de caja positivo')),
+    card('PER',`${mx(m.now.pe)} / ${mx(m.now.fpe1)}`,'actual / año próximo'),
+    card('PER mediano histórico',mx(med(m.hist.pe)),`${m.hist.pe.length} ejercicios`),
+    card('P/FCF y rentabilidad FCF',m.isFin?'–':`${mx(m.now.pfcf)} · ${pcu(m.fcfY)}`,'precio / flujo de caja libre'),
+    card('EV/EBITDA',m.isFin?'–':mx(m.now.eve),`deuda neta/EBITDA ${ok(m.ndE)&&!m.isFin?nf(m.ndE,1):'–'}`),
+    card('Capitalización',big(m.mcap),`deuda ${big(m.debt)} · caja ${big(m.cash)}`),
+    card('Acciones en circulación',big(m.sh),`${pc(m.shCagr)} al año`),
+    card('Rentabilidad al accionista',pcu(m.divY+m.bbY),`dividendo ${pcu(m.divY)} · recompras ${pcu(m.bbY)}`),
+    card('Márgenes',`${pcu(N(s.op_m),0)}`,`bruto ${pcu(N(s.gross_m),0)} · neto ${pcu(N(s.net_m),0)}`),
+    card('Rentabilidad sobre fondos propios',pcu(N(s.roe)),`sobre activos ${pcu(N(s.roa))}`),
+  ].join('');
+  // Métodos
+  $('dMeth').innerHTML=o.methods.length?o.methods.map(x=>`<tr><td class="l">${x.k}</td><td>${px(x.v,s)}</td><td class="${cls(x.pot)}">${pc(x.pot,0)}</td><td class="how">${x.how}</td></tr>`).join('')
+    +`<tr><td class="l"><b>Valor estimado (mediana de los métodos)</b></td><td><b>${px(o.fair,s)}</b></td><td class="${cls(o.pot)}"><b>${pc(o.pot,0)}</b></td><td class="how">La mediana evita que un solo método extremo decida el resultado.</td></tr>`
+    :'<tr><td colspan="4" class="l mut">No hay datos suficientes para aplicar ningún método.</td></tr>';
+  if(o.rev) $('dMeth').innerHTML+=`<tr><td class="l">Flujos de caja descontados inversos</td><td colspan="2">${o.rev.flag==='>'?'más del 60 %':o.rev.flag==='<'?'menos del −30 %':pcu(o.rev.g)} anual</td><td class="how">Crecimiento del flujo de caja libre durante 5 años que hace que el modelo dé exactamente el precio actual. Si es mayor que lo que crece la empresa, el precio ya descuenta demasiado.</td></tr>`;
+  // Escenarios
+  $('dSc').innerHTML=a.sc.map((sc,i)=>{ const pj=o.proj[i];
+    return `<div class="scbox"><h4>${sc.k}</h4><div class="row">
+      <label>Crecimiento ${m.byEps?'BPA':'ventas'} (%)<input type="number" step="0.5" data-sc="${i}" data-f="g" value="${(sc.g*100).toFixed(1)}"></label>
+      <label>${m.byEps?'PER':'Múltiplo ventas'} a 5 años<input type="number" step="${m.byEps?0.5:0.1}" data-sc="${i}" data-f="mult" value="${sc.mult}"></label></div>
+      <div class="res">Precio en 5 años: <b>${px(pj.p5,s)}</b><br>Rentabilidad anual: <b class="${cls(pj.irr)}">${pc(pj.irr)}</b> · total ${pc(pj.rows[5].tot,0)}</div></div>`; }).join('');
+  $('dSc').querySelectorAll('input').forEach(inp=>inp.addEventListener('change',()=>{ const v=parseFloat(inp.value); if(!isFinite(v)) return; const sc=a.sc[+inp.dataset.sc]; if(inp.dataset.f==='g') sc.g=v/100; else sc.mult=v; renderDetail(false); }));
+  const R=pr.rows, lab=m.byEps?'BPA':'Ventas por acción', ml=m.byEps?'PER':'Múltiplo ventas';
+  $('dProj').innerHTML=[
+    `<tr><td class="l">${lab}</td>${R.map(r=>`<td>${nf(r.b,2)}</td>`).join('')}</tr>`,
+    `<tr><td class="l">${ml}</td>${R.map(r=>`<td>${nf(r.mult,1)}</td>`).join('')}</tr>`,
+    `<tr><td class="l">Precio</td>${R.map(r=>`<td>${px(r.price,s)}</td>`).join('')}</tr>`,
+    `<tr><td class="l">Dividendos cobrados acumulados</td>${R.map(r=>`<td>${nf(r.div,2)}</td>`).join('')}</tr>`,
+    `<tr><td class="l">Rentabilidad acumulada</td>${R.map(r=>`<td class="${cls(r.tot)}">${r.t?pc(r.tot,0):'–'}</td>`).join('')}</tr>`,
+  ].join('');
+  $('dSig').innerHTML=signals(m,o,a).map(x=>`<li class="${x.p>0?'p':x.p<0?'n':''}">${x.t}</li>`).join('')||'<li>Sin señales destacadas.</li>';
+}
+function card(k,v,b,c=''){ return `<div class="card ${c}"><div class="k">${k}</div><div class="v">${v}</div>${b?`<div class="b">${b}</div>`:''}</div>`; }
+function drawCharts(m){
+  const Y=m.Y.slice(-5), er=(m.s.est||{}).rev||{}, ee=(m.s.est||{}).eps||{};
+  const ly=Y.length?Y[Y.length-1].year:new Date().getFullYear();
+  const estYears=[]; for(const [k,off] of [['0y',1],['+1y',2]]) estYears.push({k,year:ly+off});
+  const rev=Y.map(y=>({l:String(y.year),v:N(y.revenue)})).concat(estYears.map(e=>({l:e.year+'e',v:N(er[e.k]?.avg),e:1})).filter(p=>ok(p.v)));
+  const eps=Y.map(y=>({l:String(y.year),v:N(y.eps)})).concat(estYears.map(e=>({l:e.year+'e',v:N(ee[e.k]?.avg),e:1})).filter(p=>ok(p.v)));
+  const fcf=Y.map(y=>({l:String(y.year),v:N(y.fcf)}));
+  const sh=Y.map(y=>({l:String(y.year),v:first(N(y.shares),N(y.shares_out))}));
+  const ret=Y.map(y=>({l:String(y.year),v:-(first(N(y.buyback),0)+first(N(y.dividends),0))}));
+  $('dCharts').innerHTML=[
+    ['Ingresos',bars(rev,big)],['Flujo de caja libre',bars(fcf,big)],['Beneficio por acción',bars(eps,v=>nf(v,2))],
+    ['Acciones en circulación',bars(sh,big)],['Devuelto al accionista (dividendos y recompras)',bars(ret,big)],
+  ].map(([t,svg])=>`<div class="ch"><h4>${t}</h4>${svg}</div>`).join('')
+   +'<p class="note" style="grid-column:1/-1">En amarillo, previsión media de los analistas.</p>';
+}
+function drawMult(m){
+  const rows=[['PER','pe',m.now.pe],['Precio / flujo de caja libre','pfcf',m.now.pfcf],['Precio / ventas','ps',m.now.ps],['EV / EBITDA','eve',m.now.eve],['Precio / valor contable','pb',m.now.pb]];
+  $('dMult').innerHTML=rows.filter(r=>!(m.isFin&&(r[1]==='pfcf'||r[1]==='eve'))).map(([t,k,v])=>{ const h=m.hist[k], md=med(h);
+    const c=ok(v)&&ok(md)?(v>md*1.2?'neg':v<md*0.85?'pos':''):'';
+    return `<tr><td class="l">${t}</td><td class="${c}">${mx(v)}</td><td>${mx(md)}</td><td>${h.length?nf(Math.min(...h),1):'–'}</td><td>${h.length?nf(Math.max(...h),1):'–'}</td></tr>`; }).join('');
+}
+function drawEst(m){
+  const er=(m.s.est||{}).rev||{}, ee=(m.s.est||{}).eps||{};
+  const r=[['0y','Año en curso'],['+1y','Año próximo']].map(([k,t])=>{ const R=er[k]||{}, E=ee[k]||{};
+    return `<tr><td class="l">${t}</td><td>${big(N(R.avg))}</td><td class="${cls(N(R.growth))}">${pc(N(R.growth))}</td><td>${nf(N(E.avg),2)}</td><td>${ok(N(E.low))?nf(E.low,2)+' a '+nf(E.high,2):'–'}</td><td class="${cls(N(E.growth))}">${pc(N(E.growth))}</td></tr>`; });
+  $('dEst').innerHTML=r.join('')+`<tr><td class="l mut" colspan="6">${N((er['+1y']||{}).numberOfAnalysts)||m.s.analysts||0} analistas. Recomendación media ${ok(N(m.s.rec))?nf(m.s.rec,1)+' (1 compra fuerte, 5 venta)':'–'}</td></tr>`;
+}
+
+// ================= Carga =================
+(async function(){
+  try{
+    const res=await fetch('data/valuation.json',{cache:'no-store'});
+    if(!res.ok) throw new Error('nodata');
+    const d=await res.json();
+    if(!d.stocks||!d.stocks.length) throw new Error('nodata');
+    ALL=d.stocks.map(s=>{ const m=prep(s); m.o=model(m,m.def); return m; }).filter(m=>ok(m.price));
+    const upd=d.updated?new Date(d.updated).toLocaleString('es-ES',{dateStyle:'medium',timeStyle:'short'}):'';
+    $('state').innerHTML=`${ALL.length} empresas · datos de ${esc(d.source||'Yahoo Finance')} · actualizado ${upd}`;
+    const mk=[...new Set(ALL.map(m=>m.s.market))], sc=[...new Set(ALL.map(m=>m.s.sector).filter(Boolean))].sort();
+    $('fMarket').innerHTML+=mk.map(x=>`<option>${esc(x)}</option>`).join('');
+    $('fSector').innerHTML+=sc.map(x=>`<option>${esc(x)}</option>`).join('');
+    $('filters').classList.remove('hidden'); $('tblWrap').classList.remove('hidden');
+    drawTable();
+  }catch(e){
+    $('state').innerHTML=e.message==='nodata'
+      ?'<div class="warn">Todavía no hay datos de valoración. Se generan con la acción "Actualizar datos de mercado" de GitHub: en la pestaña Actions del repositorio, pulsa "Run workflow" o espera a la siguiente pasada automática.</div>'
+      :'<div class="warn">Error al leer los datos: '+esc(e.message)+'</div>';
+    console.error(e);
+  }
+})();
+</script>
+</body>
+</html>

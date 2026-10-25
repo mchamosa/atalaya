@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Patrones de sesión</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1280px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 10px;font-size:15px;color:var(--acc);font-weight:600}
+.lead{font-size:13px;color:var(--mut);margin:0 0 12px}
+.lead b{color:var(--txt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px 12px}
+.group{border-top:1px dashed var(--line);margin-top:12px;padding-top:10px}
+.group h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--mut)}
+.group h3 b{color:var(--acc)}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mut)}
+input,select{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 8px;font-size:14px;width:100%}
+input[type=checkbox]{width:auto;margin:0}
+input:focus,select:focus{outline:1px solid var(--acc)}
+.days{display:flex;gap:6px;flex-wrap:wrap}
+.days label{flex-direction:row;align-items:center;gap:5px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 9px;color:var(--txt);font-size:13px;cursor:pointer}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+button{background:var(--acc);color:#111;border:0;border-radius:6px;padding:10px 20px;font-weight:700;cursor:pointer;font-size:14px}
+button.sec{background:var(--panel2);color:var(--txt);border:1px solid var(--line);font-weight:600}
+button.mini{padding:4px 10px;font-size:12px}
+button:disabled{opacity:.5;cursor:wait}
+.status{color:var(--mut);font-size:13px}
+.status.err{color:var(--dn)}
+.progress{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:10px}
+.progress div{height:100%;width:0;background:var(--acc);transition:width .15s}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:12px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card .k{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.card .v{font-size:20px;font-weight:700;margin-top:2px}
+.card .b{font-size:12px;color:var(--mut);margin-top:2px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+.verdict{padding:12px 14px;border-radius:8px;font-size:14px;border:1px solid var(--line);background:var(--panel2)}
+.verdict.ok{border-color:#166534}.verdict.ko{border-color:#7f1d1d}.verdict.wa{border-color:#854d0e}
+.verdict p{margin:6px 0 0}
+.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;white-space:nowrap}
+.tag.ok{background:#14532d;color:#86efac}.tag.ko{background:#450a0a;color:#fca5a5}.tag.wa{background:#422006;color:#fcd34d}
+.chartwrap{position:relative;width:100%;height:440px;margin-top:8px}
+.chartwrap canvas.ovl{position:absolute;left:0;top:0;pointer-events:none;z-index:3}
+.chart{width:100%;height:100%}
+.eq{width:100%;height:240px;margin-top:6px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:6px 0}
+.legend i{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--panel);z-index:1}
+td:first-child,th:first-child,td.l,th.l{text-align:left}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--panel2)}
+.scroll{max-height:420px;overflow:auto}
+.note{color:var(--mut);font-size:12px;margin-top:8px}
+.prof{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;height:200px;margin-top:8px;align-items:stretch}
+.prof .col{display:flex;flex-direction:column;position:relative;cursor:default}
+.prof .top,.prof .bot{flex:1;display:flex;position:relative}
+.prof .top{align-items:flex-end;border-bottom:1px solid var(--line)}
+.prof .bot{align-items:flex-start}
+.prof .bar{width:100%;border-radius:2px}
+.prof .lbl{font-size:10px;color:var(--mut);text-align:center;margin-top:4px}
+.prof .pu{font-size:10px;text-align:center;color:var(--mut)}
+.hidden{display:none}
+@media (max-width:600px){main{padding:10px}.chartwrap{height:340px}.prof .lbl,.prof .pu{font-size:8px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Patrones de sesión</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="patrones.html" aria-current="page">Patrones</a><a href="valoracion.html">Valoración</a></nav>
+</header>
+<main>
+
+<section class="panel">
+  <h2>¿Lo que hace una sesión anticipa lo que hace la siguiente?</h2>
+  <p class="lead">Defines una <b>sesión A</b> que sirve de condición (por ejemplo, mañana de 08:00 a 14:00 bajista) y una <b>sesión B</b> donde mides lo que pasa después. La página marca en el gráfico todos los días que cumplen el patrón y calcula las estadísticas de <b>todos</b> los casos, comparándolas con lo que pasa cualquier día. Si no supera esa comparación, el patrón es casualidad aunque los ejemplos se vean bonitos.</p>
+
+  <div class="grid">
+    <label>Activo (par de Binance)
+      <input id="symbol" list="symList" value="PAXGUSDT" autocomplete="off">
+      <datalist id="symList">
+        <option value="PAXGUSDT">Oro (PAX Gold, sigue al XAUUSD)</option>
+        <option value="BTCUSDT">Bitcoin</option><option value="ETHUSDT">Ethereum</option>
+        <option value="SOLUSDT">Solana</option><option value="BNBUSDT">BNB</option>
+        <option value="XRPUSDT">XRP</option><option value="DOGEUSDT">Dogecoin</option>
+      </datalist>
+    </label>
+    <label>Vela
+      <select id="interval"><option value="15m">15 minutos</option><option value="30m" selected>30 minutos</option><option value="1h">1 hora</option></select>
+    </label>
+    <label>Periodo
+      <select id="period"><option value="180">6 meses</option><option value="365" selected>1 año</option><option value="730">2 años</option><option value="1095">3 años</option></select>
+    </label>
+    <label>Horario de referencia
+      <select id="tz">
+        <option value="Europe/Madrid" selected>Madrid</option><option value="Europe/London">Londres</option>
+        <option value="America/New_York">Nueva York</option><option value="UTC">UTC</option><option value="Asia/Tokyo">Tokio</option>
+      </select>
+    </label>
+  </div>
+  <div class="group">
+    <h3>Días de la semana</h3>
+    <div class="days" id="days"></div>
+  </div>
+
+  <div class="grid">
+    <div class="group" style="grid-column:1/-1">
+      <h3><b>Sesión A</b> · la condición</h3>
+      <div class="grid">
+        <label>Desde<input type="time" id="aStart" value="08:00" step="900"></label>
+        <label>Hasta<input type="time" id="aEnd" value="14:00" step="900"></label>
+        <label>Condición
+          <select id="cond">
+            <option value="bear" selected>Bajista (cierra por debajo de la apertura)</option>
+            <option value="bull">Alcista (cierra por encima)</option>
+            <option value="any">Cualquiera (se sigue su dirección)</option>
+            <option value="wide">Rango amplio (máx. y mín. separados al menos lo indicado)</option>
+            <option value="narrow">Rango estrecho (separados como mucho lo indicado)</option>
+          </select>
+        </label>
+        <label>Movimiento o rango mínimo (%)<input type="number" id="minMove" value="0" step="0.05" min="0"></label>
+      </div>
+    </div>
+    <div class="group" style="grid-column:1/-1">
+      <h3><b>Sesión B</b> · lo que pasa después</h3>
+      <div class="grid">
+        <label>Desde<input type="time" id="bStart" value="14:00" step="900"></label>
+        <label>Hasta<input type="time" id="bEnd" value="22:00" step="900"></label>
+        <label>Operación simulada en B
+          <select id="op">
+            <option value="favor" selected>A favor de la sesión A</option>
+            <option value="contra">En contra de la sesión A</option>
+            <option value="long">Solo largos</option>
+            <option value="short">Solo cortos</option>
+          </select>
+        </label>
+        <label>Comisión por lado (%)<input type="number" id="fee" value="0.1" step="0.01" min="0"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button id="btnRun">Analizar patrón</button>
+    <button id="btnScan" class="sec">Buscar sesiones con ventaja automáticamente</button>
+    <span id="status" class="status"></span>
+  </div>
+  <div class="progress hidden" id="prog"><div></div></div>
+  <p class="note">Datos gratuitos de Binance. El oro se analiza con PAXGUSDT, un token respaldado por oro físico que sigue al XAUUSD; sus horarios coinciden pero tiene menos volumen que el mercado real. Para forex o acciones haría falta otra fuente de datos.</p>
+</section>
+
+<section class="panel hidden" id="resPanel">
+  <h2>Resultado</h2>
+  <div id="verdict"></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section class="panel hidden" id="chartPanel">
+  <h2>Gráfico con las sesiones marcadas</h2>
+  <div class="legend">
+    <span><i style="background:rgba(239,68,68,.35)"></i>Sesión A bajista</span>
+    <span><i style="background:rgba(34,197,94,.35)"></i>Sesión A alcista</span>
+    <span><i style="background:rgba(59,130,246,.25);outline:1px dashed #3b82f6"></i>Sesión B</span>
+    <span><i style="background:#f0b429;height:2px"></i>Máximo y mínimo de A prolongados</span>
+  </div>
+  <div class="chartwrap" id="chartWrap"><div class="chart" id="chart"></div><canvas class="ovl" id="ovl"></canvas></div>
+  <p class="note">Solo se marcan los días que cumplen el patrón. Pulsa un día en la tabla de abajo para ir a él.</p>
+</section>
+
+<section class="panel hidden" id="eqPanel">
+  <h2>Curva de la operación simulada</h2>
+  <div class="legend"><span><i style="background:#f0b429"></i>Solo los días con patrón</span><span><i style="background:#8a96ad"></i>La misma operación todos los días, sin filtro</span></div>
+  <div class="eq" id="eqChart"></div>
+  <p class="note">Entrada a la apertura de la sesión B y salida a su cierre, sin stop. Si la curva amarilla no se separa claramente de la gris, la condición de A no aporta nada.</p>
+</section>
+
+<section class="panel hidden" id="tblPanel">
+  <h2>Días con patrón</h2>
+  <div class="scroll"><table>
+    <thead><tr><th class="l">Fecha</th><th class="l">Día</th><th>Sesión A</th><th>Rango A</th><th>Sesión B</th><th>Rompe mín. A</th><th>Rompe máx. A</th><th>Operación</th></tr></thead>
+    <tbody id="tblBody"></tbody>
+  </table></div>
+</section>
+
+<section class="panel hidden" id="profPanel">
+  <h2>Perfil horario del activo</h2>
+  <p class="lead">Movimiento medio de cada hora del día (horario elegido) en los días seleccionados. Debajo de cada barra, el porcentaje de veces que esa hora cerró en positivo. Sirve para ver dónde suele haber movimiento antes de elegir las sesiones.</p>
+  <div class="prof" id="prof"></div>
+</section>
+
+<section class="panel hidden" id="scanPanel">
+  <h2>Buscador automático de sesiones</h2>
+  <div id="scanInfo" class="lead"></div>
+  <div class="scroll"><table>
+    <thead><tr><th class="l">Sesión A</th><th class="l">Si A es</th><th class="l">Sesión B</th><th class="l">Lectura</th><th>Casos</th><th>Acierto</th><th>Normal</th><th>z</th><th>Validación: casos</th><th>Acierto</th><th>Normal</th><th>Op. media</th><th class="l">Veredicto</th><th></th></tr></thead>
+    <tbody id="scanBody"></tbody>
+  </table></div>
+  <p class="note">Se busca en el 70 % más antiguo de los datos y se comprueba en el 30 % más reciente, que el buscador no ha visto. "Acierto" es el porcentaje de veces que B va en la dirección de la lectura; "Normal" es lo que pasa cualquier día en esa misma franja. Solo merecen atención las que se confirman en la validación.</p>
+</section>
+
+</main>
+
+<script>
+// ================= Datos de Binance =================
+const HOSTS=['https://data-api.binance.vision','https://api.binance.com'];
+async function fetchKlines(symbol, interval, count, onProgress){
+  let all=[], endTime=null, host=null;
+  while(all.length<count){
+    const limit=Math.min(1000,count-all.length);
+    let url=`/api/v3/klines?symbol=${encodeURIComponent(symbol)}&interval=${interval}&limit=${limit}`;
+    if(endTime) url+=`&endTime=${endTime}`;
+    let res=null, lastErr=null;
+    for(const h of (host?[host]:HOSTS)){
+      try{ res=await fetch(h+url); if(res.ok){host=h;break;} lastErr=await res.text(); res=null; }
+      catch(e){ lastErr=e.message; }
+    }
+    if(!res) throw new Error('No se pudo descargar de Binance: '+(lastErr||'error de red'));
+    const batch=await res.json();
+    if(!Array.isArray(batch)||!batch.length) break;
+    all=batch.concat(all);
+    endTime=batch[0][0]-1;
+    onProgress && onProgress(all.length/count);
+    if(batch.length<limit) break;
+  }
+  const now=Date.now();
+  all=all.filter(k=>k[6]<now);
+  return {t:all.map(k=>k[0]),o:all.map(k=>+k[1]),h:all.map(k=>+k[2]),l:all.map(k=>+k[3]),c:all.map(k=>+k[4])};
+}
+
+// ================= Utilidades =================
+const $=id=>document.getElementById(id);
+const TF={'15m':15,'30m':30,'1h':60};
+const DAYN=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+const WDMAP={Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+const pct=(x,d=2)=>isFinite(x)?(x*100).toFixed(d)+' %':'–';
+const pp=x=>isFinite(x)?Math.round(x*100)+' %':'–';
+const sgn=x=>x>0?'+':'';
+const cls=x=>x>0?'pos':(x<0?'neg':'');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const card=(k,v,c='',b='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div>${b?`<div class="b">${b}</div>`:''}</div>`;
+const hhmm=m=>String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const showM=m=>m>=1440?'24:00':hhmm(m);
+function parseT(v,isEnd){ if(!v) return null; const [h,m]=v.split(':').map(Number); let x=h*60+m; if(isEnd&&(v==='23:59'||x===0)) x=1440; return x; }
+function setT(id,m){ $(id).value = m>=1440?'23:59':hhmm(m); }
+function erf(x){const s=Math.sign(x);x=Math.abs(x);const t=1/(1+0.3275911*x);const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return s*y;}
+const Phi=z=>0.5*(1+erf(z/Math.SQRT2));
+function zTest(k,n,p0){ if(!n||p0<=0||p0>=1) return {p:n?k/n:NaN,z:0,pv:1}; const p=k/n, z=(p-p0)/Math.sqrt(p0*(1-p0)/n); return {p,z,pv:2*(1-Phi(Math.abs(z)))}; }
+function setStatus(t,err){ const s=$('status'); s.textContent=t; s.className='status'+(err?' err':''); }
+function setProg(f){ const p=$('prog'); if(f==null){p.classList.add('hidden');return;} p.classList.remove('hidden'); p.firstElementChild.style.width=Math.min(100,f*100)+'%'; }
+
+// Días de la semana
+(function(){ const box=$('days'); DAYN.forEach((d,i)=>{ box.insertAdjacentHTML('beforeend',`<label><input type="checkbox" value="${i}" ${i<5?'checked':''}>${d}</label>`); }); })();
+const selDays=()=>new Set([...document.querySelectorAll('#days input:checked')].map(x=>+x.value));
+
+// ================= Preparación: horario local y agrupación por día =================
+function prepare(data, tz, tfMin){
+  const f=new Intl.DateTimeFormat('en-US',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',weekday:'short',hourCycle:'h23'});
+  const n=data.t.length, mod=new Int16Array(n), ct=new Array(n), days=[]; let cur=null, prevT=-Infinity;
+  for(let i=0;i<n;i++){
+    const o={}; for(const p of f.formatToParts(data.t[i])) o[p.type]=p.value;
+    const y=+o.year, mo=+o.month, d=+o.day; let hh=+o.hour; if(hh===24) hh=0; const mi=+o.minute;
+    mod[i]=hh*60+mi;
+    let t=Date.UTC(y,mo-1,d,hh,mi)/1000; if(t<=prevT) t=prevT+60; prevT=t; ct[i]=t;   // hora local para el gráfico, siempre creciente
+    const key=y*10000+mo*100+d;
+    if(!cur||cur.key!==key){ cur={key,y,mo,d,wd:WDMAP[o.weekday],i0:i,i1:i}; days.push(cur); } else cur.i1=i;
+  }
+  // Velas agregadas por hora para el buscador y el perfil
+  const perH=60/tfMin;
+  for(const day of days){
+    const o=new Float64Array(24).fill(NaN), h=new Float64Array(24).fill(-Infinity), l=new Float64Array(24).fill(Infinity), c=new Float64Array(24).fill(NaN), cnt=new Uint8Array(24);
+    for(let i=day.i0;i<=day.i1;i++){ const H=Math.floor(mod[i]/60); if(!cnt[H]) o[H]=data.o[i]; c[H]=data.c[i]; if(data.h[i]>h[H]) h[H]=data.h[i]; if(data.l[i]<l[H]) l[H]=data.l[i]; cnt[H]++; }
+    day.H={o,h,l,c,ok:Array.from(cnt,v=>v>=perH*0.8)};
+  }
+  return {data,tz,tfMin,mod,ct,days};
+}
+
+// Estadística de una sesión [s,e) en minutos de un día
+function sess(P, day, s, e){
+  const d=P.data; let i0=-1,i1=-1,h=-Infinity,l=Infinity,cnt=0;
+  for(let i=day.i0;i<=day.i1;i++){ const m=P.mod[i]; if(m<s||m>=e) continue; if(i0<0) i0=i; i1=i; cnt++; if(d.h[i]>h) h=d.h[i]; if(d.l[i]<l) l=d.l[i]; }
+  if(i0<0) return null;
+  const exp=(e-s)/P.tfMin;
+  if(cnt<exp*0.8 || P.mod[i0]-s>=2*P.tfMin) return null;
+  const o=d.o[i0], c=d.c[i1];
+  return {i0,i1,o,c,h,l,ret:c/o-1,range:h/l-1};
+}
+// Igual pero con bloques de horas completas (buscador)
+function sessH(day, hs, he){
+  const H=day.H; let h=-Infinity,l=Infinity;
+  for(let k=hs;k<he;k++){ if(!H.ok[k]) return null; if(H.h[k]>h) h=H.h[k]; if(H.l[k]<l) l=H.l[k]; }
+  const o=H.o[hs], c=H.c[he-1];
+  return {o,c,h,l,ret:c/o-1};
+}
+
+// ================= Análisis del patrón =================
+function readParams(){
+  const p={symbol:$('symbol').value.trim().toUpperCase(),interval:$('interval').value,period:+$('period').value,tz:$('tz').value,
+    days:selDays(),aS:parseT($('aStart').value),aE:parseT($('aEnd').value,true),bS:parseT($('bStart').value),bE:parseT($('bEnd').value,true),
+    cond:$('cond').value,minMove:(+$('minMove').value||0)/100,op:$('op').value,fee:(+$('fee').value||0)/100};
+  if(!p.symbol) throw new Error('Indica un par de Binance, por ejemplo BTCUSDT.');
+  if(!p.days.size) throw new Error('Marca al menos un día de la semana.');
+  if([p.aS,p.aE,p.bS,p.bE].some(x=>x==null)) throw new Error('Completa las horas de las dos sesiones.');
+  if(p.aE<=p.aS||p.bE<=p.bS) throw new Error('Cada sesión debe terminar después de empezar y dentro del mismo día.');
+  if(p.bS<p.aE) throw new Error('La sesión B debe empezar cuando termina la A o más tarde; si no, se usaría información del futuro.');
+  return p;
+}
+function condOK(c,A,mv){
+  switch(c){ case 'bear':return A.ret<0&&-A.ret>=mv; case 'bull':return A.ret>0&&A.ret>=mv; case 'any':return A.ret!==0&&Math.abs(A.ret)>=mv;
+    case 'wide':return A.range>=mv; case 'narrow':return A.range<=mv; }
+}
+function opDir(op,d){ return op==='favor'?d:op==='contra'?-d:op==='long'?1:-1; }
+function tradeStats(rets){
+  const n=rets.length; if(!n) return {n:0};
+  let eq=1,peak=1,dd=0,w=0,gp=0,gl=0; const curve=[];
+  for(const r of rets){ eq*=1+r; peak=Math.max(peak,eq); dd=Math.min(dd,eq/peak-1); if(r>0){w++;gp+=r;} else gl-=r; curve.push(eq); }
+  const s=[...rets].sort((a,b)=>a-b);
+  return {n,win:w/n,mean:rets.reduce((a,b)=>a+b,0)/n,med:s[Math.floor(n/2)],pf:gl?gp/gl:Infinity,total:eq-1,dd,curve};
+}
+
+function analyze(P, p){
+  const all=[];
+  for(const day of P.days){
+    if(!p.days.has(day.wd)) continue;
+    const A=sess(P,day,p.aS,p.aE), B=sess(P,day,p.bS,p.bE);
+    if(!A||!B) continue;
+    all.push({day,A,B,d:Math.sign(A.ret)||1});
+  }
+  const fixedD = p.cond==='bear'?-1 : p.cond==='bull'?1 : 0;
+  const rows=all.filter(r=>condOK(p.cond,r.A,p.minMove));
+  const dirOf=r=>fixedD||r.d;
+  const hit=r=>Math.sign(r.B.ret)===dirOf(r);
+  // Referencia: lo que hace B cualquier día
+  const p0 = fixedD ? all.filter(r=>Math.sign(r.B.ret)===fixedD).length/all.length : 0.5;
+  const k=rows.filter(hit).length, T=zTest(k,rows.length,p0);
+  const bl=rows.filter(r=>r.B.l<r.A.l).length/rows.length, bh=rows.filter(r=>r.B.h>r.A.h).length/rows.length;
+  const bl0=all.filter(r=>r.B.l<r.A.l).length/all.length, bh0=all.filter(r=>r.B.h>r.A.h).length/all.length;
+  // Consistencia: las dos mitades del periodo
+  const half=Math.floor(rows.length/2), h1=rows.slice(0,half), h2=rows.slice(half);
+  const r1=h1.filter(hit).length/h1.length, r2=h2.filter(hit).length/h2.length;
+  // Operación simulada
+  const tr=r=>opDir(p.op,dirOf(r))*r.B.ret-2*p.fee;
+  const trBase=r=>opDir(p.op, fixedD||r.d)*r.B.ret-2*p.fee;
+  const S=tradeStats(rows.map(tr)), S0=tradeStats(all.map(trBase));
+  return {all,rows,fixedD,dirOf,hit,p0,k,T,bl,bh,bl0,bh0,r1,r2,S,S0,tr,trBase};
+}
+
+// ================= Pintar resultados =================
+let cache={key:null,P:null}, chart=null, candle=null, eqChart=null, boxes=[], lastSig='';
+
+async function getData(p){
+  const key=[p.symbol,p.interval,p.period,p.tz].join('|');
+  if(cache.key===key) return cache.P;
+  const tf=TF[p.interval], count=Math.ceil(p.period*1440/tf);
+  setStatus('Descargando datos de '+p.symbol+'…'); setProg(0);
+  const data=await fetchKlines(p.symbol,p.interval,count,f=>setProg(f*0.9));
+  if(data.t.length<200) throw new Error('Binance devuelve muy pocos datos para '+p.symbol+'. Revisa que el par exista.');
+  setStatus('Preparando sesiones…'); await sleep(10);
+  const P=prepare(data,p.tz,tf);
+  cache={key,P}; return P;
+}
+
+function describeCond(p){
+  const mv=p.minMove>0?` (al menos ${(p.minMove*100).toFixed(2)} %)`:'';
+  return {bear:'bajista'+mv,bull:'alcista'+mv,any:'con movimiento'+mv,wide:`de rango amplio (${(p.minMove*100).toFixed(2)} % o más)`,narrow:`de rango estrecho (${(p.minMove*100).toFixed(2)} % o menos)`}[p.cond];
+}
+
+function render(P,p,R){
+  const aTxt=`${showM(p.aS)}–${showM(p.aE)}`, bTxt=`${showM(p.bS)}–${showM(p.bE)}`;
+  const n=R.rows.length, N=R.all.length;
+  let cls='ko', tag='<span class="tag ko">Sin ventaja</span>', msg;
+  const dirW = R.fixedD===-1?'siguió bajando':R.fixedD===1?'siguió subiendo':'siguió en la misma dirección que A';
+  const base = R.fixedD?`frente al ${pp(R.p0)} de todos los días`:'frente al 50 % que daría el azar';
+  const diff=(R.T.p-R.p0)*100;
+  if(n<20){ cls='wa'; tag='<span class="tag wa">Pocos casos</span>'; msg=`Solo hay ${n} días con el patrón; con tan pocos casos cualquier porcentaje puede ser suerte. Amplía el periodo o relaja la condición.`; }
+  else{
+    const same=(R.r1-R.p0)*(R.r2-R.p0)>0;
+    const sig=R.T.pv<0.05;
+    if(sig&&same){ cls='ok'; tag='<span class="tag ok">Ventaja estadística</span>'; msg='Es poco probable que sea casualidad (p = '+R.T.pv.toFixed(3)+') y se repite en las dos mitades del periodo.'; }
+    else if(sig){ cls='wa'; tag='<span class="tag wa">Dudoso</span>'; msg='La diferencia es significativa en conjunto (p = '+R.T.pv.toFixed(3)+'), pero no se repite en las dos mitades del periodo: puede venir de una racha concreta.'; }
+    else msg='La diferencia no se distingue del azar (p = '+R.T.pv.toFixed(2)+'). Con estos datos, saber cómo fue A no ayuda a prever B.';
+    if(diff<0&&sig) msg+=' Ojo: el efecto es el contrario, B tiende a girarse.';
+  }
+  const costNote = R.S.n ? ` La operación simulada ${R.S.mean>0?'gana':'pierde'} de media ${pct(Math.abs(R.S.mean),3)} por día después de comisiones.` : '';
+  $('verdict').innerHTML=`<div class="verdict ${cls}">${tag} <b>${p.symbol}</b>, sesión A ${aTxt} ${describeCond(p)}, sesión B ${bTxt}.
+    <p>En ${n} de ${N} días válidos se cumplió la condición. Después, la sesión B ${dirW} el <b>${pp(R.T.p)}</b> de las veces, ${base} (${sgn(diff)}${diff.toFixed(1)} puntos). ${msg}${costNote}</p></div>`;
+
+  const S=R.S, S0=R.S0;
+  $('cards').innerHTML=[
+    card('Días con patrón',`${n}`,'',`de ${N} días válidos`),
+    card('B sigue a A',pp(R.T.p),R.T.p>R.p0?'pos':'neg',`normal: ${pp(R.p0)}`),
+    card('Mitades del periodo',`${pp(R.r1)} / ${pp(R.r2)}`,'','primera / segunda'),
+    card('B rompe mínimo de A',pp(R.bl),'',`normal: ${pp(R.bl0)}`),
+    card('B rompe máximo de A',pp(R.bh),'',`normal: ${pp(R.bh0)}`),
+    card('Operación media',pct(S.mean,3),cls_(S.mean),`sin filtro: ${pct(S0.mean,3)}`),
+    card('Mediana',pct(S.med,3),cls_(S.med)),
+    card('Ganadoras',pp(S.win),'',`sin filtro: ${pp(S0.win)}`),
+    card('Factor de beneficio',isFinite(S.pf)?S.pf.toFixed(2):'∞',S.pf>1?'pos':'neg',`sin filtro: ${isFinite(S0.pf)?S0.pf.toFixed(2):'∞'}`),
+    card('Resultado acumulado',pct(S.total,1),cls_(S.total),`sin filtro: ${pct(S0.total,1)}`),
+    card('Caída máxima',pct(S.dd,1),'neg'),
+  ].join('');
+  function cls_(x){return x>0?'pos':x<0?'neg':'';}
+
+  drawChart(P,R);
+  drawEquity(R);
+  drawTable(P,R);
+  drawProfile(P,p);
+  ['resPanel','chartPanel','eqPanel','tblPanel','profPanel'].forEach(id=>$(id).classList.remove('hidden'));
+}
+
+function drawChart(P,R){
+  const d=P.data;
+  if(!chart){
+    chart=LightweightCharts.createChart($('chart'),{autoSize:true,layout:{background:{color:'#121826'},textColor:'#8a96ad'},
+      grid:{vertLines:{color:'#1b2335'},horzLines:{color:'#1b2335'}},rightPriceScale:{borderColor:'#253049'},
+      timeScale:{borderColor:'#253049',timeVisible:true,secondsVisible:false},crosshair:{mode:0}});
+    candle=chart.addCandlestickSeries({upColor:'#22c55e',downColor:'#ef4444',borderVisible:false,wickUpColor:'#22c55e',wickDownColor:'#ef4444'});
+    requestAnimationFrame(overlayLoop);
+  }
+  candle.setData(d.t.map((_,i)=>({time:P.ct[i],open:d.o[i],high:d.h[i],low:d.l[i],close:d.c[i]})));
+  boxes=R.rows.map(r=>({A:r.A,B:r.B}));
+  const last=d.t.length-1;
+  chart.timeScale().setVisibleLogicalRange({from:Math.max(0,last-Math.round(14*1440/P.tfMin)),to:last+5});
+  lastSig='';
+}
+function focusDay(r){
+  const span=Math.max(10,Math.round((r.B.i1-r.A.i0)*1.2));
+  chart.timeScale().setVisibleLogicalRange({from:r.A.i0-span,to:r.B.i1+span});
+  $('chartPanel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function overlayLoop(){
+  try{
+    const cv=$('ovl'), wrap=$('chartWrap');
+    if(chart && !$('chartPanel').classList.contains('hidden')){
+      const ts=chart.timeScale(), vr=ts.getVisibleLogicalRange();
+      const w=wrap.clientWidth, h=wrap.clientHeight;
+      const ref=candle.priceToCoordinate(1), ref2=candle.priceToCoordinate(1000);
+      const sig=[vr&&vr.from.toFixed(2),vr&&vr.to.toFixed(2),w,h,ref,ref2,boxes.length].join('|');
+      if(sig!==lastSig&&vr){ lastSig=sig; paintBoxes(cv,w,h,vr); }
+    }
+  }catch(e){}
+  requestAnimationFrame(overlayLoop);
+}
+function paintBoxes(cv,w,h,vr){
+  const dpr=window.devicePixelRatio||1;
+  if(cv.width!==w*dpr||cv.height!==h*dpr){ cv.width=w*dpr; cv.height=h*dpr; cv.style.width=w+'px'; cv.style.height=h+'px'; }
+  const g=cv.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0); g.clearRect(0,0,w,h);
+  const plotW=w-chart.priceScale('right').width();
+  const ts=chart.timeScale(), X=i=>ts.logicalToCoordinate(i), Y=p=>candle.priceToCoordinate(p);
+  g.save(); g.beginPath(); g.rect(0,0,plotW,h-28); g.clip();
+  for(const b of boxes){
+    if(b.B.i1<vr.from-1||b.A.i0>vr.to+1) continue;
+    const ax0=X(b.A.i0-0.5), ax1=X(b.A.i1+0.5), bx0=X(b.B.i0-0.5), bx1=X(b.B.i1+0.5);
+    if([ax0,ax1,bx0,bx1].some(v=>v==null)) continue;
+    const ay0=Y(b.A.h), ay1=Y(b.A.l), by0=Y(b.B.h), by1=Y(b.B.l);
+    const dn=b.A.ret<0;
+    g.fillStyle=dn?'rgba(239,68,68,.16)':'rgba(34,197,94,.16)'; g.strokeStyle=dn?'rgba(239,68,68,.8)':'rgba(34,197,94,.8)'; g.lineWidth=1; g.setLineDash([]);
+    g.fillRect(ax0,ay0,ax1-ax0,ay1-ay0); g.strokeRect(ax0,ay0,ax1-ax0,ay1-ay0);
+    g.fillStyle='rgba(59,130,246,.10)'; g.strokeStyle='rgba(59,130,246,.85)'; g.setLineDash([4,3]);
+    g.fillRect(bx0,by0,bx1-bx0,by1-by0); g.strokeRect(bx0,by0,bx1-bx0,by1-by0);
+    g.strokeStyle='rgba(240,180,41,.9)'; g.setLineDash([2,3]); g.beginPath();
+    g.moveTo(ax1,ay0); g.lineTo(bx1,ay0); g.moveTo(ax1,ay1); g.lineTo(bx1,ay1); g.stroke();
+  }
+  g.restore();
+}
+
+function drawEquity(R){
+  if(!eqChart){
+    eqChart=LightweightCharts.createChart($('eqChart'),{autoSize:true,layout:{background:{color:'#121826'},textColor:'#8a96ad'},
+      grid:{vertLines:{color:'#1b2335'},horzLines:{color:'#1b2335'}},rightPriceScale:{borderColor:'#253049'},timeScale:{borderColor:'#253049'}});
+    eqChart._base=eqChart.addLineSeries({color:'#8a96ad',lineWidth:1,priceFormat:{type:'percent'}});
+    eqChart._pat=eqChart.addLineSeries({color:'#f0b429',lineWidth:2,priceFormat:{type:'percent'}});
+  }
+  const toDay=r=>Date.UTC(r.day.y,r.day.mo-1,r.day.d)/1000;
+  let e=1; eqChart._pat.setData(R.rows.map(r=>{e*=1+R.tr(r);return{time:toDay(r),value:(e-1)*100};}));
+  e=1; eqChart._base.setData(R.all.map(r=>{e*=1+R.trBase(r);return{time:toDay(r),value:(e-1)*100};}));
+  eqChart.timeScale().fitContent();
+}
+
+let tblRows=[];
+function drawTable(P,R){
+  tblRows=[...R.rows].reverse();
+  $('tblBody').innerHTML=tblRows.map((r,j)=>{
+    const t=R.tr(r);
+    return `<tr data-j="${j}"><td>${String(r.day.d).padStart(2,'0')}/${String(r.day.mo).padStart(2,'0')}/${r.day.y}</td><td class="l">${DAYN[r.day.wd]}</td>
+      <td class="${cls(r.A.ret)}">${sgn(r.A.ret)}${pct(r.A.ret)}</td><td>${pct(r.A.range)}</td><td class="${cls(r.B.ret)}">${sgn(r.B.ret)}${pct(r.B.ret)}</td>
+      <td>${r.B.l<r.A.l?'Sí':'No'}</td><td>${r.B.h>r.A.h?'Sí':'No'}</td><td class="${cls(t)}">${sgn(t)}${pct(t)}</td></tr>`;
+  }).join('');
+}
+$('tblBody').addEventListener('click',e=>{ const tr=e.target.closest('tr'); if(tr) focusDay(tblRows[+tr.dataset.j]); });
+
+function drawProfile(P,p){
+  const sum=new Float64Array(24), up=new Uint32Array(24), cnt=new Uint32Array(24);
+  for(const day of P.days){ if(!p.days.has(day.wd)) continue; for(let k=0;k<24;k++){ if(!day.H.ok[k]) continue; const r=day.H.c[k]/day.H.o[k]-1; sum[k]+=r; cnt[k]++; if(r>0) up[k]++; } }
+  const avg=Array.from(sum,(s,k)=>cnt[k]?s/cnt[k]:0), mx=Math.max(1e-9,...avg.map(Math.abs));
+  $('prof').innerHTML=avg.map((a,k)=>{
+    const hgt=Math.abs(a)/mx*100, col=a>=0?'var(--up)':'var(--dn)';
+    const tip=`${hhmm(k*60)}: media ${sgn(a)}${pct(a,3)}, positiva ${cnt[k]?pp(up[k]/cnt[k]):'–'} (${cnt[k]} días)`;
+    return `<div class="col" title="${tip}"><div class="top">${a>=0?`<div class="bar" style="height:${hgt}%;background:${col}"></div>`:''}</div>
+      <div class="bot">${a<0?`<div class="bar" style="height:${hgt}%;background:${col}"></div>`:''}</div>
+      <div class="lbl">${String(k).padStart(2,'0')}</div><div class="pu">${cnt[k]?Math.round(up[k]/cnt[k]*100):'–'}</div></div>`;
+  }).join('');
+}
+
+// ================= Buscador automático =================
+function scanSet(dayList, combos, minN, perm){
+  const out=[];
+  for(const cb of combos){
+    let n=0,k=0,nb=0,kb=0;
+    for(let j=0;j<dayList.length;j++){
+      const B=cb.Bc[perm?perm[j]:j]; if(!B) continue;
+      nb++; if(Math.sign(B.ret)===cb.d) kb++;
+      const A=cb.Ac[j]; if(!A||Math.sign(A.ret)!==cb.d) continue;
+      n++; if(Math.sign(B.ret)===cb.d) k++;
+    }
+    if(n<minN||!nb) continue;
+    const T=zTest(k,n,kb/nb); out.push({cb,n,k,p:T.p,p0:kb/nb,z:T.z});
+  }
+  return out;
+}
+function shuffled(n,seed){ const a=Array.from({length:n},(_,i)=>i); let s=seed; const rnd=()=>((s=Math.imul(s^s>>>15,1|s)+0x6D2B79F5|0)>>>0)/4294967296; for(let i=n-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+async function runScan(){
+  let p; try{ p=readParams(); }catch(e){ return setStatus(e.message,true); }
+  lock(true);
+  try{
+    const P=await getData(p);
+    const D=P.days.filter(d=>p.days.has(d.wd));
+    const cut=Math.floor(D.length*0.7), IS=D.slice(0,cut), OOS=D.slice(cut);
+    const minN=Math.max(20,Math.round(IS.length*0.08));
+    // Combinaciones: inicio de A, duración de A y de B (B empieza al acabar A)
+    const LENS=[1,2,3,4,6,8], wins=[];
+    for(let hs=0;hs<24;hs++) for(const L of LENS) for(const M of LENS) if(hs+L+M<=24) wins.push({hs,he:hs+L,bs:hs+L,be:hs+L+M});
+    setStatus(`Probando ${wins.length*2} combinaciones…`);
+    const cacheS=new Map(), get=(list,tag,hs,he)=>{ const key=tag+hs+'-'+he; if(!cacheS.has(key)) cacheS.set(key,list.map(d=>sessH(d,hs,he))); return cacheS.get(key); };
+    const mk=(list,tag)=>{ const c=[]; for(const w of wins){ const Ac=get(list,tag,w.hs,w.he), Bc=get(list,tag,w.bs,w.be); for(const d of [1,-1]) c.push({...w,d,Ac,Bc}); } return c; };
+    const cIS=mk(IS,'i'); setProg(0.3); await sleep(0);
+    const res=scanSet(IS,cIS,minN).sort((a,b)=>Math.abs(b.z)-Math.abs(a.z));
+    // Prueba de ruido: misma búsqueda emparejando A y B de días distintos
+    const noise=[]; for(let s=1;s<=5;s++){ const r=scanSet(IS,cIS,minN,shuffled(IS.length,s*7919)); noise.push(Math.max(0,...r.map(x=>Math.abs(x.z)))); setProg(0.3+s*0.1); await sleep(0); }
+    const noiseZ=noise.reduce((a,b)=>a+b,0)/noise.length;
+    // Validación en el 30 % reciente
+    const cOOS=mk(OOS,'o'), idx=new Map(cOOS.map(c=>[`${c.hs}-${c.he}-${c.be}-${c.d}`,c]));
+    const top=res.slice(0,25).map(r=>{
+      const c=idx.get(`${r.cb.hs}-${r.cb.he}-${r.cb.be}-${r.cb.d}`), read=Math.sign(r.z)||1;
+      const v=scanSet(OOS,[c],1)[0];
+      let rets=[]; for(let j=0;j<OOS.length;j++){ const A=c.Ac[j],B=c.Bc[j]; if(A&&B&&Math.sign(A.ret)===c.d) rets.push(read*c.d*B.ret-2*p.fee); }
+      const mean=rets.length?rets.reduce((a,b)=>a+b,0)/rets.length:NaN;
+      let vd='<span class="tag ko">No se repite</span>';
+      if(v&&v.n>=10){ const pr=read>0?v.p:1-v.p, p0r=read>0?v.p0:1-v.p0, zr=read*v.z;
+        if(zr>=1.65&&mean>0) vd='<span class="tag ok">Se confirma</span>'; else if(zr>0) vd='<span class="tag wa">Débil</span>';
+        return {r,read,v,pr,p0r,mean,vd}; }
+      if(!v||v.n<10) vd='<span class="tag wa">Pocos casos</span>';
+      return {r,read,v,pr:NaN,p0r:NaN,mean,vd};
+    });
+    const ok=top.filter(t=>t.vd.includes('Se confirma')).length;
+    $('scanInfo').innerHTML=`Se han probado <b>${wins.length*2}</b> combinaciones de sesiones en ${IS.length} días (${D[0]?fmtDay(D[0]):''} a ${IS.length?fmtDay(IS[IS.length-1]):''}) y se han validado en los ${OOS.length} días siguientes. Mínimo ${minN} casos por combinación.
+      <br>Prueba de ruido: emparejando sesiones de días al azar, el mejor resultado llega de media a <b>z = ${noiseZ.toFixed(2)}</b>. Lo que no supere claramente esa cifra es lo que se encuentra por pura casualidad al probar tantas combinaciones. El mejor resultado real es z = ${res[0]?Math.abs(res[0].z).toFixed(2):'–'}.
+      <br>${ok?`<b>${ok}</b> de las 25 mejores se confirman en los datos recientes.`:'Ninguna de las 25 mejores se confirma en los datos recientes: con este activo y estos días no aparece un patrón de sesiones fiable.'}`;
+    $('scanBody').innerHTML=top.map((t,j)=>{
+      const c=t.r.cb, rd=t.read*c.d;
+      return `<tr data-j="${j}"><td class="l">${showM(c.hs*60)}–${showM(c.he*60)}</td><td class="l">${c.d>0?'alcista':'bajista'}</td><td class="l">${showM(c.bs*60)}–${showM(c.be*60)}</td>
+        <td class="l">${t.read>0?'B continúa':'B se gira'} (${rd>0?'sube':'baja'})</td><td>${t.r.n}</td>
+        <td>${pp(t.read>0?t.r.p:1-t.r.p)}</td><td>${pp(t.read>0?t.r.p0:1-t.r.p0)}</td><td>${Math.abs(t.r.z).toFixed(2)}</td>
+        <td>${t.v?t.v.n:0}</td><td>${pp(t.pr)}</td><td>${pp(t.p0r)}</td><td class="${cls(t.mean)}">${isFinite(t.mean)?sgn(t.mean)+pct(t.mean,3):'–'}</td>
+        <td class="l">${t.vd}</td><td><button class="mini sec" data-load="${j}">Analizar</button></td></tr>`;
+    }).join('');
+    scanTop=top;
+    $('scanPanel').classList.remove('hidden');
+    setStatus('Búsqueda terminada.'); setProg(null);
+    $('scanPanel').scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(e){ setStatus(e.message,true); setProg(null); }
+  lock(false);
+}
+const fmtDay=d=>`${String(d.d).padStart(2,'0')}/${String(d.mo).padStart(2,'0')}/${d.y}`;
+let scanTop=[];
+$('scanBody').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-load]'); if(!b) return;
+  const t=scanTop[+b.dataset.load], c=t.r.cb;
+  setT('aStart',c.hs*60); setT('aEnd',c.he*60); setT('bStart',c.bs*60); setT('bEnd',c.be*60);
+  $('cond').value=c.d>0?'bull':'bear'; $('minMove').value=0; $('op').value=t.read>0?'favor':'contra';
+  window.scrollTo({top:0,behavior:'smooth'}); runAnalyze();
+});
+
+// ================= Arranque =================
+function lock(on){ $('btnRun').disabled=on; $('btnScan').disabled=on; }
+async function runAnalyze(){
+  let p; try{ p=readParams(); }catch(e){ return setStatus(e.message,true); }
+  lock(true);
+  try{
+    const P=await getData(p);
+    const R=analyze(P,p);
+    if(!R.all.length) throw new Error('No hay días con datos completos en las dos sesiones. Revisa horas y días.');
+    render(P,p,R);
+    setStatus(`${P.data.t.length.toLocaleString('es-ES')} velas analizadas.`); setProg(null);
+  }catch(e){ setStatus(e.message,true); setProg(null); console.error(e); }
+  lock(false);
+}
+$('btnRun').addEventListener('click',runAnalyze);
+$('btnScan').addEventListener('click',runScan);
+</script>
+</body>
+</html>
