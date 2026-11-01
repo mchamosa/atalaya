@@ -8,10 +8,10 @@
    "prev_month": 30
   },
   "crypto": {
-   "value": 30,
+   "value": 34,
    "label": "Miedo",
-   "prev_week": 51,
-   "prev_month": 74
+   "prev_week": 54,
+   "prev_month": 72
   }
  },
  "assets": [
@@ -32,11 +32,11 @@
    "symbol": "SI=F",
    "name": "Plata",
    "group": "Materias primas",
-   "price": 49.1,
-   "chg1d": -5.93,
-   "chg5d": -8.59,
-   "chg1m": -18.14,
-   "rsi": 22.4,
+   "price": 49.28,
+   "chg1d": -5.59,
+   "chg5d": -8.26,
+   "chg1m": -17.84,
+   "rsi": 22.6,
    "above_sma50": false,
    "above_sma200": false,
    "bias": -100
@@ -120,6 +120,19 @@
    "bias": -14
   },
   {
+   "symbol": "^NDX",
+   "name": "Nasdaq 100",
+   "group": "Índices",
+   "price": 28384.85,
+   "chg1d": -3.46,
+   "chg5d": -1.98,
+   "chg1m": -7.87,
+   "rsi": 34.9,
+   "above_sma50": false,
+   "above_sma200": true,
+   "bias": -39
+  },
+  {
    "symbol": "^GDAXI",
    "name": "DAX",
    "group": "Índices",
@@ -159,32 +172,19 @@
    "bias": -29
   },
   {
-   "symbol": "^VIX",
-   "name": "VIX",
-   "group": "Volatilidad",
-   "price": 19.42,
-   "chg1d": 12.91,
-   "chg5d": -0.15,
-   "chg1m": 26.85,
-   "rsi": 59.4,
-   "above_sma50": true,
-   "above_sma200": true,
-   "bias": 71
-  },
-  {
    "symbol": "BTC-USD",
    "name": "Bitcoin",
    "group": "Cripto",
-   "price": 77422.89,
-   "chg1d": 0.29,
-   "chg5d": -3.23,
-   "chg1m": -7.48,
-   "rsi": 35.5,
+   "price": 77894.84,
+   "chg1d": 0.59,
+   "chg5d": -3.6,
+   "chg1m": -4.73,
+   "rsi": 37.9,
    "above_sma50": false,
    "above_sma200": true,
-   "bias": -43
+   "bias": -35
   }
  ],
- "updated": "2026-10-31T20:46:26+00:00",
+ "updated": "2026-11-01T14:36:38+00:00",
  "sample": false
 }
