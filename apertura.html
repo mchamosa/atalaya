@@ -85,7 +85,7 @@ details.manual>summary::before{content:'▸ ';color:var(--acc)} details.manual[o
 td.wrap{white-space:normal;min-width:300px}
 tr.click{cursor:pointer} tr.click:hover td{background:var(--panel2)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media (max-width:800px){.two{grid-template-columns:1fr}}
-.heat td,.heat th{text-align:center} .heat td div{line-height:1.35}
+.heat td,.heat th{text-align:center} .heat td div{line-height:1.35} .heat td.cell{cursor:pointer} .heat td.cell:hover{outline:1px solid var(--mut)}
 h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
 </style>
 </head>
@@ -214,9 +214,6 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
   <h2 id="optTitle">Mejores estrategias de apertura</h2>
   <div id="optSummary" class="verdict" style="margin-top:0"></div>
   <div class="scroll" style="margin-top:12px"><table id="optTable"></table></div>
-  <h3 class="sub3">Mapa de robustez de la mejor: rango × objetivo</h3>
-  <p class="note">Cada celda es la misma estrategia cambiando solo el tamaño del rango y el objetivo: arriba, el resultado en el tramo de búsqueda; abajo, en el de prueba. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido.</p>
-  <div class="scroll"><table id="heat" class="heat"></table></div>
 </section>
 
 <section id="results" class="hidden">
@@ -225,6 +222,11 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
     <div id="resConfig" class="note" style="margin:-4px 0 10px"></div>
     <div class="cards" id="cards"></div>
     <div class="verdict" id="verdict"></div>
+  </section>
+  <section class="panel">
+    <h2>Mapa de robustez: rango × objetivo</h2>
+    <p class="note">La misma estrategia cambiando solo el tamaño del rango y el objetivo. Arriba, el resultado en el tramo de búsqueda; abajo, en negrita, en el de prueba. <b>Pulsa cualquier celda</b> para ver abajo su desglose completo. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido.</p>
+    <div class="scroll"><table id="heat" class="heat"></table></div>
   </section>
   <section class="panel">
     <h2>Tramo de búsqueda frente a tramo de prueba</h2>
@@ -632,7 +634,6 @@ async function optimizeUI(){
     const top150=res.all.slice(0,150).map(a=>orbEval(D,a.cfg,p)), rob=top150.filter(e=>e.is.total>0&&e.oos.total>0&&e.oos.pf>1).length;
     OPT=pickDistinctORB(res.all,12).map(a=>{ const e=orbEval(D,a.cfg,p); e.noise = nb ? a.score>nb.score : undefined; return e; });
     renderOpt(D,p,res,nb,rob,label);
-    renderHeat(D,OPT[0],p);
     writeCfg(OPT[0].cfg); $('results').classList.remove('hidden'); renderDetail(D,OPT[0]);
     setBar(1); setStatus(`Búsqueda terminada · ${res.tested} configuraciones${nb?' + prueba de azar':''} · ${label}`);
     $('optPanel').scrollIntoView({behavior:'smooth'});
@@ -658,24 +659,33 @@ function renderOpt(D,p,res,nb,rob,label){
       <td>${pct(e.all.win,0)}</td><td>${num(e.all.avgR)}</td><td class="neg">${pct(e.all.maxDD)}</td><td>${num(e.all.sharpe)}</td>
       <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-i="${i}">Ver</button></td></tr>`).join('');
   $('optTable').querySelectorAll('button[data-i]').forEach(b=>b.addEventListener('click',()=>{
-    const e=OPT[+b.dataset.i]; writeCfg(e.cfg); renderDetail(cache.D||CSV.D,e); renderHeat(cache.D||CSV.D,e,readP());
+    const e=OPT[+b.dataset.i]; writeCfg(e.cfg); renderDetail(cache.D||CSV.D,e);
     $('results').scrollIntoView({behavior:'smooth'});
   }));
 }
+let HEAT=null;
 function renderHeat(D,e,p){
+  HEAT={D,cfg:e.cfg,p};
   const ns=[1,2,3,6], ts=[0,1,2,3,5,10];
   $('heat').innerHTML=`<tr><th>Rango \\ Objetivo</th>${ts.map(t=>`<th>${t?t+'R':'Sin objetivo'}</th>`).join('')}</tr>`+
     ns.map(n=>`<tr><th>${n*5} min</th>${ts.map(t=>{
       const x=orbEval(D,{...e.cfg,n,tgt:t},p), cur=n===e.cfg.n&&t===e.cfg.tgt;
       const bg=x.oos.n<10?'transparent':x.oos.total>0?`rgba(34,197,94,${Math.min(0.45,0.1+x.oos.total*2)})`:`rgba(239,68,68,${Math.min(0.45,0.1-x.oos.total*2)})`;
-      return `<td style="background:${bg};${cur?'outline:2px solid var(--acc)':''}"><div class="${cls(x.is.total)}">${pct(x.is.total,0)}</div><div class="${cls(x.oos.total)}"><b>${pct(x.oos.total,0)}</b></div></td>`;
+      return `<td class="cell" data-n="${n}" data-t="${t}" title="Ver el desglose con rango de ${n*5} min y ${t?t+'R':'sin objetivo'}" style="background:${bg};${cur?'outline:2px solid var(--acc)':''}"><div class="${cls(x.is.total)}">${pct(x.is.total,0)}</div><div class="${cls(x.oos.total)}"><b>${pct(x.oos.total,0)}</b></div></td>`;
     }).join('')}</tr>`).join('');
+  $('heat').querySelectorAll('td.cell').forEach(td=>td.addEventListener('click',()=>{
+    const cfg={...HEAT.cfg,n:+td.dataset.n,tgt:+td.dataset.t};
+    writeCfg(cfg); saveForm();
+    renderDetail(HEAT.D,orbEval(HEAT.D,cfg,HEAT.p));
+    $('resTitle').scrollIntoView({behavior:'smooth'});
+  }));
 }
 
 // ================= Detalle =================
 let eqChart=null, dayChart=null, LASTD=null;
 function renderDetail(D,e){
   LAST=e; LASTD=D;
+  renderHeat(D,e,e.p);
   const s=e.all, n=D.length, i0=WARM, bh=D[n-1].close/D[i0].open-1;
   $('resTitle').textContent='Resultados · '+$('sym').value.replace('csv','CSV propio');
   $('resConfig').textContent=cfgText(e.cfg)+(e.p.risk>0?` · riesgo ${String(e.p.risk).replace('.',',')} % por operación (apalancamiento máx. ${e.p.lev})`:' · todo el capital, sin apalancar');
@@ -763,6 +773,11 @@ function exportCSV(){
       setStatus(`CSV cargado: ${CSV.label}`);
     }catch(err){ setStatus(err.message,true); }
   });
+  let tmr=null;
+  document.querySelectorAll('#manual select').forEach(s=>s.addEventListener('change',()=>{
+    if($('results').classList.contains('hidden')) return;
+    clearTimeout(tmr); tmr=setTimeout(()=>runManual(),150);
+  }));
   document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{ writeCfg(PRESETS[b.dataset.preset]); $('manual').open=true; runManual(); }));
 })();
 </script>
