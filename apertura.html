@@ -237,6 +237,11 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
     <div class="scroll"><table id="splitTable"></table></div>
   </section>
   <section class="panel">
+    <h2>Largos frente a cortos</h2>
+    <p class="note">Las mismas operaciones separadas por dirección. Rentabilidad = lo que habría dado operar solo esa dirección, con el mismo tamaño de posición.</p>
+    <div class="scroll"><table id="sideTable"></table></div>
+  </section>
+  <section class="panel">
     <h2>Curva de capital</h2>
     <div class="legend"><span><i style="background:var(--acc)"></i>Estrategia</span><span><i style="background:var(--mut)"></i>Comprar y mantener</span></div>
     <div id="eqChart" class="chart small"></div>
@@ -720,6 +725,14 @@ function renderDetail(D,e){
     row('Rentabilidad',e.is.total,e.oos.total,col)+row('Comprar y mantener',D[e.si-1].close/D[i0].open-1,D[n-1].close/D[e.si].open-1,col)+
     row('Operaciones',e.is.n,e.oos.n,x=>x)+row('% ganadoras',e.is.win,e.oos.win,x=>pct(x,0))+row('Profit factor',e.is.pf,e.oos.pf,num)+
     row('R medio',e.is.avgR,e.oos.avgR,num)+row('Drawdown máx.',e.is.maxDD,e.oos.maxDD,col)+row('Sharpe',e.is.sharpe,e.oos.sharpe,num);
+  // largos frente a cortos
+  { const sub=(T)=>{ let eq=1,w=0,sw=0,sl=0,R=0; for(const t of T){ eq*=1+t.ret; if(t.ret>0){w++;sw+=t.ret;} else sl+=t.ret; R+=t.R; }
+      return {n:T.length,win:T.length?w/T.length:0,R:T.length?R/T.length:0,pf:sl<0?sw/-sl:(sw>0?Infinity:0),tot:eq-1}; };
+    const T=e.runAll.trades, rowS=(lab,sd)=>{ const A=T.filter(t=>t.side===sd), a=sub(A), i=sub(A.filter(t=>t.k<e.si)), o=sub(A.filter(t=>t.k>=e.si));
+      const c=x=>`<span class="${cls(x)}">${pct(x)}</span>`;
+      return `<tr><td>${lab}</td><td>${a.n}</td><td>${pct(a.win,0)}</td><td class="${cls(a.R)}">${num(a.R)}</td><td>${num(a.pf)}</td><td>${c(i.tot)} <span class="note">(${i.n})</span></td><td><b>${c(o.tot)}</b> <span class="note">(${o.n})</span></td><td>${c(a.tot)}</td></tr>`; };
+    $('sideTable').innerHTML=`<tr><th>Dirección</th><th>Ops.</th><th>% gan.</th><th>R medio</th><th>Profit factor</th><th>Búsqueda (ops.)</th><th>Prueba (ops.)</th><th>Total</th></tr>`+rowS('Largos',1)+rowS('Cortos',-1);
+  }
   // por año y día de la semana
   const T=e.runAll.trades, agg=(keyf)=>{ const m=new Map(); for(const t of T){ const k=keyf(t); const a=m.get(k)||{n:0,w:0,eq:1,R:0}; a.n++; if(t.ret>0)a.w++; a.eq*=1+t.ret; a.R+=t.R; m.set(k,a);} return m; };
   const yr=agg(t=>t.date.slice(0,4)), dw=agg(t=>D[t.k].dow);
