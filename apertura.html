@@ -163,7 +163,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
       <h3>Rango y entrada</h3>
       <div class="grid">
         <label>Rango de apertura
-          <select id="c_n"><option value="1">Primeros 5 min (1 vela)</option><option value="2">Primeros 10 min</option><option value="3">Primeros 15 min</option><option value="4">Primeros 20 min</option><option value="6">Primeros 30 min</option><option value="9">Primeros 45 min</option><option value="12">Primeros 60 min</option></select>
+          <select id="c_n"><option value="1">Primeros 5 min (1 vela)</option><option value="2">Primeros 10 min</option><option value="3">Primeros 15 min</option><option value="4">Primeros 20 min</option><option value="6">Primeros 30 min</option><option value="9">Primeros 45 min</option><option value="12">Primera hora</option><option value="48">Primeras 4 horas</option><option value="0">Rango del día anterior (1 día)</option></select>
         </label>
         <label>Dirección
           <select id="c_dir"><option value="both">Largos y cortos</option><option value="long">Solo largos</option><option value="short">Solo cortos</option><option value="candle">A favor de la vela del rango</option></select>
@@ -225,7 +225,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
   </section>
   <section class="panel">
     <h2>Mapa de robustez: rango × objetivo</h2>
-    <p class="note">La misma estrategia cambiando solo el tamaño del rango y el objetivo. Arriba, el resultado en el tramo de búsqueda; abajo, en negrita, en el de prueba. <b>Pulsa cualquier celda</b> para ver abajo su desglose completo. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido. Rangos de 5 a 60 min; las celdas sin color tienen menos de 10 operaciones en el tramo de prueba (por ejemplo, un rango de 60 min con entradas solo hasta las 10:30 no deja tiempo para operar).</p>
+    <p class="note">La misma estrategia cambiando solo el tamaño del rango y el objetivo. Arriba, el resultado en el tramo de búsqueda; abajo, en negrita, en el de prueba. <b>Pulsa cualquier celda</b> para ver abajo su desglose completo. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido. Rangos de 5 min a 4 horas desde la apertura, y el rango del día anterior (romper el máximo o mínimo de ayer). Si la hora límite de entrada cae dentro del rango, se permite entrar hasta el cierre. Las celdas sin color tienen menos de 10 operaciones en el tramo de prueba.</p>
     <div class="scroll"><table id="heat" class="heat"></table></div>
   </section>
   <section class="panel">
@@ -301,7 +301,7 @@ function buildDays(bars){
     d.open=d.o[0]; d.close=d.c[L-1]; d.hi=Math.max(...d.h); d.lo=Math.min(...d.l);
     if(k>0){
       const p=D[k-1];
-      d.prevClose=p.close; d.gap=d.open/p.close-1;
+      d.prevClose=p.close; d.gap=d.open/p.close-1; d.pHi=p.hi; d.pLo=p.lo; d.pBull=p.close>p.open; d.pBear=p.close<p.open;
       d.atr=atr;                                         // ATR(14) diario hasta ayer
       const cl=D.slice(Math.max(0,k-20),k).map(x=>x.close);
       d.sma20=cl.length===20?cl.reduce((a,b)=>a+b,0)/20:NaN;
@@ -317,6 +317,10 @@ function buildDays(bars){
 }
 
 // ================= Motor ORB =================
+// n = velas de 5 min del rango (1 = 5 min … 12 = 1 h, 48 = 4 h); n = 0 → rango de la sesión anterior (1 día)
+const nLabel=n=>n===0?'1 día':n>=12&&n%12===0?(n/12)+' h':(n*5)+' min';
+const nEnd=n=>570+n*5;                                  // minuto en que termina el rango
+const effWin=c=>c.n>0&&c.win<=nEnd(c.n)?960:c.win;     // si la hora límite cae dentro del rango, se puede entrar hasta el cierre
 // cfg: n (velas del rango), dir ('both','long','short','candle'), entry ('stop','close','open2'),
 //      win (minuto límite de entrada), stop ('range','mid','atr'), stopK, tgt (R, 0 = sin objetivo),
 //      hold (velas, 0 = hasta el cierre), orMax (rango/ATR, 0 = sin filtro), rvol, gap ('any','with','against'), trend (0/1)
@@ -339,10 +343,11 @@ function runORB(D,cfg,p,i0=0,i1=D.length){
 }
 function orbDay(d,cfg,n,L){
   if(L<=n+1) return null;
-  let H=-Infinity, Lo=Infinity;
-  for(let j=0;j<n;j++){ if(d.h[j]>H) H=d.h[j]; if(d.l[j]<Lo) Lo=d.l[j]; }
+  let H=-Infinity, Lo=Infinity, bull, bear;
+  if(n===0){ if(!isFinite(d.pHi)) return null; H=d.pHi; Lo=d.pLo; bull=d.pBull; bear=d.pBear; }
+  else { for(let j=0;j<n;j++){ if(d.h[j]>H) H=d.h[j]; if(d.l[j]<Lo) Lo=d.l[j]; } bull=d.c[n-1]>d.o[0]; bear=d.c[n-1]<d.o[0]; }
   const R0=H-Lo; if(!(R0>0)) return null;
-  const bull=d.c[n-1]>d.o[0], bear=d.c[n-1]<d.o[0];
+  const win=effWin(cfg);
   let aL=cfg.dir!=='short', aS=cfg.dir!=='long';
   if(cfg.dir==='candle'){ aL=bull; aS=bear; }
   if(cfg.orMax>0 && !(R0<=cfg.orMax*d.atr)) return null;
@@ -357,7 +362,7 @@ function orbDay(d,cfg,n,L){
     if(side){ eBar=n; ePx=d.o[n]; }
   } else {
     for(let i=n;i<L;i++){
-      if(d.min[i]>=cfg.win) break;
+      if(d.min[i]>=win) break;
       if(cfg.entry==='stop'){
         const up=aL && d.h[i]>H, dn=aS && d.l[i]<Lo;
         if(up&&dn){ if(d.o[i]>H) side=1; else if(d.o[i]<Lo) side=-1; else break; } // ambas en la misma vela: no se opera
@@ -424,7 +429,7 @@ const STOPS=[{stop:'range',stopK:0},{stop:'mid',stopK:0},{stop:'atr',stopK:0.05}
 const NOFILT={orMax:0,rvol:0,gap:'any',trend:0};
 function orbGrid1(){
   const out=[];
-  for(const n of [1,2,3,4,6,9,12])
+  for(const n of [1,2,3,4,6,9,12,48,0])
   for(const dir of ['both','long','short','candle'])
   for(const entry of ['stop','close','open2']){
     if(entry==='open2' && dir!=='candle') continue;
@@ -507,10 +512,10 @@ function writeCfg(c){
 function readP(){ return {fee:+$('fee').value||0,slip:+$('slip').value||0,risk:+$('risk').value||0,lev:Math.max(1,+$('lev').value||1),
                           split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:(cache.D&&cache.D.length<250)?12:30}; }
 function cfgText(c){
-  const a=[`Rango de los primeros ${c.n*5} min`];
+  const a=[c.n===0?'Rango de la sesión anterior (máximo y mínimo de ayer)':`Rango de ${c.n===12?'la primera hora':c.n===48?'las primeras 4 horas':'los primeros '+c.n*5+' min'}`];
   a.push({both:'largos y cortos',long:'solo largos',short:'solo cortos',candle:'a favor de la vela del rango'}[c.dir]);
   a.push(c.entry==='stop'?'entrada al romper el rango':c.entry==='close'?'entrada tras cerrar una vela fuera del rango':'entrada nada más terminar el rango');
-  if(c.entry!=='open2' && c.win<960) a.push(`hasta las ${hhmm(c.win)}`);
+  if(c.entry!=='open2' && effWin(c)<960) a.push(`hasta las ${hhmm(c.win)}`);
   a.push(c.stop==='range'?'stop al otro lado del rango':c.stop==='mid'?'stop a mitad del rango':`stop a ${Math.round(c.stopK*100)} % del ATR diario`);
   a.push(c.tgt?`objetivo ${c.tgt}R`:'sin objetivo');
   a.push(c.hold?`salida a los ${c.hold*5} min`:'salida al cierre');
@@ -666,12 +671,12 @@ function renderOpt(D,p,res,nb,rob,label){
 let HEAT=null;
 function renderHeat(D,e,p){
   HEAT={D,cfg:e.cfg,p};
-  const ns=[1,2,3,4,6,9,12], ts=[0,1,2,3,5,10];
+  const ns=[1,2,3,4,6,9,12,48,0], ts=[0,1,2,3,5,10];
   $('heat').innerHTML=`<tr><th>Rango \\ Objetivo</th>${ts.map(t=>`<th>${t?t+'R':'Sin objetivo'}</th>`).join('')}</tr>`+
-    ns.map(n=>`<tr><th>${n*5} min</th>${ts.map(t=>{
+    ns.map(n=>`<tr><th>${nLabel(n)}</th>${ts.map(t=>{
       const x=orbEval(D,{...e.cfg,n,tgt:t},p), cur=n===e.cfg.n&&t===e.cfg.tgt;
       const bg=x.oos.n<10?'transparent':x.oos.total>0?`rgba(34,197,94,${Math.min(0.45,0.1+x.oos.total*2)})`:`rgba(239,68,68,${Math.min(0.45,0.1-x.oos.total*2)})`;
-      return `<td class="cell" data-n="${n}" data-t="${t}" title="Ver el desglose con rango de ${n*5} min y ${t?t+'R':'sin objetivo'}" style="background:${bg};${cur?'outline:2px solid var(--acc)':''}"><div class="${cls(x.is.total)}">${pct(x.is.total,0)}</div><div class="${cls(x.oos.total)}"><b>${pct(x.oos.total,0)}</b></div></td>`;
+      return `<td class="cell" data-n="${n}" data-t="${t}" title="Ver el desglose con rango de ${nLabel(n)} y ${t?t+'R':'sin objetivo'}" style="background:${bg};${cur?'outline:2px solid var(--acc)':''}"><div class="${cls(x.is.total)}">${pct(x.is.total,0)}</div><div class="${cls(x.oos.total)}"><b>${pct(x.oos.total,0)}</b></div></td>`;
     }).join('')}</tr>`).join('');
   $('heat').querySelectorAll('td.cell').forEach(td=>td.addEventListener('click',()=>{
     const cfg={...HEAT.cfg,n:+td.dataset.n,tgt:+td.dataset.t};
@@ -740,7 +745,7 @@ function drawDay(D,e,t){
   const tt=i=>d.t[i]+nyOff(d.t[i]);
   const cs=dayChart.addCandlestickSeries({upColor:'#22c55e',downColor:'#ef4444',borderVisible:false,wickUpColor:'#22c55e',wickDownColor:'#ef4444'});
   cs.setData(d.c.map((c,i)=>({time:tt(i),open:d.o[i],high:d.h[i],low:d.l[i],close:c})));
-  let H=-Infinity,L=Infinity; for(let j=0;j<n;j++){ H=Math.max(H,d.h[j]); L=Math.min(L,d.l[j]); }
+  let H=-Infinity,L=Infinity; if(n===0){ H=d.pHi; L=d.pLo; } else for(let j=0;j<n;j++){ H=Math.max(H,d.h[j]); L=Math.min(L,d.l[j]); }
   const line=(price,color,title,style=0)=>cs.createPriceLine({price,color,lineWidth:1,lineStyle:style,axisLabelVisible:true,title});
   line(H,'#3b82f6','Máx. rango'); line(L,'#3b82f6','Mín. rango'); line(t.stop,'#ef4444','Stop',2); if(t.tgt) line(t.tgt,'#22c55e','Objetivo',2);
   cs.setMarkers([{time:tt(t.eBar),position:t.side>0?'belowBar':'aboveBar',color:t.side>0?'#22c55e':'#ef4444',shape:t.side>0?'arrowUp':'arrowDown',text:'Entrada'},
