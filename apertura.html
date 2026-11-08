@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Apertura</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1280px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 10px;font-size:15px;color:var(--acc);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 12px}
+.contents{display:contents}
+.group{border-top:1px dashed var(--line);margin-top:12px;padding-top:10px}
+.group:first-child{border-top:0;margin-top:0;padding-top:0}
+.group h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--mut)}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mut)}
+label.chk{flex-direction:row;align-items:center;gap:6px;color:var(--txt);font-size:13px}
+input,select{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 8px;font-size:14px;width:100%}
+input[type=checkbox]{width:auto}
+input:focus,select:focus{outline:1px solid var(--acc)}
+select#strategy{font-weight:600;color:var(--acc)}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+button{background:var(--acc);color:#111;border:0;border-radius:6px;padding:9px 18px;font-weight:700;cursor:pointer;font-size:14px}
+button.sec{background:var(--panel2);color:var(--txt);border:1px solid var(--line);font-weight:500}
+button.mini{padding:4px 10px;font-size:12px}
+button:disabled{opacity:.5;cursor:wait}
+.status{color:var(--mut);font-size:13px}
+.status.err{color:var(--dn)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card .k{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.card .v{font-size:20px;font-weight:700;margin-top:2px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--panel);z-index:1}
+td:first-child,th:first-child{text-align:left}
+td.l,th.l{text-align:left}
+tr.sel td{background:var(--panel2)}
+.scroll{max-height:460px;overflow:auto}
+.chart{width:100%;height:420px}
+.chart.small{height:240px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:6px 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.verdict{padding:10px 12px;border-radius:8px;margin-top:10px;font-size:13px;border:1px solid var(--line);background:var(--panel2)}
+.note{color:var(--mut);font-size:12px}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600}
+.tag.ok{background:#14532d;color:#86efac}.tag.ko{background:#450a0a;color:#fca5a5}.tag.wa{background:#422006;color:#fcd34d}
+.progress{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:10px}
+.progress div{height:100%;width:0;background:var(--acc);transition:width .15s}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;margin-top:14px}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.mini h4{margin:0;font-size:13px;display:flex;align-items:center;gap:6px}
+.mini .sub{font-size:12px;color:var(--mut);margin:2px 0 6px}
+.mini .c{height:150px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+#cmpLegend span{cursor:pointer;user-select:none}
+#cmpLegend span.off{opacity:.3;text-decoration:line-through}
+.hidden{display:none}
+@media (max-width:600px){main{padding:10px}.chart{height:320px}}
+</style>
+<style>
+.lead{font-size:13px;color:var(--mut);margin:0 0 10px}.lead b{color:var(--txt)}
+button.big{padding:11px 22px;font-size:15px}
+details.manual{border-top:1px dashed var(--line);margin-top:14px;padding-top:10px}
+details.manual>summary{cursor:pointer;color:var(--mut);font-size:13px;font-weight:600;list-style:none}
+details.manual>summary::before{content:'▸ ';color:var(--acc)} details.manual[open]>summary::before{content:'▾ '}
+td.wrap{white-space:normal;min-width:300px}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--panel2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media (max-width:800px){.two{grid-template-columns:1fr}}
+.heat td,.heat th{text-align:center} .heat td div{line-height:1.35}
+h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Apertura de Wall Street</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html" aria-current="page">Apertura</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a></nav>
+</header>
+<main>
+
+<section class="panel">
+  <h2>Rupturas del rango de apertura (velas de 5 min)</h2>
+  <p class="lead">Estrategias con los primeros minutos de la sesión de Nueva York (9:30, las 15:30 en España): se marca el máximo y el mínimo del rango de apertura y se opera su ruptura, en <b>largo y en corto</b>. Pulsa <b>🔍 Buscar la mejor estrategia</b> y la página probará miles de combinaciones de rango, entrada, stop, objetivo y filtros con el tramo inicial de los datos, y las comprobará en el tramo final, que no se usa para buscar.</p>
+
+  <div class="grid">
+    <label>Activo
+      <select id="sym"></select>
+    </label>
+    <label>Periodo
+      <select id="months">
+        <option value="6">Últimos 6 meses</option>
+        <option value="12">Último año</option>
+        <option value="24" selected>Últimos 2 años</option>
+        <option value="999">Todo lo disponible</option>
+      </select>
+    </label>
+    <label>Comisión por lado %
+      <input id="fee" type="number" value="0.005" min="0" step="0.001">
+    </label>
+    <label>Slippage por lado %
+      <input id="slip" type="number" value="0.01" min="0" step="0.005">
+    </label>
+    <label>Riesgo por operación % (0 = todo el capital, sin apalancar)
+      <input id="risk" type="number" value="1" min="0" max="10" step="0.25">
+    </label>
+    <label>Apalancamiento máximo
+      <input id="lev" type="number" value="4" min="1" max="10" step="1">
+    </label>
+    <label>Optimizar para
+      <select id="objective">
+        <option value="risk" selected>Rentabilidad / drawdown</option>
+        <option value="sharpe">Ratio de Sharpe</option>
+        <option value="profit">Máxima rentabilidad</option>
+        <option value="pf">Máximo profit factor</option>
+      </select>
+    </label>
+    <label>% de días para buscar (resto = prueba)
+      <input id="split" type="number" value="70" min="40" max="90" step="5">
+    </label>
+    <label class="chk"><input id="noise" type="checkbox" checked> Prueba de azar (repite la búsqueda con las velas de cada día barajadas)</label>
+  </div>
+  <div id="dataNote" class="verdict hidden"></div>
+  <input id="csvFile" type="file" accept=".csv,.txt" class="hidden">
+
+  <div class="actions">
+    <button id="optBtn" class="big">🔍 Buscar la mejor estrategia</button>
+    <button id="runBtn" class="sec">▶ Probar mis ajustes</button>
+    <button id="csvBtn" class="sec">📄 Cargar CSV propio</button>
+    <button id="csvOut" class="sec" disabled>Exportar operaciones (CSV)</button>
+  </div>
+  <div class="actions" style="margin-top:8px">
+    <span class="note">Plantillas:</span>
+    <button class="mini sec" data-preset="zarattini" title="Zarattini y Aziz (2023): dirección de la primera vela de 5 min, stop en su extremo, objetivo 10R, cierre al final del día">Zarattini y Aziz (5 min)</button>
+    <button class="mini sec" data-preset="orb5">ORB clásica 5 min</button>
+    <button class="mini sec" data-preset="orb15">ORB 15 min</button>
+    <button class="mini sec" data-preset="orb30">ORB 30 min</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="status" class="status" style="margin-top:6px"></div>
+
+  <details class="manual" id="manual">
+    <summary>Ajustes de la estrategia (la búsqueda los rellena sola)</summary>
+    <div class="group" style="border-top:0;margin-top:10px;padding-top:0">
+      <h3>Rango y entrada</h3>
+      <div class="grid">
+        <label>Rango de apertura
+          <select id="c_n"><option value="1">Primeros 5 min (1 vela)</option><option value="2">Primeros 10 min</option><option value="3">Primeros 15 min</option><option value="6">Primeros 30 min</option></select>
+        </label>
+        <label>Dirección
+          <select id="c_dir"><option value="both">Largos y cortos</option><option value="long">Solo largos</option><option value="short">Solo cortos</option><option value="candle">A favor de la vela del rango</option></select>
+        </label>
+        <label>Entrada
+          <select id="c_entry"><option value="stop">Al romper el rango (orden stop)</option><option value="close">Tras cerrar una vela fuera del rango</option><option value="open2">Nada más terminar el rango (sin esperar ruptura)</option></select>
+        </label>
+        <label>Última hora de entrada (NY)
+          <select id="c_win"><option value="630">10:30</option><option value="690">11:30</option><option value="900">15:00</option><option value="960">Sin límite</option></select>
+        </label>
+      </div>
+    </div>
+    <div class="group">
+      <h3>Salida</h3>
+      <div class="grid">
+        <label>Stop
+          <select id="c_stop"><option value="range">Al otro lado del rango</option><option value="mid">A mitad del rango</option><option value="atr:0.05">5 % del ATR diario</option><option value="atr:0.1">10 % del ATR diario</option><option value="atr:0.2">20 % del ATR diario</option></select>
+        </label>
+        <label>Objetivo (múltiplos del riesgo)
+          <select id="c_tgt"><option value="0">Sin objetivo</option><option value="1">1R</option><option value="2">2R</option><option value="3">3R</option><option value="5">5R</option><option value="10">10R</option></select>
+        </label>
+        <label>Salida por tiempo
+          <select id="c_hold"><option value="0">Al cierre de la sesión</option><option value="6">A los 30 min</option><option value="12">A la hora</option><option value="24">A las 2 horas</option></select>
+        </label>
+      </div>
+    </div>
+    <div class="group">
+      <h3>Filtros</h3>
+      <div class="grid">
+        <label>Tamaño del rango
+          <select id="c_orMax"><option value="0">Cualquiera</option><option value="0.15">Menor que el 15 % del ATR diario</option><option value="0.25">Menor que el 25 % del ATR diario</option><option value="0.4">Menor que el 40 % del ATR diario</option></select>
+        </label>
+        <label>Volumen de la 1ª vela
+          <select id="c_rvol"><option value="0">Cualquiera</option><option value="1.5">≥ 1,5 veces su media de 20 días</option><option value="2">≥ 2 veces su media de 20 días</option></select>
+        </label>
+        <label>Gap de apertura
+          <select id="c_gap"><option value="any">Cualquiera</option><option value="with">Solo a favor del gap</option><option value="against">Solo contra el gap</option></select>
+        </label>
+        <label>Tendencia diaria
+          <select id="c_trend"><option value="0">Sin filtro</option><option value="1">A favor de la media de 20 días</option></select>
+        </label>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="optPanel" class="panel hidden">
+  <h2 id="optTitle">Mejores estrategias de apertura</h2>
+  <div id="optSummary" class="verdict" style="margin-top:0"></div>
+  <div class="scroll" style="margin-top:12px"><table id="optTable"></table></div>
+  <h3 class="sub3">Mapa de robustez de la mejor: rango × objetivo</h3>
+  <p class="note">Cada celda es la misma estrategia cambiando solo el tamaño del rango y el objetivo: arriba, el resultado en el tramo de búsqueda; abajo, en el de prueba. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido.</p>
+  <div class="scroll"><table id="heat" class="heat"></table></div>
+</section>
+
+<section id="results" class="hidden">
+  <section class="panel">
+    <h2 id="resTitle">Resultados</h2>
+    <div id="resConfig" class="note" style="margin:-4px 0 10px"></div>
+    <div class="cards" id="cards"></div>
+    <div class="verdict" id="verdict"></div>
+  </section>
+  <section class="panel">
+    <h2>Tramo de búsqueda frente a tramo de prueba</h2>
+    <div class="scroll"><table id="splitTable"></table></div>
+  </section>
+  <section class="panel">
+    <h2>Curva de capital</h2>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Estrategia</span><span><i style="background:var(--mut)"></i>Comprar y mantener</span></div>
+    <div id="eqChart" class="chart small"></div>
+  </section>
+  <section class="panel">
+    <h2>Por año y por día de la semana</h2>
+    <div class="two">
+      <div class="scroll"><table id="yearTable"></table></div>
+      <div class="scroll"><table id="dowTable"></table></div>
+    </div>
+  </section>
+  <section class="panel">
+    <h2 id="dayTitle">Gráfico del día</h2>
+    <div class="legend"><span><i style="background:#3b82f6"></i>Rango de apertura</span><span><i style="background:#ef4444"></i>Stop</span><span><i style="background:#22c55e"></i>Objetivo</span><span class="note">Pulsa una operación de la tabla para verla aquí. Horas de Nueva York.</span></div>
+    <div id="dayChart" class="chart"></div>
+  </section>
+  <section class="panel">
+    <h2>Operaciones</h2>
+    <div class="scroll"><table id="tradesTable"></table></div>
+  </section>
+</section>
+
+<p class="note">Datos: velas de 5 minutos de la sesión regular (9:30 a 16:00, Nueva York) descargadas cada día por la Action "Velas de 5 minutos" desde Massive (antes Polygon) o, si no hay clave, Yahoo Finance (60 días). Una operación como máximo al día y todas cerradas antes del cierre. Si en una misma vela se tocan el stop y el objetivo, se cuenta el stop. Con riesgo por operación, el tamaño se calcula para perder ese % si salta el stop, con el apalancamiento máximo indicado. Rendimientos pasados no garantizan resultados futuros; esto no es asesoramiento financiero.</p>
+</main>
+
+<script id="engine">
+// ================= Hora de Nueva York =================
+// Desfase NY-UTC por día (los cambios de horario son a las 2:00 de NY, fuera de la sesión)
+const _nyF=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+const _offC=new Map();
+function nyOff(tsSec){
+  const dk=Math.floor(tsSec/86400); let off=_offC.get(dk);
+  if(off===undefined){
+    const ref=dk*86400+15*3600, p={};
+    for(const x of _nyF.formatToParts(new Date(ref*1000))) p[x.type]=+x.value;
+    off=Date.UTC(p.year,p.month-1,p.day,p.hour%24,p.minute)/1000-ref; _offC.set(dk,off);
+  }
+  return off;
+}
+function nyParts(tsSec){
+  const loc=new Date((tsSec+nyOff(tsSec))*1000);
+  return {date:loc.toISOString().slice(0,10), min:loc.getUTCHours()*60+loc.getUTCMinutes(), dow:loc.getUTCDay()};
+}
+const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+
+// ================= Sesiones =================
+// bars: [[t(seg UTC), o, h, l, c, v], ...] de cualquier temporalidad ≤ 5 min. Se agrupan en velas de 5 min de 9:30 a 16:00.
+const WARM=21;
+function buildDays(bars){
+  bars=[...bars].sort((a,b)=>a[0]-b[0]);
+  const days=[]; let cur=null, lastKey=null;
+  for(const b of bars){
+    const t=b[0], P=nyParts(t);
+    if(P.min<570 || P.min>=960 || P.dow===0 || P.dow===6) continue;
+    if(!cur || cur.date!==P.date){ cur={date:P.date,dow:P.dow,t:[],min:[],o:[],h:[],l:[],c:[],v:[]}; days.push(cur); lastKey=null; }
+    const k=Math.floor((P.min-570)/5);
+    if(k===lastKey){ const j=cur.c.length-1; cur.h[j]=Math.max(cur.h[j],b[2]); cur.l[j]=Math.min(cur.l[j],b[3]); cur.c[j]=b[4]; cur.v[j]+=b[5]||0; }
+    else { cur.t.push(t-((P.min-570)%5)*60); cur.min.push(570+k*5); cur.o.push(b[1]); cur.h.push(b[2]); cur.l.push(b[3]); cur.c.push(b[4]); cur.v.push(b[5]||0); lastKey=k; }
+  }
+  // sesiones incompletas al principio (datos que empiezan a media sesión) fuera
+  const D=days.filter(d=>d.c.length>=12 && d.min[0]===570);
+  // datos diarios (solo con información anterior al día)
+  let atr=NaN; const trs=[];
+  for(let k=0;k<D.length;k++){
+    const d=D[k], L=d.c.length;
+    d.open=d.o[0]; d.close=d.c[L-1]; d.hi=Math.max(...d.h); d.lo=Math.min(...d.l);
+    if(k>0){
+      const p=D[k-1];
+      d.prevClose=p.close; d.gap=d.open/p.close-1;
+      d.atr=atr;                                         // ATR(14) diario hasta ayer
+      const cl=D.slice(Math.max(0,k-20),k).map(x=>x.close);
+      d.sma20=cl.length===20?cl.reduce((a,b)=>a+b,0)/20:NaN;
+      d.trendUp=p.close>d.sma20;
+      const v0=D.slice(Math.max(0,k-20),k).map(x=>x.v[0]);
+      d.rvol=v0.length===20?d.v[0]/(v0.reduce((a,b)=>a+b,0)/20):NaN;
+    }
+    const tr=k>0?Math.max(d.hi-d.lo,Math.abs(d.hi-D[k-1].close),Math.abs(d.lo-D[k-1].close)):d.hi-d.lo;
+    trs.push(tr);
+    if(trs.length===14) atr=trs.reduce((a,b)=>a+b,0)/14; else if(trs.length>14) atr=(atr*13+tr)/14;
+  }
+  return D;
+}
+
+// ================= Motor ORB =================
+// cfg: n (velas del rango), dir ('both','long','short','candle'), entry ('stop','close','open2'),
+//      win (minuto límite de entrada), stop ('range','mid','atr'), stopK, tgt (R, 0 = sin objetivo),
+//      hold (velas, 0 = hasta el cierre), orMax (rango/ATR, 0 = sin filtro), rvol, gap ('any','with','against'), trend (0/1)
+// p:   fee, slip (% por lado), risk (% de riesgo por operación, 0 = todo el capital), lev (apalancamiento máx.)
+function runORB(D,cfg,p,i0=0,i1=D.length){
+  const fee=p.fee/100, slip=p.slip/100, trades=[], days=[];
+  let eq=1;
+  for(let k=Math.max(i0,WARM);k<i1;k++){
+    const d=D[k], n=cfg.n, L=d.c.length;
+    const res=orbDay(d,cfg,n,L);
+    if(!res){ days.push({k,r:0,eq}); continue; }
+    const {side,eBar,ePx,stop,tgt,xBar,xPx,why}=res, risk=side*(ePx-stop);
+    const fr=p.risk>0 ? Math.min(p.lev||1,(p.risk/100)/(risk/ePx)) : 1;
+    const net=side*(xPx-ePx)/ePx-2*(fee+slip), r=fr*net;
+    eq*=1+r;
+    trades.push({k,date:d.date,side,eBar,xBar,ePx,xPx,stop,tgt,why,R:side*(xPx-ePx)/risk,net,frac:fr,ret:r});
+    days.push({k,r,eq});
+  }
+  return {trades,days,eq};
+}
+function orbDay(d,cfg,n,L){
+  if(L<=n+1) return null;
+  let H=-Infinity, Lo=Infinity;
+  for(let j=0;j<n;j++){ if(d.h[j]>H) H=d.h[j]; if(d.l[j]<Lo) Lo=d.l[j]; }
+  const R0=H-Lo; if(!(R0>0)) return null;
+  const bull=d.c[n-1]>d.o[0], bear=d.c[n-1]<d.o[0];
+  let aL=cfg.dir!=='short', aS=cfg.dir!=='long';
+  if(cfg.dir==='candle'){ aL=bull; aS=bear; }
+  if(cfg.orMax>0 && !(R0<=cfg.orMax*d.atr)) return null;
+  if(cfg.rvol>0 && !(d.rvol>=cfg.rvol)) return null;
+  if(cfg.gap==='with'){ if(d.gap>0) aS=false; else if(d.gap<0) aL=false; }
+  else if(cfg.gap==='against'){ if(d.gap>0) aL=false; else if(d.gap<0) aS=false; }
+  if(cfg.trend){ if(!isFinite(d.sma20)) return null; if(d.trendUp) aS=false; else aL=false; }
+  if(!aL && !aS) return null;
+  let side=0, eBar=-1, ePx=0;
+  if(cfg.entry==='open2'){
+    side = aL&&!aS ? 1 : aS&&!aL ? -1 : (bull?1:bear?-1:0);
+    if(side){ eBar=n; ePx=d.o[n]; }
+  } else {
+    for(let i=n;i<L;i++){
+      if(d.min[i]>=cfg.win) break;
+      if(cfg.entry==='stop'){
+        const up=aL && d.h[i]>H, dn=aS && d.l[i]<Lo;
+        if(up&&dn){ if(d.o[i]>H) side=1; else if(d.o[i]<Lo) side=-1; else break; } // ambas en la misma vela: no se opera
+        else if(up) side=1; else if(dn) side=-1;
+        if(side){ eBar=i; ePx= side>0 ? Math.max(d.o[i],H) : Math.min(d.o[i],Lo); break; }
+      } else {
+        if(aL && d.c[i]>H) side=1; else if(aS && d.c[i]<Lo) side=-1;
+        if(side){ if(i+1>=L){ side=0; break; } eBar=i+1; ePx=d.o[i+1]; break; }
+      }
+    }
+  }
+  if(!side) return null;
+  const stop = cfg.stop==='range' ? (side>0?Lo:H) : cfg.stop==='mid' ? (H+Lo)/2 : ePx-side*cfg.stopK*d.atr;
+  const risk=side*(ePx-stop);
+  if(!(risk>0)) return null;                       // la entrada ya está al otro lado del stop
+  const tgt = cfg.tgt>0 ? ePx+side*cfg.tgt*risk : null;
+  const last = cfg.hold>0 ? Math.min(L-1,eBar+cfg.hold-1) : L-1;
+  const inBar = cfg.entry==='stop';               // en la vela de entrada solo cuenta lo que pasa después de entrar
+  for(let m=eBar;m<=last;m++){
+    const first=inBar && m===eBar;
+    if(side>0){
+      if(d.l[m]<=stop) return {side,eBar,ePx,stop,tgt,xBar:m,xPx:first?stop:Math.min(d.o[m],stop),why:'Stop'};
+      if(tgt!==null && d.h[m]>=tgt) return {side,eBar,ePx,stop,tgt,xBar:m,xPx:first?tgt:Math.max(d.o[m],tgt),why:'Objetivo'};
+    } else {
+      if(d.h[m]>=stop) return {side,eBar,ePx,stop,tgt,xBar:m,xPx:first?stop:Math.max(d.o[m],stop),why:'Stop'};
+      if(tgt!==null && d.l[m]<=tgt) return {side,eBar,ePx,stop,tgt,xBar:m,xPx:first?tgt:Math.min(d.o[m],tgt),why:'Objetivo'};
+    }
+  }
+  return {side,eBar,ePx,stop,tgt,xBar:last,xPx:d.c[last],why:last<L-1?'Tiempo':'Cierre'};
+}
+
+// ================= Métricas =================
+function orbStats(run,nDays){
+  const T=run.trades, s={n:T.length,total:run.eq-1,win:0,pf:0,avgR:0,exp:0,maxDD:0,sharpe:0,cagr:0,days:run.days.length,longs:0,shorts:0};
+  if(!run.days.length) return s;
+  let pk=1,dd=0; for(const x of run.days){ pk=Math.max(pk,x.eq); dd=Math.min(dd,x.eq/pk-1); } s.maxDD=dd;
+  const rs=run.days.map(x=>x.r), m=rs.reduce((a,b)=>a+b,0)/rs.length, sd=Math.sqrt(rs.reduce((a,b)=>a+(b-m)**2,0)/rs.length);
+  s.sharpe=sd>0?m/sd*Math.sqrt(252):0;
+  s.cagr=Math.pow(run.eq,252/run.days.length)-1;
+  if(!T.length) return s;
+  let sw=0,sl=0,nw=0,sR=0;
+  for(const t of T){ if(t.ret>0){sw+=t.ret;nw++;} else sl+=t.ret; sR+=t.R; if(t.side>0) s.longs++; else s.shorts++; }
+  s.win=nw/T.length; s.pf=sl<0?sw/-sl:(sw>0?Infinity:0); s.avgR=sR/T.length; s.exp=(sw+sl)/T.length;
+  return s;
+}
+function orbScore(s,obj,minTr){
+  if(s.n<minTr) return -Infinity;
+  if(obj==='risk') return s.total/Math.max(0.03,Math.abs(s.maxDD));
+  if(obj==='pf') return isFinite(s.pf)?s.pf:100;
+  if(obj==='sharpe') return s.sharpe;
+  return s.total;
+}
+const orbSplit=(D,pct)=>Math.max(WARM+20,Math.floor(D.length*pct/100));
+function orbEval(D,cfg,p){
+  const si=orbSplit(D,p.split);
+  const is=runORB(D,cfg,p,0,si), oos=runORB(D,cfg,p,si,D.length), all=runORB(D,cfg,p);
+  const sIS=orbStats(is), sOOS=orbStats(oos);
+  return {cfg,p,si,is:sIS,oos:sOOS,all:orbStats(all),runAll:all,score:orbScore(sIS,p.objective,p.minTr||30),
+          keys:is.trades.map(t=>t.k*2+(t.side>0?1:0))};
+}
+
+// ================= Optimizador =================
+const STOPS=[{stop:'range',stopK:0},{stop:'mid',stopK:0},{stop:'atr',stopK:0.05},{stop:'atr',stopK:0.1},{stop:'atr',stopK:0.2}];
+const NOFILT={orMax:0,rvol:0,gap:'any',trend:0};
+function orbGrid1(){
+  const out=[];
+  for(const n of [1,2,3,6])
+  for(const dir of ['both','long','short','candle'])
+  for(const entry of ['stop','close','open2']){
+    if(entry==='open2' && dir!=='candle') continue;
+    for(const st of STOPS) for(const tgt of [0,1,2,3,5,10]) for(const win of entry==='open2'?[960]:[630,690,900]) for(const hold of [0,12])
+      out.push({n,dir,entry,win,...st,tgt,hold,...NOFILT});
+  }
+  return out;
+}
+function orbGrid2(base){
+  const out=[];
+  for(const orMax of [0,0.15,0.25,0.4]) for(const rvol of [0,1.5,2]) for(const gap of ['any','with','against']) for(const trend of [0,1]){
+    if(!orMax && !rvol && gap==='any' && !trend) continue;
+    out.push({...base,orMax,rvol,gap,trend});
+  }
+  return out;
+}
+const cfgKey=c=>JSON.stringify([c.n,c.dir,c.entry,c.win,c.stop,c.stopK,c.tgt,c.hold,c.orMax,c.rvol,c.gap,c.trend]);
+// Fase rápida: solo tramo en muestra
+function orbFit(D,cfg,p,si){ const r=runORB(D,cfg,p,0,si), s=orbStats(r); return {cfg,s,score:orbScore(s,p.objective,p.minTr||30),keys:r.trades.map(t=>t.k*2+(t.side>0?1:0))}; }
+async function orbOptimize(D,p,onProg){
+  const si=orbSplit(D,p.split), seen=new Map();
+  const ev=c=>{ const k=cfgKey(c); if(!seen.has(k)) seen.set(k,orbFit(D,c,p,si)); return seen.get(k); };
+  const g1=orbGrid1(); let i=0;
+  for(const c of g1){ ev(c); if(++i%300===0 && onProg) await onProg(0.6*i/g1.length,seen.size); }
+  const top=[...seen.values()].filter(x=>isFinite(x.score)).sort((a,b)=>b.score-a.score);
+  const bases=pickDistinctORB(top,30,0.8).map(x=>x.cfg);
+  const g2=bases.flatMap(orbGrid2); i=0;
+  for(const c of g2){ ev(c); if(++i%300===0 && onProg) await onProg(0.6+0.4*i/g2.length,seen.size); }
+  const all=[...seen.values()].filter(x=>isFinite(x.score)).sort((a,b)=>b.score-a.score);
+  return {all, tested:seen.size, si};
+}
+// Configuraciones que operan días distintos (no variantes de la misma)
+function pickDistinctORB(sorted,K,maxJ=0.6){
+  const out=[];
+  for(const a of sorted){
+    const A=new Set(a.keys);
+    const ok=out.every(b=>{ let inter=0; for(const x of A) if(b._s.has(x)) inter++; return inter/(A.size+b._s.size-inter)<maxJ; });
+    if(ok){ a._s=A; out.push(a); if(out.length>=K) break; }
+  }
+  return out;
+}
+</script>
+<script>
+// ================= Utilidades =================
+const $=id=>document.getElementById(id);
+const pct=(x,d=1)=>!isFinite(x)?'∞':Math.abs(x)>=10?Math.round(x*100).toLocaleString('es-ES')+' %':(x*100).toFixed(d).replace('.',',')+' %';
+const num=(x,d=2)=>isFinite(x)?x.toFixed(d).replace('.',','):'∞';
+const cls=x=>x>0?'pos':(x<0?'neg':'');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
+const fmtPx=x=>x>=100?x.toFixed(2):x.toFixed(3);
+const DOWN=['Dom','Lunes','Martes','Miércoles','Jueves','Viernes','Sáb'];
+function setStatus(t,err){ $('status').textContent=t; $('status').className='status'+(err?' err':''); }
+function setBar(f){ $('bar').style.width=(100*f)+'%'; }
+function setBusy(b){ ['optBtn','runBtn','csvBtn'].forEach(id=>$(id).disabled=b); }
+function chartOpts(el){
+  return {width:el.clientWidth,height:el.clientHeight,layout:{background:{color:'#121826'},textColor:'#8a96ad'},
+    grid:{vertLines:{color:'#1b2336'},horzLines:{color:'#1b2336'}},
+    timeScale:{timeVisible:true,borderColor:'#253049'},rightPriceScale:{borderColor:'#253049'},
+    crosshair:{mode:0},localization:{locale:'es-ES'}};
+}
+
+// ================= Configuración ⇄ formulario =================
+const PRESETS={
+  zarattini:{n:1,dir:'candle',entry:'open2',win:960,stop:'range',stopK:0,tgt:10,hold:0,orMax:0,rvol:0,gap:'any',trend:0},
+  orb5:{n:1,dir:'both',entry:'stop',win:690,stop:'range',stopK:0,tgt:2,hold:0,orMax:0,rvol:0,gap:'any',trend:0},
+  orb15:{n:3,dir:'both',entry:'stop',win:690,stop:'range',stopK:0,tgt:2,hold:0,orMax:0,rvol:0,gap:'any',trend:0},
+  orb30:{n:6,dir:'both',entry:'close',win:690,stop:'mid',stopK:0,tgt:2,hold:0,orMax:0,rvol:0,gap:'any',trend:0}
+};
+function readCfg(){
+  const [stop,k]=$('c_stop').value.split(':');
+  return {n:+$('c_n').value,dir:$('c_dir').value,entry:$('c_entry').value,win:+$('c_win').value,stop,stopK:+(k||0),
+          tgt:+$('c_tgt').value,hold:+$('c_hold').value,orMax:+$('c_orMax').value,rvol:+$('c_rvol').value,gap:$('c_gap').value,trend:+$('c_trend').value};
+}
+function writeCfg(c){
+  $('c_n').value=c.n; $('c_dir').value=c.dir; $('c_entry').value=c.entry; $('c_win').value=c.win;
+  $('c_stop').value=c.stop==='atr'?`atr:${c.stopK}`:c.stop; $('c_tgt').value=c.tgt; $('c_hold').value=c.hold;
+  $('c_orMax').value=c.orMax; $('c_rvol').value=c.rvol; $('c_gap').value=c.gap; $('c_trend').value=c.trend;
+}
+function readP(){ return {fee:+$('fee').value||0,slip:+$('slip').value||0,risk:+$('risk').value||0,lev:Math.max(1,+$('lev').value||1),
+                          split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:30}; }
+function cfgText(c){
+  const a=[`Rango de los primeros ${c.n*5} min`];
+  a.push({both:'largos y cortos',long:'solo largos',short:'solo cortos',candle:'a favor de la vela del rango'}[c.dir]);
+  a.push(c.entry==='stop'?'entrada al romper el rango':c.entry==='close'?'entrada tras cerrar una vela fuera del rango':'entrada nada más terminar el rango');
+  if(c.entry!=='open2' && c.win<960) a.push(`hasta las ${hhmm(c.win)}`);
+  a.push(c.stop==='range'?'stop al otro lado del rango':c.stop==='mid'?'stop a mitad del rango':`stop a ${Math.round(c.stopK*100)} % del ATR diario`);
+  a.push(c.tgt?`objetivo ${c.tgt}R`:'sin objetivo');
+  a.push(c.hold?`salida a los ${c.hold*5} min`:'salida al cierre');
+  const f=[];
+  if(c.orMax) f.push(`rango menor que el ${Math.round(c.orMax*100)} % del ATR`);
+  if(c.rvol) f.push(`volumen de la 1ª vela ≥ ${String(c.rvol).replace('.',',')}×`);
+  if(c.gap==='with') f.push('a favor del gap'); if(c.gap==='against') f.push('contra el gap');
+  if(c.trend) f.push('a favor de la media de 20 días');
+  return a.join(' · ')+(f.length?' · filtros: '+f.join(', '):'');
+}
+const FORM=['sym','months','fee','slip','risk','lev','objective','split'];
+function saveForm(){ try{ const o={cfg:readCfg()}; FORM.forEach(f=>o[f]=$(f).value); localStorage.setItem('atalaya-orb',JSON.stringify(o)); }catch(e){} }
+function loadForm(){ try{ const o=JSON.parse(localStorage.getItem('atalaya-orb')||'{}'); FORM.forEach(f=>{ if(o[f]!=null && f!=='sym') $(f).value=o[f]; }); writeCfg(o.cfg||PRESETS.orb5); return o.sym; }catch(e){ writeCfg(PRESETS.orb5); } }
+
+// ================= Datos =================
+let IDX=null, CSV=null, cache={key:null,D:null,label:''};
+async function getJSON(u){ const r=await fetch(u,{cache:'no-cache'}); if(!r.ok) throw new Error(`${u}: HTTP ${r.status}`); return r.json(); }
+async function loadIndex(savedSym){
+  try{ IDX=await getJSON('data/intraday/index.json'); }catch(e){ IDX=null; }
+  const syms=IDX?Object.keys(IDX.symbols):[];
+  const name={QQQ:'QQQ · Nasdaq 100',SPY:'SPY · S&P 500',TSLA:'TSLA · Tesla',NVDA:'NVDA · Nvidia',AAPL:'AAPL · Apple'};
+  $('sym').innerHTML=syms.map(s=>`<option value="${s}">${name[s]||s} (${IDX.symbols[s].from} a ${IDX.symbols[s].to})</option>`).join('')+'<option value="csv">CSV propio…</option>';
+  if(savedSym && (syms.includes(savedSym))) $('sym').value=savedSym;
+  if(!syms.length){
+    $('dataNote').classList.remove('hidden');
+    $('dataNote').innerHTML='📭 Todavía no hay velas de 5 minutos en el repositorio. En GitHub, ve a <b>Actions → "Velas de 5 minutos (Apertura)" → Run workflow</b>. Con la clave de Massive descarga dos años de QQQ, SPY, TSLA y NVDA en unos minutos. Mientras tanto puedes <b>cargar un CSV propio</b> (por ejemplo, exportado de TradingView).';
+  }
+}
+async function getDays(){
+  const sym=$('sym').value;
+  if(sym==='csv'){ if(!CSV) throw new Error('Carga primero un fichero CSV con el botón "Cargar CSV propio".'); return CSV; }
+  const months=+$('months').value, key=sym+'|'+months;
+  if(cache.key===key) return cache;
+  const ms=IDX.symbols[sym].months.slice(-months);
+  setStatus(`Descargando ${ms.length} meses de ${sym}…`);
+  let done=0;
+  const parts=await Promise.all(ms.map(m=>getJSON(`data/intraday/${sym}/${m}.json`).then(j=>{ setBar(++done/ms.length*0.3); return j; })));
+  const D=buildDays(parts.flatMap(p=>p.bars));
+  if(D.length<WARM+60) throw new Error(`Solo hay ${D.length} sesiones de ${sym}: hacen falta al menos ${WARM+60}. Elige un periodo más largo.`);
+  cache={key,D,label:`${sym} · ${D[0].date} a ${D[D.length-1].date} · ${D.length} sesiones · ${IDX.symbols[sym].source||''}`};
+  return cache;
+}
+// ---- CSV: columnas fecha/hora, apertura, máximo, mínimo, cierre, volumen (en ese orden o con cabecera reconocible)
+function nyLocalToUtc(y,mo,d,h,mi,s=0){ let g=Date.UTC(y,mo-1,d,h,mi,s)/1000; return g-nyOff(g-nyOff(g)); }
+function parseTime(str){
+  str=String(str).trim().replace(/^"|"$/g,'');
+  if(/^\d+(\.\d+)?$/.test(str)){ const n=+str; return n>1e12?Math.floor(n/1000):n; }
+  if(/[zZ]$|[+-]\d\d:?\d\d$/.test(str)) return Math.floor(Date.parse(str.replace(' ','T'))/1000);
+  const m=str.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})[ T](\d{1,2}):(\d{2})(?::(\d{2}))?/) || null;
+  if(m) return nyLocalToUtc(+m[1],+m[2],+m[3],+m[4],+m[5],+(m[6]||0));
+  const e=str.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})[ T](\d{1,2}):(\d{2})(?::(\d{2}))?/);
+  if(e) return nyLocalToUtc(+e[3],+e[2],+e[1],+e[4],+e[5],+(e[6]||0));
+  return NaN;
+}
+function parseCSV(text){
+  const lines=text.split(/\r?\n/).filter(l=>l.trim());
+  const sep=(lines[0].match(/;/g)||[]).length>(lines[0].match(/,/g)||[]).length?';':(lines[0].includes('\t')?'\t':',');
+  let head=lines[0].toLowerCase().split(sep).map(s=>s.trim().replace(/"/g,''));
+  const hasHead=head.some(h=>/open|apert|close|cierre|high|max|time|fecha|date/.test(h));
+  const find=(re,def)=>{ const i=head.findIndex(h=>re.test(h)); return i>=0?i:def; };
+  let iT=find(/^(time|fecha|date|datetime|timestamp)/,0), iD=-1;
+  const iHr=find(/^(hora|hour|time)$/,-1); if(iHr>=0 && iHr!==iT){ iD=iT; iT=iHr; }
+  const iO=find(/^(open|apert|o)$/,1+(iD>=0?1:0)), iH=find(/^(high|max|máx|h)/,iO+1), iL=find(/^(low|min|mín|l)$/,iO+2), iC=find(/^(close|cierre|c|último|ultimo)$/,iO+3), iV=find(/^(vol|volume|volumen|v)/,iO+4);
+  const bars=[];
+  for(const l of lines.slice(hasHead?1:0)){
+    const c=l.split(sep); const ts=parseTime(iD>=0?c[iD]+' '+c[iT]:c[iT]);
+    const v=[ts,+c[iO],+c[iH],+c[iL],+c[iC],+(c[iV]||0)];
+    if(isFinite(ts) && v.slice(1,5).every(isFinite)) bars.push(v);
+  }
+  return bars;
+}
+
+// ================= Ejecutar con mis ajustes =================
+let LAST=null;
+async function runManual(cfg){
+  saveForm(); setBusy(true); setBar(0);
+  try{
+    const {D,label}=await getDays(); const p=readP(); cfg=cfg||readCfg();
+    setStatus('Calculando…'); await sleep(10);
+    const e=orbEval(D,cfg,p); $('results').classList.remove('hidden');
+    renderDetail(D,e); setBar(1); setStatus(label);
+  }catch(err){ setStatus(err.message,true); console.error(err); }
+  finally{ setBusy(false); }
+}
+
+// ================= Búsqueda =================
+function shuffleDays(D,seed){
+  let s=seed; const R=()=>{ s=(s*1664525+1013904223)%4294967296; return s/4294967296; };
+  const bars=[];
+  for(const d of D){
+    const L=d.c.length, rel=[]; let pc=d.o[0];
+    for(let i=0;i<L;i++){ rel.push([d.o[i]/pc,d.h[i]/pc,d.l[i]/pc,d.c[i]/pc,d.v[i]]); pc=d.c[i]; }
+    for(let i=L-1;i>0;i--){ const j=Math.floor(R()*(i+1)); [rel[i],rel[j]]=[rel[j],rel[i]]; }
+    let p=d.o[0];
+    for(let i=0;i<L;i++){ const [ro,rh,rl,rc,v]=rel[i]; bars.push([d.t[i],p*ro,Math.max(p*rh,p*ro,p*rc),Math.min(p*rl,p*ro,p*rc),p*rc,v]); p=p*rc; }
+  }
+  return buildDays(bars);
+}
+function verdictTag(e){
+  const nz = e.noise===true ? ' <span class="tag ok">Supera al azar</span>' : e.noise===false ? ' <span class="tag wa">Nivel del azar</span>' : '';
+  if(e.is.n<30||e.oos.n<10) return '<span class="tag wa">Pocas ops.</span>'+nz;
+  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>'+nz;
+  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>'+nz;
+  return '<span class="tag ko">No rentable</span>'+nz;
+}
+let OPT=[];
+async function optimizeUI(){
+  saveForm(); setBusy(true); setBar(0);
+  try{
+    const {D,label}=await getDays(); const p=readP(), doNoise=$('noise').checked, parts=doNoise?2:1;
+    const res=await orbOptimize(D,p,async(f,n)=>{ setBar(0.3+0.7*f/parts); setStatus(`🔍 Probando configuraciones… ${n}`); await sleep(0); });
+    let nb=null;
+    if(doNoise){
+      setStatus('🎲 Prueba de azar: misma búsqueda con las velas de cada día barajadas…'); await sleep(0);
+      const Dn=shuffleDays(D,7);
+      const nr=await orbOptimize(Dn,p,async f=>{ setBar(0.3+0.35+0.35*f); await sleep(0); });
+      nb=nr.all[0]||null;
+    }
+    if(!res.all.length) throw new Error('Ninguna configuración llegó a 30 operaciones en el tramo de búsqueda. Elige un periodo más largo.');
+    setStatus('Comprobando en el tramo de prueba…'); await sleep(0);
+    const top150=res.all.slice(0,150).map(a=>orbEval(D,a.cfg,p)), rob=top150.filter(e=>e.is.total>0&&e.oos.total>0&&e.oos.pf>1).length;
+    OPT=pickDistinctORB(res.all,12).map(a=>{ const e=orbEval(D,a.cfg,p); e.noise = nb ? a.score>nb.score : undefined; return e; });
+    renderOpt(D,p,res,nb,rob,label);
+    renderHeat(D,OPT[0],p);
+    writeCfg(OPT[0].cfg); $('results').classList.remove('hidden'); renderDetail(D,OPT[0]);
+    setBar(1); setStatus(`Búsqueda terminada · ${res.tested} configuraciones${nb?' + prueba de azar':''} · ${label}`);
+    $('optPanel').scrollIntoView({behavior:'smooth'});
+  }catch(err){ setStatus(err.message,true); console.error(err); }
+  finally{ setBusy(false); }
+}
+function renderOpt(D,p,res,nb,rob,label){
+  $('optPanel').classList.remove('hidden');
+  const si=res.si, n=D.length, bhOOS=D[n-1].close/D[si].open-1;
+  const ok=OPT.filter(e=>e.is.total>0&&e.oos.total>0&&e.oos.pf>1), seri=ok.filter(e=>e.noise!==false);
+  $('optTitle').textContent='Mejores estrategias de apertura · '+$('sym').value.replace('csv','CSV');
+  $('optSummary').innerHTML=
+    `🔍 Probadas <b>${res.tested}</b> configuraciones. Las ${OPT.length} que ves son las mejores en el tramo de búsqueda que además <b>operan días distintos</b> entre sí.<br>`+
+    `Búsqueda: ${D[WARM].date} a ${D[si-1].date} · Prueba: ${D[si].date} a ${D[n-1].date} (${n-si} sesiones).<br>`+
+    (ok.length?`✅ <b>${ok.length} de ${OPT.length}</b> siguen ganando en el tramo de prueba.`:`❌ <b>Ninguna</b> sigue ganando en el tramo de prueba.`)+
+    ` Comprar y mantener en ese tramo: ${pct(bhOOS)}.`+
+    (nb?`<br>🎲 <b>Prueba de azar:</b> con las velas de cada día barajadas (misma volatilidad, sin patrones de apertura), la mejor configuración llegaba a ${pct(nb.s.total,0)} en la búsqueda. ${OPT.filter(e=>e.noise===true).length} de ${OPT.length} superan ese listón.`:'')+
+    (seri.length?` Las más serias: <b>${seri.map(e=>'#'+(OPT.indexOf(e)+1)).join(', ')}</b>.`:'')+
+    `<br><span class="note">De las 150 mejores en el tramo de búsqueda, ${rob} siguieron ganando en el de prueba.</span>`;
+  $('optTable').innerHTML=`<tr><th>#</th><th class="l">Estrategia</th><th>Ops.</th><th>L / C</th><th>Búsqueda</th><th>Prueba</th><th>PF prueba</th><th>% gan.</th><th>R medio</th><th>Drawdown</th><th>Sharpe</th><th class="l">Resultado</th><th></th></tr>`+
+    OPT.map((e,i)=>`<tr><td>${i+1}</td><td class="l wrap">${cfgText(e.cfg)}</td><td>${e.all.n}</td><td>${e.all.longs} / ${e.all.shorts}</td>
+      <td class="${cls(e.is.total)}">${pct(e.is.total)}</td><td class="${cls(e.oos.total)}"><b>${pct(e.oos.total)}</b></td><td>${num(e.oos.pf)}</td>
+      <td>${pct(e.all.win,0)}</td><td>${num(e.all.avgR)}</td><td class="neg">${pct(e.all.maxDD)}</td><td>${num(e.all.sharpe)}</td>
+      <td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-i="${i}">Ver</button></td></tr>`).join('');
+  $('optTable').querySelectorAll('button[data-i]').forEach(b=>b.addEventListener('click',()=>{
+    const e=OPT[+b.dataset.i]; writeCfg(e.cfg); renderDetail(cache.D||CSV.D,e); renderHeat(cache.D||CSV.D,e,readP());
+    $('results').scrollIntoView({behavior:'smooth'});
+  }));
+}
+function renderHeat(D,e,p){
+  const ns=[1,2,3,6], ts=[0,1,2,3,5,10];
+  $('heat').innerHTML=`<tr><th>Rango \\ Objetivo</th>${ts.map(t=>`<th>${t?t+'R':'Sin objetivo'}</th>`).join('')}</tr>`+
+    ns.map(n=>`<tr><th>${n*5} min</th>${ts.map(t=>{
+      const x=orbEval(D,{...e.cfg,n,tgt:t},p), cur=n===e.cfg.n&&t===e.cfg.tgt;
+      const bg=x.oos.n<10?'transparent':x.oos.total>0?`rgba(34,197,94,${Math.min(0.45,0.1+x.oos.total*2)})`:`rgba(239,68,68,${Math.min(0.45,0.1-x.oos.total*2)})`;
+      return `<td style="background:${bg};${cur?'outline:2px solid var(--acc)':''}"><div class="${cls(x.is.total)}">${pct(x.is.total,0)}</div><div class="${cls(x.oos.total)}"><b>${pct(x.oos.total,0)}</b></div></td>`;
+    }).join('')}</tr>`).join('');
+}
+
+// ================= Detalle =================
+let eqChart=null, dayChart=null, LASTD=null;
+function renderDetail(D,e){
+  LAST=e; LASTD=D;
+  const s=e.all, n=D.length, i0=WARM, bh=D[n-1].close/D[i0].open-1;
+  $('resTitle').textContent='Resultados · '+$('sym').value.replace('csv','CSV propio');
+  $('resConfig').textContent=cfgText(e.cfg)+(e.p.risk>0?` · riesgo ${String(e.p.risk).replace('.',',')} % por operación (apalancamiento máx. ${e.p.lev})`:' · todo el capital, sin apalancar');
+  $('cards').innerHTML=card('Rentabilidad',pct(s.total),cls(s.total))+card('Anualizada',pct(s.cagr),cls(s.cagr))+card('Comprar y mantener',pct(bh),cls(bh))+
+    card('Drawdown máx.',pct(s.maxDD),'neg')+card('Sharpe',num(s.sharpe),cls(s.sharpe))+card('Operaciones',`${s.n} <span class="note">(${s.longs} L / ${s.shorts} C)</span>`)+
+    card('% ganadoras',pct(s.win,0))+card('Profit factor',num(s.pf),s.pf>=1?'pos':'neg')+card('R medio',num(s.avgR),cls(s.avgR))+card('Días con operación',pct(s.n/Math.max(1,s.days),0));
+  const msgs=[];
+  if(e.is.n>=30 && e.oos.n>=10){
+    if(e.is.total>0 && e.oos.total<=0) msgs.push('❌ Gana en el tramo de búsqueda pero no en el de prueba: típico sobreajuste.');
+    else if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) msgs.push('✅ Gana en los dos tramos. Comprueba el mapa de robustez y otros activos antes de fiarte.');
+  } else msgs.push(`⚠️ Pocas operaciones (${e.is.n} en búsqueda, ${e.oos.n} en prueba) para sacar conclusiones.`);
+  if(s.maxDD<-0.25) msgs.push(`⚠️ Drawdown de ${pct(s.maxDD)}: con este tamaño de posición es duro de aguantar.`);
+  if(e.p.risk>0 && e.p.lev>1) msgs.push(`ℹ️ Con riesgo del ${String(e.p.risk).replace('.',',')} % y stops estrechos se usa apalancamiento (hasta ${e.p.lev}×). Pon riesgo 0 para verla con todo el capital y sin apalancar.`);
+  $('verdict').innerHTML=msgs.join('<br>');
+  const row=(l,a,b,f)=>`<tr><td>${l}</td><td>${f(a)}</td><td>${f(b)}</td></tr>`, col=x=>`<span class="${cls(x)}">${pct(x)}</span>`;
+  $('splitTable').innerHTML=`<tr><th>Métrica</th><th>Búsqueda<br><span class="note">${D[i0].date} a ${D[e.si-1].date}</span></th><th>Prueba<br><span class="note">${D[e.si].date} a ${D[n-1].date}</span></th></tr>`+
+    row('Rentabilidad',e.is.total,e.oos.total,col)+row('Comprar y mantener',D[e.si-1].close/D[i0].open-1,D[n-1].close/D[e.si].open-1,col)+
+    row('Operaciones',e.is.n,e.oos.n,x=>x)+row('% ganadoras',e.is.win,e.oos.win,x=>pct(x,0))+row('Profit factor',e.is.pf,e.oos.pf,num)+
+    row('R medio',e.is.avgR,e.oos.avgR,num)+row('Drawdown máx.',e.is.maxDD,e.oos.maxDD,col)+row('Sharpe',e.is.sharpe,e.oos.sharpe,num);
+  // por año y día de la semana
+  const T=e.runAll.trades, agg=(keyf)=>{ const m=new Map(); for(const t of T){ const k=keyf(t); const a=m.get(k)||{n:0,w:0,eq:1,R:0}; a.n++; if(t.ret>0)a.w++; a.eq*=1+t.ret; a.R+=t.R; m.set(k,a);} return m; };
+  const yr=agg(t=>t.date.slice(0,4)), dw=agg(t=>D[t.k].dow);
+  const tb=(title,m,lab)=>`<tr><th>${title}</th><th>Ops.</th><th>% gan.</th><th>R medio</th><th>Rentab.</th></tr>`+[...m.entries()].sort((a,b)=>a[0]>b[0]?1:-1).map(([k,a])=>`<tr><td>${lab(k)}</td><td>${a.n}</td><td>${pct(a.w/a.n,0)}</td><td>${num(a.R/a.n)}</td><td class="${cls(a.eq-1)}">${pct(a.eq-1)}</td></tr>`).join('');
+  $('yearTable').innerHTML=tb('Año',yr,k=>k); $('dowTable').innerHTML=tb('Día',dw,k=>DOWN[k]);
+  // operaciones
+  $('tradesTable').innerHTML='<tr><th>Fecha</th><th>Lado</th><th>Entrada</th><th>Precio</th><th>Salida</th><th>Precio</th><th class="l">Motivo</th><th>R</th><th>Tamaño</th><th>Resultado</th></tr>'+
+    T.map((t,i)=>`<tr class="click" data-t="${i}"><td>${t.date}${t.k>=e.si?' <span class="note">prueba</span>':''}</td><td class="${t.side>0?'pos':'neg'}">${t.side>0?'Largo':'Corto'}</td>
+      <td>${hhmm(D[t.k].min[t.eBar])}</td><td>${fmtPx(t.ePx)}</td><td>${hhmm(D[t.k].min[t.xBar]+5)}</td><td>${fmtPx(t.xPx)}</td><td class="l">${t.why}</td>
+      <td class="${cls(t.R)}">${num(t.R)}</td><td>${pct(t.frac,0)}</td><td class="${cls(t.ret)}">${pct(t.ret,2)}</td></tr>`).reverse().join('');
+  $('tradesTable').querySelectorAll('tr[data-t]').forEach(r=>r.addEventListener('click',()=>{ drawDay(D,e,T[+r.dataset.t]); $('dayTitle').scrollIntoView({behavior:'smooth',block:'start'}); }));
+  $('csvOut').disabled=!T.length;
+  drawEquity(D,e);
+  if(T.length) drawDay(D,e,T[T.length-1]);
+}
+function drawEquity(D,e){
+  if(typeof LightweightCharts==='undefined') return;
+  if(eqChart) eqChart.remove();
+  const el=$('eqChart'); eqChart=LightweightCharts.createChart(el,{...chartOpts(el),timeScale:{borderColor:'#253049'}});
+  const fmt={type:'custom',formatter:v=>((v-1)*100).toFixed(1)+'%'};
+  const s=eqChart.addLineSeries({color:'#f0b429',lineWidth:2,priceFormat:fmt}), b=eqChart.addLineSeries({color:'#8a96ad',lineWidth:1,priceFormat:fmt});
+  s.setData(e.runAll.days.map(x=>({time:D[x.k].date,value:x.eq})));
+  const o0=D[WARM].open; b.setData(D.slice(WARM).map(d=>({time:d.date,value:d.close/o0})));
+  s.setMarkers([{time:D[e.si].date,position:'aboveBar',color:'#f0b429',shape:'arrowDown',text:'Inicio del tramo de prueba'}]);
+  eqChart.timeScale().fitContent();
+}
+function drawDay(D,e,t){
+  const d=D[t.k], n=e.cfg.n;
+  $('dayTitle').textContent=`Gráfico del día · ${DOWN[d.dow]} ${d.date} · ${t.side>0?'Largo':'Corto'} · ${t.why} · ${num(t.R)}R`;
+  if(typeof LightweightCharts==='undefined') return;
+  if(dayChart) dayChart.remove();
+  const el=$('dayChart'); dayChart=LightweightCharts.createChart(el,chartOpts(el));
+  const tt=i=>d.t[i]+nyOff(d.t[i]);
+  const cs=dayChart.addCandlestickSeries({upColor:'#22c55e',downColor:'#ef4444',borderVisible:false,wickUpColor:'#22c55e',wickDownColor:'#ef4444'});
+  cs.setData(d.c.map((c,i)=>({time:tt(i),open:d.o[i],high:d.h[i],low:d.l[i],close:c})));
+  let H=-Infinity,L=Infinity; for(let j=0;j<n;j++){ H=Math.max(H,d.h[j]); L=Math.min(L,d.l[j]); }
+  const line=(price,color,title,style=0)=>cs.createPriceLine({price,color,lineWidth:1,lineStyle:style,axisLabelVisible:true,title});
+  line(H,'#3b82f6','Máx. rango'); line(L,'#3b82f6','Mín. rango'); line(t.stop,'#ef4444','Stop',2); if(t.tgt) line(t.tgt,'#22c55e','Objetivo',2);
+  cs.setMarkers([{time:tt(t.eBar),position:t.side>0?'belowBar':'aboveBar',color:t.side>0?'#22c55e':'#ef4444',shape:t.side>0?'arrowUp':'arrowDown',text:'Entrada'},
+                 {time:tt(t.xBar),position:t.side>0?'aboveBar':'belowBar',color:t.ret>0?'#22c55e':'#ef4444',shape:'circle',text:t.why+' '+num(t.R)+'R'}].sort((a,b)=>a.time-b.time));
+  dayChart.timeScale().fitContent();
+}
+window.addEventListener('resize',()=>{ for(const [c,id] of [[eqChart,'eqChart'],[dayChart,'dayChart']]) if(c) c.applyOptions({width:$(id).clientWidth}); });
+
+function exportCSV(){
+  const D=LASTD, rows=[['fecha','lado','hora_entrada','precio_entrada','hora_salida','precio_salida','motivo','R','tamano_pct','resultado_pct']];
+  for(const t of LAST.runAll.trades) rows.push([t.date,t.side>0?'largo':'corto',hhmm(D[t.k].min[t.eBar]),t.ePx,hhmm(D[t.k].min[t.xBar]+5),t.xPx,t.why,t.R.toFixed(3),(t.frac*100).toFixed(1),(t.ret*100).toFixed(4)]);
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([rows.map(r=>r.join(';')).join('\n')],{type:'text/csv'}));
+  a.download=`atalaya_apertura_${$('sym').value}.csv`; a.click();
+}
+
+// ================= Arranque =================
+(async()=>{
+  const saved=loadForm();
+  await loadIndex(saved);
+  $('optBtn').addEventListener('click',optimizeUI);
+  $('runBtn').addEventListener('click',()=>runManual());
+  $('csvOut').addEventListener('click',exportCSV);
+  $('csvBtn').addEventListener('click',()=>$('csvFile').click());
+  $('csvFile').addEventListener('change',async ev=>{
+    const f=ev.target.files[0]; if(!f) return;
+    try{
+      const bars=parseCSV(await f.text()); const D=buildDays(bars);
+      if(D.length<WARM+60) throw new Error(`El CSV tiene ${D.length} sesiones completas de 9:30 a 16:00 (Nueva York); hacen falta al menos ${WARM+60}. Comprueba que las horas sean de Nueva York o lleven zona horaria.`);
+      CSV={D,label:`${f.name} · ${D[0].date} a ${D[D.length-1].date} · ${D.length} sesiones`}; $('sym').value='csv';
+      setStatus(`CSV cargado: ${CSV.label}`);
+    }catch(err){ setStatus(err.message,true); }
+  });
+  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{ writeCfg(PRESETS[b.dataset.preset]); $('manual').open=true; runManual(); }));
+})();
+</script>
+</body>
+</html>
