@@ -1,4 +1,4 @@
-name: Velas de 5 minutos (Apertura)
+name: Velas de 5 minutos (Apertura) y forex 1 hora (Soldados)
 
 on:
   schedule:
@@ -37,11 +37,13 @@ jobs:
           else
             python scripts/update_intraday.py
           fi
+      - name: Descargar velas de 1 hora de forex
+        run: python scripts/update_forex.py
       - name: Guardar cambios
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/intraday
+          git add data/intraday data/forex
           git diff --cached --quiet || git commit -m "Velas de 5 min $(date -u +'%Y-%m-%d %H:%M') UTC"
           git pull --rebase --autostash || true
           git push
