@@ -93,6 +93,16 @@ def save_months(sym: str, bars: dict[int, list], source: str) -> list[str]:
     return touched
 
 
+def first_stored(sym: str) -> int | None:
+    d = OUT / sym
+    files = sorted(d.glob("*.json")) if d.exists() else []
+    for f in files:
+        m = load_month(sym, f.stem)
+        if m:
+            return min(m)
+    return None
+
+
 def last_stored(sym: str) -> int | None:
     d = OUT / sym
     files = sorted(d.glob("*.json")) if d.exists() else []
@@ -143,8 +153,12 @@ def massive_get(url: str, params: dict | None = None) -> dict:
                 if r.status_code == 429:
                     time.sleep(65)
                     continue
-                r.raise_for_status()
-                return r.json()
+                if r.status_code >= 400:
+                    raise RuntimeError(f"HTTP {r.status_code} en {host or 'next_url'}: {r.text[:300]}")
+                j = r.json()
+                if j.get("status") == "ERROR":
+                    raise RuntimeError(f"{j.get('error') or j.get('message') or j}")
+                return j
             except Exception as e:
                 last = e
                 break
@@ -152,6 +166,28 @@ def massive_get(url: str, params: dict | None = None) -> dict:
 
 
 def fetch_massive(sym: str, start: datetime, end: datetime) -> dict[int, list]:
+    """Pide el periodo completo; si el servidor lo rechaza, lo pide en tramos de 3 meses."""
+    try:
+        return _fetch_massive_range(sym, start, end)
+    except Exception as e:
+        print(f"  aviso {sym}: Massive rechazó {start:%Y-%m-%d} a {end:%Y-%m-%d} ({e}). Se prueba en tramos de 3 meses.")
+    out: dict[int, list] = {}
+    a, fails = start, []
+    while a < end:
+        b = min(end, a + timedelta(days=90))
+        try:
+            out.update(_fetch_massive_range(sym, a, b))
+        except Exception as e:
+            fails.append(f"{a:%Y-%m-%d}: {e}")
+        a = b + timedelta(days=1)
+    if fails:
+        print(f"  aviso {sym}: {len(fails)} tramos sin datos de Massive. Primero: {fails[0]}")
+    if not out:
+        raise RuntimeError("Massive no devolvió ninguna vela")
+    return out
+
+
+def _fetch_massive_range(sym: str, start: datetime, end: datetime) -> dict[int, list]:
     out: dict[int, list] = {}
     url = f"/v2/aggs/ticker/{sym}/range/5/minute/{start:%Y-%m-%d}/{end:%Y-%m-%d}"
     params = {"adjusted": "true", "sort": "asc", "limit": 50000}
@@ -189,6 +225,10 @@ def main() -> int:
     for sym in SYMBOLS:
         try:
             last = None if full else last_stored(sym)
+            first = first_stored(sym)
+            # si lo guardado no cubre casi 2 años (p. ej. solo los 60 días de Yahoo), se pide el histórico completo
+            if MASSIVE_KEY and (first is None or first > (NOW - timedelta(days=365 * YEARS_BACK - 60)).timestamp()):
+                last = None
             bars, src = {}, ""
             if MASSIVE_KEY:
                 try:
@@ -201,6 +241,15 @@ def main() -> int:
             if not bars:
                 bars = fetch_yahoo(sym)
                 src = "Yahoo Finance"
+            elif src == "Massive":
+                try:                                     # completa con Yahoo los días recientes que falten
+                    y = fetch_yahoo(sym)
+                    extra = {t: b for t, b in y.items() if t > max(bars)}
+                    if extra:
+                        bars.update(extra)
+                        src = "Massive + Yahoo"
+                except Exception:
+                    pass
             touched = save_months(sym, bars, src)
             sources[sym] = src
             print(f"  {sym}: {len(bars)} velas de {src}; meses actualizados: {', '.join(touched) or 'ninguno'}")
