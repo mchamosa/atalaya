@@ -163,7 +163,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
       <h3>Rango y entrada</h3>
       <div class="grid">
         <label>Rango de apertura
-          <select id="c_n"><option value="1">Primeros 5 min (1 vela)</option><option value="2">Primeros 10 min</option><option value="3">Primeros 15 min</option><option value="6">Primeros 30 min</option></select>
+          <select id="c_n"><option value="1">Primeros 5 min (1 vela)</option><option value="2">Primeros 10 min</option><option value="3">Primeros 15 min</option><option value="4">Primeros 20 min</option><option value="6">Primeros 30 min</option><option value="9">Primeros 45 min</option><option value="12">Primeros 60 min</option></select>
         </label>
         <label>Dirección
           <select id="c_dir"><option value="both">Largos y cortos</option><option value="long">Solo largos</option><option value="short">Solo cortos</option><option value="candle">A favor de la vela del rango</option></select>
@@ -225,7 +225,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
   </section>
   <section class="panel">
     <h2>Mapa de robustez: rango × objetivo</h2>
-    <p class="note">La misma estrategia cambiando solo el tamaño del rango y el objetivo. Arriba, el resultado en el tramo de búsqueda; abajo, en negrita, en el de prueba. <b>Pulsa cualquier celda</b> para ver abajo su desglose completo. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido.</p>
+    <p class="note">La misma estrategia cambiando solo el tamaño del rango y el objetivo. Arriba, el resultado en el tramo de búsqueda; abajo, en negrita, en el de prueba. <b>Pulsa cualquier celda</b> para ver abajo su desglose completo. Si solo brilla una celda aislada, desconfía; si toda la zona es verde, el patrón es más sólido. Rangos de 5 a 60 min; las celdas sin color tienen menos de 10 operaciones en el tramo de prueba (por ejemplo, un rango de 60 min con entradas solo hasta las 10:30 no deja tiempo para operar).</p>
     <div class="scroll"><table id="heat" class="heat"></table></div>
   </section>
   <section class="panel">
@@ -424,7 +424,7 @@ const STOPS=[{stop:'range',stopK:0},{stop:'mid',stopK:0},{stop:'atr',stopK:0.05}
 const NOFILT={orMax:0,rvol:0,gap:'any',trend:0};
 function orbGrid1(){
   const out=[];
-  for(const n of [1,2,3,6])
+  for(const n of [1,2,3,4,6,9,12])
   for(const dir of ['both','long','short','candle'])
   for(const entry of ['stop','close','open2']){
     if(entry==='open2' && dir!=='candle') continue;
@@ -666,7 +666,7 @@ function renderOpt(D,p,res,nb,rob,label){
 let HEAT=null;
 function renderHeat(D,e,p){
   HEAT={D,cfg:e.cfg,p};
-  const ns=[1,2,3,6], ts=[0,1,2,3,5,10];
+  const ns=[1,2,3,4,6,9,12], ts=[0,1,2,3,5,10];
   $('heat').innerHTML=`<tr><th>Rango \\ Objetivo</th>${ts.map(t=>`<th>${t?t+'R':'Sin objetivo'}</th>`).join('')}</tr>`+
     ns.map(n=>`<tr><th>${n*5} min</th>${ts.map(t=>{
       const x=orbEval(D,{...e.cfg,n,tgt:t},p), cur=n===e.cfg.n&&t===e.cfg.tgt;
