@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Soldados</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1280px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 10px;font-size:15px;color:var(--acc);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 12px}
+.contents{display:contents}
+.group{border-top:1px dashed var(--line);margin-top:12px;padding-top:10px}
+.group:first-child{border-top:0;margin-top:0;padding-top:0}
+.group h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--mut)}
+label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mut)}
+label.chk{flex-direction:row;align-items:center;gap:6px;color:var(--txt);font-size:13px}
+input,select{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 8px;font-size:14px;width:100%}
+input[type=checkbox]{width:auto}
+input:focus,select:focus{outline:1px solid var(--acc)}
+select#strategy{font-weight:600;color:var(--acc)}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+button{background:var(--acc);color:#111;border:0;border-radius:6px;padding:9px 18px;font-weight:700;cursor:pointer;font-size:14px}
+button.sec{background:var(--panel2);color:var(--txt);border:1px solid var(--line);font-weight:500}
+button.mini{padding:4px 10px;font-size:12px}
+button:disabled{opacity:.5;cursor:wait}
+.status{color:var(--mut);font-size:13px}
+.status.err{color:var(--dn)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.card .k{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px}
+.card .v{font-size:20px;font-weight:700;margin-top:2px}
+.pos{color:var(--up)}.neg{color:var(--dn)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{color:var(--mut);font-weight:500;position:sticky;top:0;background:var(--panel);z-index:1}
+td:first-child,th:first-child{text-align:left}
+td.l,th.l{text-align:left}
+tr.sel td{background:var(--panel2)}
+.scroll{max-height:460px;overflow:auto}
+.chart{width:100%;height:420px}
+.chart.small{height:240px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin:6px 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.verdict{padding:10px 12px;border-radius:8px;margin-top:10px;font-size:13px;border:1px solid var(--line);background:var(--panel2)}
+.note{color:var(--mut);font-size:12px}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600}
+.tag.ok{background:#14532d;color:#86efac}.tag.ko{background:#450a0a;color:#fca5a5}.tag.wa{background:#422006;color:#fcd34d}
+.progress{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:10px}
+.progress div{height:100%;width:0;background:var(--acc);transition:width .15s}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;margin-top:14px}
+.mini{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.mini h4{margin:0;font-size:13px;display:flex;align-items:center;gap:6px}
+.mini .sub{font-size:12px;color:var(--mut);margin:2px 0 6px}
+.mini .c{height:150px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+#cmpLegend span{cursor:pointer;user-select:none}
+#cmpLegend span.off{opacity:.3;text-decoration:line-through}
+.hidden{display:none}
+@media (max-width:600px){main{padding:10px}.chart{height:320px}}
+</style><style>
+.lead{font-size:13px;color:var(--mut);margin:0 0 10px}.lead b{color:var(--txt)}
+button.big{padding:11px 22px;font-size:15px}
+details.manual{border-top:1px dashed var(--line);margin-top:14px;padding-top:10px}
+details.manual>summary{cursor:pointer;color:var(--mut);font-size:13px;font-weight:600;list-style:none}
+details.manual>summary::before{content:'▸ ';color:var(--acc)} details.manual[open]>summary::before{content:'▾ '}
+td.wrap{white-space:normal;min-width:300px}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--panel2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media (max-width:800px){.two{grid-template-columns:1fr}}
+.heat td,.heat th{text-align:center} .heat td div{line-height:1.35}
+h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
+</style>
+<style>.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px}</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Soldados</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html">Apertura</a><a href="soldados.html" aria-current="page">Soldados</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a></nav>
+</header>
+<main>
+
+<section class="panel">
+  <h2>Estrategia y operativa "Soldados" (forex, 1 hora)</h2>
+  <p class="lead">Tendencia en el <b>diario</b> con el TVI v2 (12,24,9) y entradas en <b>1 hora</b> a favor: Williams %R saliendo de sobreventa o sobrecompra, cruce del RF (CCI 10 por el cero) y Heiken Ashi a favor. Stop y objetivo fijos según la volatilidad del par, y <b>apilamiento</b> de posiciones a favor y en contra con las normas del curso. <b>▶ Probar Soldados</b> aplica las reglas tal cual; <b>🔍 Buscar la mejor variante</b> prueba 648 combinaciones con el tramo inicial y las comprueba en el final.</p>
+
+  <div class="grid">
+    <label>Periodo
+      <select id="months"><option value="12">Último año</option><option value="24" selected>Últimos 2 años</option><option value="999">Todo lo disponible</option></select>
+    </label>
+    <label>Riesgo por posición % (si salta el stop)
+      <input id="risk" type="number" value="1" min="0.1" max="5" step="0.1">
+    </label>
+    <label>Coste del diferencial (× el típico de cada par)
+      <input id="spreadMult" type="number" value="1" min="0" max="5" step="0.5">
+    </label>
+    <label>Optimizar para
+      <select id="objective"><option value="risk" selected>Rentabilidad / drawdown</option><option value="profit">Máxima rentabilidad</option><option value="pf">Máximo profit factor</option></select>
+    </label>
+    <label>% del periodo para buscar (resto = prueba)
+      <input id="split" type="number" value="70" min="40" max="90" step="5">
+    </label>
+  </div>
+  <div class="group" style="margin-top:12px">
+    <h3>Pares</h3>
+    <div id="pairs" class="pairs"></div>
+  </div>
+  <div id="dataNote" class="verdict hidden"></div>
+
+  <div class="actions">
+    <button id="runBtn" class="big">▶ Probar Soldados (reglas del curso)</button>
+    <button id="optBtn" class="sec">🔍 Buscar la mejor variante</button>
+    <button id="csvOut" class="sec" disabled>Exportar operaciones (CSV)</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+  <div id="status" class="status" style="margin-top:6px"></div>
+
+  <details class="manual" id="manual">
+    <summary>Reglas (las del curso por defecto; la búsqueda las cambia)</summary>
+    <div class="group" style="border-top:0;margin-top:10px;padding-top:0">
+      <h3>1. Tendencia (diario) y 2. entrada (1 hora)</h3>
+      <div class="grid">
+        <label>Tendencia diaria
+          <select id="c_trend"><option value="tvi">TVI v2 (12,24,9) sube o baja</option><option value="tvi_tma">TVI y precio al mismo lado de la TMA(30)</option><option value="none">Sin filtro de tendencia</option></select>
+        </label>
+        <label>Williams %R(14) en sobreventa/sobrecompra en las últimas
+          <select id="c_wrLook"><option value="5">5 velas</option><option value="10" selected>10 velas</option><option value="20">20 velas</option></select>
+        </label>
+        <label>Vela Heiken Ashi a favor
+          <select id="c_ha"><option value="1">Sí</option><option value="0">No hace falta</option></select>
+        </label>
+        <label>Estocástico 1 h o 4 h a favor (filtro del RF)
+          <select id="c_stoch"><option value="1">Sí</option><option value="0">No hace falta</option></select>
+        </label>
+        <label>Zona TRT: cerca de un pivote semanal o mensual
+          <select id="c_piv"><option value="0">Sin exigirlo</option><option value="20">A menos de 20 pips</option><option value="50">A menos de 50 pips</option></select>
+        </label>
+      </div>
+    </div>
+    <div class="group">
+      <h3>Stop, objetivo y apilamiento</h3>
+      <div class="grid">
+        <label>Stop / objetivo
+          <select id="c_slMult"><option value="0.5">La mitad del curso</option><option value="1" selected>Los del curso (p. ej. 175/350 en EURUSD)</option><option value="1.5">1,5 veces los del curso</option></select>
+        </label>
+        <label>Apilar posiciones
+          <select id="c_stack"><option value="1">Sí, a favor y en contra</option><option value="0">No: una posición por dirección</option></select>
+        </label>
+        <label>Distancia mínima con la orden más cercana (pips)
+          <input id="c_gapPips" type="number" value="50" min="0" step="10">
+        </label>
+        <label>Horas mínimas entre entradas
+          <input id="c_gapHours" type="number" value="4" min="0" step="1">
+        </label>
+        <label>Máx. reentradas en contra por par
+          <input id="c_maxAgainst" type="number" value="3" min="0" max="10" step="1">
+        </label>
+        <label>Máx. posiciones abiertas por par
+          <input id="c_maxPos" type="number" value="10" min="1" max="20" step="1">
+        </label>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="optPanel" class="panel hidden">
+  <h2>Mejores variantes</h2>
+  <div id="optSummary" class="verdict" style="margin-top:0"></div>
+  <div class="scroll" style="margin-top:12px"><table id="optTable"></table></div>
+</section>
+
+<section id="results" class="hidden">
+  <section class="panel">
+    <h2 id="resTitle">Resultados</h2>
+    <div id="resConfig" class="note" style="margin:-4px 0 10px"></div>
+    <div class="cards" id="cards"></div>
+    <div class="verdict" id="verdict"></div>
+  </section>
+  <section class="panel">
+    <h2>Tramo de búsqueda frente a tramo de prueba</h2>
+    <div class="scroll"><table id="splitTable"></table></div>
+    <p class="note">El tramo de prueba se simula empezando sin posiciones abiertas. Con apilamiento, las posiciones que vienen de antes cambian qué entradas se permiten después, así que búsqueda y prueba no suman exactamente el total del periodo completo.</p>
+  </section>
+  <section class="panel">
+    <h2>Curva de la cuenta (todos los pares)</h2>
+    <div class="legend"><span><i style="background:var(--acc)"></i>Con las reglas elegidas</span><span><i style="background:var(--mut)"></i>Mismas reglas sin apilar</span><span class="note">Valor al cierre de cada día, incluidas las posiciones abiertas.</span></div>
+    <div id="eqChart" class="chart small"></div>
+  </section>
+  <section class="panel">
+    <h2>Por par</h2>
+    <div class="scroll"><table id="pairTable"></table></div>
+  </section>
+  <section class="panel">
+    <h2 id="tradeTitle">Gráfico de la operación</h2>
+    <div class="legend"><span><i style="background:#22c55e"></i>Entrada larga</span><span><i style="background:#ef4444"></i>Entrada corta</span><span class="note">Pulsa una operación de la tabla. Velas de 1 hora, horas UTC.</span></div>
+    <div id="tradeChart" class="chart"></div>
+  </section>
+  <section class="panel">
+    <h2>Operaciones</h2>
+    <div class="scroll"><table id="tradesTable"></table></div>
+  </section>
+</section>
+
+<p class="note">Datos: velas de 1 hora de Yahoo Finance (últimos 730 días), descargadas cada día por la Action. Reglas automatizadas a partir del curso: el TVI se calcula con volumen constante, porque Yahoo no da el volumen de ticks de forex (cambia la escala, no el color); el estocástico de 4 h usa bloques de 4 horas UTC ya cerrados; las líneas de tendencia TrueTL no se automatizan y en su lugar se pueden exigir los pivotes semanales o mensuales. Cada posición lleva su propio stop y objetivo; si en una misma vela se tocan los dos, se cuenta el stop. Resultados en % de la cuenta, sin interés compuesto, con el diferencial típico de cada par descontado. No es asesoramiento financiero.</p>
+</main>
+
+<script id="engine">
+// ================= Hora de Nueva York (cierre diario de forex a las 17:00 NY) =================
+const _nyF=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+const _offC=new Map();
+function nyOff(tsSec){
+  const dk=Math.floor(tsSec/86400); let off=_offC.get(dk);
+  if(off===undefined){ const ref=dk*86400+15*3600, p={}; for(const x of _nyF.formatToParts(new Date(ref*1000))) p[x.type]=+x.value;
+    off=Date.UTC(p.year,p.month-1,p.day,p.hour%24,p.minute)/1000-ref; _offC.set(dk,off); }
+  return off;
+}
+// Día de trading de forex: de 17:00 a 17:00 de Nueva York
+const fxDay=t=>new Date((t+nyOff(t)+7*3600)*1000).toISOString().slice(0,10);
+const ARR=(n,v)=>new Array(n).fill(v);
+function emaA(a,n){ const o=ARR(a.length,NaN), k=2/(n+1); let e=NaN; for(let i=0;i<a.length;i++){ const x=a[i]; if(!isFinite(x)) continue; e=isFinite(e)?x*k+e*(1-k):x; o[i]=e; } return o; }
+function smaA(a,n){ const o=ARR(a.length,NaN); let s=0; for(let i=0;i<a.length;i++){ s+=a[i]; if(i>=n) s-=a[i-n]; if(i>=n-1) o[i]=s/n; } return o; }
+function hhvA(a,n){ const o=ARR(a.length,NaN); for(let i=n-1;i<a.length;i++){ let m=-Infinity; for(let k=i-n+1;k<=i;k++) if(a[k]>m) m=a[k]; o[i]=m; } return o; }
+function llvA(a,n){ const o=ARR(a.length,NaN); for(let i=n-1;i<a.length;i++){ let m=Infinity; for(let k=i-n+1;k<=i;k++) if(a[k]<m) m=a[k]; o[i]=m; } return o; }
+
+// Grupos de volatilidad del curso (SL/TP en pips) y diferencial estimado por par
+const GROUP={GBPUSD:'alta',EURGBP:'alta',GBPJPY:'alta',EURAUD:'alta',
+  EURUSD:'media',EURJPY:'media',USDJPY:'media',USDCHF:'media',USDCAD:'media',CADJPY:'media',EURCHF:'media',
+  AUDUSD:'baja',AUDJPY:'baja',NZDUSD:'baja'};
+const SLTP={alta:[200,400],media:[175,350],baja:[150,300]};
+const SPREAD={EURUSD:1.0,GBPUSD:1.5,USDJPY:1.2,USDCHF:1.6,AUDUSD:1.3,USDCAD:1.8,NZDUSD:1.8,EURGBP:1.5,EURJPY:1.8,GBPJPY:2.8,EURCHF:2.0,AUDJPY:2.0,CADJPY:2.4,EURAUD:2.6};
+
+// ================= Preparación de un par =================
+// bars: [[t,o,h,l,c],...] de 1 hora. Devuelve todas las series que necesita la estrategia, sin mirar al futuro.
+function prepPair(pair,bars,pipSize){
+  bars=[...bars].sort((a,b)=>a[0]-b[0]);
+  const n=bars.length, t=bars.map(b=>b[0]), o=bars.map(b=>b[1]), h=bars.map(b=>b[2]), l=bars.map(b=>b[3]), c=bars.map(b=>b[4]);
+  const pip=pipSize||(pair.endsWith('JPY')?0.01:0.0001);
+  // --- Diario (17:00 NY) ---
+  const dKey=t.map(fxDay), days=[], dIdx=ARR(n,-1);
+  for(let i=0;i<n;i++){
+    let d=days[days.length-1];
+    if(!d||d.key!==dKey[i]){ d={key:dKey[i],o:o[i],h:h[i],l:l[i],c:c[i]}; days.push(d); }
+    else { d.h=Math.max(d.h,h[i]); d.l=Math.min(d.l,l[i]); d.c=c[i]; }
+    dIdx[i]=days.length-1;
+  }
+  // TVI v2 (12,24,9) con volumen constante: EMA9(EMA24(EMA12(cuerpo en pips))); tendencia = si sube o baja
+  const body=days.map(d=>(d.c-d.o)/pip), tvi=emaA(emaA(emaA(body,12),24),9), dTrend=ARR(days.length,0);
+  for(let k=1;k<days.length;k++) dTrend[k]= tvi[k]>tvi[k-1]?1: tvi[k]<tvi[k-1]?-1: dTrend[k-1];
+  // TMA(30) causal de los 30 cierres anteriores (la línea verde del diario)
+  const P=30, w=[]; for(let i=0;i<P;i++) w.push(Math.min(i+1,P-i)); const ws=w.reduce((a,b)=>a+b,0);
+  const tma=ARR(days.length,NaN);
+  for(let k=P;k<days.length;k++){ let s=0; for(let j=0;j<P;j++) s+=days[k-P+j].c*w[j]; tma[k]=s/ws; }
+  // Pivotes semanales y mensuales clásicos (de la semana/mes anterior completos)
+  const piv=(keyf)=>{ const out=ARR(days.length,null); let cur=null, prev=null;
+    for(let k=0;k<days.length;k++){ const kk=keyf(days[k].key);
+      if(!cur||cur.k!==kk){ if(cur) prev=cur; cur={k:kk,h:days[k].h,l:days[k].l,c:days[k].c}; }
+      else { cur.h=Math.max(cur.h,days[k].h); cur.l=Math.min(cur.l,days[k].l); cur.c=days[k].c; }
+      if(prev){ const pp=(prev.h+prev.l+prev.c)/3, r=prev.h-prev.l; out[k]=[pp,2*pp-prev.l,2*pp-prev.h,pp+r,pp-r,pp+2*r,pp-2*r]; } }
+    return out; };
+  const isoWeek=s=>{ const d=new Date(s+'T12:00:00Z'); d.setUTCDate(d.getUTCDate()-((d.getUTCDay()+6)%7)); return d.toISOString().slice(0,10); };
+  const wPiv=piv(isoWeek), mPiv=piv(s=>s.slice(0,7));
+  // --- 1 hora ---
+  const haO=ARR(n,NaN), haC=c.map((x,i)=>(o[i]+h[i]+l[i]+x)/4); haO[0]=(o[0]+c[0])/2;
+  for(let i=1;i<n;i++) haO[i]=(haO[i-1]+haC[i-1])/2;
+  const haBull=haC.map((x,i)=>x>haO[i]);
+  const tp=c.map((x,i)=>(h[i]+l[i]+x)/3), tpS=smaA(tp,10), cci=ARR(n,NaN);
+  for(let i=9;i<n;i++){ let md=0; for(let k=i-9;k<=i;k++) md+=Math.abs(tp[k]-tpS[i]); md/=10; cci[i]=md>0?(tp[i]-tpS[i])/(0.015*md):0; }
+  const H14=hhvA(h,14), L14=llvA(l,14), wr=c.map((x,i)=>H14[i]>L14[i]?-100*(H14[i]-x)/(H14[i]-L14[i]):-50);
+  const stochK=(hh,ll,cc,kp,sl)=>{ const H=hhvA(hh,kp), L=llvA(ll,kp), num=cc.map((x,i)=>x-L[i]), den=H.map((x,i)=>x-L[i]);
+    const sn=smaA(num.map(v=>isFinite(v)?v:0),sl), sd=smaA(den.map(v=>isFinite(v)?v:0),sl); return sn.map((v,i)=>sd[i]>0&&i>=kp+sl?100*v/sd[i]:NaN); };
+  const st1=stochK(h,l,c,14,3);
+  // 4 horas: bloques UTC de 4 h ya cerrados
+  const blk=t.map(x=>Math.floor(x/14400)), H4=[], h4Of=ARR(n,-1);
+  for(let i=0;i<n;i++){ let b=H4[H4.length-1]; if(!b||b.k!==blk[i]){ b={k:blk[i],h:h[i],l:l[i],c:c[i]}; H4.push(b); } else { b.h=Math.max(b.h,h[i]); b.l=Math.min(b.l,l[i]); b.c=c[i]; } h4Of[i]=H4.length-1; }
+  const st4=stochK(H4.map(b=>b.h),H4.map(b=>b.l),H4.map(b=>b.c),10,3);
+  const st4Up=ARR(n,0);   // +1 / -1 según el último bloque de 4 h COMPLETO frente al anterior
+  for(let i=0;i<n;i++){ const j=(i+1<n && h4Of[i+1]===h4Of[i]) ? h4Of[i]-1 : h4Of[i]; if(j>=1) st4Up[i]=st4[j]>st4[j-1]?1:st4[j]<st4[j-1]?-1:0; }
+  // tendencia, TMA y pivotes del DÍA ANTERIOR completo
+  const trend=ARR(n,0), aboveTma=ARR(n,0), wp=ARR(n,null), mp=ARR(n,null);
+  for(let i=0;i<n;i++){ const k=dIdx[i]-1; if(k>=1){ trend[i]=dTrend[k]; aboveTma[i]= isFinite(tma[k])?(days[k].c>tma[k]?1:-1):0; } wp[i]=wPiv[dIdx[i]]; mp[i]=mPiv[dIdx[i]]; }
+  return {pair,pip,n,t,o,h,l,c,days,dIdx,dTrend,tvi,tma,haBull,cci,wr,st1,st4Up,trend,aboveTma,wp,mp,
+          grp:GROUP[pair]||'media',spread:SPREAD[pair]??2};
+}
+
+// ================= Señales =================
+// cfg: trend ('tvi','tvi_tma','none'), wrLook (velas), ha (0/1), stoch (0/1), piv (pips, 0 = sin filtro)
+function signalAt(P,i,cfg){
+  if(i<30) return 0;
+  const tr = cfg.trend==='none' ? 0 : P.trend[i];
+  if(cfg.trend!=='none' && !tr) return 0;
+  if(cfg.trend==='tvi_tma' && P.aboveTma[i]!==tr) return 0;
+  const up = P.cci[i-1]<0 && P.cci[i]>=0, dn = P.cci[i-1]>0 && P.cci[i]<=0;
+  let side=0;
+  if(up && tr>=0) side=1; else if(dn && tr<=0) side=-1;
+  if(cfg.trend==='none'){ side = up?1:dn?-1:0; }
+  if(!side) return 0;
+  let ext = side>0 ? Infinity : -Infinity;
+  for(let k=i-cfg.wrLook+1;k<=i;k++) ext = side>0 ? Math.min(ext,P.wr[k]) : Math.max(ext,P.wr[k]);
+  if(side>0 ? !(ext<=-80) : !(ext>=-20)) return 0;
+  if(cfg.ha && P.haBull[i]!==(side>0)) return 0;
+  if(cfg.stoch){ const r1=P.st1[i]>P.st1[i-1]?1:P.st1[i]<P.st1[i-1]?-1:0; if(r1!==side && P.st4Up[i]!==side) return 0; }
+  if(cfg.piv>0){
+    const lv=[...(P.wp[i]||[]),...(P.mp[i]||[])]; if(!lv.length) return 0;
+    const tol=cfg.piv*P.pip; let near=false;
+    for(let k=Math.max(0,i-cfg.wrLook+1);k<=i && !near;k++){ const x= side>0?P.l[k]:P.h[k]; for(const v of lv) if(Math.abs(x-v)<=tol){ near=true; break; } }
+    if(!near) return 0;
+  }
+  return side;
+}
+
+// ================= Simulación de un par con apilamiento =================
+// cfg además: slMult, stack (0/1), gapPips (50), gapHours (4), maxAgainst (3), maxPos (10)
+// p: risk (% del capital por posición si salta el stop), costes: spread del par en pips
+function runPair(P,cfg,p,i0=0,i1=P.n){
+  const [sl0,tp0]=SLTP[P.grp], SL=sl0*cfg.slMult, TP=tp0*cfg.slMult, pip=P.pip, spread=P.spread*(p.spreadMult??1);
+  const open=[], trades=[], eqH=new Float64Array(i1-i0); let realized=0, lastEntry=-Infinity, pend=0, maxOpen=0;
+  const close=(pos,i,px,why)=>{ const pips=pos.side*(px-pos.entry)/pip-spread; const R=pips/SL; realized+=R*p.risk/100;
+    trades.push({pair:P.pair,side:pos.side,ei:pos.i,xi:i,entry:pos.entry,exit:px,pips,R,ret:R*p.risk/100,why,against:pos.against,sl:pos.sl,tp:pos.tp}); };
+  for(let i=i0;i<i1;i++){
+    if(pend){ const px=P.o[i]; open.push({side:pend.side,entry:px,sl:px-pend.side*SL*pip,tp:px+pend.side*TP*pip,i,against:pend.against}); lastEntry=P.t[i]; pend=0; }
+    for(let k=open.length-1;k>=0;k--){ const q=open[k];
+      if(q.side>0){ if(P.l[i]<=q.sl){ close(q,i,Math.min(P.o[i],q.sl),'Stop'); open.splice(k,1); } else if(P.h[i]>=q.tp){ close(q,i,Math.max(P.o[i],q.tp),'Objetivo'); open.splice(k,1); } }
+      else { if(P.h[i]>=q.sl){ close(q,i,Math.max(P.o[i],q.sl),'Stop'); open.splice(k,1); } else if(P.l[i]<=q.tp){ close(q,i,Math.min(P.o[i],q.tp),'Objetivo'); open.splice(k,1); } }
+    }
+    let fl=0; for(const q of open) fl+=(q.side*(P.c[i]-q.entry)/pip-spread)/SL*p.risk/100;
+    eqH[i-i0]=realized+fl;
+    maxOpen=Math.max(maxOpen,open.length);
+    if(i+1>=i1) break;
+    const s=signalAt(P,i,cfg); if(!s) continue;
+    const same=open.filter(q=>q.side===s);
+    if(!cfg.stack && same.length) continue;
+    if(open.length>=cfg.maxPos) continue;
+    if(P.t[i+1]-lastEntry < cfg.gapHours*3600) continue;
+    if(open.length && Math.min(...open.map(q=>Math.abs(P.c[i]-q.entry)))/pip < cfg.gapPips) continue;
+    const against = same.length>0 && s*(P.c[i]-same[0].entry)<0;
+    if(against && same.filter(q=>q.against).length>=cfg.maxAgainst) continue;
+    pend={side:s,against};
+  }
+  for(const q of open) close(q,i1-1,P.c[i1-1],'Fin de datos (abierta)');
+  if(i1>i0) eqH[i1-1-i0]=realized;
+  return {trades,eqH,i0,i1,maxOpen,realized};
+}
+
+// ================= Cartera =================
+function splitT(PS,pct){ const ts=PS.flatMap(P=>[P.t[0],P.t[P.n-1]]); const a=Math.min(...ts), b=Math.max(...ts); return a+(b-a)*pct/100; }
+const idxAt=(P,ts)=>{ let lo=0,hi=P.n; while(lo<hi){ const m=(lo+hi)>>1; if(P.t[m]<ts) lo=m+1; else hi=m; } return lo; };
+// Ejecuta todos los pares entre t0 y t1 y suma sus curvas en una línea diaria común
+function runPortfolio(PS,cfg,p,t0=-Infinity,t1=Infinity){
+  const runs=PS.map(P=>{ const i0=Math.max(30,idxAt(P,t0)), i1=Math.min(P.n,idxAt(P,t1)); return {P,r:i1-i0>50?runPair(P,cfg,p,i0,i1):null}; }).filter(x=>x.r);
+  // curva diaria: valor de cada par al cierre de cada día (17:00 NY)
+  const dayMap=new Map();
+  for(const {P,r} of runs){ let last=null;
+    for(let i=r.i0;i<r.i1;i++){ const k=P.dIdx[i]; if(i+1===r.i1 || P.dIdx[i+1]!==k){ const key=P.days[k].key; dayMap.set(key,(dayMap.get(key)||new Map()).set(P.pair,r.eqH[i-r.i0])); } } }
+  const keys=[...dayMap.keys()].sort(), curr={}, curve=[];
+  for(const k of keys){ for(const [pp,v] of dayMap.get(k)) curr[pp]=v; curve.push({day:k,eq:1+Object.values(curr).reduce((a,b)=>a+b,0)}); }
+  const trades=runs.flatMap(x=>x.r.trades).sort((a,b)=>a.ei-b.ei);
+  return {runs,curve,trades,maxOpen:Math.max(0,...runs.map(x=>x.r.maxOpen))};
+}
+function portStats(R){
+  const T=R.trades, s={n:T.length,total:0,win:0,pf:0,avgR:0,maxDD:0,pips:0,against:0,longs:0,shorts:0,maxOpen:R.maxOpen,days:R.curve.length};
+  if(R.curve.length){ s.total=R.curve[R.curve.length-1].eq-1; let pk=1; for(const x of R.curve){ pk=Math.max(pk,x.eq); s.maxDD=Math.min(s.maxDD,x.eq/pk-1); } }
+  if(!T.length) return s;
+  let sw=0,sl=0,nw=0,sR=0; for(const t of T){ if(t.R>0){sw+=t.R;nw++;} else sl+=t.R; sR+=t.R; s.pips+=t.pips; if(t.against) s.against++; if(t.side>0) s.longs++; else s.shorts++; }
+  s.win=nw/T.length; s.pf=sl<0?sw/-sl:(sw>0?Infinity:0); s.avgR=sR/T.length;
+  return s;
+}
+function soldScore(s,obj,minTr){ if(s.n<minTr) return -Infinity; if(obj==='profit') return s.total; if(obj==='pf') return isFinite(s.pf)?s.pf:100; return s.total/Math.max(0.03,Math.abs(s.maxDD)); }
+function soldEval(PS,cfg,p){
+  const ts=splitT(PS,p.split), is=runPortfolio(PS,cfg,p,-Infinity,ts), oos=runPortfolio(PS,cfg,p,ts,Infinity), all=runPortfolio(PS,cfg,p);
+  const sIS=portStats(is), sOOS=portStats(oos);
+  return {cfg,p,ts,is:sIS,oos:sOOS,all:portStats(all),run:all,score:soldScore(sIS,p.objective,p.minTr||40)};
+}
+const SOLD_BASE={trend:'tvi',wrLook:10,ha:1,stoch:1,piv:0,slMult:1,stack:1,gapPips:50,gapHours:4,maxAgainst:3,maxPos:10};
+function soldGrid(){
+  const out=[];
+  for(const trend of ['tvi','tvi_tma','none']) for(const wrLook of [5,10,20]) for(const ha of [1,0]) for(const stoch of [1,0])
+  for(const piv of [0,20,50]) for(const slMult of [0.5,1,1.5]) for(const stack of [1,0])
+    out.push({...SOLD_BASE,trend,wrLook,ha,stoch,piv,slMult,stack});
+  return out;
+}
+async function soldOptimize(PS,p,onProg){
+  const ts=splitT(PS,p.split), g=soldGrid(), res=[];
+  for(let i=0;i<g.length;i++){
+    const r=runPortfolio(PS,g[i],p,-Infinity,ts), s=portStats(r);
+    res.push({cfg:g[i],s,score:soldScore(s,p.objective,p.minTr||40)});
+    if(onProg && i%12===0) await onProg(i/g.length);
+  }
+  return res.filter(x=>isFinite(x.score)).sort((a,b)=>b.score-a.score);
+}
+</script>
+<script>
+// ================= Utilidades =================
+const $=id=>document.getElementById(id);
+const pct=(x,d=1)=>!isFinite(x)?'∞':Math.abs(x)>=10?Math.round(x*100).toLocaleString('es-ES')+' %':(x*100).toFixed(d).replace('.',',')+' %';
+const num=(x,d=2)=>isFinite(x)?x.toFixed(d).replace('.',','):'∞';
+const int=x=>Math.round(x).toLocaleString('es-ES');
+const cls=x=>x>0?'pos':(x<0?'neg':'');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
+const fdt=s=>new Date(s*1000).toISOString().slice(0,16).replace('T',' ');
+function setStatus(t,err){ $('status').textContent=t; $('status').className='status'+(err?' err':''); }
+function setBar(f){ $('bar').style.width=(100*f)+'%'; }
+function setBusy(b){ ['runBtn','optBtn'].forEach(id=>$(id).disabled=b); }
+function chartOpts(el){ return {width:el.clientWidth,height:el.clientHeight,layout:{background:{color:'#121826'},textColor:'#8a96ad'},
+  grid:{vertLines:{color:'#1b2336'},horzLines:{color:'#1b2336'}},timeScale:{timeVisible:true,borderColor:'#253049'},
+  rightPriceScale:{borderColor:'#253049'},crosshair:{mode:0},localization:{locale:'es-ES'}}; }
+const fmtFx=(P,x)=>x.toFixed(P.pip===0.01?3:5);
+
+// ================= Reglas ⇄ formulario =================
+const CF=['trend','wrLook','ha','stoch','piv','slMult','stack','gapPips','gapHours','maxAgainst','maxPos'];
+function readCfg(){ const c={}; for(const k of CF){ const v=$('c_'+k).value; c[k]= k==='trend'?v:+v; } return c; }
+function writeCfg(c){ for(const k of CF) $('c_'+k).value=c[k]; }
+function readP(){ return {risk:+$('risk').value||1,spreadMult:+$('spreadMult').value,split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:40}; }
+function cfgText(c){
+  const a=[{tvi:'Tendencia TVI diario',tvi_tma:'TVI diario y TMA(30) de acuerdo',none:'sin filtro de tendencia'}[c.trend],
+    `%R extremo en ${c.wrLook} velas`, 'cruce del RF (CCI 10)'];
+  if(c.ha) a.push('Heiken Ashi a favor'); if(c.stoch) a.push('estocástico 1 h o 4 h a favor'); if(c.piv) a.push(`pivote a < ${c.piv} pips`);
+  a.push(c.slMult===1?'SL/TP del curso':c.slMult<1?'SL/TP a la mitad':'SL/TP × 1,5');
+  a.push(c.stack?`apilando (≥ ${c.gapPips} pips, ≥ ${c.gapHours} h, máx. ${c.maxAgainst} en contra)`:'sin apilar');
+  return a.join(' · ');
+}
+const FORM=['months','risk','spreadMult','objective','split'];
+function saveForm(){ try{ const o={cfg:readCfg(),pairs:selPairs()}; FORM.forEach(f=>o[f]=$(f).value); localStorage.setItem('atalaya-sold',JSON.stringify(o)); }catch(e){} }
+function loadForm(){ try{ const o=JSON.parse(localStorage.getItem('atalaya-sold')||'{}'); FORM.forEach(f=>{ if(o[f]!=null) $(f).value=o[f]; }); writeCfg(o.cfg||SOLD_BASE); return o.pairs; }catch(e){ writeCfg(SOLD_BASE); } }
+const selPairs=()=>[...document.querySelectorAll('#pairs input:checked')].map(x=>x.value);
+
+// ================= Datos =================
+let IDX=null, cache={key:null,PS:null};
+async function getJSON(u){ const r=await fetch(u,{cache:'no-cache'}); if(!r.ok) throw new Error(`${u}: HTTP ${r.status}`); return r.json(); }
+async function loadIndex(saved){
+  try{ IDX=await getJSON('data/forex/index.json'); }catch(e){ IDX=null; }
+  const pairs=IDX?Object.keys(IDX.pairs):[];
+  $('pairs').innerHTML=pairs.map(p=>`<label class="chk"><input type="checkbox" value="${p}" ${!saved||saved.includes(p)?'checked':''}> ${p.slice(0,3)}/${p.slice(3)} <span class="note">(${GROUP[p]||'media'})</span></label>`).join('');
+  if(!pairs.length){ $('dataNote').classList.remove('hidden');
+    $('dataNote').innerHTML='📭 Todavía no hay velas de forex en el repositorio. En GitHub ve a <b>Actions → "Velas de 5 minutos (Apertura) y forex 1 hora (Soldados)" → Run workflow</b>; descarga los 14 pares en un par de minutos.'; }
+}
+async function getPS(){
+  const pairs=selPairs(); if(!pairs.length) throw new Error('Marca al menos un par.');
+  const months=+$('months').value, key=pairs.join(',')+'|'+months;
+  if(cache.key===key) return cache.PS;
+  const jobs=pairs.flatMap(p=>IDX.pairs[p].months.slice(-months).map(m=>({p,m})));
+  let done=0; setStatus(`Descargando ${jobs.length} ficheros de ${pairs.length} pares…`);
+  const files=await Promise.all(jobs.map(j=>getJSON(`data/forex/${j.p}/${j.m}.json`).then(x=>{ setBar(0.4*(++done)/jobs.length); return {p:j.p,b:x.bars}; })));
+  setStatus('Calculando indicadores…'); await sleep(10);
+  const PS=pairs.map(p=>prepPair(p,files.filter(f=>f.p===p).flatMap(f=>f.b),IDX.pairs[p].pip));
+  cache={key,PS}; return PS;
+}
+
+// ================= Ejecutar =================
+let LAST=null;
+async function runUI(cfg){
+  saveForm(); setBusy(true); setBar(0);
+  try{
+    const PS=await getPS(), p=readP(); cfg=cfg||readCfg();
+    setStatus('Simulando…'); await sleep(10);
+    const e=soldEval(PS,cfg,p), noStack=runPortfolio(PS,{...cfg,stack:0},p);
+    $('results').classList.remove('hidden'); renderDetail(PS,e,noStack); setBar(1);
+    setStatus(`${PS.length} pares · ${fdt(PS[0].t[0]).slice(0,10)} a ${fdt(PS[0].t[PS[0].n-1]).slice(0,10)}`);
+  }catch(err){ setStatus(err.message,true); console.error(err); }
+  finally{ setBusy(false); }
+}
+function verdictTag(e){
+  if(e.is.n<40||e.oos.n<15) return '<span class="tag wa">Pocas ops.</span>';
+  if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) return '<span class="tag ok">Aguanta</span>';
+  if(e.is.total>0 && e.oos.total<=0) return '<span class="tag ko">Sobreajuste</span>';
+  return '<span class="tag ko">No rentable</span>';
+}
+let OPT=[];
+async function optUI(){
+  saveForm(); setBusy(true); setBar(0);
+  try{
+    const PS=await getPS(), p=readP();
+    const res=await soldOptimize(PS,p,async f=>{ setBar(0.4+0.5*f); setStatus(`🔍 Probando variantes… ${Math.round(f*100)} %`); await sleep(0); });
+    if(!res.length) throw new Error('Ninguna variante llegó a 40 operaciones en el tramo de búsqueda.');
+    setStatus('Comprobando en el tramo de prueba…'); await sleep(0);
+    // distintas: se descartan las que solo cambian filtros que no alteran las operaciones
+    const seen=new Set(); OPT=[];
+    for(const x of res){ const k=[x.s.n,x.s.total.toFixed(6)].join('|'); if(seen.has(k)) continue; seen.add(k); OPT.push(soldEval(PS,x.cfg,p)); if(OPT.length>=12) break; }
+    const base=soldEval(PS,SOLD_BASE,p), ts=OPT[0].ts;
+    $('optPanel').classList.remove('hidden');
+    const ok=OPT.filter(e=>e.is.total>0&&e.oos.total>0&&e.oos.pf>1).length;
+    $('optSummary').innerHTML=`🔍 Probadas <b>${soldGrid().length}</b> variantes de las reglas en ${PS.length} pares. Búsqueda hasta el ${fdt(ts).slice(0,10)}; prueba desde entonces.<br>`+
+      `${ok?`✅ <b>${ok} de ${OPT.length}</b> siguen ganando en el tramo de prueba.`:'❌ <b>Ninguna</b> de las mejores sigue ganando en el tramo de prueba.'} `+
+      `Las reglas del curso tal cual: búsqueda ${pct(base.is.total)}, prueba <b class="${cls(base.oos.total)}">${pct(base.oos.total)}</b> (drawdown ${pct(base.all.maxDD)}).`;
+    $('optTable').innerHTML=`<tr><th>#</th><th class="l">Reglas</th><th>Ops.</th><th>Búsqueda</th><th>Prueba</th><th>PF prueba</th><th>% gan.</th><th>Drawdown</th><th>Máx. abiertas/par</th><th class="l">Resultado</th><th></th></tr>`+
+      OPT.map((e,i)=>`<tr><td>${i+1}</td><td class="l wrap">${cfgText(e.cfg)}</td><td>${e.all.n}</td><td class="${cls(e.is.total)}">${pct(e.is.total)}</td><td class="${cls(e.oos.total)}"><b>${pct(e.oos.total)}</b></td>
+        <td>${num(e.oos.pf)}</td><td>${pct(e.all.win,0)}</td><td class="neg">${pct(e.all.maxDD)}</td><td>${e.all.maxOpen}</td><td class="l">${verdictTag(e)}</td><td><button class="mini sec" data-i="${i}">Ver</button></td></tr>`).join('');
+    $('optTable').querySelectorAll('button[data-i]').forEach(b=>b.addEventListener('click',()=>{ const e=OPT[+b.dataset.i]; writeCfg(e.cfg); runUI(e.cfg).then(()=>$('results').scrollIntoView({behavior:'smooth'})); }));
+    writeCfg(OPT[0].cfg); await runUI(OPT[0].cfg);
+    $('optPanel').scrollIntoView({behavior:'smooth'});
+  }catch(err){ setStatus(err.message,true); console.error(err); }
+  finally{ setBusy(false); }
+}
+
+// ================= Detalle =================
+let eqChart=null, trChart=null;
+function renderDetail(PS,e,noStack){
+  LAST={PS,e}; const s=e.all, ns=portStats(noStack);
+  $('resTitle').textContent=`Resultados · ${PS.length} pares`;
+  $('resConfig').textContent=cfgText(e.cfg)+` · riesgo ${String(e.p.risk).replace('.',',')} % por posición`;
+  $('cards').innerHTML=card('Rentabilidad',pct(s.total),cls(s.total))+card('Sin apilar',pct(ns.total),cls(ns.total))+card('Drawdown máx.',pct(s.maxDD),'neg')+
+    card('Operaciones',`${s.n} <span class="note">(${s.longs} L / ${s.shorts} C)</span>`)+card('% ganadoras',pct(s.win,0))+card('Profit factor',num(s.pf),s.pf>=1?'pos':'neg')+
+    card('R medio',num(s.avgR),cls(s.avgR))+card('Pips netos',int(s.pips),cls(s.pips))+card('Reentradas en contra',s.against)+card('Máx. abiertas en un par',s.maxOpen);
+  const m=[];
+  if(e.is.n>=40 && e.oos.n>=15){
+    if(e.is.total>0 && e.oos.total<=0) m.push('❌ Gana en el tramo de búsqueda pero no en el de prueba.');
+    else if(e.is.total>0 && e.oos.total>0 && e.oos.pf>1) m.push('✅ Gana en los dos tramos.');
+    else m.push('❌ No es rentable con estas reglas en este periodo.');
+  } else m.push('⚠️ Pocas operaciones para sacar conclusiones.');
+  m.push(s.total>ns.total?`📈 Apilar mejora el resultado (${pct(s.total)} frente a ${pct(ns.total)} sin apilar), a cambio de tener hasta ${s.maxOpen} posiciones abiertas en un mismo par (riesgo de hasta ${pct(s.maxOpen*e.p.risk/100,0)} si saltan todos los stops).`
+                       :`📉 Apilar empeora el resultado (${pct(s.total)} frente a ${pct(ns.total)} sin apilar).`);
+  if(s.maxDD<-0.2) m.push(`⚠️ Drawdown de ${pct(s.maxDD)}: con varias posiciones en contra a la vez, las pérdidas se acumulan.`);
+  $('verdict').innerHTML=m.join('<br>');
+  const row=(l,a,b,f)=>`<tr><td>${l}</td><td>${f(a)}</td><td>${f(b)}</td></tr>`, col=x=>`<span class="${cls(x)}">${pct(x)}</span>`;
+  $('splitTable').innerHTML=`<tr><th>Métrica</th><th>Búsqueda<br><span class="note">hasta ${fdt(e.ts).slice(0,10)}</span></th><th>Prueba<br><span class="note">desde ${fdt(e.ts).slice(0,10)}</span></th></tr>`+
+    row('Rentabilidad',e.is.total,e.oos.total,col)+row('Operaciones',e.is.n,e.oos.n,x=>x)+row('% ganadoras',e.is.win,e.oos.win,x=>pct(x,0))+
+    row('Profit factor',e.is.pf,e.oos.pf,num)+row('R medio',e.is.avgR,e.oos.avgR,num)+row('Drawdown máx.',e.is.maxDD,e.oos.maxDD,col)+row('Reentradas en contra',e.is.against,e.oos.against,x=>x);
+  // por par
+  const T=e.run.trades, by={};
+  for(const t of T){ const a=by[t.pair]||(by[t.pair]={n:0,w:0,pips:0,R:0,ag:0}); a.n++; if(t.R>0) a.w++; a.pips+=t.pips; a.R+=t.R; if(t.against) a.ag++; }
+  $('pairTable').innerHTML=`<tr><th>Par</th><th>Volatilidad</th><th>SL / TP</th><th>Ops.</th><th>% gan.</th><th>Pips netos</th><th>Suma de R</th><th>Resultado</th><th>En contra</th><th>Máx. abiertas</th></tr>`+
+    e.run.runs.map(({P,r})=>{ const a=by[P.pair]||{n:0,w:0,pips:0,R:0,ag:0}, [sl,tp]=SLTP[P.grp];
+      return `<tr><td>${P.pair}</td><td>${P.grp}</td><td>${Math.round(sl*e.cfg.slMult)} / ${Math.round(tp*e.cfg.slMult)}</td><td>${a.n}</td><td>${a.n?pct(a.w/a.n,0):'-'}</td><td class="${cls(a.pips)}">${int(a.pips)}</td><td class="${cls(a.R)}">${num(a.R)}</td><td class="${cls(a.R)}">${pct(a.R*e.p.risk/100)}</td><td>${a.ag}</td><td>${r.maxOpen}</td></tr>`; }).join('');
+  // operaciones
+  const PM=Object.fromEntries(PS.map(P=>[P.pair,P]));
+  $('tradesTable').innerHTML='<tr><th>Par</th><th>Lado</th><th>Entrada (UTC)</th><th>Precio</th><th>Salida (UTC)</th><th>Precio</th><th class="l">Motivo</th><th>Tipo</th><th>Pips</th><th>R</th></tr>'+
+    T.map((t,i)=>{ const P=PM[t.pair]; return `<tr class="click" data-t="${i}"><td>${t.pair}</td><td class="${t.side>0?'pos':'neg'}">${t.side>0?'Largo':'Corto'}</td><td>${fdt(P.t[t.ei])}</td><td>${fmtFx(P,t.entry)}</td>
+      <td>${fdt(P.t[t.xi])}</td><td>${fmtFx(P,t.exit)}</td><td class="l">${t.why}</td><td>${t.against?'En contra':'—'}</td><td class="${cls(t.pips)}">${int(t.pips)}</td><td class="${cls(t.R)}">${num(t.R)}</td></tr>`; }).reverse().join('');
+  $('tradesTable').querySelectorAll('tr[data-t]').forEach(r=>r.addEventListener('click',()=>{ drawTrade(PM,T,T[+r.dataset.t]); $('tradeTitle').scrollIntoView({behavior:'smooth'}); }));
+  $('csvOut').disabled=!T.length;
+  drawEquity(e.run,noStack);
+  if(T.length) drawTrade(PM,T,T[T.length-1]);
+}
+function drawEquity(run,noStack){
+  if(typeof LightweightCharts==='undefined') return;
+  if(eqChart) eqChart.remove();
+  const el=$('eqChart'); eqChart=LightweightCharts.createChart(el,{...chartOpts(el),timeScale:{borderColor:'#253049'}});
+  const fmt={type:'custom',formatter:v=>((v-1)*100).toFixed(1)+'%'};
+  eqChart.addLineSeries({color:'#f0b429',lineWidth:2,priceFormat:fmt}).setData(run.curve.map(x=>({time:x.day,value:x.eq})));
+  eqChart.addLineSeries({color:'#8a96ad',lineWidth:1,priceFormat:fmt}).setData(noStack.curve.map(x=>({time:x.day,value:x.eq})));
+  eqChart.timeScale().fitContent();
+}
+function drawTrade(PM,T,t){
+  const P=PM[t.pair];
+  $('tradeTitle').textContent=`Gráfico de la operación · ${t.pair} · ${t.side>0?'Largo':'Corto'}${t.against?' (reentrada en contra)':''} · ${t.why} · ${int(t.pips)} pips`;
+  if(typeof LightweightCharts==='undefined') return;
+  if(trChart) trChart.remove();
+  const el=$('tradeChart'); trChart=LightweightCharts.createChart(el,chartOpts(el));
+  const a=Math.max(0,t.ei-120), b=Math.min(P.n-1,t.xi+60);
+  const cs=trChart.addCandlestickSeries({upColor:'#22c55e',downColor:'#ef4444',borderVisible:false,wickUpColor:'#22c55e',wickDownColor:'#ef4444',priceFormat:{type:'price',precision:P.pip===0.01?3:5,minMove:P.pip/10}});
+  const data=[]; for(let i=a;i<=b;i++) data.push({time:P.t[i],open:P.o[i],high:P.h[i],low:P.l[i],close:P.c[i]}); cs.setData(data);
+  cs.createPriceLine({price:t.sl,color:'#ef4444',lineWidth:1,lineStyle:2,axisLabelVisible:true,title:'Stop'});
+  cs.createPriceLine({price:t.tp,color:'#22c55e',lineWidth:1,lineStyle:2,axisLabelVisible:true,title:'Objetivo'});
+  const lv=P.wp[t.ei]||[]; ['PP semanal','R1','S1'].forEach((nm,j)=>{ if(lv[j]) cs.createPriceLine({price:lv[j],color:'#3b82f6',lineWidth:1,lineStyle:1,axisLabelVisible:false,title:nm}); });
+  // todas las operaciones del par en la ventana (se ve el apilamiento)
+  const mk=[]; for(const x of T) if(x.pair===t.pair){
+    if(x.ei>=a && x.ei<=b) mk.push({time:P.t[x.ei],position:x.side>0?'belowBar':'aboveBar',color:x.side>0?'#22c55e':'#ef4444',shape:x.side>0?'arrowUp':'arrowDown',text:x===t?'Esta':(x.against?'En contra':'')});
+    if(x.xi>=a && x.xi<=b) mk.push({time:P.t[x.xi],position:x.side>0?'aboveBar':'belowBar',color:x.R>0?'#22c55e':'#ef4444',shape:'circle',text:x===t?`${num(x.R)}R`:''}); }
+  cs.setMarkers(mk.sort((p,q)=>p.time-q.time));
+  trChart.timeScale().fitContent();
+}
+window.addEventListener('resize',()=>{ for(const [c,id] of [[eqChart,'eqChart'],[trChart,'tradeChart']]) if(c) c.applyOptions({width:$(id).clientWidth}); });
+function exportCSV(){
+  const {PS,e}=LAST, PM=Object.fromEntries(PS.map(P=>[P.pair,P]));
+  const rows=[['par','lado','entrada_utc','precio_entrada','salida_utc','precio_salida','motivo','en_contra','pips','R']];
+  for(const t of e.run.trades){ const P=PM[t.pair]; rows.push([t.pair,t.side>0?'largo':'corto',fdt(P.t[t.ei]),t.entry,fdt(P.t[t.xi]),t.exit,t.why,t.against?'si':'no',t.pips.toFixed(1),t.R.toFixed(3)]); }
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([rows.map(r=>r.join(';')).join('\n')],{type:'text/csv'})); a.download='atalaya_soldados.csv'; a.click();
+}
+(async()=>{
+  const saved=loadForm(); await loadIndex(saved);
+  $('runBtn').addEventListener('click',()=>runUI());
+  $('optBtn').addEventListener('click',optUI);
+  $('csvOut').addEventListener('click',exportCSV);
+})();
+</script>
+</body>
+</html>
