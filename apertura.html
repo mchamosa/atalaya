@@ -31,6 +31,7 @@ main{max-width:1280px;margin:0 auto;padding:16px}
 .group:first-child{border-top:0;margin-top:0;padding-top:0}
 .group h3{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--mut)}
 label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mut)}
+#c_days{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:12px}
 label.chk{flex-direction:row;align-items:center;gap:6px;color:var(--txt);font-size:13px}
 input,select{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 8px;font-size:14px;width:100%}
 input[type=checkbox]{width:auto}
@@ -206,6 +207,9 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
           <select id="c_trend"><option value="0">Sin filtro</option><option value="1">A favor de la media de 20 días</option></select>
         </label>
       </div>
+      <div class="days" id="c_days"><span class="note">Días en los que opera:</span>
+        <label class="chk"><input type="checkbox" data-dow="1" checked> Lunes</label><label class="chk"><input type="checkbox" data-dow="2" checked> Martes</label><label class="chk"><input type="checkbox" data-dow="3" checked> Miércoles</label><label class="chk"><input type="checkbox" data-dow="4" checked> Jueves</label><label class="chk"><input type="checkbox" data-dow="5" checked> Viernes</label>
+      </div>
     </div>
   </details>
 </section>
@@ -330,7 +334,7 @@ function runORB(D,cfg,p,i0=0,i1=D.length){
   let eq=1;
   for(let k=Math.max(i0,WARM);k<i1;k++){
     const d=D[k], n=cfg.n, L=d.c.length;
-    const res=orbDay(d,cfg,n,L);
+    const res=(cfg.days==null||cfg.days>>d.dow&1) ? orbDay(d,cfg,n,L) : null;
     if(!res){ days.push({k,r:0,eq}); continue; }
     const {side,eBar,ePx,stop,tgt,xBar,xPx,why}=res, risk=side*(ePx-stop);
     const fr=p.risk>0 ? Math.min(p.lev||1,(p.risk/100)/(risk/ePx)) : 1;
@@ -446,13 +450,13 @@ function orbGrid2(base){
   }
   return out;
 }
-const cfgKey=c=>JSON.stringify([c.n,c.dir,c.entry,c.win,c.stop,c.stopK,c.tgt,c.hold,c.orMax,c.rvol,c.gap,c.trend]);
+const cfgKey=c=>JSON.stringify([c.n,c.dir,c.entry,c.win,c.stop,c.stopK,c.tgt,c.hold,c.orMax,c.rvol,c.gap,c.trend,c.days]);
 // Fase rápida: solo tramo en muestra
 function orbFit(D,cfg,p,si){ const r=runORB(D,cfg,p,0,si), s=orbStats(r); return {cfg,s,score:orbScore(s,p.objective,p.minTr||30),keys:r.trades.map(t=>t.k*2+(t.side>0?1:0))}; }
 async function orbOptimize(D,p,onProg){
   const si=orbSplit(D,p.split), seen=new Map();
   const ev=c=>{ const k=cfgKey(c); if(!seen.has(k)) seen.set(k,orbFit(D,c,p,si)); return seen.get(k); };
-  const g1=orbGrid1(); let i=0;
+  const dz=p.days||ALLDAYS, g1=orbGrid1().map(c=>({...c,days:dz})); let i=0;
   for(const c of g1){ ev(c); if(++i%300===0 && onProg) await onProg(0.6*i/g1.length,seen.size); }
   const top=[...seen.values()].filter(x=>isFinite(x.score)).sort((a,b)=>b.score-a.score);
   const bases=pickDistinctORB(top,30,0.8).map(x=>x.cfg);
@@ -493,6 +497,7 @@ function chartOpts(el){
 }
 
 // ================= Configuración ⇄ formulario =================
+// los presets no tocan los días elegidos
 const PRESETS={
   zarattini:{n:1,dir:'candle',entry:'open2',win:960,stop:'range',stopK:0,tgt:10,hold:0,orMax:0,rvol:0,gap:'any',trend:0},
   orb5:{n:1,dir:'both',entry:'stop',win:690,stop:'range',stopK:0,tgt:2,hold:0,orMax:0,rvol:0,gap:'any',trend:0},
@@ -502,15 +507,19 @@ const PRESETS={
 function readCfg(){
   const [stop,k]=$('c_stop').value.split(':');
   return {n:+$('c_n').value,dir:$('c_dir').value,entry:$('c_entry').value,win:+$('c_win').value,stop,stopK:+(k||0),
-          tgt:+$('c_tgt').value,hold:+$('c_hold').value,orMax:+$('c_orMax').value,rvol:+$('c_rvol').value,gap:$('c_gap').value,trend:+$('c_trend').value};
+          tgt:+$('c_tgt').value,hold:+$('c_hold').value,orMax:+$('c_orMax').value,rvol:+$('c_rvol').value,gap:$('c_gap').value,trend:+$('c_trend').value,days:readDays()};
 }
 function writeCfg(c){
   $('c_n').value=c.n; $('c_dir').value=c.dir; $('c_entry').value=c.entry; $('c_win').value=c.win;
   $('c_stop').value=c.stop==='atr'?`atr:${c.stopK}`:c.stop; $('c_tgt').value=c.tgt; $('c_hold').value=c.hold;
   $('c_orMax').value=c.orMax; $('c_rvol').value=c.rvol; $('c_gap').value=c.gap; $('c_trend').value=c.trend;
+  const dz=c.days==null?ALLDAYS:c.days; document.querySelectorAll('#c_days input').forEach(x=>x.checked=!!(dz>>+x.dataset.dow&1));
 }
+const ALLDAYS=62; // bits 1..5 = lunes..viernes
+function readDays(){ let m=0; document.querySelectorAll('#c_days input').forEach(x=>{ if(x.checked) m|=1<<+x.dataset.dow; }); return m||ALLDAYS; }
+const daysText=m=>[1,2,3,4,5].filter(i=>m>>i&1).map(i=>['','lunes','martes','miércoles','jueves','viernes'][i]).join(', ');
 function readP(){ return {fee:+$('fee').value||0,slip:+$('slip').value||0,risk:+$('risk').value||0,lev:Math.max(1,+$('lev').value||1),
-                          split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:(cache.D&&cache.D.length<250)?12:30}; }
+                          split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,days:readDays(),minTr:(cache.D&&cache.D.length<250)?12:30}; }
 function cfgText(c){
   const a=[c.n===0?'Rango de la sesión anterior (máximo y mínimo de ayer)':`Rango de ${c.n===12?'la primera hora':c.n===48?'las primeras 4 horas':'los primeros '+c.n*5+' min'}`];
   a.push({both:'largos y cortos',long:'solo largos',short:'solo cortos',candle:'a favor de la vela del rango'}[c.dir]);
@@ -524,6 +533,7 @@ function cfgText(c){
   if(c.rvol) f.push(`volumen de la 1ª vela ≥ ${String(c.rvol).replace('.',',')}×`);
   if(c.gap==='with') f.push('a favor del gap'); if(c.gap==='against') f.push('contra el gap');
   if(c.trend) f.push('a favor de la media de 20 días');
+  if(c.days!=null && c.days!==ALLDAYS) f.push('solo '+daysText(c.days));
   return a.join(' · ')+(f.length?' · filtros: '+f.join(', '):'');
 }
 const FORM=['sym','months','fee','slip','risk','lev','objective','split'];
@@ -779,11 +789,11 @@ function exportCSV(){
     }catch(err){ setStatus(err.message,true); }
   });
   let tmr=null;
-  document.querySelectorAll('#manual select').forEach(s=>s.addEventListener('change',()=>{
+  document.querySelectorAll('#manual select, #c_days input').forEach(s=>s.addEventListener('change',()=>{
     if($('results').classList.contains('hidden')) return;
     clearTimeout(tmr); tmr=setTimeout(()=>runManual(),150);
   }));
-  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{ writeCfg(PRESETS[b.dataset.preset]); $('manual').open=true; runManual(); }));
+  document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{ writeCfg({...PRESETS[b.dataset.preset],days:readDays()}); $('manual').open=true; runManual(); }));
 })();
 </script>
 </body>
