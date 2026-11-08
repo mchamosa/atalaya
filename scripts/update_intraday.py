@@ -15,6 +15,8 @@ Cada pasada solo descarga lo que falta y nunca borra meses ya guardados.
 
 Uso:  python scripts/update_intraday.py            (actualiza)
       python scripts/update_intraday.py --full     (vuelve a descargar los 2 años)
+Valores: QQQ, SPY y la composición actual del Nasdaq-100 (unos 100). La primera carga
+tarda alrededor de una hora (5 llamadas/minuto); después, unos 20-25 minutos al día.
 """
 from __future__ import annotations
 
@@ -28,7 +30,13 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-SYMBOLS = ["QQQ", "SPY", "TSLA", "NVDA"]          # añade aquí otros tickers si quieres
+BASE = ["QQQ", "SPY"]                             # ETF de referencia, siempre
+# Respaldo si no se puede leer la composición actual del Nasdaq-100 (aproximada, 2026)
+NDX_FALLBACK = """AAPL MSFT NVDA AMZN GOOGL GOOG META AVGO TSLA COST NFLX PLTR AMD ASML CSCO TMUS AZN LIN PEP INTU
+ISRG TXN QCOM BKNG ADBE AMGN AMAT HON PDD GILD ARM PANW CMCSA MU ADP LRCX KLAC APP VRTX ADI SBUX MELI CRWD
+INTC CEG MSTR DASH CTAS ORLY MDLZ SNPS CDNS FTNT MAR ABNB PYPL REGN ADSK WDAY ROP MNST AEP CSX CHTR NXPI
+PCAR AXON FAST TTWO PAYX KDP DDOG IDXX ROST EXC BKR ZS VRSK XEL TEAM CPRT EA CCEP FANG CTSH GEHC ODFL KHC
+MCHP LULU CSGP TTD DXCM ON CDW GFS WBD MRVL SHOP TRI BIIB""".split()
 YEARS_BACK = 2                                    # lo que permite el plan gratuito de Massive
 
 _HERE = Path(__file__).resolve().parent
@@ -113,7 +121,7 @@ def last_stored(sym: str) -> int | None:
     return None
 
 
-def write_index(sources: dict[str, str]) -> None:
+def write_index(sources: dict[str, str], names: dict[str, str] | None = None) -> None:
     idx_file = OUT / "index.json"
     try:
         idx = json.loads(idx_file.read_text(encoding="utf-8"))
@@ -130,11 +138,42 @@ def write_index(sources: dict[str, str]) -> None:
             "from": datetime.fromtimestamp(min(first), UTC).astimezone(NY).strftime("%Y-%m-%d") if first else None,
             "to": datetime.fromtimestamp(max(last), UTC).astimezone(NY).strftime("%Y-%m-%d") if last else None,
             "source": sources.get(d.name, syms.get(d.name, {}).get("source", "")),
+            "name": (names or {}).get(d.name) or syms.get(d.name, {}).get("name", ""),
+            "ndx": d.name in (names or {}),
         }
     idx = {"tf": "5m", "session": "09:30-16:00 America/New_York",
            "updated": NOW.isoformat(timespec="seconds"), "symbols": syms}
     idx_file.write_text(json.dumps(idx, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"  ok  data/intraday/index.json ({len(syms)} símbolos)")
+
+
+# ------------------------------------------------------------------ universo
+def nasdaq100() -> dict[str, str]:
+    """Composición actual del Nasdaq-100 {ticker: nombre}. Fuente: nasdaq.com; respaldo: lista fija."""
+    try:
+        r = requests.get("https://api.nasdaq.com/api/quote/list-type/nasdaq100", timeout=30,
+                         headers={**UA, "Accept": "application/json", "Origin": "https://www.nasdaq.com",
+                                  "Referer": "https://www.nasdaq.com/"})
+        d = r.json().get("data") or {}
+        rows = (d.get("data") or {}).get("rows") or d.get("rows") or []
+        out = {x["symbol"].strip().upper().replace("/", "."): (x.get("companyName") or "").strip() for x in rows}
+        if len(out) >= 90:
+            return out
+        print(f"  aviso: nasdaq.com devolvió solo {len(out)} valores")
+    except Exception as e:
+        print(f"  aviso: no se pudo leer el Nasdaq-100 de nasdaq.com ({e}); se usa la lista fija")
+    return {s: "" for s in NDX_FALLBACK}
+
+
+def universe() -> dict[str, str]:
+    names = {"QQQ": "Invesco QQQ (Nasdaq-100)", "SPY": "SPDR S&P 500"}
+    ndx = nasdaq100()
+    names.update({k: v for k, v in ndx.items() if v or k not in names})
+    order = BASE + sorted(k for k in ndx if k not in BASE)
+    # se mantienen también los que ya estaban guardados (p. ej. si salen del índice)
+    if OUT.exists():
+        order += sorted(p.name for p in OUT.iterdir() if p.is_dir() and p.name not in order)
+    return {s: names.get(s, "") for s in order}
 
 
 # ------------------------------------------------------------------ Massive
@@ -221,8 +260,11 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     sources: dict[str, str] = {}
     errors = 0
-    print(f"Velas de 5 min · {', '.join(SYMBOLS)} · Massive {'con clave' if MASSIVE_KEY else 'SIN clave (se usa Yahoo, 60 días)'}")
-    for sym in SYMBOLS:
+    names = universe()
+    SYMBOLS = list(names)
+    print(f"Velas de 5 min · {len(SYMBOLS)} valores · Massive {'con clave' if MASSIVE_KEY else 'SIN clave (se usa Yahoo, 60 días)'}")
+    for i, sym in enumerate(SYMBOLS, 1):
+        print(f"[{i}/{len(SYMBOLS)}]", end=" ")
         try:
             last = None if full else last_stored(sym)
             first = first_stored(sym)
@@ -256,7 +298,9 @@ def main() -> int:
         except Exception as e:
             errors += 1
             print(f"  ERROR {sym}: {e}")
-    write_index(sources)
+        if i % 10 == 0:
+            write_index(sources, names)             # el índice se va guardando por si la Action se corta
+    write_index(sources, names)
     return 1 if errors == len(SYMBOLS) else 0
 
 
