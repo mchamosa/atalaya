@@ -100,7 +100,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
 
 <section class="panel">
   <h2>Rupturas del rango de apertura (velas de 5 min)</h2>
-  <p class="lead">Estrategias con los primeros minutos de la sesión de Nueva York (9:30, las 15:30 en España): se marca el máximo y el mínimo del rango de apertura y se opera su ruptura, en <b>largo y en corto</b>. Pulsa <b>🔍 Buscar la mejor estrategia</b> y la página probará miles de combinaciones de rango, entrada, stop, objetivo y filtros con el tramo inicial de los datos, y las comprobará en el tramo final, que no se usa para buscar.</p>
+  <p class="lead">Estrategias con los primeros minutos de la sesión: en <b>acciones</b> (QQQ, SPY y el Nasdaq-100), la apertura de Nueva York (9:30, las 15:30 en España); en <b>cripto</b> (las del top 100 por capitalización que cotizan en Binance), el inicio del día a las 00:00 UTC (la 1:00 o las 2:00 en España). Se marca el máximo y el mínimo del rango de apertura y se opera su ruptura, en <b>largo y en corto</b>. Pulsa <b>🔍 Buscar la mejor estrategia</b> y la página probará miles de combinaciones de rango, entrada, stop, objetivo y filtros con el tramo inicial de los datos, y las comprobará en el tramo final, que no se usa para buscar.</p>
 
   <div class="grid">
     <label>Activo
@@ -172,7 +172,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
         <label>Entrada
           <select id="c_entry"><option value="stop">Al romper el rango (orden stop)</option><option value="close">Tras cerrar una vela fuera del rango</option><option value="open2">Nada más terminar el rango (sin esperar ruptura)</option></select>
         </label>
-        <label>Última hora de entrada (NY)
+        <label>Última hora de entrada
           <select id="c_win"><option value="630">10:30</option><option value="690">11:30</option><option value="900">15:00</option><option value="960">Sin límite</option></select>
         </label>
       </div>
@@ -208,7 +208,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
         </label>
       </div>
       <div class="days" id="c_days"><span class="note">Días en los que opera:</span>
-        <label class="chk"><input type="checkbox" data-dow="1" checked> Lunes</label><label class="chk"><input type="checkbox" data-dow="2" checked> Martes</label><label class="chk"><input type="checkbox" data-dow="3" checked> Miércoles</label><label class="chk"><input type="checkbox" data-dow="4" checked> Jueves</label><label class="chk"><input type="checkbox" data-dow="5" checked> Viernes</label>
+        <label class="chk"><input type="checkbox" data-dow="1" checked> Lunes</label><label class="chk"><input type="checkbox" data-dow="2" checked> Martes</label><label class="chk"><input type="checkbox" data-dow="3" checked> Miércoles</label><label class="chk"><input type="checkbox" data-dow="4" checked> Jueves</label><label class="chk"><input type="checkbox" data-dow="5" checked> Viernes</label><label class="chk"><input type="checkbox" data-dow="6" checked> Sábado</label><label class="chk"><input type="checkbox" data-dow="0" checked> Domingo</label><span class="note">(sábado y domingo, solo cripto)</span>
       </div>
     </div>
   </details>
@@ -255,7 +255,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
   </section>
   <section class="panel">
     <h2 id="dayTitle">Gráfico del día</h2>
-    <div class="legend"><span><i style="background:#3b82f6"></i>Rango de apertura</span><span><i style="background:#ef4444"></i>Stop</span><span><i style="background:#22c55e"></i>Objetivo</span><span class="note">Pulsa una operación de la tabla para verla aquí. Horas de Nueva York.</span></div>
+    <div class="legend"><span><i style="background:#3b82f6"></i>Rango de apertura</span><span><i style="background:#ef4444"></i>Stop</span><span><i style="background:#22c55e"></i>Objetivo</span><span class="note">Pulsa una operación de la tabla para verla aquí. <span id="tzNote">Horas de Nueva York.</span></span></div>
     <div id="dayChart" class="chart"></div>
   </section>
   <section class="panel">
@@ -264,7 +264,7 @@ h3.sub3{font-size:13px;color:var(--acc);margin:16px 0 4px}
   </section>
 </section>
 
-<p class="note">Datos: velas de 5 minutos de la sesión regular (9:30 a 16:00, Nueva York) descargadas cada día por la Action "Velas de 5 minutos" desde Massive (antes Polygon) o, si no hay clave, Yahoo Finance (60 días). Una operación como máximo al día y todas cerradas antes del cierre. Si en una misma vela se tocan el stop y el objetivo, se cuenta el stop. Con riesgo por operación, el tamaño se calcula para perder ese % si salta el stop, con el apalancamiento máximo indicado. Rendimientos pasados no garantizan resultados futuros; esto no es asesoramiento financiero.</p>
+<p class="note">Datos: acciones, velas de 5 minutos de la sesión regular (9:30 a 16:00, Nueva York) descargadas cada día por la Action "Velas de 5 minutos" desde Massive (antes Polygon) o, si no hay clave, Yahoo Finance (60 días); cripto, velas de 5 minutos de Binance descargadas en el momento por tu navegador (máximo 2 años), con días de 00:00 a 24:00 UTC, fines de semana incluidos, y la lista del top 100 de CoinGecko sin stablecoins ni tokens envueltos. En cripto, pon la comisión real de tu exchange (en Binance, 0,1 % por lado; la página la pone sola al elegir una cripto). Una operación como máximo al día y todas cerradas antes del cierre. Si en una misma vela se tocan el stop y el objetivo, se cuenta el stop. Con riesgo por operación, el tamaño se calcula para perder ese % si salta el stop, con el apalancamiento máximo indicado. Rendimientos pasados no garantizan resultados futuros; esto no es asesoramiento financiero.</p>
 </main>
 
 <script id="engine">
@@ -286,16 +286,20 @@ function nyParts(tsSec){
   return {date:loc.toISOString().slice(0,10), min:loc.getUTCHours()*60+loc.getUTCMinutes(), dow:loc.getUTCDay()};
 }
 const hhmm=m=>String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+// Internamente, el minuto 570 es siempre la apertura de la sesión (9:30 NY en acciones, 00:00 UTC en cripto)
+let SESS={crypto:false};
+const showT=m=>SESS.crypto?hhmm(((m-570)%1440+1440)%1440):hhmm(m);
+function utcParts(t){ const d=new Date(t*1000); return {date:d.toISOString().slice(0,10), min:570+d.getUTCHours()*60+d.getUTCMinutes(), dow:d.getUTCDay()}; }
 
 // ================= Sesiones =================
 // bars: [[t(seg UTC), o, h, l, c, v], ...] de cualquier temporalidad ≤ 5 min. Se agrupan en velas de 5 min de 9:30 a 16:00.
 const WARM=21;
-function buildDays(bars){
+function buildDays(bars,crypto=false){
   bars=[...bars].sort((a,b)=>a[0]-b[0]);
   const days=[]; let cur=null, lastKey=null;
   for(const b of bars){
-    const t=b[0], P=nyParts(t);
-    if(P.min<570 || P.min>=960 || P.dow===0 || P.dow===6) continue;
+    const t=b[0], P=crypto?utcParts(t):nyParts(t);
+    if(!crypto && (P.min<570 || P.min>=960 || P.dow===0 || P.dow===6)) continue;
     if(!cur || cur.date!==P.date){ cur={date:P.date,dow:P.dow,t:[],min:[],o:[],h:[],l:[],c:[],v:[]}; days.push(cur); lastKey=null; }
     const k=Math.floor((P.min-570)/5);
     if(k===lastKey){ const j=cur.c.length-1; cur.h[j]=Math.max(cur.h[j],b[2]); cur.l[j]=Math.min(cur.l[j],b[3]); cur.c[j]=b[4]; cur.v[j]+=b[5]||0; }
@@ -371,7 +375,7 @@ function orbDay(d,cfg,n,L){
     if(side){ eBar=n; ePx=d.o[n]; }
   } else {
     for(let i=n;i<L;i++){
-      if(d.min[i]>=win) break;
+      if(win<960 && d.min[i]>=win) break;   // 960 = sin límite
       if(cfg.entry==='stop'){
         const up=aL && d.h[i]>H, dn=aS && d.l[i]<Lo;
         if(up&&dn){ if(d.o[i]>H) side=1; else if(d.o[i]<Lo) side=-1; else break; } // ambas en la misma vela: no se opera
@@ -489,7 +493,7 @@ const num=(x,d=2)=>isFinite(x)?x.toFixed(d).replace('.',','):'∞';
 const cls=x=>x>0?'pos':(x<0?'neg':'');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const card=(k,v,c='')=>`<div class="card"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`;
-const fmtPx=x=>x>=100?x.toFixed(2):x.toFixed(3);
+const fmtPx=x=>x>=100?x.toFixed(2):x>=1?x.toFixed(3):x.toPrecision(4);
 const DOWN=['Dom','Lunes','Martes','Miércoles','Jueves','Viernes','Sáb'];
 function setStatus(t,err){ $('status').textContent=t; $('status').className='status'+(err?' err':''); }
 function setBar(f){ $('bar').style.width=(100*f)+'%'; }
@@ -520,16 +524,16 @@ function writeCfg(c){
   $('c_orMax').value=c.orMax; $('c_rvol').value=c.rvol; $('c_gap').value=c.gap; $('c_trend').value=c.trend;
   const dz=c.days==null?ALLDAYS:c.days; document.querySelectorAll('#c_days input').forEach(x=>x.checked=!!(dz>>+x.dataset.dow&1));
 }
-const ALLDAYS=62; // bits 1..5 = lunes..viernes
+const ALLDAYS=127; // bit = día de la semana (0 domingo … 6 sábado)
 function readDays(){ let m=0; document.querySelectorAll('#c_days input').forEach(x=>{ if(x.checked) m|=1<<+x.dataset.dow; }); return m||ALLDAYS; }
-const daysText=m=>[1,2,3,4,5].filter(i=>m>>i&1).map(i=>['','lunes','martes','miércoles','jueves','viernes'][i]).join(', ');
+const daysText=m=>[1,2,3,4,5,6,0].filter(i=>m>>i&1).map(i=>['domingo','lunes','martes','miércoles','jueves','viernes','sábado'][i]).join(', ');
 function readP(){ return {fee:+$('fee').value||0,slip:+$('slip').value||0,risk:+$('risk').value||0,lev:Math.max(1,+$('lev').value||1),
                           split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,days:readDays(),minTr:(cache.D&&cache.D.length<250)?12:30}; }
 function cfgText(c){
   const a=[c.n===0?'Rango de la sesión anterior (máximo y mínimo de ayer)':`Rango de ${c.n===12?'la primera hora':c.n===48?'las primeras 4 horas':'los primeros '+c.n*5+' min'}`];
   a.push({both:'largos y cortos',long:'solo largos',short:'solo cortos',candle:'a favor de la vela del rango'}[c.dir]);
   a.push(c.entry==='stop'?'entrada al romper el rango':c.entry==='close'?'entrada tras cerrar una vela fuera del rango':'entrada nada más terminar el rango');
-  if(c.entry!=='open2' && effWin(c)<960) a.push(`hasta las ${hhmm(c.win)}`);
+  if(c.entry!=='open2' && effWin(c)<960) a.push(`hasta las ${showT(c.win)}${SESS.crypto?' UTC':''}`);
   a.push(c.stop==='range'?'stop al otro lado del rango':c.stop==='mid'?'stop a mitad del rango':`stop a ${Math.round(c.stopK*100)} % del ATR diario`);
   a.push(c.tgt?`objetivo ${c.tgt}R`:'sin objetivo');
   a.push(c.hold?`salida a los ${c.hold*5} min`:'salida al cierre');
@@ -538,7 +542,7 @@ function cfgText(c){
   if(c.rvol) f.push(`volumen de la 1ª vela ≥ ${String(c.rvol).replace('.',',')}×`);
   if(c.gap==='with') f.push('a favor del gap'); if(c.gap==='against') f.push('contra el gap');
   if(c.trend) f.push('a favor de la media de 20 días');
-  if(c.days!=null && c.days!==ALLDAYS) f.push('solo '+daysText(c.days));
+  { const all=SESS.crypto?127:62; if(c.days!=null && (c.days&all)!==all) f.push('solo '+daysText(c.days&all)); }
   return a.join(' · ')+(f.length?' · filtros: '+f.join(', '):'');
 }
 const FORM=['sym','months','fee','slip','risk','lev','objective','split'];
@@ -551,19 +555,77 @@ async function getJSON(u){ const r=await fetch(u,{cache:'no-cache'}); if(!r.ok) 
 async function loadIndex(savedSym){
   try{ IDX=await getJSON('data/intraday/index.json'); }catch(e){ IDX=null; }
   const syms=IDX?Object.keys(IDX.symbols):[];
-  const name={QQQ:'QQQ · Nasdaq 100',SPY:'SPY · S&P 500',TSLA:'TSLA · Tesla',NVDA:'NVDA · Nvidia',AAPL:'AAPL · Apple'};
-  $('sym').innerHTML=syms.map(s=>`<option value="${s}">${name[s]||s} (${IDX.symbols[s].from} a ${IDX.symbols[s].to})</option>`).join('')+'<option value="csv">CSV propio…</option>';
-  if(savedSym && (syms.includes(savedSym))) $('sym').value=savedSym;
+  const first=['QQQ','SPY'], ord=[...first.filter(s=>syms.includes(s)),...syms.filter(s=>!first.includes(s)).sort()];
+  const nm=s=>{ const n=(IDX.symbols[s].name||'').replace(/,? (Inc|Corp|Corporation|Ltd|plc|N\.V\.|Holdings|Co)\.?$/i,'').replace(/ (Common Stock|Class [A-C].*|Ordinary Shares.*|American Depositary.*)$/i,''); return n?`${s} · ${n}`:s; };
+  const opt=s=>`<option value="${s}">${nm(s)} (${IDX.symbols[s].from} a ${IDX.symbols[s].to})</option>`;
+  let crypto=[]; try{ crypto=await cryptoList(); }catch(e){ console.warn(e); }
+  $('sym').innerHTML=(ord.length?`<optgroup label="Acciones · Nasdaq-100 (${ord.length})">${ord.map(opt).join('')}</optgroup>`:'')+
+    (crypto.length?`<optgroup label="Cripto · top 100 por capitalización en Binance (${crypto.length})">${crypto.map(c=>`<option value="bn:${c.pair}">${c.rank}. ${c.sym} · ${c.name}</option>`).join('')}</optgroup>`:'')+
+    '<optgroup label="Otros"><option value="csv">CSV propio…</option></optgroup>';
+  if(savedSym && [...$('sym').options].some(o=>o.value===savedSym)) $('sym').value=savedSym;
+  updateMode();
   if(!syms.length){
     $('dataNote').classList.remove('hidden');
     $('dataNote').innerHTML='📭 Todavía no hay velas de 5 minutos en el repositorio. En GitHub, ve a <b>Actions → "Velas de 5 minutos (Apertura)" → Run workflow</b>. Con la clave de Massive descarga dos años de QQQ, SPY, TSLA y NVDA en unos minutos. Mientras tanto puedes <b>cargar un CSV propio</b> (por ejemplo, exportado de TradingView).';
   }
 }
+// ---- Cripto: top 100 de CoinGecko que cotiza contra USDT en Binance; velas de 5 min de Binance en el navegador
+const BN=['https://data-api.binance.vision','https://api.binance.com'];
+const NOTCOIN=new Set(['usdt','usdc','dai','fdusd','tusd','usde','usds','pyusd','usdp','busd','gusd','frax','lusd','usdd','usd0','usdx','eurc','eurt','rlusd','usdtb','usd1','bfusd','susde','susds','buidl','usdy','usyc','ustb','ousg','xaut','paxg',
+  'wbtc','weth','steth','wsteth','weeth','cbbtc','reth','meth','ezeth','rseth','wbeth','bnsol','jitosol','msol','lbtc','solvbtc','tbtc','cbeth','wbnb','wtrx','clbtc','fbtc','bbtc','unibtc','wsol','leo','okb','gt','bgb','cro','kcs','htx','wstusr','jupsol','bsdeth']);
+async function bnGet(path){ let last; for(const h of BN){ try{ const r=await fetch(h+path); if(r.ok) return r.json(); last=new Error(`Binance HTTP ${r.status}`); }catch(e){ last=e; } } throw last; }
+async function cryptoList(){
+  try{ const c=JSON.parse(sessionStorage.getItem('atalaya-top100')||'null'); if(c && Date.now()-c.t<6*3600e3) return c.list; }catch(e){}
+  const pr=await bnGet('/api/v3/ticker/price'), have=new Set(pr.map(x=>x.symbol));
+  let list=[];
+  try{
+    const r=await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1');
+    if(!r.ok) throw new Error('CoinGecko HTTP '+r.status);
+    const cg=await r.json();
+    list=cg.filter(c=>!NOTCOIN.has(c.symbol.toLowerCase()) && !/usd|wrapped|bridged|staked|tokenized/i.test(c.name) && have.has(c.symbol.toUpperCase()+'USDT'))
+           .map(c=>({rank:c.market_cap_rank,sym:c.symbol.toUpperCase(),name:c.name,pair:c.symbol.toUpperCase()+'USDT'}));
+  }catch(e){
+    // respaldo: las 100 de más volumen en Binance contra USDT
+    const t=await bnGet('/api/v3/ticker/24hr');
+    list=t.filter(x=>x.symbol.endsWith('USDT') && !NOTCOIN.has(x.symbol.slice(0,-4).toLowerCase()) && !/(UP|DOWN|BULL|BEAR)USDT$/.test(x.symbol))
+          .sort((a,b)=>b.quoteVolume-a.quoteVolume).slice(0,100)
+          .map((x,i)=>({rank:i+1,sym:x.symbol.slice(0,-4),name:'por volumen',pair:x.symbol}));
+  }
+  try{ sessionStorage.setItem('atalaya-top100',JSON.stringify({t:Date.now(),list})); }catch(e){}
+  return list;
+}
+async function binance5m(pair,months){
+  const end=Date.now(), start=end-Math.min(months,24)*30.44*86400e3, step=1000*300e3, starts=[];
+  for(let a=start;a<end;a+=step) starts.push(Math.floor(a));
+  const out=[]; let done=0;
+  for(let i=0;i<starts.length;i+=8){
+    const got=await Promise.all(starts.slice(i,i+8).map(st=>bnGet(`/api/v3/klines?symbol=${pair}&interval=5m&startTime=${st}&limit=1000`).then(k=>{ setBar(++done/starts.length*0.3); setStatus(`Descargando velas de ${pair} de Binance… ${done}/${starts.length}`); return k; })));
+    for(const k of got) for(const b of k) out.push([Math.floor(b[0]/1000),+b[1],+b[2],+b[3],+b[4],+b[7]]);
+  }
+  const seen=new Set(); return out.filter(b=>!seen.has(b[0])&&seen.add(b[0])).filter(b=>b[0]*1000<end-300e3);  // sin la vela en curso
+}
+function updateMode(){
+  const v=$('sym').value, cr=v.startsWith('bn:'), prev=SESS.crypto;
+  if(v!=='csv') SESS={crypto:cr};
+  const lab=cr?['01:00 UTC (1 h después)','02:00 UTC (2 h después)','05:30 UTC (5 h 30 después)','Sin límite (todo el día)']:['10:30 (1 h después)','11:30 (2 h después)','15:00','Sin límite'];
+  [...$('c_win').options].forEach((o,i)=>o.textContent=lab[i]);
+  $('tzNote').textContent=cr?'Horas UTC.':'Horas de Nueva York.';
+  if(prev!==SESS.crypto){ const f=+$('fee').value; if(SESS.crypto && f<=0.005) $('fee').value=0.1; if(!SESS.crypto && f===0.1) $('fee').value=0.005; }
+}
 async function getDays(){
   const sym=$('sym').value;
-  if(sym==='csv'){ if(!CSV) throw new Error('Carga primero un fichero CSV con el botón "Cargar CSV propio".'); return CSV; }
+  if(sym==='csv'){ if(!CSV) throw new Error('Carga primero un fichero CSV con el botón "Cargar CSV propio".'); SESS={crypto:false}; return CSV; }
+  updateMode();
   const months=+$('months').value, key=sym+'|'+months;
   if(cache.key===key) return cache;
+  if(sym.startsWith('bn:')){
+    const pair=sym.slice(3), bars=await binance5m(pair,months);
+    const D=buildDays(bars,true);
+    if(D.length && D[D.length-1].c.length<288) D.pop();          // el día de hoy aún no ha terminado
+    if(D.length<WARM+30) throw new Error(`Solo hay ${D.length} días de ${pair} en Binance: hacen falta al menos ${WARM+30}.`);
+    cache={key,D,label:`${pair} · ${D[0].date} a ${D[D.length-1].date} · ${D.length} días · Binance (00:00 UTC)`+(D.length<250?' · ⚠️ pocos días: los resultados son orientativos':'')};
+    return cache;
+  }
   const ms=IDX.symbols[sym].months.slice(-months);
   setStatus(`Descargando ${ms.length} meses de ${sym}…`);
   let done=0;
@@ -736,12 +798,12 @@ function renderDetail(D,e){
   // por año y día de la semana
   const T=e.runAll.trades, agg=(keyf)=>{ const m=new Map(); for(const t of T){ const k=keyf(t); const a=m.get(k)||{n:0,w:0,eq:1,R:0}; a.n++; if(t.ret>0)a.w++; a.eq*=1+t.ret; a.R+=t.R; m.set(k,a);} return m; };
   const yr=agg(t=>t.date.slice(0,4)), dw=agg(t=>D[t.k].dow);
-  const tb=(title,m,lab)=>`<tr><th>${title}</th><th>Ops.</th><th>% gan.</th><th>R medio</th><th>Rentab.</th></tr>`+[...m.entries()].sort((a,b)=>a[0]>b[0]?1:-1).map(([k,a])=>`<tr><td>${lab(k)}</td><td>${a.n}</td><td>${pct(a.w/a.n,0)}</td><td>${num(a.R/a.n)}</td><td class="${cls(a.eq-1)}">${pct(a.eq-1)}</td></tr>`).join('');
+  const tb=(title,m,lab)=>`<tr><th>${title}</th><th>Ops.</th><th>% gan.</th><th>R medio</th><th>Rentab.</th></tr>`+[...m.entries()].sort((a,b)=>typeof a[0]==='number'?(a[0]+6)%7-(b[0]+6)%7:(a[0]>b[0]?1:-1)).map(([k,a])=>`<tr><td>${lab(k)}</td><td>${a.n}</td><td>${pct(a.w/a.n,0)}</td><td>${num(a.R/a.n)}</td><td class="${cls(a.eq-1)}">${pct(a.eq-1)}</td></tr>`).join('');
   $('yearTable').innerHTML=tb('Año',yr,k=>k); $('dowTable').innerHTML=tb('Día',dw,k=>DOWN[k]);
   // operaciones
   $('tradesTable').innerHTML='<tr><th>Fecha</th><th>Lado</th><th>Entrada</th><th>Precio</th><th>Salida</th><th>Precio</th><th class="l">Motivo</th><th>R</th><th>Tamaño</th><th>Resultado</th></tr>'+
     T.map((t,i)=>`<tr class="click" data-t="${i}"><td>${t.date}${t.k>=e.si?' <span class="note">prueba</span>':''}</td><td class="${t.side>0?'pos':'neg'}">${t.side>0?'Largo':'Corto'}</td>
-      <td>${hhmm(D[t.k].min[t.eBar])}</td><td>${fmtPx(t.ePx)}</td><td>${hhmm(D[t.k].min[t.xBar]+5)}</td><td>${fmtPx(t.xPx)}</td><td class="l">${t.why}</td>
+      <td>${showT(D[t.k].min[t.eBar])}</td><td>${fmtPx(t.ePx)}</td><td>${showT(D[t.k].min[t.xBar]+5)}</td><td>${fmtPx(t.xPx)}</td><td class="l">${t.why}</td>
       <td class="${cls(t.R)}">${num(t.R)}</td><td>${pct(t.frac,0)}</td><td class="${cls(t.ret)}">${pct(t.ret,2)}</td></tr>`).reverse().join('');
   $('tradesTable').querySelectorAll('tr[data-t]').forEach(r=>r.addEventListener('click',()=>{ drawDay(D,e,T[+r.dataset.t]); $('dayTitle').scrollIntoView({behavior:'smooth',block:'start'}); }));
   $('csvOut').disabled=!T.length;
@@ -765,7 +827,7 @@ function drawDay(D,e,t){
   if(typeof LightweightCharts==='undefined') return;
   if(dayChart) dayChart.remove();
   const el=$('dayChart'); dayChart=LightweightCharts.createChart(el,chartOpts(el));
-  const tt=i=>d.t[i]+nyOff(d.t[i]);
+  const tt=i=>d.t[i]+(SESS.crypto?0:nyOff(d.t[i]));
   const cs=dayChart.addCandlestickSeries({upColor:'#22c55e',downColor:'#ef4444',borderVisible:false,wickUpColor:'#22c55e',wickDownColor:'#ef4444'});
   cs.setData(d.c.map((c,i)=>({time:tt(i),open:d.o[i],high:d.h[i],low:d.l[i],close:c})));
   let H=-Infinity,L=Infinity; if(n===0){ H=d.pHi; L=d.pLo; } else for(let j=0;j<n;j++){ H=Math.max(H,d.h[j]); L=Math.min(L,d.l[j]); }
@@ -779,7 +841,7 @@ window.addEventListener('resize',()=>{ for(const [c,id] of [[eqChart,'eqChart'],
 
 function exportCSV(){
   const D=LASTD, rows=[['fecha','lado','hora_entrada','precio_entrada','hora_salida','precio_salida','motivo','R','tamano_pct','resultado_pct']];
-  for(const t of LAST.runAll.trades) rows.push([t.date,t.side>0?'largo':'corto',hhmm(D[t.k].min[t.eBar]),t.ePx,hhmm(D[t.k].min[t.xBar]+5),t.xPx,t.why,t.R.toFixed(3),(t.frac*100).toFixed(1),(t.ret*100).toFixed(4)]);
+  for(const t of LAST.runAll.trades) rows.push([t.date,t.side>0?'largo':'corto',showT(D[t.k].min[t.eBar]),t.ePx,showT(D[t.k].min[t.xBar]+5),t.xPx,t.why,t.R.toFixed(3),(t.frac*100).toFixed(1),(t.ret*100).toFixed(4)]);
   const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([rows.map(r=>r.join(';')).join('\n')],{type:'text/csv'}));
   a.download=`atalaya_apertura_${$('sym').value}.csv`; a.click();
 }
@@ -788,6 +850,7 @@ function exportCSV(){
 (async()=>{
   const saved=loadForm();
   await loadIndex(saved);
+  $('sym').addEventListener('change',()=>{ updateMode(); saveForm(); });
   $('optBtn').addEventListener('click',optimizeUI);
   $('runBtn').addEventListener('click',()=>runManual());
   $('csvOut').addEventListener('click',exportCSV);
