@@ -408,7 +408,7 @@ function orbScore(s,obj,minTr){
   if(obj==='sharpe') return s.sharpe;
   return s.total;
 }
-const orbSplit=(D,pct)=>Math.max(WARM+20,Math.floor(D.length*pct/100));
+const orbSplit=(D,pct)=>Math.min(D.length-10,Math.max(WARM+15,Math.floor(D.length*pct/100)));
 function orbEval(D,cfg,p){
   const si=orbSplit(D,p.split);
   const is=runORB(D,cfg,p,0,si), oos=runORB(D,cfg,p,si,D.length), all=runORB(D,cfg,p);
@@ -503,7 +503,7 @@ function writeCfg(c){
   $('c_orMax').value=c.orMax; $('c_rvol').value=c.rvol; $('c_gap').value=c.gap; $('c_trend').value=c.trend;
 }
 function readP(){ return {fee:+$('fee').value||0,slip:+$('slip').value||0,risk:+$('risk').value||0,lev:Math.max(1,+$('lev').value||1),
-                          split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:30}; }
+                          split:Math.min(90,Math.max(40,+$('split').value||70)),objective:$('objective').value,minTr:(cache.D&&cache.D.length<250)?12:30}; }
 function cfgText(c){
   const a=[`Rango de los primeros ${c.n*5} min`];
   a.push({both:'largos y cortos',long:'solo largos',short:'solo cortos',candle:'a favor de la vela del rango'}[c.dir]);
@@ -547,8 +547,8 @@ async function getDays(){
   let done=0;
   const parts=await Promise.all(ms.map(m=>getJSON(`data/intraday/${sym}/${m}.json`).then(j=>{ setBar(++done/ms.length*0.3); return j; })));
   const D=buildDays(parts.flatMap(p=>p.bars));
-  if(D.length<WARM+60) throw new Error(`Solo hay ${D.length} sesiones de ${sym}: hacen falta al menos ${WARM+60}. Elige un periodo más largo.`);
-  cache={key,D,label:`${sym} · ${D[0].date} a ${D[D.length-1].date} · ${D.length} sesiones · ${IDX.symbols[sym].source||''}`};
+  if(D.length<WARM+30) throw new Error(`Solo hay ${D.length} sesiones de ${sym}: hacen falta al menos ${WARM+30}. Elige un periodo más largo.`);
+  cache={key,D,label:`${sym} · ${D[0].date} a ${D[D.length-1].date} · ${D.length} sesiones · ${IDX.symbols[sym].source||''}`+(D.length<250?' · ⚠️ pocas sesiones: los resultados son orientativos':'')};
   return cache;
 }
 // ---- CSV: columnas fecha/hora, apertura, máximo, mínimo, cierre, volumen (en ese orden o con cabecera reconocible)
