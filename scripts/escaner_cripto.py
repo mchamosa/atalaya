@@ -35,7 +35,8 @@ PORTFOLIO = os.path.join(ROOT, "data", "cripto_registro.json")
 HOSTS = ["https://data-api.binance.vision", "https://api.binance.com"]
 UA = {"User-Agent": "Mozilla/5.0 (compatible; atalaya-escaner/1.0)"}
 
-MIN_QUOTE_VOL = 5e6      # volumen mínimo en 24 h, en USDT
+MIN_QUOTE_VOL = 2e6      # volumen mínimo en 24 h, en USDT
+MIN_DAYS = 200           # días de historia mínimos (fuera monedas nuevas y acciones tokenizadas)
 GRADE_MAX = 60           # monedas con histórico calculado
 HOLD_DAYS = 5
 STAKE = 1000.0
@@ -175,7 +176,7 @@ def scan(data):
         except Exception:
             failed += 1
             continue
-        if len(ks) < 40:
+        if len(ks) < MIN_DAYS:
             continue
         closes = [k["c"] for k in ks]
         qvs = [k["qv"] for k in ks]
@@ -229,6 +230,10 @@ def portfolio_update(data, mode):
     added = 0
     blk = data.get("daily") or {}
     if mode == "scan" and blk.get("run_at", "")[:10] == now_utc()[:10]:
+        # Si se repite el escaneo del mismo cierre, quedan solo las señales que siguen saliendo
+        today_syms = {h["symbol"] for h in blk.get("hits", []) if (h.get("grade") or {}).get("entry")}
+        pos[:] = [p for p in pos if p["signal_date"] != blk.get("close_date") or p["symbol"] in today_syms]
+        have = {(p["symbol"], p["signal_date"]) for p in pos}
         prices = {u["symbol"]: u["price"] for u in universe()}
         for h in blk.get("hits", []):
             g = h.get("grade") or {}
