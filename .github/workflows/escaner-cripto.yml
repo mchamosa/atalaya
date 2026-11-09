@@ -1,0 +1,53 @@
+name: Escáner cripto
+
+on:
+  schedule:
+    - cron: "10 0 * * *"        # tras el cierre de la vela diaria (00:00 UTC): señales y registro
+    - cron: "10 6,12,18 * * *"  # resto del día: solo actualiza el registro
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "Qué hacer"
+        type: choice
+        options: [scan, update]
+        default: scan
+
+permissions:
+  contents: write
+
+concurrency:
+  group: escaner-cripto
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Escanear
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          MODO="${{ inputs.modo }}"
+          if [ -z "$MODO" ]; then
+            if [ "${{ github.event.schedule }}" = "10 0 * * *" ]; then MODO=scan; else MODO=update; fi
+          fi
+          python scripts/escaner_cripto.py "$MODO"
+      - name: Guardar cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/salida
+          cp data/cripto_escaner.json data/cripto_registro.json /tmp/salida/ 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/salida/* data/ 2>/dev/null || true
+          git add data/cripto_escaner.json data/cripto_registro.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Escáner cripto $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
