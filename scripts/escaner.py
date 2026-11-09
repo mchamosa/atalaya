@@ -302,12 +302,12 @@ def earnings_flags(news_block):
 
 # ------------------------------------------------------------------ cartera simulada
 
-def is_green(h, kind, earn):
-    """Semáforo con las reglas por defecto: aciertos, que compense y sin resultados."""
+def sem_color(h, kind, earn):
+    """Semáforo con las reglas por defecto: 2 verde, 1 ámbar, 0 rojo, -1 sin valorar."""
     g = h.get("grade") or {}
     hs = g.get("hist") or {}
     if g.get("error") or not hs.get("n"):
-        return False
+        return -1
     r1 = hs["n"] >= RULES["n"] and hs.get("win_pct", 0) >= RULES["win"]
     if kind == "orb":
         ts = (g.get("mc") or {}).get("target_share")
@@ -315,15 +315,66 @@ def is_green(h, kind, earn):
     else:
         r2 = (hs.get("avg") or 0) > 0
     r3 = h["symbol"] not in earn
-    return r1 and r2 and r3
+    ok = sum([r1, r2, r3])
+    return 2 if ok == 3 else 1 if ok == 2 else 0
+
+
+def is_green(h, kind, earn):
+    return sem_color(h, kind, earn) == 2
+
+
+def _orb_outcome(sm, p):
+    """Resultado real del plan de apertura: stop, objetivo o cierre a las 15:55."""
+    day = dt.date.fromisoformat(p["date"])
+    series = sm.parse_chart(sm.yahoo_get(sm.chart_path(p["symbol"], "5d", "5m")), p["symbol"])
+    cutoff = dt.datetime.combine(day, dt.time(16, 0))
+    bars = sm.session_bars(series, day, cutoff)
+    if not bars or bars[-1]["start"].time() < dt.time(15, 50):
+        return None                       # la sesión aún no ha terminado o faltan datos
+    entry, stop, target = p["entry"], p["stop"], p["target"]
+    risk = entry - stop
+    start = dt.datetime.combine(day, dt.time(*map(int, p["entry_bar"].split(":")))) + dt.timedelta(minutes=5)
+    last = None
+    for b in bars:
+        if b["start"] < start:
+            continue
+        if b["start"].time() >= dt.time(15, 55):
+            break
+        last = b
+        if b["l"] is not None and b["l"] <= stop:
+            return {"outcome": "stop", "R": -1.0, "ret": round((stop / entry - 1) * 100, 2), "at": b["start"].strftime("%H:%M")}
+        if b["h"] is not None and b["h"] >= target:
+            return {"outcome": "objetivo", "R": round((target - entry) / risk, 2), "ret": round((target / entry - 1) * 100, 2), "at": b["start"].strftime("%H:%M")}
+    if last is None:
+        return None
+    c = last["c"]
+    return {"outcome": "cierre", "R": round((c - entry) / risk, 2), "ret": round((c / entry - 1) * 100, 2), "at": "15:55"}
+
+
+def _daily_outcome(p, after):
+    """Resultado del plan diario con cierres: stop, objetivo o cierre a las 10 sesiones."""
+    entry, stop, target = p["entry"], p["stop"], p["target"]
+    if not (entry and stop and target) or entry <= stop:
+        return None
+    risk = entry - stop
+    for k, (d, c) in enumerate(after[:10], 1):
+        if c <= stop:
+            return {"outcome": "stop", "R": round((c - entry) / risk, 2), "ret": round((c / entry - 1) * 100, 2), "sessions": k}
+        if c >= target:
+            return {"outcome": "objetivo", "R": round((c - entry) / risk, 2), "ret": round((c / entry - 1) * 100, 2), "sessions": k}
+    if len(after) >= 10:
+        c = after[9][1]
+        return {"outcome": "cierre", "R": round((c - entry) / risk, 2), "ret": round((c / entry - 1) * 100, 2), "sessions": 10}
+    return None
 
 
 def portfolio_update(data, mode):
-    """Compra simulada de STAKE euros en cada verde nuevo y seguimiento a días vista."""
-    pf = load(PORTFOLIO, {"stake": STAKE, "horizons": list(HORIZONS), "positions": []})
+    """Registro de TODAS las señales valoradas de cada día (1.000 € simulados cada una),
+    con su color de semáforo de ese momento, y seguimiento a días vista."""
+    pf = load(PORTFOLIO, {"positions": []})
     pos = pf["positions"]
     have = {(p["symbol"], p["kind"], p["date"]) for p in pos}
-    added = []
+    added, greens = [], []
     block = data.get("daily") if mode == "premarket" else data.get("orb")
     kind = "daily" if mode == "premarket" else "orb"
     if block and block.get("run_at", "")[:10] == now_utc()[:10]:
@@ -333,30 +384,34 @@ def portfolio_update(data, mode):
         else:
             day = (block.get("as_of") or "").split(" ")[0]
         for h in block.get("hits", []):
-            if not is_green(h, kind, earn):
+            g = h.get("grade") or {}
+            if not g.get("entry") or g.get("error"):
                 continue
             key = (h["symbol"], kind, day)
             if key in have:
                 continue
-            g = h["grade"]
-            entry = g.get("entry") or h.get("price")
-            p = {"symbol": h["symbol"], "kind": kind, "date": day, "entry": entry,
-                 "stop": g.get("stop"), "target": g.get("target"),
-                 "setups": h.get("setups"), "shares": round(STAKE / entry, 4),
-                 "opened_at": now_utc(), "closes": {}, "last": entry, "status": "abierta"}
+            sem = sem_color(h, kind, earn)
+            hs = g.get("hist") or {}
+            p = {"symbol": h["symbol"], "kind": kind, "date": day, "sem": sem,
+                 "entry": g["entry"], "stop": g.get("stop"), "target": g.get("target"),
+                 "setups": h.get("setups"), "win": hs.get("win_pct"), "n": hs.get("n"),
+                 "ts": (g.get("mc") or {}).get("target_share"),
+                 "entry_bar": h.get("bar_start"), "earn": h["symbol"] in earn,
+                 "opened_at": now_utc(), "closes": {}, "last": g["entry"], "status": "abierta"}
             pos.append(p)
             have.add(key)
             added.append(h["symbol"])
-    # Seguimiento: cierres diarios desde la fecha de compra
+            if sem == 2:
+                greens.append(h["symbol"])
+    # Seguimiento: cierres diarios por lotes de 20 acciones
     sm = scanmod()
     now = dt.datetime.now(dt.timezone.utc)
-    for p in pos:
-        if p.get("status") == "terminada":
-            continue
-        try:
-            series = sm.parse_chart(sm.yahoo_get(sm.chart_path(p["symbol"], "3mo", "1d")), p["symbol"])
-            time.sleep(0.3)
-        except Exception:
+    live = [p for p in pos if p.get("status") != "terminada"]
+    syms = sorted({p["symbol"] for p in live})
+    series_by, _ = sm.fetch_spark(syms, "3mo", "1d", 0.3) if syms else ({}, {})
+    for p in live:
+        series = series_by.get(p["symbol"])
+        if not series:
             continue
         bars = [(d.isoformat(), c) for d, c in sm.daily_closes(series, now)]
         after = [(d, c) for d, c in bars if d >= p["date"]]
@@ -366,17 +421,31 @@ def portfolio_update(data, mode):
         for k in HORIZONS:
             if len(after) >= k:
                 d, c = after[k - 1]
-                p["closes"][str(k)] = {"date": d, "close": round(c, 4),
-                                       "ret": round((c / p["entry"] - 1) * 100, 2)}
+                p["closes"][str(k)] = {"date": d, "ret": round((c / p["entry"] - 1) * 100, 2)}
         p["sessions"] = len(after)
         p["ret_now"] = round((p["last"] / p["entry"] - 1) * 100, 2)
-        if len(after) >= max(HORIZONS):
+        if p["kind"] == "daily" and not p.get("plan"):
+            o = _daily_outcome(p, after)
+            if o:
+                p["plan"] = o
+        if len(after) >= max(HORIZONS) and p.get("plan"):
             p["status"] = "terminada"
+    # Resultado del plan de apertura (stop, objetivo o 15:55), una vez cerrada la sesión
+    for p in live:
+        if p["kind"] != "orb" or p.get("plan") or not p.get("entry_bar"):
+            continue
+        try:
+            o = _orb_outcome(sm, p)
+            time.sleep(0.3)
+        except Exception:
+            o = None
+        if o:
+            p["plan"] = o
     pf["updated"] = now_utc()
     pf["stake"], pf["horizons"], pf["rules"] = STAKE, list(HORIZONS), RULES
     save(PORTFOLIO, pf)
-    log("cartera: %d posiciones, nuevas %s" % (len(pos), ", ".join(added) or "ninguna"))
-    return added
+    log("registro: %d señales, %d nuevas hoy (%d verdes)" % (len(pos), len(added), len(greens)))
+    return greens
 
 
 def notify(data, mode, added):
