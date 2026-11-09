@@ -51,7 +51,7 @@ td.wrapcell{white-space:normal;min-width:220px}
 .tk{font-weight:700;color:var(--txt);text-decoration:none;cursor:pointer;border-bottom:1px dotted var(--mut)}
 .tk:hover{color:var(--acc)}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin:1px 3px 1px 0;color:var(--txt);background:var(--panel2)}
-.tag.breakout_20d,.tag.orb{border-color:#1f6f43;color:#86efac}
+.tag.breakout_20d,.tag.orb,.tag.high_52w,.tag.ath{border-color:#1f6f43;color:#86efac}
 .tag.bull_flag{border-color:#1e4f8f;color:#93c5fd}
 .tag.reclaim_ma20{border-color:#5b4a9e;color:#c4b5fd}
 .tag.oversold,.tag.oversold_bounce{border-color:#8f3a3a;color:#fca5a5}
@@ -112,7 +112,7 @@ footer a{color:var(--mut)}
 <header>
   <h1>ATALAYA <span>· Escáner de acciones</span></h1>
   <div class="by">Por Marcos Chamosa</div>
-  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html">Apertura</a><a href="soldados.html">Soldados</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a><a href="escaner.html" aria-current="page">Escáner</a></nav>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html">Apertura</a><a href="soldados.html">Soldados</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a><a href="escaner.html" aria-current="page">Escáner</a><a href="escaner.html?m=cripto">Escáner cripto</a></nav>
 </header>
 <main>
   <div class="note" id="note">
@@ -226,9 +226,29 @@ footer a{color:var(--mut)}
 </footer>
 
 <script>
+// ---------- Modo: acciones o cripto (escaner.html?m=cripto)
+const CRIPTO = new URLSearchParams(location.search).get('m')==='cripto';
+const DFILE = CRIPTO ? 'data/cripto_escaner.json' : 'data/escaner.json';
+const PFILE = CRIPTO ? 'data/cripto_registro.json' : 'data/cartera.json';
+const fmtP = v => v==null||isNaN(v) ? '' : Math.abs(v)>=1 ? Number(v).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2}) : Number(v).toLocaleString('es-ES',{maximumSignificantDigits:4});
+if(CRIPTO){
+  document.title='Atalaya · Escáner cripto';
+  document.querySelector('header h1 span').textContent='· Escáner cripto';
+  document.querySelectorAll('.tabs a').forEach(a=>{ a.removeAttribute('aria-current'); if(a.getAttribute('href')==='escaner.html?m=cripto') a.setAttribute('aria-current','page'); });
+  ['s-orb','s-news','s-cong'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; });
+  document.querySelectorAll('#jump a').forEach(a=>{ if(['#s-orb','#s-news','#s-cong'].includes(a.getAttribute('href'))) a.style.display='none'; });
+  document.getElementById('note').innerHTML='<strong>Escaneo automático</strong> de las criptomonedas de Binance contra USDT con más de 5 millones de volumen diario, cada día tras el cierre de la vela diaria (00:00 UTC, 01:00 en España). Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Precios en USDT.<div class="status" id="status" style="margin-top:6px">Cargando datos…</div>';
+  document.querySelector('#s-daily h2').firstChild.textContent='Señales de la vela diaria ';
+  const jd=document.querySelector('#jump a[href="#s-daily"]'); if(jd) jd.firstChild.textContent='Señales diarias ';
+  document.querySelector('label:has(#r-earn)').lastChild.textContent=' 3. Volumen del día ≥ 1,5 veces la media de 20 días';
+  const subs=document.querySelectorAll('#s-rules .sub'); if(subs[1]) subs[1].textContent='Aciertos = veces que el mismo patrón en esa moneda acabó en positivo 5 días después (hasta 1.000 días de historia); compensa si la media de esos 5 días es positiva; el volumen confirma si el día de la señal movió al menos 1,5 veces su media de 20 días.';
+  document.getElementById('m-pf').textContent='Se guardan todas las señales valoradas de cada día con el color que tenían en ese momento, como si se compraran 1.000 € de cada una al precio que había cuando el escáner las detectó, y se sigue su resultado a 1, 3, 5, 10 y 20 días y con el plan completo (stop, objetivo o cierre a los 10 días). Sin comisiones ni tipo de cambio.';
+  document.querySelector('footer').innerHTML='Patrones basados en <a href="https://github.com/Jakeschincariol/day-trader-skill" target="_blank" rel="noopener">day-trader-skill</a> (licencia MIT). Datos: Binance. Información, no asesoramiento financiero.';
+}
 const SETUPS = {
   breakout_20d:'Ruptura máx. 20 días', bull_flag:'Bandera alcista', reclaim_ma20:'Recupera media 20',
-  oversold:'Sobreventa RSI<30', oversold_bounce:'Rebote de sobreventa', orb:'Ruptura de apertura'
+  oversold:'Sobreventa RSI<30', oversold_bounce:'Rebote de sobreventa', orb:'Ruptura de apertura',
+  high_52w:'Máx. 52 semanas', ath:'Máximo histórico'
 };
 const TAGS = {earnings:'Resultados',analyst:'Analistas',legal:'Legal',deal:'Operación corporativa',capital:'Dividendos y recompras',
   people:'Directivos',risk:'Riesgo',halt:'Suspensión',regulatory:'Regulatorio',macro:'Macro'};
@@ -282,14 +302,16 @@ function grade(h, kind, earnSet){
     else { r2 = hs.avg>0; why.push((r2?'Cumple':'No cumple')+` compensa: media a 5 sesiones ${fmtN(hs.avg)} %`); }
   }
   let r3=true;
-  if(RULES.earn){ r3 = !earnSet.has(h.symbol); why.push(r3?'Cumple: sin noticias de resultados':'No cumple: hay noticias de resultados en las últimas 36 h'); }
+  if(RULES.earn){
+    if(CRIPTO){ r3 = (h.vol_ratio||0)>=1.5; why.push((r3?'Cumple':'No cumple')+' volumen: '+(h.vol_ratio!=null?fmtN(h.vol_ratio,1)+' veces la media de 20 días':'sin dato')); }
+    else { r3 = !earnSet.has(h.symbol); why.push(r3?'Cumple: sin noticias de resultados':'No cumple: hay noticias de resultados en las últimas 36 h'); } }
   const ok=[r1,r2,r3].filter(Boolean).length;
   return {sem: ok===3?2:ok===2?1:0, why:why.join('\n')};
 }
 const SEM = ['r','a','g'], SEMTXT=['Rojo','Ámbar','Verde'];
 function semCell(gr){ return gr.sem<0 ? `<span class="sem x" title="${esc(gr.why)}"></span><span class="mut">·</span>`
   : `<span class="sem ${SEM[gr.sem]}" title="${esc(gr.why)}"></span>${SEMTXT[gr.sem]}`; }
-function lvCell(g){ return g&&g.entry ? `<span class="lv"><b>${fmtN(g.entry)}</b> / <span class="dn">${fmtN(g.stop)}</span> / <span class="up">${fmtN(g.target)}</span></span>` : ''; }
+function lvCell(g){ return g&&g.entry ? `<span class="lv"><b>${fmtP(g.entry)}</b> / <span class="dn">${fmtP(g.stop)}</span> / <span class="up">${fmtP(g.target)}</span></span>` : ''; }
 const redraws=[];
 function bindRules(){
   const ids={win:'r-win',n:'r-n',exp:'r-exp',earn:'r-earn',green:'r-green'};
@@ -325,11 +347,12 @@ function initDaily(){
   const d=DATA.daily, tb=document.querySelector('#t-daily tbody');
   if(!d){ tb.innerHTML='<tr><td colspan="10" class="empty">Todavía no hay escaneo de pre-apertura.</td></tr>'; return; }
   const earnD=new Set(d.earnings||[]);
-  const hits=(d.hits||[]).map(h=>({...h, dollar:(h.price||0)*(h.volume||0), win:h.grade?.hist?.win_pct??null, exp:h.grade?.hist?.avg??null, entry:h.grade?.entry??null}));
+  const hits=(d.hits||[]).map(h=>({...h, dollar:CRIPTO?(h.volume||0):(h.price||0)*(h.volume||0), win:h.grade?.hist?.win_pct??null, exp:h.grade?.hist?.avg??null, entry:h.grade?.entry??null}));
   const regrade=()=>hits.forEach(h=>{ h.gr=grade(h,'daily',earnD); h.sem=h.gr.sem; });
   const c=d.counts||{};
   const asOf=(d.as_of||'').replace(' close','');
-  document.getElementById('m-daily').innerHTML =
+  document.getElementById('m-daily').innerHTML = CRIPTO ?
+    `Vela diaria cerrada del ${fmtDate(d.close_date)} (00:00 UTC) · escaneado ${madrid(d.run_at)} (${ago(d.run_at)}) · ${fmtN(d.scanned,0)} pares de ${fmtN(d.universe,0)} con más de ${fmtBig(d.filters?.min_quote_volume)} USDT de volumen en 24 h` :
     `Cierre del ${fmtDate(asOf)} · escaneado ${madrid(d.run_at||d.created_at)} (${ago(d.run_at||d.created_at)}) · `+
     `${fmtN(c.fetched??d.scanned,0)} gráficos descargados de ${fmtN(d.universe,0)}, ${fmtN(c.scanned??d.scanned,0)} con liquidez suficiente `+
     `(precio ≥ ${fmtN(d.filters?.min_price,0)} $, volumen ≥ ${fmtBig(d.filters?.min_volume)} acciones)`+
@@ -349,7 +372,7 @@ function initDaily(){
       <td class="num">${h.win!=null?fmtN(h.win,0)+' % <span class="mut">('+h.grade.hist.n+')</span>':''}</td>
       <td class="num ${h.exp>0?'up':h.exp<0?'dn':''}">${h.exp!=null?(h.exp>0?'+':'')+fmtN(h.exp):''}</td>
       <td>${lvCell(h.grade)}</td>
-      <td class="num">${fmtN(h.price)}</td>
+      <td class="num">${fmtP(h.price)}</td>
       <td class="num ${h.rsi<30?'dn':h.rsi>70?'up':''}">${fmtN(h.rsi,0)}</td>
       <td class="num">${fmtBig(h.volume)}</td>
       <td class="num">${fmtBig(h.dollar)}</td></tr>`).join('')
@@ -391,7 +414,7 @@ function initOrb(){
       <td class="num ${h.ts!=null?(h.ts>=1/3?'up':'dn'):''}">${h.ts!=null?fmtN(h.ts*100,0)+' %':''}</td>
       <td>${lvCell(h.grade)}</td>
       <td>${h.hora} NY <span class="mut">(${nyToMadrid(day,h.hora)})</span></td>
-      <td class="num">${fmtN(h.price)}</td>
+      <td class="num">${fmtP(h.price)}</td>
       <td class="num">${fmtN(h.or_low)}</td><td class="num">${fmtN(h.or_high)}</td>
       <td class="num">${fmtN(h.range_pct)}</td>
       <td class="num up">+${fmtN(h.pct_over)}</td></tr>`).join('')
@@ -497,7 +520,7 @@ function initAll(){
     document.getElementById('c-all').textContent=r.length;
     tb.innerHTML=r.length? r.map(x=>`<tr><td>${semCell(x.gr)}</td><td><a class="tk" data-sym="${esc(x.symbol)}">${esc(x.symbol)}</a></td>
       <td>${x.kind==='orb'?'<span class="tag orb">Apertura</span>':x.h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
-      <td class="num"><b>${fmtN(x.entry)}</b></td><td class="num dn">${fmtN(x.stop)}</td><td class="num up">${fmtN(x.target)}</td>
+      <td class="num"><b>${fmtP(x.entry)}</b></td><td class="num dn">${fmtP(x.stop)}</td><td class="num up">${fmtP(x.target)}</td>
       <td class="num">${fmtN(x.riskp)}</td><td class="num">${fmtN(x.rr,1)}</td>
       <td class="num">${x.win!=null?fmtN(x.win,0)+' % <span class="mut">('+x.h.grade.hist.n+')</span>':''}</td>
       <td class="num">${fmtN(x.units,1)}</td><td class="num dn">−${fmtN(x.lossE)}</td><td class="num up">+${fmtN(x.gainE)}</td></tr>`).join('')
@@ -510,15 +533,18 @@ function initAll(){
 function pctCell(v){ return v==null?'<td class="num mut">·</td>':`<td class="num ${v>0?'up':v<0?'dn':''}">${v>0?'+':''}${fmtN(v)} %</td>`; }
 const PLAN_TXT={objetivo:'Objetivo',stop:'Stop',cierre:'Cierre',anulada:'Anulada'};
 function whenCell(day, hm, extra){
+  if(day==='iso') return `<td style="white-space:nowrap">${hm?madrid(hm):'·'}${extra?`<div class="mut" style="font-size:11.5px">${extra}</div>`:''}</td>`;
   if(!day) return '<td class="mut">·</td>';
   const es = hm ? nyToMadrid(day, hm) : '';
   return `<td style="white-space:nowrap">${fmtDate(day)}${hm?` <b>${es}</b> <span class="mut">(${hm} NY)</span>`:''}${extra?`<div class="mut" style="font-size:11.5px">${extra}</div>`:''}</td>`;
 }
 function sigWhen(p){
+  if(p.signal_ts) return ['iso', p.signal_ts, 'cierre de la vela diaria (00:00 UTC)'];
   if(p.kind==='orb') return [p.date, p.at?to24(p.at):null, 'cierre de la vela de ruptura'];
   return [p.signal_date||null, p.signal_date?'16:00':null, 'cierre de la sesión'];
 }
 function buyWhen(p){
+  if(p.buy_ts) return ['iso', p.buy_ts, 'al detectarla el escáner'];
   if(p.kind==='orb'){
     if(!p.entry_bar) return [p.date, null, ''];
     const [h,m]=p.entry_bar.split(':').map(Number), t=h*60+m+5;
@@ -531,20 +557,20 @@ function sigCell(p){
     const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtN(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+buyWhen(p)[1]+' NY':'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
     return `<span class="tag orb">Ruptura de apertura</span>${det?`<div class="mut" style="font-size:11.5px">${det}</div>`:''}`;
   }
-  const sp=p.signal_price&&p.entry_type==='apertura'?'señal con el cierre del '+fmtDate(p.signal_date)+' a '+fmtN(p.signal_price)+' $, compra a la apertura':p.entry_type==='apertura pendiente'?'compra a la apertura (pendiente del precio)':'';
+  const sp=p.entry_type==='deteccion'?'señal con el cierre diario del '+fmtDate(p.signal_date)+' a '+fmtP(p.signal_price)+(p.vol_ratio!=null?' · volumen '+fmtN(p.vol_ratio,1)+' veces la media':''):p.signal_price&&p.entry_type==='apertura'?'señal con el cierre del '+fmtDate(p.signal_date)+' a '+fmtN(p.signal_price)+' $, compra a la apertura':p.entry_type==='apertura pendiente'?'compra a la apertura (pendiente del precio)':'';
   const det=[sp, p.rsi!=null?'RSI '+fmtN(p.rsi,0):'', p.n?'patrón con '+fmtN(p.win,0)+' % de aciertos en '+p.n+' señales':'', p.gap_below_stop?'abrió por debajo del stop':''].filter(Boolean).join(' · ');
   return (p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')+(det?`<div class="mut" style="font-size:11.5px">${det}</div>`:'');
 }
 let PF=null, pfSem='all', pfKind='all';
 async function initPortfolio(){
-  try{ const r=await fetch(`data/cartera.json?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
+  try{ const r=await fetch(`${PFILE}?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
   const tb=document.querySelector('#t-pf tbody');
   if(!PF||!(PF.positions||[]).length){
     tb.innerHTML='<tr><td colspan="15" class="empty">Todavía no hay señales registradas. Se añaden solas en cada pasada del escáner.</td></tr>';
     document.getElementById('j-pf').textContent='0'; return; }
   const f=document.getElementById('pf-f');
   f.innerHTML=[['all','Todas'],['2','Verdes'],['1','Ámbar'],['0','Rojas']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-sem="${k}">${t}</span>`).join('')+
-    ' '+[['all','Ambos orígenes'],['daily','Pre-apertura'],['orb','Apertura']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-kind="${k}">${t}</span>`).join('');
+    (CRIPTO?'':' '+[['all','Ambos orígenes'],['daily','Pre-apertura'],['orb','Apertura']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-kind="${k}">${t}</span>`).join(''));
   f.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return;
     if(c.dataset.sem){ pfSem=c.dataset.sem; f.querySelectorAll('[data-sem]').forEach(x=>x.classList.toggle('on',x===c)); }
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
@@ -594,7 +620,7 @@ function drawPF(){
     document.getElementById('c-pf').textContent=r.length;
     tb.innerHTML=r.length? r.slice(0,400).map(p=>`<tr>${whenCell(...p.sw)}${whenCell(...p.bw)}<td><span class="sem ${SEM[p.sem]||'x'}"></span>${SEMTXT[p.sem]||'·'}</td><td><a class="tk" data-sym="${esc(p.symbol)}">${esc(p.symbol)}</a></td>
       <td>${sigCell(p)}</td>
-      <td class="num">${fmtN(p.entry)}</td><td class="num">${fmtN(p.last)}</td>${pctCell(p.ret_now)}
+      <td class="num">${fmtP(p.entry)}</td><td class="num">${fmtP(p.last)}</td>${pctCell(p.ret_now)}
       <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}
       <td>${p.plan?`<span class="${p.plan.outcome==='objetivo'?'up':p.plan.outcome==='stop'?'dn':''}">${PLAN_TXT[p.plan.outcome]||p.plan.outcome}</span> <span class="mut">${p.plan.R>0?'+':''}${fmtN(p.plan.R)} R</span>`:'<span class="mut">en curso</span>'}</td></tr>`).join('')
       : '<tr><td colspan="15" class="empty">Sin señales con este filtro.</td></tr>';
@@ -647,10 +673,10 @@ function renderDrawer(sym,kind,h){
   if(g.entry){
     const risk=g.entry-g.stop;
     html+=`<div class="blk"><h4>Plan (entrada, stop y objetivo)</h4><div class="kv">
-      <span>${kind==='orb'?'Entrada':'Entrada de referencia (último cierre; se compra al abrir)'}</span><span>${fmtN(g.entry)} $</span>
-      <span>Stop${kind==='orb'?' (mitad del rango)':' (mínimo de 10 sesiones)'}</span><span class="dn">${fmtN(g.stop)} $</span>
-      <span>Objetivo (2R)</span><span class="up">${fmtN(g.target)} $</span>
-      <span>Riesgo por acción</span><span>${fmtN(risk)} $ (${fmtN(risk/g.entry*100)} %)</span>
+      <span>${kind==='orb'?'Entrada':CRIPTO?'Entrada de referencia (cierre diario; se compra al precio actual)':'Entrada de referencia (último cierre; se compra al abrir)'}</span><span>${fmtP(g.entry)} $</span>
+      <span>Stop${kind==='orb'?' (mitad del rango)':CRIPTO?' (mínimo de 10 días)':' (mínimo de 10 sesiones)'}</span><span class="dn">${fmtP(g.stop)} $</span>
+      <span>Objetivo (2R)</span><span class="up">${fmtP(g.target)} $</span>
+      <span>Riesgo por ${CRIPTO?'unidad':'acción'}</span><span>${fmtP(risk)} $ (${fmtN(risk/g.entry*100)} %)</span>
       ${kind==='orb'?'<span>Salida si no toca ninguno</span><span>15:55 NY</span>':''}
     </div></div>
     <div class="blk"><h4>Riesgo y tamaño de la posición</h4>
@@ -727,7 +753,7 @@ function calcOut(kind,h){
     const age=(Date.now()-new Date(DATA.orb.run_at||DATA.orb.created_at))/60000;
     add(age<=30, age<=30?`Precio de hace ${Math.round(age)} min`:`El precio es de hace ${Math.round(age)} min: revísalo antes de nada`);
   } else {
-    add(true, 'Plan para la próxima sesión: entrada al precio de cierre, revisa el precio de apertura');
+    add(true, CRIPTO?'Cripto cotiza las 24 horas: el plan parte del cierre diario, revisa el precio actual':'Plan para la próxima sesión: entrada al precio de cierre, revisa el precio de apertura');
   }
   const pass=checks.every(c=>c.ok);
   out.innerHTML=`<div class="big ${pass?'pass':'block'}">${pass?'PASS':'BLOCK'}</div>
@@ -743,7 +769,7 @@ document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'
 (async()=>{
   const st=document.getElementById('status');
   try{
-    const r=await fetch(`data/escaner.json?t=${Date.now()}`,{cache:'no-store'});
+    const r=await fetch(`${DFILE}?t=${Date.now()}`,{cache:'no-store'});
     if(!r.ok) throw new Error('HTTP '+r.status);
     DATA=await r.json();
     (DATA.daily?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
