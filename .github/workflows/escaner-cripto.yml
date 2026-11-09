@@ -13,6 +13,11 @@ on:
         type: choice
         options: [scan, session, update]
         default: scan
+      sesion:
+        description: "Sesión a escanear a mano (solo con session)"
+        type: choice
+        options: [auto, ny, london]
+        default: auto
 
 permissions:
   contents: write
@@ -44,7 +49,12 @@ jobs:
               *) MODO=update ;;
             esac
           fi
-          python scripts/escaner_cripto.py "$MODO"
+          SES="${{ inputs.sesion }}"
+          if [ "$MODO" = "session" ] && [ -n "$SES" ] && [ "$SES" != "auto" ]; then
+            python scripts/escaner_cripto.py session "$SES"
+          else
+            python scripts/escaner_cripto.py "$MODO"
+          fi
       - name: Guardar cambios
         run: |
           git config user.name  "github-actions[bot]"
