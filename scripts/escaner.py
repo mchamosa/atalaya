@@ -397,6 +397,8 @@ def portfolio_update(data, mode):
                  "setups": h.get("setups"), "win": hs.get("win_pct"), "n": hs.get("n"),
                  "ts": (g.get("mc") or {}).get("target_share"),
                  "entry_bar": h.get("bar_start"), "earn": h["symbol"] in earn,
+                 "rsi": h.get("rsi"), "at": h.get("at"), "pct_over": h.get("pct_over"),
+                 "or_high": h.get("or_high"), "or_low": h.get("or_low"),
                  "opened_at": now_utc(), "closes": {}, "last": g["entry"], "status": "abierta"}
             pos.append(p)
             have.add(key)
