@@ -1,0 +1,4986 @@
+{
+ "source": "day-trader-skill (Jake Schincariol, MIT) con datos gratuitos de Yahoo Finance, SEC EDGAR y House Clerk",
+ "daily": {
+  "created_by": "trader-scanner",
+  "created_at": "2026-11-09T16:22:03Z",
+  "mode": "daily",
+  "as_of": "2026-11-06 close",
+  "universe": 5933,
+  "scanned": 530,
+  "failed": 0,
+  "source": "yahoo",
+  "filters": {
+   "min_price": 5.0,
+   "min_volume": 1000000
+  },
+  "hits": [
+   {
+    "symbol": "NVDA",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 186.64,
+    "close_date": "2026-11-06",
+    "rsi": 30.6,
+    "volume": 236353684
+   },
+   {
+    "symbol": "AMD",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 449.04,
+    "close_date": "2026-11-06",
+    "rsi": 38.4,
+    "volume": 22645635
+   },
+   {
+    "symbol": "MU",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 690.0,
+    "close_date": "2026-11-06",
+    "rsi": 31.4,
+    "volume": 13971812
+   },
+   {
+    "symbol": "SNDK",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 835.06,
+    "close_date": "2026-11-06",
+    "rsi": 26.5,
+    "volume": 6440109
+   },
+   {
+    "symbol": "GOOGL",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 284.78,
+    "close_date": "2026-11-06",
+    "rsi": 29.6,
+    "volume": 14122140
+   },
+   {
+    "symbol": "INTC",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 56.28,
+    "close_date": "2026-11-06",
+    "rsi": 25.6,
+    "volume": 53485881
+   },
+   {
+    "symbol": "GOOG",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 283.93,
+    "close_date": "2026-11-06",
+    "rsi": 29.6,
+    "volume": 8913172
+   },
+   {
+    "symbol": "TSM",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 375.44,
+    "close_date": "2026-11-06",
+    "rsi": 36.2,
+    "volume": 6684639
+   },
+   {
+    "symbol": "MRVL",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 141.2,
+    "close_date": "2026-11-06",
+    "rsi": 26.3,
+    "volume": 13578292
+   },
+   {
+    "symbol": "LITE",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 538.59,
+    "close_date": "2026-11-06",
+    "rsi": 29.6,
+    "volume": 3070930
+   },
+   {
+    "symbol": "PLTR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 160.38,
+    "close_date": "2026-11-06",
+    "rsi": 30.8,
+    "volume": 8761569
+   },
+   {
+    "symbol": "LLY",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 1354.0,
+    "close_date": "2026-11-06",
+    "rsi": 61.0,
+    "volume": 1003359
+   },
+   {
+    "symbol": "COHR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 192.81,
+    "close_date": "2026-11-06",
+    "rsi": 37.0,
+    "volume": 6288366
+   },
+   {
+    "symbol": "AMAT",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 332.72,
+    "close_date": "2026-11-06",
+    "rsi": 30.3,
+    "volume": 3355255
+   },
+   {
+    "symbol": "APP",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 391.22,
+    "close_date": "2026-11-06",
+    "rsi": 76.5,
+    "volume": 2830431
+   },
+   {
+    "symbol": "DELL",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 328.53,
+    "close_date": "2026-11-06",
+    "rsi": 28.7,
+    "volume": 3024055
+   },
+   {
+    "symbol": "CRWV",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 46.4,
+    "close_date": "2026-11-06",
+    "rsi": 32.5,
+    "volume": 20708497
+   },
+   {
+    "symbol": "IREN",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 21.64,
+    "close_date": "2026-11-06",
+    "rsi": 36.4,
+    "volume": 41550370
+   },
+   {
+    "symbol": "STX",
+    "setups": [
+     "oversold"
+    ],
+    "price": 460.99,
+    "close_date": "2026-11-06",
+    "rsi": 24.7,
+    "volume": 1920187
+   },
+   {
+    "symbol": "LRCX",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 200.44,
+    "close_date": "2026-11-06",
+    "rsi": 30.4,
+    "volume": 4249029
+   },
+   {
+    "symbol": "WDC",
+    "setups": [
+     "oversold"
+    ],
+    "price": 263.78,
+    "close_date": "2026-11-06",
+    "rsi": 28.5,
+    "volume": 2959332
+   },
+   {
+    "symbol": "CAT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 558.63,
+    "close_date": "2026-11-06",
+    "rsi": 21.0,
+    "volume": 1316605
+   },
+   {
+    "symbol": "NET",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 268.75,
+    "close_date": "2026-11-06",
+    "rsi": 39.2,
+    "volume": 2679115
+   },
+   {
+    "symbol": "KLAC",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 138.49,
+    "close_date": "2026-11-06",
+    "rsi": 35.1,
+    "volume": 4943984
+   },
+   {
+    "symbol": "HOOD",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 80.91,
+    "close_date": "2026-11-06",
+    "rsi": 32.2,
+    "volume": 6230546
+   },
+   {
+    "symbol": "IONQ",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 32.62,
+    "close_date": "2026-11-06",
+    "rsi": 48.4,
+    "volume": 14622356
+   },
+   {
+    "symbol": "SNOW",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 275.88,
+    "close_date": "2026-11-06",
+    "rsi": 33.3,
+    "volume": 1658746
+   },
+   {
+    "symbol": "CSCO",
+    "setups": [
+     "oversold"
+    ],
+    "price": 93.85,
+    "close_date": "2026-11-06",
+    "rsi": 28.1,
+    "volume": 4777668
+   },
+   {
+    "symbol": "NOW",
+    "setups": [
+     "oversold"
+    ],
+    "price": 101.97,
+    "close_date": "2026-11-06",
+    "rsi": 27.5,
+    "volume": 4334367
+   },
+   {
+    "symbol": "ALAB",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 190.71,
+    "close_date": "2026-11-06",
+    "rsi": 28.9,
+    "volume": 2212125
+   },
+   {
+    "symbol": "ASTS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 32.33,
+    "close_date": "2026-11-06",
+    "rsi": 30.1,
+    "volume": 12093156
+   },
+   {
+    "symbol": "CLS",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 206.68,
+    "close_date": "2026-11-06",
+    "rsi": 29.7,
+    "volume": 1862347
+   },
+   {
+    "symbol": "FSLR",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 201.14,
+    "close_date": "2026-11-06",
+    "rsi": 67.0,
+    "volume": 1899552
+   },
+   {
+    "symbol": "ARM",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 174.62,
+    "close_date": "2026-11-06",
+    "rsi": 30.9,
+    "volume": 2117366
+   },
+   {
+    "symbol": "ABNB",
+    "setups": [
+     "breakout_20d",
+     "reclaim_ma20"
+    ],
+    "price": 189.99,
+    "close_date": "2026-11-06",
+    "rsi": 66.0,
+    "volume": 1889192
+   },
+   {
+    "symbol": "AAOI",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 50.13,
+    "close_date": "2026-11-06",
+    "rsi": 30.0,
+    "volume": 6996713
+   },
+   {
+    "symbol": "VST",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 124.8,
+    "close_date": "2026-11-06",
+    "rsi": 39.7,
+    "volume": 2728611
+   },
+   {
+    "symbol": "MCHP",
+    "setups": [
+     "oversold"
+    ],
+    "price": 58.35,
+    "close_date": "2026-11-06",
+    "rsi": 26.7,
+    "volume": 5768716
+   },
+   {
+    "symbol": "GLW",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 106.13,
+    "close_date": "2026-11-06",
+    "rsi": 29.7,
+    "volume": 3054483
+   },
+   {
+    "symbol": "CBRS",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 89.68,
+    "close_date": "2026-11-06",
+    "rsi": 28.8,
+    "volume": 3607792
+   },
+   {
+    "symbol": "ACN",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 260.5,
+    "close_date": "2026-11-06",
+    "rsi": 65.9,
+    "volume": 1234636
+   },
+   {
+    "symbol": "AKAM",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 83.09,
+    "close_date": "2026-11-06",
+    "rsi": 36.4,
+    "volume": 3417096
+   },
+   {
+    "symbol": "U",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 51.49,
+    "close_date": "2026-11-06",
+    "rsi": 72.0,
+    "volume": 5145807
+   },
+   {
+    "symbol": "TTWO",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 214.87,
+    "close_date": "2026-11-06",
+    "rsi": 60.3,
+    "volume": 1155220
+   },
+   {
+    "symbol": "TEM",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 76.05,
+    "close_date": "2026-11-06",
+    "rsi": 54.5,
+    "volume": 3147634
+   },
+   {
+    "symbol": "NEM",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 120.91,
+    "close_date": "2026-11-06",
+    "rsi": 58.0,
+    "volume": 1943539
+   },
+   {
+    "symbol": "DDOG",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 179.04,
+    "close_date": "2026-11-06",
+    "rsi": 28.1,
+    "volume": 1099336
+   },
+   {
+    "symbol": "FCX",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 59.42,
+    "close_date": "2026-11-06",
+    "rsi": 31.3,
+    "volume": 3149647
+   },
+   {
+    "symbol": "TSEM",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 137.34,
+    "close_date": "2026-11-06",
+    "rsi": 31.9,
+    "volume": 1357380
+   },
+   {
+    "symbol": "TEAM",
+    "setups": [
+     "oversold"
+    ],
+    "price": 153.68,
+    "close_date": "2026-11-06",
+    "rsi": 26.5,
+    "volume": 1192331
+   },
+   {
+    "symbol": "NRG",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 88.29,
+    "close_date": "2026-11-06",
+    "rsi": 40.2,
+    "volume": 2009591
+   },
+   {
+    "symbol": "HPE",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 44.77,
+    "close_date": "2026-11-06",
+    "rsi": 30.8,
+    "volume": 3949586
+   },
+   {
+    "symbol": "SGRY",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 23.2,
+    "close_date": "2026-11-06",
+    "rsi": 85.2,
+    "volume": 7498757
+   },
+   {
+    "symbol": "FLEX",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 69.78,
+    "close_date": "2026-11-06",
+    "rsi": 32.4,
+    "volume": 2455513
+   },
+   {
+    "symbol": "EW",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 102.14,
+    "close_date": "2026-11-06",
+    "rsi": 76.7,
+    "volume": 1662432
+   },
+   {
+    "symbol": "DVN",
+    "setups": [
+     "oversold"
+    ],
+    "price": 42.21,
+    "close_date": "2026-11-06",
+    "rsi": 27.8,
+    "volume": 3974199
+   },
+   {
+    "symbol": "PBR",
+    "setups": [
+     "oversold"
+    ],
+    "price": 18.53,
+    "close_date": "2026-11-06",
+    "rsi": 25.3,
+    "volume": 8923635
+   },
+   {
+    "symbol": "FTNT",
+    "setups": [
+     "oversold"
+    ],
+    "price": 118.84,
+    "close_date": "2026-11-06",
+    "rsi": 23.0,
+    "volume": 1327951
+   },
+   {
+    "symbol": "ROIV",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 38.88,
+    "close_date": "2026-11-06",
+    "rsi": 59.9,
+    "volume": 4015434
+   },
+   {
+    "symbol": "OKLO",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 23.55,
+    "close_date": "2026-11-06",
+    "rsi": 36.8,
+    "volume": 6395408
+   },
+   {
+    "symbol": "BKR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 47.87,
+    "close_date": "2026-11-06",
+    "rsi": 32.9,
+    "volume": 3132512
+   },
+   {
+    "symbol": "ECHO",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 94.62,
+    "close_date": "2026-11-06",
+    "rsi": 52.0,
+    "volume": 1555690
+   },
+   {
+    "symbol": "CDE",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 15.47,
+    "close_date": "2026-11-06",
+    "rsi": 51.2,
+    "volume": 9278863
+   },
+   {
+    "symbol": "ADT",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 9.86,
+    "close_date": "2026-11-06",
+    "rsi": 86.4,
+    "volume": 14441170
+   },
+   {
+    "symbol": "FISV",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 62.88,
+    "close_date": "2026-11-06",
+    "rsi": 82.3,
+    "volume": 2179882
+   },
+   {
+    "symbol": "RDDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 95.1,
+    "close_date": "2026-11-06",
+    "rsi": 26.6,
+    "volume": 1432010
+   },
+   {
+    "symbol": "ASX",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 31.63,
+    "close_date": "2026-11-06",
+    "rsi": 33.4,
+    "volume": 4241012
+   },
+   {
+    "symbol": "CIFR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.54,
+    "close_date": "2026-11-06",
+    "rsi": 33.4,
+    "volume": 20244774
+   },
+   {
+    "symbol": "ONDS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 5.33,
+    "close_date": "2026-11-06",
+    "rsi": 38.2,
+    "volume": 20830902
+   },
+   {
+    "symbol": "SMTC",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 103.21,
+    "close_date": "2026-11-06",
+    "rsi": 34.7,
+    "volume": 1026635
+   },
+   {
+    "symbol": "CCJ",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 71.3,
+    "close_date": "2026-11-06",
+    "rsi": 33.2,
+    "volume": 1375752
+   },
+   {
+    "symbol": "WYNN",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 83.11,
+    "close_date": "2026-11-06",
+    "rsi": 60.3,
+    "volume": 1163394
+   },
+   {
+    "symbol": "IBN",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 33.89,
+    "close_date": "2026-11-06",
+    "rsi": 80.4,
+    "volume": 2736371
+   },
+   {
+    "symbol": "BRZE",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 45.79,
+    "close_date": "2026-11-06",
+    "rsi": 81.4,
+    "volume": 2017477
+   },
+   {
+    "symbol": "RGTI",
+    "setups": [
+     "reclaim_ma20",
+     "oversold_bounce"
+    ],
+    "price": 11.75,
+    "close_date": "2026-11-06",
+    "rsi": 45.4,
+    "volume": 7849630
+   },
+   {
+    "symbol": "VTRS",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 19.91,
+    "close_date": "2026-11-06",
+    "rsi": 68.3,
+    "volume": 4524855
+   },
+   {
+    "symbol": "HL",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 14.74,
+    "close_date": "2026-11-06",
+    "rsi": 46.0,
+    "volume": 6039743
+   },
+   {
+    "symbol": "COMP",
+    "setups": [
+     "breakout_20d",
+     "reclaim_ma20"
+    ],
+    "price": 10.21,
+    "close_date": "2026-11-06",
+    "rsi": 56.3,
+    "volume": 8687571
+   },
+   {
+    "symbol": "RKT",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 15.06,
+    "close_date": "2026-11-06",
+    "rsi": 73.9,
+    "volume": 5885289
+   },
+   {
+    "symbol": "CNH",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 11.56,
+    "close_date": "2026-11-06",
+    "rsi": 46.1,
+    "volume": 7598522
+   },
+   {
+    "symbol": "LUNR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 10.47,
+    "close_date": "2026-11-06",
+    "rsi": 43.8,
+    "volume": 8294162
+   },
+   {
+    "symbol": "FLY",
+    "setups": [
+     "breakout_20d",
+     "reclaim_ma20"
+    ],
+    "price": 20.76,
+    "close_date": "2026-11-06",
+    "rsi": 55.9,
+    "volume": 4100687
+   },
+   {
+    "symbol": "JD",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 29.11,
+    "close_date": "2026-11-06",
+    "rsi": 71.0,
+    "volume": 2810082
+   },
+   {
+    "symbol": "BROS",
+    "setups": [
+     "oversold"
+    ],
+    "price": 33.77,
+    "close_date": "2026-11-06",
+    "rsi": 30.0,
+    "volume": 2380178
+   },
+   {
+    "symbol": "HDB",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 25.14,
+    "close_date": "2026-11-06",
+    "rsi": 70.4,
+    "volume": 3184916
+   },
+   {
+    "symbol": "MARA",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.35,
+    "close_date": "2026-11-06",
+    "rsi": 34.3,
+    "volume": 12470183
+   },
+   {
+    "symbol": "MP",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 35.41,
+    "close_date": "2026-11-06",
+    "rsi": 34.1,
+    "volume": 2209957
+   },
+   {
+    "symbol": "QBTS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 10.68,
+    "close_date": "2026-11-06",
+    "rsi": 38.2,
+    "volume": 7272422
+   },
+   {
+    "symbol": "CECO",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 43.71,
+    "close_date": "2026-11-06",
+    "rsi": 35.5,
+    "volume": 1760282
+   },
+   {
+    "symbol": "DOCN",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 72.48,
+    "close_date": "2026-11-06",
+    "rsi": 27.3,
+    "volume": 1031095
+   },
+   {
+    "symbol": "TTMI",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 66.51,
+    "close_date": "2026-11-06",
+    "rsi": 33.5,
+    "volume": 1109689
+   },
+   {
+    "symbol": "KTOS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 35.1,
+    "close_date": "2026-11-06",
+    "rsi": 34.5,
+    "volume": 2088679
+   },
+   {
+    "symbol": "CVE",
+    "setups": [
+     "oversold"
+    ],
+    "price": 27.45,
+    "close_date": "2026-11-06",
+    "rsi": 29.7,
+    "volume": 2560584
+   },
+   {
+    "symbol": "DT",
+    "setups": [
+     "oversold"
+    ],
+    "price": 43.44,
+    "close_date": "2026-11-06",
+    "rsi": 19.8,
+    "volume": 1617273
+   },
+   {
+    "symbol": "RDW",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 7.21,
+    "close_date": "2026-11-06",
+    "rsi": 37.2,
+    "volume": 9205343
+   },
+   {
+    "symbol": "UMC",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 13.85,
+    "close_date": "2026-11-06",
+    "rsi": 21.9,
+    "volume": 4671888
+   },
+   {
+    "symbol": "USAR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 8.22,
+    "close_date": "2026-11-06",
+    "rsi": 32.1,
+    "volume": 7669309
+   },
+   {
+    "symbol": "CHYM",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 31.33,
+    "close_date": "2026-11-06",
+    "rsi": 61.8,
+    "volume": 1917781
+   },
+   {
+    "symbol": "CLSK",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.16,
+    "close_date": "2026-11-06",
+    "rsi": 31.2,
+    "volume": 9746474
+   },
+   {
+    "symbol": "CART",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 58.12,
+    "close_date": "2026-11-06",
+    "rsi": 64.5,
+    "volume": 1003433
+   },
+   {
+    "symbol": "GFI",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 39.17,
+    "close_date": "2026-11-06",
+    "rsi": 58.6,
+    "volume": 1482957
+   },
+   {
+    "symbol": "FPS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 19.48,
+    "close_date": "2026-11-06",
+    "rsi": 32.3,
+    "volume": 2977669
+   },
+   {
+    "symbol": "TEVA",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 42.61,
+    "close_date": "2026-11-06",
+    "rsi": 62.7,
+    "volume": 1353538
+   },
+   {
+    "symbol": "CELH",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 32.16,
+    "close_date": "2026-11-06",
+    "rsi": 68.7,
+    "volume": 1749646
+   },
+   {
+    "symbol": "JOBY",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 5.93,
+    "close_date": "2026-11-06",
+    "rsi": 64.6,
+    "volume": 9095373
+   },
+   {
+    "symbol": "VIR",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 12.21,
+    "close_date": "2026-11-06",
+    "rsi": 60.0,
+    "volume": 4361629
+   },
+   {
+    "symbol": "GFS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 38.62,
+    "close_date": "2026-11-06",
+    "rsi": 35.7,
+    "volume": 1357040
+   },
+   {
+    "symbol": "RUN",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 9.98,
+    "close_date": "2026-11-06",
+    "rsi": 73.1,
+    "volume": 4973153
+   },
+   {
+    "symbol": "PBR.A",
+    "setups": [
+     "oversold"
+    ],
+    "price": 16.4,
+    "close_date": "2026-11-06",
+    "rsi": 25.2,
+    "volume": 3012740
+   },
+   {
+    "symbol": "BTG",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 5.4,
+    "close_date": "2026-11-06",
+    "rsi": 57.7,
+    "volume": 8837437
+   },
+   {
+    "symbol": "EPD",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 37.03,
+    "close_date": "2026-11-06",
+    "rsi": 48.9,
+    "volume": 1269184
+   },
+   {
+    "symbol": "SMR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 5.08,
+    "close_date": "2026-11-06",
+    "rsi": 37.2,
+    "volume": 9021959
+   },
+   {
+    "symbol": "OUST",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 34.8,
+    "close_date": "2026-11-06",
+    "rsi": 53.0,
+    "volume": 1274458
+   },
+   {
+    "symbol": "ELAN",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 25.74,
+    "close_date": "2026-11-06",
+    "rsi": 65.5,
+    "volume": 1717154
+   },
+   {
+    "symbol": "PRMB",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 22.39,
+    "close_date": "2026-11-06",
+    "rsi": 72.7,
+    "volume": 1912876
+   },
+   {
+    "symbol": "PL",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 12.55,
+    "close_date": "2026-11-06",
+    "rsi": 38.5,
+    "volume": 3350516
+   },
+   {
+    "symbol": "AMKR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 32.82,
+    "close_date": "2026-11-06",
+    "rsi": 32.8,
+    "volume": 1280798
+   },
+   {
+    "symbol": "IMVT",
+    "setups": [
+     "breakout_20d",
+     "reclaim_ma20"
+    ],
+    "price": 30.53,
+    "close_date": "2026-11-06",
+    "rsi": 51.3,
+    "volume": 1323665
+   },
+   {
+    "symbol": "SKYD",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 8.01,
+    "close_date": "2026-11-06",
+    "rsi": 45.1,
+    "volume": 4899525
+   },
+   {
+    "symbol": "GEN",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 29.79,
+    "close_date": "2026-11-06",
+    "rsi": 66.8,
+    "volume": 1294387
+   },
+   {
+    "symbol": "VCYT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 24.16,
+    "close_date": "2026-11-06",
+    "rsi": 24.8,
+    "volume": 1584155
+   },
+   {
+    "symbol": "SMMT",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 16.33,
+    "close_date": "2026-11-06",
+    "rsi": 52.5,
+    "volume": 2268696
+   },
+   {
+    "symbol": "EQX",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 11.52,
+    "close_date": "2026-11-06",
+    "rsi": 57.5,
+    "volume": 3065967
+   },
+   {
+    "symbol": "SARO",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 27.63,
+    "close_date": "2026-11-06",
+    "rsi": 78.9,
+    "volume": 1271869
+   },
+   {
+    "symbol": "MOS",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 22.36,
+    "close_date": "2026-11-06",
+    "rsi": 64.9,
+    "volume": 1526609
+   },
+   {
+    "symbol": "VKTX",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 26.84,
+    "close_date": "2026-11-06",
+    "rsi": 47.8,
+    "volume": 1202979
+   },
+   {
+    "symbol": "BB",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 8.74,
+    "close_date": "2026-11-06",
+    "rsi": 50.6,
+    "volume": 3630650
+   },
+   {
+    "symbol": "FSLY",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 15.85,
+    "close_date": "2026-11-06",
+    "rsi": 31.3,
+    "volume": 1922211
+   },
+   {
+    "symbol": "SHLS",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 10.08,
+    "close_date": "2026-11-06",
+    "rsi": 71.4,
+    "volume": 2997750
+   },
+   {
+    "symbol": "FTH",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 22.05,
+    "close_date": "2026-11-06",
+    "rsi": 50.2,
+    "volume": 1283962
+   },
+   {
+    "symbol": "HMY",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 17.17,
+    "close_date": "2026-11-06",
+    "rsi": 54.0,
+    "volume": 1628980
+   },
+   {
+    "symbol": "ARRY",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 5.86,
+    "close_date": "2026-11-06",
+    "rsi": 78.3,
+    "volume": 4485585
+   },
+   {
+    "symbol": "JANX",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 17.63,
+    "close_date": "2026-11-06",
+    "rsi": 52.3,
+    "volume": 1451257
+   },
+   {
+    "symbol": "QUBT",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.33,
+    "close_date": "2026-11-06",
+    "rsi": 42.1,
+    "volume": 3869941
+   },
+   {
+    "symbol": "KMT",
+    "setups": [
+     "oversold"
+    ],
+    "price": 23.0,
+    "close_date": "2026-11-06",
+    "rsi": 23.0,
+    "volume": 1045287
+   },
+   {
+    "symbol": "TH",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 11.36,
+    "close_date": "2026-11-06",
+    "rsi": 29.7,
+    "volume": 2115473
+   },
+   {
+    "symbol": "COLD",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 16.01,
+    "close_date": "2026-11-06",
+    "rsi": 71.9,
+    "volume": 1483798
+   },
+   {
+    "symbol": "BEKE",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 18.85,
+    "close_date": "2026-11-06",
+    "rsi": 66.0,
+    "volume": 1252524
+   },
+   {
+    "symbol": "AMPX",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 8.72,
+    "close_date": "2026-11-06",
+    "rsi": 50.0,
+    "volume": 2688270
+   },
+   {
+    "symbol": "UUUU",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 6.66,
+    "close_date": "2026-11-06",
+    "rsi": 23.8,
+    "volume": 3508581
+   },
+   {
+    "symbol": "REPL",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 21.62,
+    "close_date": "2026-11-06",
+    "rsi": 80.0,
+    "volume": 1072700
+   },
+   {
+    "symbol": "RLAY",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 18.6,
+    "close_date": "2026-11-06",
+    "rsi": 52.7,
+    "volume": 1236644
+   },
+   {
+    "symbol": "VLY",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 14.08,
+    "close_date": "2026-11-06",
+    "rsi": 58.0,
+    "volume": 1590051
+   },
+   {
+    "symbol": "MBLY",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 5.73,
+    "close_date": "2026-11-06",
+    "rsi": 36.2,
+    "volume": 3887017
+   },
+   {
+    "symbol": "XERS",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 15.2,
+    "close_date": "2026-11-06",
+    "rsi": 82.5,
+    "volume": 1427900
+   },
+   {
+    "symbol": "CLOV",
+    "setups": [
+     "breakout_20d",
+     "reclaim_ma20"
+    ],
+    "price": 4.82,
+    "close_date": "2026-11-06",
+    "rsi": 56.1,
+    "volume": 4454021
+   },
+   {
+    "symbol": "DOC",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 20.26,
+    "close_date": "2026-11-06",
+    "rsi": 61.7,
+    "volume": 1058638
+   },
+   {
+    "symbol": "XPEV",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 10.24,
+    "close_date": "2026-11-06",
+    "rsi": 58.9,
+    "volume": 2040933
+   },
+   {
+    "symbol": "MF",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 10.64,
+    "close_date": "2026-11-06",
+    "rsi": 51.2,
+    "volume": 1955725
+   },
+   {
+    "symbol": "FCEL",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 9.96,
+    "close_date": "2026-11-06",
+    "rsi": 36.2,
+    "volume": 2086161
+   },
+   {
+    "symbol": "BTDR",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.01,
+    "close_date": "2026-11-06",
+    "rsi": 35.7,
+    "volume": 3424990
+   },
+   {
+    "symbol": "XE",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 10.43,
+    "close_date": "2026-11-06",
+    "rsi": 40.7,
+    "volume": 1954894
+   },
+   {
+    "symbol": "SG",
+    "setups": [
+     "breakout_20d",
+     "bull_flag"
+    ],
+    "price": 12.01,
+    "close_date": "2026-11-06",
+    "rsi": 71.6,
+    "volume": 1631527
+   },
+   {
+    "symbol": "UEC",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.92,
+    "close_date": "2026-11-06",
+    "rsi": 35.3,
+    "volume": 2699770
+   },
+   {
+    "symbol": "DCTH",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 14.93,
+    "close_date": "2026-11-06",
+    "rsi": 50.4,
+    "volume": 1244764
+   },
+   {
+    "symbol": "ARHS",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 14.19,
+    "close_date": "2026-11-06",
+    "rsi": 76.3,
+    "volume": 1299734
+   },
+   {
+    "symbol": "POET",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 5.07,
+    "close_date": "2026-11-06",
+    "rsi": 40.6,
+    "volume": 3586687
+   },
+   {
+    "symbol": "APPS",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 10.38,
+    "close_date": "2026-11-06",
+    "rsi": 51.9,
+    "volume": 1659435
+   },
+   {
+    "symbol": "UMAC",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 11.9,
+    "close_date": "2026-11-06",
+    "rsi": 29.1,
+    "volume": 1430404
+   },
+   {
+    "symbol": "BULL",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 4.92,
+    "close_date": "2026-11-06",
+    "rsi": 30.3,
+    "volume": 3437235
+   },
+   {
+    "symbol": "CRGY",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 11.22,
+    "close_date": "2026-11-06",
+    "rsi": 30.6,
+    "volume": 1409725
+   },
+   {
+    "symbol": "LBRT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 11.96,
+    "close_date": "2026-11-06",
+    "rsi": 27.5,
+    "volume": 1287774
+   },
+   {
+    "symbol": "SBSW",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 9.5,
+    "close_date": "2026-11-06",
+    "rsi": 47.6,
+    "volume": 1562707
+   },
+   {
+    "symbol": "TME",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 9.56,
+    "close_date": "2026-11-06",
+    "rsi": 73.0,
+    "volume": 1473166
+   },
+   {
+    "symbol": "OBDC",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 10.94,
+    "close_date": "2026-11-06",
+    "rsi": 64.2,
+    "volume": 1286642
+   },
+   {
+    "symbol": "SUZ",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 9.66,
+    "close_date": "2026-11-06",
+    "rsi": 74.9,
+    "volume": 1412174
+   },
+   {
+    "symbol": "WEN",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 8.15,
+    "close_date": "2026-11-06",
+    "rsi": 74.3,
+    "volume": 1666156
+   },
+   {
+    "symbol": "ABSI",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 10.17,
+    "close_date": "2026-11-06",
+    "rsi": 51.4,
+    "volume": 1301965
+   },
+   {
+    "symbol": "STGW",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 11.64,
+    "close_date": "2026-11-06",
+    "rsi": 80.3,
+    "volume": 1133051
+   },
+   {
+    "symbol": "YMM",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 9.16,
+    "close_date": "2026-11-06",
+    "rsi": 64.3,
+    "volume": 1399578
+   },
+   {
+    "symbol": "ALM",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 8.12,
+    "close_date": "2026-11-06",
+    "rsi": 29.9,
+    "volume": 1534547
+   },
+   {
+    "symbol": "CAPR",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 9.0,
+    "close_date": "2026-11-06",
+    "rsi": 64.2,
+    "volume": 1256038
+   },
+   {
+    "symbol": "BHC",
+    "setups": [
+     "bull_flag"
+    ],
+    "price": 8.18,
+    "close_date": "2026-11-06",
+    "rsi": 66.5,
+    "volume": 1352169
+   },
+   {
+    "symbol": "CMPS",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 8.61,
+    "close_date": "2026-11-06",
+    "rsi": 34.3,
+    "volume": 1232605
+   },
+   {
+    "symbol": "AESI",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 5.41,
+    "close_date": "2026-11-06",
+    "rsi": 18.0,
+    "volume": 1814820
+   },
+   {
+    "symbol": "PUMP",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.39,
+    "close_date": "2026-11-06",
+    "rsi": 30.1,
+    "volume": 1496344
+   },
+   {
+    "symbol": "MFA",
+    "setups": [
+     "oversold"
+    ],
+    "price": 6.21,
+    "close_date": "2026-11-06",
+    "rsi": 26.1,
+    "volume": 1228160
+   },
+   {
+    "symbol": "BRUN",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 6.09,
+    "close_date": "2026-11-06",
+    "rsi": 32.7,
+    "volume": 1252243
+   },
+   {
+    "symbol": "NG",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 6.4,
+    "close_date": "2026-11-06",
+    "rsi": 50.5,
+    "volume": 1183233
+   }
+  ],
+  "counts": {
+   "requested": 5933,
+   "fetched": 5933,
+   "illiquid": 5402,
+   "short": 1,
+   "scanned": 530,
+   "hits": 179
+  },
+  "seconds": 144.1,
+  "run_at": "2026-11-09T16:24:27Z"
+ },
+ "news": {
+  "run_at": "2026-11-09T16:24:34Z",
+  "tickers": [
+   "NVDA",
+   "AMD",
+   "MU",
+   "SNDK",
+   "GOOGL",
+   "INTC",
+   "GOOG",
+   "TSM",
+   "MRVL",
+   "LITE",
+   "PLTR",
+   "LLY",
+   "COHR",
+   "AMAT",
+   "APP",
+   "DELL",
+   "CRWV",
+   "IREN",
+   "STX",
+   "LRCX"
+  ],
+  "sec": false,
+  "moves": [
+   {
+    "ticker": "AMAT",
+    "price": 365.45,
+    "prev_close": 332.71,
+    "pct": 9.84,
+    "time": "2026-11-09T16:24:30+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "AMD",
+    "price": 501.04,
+    "prev_close": 449.04,
+    "pct": 11.58,
+    "time": "2026-11-09T16:24:30+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "APP",
+    "price": 406.29,
+    "prev_close": 391.22,
+    "pct": 3.85,
+    "time": "2026-11-09T16:24:24+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "COHR",
+    "price": 227.19,
+    "prev_close": 192.81,
+    "pct": 17.83,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "CRWV",
+    "price": 49.08,
+    "prev_close": 46.4,
+    "pct": 5.78,
+    "time": "2026-11-09T16:24:30+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "DELL",
+    "price": 351.0,
+    "prev_close": 328.53,
+    "pct": 6.84,
+    "time": "2026-11-09T16:24:27+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "GOOG",
+    "price": 289.37,
+    "prev_close": 283.93,
+    "pct": 1.92,
+    "time": "2026-11-09T16:24:23+00:00",
+    "moving": false
+   },
+   {
+    "ticker": "GOOGL",
+    "price": 291.28,
+    "prev_close": 284.78,
+    "pct": 2.28,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": false
+   },
+   {
+    "ticker": "INTC",
+    "price": 58.55,
+    "prev_close": 56.28,
+    "pct": 4.03,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "IREN",
+    "price": 21.72,
+    "prev_close": 21.64,
+    "pct": 0.37,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": false
+   },
+   {
+    "ticker": "LITE",
+    "price": 607.84,
+    "prev_close": 538.59,
+    "pct": 12.86,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "LLY",
+    "price": 1393.26,
+    "prev_close": 1354.0,
+    "pct": 2.9,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": false
+   },
+   {
+    "ticker": "LRCX",
+    "price": 217.67,
+    "prev_close": 200.44,
+    "pct": 8.6,
+    "time": "2026-11-09T16:24:30+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "MRVL",
+    "price": 155.43,
+    "prev_close": 141.2,
+    "pct": 10.07,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "MU",
+    "price": 736.15,
+    "prev_close": 690.0,
+    "pct": 6.69,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "NVDA",
+    "price": 176.0,
+    "prev_close": 186.64,
+    "pct": -5.7,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "PLTR",
+    "price": 170.0,
+    "prev_close": 160.38,
+    "pct": 6.0,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "SNDK",
+    "price": 890.97,
+    "prev_close": 835.06,
+    "pct": 6.7,
+    "time": "2026-11-09T16:24:32+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "STX",
+    "price": 505.68,
+    "prev_close": 460.99,
+    "pct": 9.69,
+    "time": "2026-11-09T16:24:33+00:00",
+    "moving": true
+   },
+   {
+    "ticker": "TSM",
+    "price": 390.07,
+    "prev_close": 375.44,
+    "pct": 3.9,
+    "time": "2026-11-09T16:24:31+00:00",
+    "moving": true
+   }
+  ],
+  "items": [
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Unity Software's Full Gaming Potential Yet to be Reflected in the Stock, BofA Says",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/unity-software-apos-full-gaming-161840803.html?.tsrc=rss",
+    "time": "2026-11-09T16:18:40+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Is Jensen Huang's scandal the best threat to the AI trade?",
+    "link": "https://finance.yahoo.com/video/is-jensen-huangs-scandal-the-best-threat-to-the-ai-trade-161416158.html?.tsrc=rss",
+    "time": "2026-11-09T16:14:16+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LLY",
+    "title": "Indices Hunt for Support After Steep Weekly Losses as Volatility Gauge Stays Elevated",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/indices-hunt-support-steep-weekly-160800955.html?.tsrc=rss",
+    "time": "2026-11-09T16:08:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Alphabet Stock Rises as Google Adds Two New TPU Variants",
+    "link": "https://finance.yahoo.com/technology/ai/articles/alphabet-stock-rises-google-adds-160513423.html?.tsrc=rss",
+    "time": "2026-11-09T16:05:13+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "FlowX.AI & Google Take Mission-Critical AI Agents From Pilot to Production",
+    "link": "https://finance.yahoo.com/technology/ai/articles/flowx-ai-google-mission-critical-160500405.html?.tsrc=rss",
+    "time": "2026-11-09T16:05:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "General Mills Has Paid Uninterrupted Dividends for 127 Years. Here's the Yearly Payout on $5,000.",
+    "link": "https://www.fool.com/investing/2026/11/09/general-mills-has-paid-uninterrupted-dividends-for/?.tsrc=rss",
+    "time": "2026-11-09T16:05:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Week ahead: US stocks face inflation test as AI uncertainty keeps investors on edge",
+    "link": "https://www.proactiveinvestors.com/companies/news/1101445/week-ahead-us-stocks-face-inflation-test-as-ai-uncertainty-keeps-investors-on-edge-1101445.html?.tsrc=rss",
+    "time": "2026-11-09T16:05:00+00:00",
+    "tags": [
+     "macro"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "AMD Just Eased Wall Street’s AI Spending Scare. Here’s What It Means for the Stock",
+    "link": "https://247wallst.com/investing/2026/11/09/amd-just-eased-wall-streets-ai-spending-scare-heres-what-it-means-for-the-stock/?.tsrc=rss",
+    "time": "2026-11-09T16:03:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Traefik Labs Expands Its Partner Ecosystem, Bringing AI Runtime Governance and Secure Application Delivery to the Platforms Enterprises Already Run",
+    "link": "https://finance.yahoo.com/technology/ai/articles/traefik-labs-expands-partner-ecosystem-160000017.html?.tsrc=rss",
+    "time": "2026-11-09T16:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Nvidia's black eye: One company isn't run by one person",
+    "link": "https://finance.yahoo.com/video/nvidias-black-eye-one-company-isnt-run-by-one-person-155942128.html?.tsrc=rss",
+    "time": "2026-11-09T15:59:42+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COHR",
+    "title": "Coherent Jumps 13% as Optical Stocks Extend AI Rebound; Lumentum Surges 11%, Applied Optoelectronics Rises 4%",
+    "link": "https://247wallst.com/investing/2026/11/09/coherent-jumps-13-as-optical-stocks-extend-ai-rebound-lumentum-surges-11-applied-optoelectronics-rises-4/?.tsrc=rss",
+    "time": "2026-11-09T15:58:29+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PLTR",
+    "title": "PLTR support and resistance levels to watch",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/pltr-support-resistance-levels-watch-155718582.html?.tsrc=rss",
+    "time": "2026-11-09T15:57:18+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Meta Soars 5% as JPMorgan Picks It Over Alphabet for Its Analyst Focus List",
+    "link": "https://www.tikr.com/blog/meta-soars-5-as-jpmorgan-picks-it-over-alphabet-for-its-analyst-focus-list?ref=yahoofinance&tlnk=yf-261109-qv3gf5pr&.tsrc=rss",
+    "time": "2026-11-09T15:56:21+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Nvidia stock slumps amid board investigation into CEO Jensen Huang",
+    "link": "https://www.cbsnews.com/news/nvidia-jensen-huang-stock-board-investigation-spy/?.tsrc=rss",
+    "time": "2026-11-09T15:56:06+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "NVDA support and resistance levels as stock trades in oversold territory",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/nvda-support-resistance-levels-stock-155408988.html?.tsrc=rss",
+    "time": "2026-11-09T15:54:08+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Is Krispy Kreme a Buy After Its Latest Earnings Report?",
+    "link": "https://www.fool.com/investing/2026/11/09/is-krispy-kreme-a-buy-after-its-latest-earnings-report/?.tsrc=rss",
+    "time": "2026-11-09T15:54:02+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Why Figs Stock Popped Today",
+    "link": "https://www.fool.com/investing/2026/11/09/why-figs-stock-popped-today/?.tsrc=rss",
+    "time": "2026-11-09T15:54:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Super Micro CEO Calls a $72 Billion to $82 Billion Outlook “Very, Very Conservative”",
+    "link": "https://www.tikr.com/blog/super-micro-ceo-calls-a-72-billion-to-82-billion-outlook-very-very-conservative?ref=yahoofinance&tlnk=yf-261109-9759x3f7&.tsrc=rss",
+    "time": "2026-11-09T15:50:09+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Amazon Generated $202 Billion in Quarterly Sales. Most of Its Operating Profit Came From Just 1 Business.",
+    "link": "https://www.fool.com/investing/2026/11/09/amazon-generated-202-billion-in-quarterly-sales/?.tsrc=rss",
+    "time": "2026-11-09T15:50:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Why Nvidia's board really needs to lay out Jensen Huang's succession plan",
+    "link": "https://finance.yahoo.com/video/why-nvidias-board-really-needs-to-lay-out-jensen-huangs-succession-plan-154736576.html?.tsrc=rss",
+    "time": "2026-11-09T15:47:36+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "I’m Betting That The Post-Midterm Flight to Quality Will Kick Microsoft Into Gear",
+    "link": "https://247wallst.com/investing/2026/11/09/im-betting-that-the-post-midterm-flight-to-quality-will-kick-microsoft-into-gear/?.tsrc=rss",
+    "time": "2026-11-09T15:45:38+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Broadcom Faltered for a Year, Dropping Nearly 20%: This Wall Street Analyst Team Says 140% Gains Materialize Within 12 Months",
+    "link": "https://247wallst.com/investing/2026/11/09/broadcom-faltered-for-a-year-dropping-nearly-20-this-wall-street-analyst-team-says-140-gains-materialize-within-12-months/?.tsrc=rss",
+    "time": "2026-11-09T15:45:27+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "META, AMZN Stocks Jump As JPMorgan Picks Pair Over Alphabet — Sees Stronger AI Returns, Cloud Growth",
+    "link": "https://stocktwits.com/news-articles/markets/equity/meta-amzn-stocks-jump-as-jp-morgan-picks-pair-over-alphabet-sees-stronger-ai-returns-cloud-growth/cNGrWM0R97T?.tsrc=rss",
+    "time": "2026-11-09T15:39:20+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "Odds Huang Will Leave Nvidia Hit 15%",
+    "link": "https://247wallst.com/investing/2026/11/09/odds-huang-will-leave-nvidia-hit-15/?.tsrc=rss",
+    "time": "2026-11-09T15:35:06+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Berkshire Hathaway's Top AI Holding Is Poised to Outperform",
+    "link": "https://www.fool.com/investing/2026/11/09/berkshire-hathaway-ai-stock-poised-outperform/?.tsrc=rss",
+    "time": "2026-11-09T15:35:00+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MRVL",
+    "title": "Credo Stock Has a Powerful Growth Story, but Is It Already Priced In?",
+    "link": "https://247wallst.com/investing/2026/11/09/credo-stock-has-a-powerful-growth-story-but-is-it-already-priced-in/?.tsrc=rss",
+    "time": "2026-11-09T15:33:24+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "AMD Stock Rises On Google Cloud Deal, Wall Street Upgrade",
+    "link": "https://finance.yahoo.com/m/544d9f43-0b7f-3c42-b942-64d1474d8198/amd-stock-rises-on-google.html?.tsrc=rss",
+    "time": "2026-11-09T15:33:11+00:00",
+    "tags": [
+     "analyst",
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "BC-Most Active Stocks",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/bc-most-active-stocks-153021871.html?.tsrc=rss",
+    "time": "2026-11-09T15:30:21+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NVDA",
+    "title": "How to Invest in CXMT, the Chinese DRAM Company -- and Why You Might Not Want To",
+    "link": "https://www.fool.com/investing/2026/11/09/how-to-invest-in-cxmt-the-chinese-dram-company/?.tsrc=rss",
+    "time": "2026-11-09T15:30:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "Microsoft Borrows at “10 Percentage Points Below CoreWeave.” Now It’s Backing Away From Neoclouds",
+    "link": "https://www.tikr.com/blog/microsoft-borrows-at-10-percentage-points-below-coreweave-now-its-backing-away-from-neoclouds?ref=yahoofinance&tlnk=yf-261109-g8p4p4fv&.tsrc=rss",
+    "time": "2026-11-09T15:27:21+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MU",
+    "title": "Micron Will “Buy Back a Hundred Billion Dollars” of Stock at Four Times Earnings",
+    "link": "https://www.tikr.com/blog/micron-will-buy-back-a-hundred-billion-dollars-of-stock-at-four-times-earnings?ref=yahoofinance&tlnk=yf-261109-wjx43vqq&.tsrc=rss",
+    "time": "2026-11-09T15:26:32+00:00",
+    "tags": [
+     "earnings",
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Tech stocks rally as Nvidia stock and oil prices fall: AlphaCheck",
+    "link": "https://finance.yahoo.com/markets/article/tech-stocks-rally-as-nvidia-stock-and-oil-prices-fall-alphacheck-152208023.html?.tsrc=rss",
+    "time": "2026-11-09T15:22:08+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Blackbird's new CEO Sumit Rai sets out growth plans as elevate.io passes 1,000 paying users",
+    "link": "https://finance.yahoo.com/video/blackbirds-ceo-sumit-rai-sets-152001586.html?.tsrc=rss",
+    "time": "2026-11-09T15:20:01+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Google Pushes New AI Chips. Why There Could Be an Opening.",
+    "link": "https://finance.yahoo.com/m/aa83a388-03db-3261-b9cb-d78a2ee4f35f/google-pushes-new-ai-chips..html?.tsrc=rss",
+    "time": "2026-11-09T15:16:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Cramer’s Advice For Nvidia Makes Even More Sense Now As Stock Drops As Board Investigates CEO",
+    "link": "https://247wallst.com/investing/2026/11/09/cramers-advice-for-nvidia-makes-even-more-sense-now-as-stock-drops-as-board-investigates-ceo/?.tsrc=rss",
+    "time": "2026-11-09T15:14:18+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Trade Desk’s ‘Lost Year’ Won’t Be Rescued by Earnings, Say Analysts",
+    "link": "https://finance.yahoo.com/m/0aae3af7-cc7f-3af0-af9a-6d803d85246a/trade-desk%E2%80%99s-%E2%80%98lost-year%E2%80%99.html?.tsrc=rss",
+    "time": "2026-11-09T15:14:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LLY",
+    "title": "Eli Lilly (LLY) Opens Digital Access To Obesity Drugs Across The US",
+    "link": "https://finance.yahoo.com/healthcare/articles/eli-lilly-lly-opens-digital-151015302.html?.tsrc=rss",
+    "time": "2026-11-09T15:10:15+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Berkshire Hathaway latest: Q3 earnings, top 5 holdings, record stock buyback, & more",
+    "link": "https://finance.yahoo.com/video/berkshire-hathaway-latest-q3-earnings-top-5-holdings-record-stock-buyback--more-150507713.html?.tsrc=rss",
+    "time": "2026-11-09T15:05:07+00:00",
+    "tags": [
+     "earnings",
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Jensen Huang under the microscope, next moves for investors in the AI trade",
+    "link": "https://finance.yahoo.com/video/jensen-huang-under-the-microscope-next-moves-for-investors-in-the-ai-trade-150434257.html?.tsrc=rss",
+    "time": "2026-11-09T15:04:34+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "Stocks post their best week since April 2025. Can the rally continue?",
+    "link": "https://finance.yahoo.com/video/stocks-post-their-best-week-since-april-2025-can-the-rally-continue-150422490.html?.tsrc=rss",
+    "time": "2026-11-09T15:04:22+00:00",
+    "tags": [
+     "earnings",
+     "analyst",
+     "macro"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IREN",
+    "title": "Cantor cuts IREN price target to $47 from $99 as Microsoft deployment slips",
+    "link": "https://blockspace.media/insight/cantor-cuts-iren-price-target/?.tsrc=rss",
+    "time": "2026-11-09T15:01:36+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "AMD Stock Could Jump 34%. No, It’s Got Nothing to Do With the Nvidia Turmoil.",
+    "link": "https://finance.yahoo.com/m/7bcea03a-9f2e-3518-97dc-b837344745d8/amd-stock-could-jump-34%25.-no%2C.html?.tsrc=rss",
+    "time": "2026-11-09T14:58:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "IREN Falls 5% After Friday’s 20% Surge as AI Lending Worries Mount; TeraWulf and Applied Digital Rise 2%",
+    "link": "https://247wallst.com/investing/2026/11/09/iren-falls-5-after-fridays-20-surge-as-ai-lending-worries-mount-terawulf-and-applied-digital-rise-2/?.tsrc=rss",
+    "time": "2026-11-09T14:53:04+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MU",
+    "title": "Micron Stock Gets Some Relief as This Big Threat Got Kicked Into the Long Grass",
+    "link": "https://finance.yahoo.com/m/e38a4a3c-6530-3954-9118-6aa88fe89efa/micron-stock-gets-some-relief.html?.tsrc=rss",
+    "time": "2026-11-09T14:51:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Meta and Amazon Rise 5% as JPMorgan Names Them Top Internet Picks; Alphabet Gains 3% Despite Losing Its Spot",
+    "link": "https://247wallst.com/investing/2026/11/09/meta-and-amazon-rise-5-as-jpmorgan-names-them-top-internet-picks-alphabet-gains-3-despite-losing-its-spot/?.tsrc=rss",
+    "time": "2026-11-09T14:48:19+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "CoreWeave Signs Multi-Year Agreement to Support Wayve’s Autonomous Driving AI Development",
+    "link": "https://investorshub.advfn.com/market-news/article/39561/coreweave-signs-multi-year-agreement-to-support-wayves-autonomous-driving-ai-development?.tsrc=rss",
+    "time": "2026-11-09T14:47:23+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "Intel took 25 years to get back to its dot-com peak — and lost it in 6 months: Chart of the Day",
+    "link": "https://finance.yahoo.com/markets/article/intel-took-25-years-to-get-back-to-its-dot-com-peak--and-lost-it-in-6-months-chart-of-the-day-144715722.html?.tsrc=rss",
+    "time": "2026-11-09T14:47:15+00:00",
+    "tags": [
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Apple CEO urges faster AI work as Siri leadership faces uncertainty",
+    "link": "https://www.proactiveinvestors.com/companies/news/1101438/apple-ceo-urges-faster-ai-work-as-siri-leadership-faces-uncertainty-1101438.html?.tsrc=rss",
+    "time": "2026-11-09T14:47:00+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Google Expands AI Chip Portfolio as Nvidia Faces Investigation Involving CEO",
+    "link": "https://investorshub.advfn.com/market-news/article/39559/google-expands-ai-chip-portfolio-as-nvidia-faces-investigation-involving-ceo?.tsrc=rss",
+    "time": "2026-11-09T14:45:36+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOGL",
+    "title": "Amazon AWS Revenues Up 39% in Q3 as Cloud Rivals Gain Pace: Hold Stock?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/amazon-aws-revenues-39-q3-144400988.html?.tsrc=rss",
+    "time": "2026-11-09T14:44:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "ASML Raises 2026 Guidance as AI Demand Accelerates Capacity Expansion",
+    "link": "https://finance.yahoo.com/technology/articles/asml-raises-2026-guidance-ai-144400818.html?.tsrc=rss",
+    "time": "2026-11-09T14:44:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Cathie Wood Goes Bargain Hunting: 3 Stocks She Bought Last Week",
+    "link": "https://www.fool.com/investing/2026/11/09/cathie-wood-goes-bargain-hunting-3-stocks-she-boug/?.tsrc=rss",
+    "time": "2026-11-09T14:37:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "DraftKings downgraded, AMD upgraded: Wall Street's top analyst calls",
+    "link": "https://finance.yahoo.com/news/netflix-resumed-starbucks-downgraded-wall-133343741.html?.tsrc=rss",
+    "time": "2026-11-09T14:35:30+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Investors Are Chasing AI Chips. This Company Is Playing a Different Game",
+    "link": "https://247wallst.com/investing/2026/11/09/investors-are-chasing-ai-chips-this-company-is-playing-a-different-game/?.tsrc=rss",
+    "time": "2026-11-09T14:33:05+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "ASML Falls 20% in the Past Month as AI Growth Meets Execution Risk",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/asml-falls-20-past-month-143300792.html?.tsrc=rss",
+    "time": "2026-11-09T14:33:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Global Clinical Genomics Software Market Report 2026 | Capitalize on 14.8% CAGR Through 2030 as Google, Microsoft, NVIDIA and Illumina Scale AI, Cloud and Precision Medicine",
+    "link": "https://finance.yahoo.com/healthcare/articles/global-clinical-genomics-software-market-143200767.html?.tsrc=rss",
+    "time": "2026-11-09T14:32:00+00:00",
+    "tags": [
+     "capital",
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LLY",
+    "title": "Global Gene Therapy for Hearing Loss Market Report 2026 | Capture Growth to $1.71B by 2030 as Regeneron, Lilly, Sensorion and Astellas Advance AAV, CRISPR and Cochlear Delivery",
+    "link": "https://finance.yahoo.com/healthcare/articles/global-gene-therapy-hearing-loss-143100941.html?.tsrc=rss",
+    "time": "2026-11-09T14:31:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LLY",
+    "title": "Lilly's Foundayo (orforglipron) significantly reduced obstructive sleep apnea severity, reinforcing its potential to improve health beyond weight loss",
+    "link": "https://finance.yahoo.com/healthcare/articles/lillys-foundayo-orforglipron-significantly-reduced-143000435.html?.tsrc=rss",
+    "time": "2026-11-09T14:30:00+00:00",
+    "tags": [
+     "earnings",
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMAT",
+    "title": "Stock Market Today: Nvidia Pressures Indexes to Maintain Rebound",
+    "link": "https://247wallst.com/investing/2026/11/09/stock-market-today-nvidia-pressures-indexes-to-maintain-rebound/?.tsrc=rss",
+    "time": "2026-11-09T14:28:18+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "If the Stock Market Crashes, I'm Loading Up on These 2 No-Brainer ETFs",
+    "link": "https://www.fool.com/investing/2026/11/09/if-the-stock-market-crashes-im-loading-up-on-these/?.tsrc=rss",
+    "time": "2026-11-09T14:14:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "3 Top Quantum Stocks To Watch With Up To 71% Revenue Growth",
+    "link": "https://finance.yahoo.com/technology/ai/articles/3-top-quantum-stocks-watch-141158992.html?.tsrc=rss",
+    "time": "2026-11-09T14:11:58+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "GOOG",
+    "title": "Flight Centre Travel Group And 2 Australian Founder Led Stocks To Watch",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/flight-centre-travel-group-2-141150285.html?.tsrc=rss",
+    "time": "2026-11-09T14:11:50+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PLTR",
+    "title": "These 3 Stocks Just Fell After Strong Earnings. Here’s the One I’d Buy Right Now",
+    "link": "https://www.fool.com/investing/2026/11/09/these-3-stocks-fell-after-strong-earnings-here-s-the-one-i-d-buy-right-now/?.tsrc=rss",
+    "time": "2026-11-09T14:11:02+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "INTC Stock Down 57% in the Past 6 Months: Should You Exercise Caution?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/intc-stock-down-57-past-141100035.html?.tsrc=rss",
+    "time": "2026-11-09T14:11:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "Why Is Intel (INTC) Pushing Deeper Into Industrial AI With New Edge Tools?",
+    "link": "https://finance.yahoo.com/technology/ai/articles/why-intel-intc-pushing-deeper-140923172.html?.tsrc=rss",
+    "time": "2026-11-09T14:09:23+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DELL",
+    "title": "Dell and HPE Were AI Winners Until the Selloff. Can Earnings Put Them Back on Track?",
+    "link": "https://247wallst.com/investing/2026/11/09/dell-and-hpe-were-ai-winners-until-the-selloff-can-earnings-put-them-back-on-track/?.tsrc=rss",
+    "time": "2026-11-09T14:04:29+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "CRWV",
+    "title": "Unpopular Opinion: “AI Trade Is Done.” Jensen Huang May Have Just Destroyed It.",
+    "link": "https://www.tikr.com/blog/unpopular-opinion-ai-trade-is-done-jensen-huang-may-have-just-destroyed-it?ref=yahoofinance&tlnk=yf-261109-vfpq4xvm&.tsrc=rss",
+    "time": "2026-11-09T13:58:23+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMAT",
+    "title": "Update: US Equity Futures Higher Pre-Bell as Traders Assess Oil Price Drop, Await AI-Related Earnings This Week",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-futures-higher-pre-135516996.html?.tsrc=rss",
+    "time": "2026-11-09T13:55:16+00:00",
+    "tags": [
+     "earnings",
+     "macro"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Google's chip business is on a faster track than Nvidia's own AI boom",
+    "link": "https://finance.yahoo.com/markets/article/googles-chip-business-is-on-a-faster-track-than-nvidias-own-ai-boom-135447046.html?.tsrc=rss",
+    "time": "2026-11-09T13:54:47+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMAT",
+    "title": "A Fund With $4.4 Billion in US Equities Bought These 3 Stocks",
+    "link": "https://www.tikr.com/blog/munro-partners-bought-applied-materials-alphabet-quanta-services?ref=yahoofinance&tlnk=yf-261109-897qq88g&.tsrc=rss",
+    "time": "2026-11-09T13:51:07+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "A $5.4 Billion Fund Bought These 3 Stocks",
+    "link": "https://www.tikr.com/blog/palestra-capital-management-bought-amazon-lam-research-amd?ref=yahoofinance&tlnk=yf-261109-p753jq5x&.tsrc=rss",
+    "time": "2026-11-09T13:51:03+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Nvidia, AMD, CoreWeave, Ionis, DraftKings, and More Stocks That Explain Today’s Market",
+    "link": "https://finance.yahoo.com/m/0de42570-284c-35d9-8b7f-ba44183aff0f/nvidia%2C-amd%2C-coreweave%2C.html?.tsrc=rss",
+    "time": "2026-11-09T13:49:00+00:00",
+    "tags": [
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "Micron Has Lost Over 40% Since June. Where Does Its Price Target Stand Now?",
+    "link": "https://247wallst.com/investing/2026/11/09/micron-has-lost-over-40-since-june-where-does-its-price-target-stand-now/?.tsrc=rss",
+    "time": "2026-11-09T13:47:17+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "APP",
+    "title": "The Trade Desk Jumps 8% Ahead of Earnings; Magnite Gains 2%, AppLovin Dips",
+    "link": "https://247wallst.com/investing/2026/11/09/the-trade-desk-climbs-6-ahead-of-earnings-magnite-gains-2-applovin-dips/?.tsrc=rss",
+    "time": "2026-11-09T13:46:28+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "NVIDIA Falls 5% as Board Probes Jensen Huang’s Ties to Alleged Chinese Spy; AMD Rises 4%, Intel Holds Steady",
+    "link": "https://247wallst.com/investing/2026/11/09/nvidia-falls-5-as-board-probes-jensen-huangs-ties-to-alleged-chinese-spy-amd-rises-4-intel-holds-steady/?.tsrc=rss",
+    "time": "2026-11-09T13:43:56+00:00",
+    "tags": [
+     "earnings",
+     "legal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMD",
+    "title": "Core Scientific: 3 Key Takeaways for Long-Term Investors",
+    "link": "https://www.fool.com/earnings/takeaways/2026/11/09/core-scientific-3-key-takeaways-for-long-term-investors/?.tsrc=rss",
+    "time": "2026-11-09T13:41:40+00:00",
+    "tags": [
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AMAT",
+    "title": "Cathie Wood and 73 Other Funds Bought Chip Stocks. Cerebras Is Down 59% Since. Time to Buy?",
+    "link": "https://www.tikr.com/blog/cathie-wood-funds-bought-chip-stocks-cerebras-down-51-time-to-buy?ref=yahoofinance&tlnk=yf-261109-9fcqjhc6&.tsrc=rss",
+    "time": "2026-11-09T13:33:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LLY",
+    "title": "Eli Lilly Shares Rise 2.35% After Jefferies Raises Price Target to $1,700",
+    "link": "https://investorshub.advfn.com/market-news/article/39537/eli-lilly-shares-rise-2-35-after-jefferies-raises-price-target-to-1700?.tsrc=rss",
+    "time": "2026-11-09T13:29:19+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTC",
+    "title": "Stock Market Today: Major Indexes Soar as Market Looks to Rebound from Last Week’s Losses; Nvidia Plunges as Company Investigates CEO Huang",
+    "link": "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11092026-12244409?.tsrc=rss",
+    "time": "2026-11-09T13:28:56+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COHR",
+    "title": "AAOI Stock Rises 7% Post Q3 Earnings: Should You Buy, Sell or Hold?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/aaoi-stock-rises-7-post-132500865.html?.tsrc=rss",
+    "time": "2026-11-09T13:25:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   }
+  ]
+ },
+ "congress": {
+  "run_at": "2026-11-09T16:24:39Z",
+  "since": "2026-09-25",
+  "filings": [
+   {
+    "doc_id": "20035780",
+    "name": "Hon. Nancy Pelosi",
+    "district": "CA11",
+    "filed": "2026-11-06",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035780.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-07",
+      "amount": "$50,001 - $100,000",
+      "ticker": "WBD",
+      "asset": "Warner Bros. Discovery, Inc. - Series A Common Stock",
+      "asset_type": "ST",
+      "description": "Cash proceeds from Warner Bros Discovery merger with Paramount Skydance.",
+      "days_to_disclose": 30,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035775",
+    "name": "Hon. John J Mr McGuire III",
+    "district": "VA05",
+    "filed": "2026-11-06",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035775.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "WDC",
+      "asset": "Western Digital Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 22,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "9116399",
+    "name": "Hon. Rohit Khanna",
+    "district": "CA17",
+    "filed": "2026-11-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116399.pdf",
+    "rows": []
+   },
+   {
+    "doc_id": "20035778",
+    "name": "Hon. Maria Elvira Salazar",
+    "district": "FL27",
+    "filed": "2026-11-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035778.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "CSCO",
+      "asset": "Cisco Systems, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PG",
+      "asset": "Procter & Gamble Company",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PG",
+      "asset": "Procter & Gamble Company",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035770",
+    "name": "Hon. Josh Gottheimer",
+    "district": "NJ05",
+    "filed": "2026-11-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035770.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-10-26",
+      "amount": "$1,001 - $15,000",
+      "ticker": "AMAT",
+      "asset": "Applied Materials, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 10,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-10-12",
+      "amount": "$1,001 - $15,000",
+      "ticker": "BHE",
+      "asset": "Benchmark Electronics, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 24,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "TLK",
+      "asset": "PT Telekomunikasi Indonesia, Tbk",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035662",
+    "name": "Hon. Daniel Meuser",
+    "district": "PA09",
+    "filed": "2026-11-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035662.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "partial sale",
+      "date": "2026-09-25",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 41,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035765",
+    "name": "Hon. Mike Kelly",
+    "district": "PA16",
+    "filed": "2026-11-04",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035765.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$50,001 - $100,000",
+      "ticker": null,
+      "asset": "Fairfax Cnty VA Ser A Go",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-10-01",
+      "amount": "$50,001 - $100,000",
+      "ticker": null,
+      "asset": "North Carolina Hsg Fin Agy Hom S",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 34,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035763",
+    "name": "Hon. Robert E. Latta",
+    "district": "OH05",
+    "filed": "2026-11-03",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035763.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-10-20",
+      "amount": "$1,001 - $15,000",
+      "ticker": "FMAO",
+      "asset": "Farmers & Merchants Bancorp, Inc.",
+      "asset_type": "ST",
+      "description": "Dividend reinvestment C : Dividend reinvestment",
+      "days_to_disclose": 14,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035751",
+    "name": "Hon. Ann Wagner",
+    "district": "MO02",
+    "filed": "2026-11-02",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035751.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-10-20",
+      "amount": "$100,001 - $250,000",
+      "ticker": null,
+      "asset": "American Expr Natl Bank CD",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035743",
+    "name": "Hon. Donald Sternoff Beyer Jr",
+    "district": "VA08",
+    "filed": "2026-11-01",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035743.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-10-07",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "California CMNTY VAR 11/01/54",
+      "asset_type": "GS",
+      "description": "30,000 units of California CMNTY VAR 11/01/54",
+      "days_to_disclose": 25,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035484",
+    "name": "Hon. John J Mr McGuire III",
+    "district": "VA05",
+    "filed": "2026-11-01",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035484.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "partial sale",
+      "date": "2026-09-24",
+      "amount": "$1,001 - $15,000",
+      "ticker": "AVGO",
+      "asset": "Broadcom Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 38,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-24",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MU",
+      "asset": "Micron Technology, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 38,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-25",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MU",
+      "asset": "Micron Technology, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 37,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MU",
+      "asset": "Micron Technology, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 31,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035734",
+    "name": "Hon. Carol Devine Miller",
+    "district": "WV01",
+    "filed": "2026-10-30",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035734.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-09-29",
+      "amount": "$710.52",
+      "ticker": "HONA",
+      "asset": "Honeywell Aerospace Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 31,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035591",
+    "name": "Hon. Thomas H. Kean Jr",
+    "district": "NJ07",
+    "filed": "2026-10-30",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035591.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$1,001 - $15,000",
+      "ticker": "ABT",
+      "asset": "Abbott Laboratories Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 43,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-09-29",
+      "amount": "$1,001 - $15,000",
+      "ticker": "ESAB",
+      "asset": "ESAB Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 31,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-09-30",
+      "amount": "$1,001 - $15,000",
+      "ticker": "JNJ",
+      "asset": "Johnson & Johnson Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 30,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-09-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MDLZ",
+      "asset": "Mondelez International, Inc. - Class A Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 37,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-09-30",
+      "amount": "$1,001 - $15,000",
+      "ticker": "SYK",
+      "asset": "Stryker Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 30,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-09-17",
+      "amount": "$1,001 - $15,000",
+      "ticker": "TXN",
+      "asset": "Texas Instruments Incorporated - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 43,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035727",
+    "name": "Hon. David J. Taylor",
+    "district": "OH02",
+    "filed": "2026-10-29",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035727.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "T",
+      "asset": "AT&T Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "LRCX",
+      "asset": "Lam Research Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MPC",
+      "asset": "Marathon Petroleum Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MPC",
+      "asset": "Marathon Petroleum Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PLD",
+      "asset": "Prologis, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PLD",
+      "asset": "Prologis, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "RPM",
+      "asset": "RPM International Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$1,001 - $15,000",
+      "ticker": "V",
+      "asset": "Visa Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035710",
+    "name": "Hon. Kevin Hern",
+    "district": "OK01",
+    "filed": "2026-10-28",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035710.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-10-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "ASML",
+      "asset": "ASML Holding N.V. - New York Registry Shares",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 5,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-10-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "STX",
+      "asset": "Seagate Technology Holdings PLC - Ordinary Shares",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 5,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-10-14",
+      "amount": "$15,001 - $50,000",
+      "ticker": "TXN",
+      "asset": "Texas Instruments Incorporated - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035689",
+    "name": "Hon. Suzan K. DelBene",
+    "district": "WA01",
+    "filed": "2026-10-28",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035689.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-10-14",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "Black Belt Energy Gas Dist Ala Gas 05.00% 12/01/2035 Proj Rev BDS Ser. 2025 F",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-10-14",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "Tennessee Energy Ac 5% Edr Idr Due 12/01/35",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "9116391",
+    "name": "Hon. Diana Harshbarger",
+    "district": "TN01",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116391.pdf",
+    "rows": []
+   },
+   {
+    "doc_id": "9116390",
+    "name": "Hon. Diana Harshbarger",
+    "district": "TN01",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116390.pdf",
+    "rows": []
+   },
+   {
+    "doc_id": "9116389",
+    "name": "Hon. Diana Harshbarger",
+    "district": "TN01",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116389.pdf",
+    "rows": []
+   },
+   {
+    "doc_id": "20035715",
+    "name": "Hon. Max Miller",
+    "district": "OH07",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035715.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": null,
+      "asset": "AIX Ventures Fund II, LP (GLAS Funds, LP)",
+      "asset_type": "HN",
+      "description": "Distribution of $6,923.58",
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "partial sale",
+      "date": "2026-09-30",
+      "amount": "$1,001 - $15,000",
+      "ticker": null,
+      "asset": "Mercato Partners Traverse IV QP, LP (GLAS Funds, LP)",
+      "asset_type": "HN",
+      "description": "Distribution of $2,375.01",
+      "days_to_disclose": 27,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035714",
+    "name": "Hon. Jodey Arrington",
+    "district": "TX19",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035714.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2025-07-10",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "Montego",
+      "asset_type": "OI",
+      "description": "The land we owned in an investment fund that purchased land for oil leases was sold. We owned a small percentage in this fund.",
+      "days_to_disclose": 474,
+      "late": true
+     }
+    ]
+   },
+   {
+    "doc_id": "20035563",
+    "name": "Hon. Pete Sessions",
+    "district": "TX17",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035563.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$50,001 - $100,000",
+      "ticker": "ABT",
+      "asset": "Abbott Laboratories Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$100,001 - $250,000",
+      "ticker": "GOOG",
+      "asset": "Alphabet Inc. - Class C Capital Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$100,001 - $250,000",
+      "ticker": "AMZN",
+      "asset": "Amazon.com, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-27",
+      "amount": "$15,001 - $50,000",
+      "ticker": "AMZN",
+      "asset": "Amazon.com, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 0,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$250,001 - $500,000",
+      "ticker": "AAPL",
+      "asset": "Apple Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-15",
+      "amount": "$15,001 - $50,000",
+      "ticker": "BRK.B",
+      "asset": "Berkshire Hathaway Inc. New Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 12,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-14",
+      "amount": "$15,001 - $50,000",
+      "ticker": "CVX",
+      "asset": "Chevron Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "CMG",
+      "asset": "Chipotle Mexican Grill, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$250,001 - $500,000",
+      "ticker": "COST",
+      "asset": "Costco Wholesale Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-13",
+      "amount": "$100,001 - $250,000",
+      "ticker": "COST",
+      "asset": "Costco Wholesale Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-14",
+      "amount": "$1,001 - $15,000",
+      "ticker": "XOM",
+      "asset": "ExxonMobil Holdings Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-22",
+      "amount": "$1,001 - $15,000",
+      "ticker": "HD",
+      "asset": "Home Depot, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 5,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": "HON",
+      "asset": "Honeywell International Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-20",
+      "amount": "$1,001 - $15,000",
+      "ticker": "IBM",
+      "asset": "International Business Machines Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 7,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-22",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LOW",
+      "asset": "Lowe's Companies, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 5,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "MA",
+      "asset": "Mastercard Incorporated Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "MCD",
+      "asset": "McDonald's Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-27",
+      "amount": "$1,001 - $15,000",
+      "ticker": "MCD",
+      "asset": "McDonald's Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 0,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$250,001 - $500,000",
+      "ticker": "MSFT",
+      "asset": "Microsoft Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-21",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PEP",
+      "asset": "Pepsico, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-08",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PG",
+      "asset": "Procter & Gamble Company",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 19,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-21",
+      "amount": "$344.99",
+      "ticker": "REZI",
+      "asset": "Resideo Technologies, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-21",
+      "amount": "$1,001 - $15,000",
+      "ticker": "SOLS",
+      "asset": "Solstice Advanced Materials Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "SBUX",
+      "asset": "Starbucks Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "TSLA",
+      "asset": "Tesla, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "TJX",
+      "asset": "TJX Companies, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "TJX",
+      "asset": "TJX Companies, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "VZ",
+      "asset": "Verizon Communications Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "V",
+      "asset": "Visa Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$50,001 - $100,000",
+      "ticker": "WMT",
+      "asset": "Walmart Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-28",
+      "amount": "$1,001 - $15,000",
+      "ticker": "DIS",
+      "asset": "Walt Disney Company",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": -1,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035525",
+    "name": "Hon. Sheri Biggs",
+    "district": "SC03",
+    "filed": "2026-10-27",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035525.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-30",
+      "amount": "$1,001 - $15,000",
+      "ticker": null,
+      "asset": "Oaktree Strategic Credit Fund Class S",
+      "asset_type": "OT",
+      "description": "Professionally Managed Account",
+      "days_to_disclose": 27,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035700",
+    "name": "Hon. Darrell E. Issa",
+    "district": "CA48",
+    "filed": "2026-10-22",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035700.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-08",
+      "amount": "$5,000,001 - $25,000,000",
+      "ticker": null,
+      "asset": "US Treasury Note 3.375% due 09/15/28 CUSIP 91282CNY3",
+      "asset_type": "GS",
+      "description": "Purchase of US Treasury Bond with $10 million face value",
+      "days_to_disclose": 14,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-14",
+      "amount": "$5,000,001 - $25,000,000",
+      "ticker": null,
+      "asset": "US Treasury Note 3.375% due 09/15/28 CUSIP 91282CNY3",
+      "asset_type": "GS",
+      "description": "Sale of US Treasury Note before Maturity. Face Value $10 million",
+      "days_to_disclose": 8,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035669",
+    "name": "Cleo Fields",
+    "district": "LA06",
+    "filed": "2026-10-22",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035669.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-01",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-09",
+      "amount": "$1,001 - $15,000",
+      "ticker": "TSM",
+      "asset": "Taiwan Semiconductor Manufacturing Company Ltd.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 13,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035691",
+    "name": "Hon. Rudy C. Yakym III",
+    "district": "IN02",
+    "filed": "2026-10-20",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035691.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-20",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "Treasury Bill (6-Week, Matures 12/3/2026)",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 0,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035687",
+    "name": "Hon. James A. Himes",
+    "district": "CT04",
+    "filed": "2026-10-20",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035687.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-29",
+      "amount": "$50,001 - $100,000",
+      "ticker": null,
+      "asset": "So Fine Foods LLC",
+      "asset_type": "OL",
+      "description": "Mandatorily convertible SAFE (Simple Agreement for Future Equity)",
+      "days_to_disclose": 21,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035671",
+    "name": "Hon. Michael Rulli",
+    "district": "OH06",
+    "filed": "2026-10-19",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035671.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-16",
+      "amount": "$50,001 - $100,000",
+      "ticker": "GOOG",
+      "asset": "Alphabet Inc. - Class C Capital Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 3,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-16",
+      "amount": "$1,001 - $15,000",
+      "ticker": "WSBC",
+      "asset": "WesBanco, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 3,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035551",
+    "name": "Hon. Jonathan Jackson",
+    "district": "IL01",
+    "filed": "2026-10-19",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035551.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-28",
+      "amount": "$50,001 - $100,000",
+      "ticker": "DDOG",
+      "asset": "Datadog, Inc. - Class A Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-28",
+      "amount": "$50,001 - $100,000",
+      "ticker": "EL",
+      "asset": "Estee Lauder Companies, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-28",
+      "amount": "$15,001 - $50,000",
+      "ticker": "GH",
+      "asset": "Guardant Health, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-09-04",
+      "amount": "$1,001 - $15,000",
+      "ticker": "TYG",
+      "asset": "Tortoise Energy Infrastructure Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 45,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-28",
+      "amount": "$50,001 - $100,000",
+      "ticker": "VSAT",
+      "asset": "ViaSat, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-28",
+      "amount": "$50,001 - $100,000",
+      "ticker": "WMT",
+      "asset": "Walmart Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": "083057",
+      "days_to_disclose": 21,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035490",
+    "name": "Hon. Laurel Lee",
+    "district": "FL15",
+    "filed": "2026-10-16",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035490.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-08-24",
+      "amount": "$50,001 - $100,000",
+      "ticker": "BAC",
+      "asset": "Bank of America Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 53,
+      "late": true
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": "NOKBF",
+      "asset": "NOKIA A SHS",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 28,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035660",
+    "name": "Hon. David J. Taylor",
+    "district": "OH02",
+    "filed": "2026-10-15",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035660.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-09",
+      "amount": "$1,001 - $15,000",
+      "ticker": "T",
+      "asset": "AT&T Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-09",
+      "amount": "$1,001 - $15,000",
+      "ticker": "FITB",
+      "asset": "Fifth Third Bancorp - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-12",
+      "amount": "$1,001 - $15,000",
+      "ticker": "PG",
+      "asset": "Procter & Gamble Company",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 3,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-09",
+      "amount": "$1,001 - $15,000",
+      "ticker": "RPM",
+      "asset": "RPM International Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 6,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035637",
+    "name": "Hon. Scott H. Peters",
+    "district": "CA50",
+    "filed": "2026-10-15",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035637.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-03",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "CA ST GO UTX",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 42,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-03",
+      "amount": "$100,001 - $250,000",
+      "ticker": null,
+      "asset": "CA ST GO UTX",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 42,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-25",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "Charlotte-Meckle HLTH",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-09-24",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "U.S. Treasury Bill",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 21,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "9116378",
+    "name": "Hon. Michael T. McCaul",
+    "district": "TX10",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116378.pdf",
+    "rows": []
+   },
+   {
+    "doc_id": "20035652",
+    "name": "Hon. Mike Kelly",
+    "district": "PA16",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035652.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "Black Belt Energy Gas Dist AL 1 Rev Call 5% due 10/1/32",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "purchase",
+      "date": "2026-09-16",
+      "amount": "$50,001 - $100,000",
+      "ticker": null,
+      "asset": "California Cmnty Choice Fing A Sustainabl 5% due 9/1/36",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 28,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035651",
+    "name": "Hon. Richard Dean Dr McCormick",
+    "district": "GA06",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035651.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$1,001 - $15,000",
+      "ticker": "BRK.B",
+      "asset": "Berkshire Hathaway Inc. New Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035648",
+    "name": "Hon. Richard W. Allen",
+    "district": "GA12",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035648.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-09-22",
+      "amount": "$15,001 - $50,000",
+      "ticker": "AZO",
+      "asset": "AutoZone, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 22,
+      "late": false
+     },
+     {
+      "owner_name": "spouse",
+      "type_name": "sale",
+      "date": "2026-09-18",
+      "amount": "$1,001 - $15,000",
+      "ticker": "COST",
+      "asset": "Costco Wholesale Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035627",
+    "name": "Hon. Suzan K. DelBene",
+    "district": "WA01",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035627.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "Black Belt Energy Gas Dist Ala Gas 05.00% 10/01/2032 Proj Rev BDS Ser. 2026 M-1",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-18",
+      "amount": "$250,001 - $500,000",
+      "ticker": null,
+      "asset": "Triborough Bridge & 4% SPL Tax Due 11/15/31",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-24",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "TX Trans Commn TPK 5% Tran Due 08/15/42",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "Washington ST 5% Go Utx Due 08/01/30",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035487",
+    "name": "Hon. Daniel Meuser",
+    "district": "PA09",
+    "filed": "2026-10-14",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035487.pdf",
+    "rows": [
+     {
+      "owner_name": "spouse",
+      "type_name": "partial sale",
+      "date": "2026-08-31",
+      "amount": "$1,001 - $15,000",
+      "ticker": "NVDA",
+      "asset": "NVIDIA Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 44,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035588",
+    "name": "Hon. Kevin Hern",
+    "district": "OK01",
+    "filed": "2026-10-13",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035588.pdf",
+    "rows": [
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "CVX",
+      "asset": "Chevron Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "CB",
+      "asset": "Chubb Limited Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$50,001 - $100,000",
+      "ticker": "DVN",
+      "asset": "Devon Energy Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "DVN",
+      "asset": "Devon Energy Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$15,001 - $50,000",
+      "ticker": "EMR",
+      "asset": "Emerson Electric Company Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "GRADY CNTY OKLA SCH FIN AUH EDL FACS 5.000% MAT 9/1/2033",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$1,001 - $15,000",
+      "ticker": "HD",
+      "asset": "Home Depot, Inc.",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LIN",
+      "asset": "Linde plc - Ordinary Shares",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LMT",
+      "asset": "Lockheed Martin Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LMT",
+      "asset": "Lockheed Martin Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LMT",
+      "asset": "Lockheed Martin Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "LMT",
+      "asset": "Lockheed Martin Corporation Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$1,001 - $15,000",
+      "ticker": "LOW",
+      "asset": "Lowe's Companies, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$50,001 - $100,000",
+      "ticker": "MRSH",
+      "asset": "Marsh Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$50,001 - $100,000",
+      "ticker": "MRSH",
+      "asset": "Marsh Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "MAYES CNTY OKLA PUB FACS AUTH REV 3.000% MAT 9/1/2027",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-10-02",
+      "amount": "$15,001 - $50,000",
+      "ticker": "NEE",
+      "asset": "NextEra Energy, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 11,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-21",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "OKLAHOMA DEPT TRANSN REV GAN SER 2018 A 5.000% MAT 9/1/2033",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 22,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-21",
+      "amount": "$50,001 - $100,000",
+      "ticker": null,
+      "asset": "PONTOTOC CNTY OKLA EDL FACS AUTH 5.000% MAT 09/01/2028",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 22,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "partial sale",
+      "date": "2026-09-17",
+      "amount": "$15,001 - $50,000",
+      "ticker": "ROK",
+      "asset": "Rockwell Automation, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 26,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "SBUX",
+      "asset": "Starbucks Corporation - Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "purchase",
+      "date": "2026-09-18",
+      "amount": "$15,001 - $50,000",
+      "ticker": null,
+      "asset": "TULSA OKLA MET UTIL AUTH UTIL REV UTIL 3.000% MAT 4/1/2029",
+      "asset_type": "GS",
+      "description": null,
+      "days_to_disclose": 25,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "UNH",
+      "asset": "UnitedHealth Group Incorporated Common Stock",
+      "asset_type": "ST",
+      "description": null,
+      "days_to_disclose": 20,
+      "late": false
+     },
+     {
+      "owner_name": "joint",
+      "type_name": "sale",
+      "date": "2026-09-23",
+      "amount": "$15,001 - $50,000",
+      "ticker": "AIO",
+      "asset": "Virtus Artificial Intelligence & Technology Opportunities Fund Common Shares of Beneficial Interest",
+      "asset_type": "ST",
+      "description": "Family Revocable Trust",
+      "days_to_disclose": 20,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035635",
+    "name": "Hon. Rick Larsen",
+    "district": "WA02",
+    "filed": "2026-10-12",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035635.pdf",
+    "rows": [
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-08",
+      "amount": "$1,001 - $15,000",
+      "ticker": "ADI",
+      "asset": "Analog Devices, Inc. - Common Stock",
+      "asset_type": "ST",
+      "description": "Quarterly rebalance",
+      "days_to_disclose": 4,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-08",
+      "amount": "$1,001 - $15,000",
+      "ticker": "FDX",
+      "asset": "FedEx Corporation Common Stock",
+      "asset_type": "ST",
+      "description": "Quarterly rebalance",
+      "days_to_disclose": 4,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "sale",
+      "date": "2026-10-08",
+      "amount": "$1,001 - $15,000",
+      "ticker": "HD",
+      "asset": "Home Depot, Inc.",
+      "asset_type": "ST",
+      "description": "Quarterly rebalance",
+      "days_to_disclose": 4,
+      "late": false
+     },
+     {
+      "owner_name": "self",
+      "type_name": "purchase",
+      "date": "2026-10-08",
+      "amount": "$1,001 - $15,000",
+      "ticker": "WSM",
+      "asset": "Williams-Sonoma, Inc. Common Stock",
+      "asset_type": "ST",
+      "description": "Quarterly rebalance",
+      "days_to_disclose": 4,
+      "late": false
+     }
+    ]
+   },
+   {
+    "doc_id": "20035622",
+    "name": "Hon. Gilbert Cisneros",
+    "district": "CA31",
+    "filed": "2026-10-12",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035622.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035585",
+    "name": "Hon. Lisa McClain",
+    "district": "MI09",
+    "filed": "2026-10-12",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035585.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "9116376",
+    "name": "Hon. Rohit Khanna",
+    "district": "CA17",
+    "filed": "2026-10-07",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116376.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035590",
+    "name": "Hon. Josh Gottheimer",
+    "district": "NJ05",
+    "filed": "2026-10-07",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035590.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035562",
+    "name": "Hon. Maria Elvira Salazar",
+    "district": "FL27",
+    "filed": "2026-10-07",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035562.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035580",
+    "name": "Hon. Lloyd Doggett",
+    "district": "TX37",
+    "filed": "2026-10-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035580.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035539",
+    "name": "Hon. Vince Fong",
+    "district": "CA20",
+    "filed": "2026-10-05",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035539.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "9116361",
+    "name": "Tony Wied",
+    "district": "WI08",
+    "filed": "2026-10-02",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/9116361.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035558",
+    "name": "Hon. Michael Rulli",
+    "district": "OH06",
+    "filed": "2026-10-02",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035558.pdf",
+    "rows": null
+   },
+   {
+    "doc_id": "20035553",
+    "name": "Hon. Nancy Pelosi",
+    "district": "CA11",
+    "filed": "2026-10-02",
+    "url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/2026/20035553.pdf",
+    "rows": null
+   }
+  ]
+ },
+ "updated": "2026-11-09T16:24:39Z"
+}
