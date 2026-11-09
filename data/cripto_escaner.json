@@ -2,7 +2,7 @@
  "mode": "cripto",
  "source": "Binance (data-api.binance.vision), velas diarias UTC",
  "daily": {
-  "run_at": "2026-11-09T20:51:42Z",
+  "run_at": "2026-11-09T21:16:08Z",
   "as_of": "2026-11-08 cierre UTC",
   "close_date": "2026-11-08",
   "universe": 111,
@@ -18,13 +18,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 86.73,
+    "price": 86.51,
     "close": 86.54,
     "close_date": "2026-11-08",
     "rsi": 26.8,
     "volume": 122180274.45684,
-    "qv24": 239161028.63952,
-    "chg24": -2.878,
+    "qv24": 239908358.8982,
+    "chg24": -2.885,
     "vol_ratio": 0.69,
     "grade": {
      "hist": {
@@ -49,13 +49,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 1.0971,
+    "price": 1.0908,
     "close": 1.1132,
     "close_date": "2026-11-08",
     "rsi": 27.5,
     "volume": 109246550.36023,
-    "qv24": 204318527.20354,
-    "chg24": -4.749,
+    "qv24": 205928001.7026,
+    "chg24": -5.206,
     "vol_ratio": 1.03,
     "grade": {
      "hist": {
@@ -80,13 +80,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.3212,
+    "price": 0.3185,
     "close": 0.3121,
     "close_date": "2026-11-08",
     "rsi": 28.9,
     "volume": 13741537.29525,
-    "qv24": 18745178.83744,
-    "chg24": 0.062,
+    "qv24": 18854683.19915,
+    "chg24": -0.964,
     "vol_ratio": 0.39,
     "grade": {
      "hist": {
@@ -111,13 +111,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.6445,
+    "price": 0.6435,
     "close": 0.6365,
     "close_date": "2026-11-08",
     "rsi": 28.9,
     "volume": 6111118.351577,
-    "qv24": 11751421.856959,
-    "chg24": -4.843,
+    "qv24": 11778829.758136,
+    "chg24": -4.92,
     "vol_ratio": 1.05,
     "grade": {
      "hist": {
@@ -142,13 +142,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 1.132,
+    "price": 1.122,
     "close": 1.136,
     "close_date": "2026-11-08",
     "rsi": 25.3,
     "volume": 6362495.830824,
-    "qv24": 9584016.193955,
-    "chg24": -3.33,
+    "qv24": 9591901.941492,
+    "chg24": -4.103,
     "vol_ratio": 0.57,
     "grade": {
      "hist": {
@@ -168,49 +168,18 @@
     }
    },
    {
-    "symbol": "RSR",
-    "pair": "RSRUSDT",
-    "setups": [
-     "reclaim_ma20"
-    ],
-    "price": 0.001763,
-    "close": 0.001659,
-    "close_date": "2026-11-08",
-    "rsi": 52.9,
-    "volume": 6848032.8500889,
-    "qv24": 8119832.5671743,
-    "chg24": 2.619,
-    "vol_ratio": 5.1,
-    "grade": {
-     "hist": {
-      "n": 58,
-      "win_pct": 46.6,
-      "avg": 2.547,
-      "avg_win": 14.809,
-      "avg_loss": 8.134,
-      "payoff": 1.82
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.001659,
-     "stop": 0.001390015,
-     "target": 0.0021969700000000003,
-     "rr": 2.0
-    }
-   },
-   {
     "symbol": "XLM",
     "pair": "XLMUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 0.1476,
+    "price": 0.1472,
     "close": 0.1463,
     "close_date": "2026-11-08",
     "rsi": 29.0,
     "volume": 5749587.9657,
-    "qv24": 8051213.9009,
-    "chg24": -1.6,
+    "qv24": 8301455.5108,
+    "chg24": -1.801,
     "vol_ratio": 0.69,
     "grade": {
      "hist": {
@@ -230,33 +199,33 @@
     }
    },
    {
-    "symbol": "XPL",
-    "pair": "XPLUSDT",
+    "symbol": "RSR",
+    "pair": "RSRUSDT",
     "setups": [
-     "oversold"
+     "reclaim_ma20"
     ],
-    "price": 0.05257,
-    "close": 0.05147,
+    "price": 0.001769,
+    "close": 0.001659,
     "close_date": "2026-11-08",
-    "rsi": 27.2,
-    "volume": 5863557.681673,
-    "qv24": 7626248.892694,
-    "chg24": -3.47,
-    "vol_ratio": 0.74,
+    "rsi": 52.9,
+    "volume": 6848032.8500889,
+    "qv24": 7952677.9128648,
+    "chg24": 2.491,
+    "vol_ratio": 5.1,
     "grade": {
      "hist": {
-      "n": 12,
-      "win_pct": 66.7,
-      "avg": 2.49,
-      "avg_win": 10.11,
-      "avg_loss": 12.751,
-      "payoff": 0.79
+      "n": 58,
+      "win_pct": 46.6,
+      "avg": 2.547,
+      "avg_win": 14.809,
+      "avg_loss": 8.134,
+      "payoff": 1.82
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.05147,
-     "stop": 0.0496762705,
-     "target": 0.055057459,
+     "entry": 0.001659,
+     "stop": 0.001390015,
+     "target": 0.0021969700000000003,
      "rr": 2.0
     }
    },
@@ -266,13 +235,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.01309,
+    "price": 0.01306,
     "close": 0.01109,
     "close_date": "2026-11-08",
     "rsi": 28.1,
     "volume": 405027.779485,
-    "qv24": 7510501.546052,
-    "chg24": 13.628,
+    "qv24": 7596960.209438,
+    "chg24": 13.763,
     "vol_ratio": 0.76,
     "grade": {
      "hist": {
@@ -292,18 +261,49 @@
     }
    },
    {
+    "symbol": "XPL",
+    "pair": "XPLUSDT",
+    "setups": [
+     "oversold"
+    ],
+    "price": 0.05219,
+    "close": 0.05147,
+    "close_date": "2026-11-08",
+    "rsi": 27.2,
+    "volume": 5863557.681673,
+    "qv24": 7589473.722314,
+    "chg24": -4.484,
+    "vol_ratio": 0.74,
+    "grade": {
+     "hist": {
+      "n": 12,
+      "win_pct": 66.7,
+      "avg": 2.49,
+      "avg_win": 10.11,
+      "avg_loss": 12.751,
+      "payoff": 0.79
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.05147,
+     "stop": 0.0496762705,
+     "target": 0.055057459,
+     "rr": 2.0
+    }
+   },
+   {
     "symbol": "HBAR",
     "pair": "HBARUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 0.06729,
+    "price": 0.06697,
     "close": 0.0656,
     "close_date": "2026-11-08",
     "rsi": 30.0,
     "volume": 3801217.16258,
-    "qv24": 7406244.95241,
-    "chg24": 0.779,
+    "qv24": 7410503.72877,
+    "chg24": 0.375,
     "vol_ratio": 0.45,
     "grade": {
      "hist": {
@@ -323,18 +323,49 @@
     }
    },
    {
+    "symbol": "WLFI",
+    "pair": "WLFIUSDT",
+    "setups": [
+     "oversold"
+    ],
+    "price": 0.048,
+    "close": 0.0462,
+    "close_date": "2026-11-08",
+    "rsi": 27.5,
+    "volume": 2730634.18244,
+    "qv24": 7290261.05013,
+    "chg24": 3.226,
+    "vol_ratio": 0.55,
+    "grade": {
+     "hist": {
+      "n": 34,
+      "win_pct": 44.1,
+      "avg": -0.224,
+      "avg_win": 11.394,
+      "avg_loss": 9.396,
+      "payoff": 1.21
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.0462,
+     "stop": 0.04458993,
+     "target": 0.049420139999999994,
+     "rr": 2.0
+    }
+   },
+   {
     "symbol": "HOT",
     "pair": "HOTUSDT",
     "setups": [
      "reclaim_ma20"
     ],
-    "price": 0.000447,
+    "price": 0.000459,
     "close": 0.000412,
     "close_date": "2026-11-08",
     "rsi": 52.5,
     "volume": 8342806.658347,
-    "qv24": 7002147.938243,
-    "chg24": 8.495,
+    "qv24": 7158470.405648,
+    "chg24": 13.054,
     "vol_ratio": 4.72,
     "grade": {
      "hist": {
@@ -359,13 +390,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.1542,
+    "price": 0.1543,
     "close": 0.1408,
     "close_date": "2026-11-08",
     "rsi": 27.0,
     "volume": 326419.67577,
-    "qv24": 6779534.32427,
-    "chg24": 5.907,
+    "qv24": 6801201.94949,
+    "chg24": 6.194,
     "vol_ratio": 0.67,
     "grade": {
      "hist": {
@@ -385,49 +416,18 @@
     }
    },
    {
-    "symbol": "WLFI",
-    "pair": "WLFIUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.0488,
-    "close": 0.0462,
-    "close_date": "2026-11-08",
-    "rsi": 27.5,
-    "volume": 2730634.18244,
-    "qv24": 6564370.54486,
-    "chg24": 4.721,
-    "vol_ratio": 0.55,
-    "grade": {
-     "hist": {
-      "n": 34,
-      "win_pct": 44.1,
-      "avg": -0.224,
-      "avg_win": 11.394,
-      "avg_loss": 9.396,
-      "payoff": 1.21
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.0462,
-     "stop": 0.04458993,
-     "target": 0.049420139999999994,
-     "rr": 2.0
-    }
-   },
-   {
     "symbol": "ZIL",
     "pair": "ZILUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 0.001674,
+    "price": 0.001669,
     "close": 0.001639,
     "close_date": "2026-11-08",
     "rsi": 27.5,
     "volume": 683809.3922313,
-    "qv24": 5573170.7699182,
-    "chg24": 1.578,
+    "qv24": 5588675.4857845,
+    "chg24": 1.459,
     "vol_ratio": 0.87,
     "grade": {
      "hist": {
@@ -453,13 +453,13 @@
      "breakout_20d",
      "reclaim_ma20"
     ],
-    "price": 0.404,
+    "price": 0.399,
     "close": 0.474,
     "close_date": "2026-11-08",
     "rsi": 59.5,
     "volume": 3526916.21831,
-    "qv24": 4703053.23247,
-    "chg24": -23.629,
+    "qv24": 4637645.98639,
+    "chg24": -23.709,
     "vol_ratio": 6.03,
     "grade": {
      "hist": {
@@ -484,13 +484,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.00893,
+    "price": 0.00901,
     "close": 0.00816,
     "close_date": "2026-11-08",
     "rsi": 26.1,
     "volume": 1948577.44704,
-    "qv24": 2674720.28618,
-    "chg24": 5.059,
+    "qv24": 2685629.73389,
+    "chg24": 5.875,
     "vol_ratio": 5.5,
     "grade": {
      "hist": {
@@ -515,13 +515,13 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.01029,
+    "price": 0.01046,
     "close": 0.0105,
     "close_date": "2026-11-08",
     "rsi": 21.3,
     "volume": 2434739.85699,
-    "qv24": 2397510.40841,
-    "chg24": -8.125,
+    "qv24": 2376419.45506,
+    "chg24": -4.475,
     "vol_ratio": 0.58,
     "grade": {
      "hist": {
@@ -569,7 +569,7 @@
   },
   "earnings": []
  },
- "updated": "2026-11-09T21:12:03Z",
+ "updated": "2026-11-09T21:16:39Z",
  "orb": {
   "run_at": "2026-11-09T21:11:40Z",
   "as_of": "2026-11-09 10:10 ET",
@@ -2911,5 +2911,83 @@
    },
    "earnings": []
   }
- }
+ },
+ "eligible": [
+  "BTC",
+  "ETH",
+  "SOL",
+  "ZEC",
+  "XRP",
+  "BNB",
+  "PEPE",
+  "NEAR",
+  "AVAX",
+  "DOGE",
+  "UNI",
+  "SUI",
+  "ENA",
+  "ARB",
+  "LINK",
+  "TRX",
+  "U",
+  "ONDO",
+  "ADA",
+  "WLD",
+  "PUMP",
+  "AAVE",
+  "INJ",
+  "TAO",
+  "LTC",
+  "QNT",
+  "BCH",
+  "ASTER",
+  "PROM",
+  "TRUMP",
+  "FET",
+  "INIT",
+  "ONE",
+  "XLM",
+  "RSR",
+  "TST",
+  "XPL",
+  "HBAR",
+  "ZRO",
+  "WLFI",
+  "HOT",
+  "NXPC",
+  "FIL",
+  "ZIL",
+  "DASH",
+  "ETHFI",
+  "PENGU",
+  "APT",
+  "GNS",
+  "STRK",
+  "ZAMA",
+  "RENDER",
+  "ETC",
+  "ICP",
+  "BMT",
+  "DOT",
+  "JST",
+  "CAKE",
+  "NEIRO",
+  "MET",
+  "PYTH",
+  "RAY",
+  "TIA",
+  "SHIB",
+  "POL",
+  "VIRTUAL",
+  "CHIP",
+  "SIGN",
+  "OP",
+  "GTC",
+  "NIGHT",
+  "HUMA",
+  "BEAMX",
+  "SEI",
+  "LDO",
+  "BONK"
+ ]
 }
