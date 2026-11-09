@@ -277,12 +277,12 @@ function nyToMadrid(day, hhmm){
 function to24(s){ const m=/(\d+):(\d+)\s*(AM|PM)?/i.exec(s||''); if(!m) return s; let h=+m[1];
   if(m[3]){ const pm=m[3].toUpperCase()==='PM'; if(pm&&h<12) h+=12; if(!pm&&h===12) h=0; } return String(h).padStart(2,'0')+':'+m[2]; }
 
-const tv = s => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(s.replace('.','-'))}`;
+const tv = s => CRIPTO ? `https://www.tradingview.com/chart/?symbol=BINANCE:${encodeURIComponent(s)}USDT` : `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(s.replace('.','-'))}`;
 let DATA = {}, scanSyms = new Set(), congSyms = new Set(), newsFilter = null;
 
-function tkCell(sym){
+function tkCell(sym, kind){
   const extra = congSyms.has(sym) ? ' <span class="tag cong" title="También aparece en declaraciones del Congreso">Congreso</span>' : '';
-  return `<a class="tk" data-sym="${esc(sym)}" title="Ver detalle de ${esc(sym)}">${esc(sym)}</a>
+  return `<a class="tk" data-sym="${esc(sym)}" data-kind="${kind||''}" title="Ver detalle de ${esc(sym)}">${esc(sym)}</a>
     <a href="${tv(sym)}" target="_blank" rel="noopener" class="mut" title="Gráfico en TradingView" style="text-decoration:none;font-size:11px;margin-left:4px">gráfico</a>${extra}`;
 }
 
@@ -367,7 +367,7 @@ function initDaily(){
     document.getElementById('c-daily').textContent=r.length;
     tb.innerHTML = r.length ? r.map(h=>`<tr>
       <td>${semCell(h.gr)}</td>
-      <td>${tkCell(h.symbol)}</td>
+      <td>${tkCell(h.symbol,'daily')}</td>
       <td>${h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
       <td class="num">${h.win!=null?fmtN(h.win,0)+' % <span class="mut">('+h.grade.hist.n+')</span>':''}</td>
       <td class="num ${h.exp>0?'up':h.exp<0?'dn':''}">${h.exp!=null?(h.exp>0?'+':'')+fmtN(h.exp):''}</td>
@@ -409,14 +409,14 @@ function initOrb(){
     document.getElementById('c-orb').textContent=r.length;
     tb.innerHTML = r.length ? r.map(h=>`<tr>
       <td>${semCell(h.gr)}</td>
-      <td>${tkCell(h.symbol)}</td>
+      <td>${tkCell(h.symbol,'orb')}</td>
       <td class="num">${h.win!=null?fmtN(h.win,0)+' % <span class="mut">('+h.grade.hist.n+')</span>':''}</td>
       <td class="num ${h.exp>0?'up':h.exp<0?'dn':''}">${h.exp!=null?(h.exp>0?'+':'')+fmtN(h.exp):''}</td>
       <td class="num ${h.ts!=null?(h.ts>=1/3?'up':'dn'):''}">${h.ts!=null?fmtN(h.ts*100,0)+' %':''}</td>
       <td>${lvCell(h.grade)}</td>
       <td>${h.hora} NY <span class="mut">(${nyToMadrid(day,h.hora)})</span></td>
       <td class="num">${fmtP(h.price)}</td>
-      <td class="num">${fmtN(h.or_low)}</td><td class="num">${fmtN(h.or_high)}</td>
+      <td class="num">${fmtP(h.or_low)}</td><td class="num">${fmtP(h.or_high)}</td>
       <td class="num">${fmtN(h.range_pct)}</td>
       <td class="num up">+${fmtN(h.pct_over)}</td></tr>`).join('')
       : '<tr><td colspan="12" class="empty">Ninguna ruptura con este filtro.</td></tr>';
@@ -519,7 +519,7 @@ function initAll(){
     return RULES.green? r.filter(x=>x.sem===2) : r; };
   const draw=sortable(document.getElementById('t-all'), rows, r=>{
     document.getElementById('c-all').textContent=r.length;
-    tb.innerHTML=r.length? r.map(x=>`<tr><td>${semCell(x.gr)}</td><td><a class="tk" data-sym="${esc(x.symbol)}">${esc(x.symbol)}</a></td>
+    tb.innerHTML=r.length? r.map(x=>`<tr><td>${semCell(x.gr)}</td><td><a class="tk" data-sym="${esc(x.symbol)}" data-kind="${x.kind}">${esc(x.symbol)}</a></td>
       <td>${x.kind==='orb'?'<span class="tag orb">Apertura</span>':x.h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
       <td class="num"><b>${fmtP(x.entry)}</b></td><td class="num dn">${fmtP(x.stop)}</td><td class="num up">${fmtP(x.target)}</td>
       <td class="num">${fmtN(x.riskp)}</td><td class="num">${fmtN(x.rr,1)}</td>
@@ -555,7 +555,7 @@ function buyWhen(p){
 }
 function sigCell(p){
   if(p.kind==='orb'){
-    const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtN(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+(p.buy_ts?madrid(p.buy_ts)+' (España)':buyWhen(p)[1]+' NY'):'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
+    const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtP(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+(p.buy_ts?madrid(p.buy_ts)+' (España)':buyWhen(p)[1]+' NY'):'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtP(p.or_low)+' a '+fmtP(p.or_high):''].filter(Boolean).join(' · ');
     return `<span class="tag orb">${p.session_name?'Apertura '+p.session_name:'Ruptura de apertura'}</span>${det?`<div class="mut" style="font-size:11.5px">${det}</div>`:''}`;
   }
   const sp=p.entry_type==='deteccion'?'señal con el cierre diario del '+fmtDate(p.signal_date)+' a '+fmtP(p.signal_price)+(p.vol_ratio!=null?' · volumen '+fmtN(p.vol_ratio,1)+' veces la media':''):p.signal_price&&p.entry_type==='apertura'?'señal con el cierre del '+fmtDate(p.signal_date)+' a '+fmtN(p.signal_price)+' $, compra a la apertura':p.entry_type==='apertura pendiente'?'compra a la apertura (pendiente del precio)':'';
@@ -620,7 +620,7 @@ function drawPF(){
   const tb=document.querySelector('#t-pf tbody');
   if(!pfDraw) pfDraw=sortable(document.getElementById('t-pf'), ()=>window.__pfRows||[], r=>{
     document.getElementById('c-pf').textContent=r.length;
-    tb.innerHTML=r.length? r.slice(0,400).map(p=>`<tr>${whenCell(...p.sw)}${whenCell(...p.bw)}<td><span class="sem ${SEM[p.sem]||'x'}"></span>${SEMTXT[p.sem]||'·'}</td><td><a class="tk" data-sym="${esc(p.symbol)}">${esc(p.symbol)}</a></td>
+    tb.innerHTML=r.length? r.slice(0,400).map(p=>`<tr>${whenCell(...p.sw)}${whenCell(...p.bw)}<td><span class="sem ${SEM[p.sem]||'x'}"></span>${SEMTXT[p.sem]||'·'}</td><td><a class="tk" data-sym="${esc(p.symbol)}" data-kind="${p.kind}">${esc(p.symbol)}</a></td>
       <td>${sigCell(p)}</td>
       <td class="num">${fmtP(p.entry)}</td><td class="num">${fmtP(p.last)}</td>${pctCell(p.ret_now)}
       <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}
@@ -650,9 +650,9 @@ function findHit(sym){
   const o=(DATA.orb?.hits||[]).find(h=>h.symbol===sym), d=(DATA.daily?.hits||[]).find(h=>h.symbol===sym);
   return {o,d};
 }
-function openDrawer(sym){
+function openDrawer(sym, want){
   const {o,d}=findHit(sym);
-  const kind = o&&o.grade&&o.grade.entry ? 'orb' : d ? 'daily' : o ? 'orb' : null;
+  const kind = want==='orb'&&o ? 'orb' : want==='daily'&&d ? 'daily' : o&&o.grade&&o.grade.entry ? 'orb' : d ? 'daily' : o ? 'orb' : null;
   const h = kind==='orb'?o:d;
   drawer.dataset.sym=sym; drawer.dataset.kind=kind||'';
   renderDrawer(sym,kind,h);
@@ -769,7 +769,7 @@ function calcOut(kind,h){
 }
 
 // Clic en un ticker: abre el detalle
-document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'); if(!a) return; e.preventDefault(); openDrawer(a.dataset.sym); });
+document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'); if(!a) return; e.preventDefault(); openDrawer(a.dataset.sym, a.dataset.kind); });
 
 (async()=>{
   const st=document.getElementById('status');
