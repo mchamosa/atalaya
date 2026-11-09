@@ -37,6 +37,7 @@ jobs:
       - name: Escanear
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
           MODO="${{ inputs.modo }}"
           if [ -z "$MODO" ]; then
@@ -47,7 +48,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/escaner.json data/escaner_congreso.json 2>/dev/null || true
+          git add data/escaner.json data/escaner_congreso.json data/cartera.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Escáner $(date -u +'%Y-%m-%d %H:%M') UTC"
           git pull --rebase --autostash || true
           git push
