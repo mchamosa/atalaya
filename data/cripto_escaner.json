@@ -569,9 +569,9 @@
   },
   "earnings": []
  },
- "updated": "2026-11-09T21:16:39Z",
+ "updated": "2026-11-09T21:33:48Z",
  "orb": {
-  "run_at": "2026-11-09T21:11:40Z",
+  "run_at": "2026-11-09T21:33:26Z",
   "as_of": "2026-11-09 10:10 ET",
   "session": "ny",
   "session_name": "Nueva York",
@@ -579,170 +579,6 @@
   "scanned": 40,
   "universe": 40,
   "hits": [
-   {
-    "symbol": "BTC",
-    "pair": "BTCUSDT",
-    "session": "ny",
-    "price": 74986.06,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 74778.01,
-    "or_low": 74356.01,
-    "pct_over": 0.28,
-    "detect_price": 74816.0,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.55,
-    "qv24": 1464072239.8917408,
-    "grade": {
-     "entry": 74816.0,
-     "stop": 74567.00999999,
-     "target": 75313.98000002,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 8,
-      "win_pct": 37.5,
-      "avg": 0.309,
-      "avg_win": 2.0,
-      "avg_loss": 0.706,
-      "payoff": 2.83
-     },
-     "mc": {
-      "p_target": 0.375,
-      "p_stop": 0.375,
-      "p_neither": 0.25,
-      "p_green": 0.375,
-      "avg_R": 0.309,
-      "target_share": 0.5,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "ETH",
-    "pair": "ETHUSDT",
-    "session": "ny",
-    "price": 2135.86,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 2129.65,
-    "or_low": 2114.48,
-    "pct_over": 0.29,
-    "detect_price": 2125.9,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.46,
-    "qv24": 927801314.946465,
-    "grade": {
-     "entry": 2125.9,
-     "stop": 2122.065,
-     "target": 2133.57,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 7,
-      "win_pct": 14.3,
-      "avg": -0.32,
-      "avg_win": 2.0,
-      "avg_loss": 0.707,
-      "payoff": 2.83
-     },
-     "mc": {
-      "p_target": 0.14285714285714285,
-      "p_stop": 0.5714285714285714,
-      "p_neither": 0.2857142857142857,
-      "p_green": 0.14285714285714285,
-      "avg_R": -0.32,
-      "target_share": 0.2,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "XRP",
-    "pair": "XRPUSDT",
-    "session": "ny",
-    "price": 1.1062,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 1.0999,
-    "or_low": 1.0908,
-    "pct_over": 0.57,
-    "detect_price": 1.0956,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.82,
-    "qv24": 205672162.64793,
-    "grade": {
-     "entry": 1.0956,
-     "stop": 1.09535,
-     "target": 1.0960999999999996,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.307,
-      "avg_win": 2.0,
-      "avg_loss": 0.768,
-      "payoff": 2.6
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.5,
-      "p_neither": 0.3333333333333333,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.307,
-      "target_share": 0.25,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "BNB",
-    "pair": "BNBUSDT",
-    "session": "ny",
-    "price": 688.5,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 685.89,
-    "or_low": 683.3,
-    "pct_over": 0.38,
-    "detect_price": 687.1,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.44,
-    "qv24": 113420295.6931,
-    "grade": {
-     "entry": 687.1,
-     "stop": 684.595,
-     "target": 692.11,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 10,
-      "win_pct": 20.0,
-      "avg": -0.51,
-      "avg_win": 1.025,
-      "avg_loss": 0.894,
-      "payoff": 1.15
-     },
-     "mc": {
-      "p_target": 0.1,
-      "p_stop": 0.7,
-      "p_neither": 0.2,
-      "p_green": 0.2,
-      "avg_R": -0.51,
-      "target_share": 0.125,
-      "historic": true
-     }
-    }
-   },
    {
     "symbol": "PEPE",
     "pair": "PEPEUSDT",
@@ -758,7 +594,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 1.34,
-    "qv24": 89049784.36914645,
+    "qv24": 89521422.5356013,
     "grade": {
      "entry": 5.2e-06,
      "stop": 5.17e-06,
@@ -766,20 +602,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 7,
-      "win_pct": 42.9,
-      "avg": 0.034,
-      "avg_win": 1.413,
-      "avg_loss": 1.0,
-      "payoff": 1.41
+      "n": 5,
+      "win_pct": 40.0,
+      "avg": -0.276,
+      "avg_win": 1.005,
+      "avg_loss": 1.13,
+      "payoff": 0.89
      },
      "mc": {
-      "p_target": 0.2857142857142857,
-      "p_stop": 0.5714285714285714,
-      "p_neither": 0.14285714285714285,
-      "p_green": 0.42857142857142855,
-      "avg_R": 0.034,
-      "target_share": 0.333,
+      "p_target": 0.2,
+      "p_stop": 0.6,
+      "p_neither": 0.2,
+      "p_green": 0.4,
+      "avg_R": -0.276,
+      "target_share": 0.25,
       "historic": true
      }
     }
@@ -799,7 +635,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 0.51,
-    "qv24": 77447161.2331,
+    "qv24": 77395003.3013,
     "grade": {
      "entry": 3.604,
      "stop": 3.56949999,
@@ -807,102 +643,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 9,
-      "win_pct": 11.1,
-      "avg": -0.578,
-      "avg_win": 2.0,
-      "avg_loss": 0.9,
-      "payoff": 2.22
-     },
-     "mc": {
-      "p_target": 0.1111111111111111,
-      "p_stop": 0.7777777777777778,
-      "p_neither": 0.1111111111111111,
-      "p_green": 0.1111111111111111,
-      "avg_R": -0.578,
-      "target_share": 0.125,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "NVDAB",
-    "pair": "NVDABUSDT",
-    "session": "ny",
-    "price": 177.67,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 176.68,
-    "or_low": 170.82,
-    "pct_over": 0.56,
-    "detect_price": 178.79,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 4.75,
-    "qv24": 55273858.85489,
-    "grade": {
-     "entry": 178.79,
-     "stop": 173.75,
-     "target": 188.86999999999998,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.617,
-      "avg_win": 1.3,
-      "avg_loss": 1.0,
-      "payoff": 1.3
-     },
-     "mc": {
-      "p_target": 0.0,
-      "p_stop": 0.8333333333333334,
-      "p_neither": 0.16666666666666666,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.617,
-      "target_share": 0.0,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "DOGE",
-    "pair": "DOGEUSDT",
-    "session": "ny",
-    "price": 0.07031,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.07007,
-    "or_low": 0.06945,
-    "pct_over": 0.34,
-    "detect_price": 0.07008,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.27,
-    "qv24": 53629089.34123,
-    "grade": {
-     "entry": 0.07008,
-     "stop": 0.06975999,
-     "target": 0.07072002000000002,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
       "n": 7,
-      "win_pct": 28.6,
-      "avg": -0.343,
-      "avg_win": 1.065,
-      "avg_loss": 0.906,
-      "payoff": 1.18
+      "win_pct": 14.3,
+      "avg": -0.631,
+      "avg_win": 1.86,
+      "avg_loss": 1.047,
+      "payoff": 1.78
      },
      "mc": {
       "p_target": 0.14285714285714285,
-      "p_stop": 0.5714285714285714,
-      "p_neither": 0.2857142857142857,
-      "p_green": 0.2857142857142857,
-      "avg_R": -0.343,
-      "target_share": 0.2,
+      "p_stop": 0.7142857142857143,
+      "p_neither": 0.14285714285714285,
+      "p_green": 0.14285714285714285,
+      "avg_R": -0.631,
+      "target_share": 0.167,
       "historic": true
      }
     }
@@ -922,7 +676,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 3.63,
-    "qv24": 53625723.35629,
+    "qv24": 53887303.69926,
     "grade": {
      "entry": 8.943,
      "stop": 8.78999999,
@@ -930,225 +684,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.392,
-      "avg_win": 2.0,
-      "avg_loss": 0.87,
-      "payoff": 2.3
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.6666666666666666,
-      "p_neither": 0.16666666666666666,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.392,
-      "target_share": 0.2,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "SNDKB",
-    "pair": "SNDKBUSDT",
-    "session": "ny",
-    "price": 885.16,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 875.0,
-    "or_low": 830.99,
-    "pct_over": 1.16,
-    "detect_price": 877.68,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.46,
-    "qv24": 51977230.225084,
-    "grade": {
-     "entry": 877.68,
-     "stop": 852.995,
-     "target": 927.0499999999998,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
       "n": 5,
-      "win_pct": 60.0,
-      "avg": 0.482,
-      "avg_win": 1.227,
-      "avg_loss": 0.635,
-      "payoff": 1.93
+      "win_pct": 20.0,
+      "avg": -0.42,
+      "avg_win": 1.88,
+      "avg_loss": 0.995,
+      "payoff": 1.89
      },
      "mc": {
       "p_target": 0.2,
-      "p_stop": 0.2,
-      "p_neither": 0.6,
-      "p_green": 0.6,
-      "avg_R": 0.482,
-      "target_share": 0.5,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "HYPE",
-    "pair": "HYPEUSDT",
-    "session": "ny",
-    "price": 76.07,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 75.36,
-    "or_low": 74.02,
-    "pct_over": 0.94,
-    "detect_price": 75.76,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.74,
-    "qv24": 48064059.82356,
-    "grade": {
-     "entry": 75.76,
-     "stop": 74.69,
-     "target": 77.90000000000002,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 7,
-      "win_pct": 14.3,
-      "avg": -0.489,
-      "avg_win": 2.0,
-      "avg_loss": 0.903,
-      "payoff": 2.21
-     },
-     "mc": {
-      "p_target": 0.14285714285714285,
-      "p_stop": 0.7142857142857143,
-      "p_neither": 0.14285714285714285,
-      "p_green": 0.14285714285714285,
-      "avg_R": -0.489,
-      "target_share": 0.167,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "SOXLB",
-    "pair": "SOXLBUSDT",
-    "session": "ny",
-    "price": 51.97,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 50.88,
-    "or_low": 47.42,
-    "pct_over": 2.14,
-    "detect_price": 52.78,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.87,
-    "qv24": 46619652.85077,
-    "grade": {
-     "entry": 52.78,
-     "stop": 49.15,
-     "target": 60.040000000000006,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.35,
-      "avg_win": 2.0,
-      "avg_loss": 0.82,
-      "payoff": 2.44
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.6666666666666666,
-      "p_neither": 0.16666666666666666,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.35,
-      "target_share": 0.2,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "SPCXB",
-    "pair": "SPCXBUSDT",
-    "session": "ny",
-    "price": 141.6,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 141.55,
-    "or_low": 135.55,
-    "pct_over": 0.04,
-    "detect_price": 141.17,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.17,
-    "qv24": 45558857.42878,
-    "grade": {
-     "entry": 141.17,
-     "stop": 138.55,
-     "target": 146.40999999999994,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 10,
-      "win_pct": 40.0,
-      "avg": -0.293,
-      "avg_win": 0.535,
-      "avg_loss": 0.845,
-      "payoff": 0.63
-     },
-     "mc": {
-      "p_target": 0.0,
-      "p_stop": 0.5,
-      "p_neither": 0.5,
-      "p_green": 0.4,
-      "avg_R": -0.293,
-      "target_share": 0.0,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "SUI",
-    "pair": "SUIUSDT",
-    "session": "ny",
-    "price": 0.8657,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.8599,
-    "or_low": 0.8508,
-    "pct_over": 0.67,
-    "detect_price": 0.8562,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.77,
-    "qv24": 36034230.07199,
-    "grade": {
-     "entry": 0.8562,
-     "stop": 0.85535,
-     "target": 0.8578999999999998,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 7,
-      "win_pct": 28.6,
-      "avg": 0.0,
-      "avg_win": 2.0,
-      "avg_loss": 0.8,
-      "payoff": 2.5
-     },
-     "mc": {
-      "p_target": 0.2857142857142857,
-      "p_stop": 0.42857142857142855,
-      "p_neither": 0.2857142857142857,
-      "p_green": 0.2857142857142857,
-      "avg_R": 0.0,
-      "target_share": 0.4,
+      "p_stop": 0.6,
+      "p_neither": 0.2,
+      "p_green": 0.2,
+      "avg_R": -0.42,
+      "target_share": 0.25,
       "historic": true
      }
     }
@@ -1168,7 +717,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 0.57,
-    "qv24": 34878139.662504,
+    "qv24": 35038488.179177,
     "grade": {
      "entry": 0.1551,
      "stop": 0.1538,
@@ -1176,20 +725,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 8,
-      "win_pct": 25.0,
-      "avg": -0.25,
-      "avg_win": 2.0,
-      "avg_loss": 1.0,
-      "payoff": 2.0
+      "n": 6,
+      "win_pct": 33.3,
+      "avg": -0.108,
+      "avg_win": 1.86,
+      "avg_loss": 1.093,
+      "payoff": 1.7
      },
      "mc": {
-      "p_target": 0.25,
-      "p_stop": 0.75,
+      "p_target": 0.3333333333333333,
+      "p_stop": 0.6666666666666666,
       "p_neither": 0.0,
-      "p_green": 0.25,
-      "avg_R": -0.25,
-      "target_share": 0.25,
+      "p_green": 0.3333333333333333,
+      "avg_R": -0.108,
+      "target_share": 0.333,
       "historic": true
      }
     }
@@ -1209,7 +758,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 1.18,
-    "qv24": 27277028.89076,
+    "qv24": 27431234.10865,
     "grade": {
      "entry": 10.697,
      "stop": 10.642,
@@ -1217,143 +766,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 8,
-      "win_pct": 12.5,
-      "avg": -0.495,
-      "avg_win": 2.0,
-      "avg_loss": 0.851,
-      "payoff": 2.35
-     },
-     "mc": {
-      "p_target": 0.125,
-      "p_stop": 0.625,
-      "p_neither": 0.25,
-      "p_green": 0.125,
-      "avg_R": -0.495,
-      "target_share": 0.167,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "MUB",
-    "pair": "MUBUSDT",
-    "session": "ny",
-    "price": 719.72,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 710.16,
-    "or_low": 690.31,
-    "pct_over": 1.35,
-    "detect_price": 725.73,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.19,
-    "qv24": 24812984.83337,
-    "grade": {
-     "entry": 725.73,
-     "stop": 700.23499999,
-     "target": 776.72000002,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 8,
+      "n": 4,
       "win_pct": 25.0,
-      "avg": -0.125,
-      "avg_win": 2.0,
-      "avg_loss": 0.833,
-      "payoff": 2.4
+      "avg": -0.117,
+      "avg_win": 1.86,
+      "avg_loss": 0.777,
+      "payoff": 2.39
      },
      "mc": {
       "p_target": 0.25,
-      "p_stop": 0.5,
-      "p_neither": 0.25,
+      "p_stop": 0.25,
+      "p_neither": 0.5,
       "p_green": 0.25,
-      "avg_R": -0.125,
-      "target_share": 0.333,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "CRCLB",
-    "pair": "CRCLBUSDT",
-    "session": "ny",
-    "price": 67.45,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 67.05,
-    "or_low": 65.55,
-    "pct_over": 0.6,
-    "detect_price": 68.0,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.12,
-    "qv24": 20246210.4398,
-    "grade": {
-     "entry": 68.0,
-     "stop": 66.3,
-     "target": 71.4,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 12,
-      "win_pct": 41.7,
-      "avg": -0.18,
-      "avg_win": 0.968,
-      "avg_loss": 1.0,
-      "payoff": 0.97
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.5833333333333334,
-      "p_neither": 0.25,
-      "p_green": 0.4166666666666667,
-      "avg_R": -0.18,
-      "target_share": 0.222,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "ONDO",
-    "pair": "ONDOUSDT",
-    "session": "ny",
-    "price": 0.3628,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.3609,
-    "or_low": 0.3579,
-    "pct_over": 0.53,
-    "detect_price": 0.3606,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.47,
-    "qv24": 19883061.51376,
-    "grade": {
-     "entry": 0.3606,
-     "stop": 0.3594,
-     "target": 0.36299999999999993,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 7,
-      "win_pct": 28.6,
-      "avg": 0.057,
-      "avg_win": 2.0,
-      "avg_loss": 0.72,
-      "payoff": 2.78
-     },
-     "mc": {
-      "p_target": 0.2857142857142857,
-      "p_stop": 0.42857142857142855,
-      "p_neither": 0.2857142857142857,
-      "p_green": 0.2857142857142857,
-      "avg_R": 0.057,
-      "target_share": 0.4,
+      "avg_R": -0.117,
+      "target_share": 0.5,
       "historic": true
      }
     }
@@ -1373,7 +799,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 0.83,
-    "qv24": 19250589.30286,
+    "qv24": 19241999.6411,
     "grade": {
      "entry": 0.1811,
      "stop": 0.1796,
@@ -1381,143 +807,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.288,
-      "avg_win": 2.0,
-      "avg_loss": 0.746,
-      "payoff": 2.68
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.5,
-      "p_neither": 0.3333333333333333,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.288,
-      "target_share": 0.25,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "PUMP",
-    "pair": "PUMPUSDT",
-    "session": "ny",
-    "price": 0.003709,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.003679,
-    "or_low": 0.003636,
-    "pct_over": 0.82,
-    "detect_price": 0.003662,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.05,
-    "qv24": 18299468.242439,
-    "grade": {
-     "entry": 0.003662,
-     "stop": 0.0036575,
-     "target": 0.0036709999999999994,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 8,
+      "n": 4,
       "win_pct": 25.0,
-      "avg": -0.461,
-      "avg_win": 1.155,
-      "avg_loss": 1.0,
-      "payoff": 1.16
+      "avg": -0.06,
+      "avg_win": 1.84,
+      "avg_loss": 0.693,
+      "payoff": 2.65
      },
      "mc": {
-      "p_target": 0.125,
-      "p_stop": 0.75,
-      "p_neither": 0.125,
+      "p_target": 0.25,
+      "p_stop": 0.25,
+      "p_neither": 0.5,
       "p_green": 0.25,
-      "avg_R": -0.461,
-      "target_share": 0.143,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "MSTRB",
-    "pair": "MSTRBUSDT",
-    "session": "ny",
-    "price": 125.89,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 125.24,
-    "or_low": 122.62,
-    "pct_over": 0.52,
-    "detect_price": 126.67,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.99,
-    "qv24": 17538950.87348,
-    "grade": {
-     "entry": 126.67,
-     "stop": 123.93,
-     "target": 132.14999999999998,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 8,
-      "win_pct": 37.5,
-      "avg": -0.18,
-      "avg_win": 0.943,
-      "avg_loss": 0.854,
-      "payoff": 1.1
-     },
-     "mc": {
-      "p_target": 0.125,
-      "p_stop": 0.5,
-      "p_neither": 0.375,
-      "p_green": 0.375,
-      "avg_R": -0.18,
-      "target_share": 0.2,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "TAO",
-    "pair": "TAOUSDT",
-    "session": "ny",
-    "price": 224.8,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 224.4,
-    "or_low": 222.2,
-    "pct_over": 0.18,
-    "detect_price": 224.2,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.73,
-    "qv24": 14011346.43224,
-    "grade": {
-     "entry": 224.2,
-     "stop": 223.3,
-     "target": 225.99999999999994,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 10,
-      "win_pct": 20.0,
-      "avg": -0.271,
-      "avg_win": 2.0,
-      "avg_loss": 0.839,
-      "payoff": 2.38
-     },
-     "mc": {
-      "p_target": 0.2,
-      "p_stop": 0.6,
-      "p_neither": 0.2,
-      "p_green": 0.2,
-      "avg_R": -0.271,
-      "target_share": 0.25,
+      "avg_R": -0.06,
+      "target_share": 0.5,
       "historic": true
      }
     }
@@ -1537,7 +840,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 0.48,
-    "qv24": 13985021.26355,
+    "qv24": 13991146.0795,
     "grade": {
      "entry": 52.02,
      "stop": 51.72,
@@ -1545,61 +848,20 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 9,
-      "win_pct": 22.2,
-      "avg": -0.474,
-      "avg_win": 1.145,
-      "avg_loss": 0.937,
-      "payoff": 1.22
+      "n": 5,
+      "win_pct": 40.0,
+      "avg": -0.242,
+      "avg_win": 1.015,
+      "avg_loss": 1.08,
+      "payoff": 0.94
      },
      "mc": {
-      "p_target": 0.1111111111111111,
-      "p_stop": 0.6666666666666666,
-      "p_neither": 0.2222222222222222,
-      "p_green": 0.2222222222222222,
-      "avg_R": -0.474,
-      "target_share": 0.143,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "KORUB",
-    "pair": "KORUBUSDT",
-    "session": "ny",
-    "price": 7.27,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 7.2,
-    "or_low": 6.83,
-    "pct_over": 0.97,
-    "detect_price": 7.44,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 6.5,
-    "qv24": 13354114.7886,
-    "grade": {
-     "entry": 7.44,
-     "stop": 7.015,
-     "target": 8.290000000000003,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 3,
-      "win_pct": 0.0,
-      "avg": -0.683,
-      "avg_win": 0.0,
-      "avg_loss": 0.683,
-      "payoff": 0.0
-     },
-     "mc": {
-      "p_target": 0.0,
-      "p_stop": 0.6666666666666666,
-      "p_neither": 0.3333333333333333,
-      "p_green": 0.0,
-      "avg_R": -0.683,
-      "target_share": 0.0,
+      "p_target": 0.2,
+      "p_stop": 0.4,
+      "p_neither": 0.4,
+      "p_green": 0.4,
+      "avg_R": -0.242,
+      "target_share": 0.333,
       "historic": true
      }
     }
@@ -1619,7 +881,7 @@
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
     "vol_ratio": 1.3,
-    "qv24": 12454952.1172,
+    "qv24": 12469972.907,
     "grade": {
      "entry": 242.9,
      "stop": 241.6,
@@ -1627,102 +889,102 @@
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 8,
-      "win_pct": 37.5,
-      "avg": -0.023,
-      "avg_win": 1.363,
-      "avg_loss": 0.854,
-      "payoff": 1.6
-     },
-     "mc": {
-      "p_target": 0.25,
-      "p_stop": 0.5,
-      "p_neither": 0.25,
-      "p_green": 0.375,
-      "avg_R": -0.023,
-      "target_share": 0.333,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "INTCB",
-    "pair": "INTCBUSDT",
-    "session": "ny",
-    "price": 57.62,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 57.58,
-    "or_low": 55.91,
-    "pct_over": 0.07,
-    "detect_price": 57.85,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-09T15:10:00Z",
-    "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 1.05,
-    "qv24": 11844620.16819,
-    "grade": {
-     "entry": 57.85,
-     "stop": 56.745,
-     "target": 60.06000000000001,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
       "n": 5,
-      "win_pct": 40.0,
-      "avg": -0.18,
-      "avg_win": 1.05,
-      "avg_loss": 1.0,
-      "payoff": 1.05
+      "win_pct": 60.0,
+      "avg": 0.398,
+      "avg_win": 1.207,
+      "avg_loss": 0.815,
+      "payoff": 1.48
      },
      "mc": {
-      "p_target": 0.2,
-      "p_stop": 0.6,
-      "p_neither": 0.2,
-      "p_green": 0.4,
-      "avg_R": -0.18,
-      "target_share": 0.25,
+      "p_target": 0.4,
+      "p_stop": 0.2,
+      "p_neither": 0.4,
+      "p_green": 0.6,
+      "avg_R": 0.398,
+      "target_share": 0.667,
       "historic": true
      }
     }
    },
    {
-    "symbol": "ASTER",
-    "pair": "ASTERUSDT",
+    "symbol": "TRUMP",
+    "pair": "TRUMPUSDT",
     "session": "ny",
-    "price": 0.6424,
+    "price": 1.138,
     "at": "9:50 AM",
     "bar_start": "09:45",
-    "or_high": 0.641,
-    "or_low": 0.6382,
-    "pct_over": 0.22,
-    "detect_price": 0.6413,
+    "or_high": 1.133,
+    "or_low": 1.115,
+    "pct_over": 0.44,
+    "detect_price": 1.134,
     "detect_bar": "10:05",
     "detect_ts": "2026-11-09T15:10:00Z",
     "signal_ts": "2026-11-09T14:50:00Z",
-    "vol_ratio": 0.91,
-    "qv24": 11774585.422785,
+    "vol_ratio": 0.74,
+    "qv24": 9572506.768456,
     "grade": {
-     "entry": 0.6413,
-     "stop": 0.63959999,
-     "target": 0.6447000199999999,
+     "entry": 1.134,
+     "stop": 1.124,
+     "target": 1.1539999999999995,
      "rr": 2.0,
      "unit": "R",
      "hist": {
-      "n": 7,
-      "win_pct": 28.6,
-      "avg": -0.427,
-      "avg_win": 1.005,
-      "avg_loss": 1.0,
-      "payoff": 1.0
+      "n": 9,
+      "win_pct": 22.2,
+      "avg": -0.626,
+      "avg_win": 1.52,
+      "avg_loss": 1.239,
+      "payoff": 1.23
      },
      "mc": {
-      "p_target": 0.14285714285714285,
-      "p_stop": 0.7142857142857143,
-      "p_neither": 0.14285714285714285,
-      "p_green": 0.2857142857142857,
-      "avg_R": -0.427,
-      "target_share": 0.167,
+      "p_target": 0.1111111111111111,
+      "p_stop": 0.7777777777777778,
+      "p_neither": 0.1111111111111111,
+      "p_green": 0.2222222222222222,
+      "avg_R": -0.626,
+      "target_share": 0.125,
+      "historic": true
+     }
+    }
+   },
+   {
+    "symbol": "XPL",
+    "pair": "XPLUSDT",
+    "session": "ny",
+    "price": 0.05389,
+    "at": "9:50 AM",
+    "bar_start": "09:45",
+    "or_high": 0.05351,
+    "or_low": 0.05299,
+    "pct_over": 0.71,
+    "detect_price": 0.05365,
+    "detect_bar": "10:05",
+    "detect_ts": "2026-11-09T15:10:00Z",
+    "signal_ts": "2026-11-09T14:50:00Z",
+    "vol_ratio": 0.47,
+    "qv24": 7563874.16059,
+    "grade": {
+     "entry": 0.05365,
+     "stop": 0.05325,
+     "target": 0.05445000000000001,
+     "rr": 2.0,
+     "unit": "R",
+     "hist": {
+      "n": 6,
+      "win_pct": 33.3,
+      "avg": -0.273,
+      "avg_win": 1.09,
+      "avg_loss": 0.955,
+      "payoff": 1.14
+     },
+     "mc": {
+      "p_target": 0.0,
+      "p_stop": 0.5,
+      "p_neither": 0.5,
+      "p_green": 0.3333333333333333,
+      "avg_R": -0.273,
+      "target_share": 0.0,
       "historic": true
      }
     }
@@ -1730,19 +992,19 @@
   ],
   "market": {
    "orb": {
-    "n": 208,
-    "win_pct": 26.4,
-    "avg": -0.264,
-    "avg_win": 1.418,
-    "avg_loss": 0.868,
-    "payoff": 1.63
+    "n": 56,
+    "win_pct": 30.4,
+    "avg": -0.281,
+    "avg_win": 1.414,
+    "avg_loss": 1.02,
+    "payoff": 1.39
    }
   },
   "earnings": []
  },
  "orb_sessions": {
   "ny": {
-   "run_at": "2026-11-09T21:11:40Z",
+   "run_at": "2026-11-09T21:33:26Z",
    "as_of": "2026-11-09 10:10 ET",
    "session": "ny",
    "session_name": "Nueva York",
@@ -1750,170 +1012,6 @@
    "scanned": 40,
    "universe": 40,
    "hits": [
-    {
-     "symbol": "BTC",
-     "pair": "BTCUSDT",
-     "session": "ny",
-     "price": 74986.06,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 74778.01,
-     "or_low": 74356.01,
-     "pct_over": 0.28,
-     "detect_price": 74816.0,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.55,
-     "qv24": 1464072239.8917408,
-     "grade": {
-      "entry": 74816.0,
-      "stop": 74567.00999999,
-      "target": 75313.98000002,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 8,
-       "win_pct": 37.5,
-       "avg": 0.309,
-       "avg_win": 2.0,
-       "avg_loss": 0.706,
-       "payoff": 2.83
-      },
-      "mc": {
-       "p_target": 0.375,
-       "p_stop": 0.375,
-       "p_neither": 0.25,
-       "p_green": 0.375,
-       "avg_R": 0.309,
-       "target_share": 0.5,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "ETH",
-     "pair": "ETHUSDT",
-     "session": "ny",
-     "price": 2135.86,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 2129.65,
-     "or_low": 2114.48,
-     "pct_over": 0.29,
-     "detect_price": 2125.9,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.46,
-     "qv24": 927801314.946465,
-     "grade": {
-      "entry": 2125.9,
-      "stop": 2122.065,
-      "target": 2133.57,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 7,
-       "win_pct": 14.3,
-       "avg": -0.32,
-       "avg_win": 2.0,
-       "avg_loss": 0.707,
-       "payoff": 2.83
-      },
-      "mc": {
-       "p_target": 0.14285714285714285,
-       "p_stop": 0.5714285714285714,
-       "p_neither": 0.2857142857142857,
-       "p_green": 0.14285714285714285,
-       "avg_R": -0.32,
-       "target_share": 0.2,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "XRP",
-     "pair": "XRPUSDT",
-     "session": "ny",
-     "price": 1.1062,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 1.0999,
-     "or_low": 1.0908,
-     "pct_over": 0.57,
-     "detect_price": 1.0956,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.82,
-     "qv24": 205672162.64793,
-     "grade": {
-      "entry": 1.0956,
-      "stop": 1.09535,
-      "target": 1.0960999999999996,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.307,
-       "avg_win": 2.0,
-       "avg_loss": 0.768,
-       "payoff": 2.6
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.5,
-       "p_neither": 0.3333333333333333,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.307,
-       "target_share": 0.25,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "BNB",
-     "pair": "BNBUSDT",
-     "session": "ny",
-     "price": 688.5,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 685.89,
-     "or_low": 683.3,
-     "pct_over": 0.38,
-     "detect_price": 687.1,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.44,
-     "qv24": 113420295.6931,
-     "grade": {
-      "entry": 687.1,
-      "stop": 684.595,
-      "target": 692.11,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 10,
-       "win_pct": 20.0,
-       "avg": -0.51,
-       "avg_win": 1.025,
-       "avg_loss": 0.894,
-       "payoff": 1.15
-      },
-      "mc": {
-       "p_target": 0.1,
-       "p_stop": 0.7,
-       "p_neither": 0.2,
-       "p_green": 0.2,
-       "avg_R": -0.51,
-       "target_share": 0.125,
-       "historic": true
-      }
-     }
-    },
     {
      "symbol": "PEPE",
      "pair": "PEPEUSDT",
@@ -1929,7 +1027,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 1.34,
-     "qv24": 89049784.36914645,
+     "qv24": 89521422.5356013,
      "grade": {
       "entry": 5.2e-06,
       "stop": 5.17e-06,
@@ -1937,20 +1035,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 7,
-       "win_pct": 42.9,
-       "avg": 0.034,
-       "avg_win": 1.413,
-       "avg_loss": 1.0,
-       "payoff": 1.41
+       "n": 5,
+       "win_pct": 40.0,
+       "avg": -0.276,
+       "avg_win": 1.005,
+       "avg_loss": 1.13,
+       "payoff": 0.89
       },
       "mc": {
-       "p_target": 0.2857142857142857,
-       "p_stop": 0.5714285714285714,
-       "p_neither": 0.14285714285714285,
-       "p_green": 0.42857142857142855,
-       "avg_R": 0.034,
-       "target_share": 0.333,
+       "p_target": 0.2,
+       "p_stop": 0.6,
+       "p_neither": 0.2,
+       "p_green": 0.4,
+       "avg_R": -0.276,
+       "target_share": 0.25,
        "historic": true
       }
      }
@@ -1970,7 +1068,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 0.51,
-     "qv24": 77447161.2331,
+     "qv24": 77395003.3013,
      "grade": {
       "entry": 3.604,
       "stop": 3.56949999,
@@ -1978,102 +1076,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 9,
-       "win_pct": 11.1,
-       "avg": -0.578,
-       "avg_win": 2.0,
-       "avg_loss": 0.9,
-       "payoff": 2.22
-      },
-      "mc": {
-       "p_target": 0.1111111111111111,
-       "p_stop": 0.7777777777777778,
-       "p_neither": 0.1111111111111111,
-       "p_green": 0.1111111111111111,
-       "avg_R": -0.578,
-       "target_share": 0.125,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "NVDAB",
-     "pair": "NVDABUSDT",
-     "session": "ny",
-     "price": 177.67,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 176.68,
-     "or_low": 170.82,
-     "pct_over": 0.56,
-     "detect_price": 178.79,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 4.75,
-     "qv24": 55273858.85489,
-     "grade": {
-      "entry": 178.79,
-      "stop": 173.75,
-      "target": 188.86999999999998,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.617,
-       "avg_win": 1.3,
-       "avg_loss": 1.0,
-       "payoff": 1.3
-      },
-      "mc": {
-       "p_target": 0.0,
-       "p_stop": 0.8333333333333334,
-       "p_neither": 0.16666666666666666,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.617,
-       "target_share": 0.0,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "DOGE",
-     "pair": "DOGEUSDT",
-     "session": "ny",
-     "price": 0.07031,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.07007,
-     "or_low": 0.06945,
-     "pct_over": 0.34,
-     "detect_price": 0.07008,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.27,
-     "qv24": 53629089.34123,
-     "grade": {
-      "entry": 0.07008,
-      "stop": 0.06975999,
-      "target": 0.07072002000000002,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
        "n": 7,
-       "win_pct": 28.6,
-       "avg": -0.343,
-       "avg_win": 1.065,
-       "avg_loss": 0.906,
-       "payoff": 1.18
+       "win_pct": 14.3,
+       "avg": -0.631,
+       "avg_win": 1.86,
+       "avg_loss": 1.047,
+       "payoff": 1.78
       },
       "mc": {
        "p_target": 0.14285714285714285,
-       "p_stop": 0.5714285714285714,
-       "p_neither": 0.2857142857142857,
-       "p_green": 0.2857142857142857,
-       "avg_R": -0.343,
-       "target_share": 0.2,
+       "p_stop": 0.7142857142857143,
+       "p_neither": 0.14285714285714285,
+       "p_green": 0.14285714285714285,
+       "avg_R": -0.631,
+       "target_share": 0.167,
        "historic": true
       }
      }
@@ -2093,7 +1109,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 3.63,
-     "qv24": 53625723.35629,
+     "qv24": 53887303.69926,
      "grade": {
       "entry": 8.943,
       "stop": 8.78999999,
@@ -2101,225 +1117,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.392,
-       "avg_win": 2.0,
-       "avg_loss": 0.87,
-       "payoff": 2.3
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.6666666666666666,
-       "p_neither": 0.16666666666666666,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.392,
-       "target_share": 0.2,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "SNDKB",
-     "pair": "SNDKBUSDT",
-     "session": "ny",
-     "price": 885.16,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 875.0,
-     "or_low": 830.99,
-     "pct_over": 1.16,
-     "detect_price": 877.68,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.46,
-     "qv24": 51977230.225084,
-     "grade": {
-      "entry": 877.68,
-      "stop": 852.995,
-      "target": 927.0499999999998,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
        "n": 5,
-       "win_pct": 60.0,
-       "avg": 0.482,
-       "avg_win": 1.227,
-       "avg_loss": 0.635,
-       "payoff": 1.93
+       "win_pct": 20.0,
+       "avg": -0.42,
+       "avg_win": 1.88,
+       "avg_loss": 0.995,
+       "payoff": 1.89
       },
       "mc": {
        "p_target": 0.2,
-       "p_stop": 0.2,
-       "p_neither": 0.6,
-       "p_green": 0.6,
-       "avg_R": 0.482,
-       "target_share": 0.5,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "HYPE",
-     "pair": "HYPEUSDT",
-     "session": "ny",
-     "price": 76.07,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 75.36,
-     "or_low": 74.02,
-     "pct_over": 0.94,
-     "detect_price": 75.76,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.74,
-     "qv24": 48064059.82356,
-     "grade": {
-      "entry": 75.76,
-      "stop": 74.69,
-      "target": 77.90000000000002,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 7,
-       "win_pct": 14.3,
-       "avg": -0.489,
-       "avg_win": 2.0,
-       "avg_loss": 0.903,
-       "payoff": 2.21
-      },
-      "mc": {
-       "p_target": 0.14285714285714285,
-       "p_stop": 0.7142857142857143,
-       "p_neither": 0.14285714285714285,
-       "p_green": 0.14285714285714285,
-       "avg_R": -0.489,
-       "target_share": 0.167,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "SOXLB",
-     "pair": "SOXLBUSDT",
-     "session": "ny",
-     "price": 51.97,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 50.88,
-     "or_low": 47.42,
-     "pct_over": 2.14,
-     "detect_price": 52.78,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.87,
-     "qv24": 46619652.85077,
-     "grade": {
-      "entry": 52.78,
-      "stop": 49.15,
-      "target": 60.040000000000006,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.35,
-       "avg_win": 2.0,
-       "avg_loss": 0.82,
-       "payoff": 2.44
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.6666666666666666,
-       "p_neither": 0.16666666666666666,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.35,
-       "target_share": 0.2,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "SPCXB",
-     "pair": "SPCXBUSDT",
-     "session": "ny",
-     "price": 141.6,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 141.55,
-     "or_low": 135.55,
-     "pct_over": 0.04,
-     "detect_price": 141.17,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.17,
-     "qv24": 45558857.42878,
-     "grade": {
-      "entry": 141.17,
-      "stop": 138.55,
-      "target": 146.40999999999994,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 10,
-       "win_pct": 40.0,
-       "avg": -0.293,
-       "avg_win": 0.535,
-       "avg_loss": 0.845,
-       "payoff": 0.63
-      },
-      "mc": {
-       "p_target": 0.0,
-       "p_stop": 0.5,
-       "p_neither": 0.5,
-       "p_green": 0.4,
-       "avg_R": -0.293,
-       "target_share": 0.0,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "SUI",
-     "pair": "SUIUSDT",
-     "session": "ny",
-     "price": 0.8657,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.8599,
-     "or_low": 0.8508,
-     "pct_over": 0.67,
-     "detect_price": 0.8562,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.77,
-     "qv24": 36034230.07199,
-     "grade": {
-      "entry": 0.8562,
-      "stop": 0.85535,
-      "target": 0.8578999999999998,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 7,
-       "win_pct": 28.6,
-       "avg": 0.0,
-       "avg_win": 2.0,
-       "avg_loss": 0.8,
-       "payoff": 2.5
-      },
-      "mc": {
-       "p_target": 0.2857142857142857,
-       "p_stop": 0.42857142857142855,
-       "p_neither": 0.2857142857142857,
-       "p_green": 0.2857142857142857,
-       "avg_R": 0.0,
-       "target_share": 0.4,
+       "p_stop": 0.6,
+       "p_neither": 0.2,
+       "p_green": 0.2,
+       "avg_R": -0.42,
+       "target_share": 0.25,
        "historic": true
       }
      }
@@ -2339,7 +1150,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 0.57,
-     "qv24": 34878139.662504,
+     "qv24": 35038488.179177,
      "grade": {
       "entry": 0.1551,
       "stop": 0.1538,
@@ -2347,20 +1158,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 8,
-       "win_pct": 25.0,
-       "avg": -0.25,
-       "avg_win": 2.0,
-       "avg_loss": 1.0,
-       "payoff": 2.0
+       "n": 6,
+       "win_pct": 33.3,
+       "avg": -0.108,
+       "avg_win": 1.86,
+       "avg_loss": 1.093,
+       "payoff": 1.7
       },
       "mc": {
-       "p_target": 0.25,
-       "p_stop": 0.75,
+       "p_target": 0.3333333333333333,
+       "p_stop": 0.6666666666666666,
        "p_neither": 0.0,
-       "p_green": 0.25,
-       "avg_R": -0.25,
-       "target_share": 0.25,
+       "p_green": 0.3333333333333333,
+       "avg_R": -0.108,
+       "target_share": 0.333,
        "historic": true
       }
      }
@@ -2380,7 +1191,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 1.18,
-     "qv24": 27277028.89076,
+     "qv24": 27431234.10865,
      "grade": {
       "entry": 10.697,
       "stop": 10.642,
@@ -2388,143 +1199,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 8,
-       "win_pct": 12.5,
-       "avg": -0.495,
-       "avg_win": 2.0,
-       "avg_loss": 0.851,
-       "payoff": 2.35
-      },
-      "mc": {
-       "p_target": 0.125,
-       "p_stop": 0.625,
-       "p_neither": 0.25,
-       "p_green": 0.125,
-       "avg_R": -0.495,
-       "target_share": 0.167,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "MUB",
-     "pair": "MUBUSDT",
-     "session": "ny",
-     "price": 719.72,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 710.16,
-     "or_low": 690.31,
-     "pct_over": 1.35,
-     "detect_price": 725.73,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.19,
-     "qv24": 24812984.83337,
-     "grade": {
-      "entry": 725.73,
-      "stop": 700.23499999,
-      "target": 776.72000002,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 8,
+       "n": 4,
        "win_pct": 25.0,
-       "avg": -0.125,
-       "avg_win": 2.0,
-       "avg_loss": 0.833,
-       "payoff": 2.4
+       "avg": -0.117,
+       "avg_win": 1.86,
+       "avg_loss": 0.777,
+       "payoff": 2.39
       },
       "mc": {
        "p_target": 0.25,
-       "p_stop": 0.5,
-       "p_neither": 0.25,
+       "p_stop": 0.25,
+       "p_neither": 0.5,
        "p_green": 0.25,
-       "avg_R": -0.125,
-       "target_share": 0.333,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "CRCLB",
-     "pair": "CRCLBUSDT",
-     "session": "ny",
-     "price": 67.45,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 67.05,
-     "or_low": 65.55,
-     "pct_over": 0.6,
-     "detect_price": 68.0,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.12,
-     "qv24": 20246210.4398,
-     "grade": {
-      "entry": 68.0,
-      "stop": 66.3,
-      "target": 71.4,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 12,
-       "win_pct": 41.7,
-       "avg": -0.18,
-       "avg_win": 0.968,
-       "avg_loss": 1.0,
-       "payoff": 0.97
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.5833333333333334,
-       "p_neither": 0.25,
-       "p_green": 0.4166666666666667,
-       "avg_R": -0.18,
-       "target_share": 0.222,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "ONDO",
-     "pair": "ONDOUSDT",
-     "session": "ny",
-     "price": 0.3628,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.3609,
-     "or_low": 0.3579,
-     "pct_over": 0.53,
-     "detect_price": 0.3606,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.47,
-     "qv24": 19883061.51376,
-     "grade": {
-      "entry": 0.3606,
-      "stop": 0.3594,
-      "target": 0.36299999999999993,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 7,
-       "win_pct": 28.6,
-       "avg": 0.057,
-       "avg_win": 2.0,
-       "avg_loss": 0.72,
-       "payoff": 2.78
-      },
-      "mc": {
-       "p_target": 0.2857142857142857,
-       "p_stop": 0.42857142857142855,
-       "p_neither": 0.2857142857142857,
-       "p_green": 0.2857142857142857,
-       "avg_R": 0.057,
-       "target_share": 0.4,
+       "avg_R": -0.117,
+       "target_share": 0.5,
        "historic": true
       }
      }
@@ -2544,7 +1232,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 0.83,
-     "qv24": 19250589.30286,
+     "qv24": 19241999.6411,
      "grade": {
       "entry": 0.1811,
       "stop": 0.1796,
@@ -2552,143 +1240,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.288,
-       "avg_win": 2.0,
-       "avg_loss": 0.746,
-       "payoff": 2.68
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.5,
-       "p_neither": 0.3333333333333333,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.288,
-       "target_share": 0.25,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "PUMP",
-     "pair": "PUMPUSDT",
-     "session": "ny",
-     "price": 0.003709,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.003679,
-     "or_low": 0.003636,
-     "pct_over": 0.82,
-     "detect_price": 0.003662,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.05,
-     "qv24": 18299468.242439,
-     "grade": {
-      "entry": 0.003662,
-      "stop": 0.0036575,
-      "target": 0.0036709999999999994,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 8,
+       "n": 4,
        "win_pct": 25.0,
-       "avg": -0.461,
-       "avg_win": 1.155,
-       "avg_loss": 1.0,
-       "payoff": 1.16
+       "avg": -0.06,
+       "avg_win": 1.84,
+       "avg_loss": 0.693,
+       "payoff": 2.65
       },
       "mc": {
-       "p_target": 0.125,
-       "p_stop": 0.75,
-       "p_neither": 0.125,
+       "p_target": 0.25,
+       "p_stop": 0.25,
+       "p_neither": 0.5,
        "p_green": 0.25,
-       "avg_R": -0.461,
-       "target_share": 0.143,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "MSTRB",
-     "pair": "MSTRBUSDT",
-     "session": "ny",
-     "price": 125.89,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 125.24,
-     "or_low": 122.62,
-     "pct_over": 0.52,
-     "detect_price": 126.67,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.99,
-     "qv24": 17538950.87348,
-     "grade": {
-      "entry": 126.67,
-      "stop": 123.93,
-      "target": 132.14999999999998,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 8,
-       "win_pct": 37.5,
-       "avg": -0.18,
-       "avg_win": 0.943,
-       "avg_loss": 0.854,
-       "payoff": 1.1
-      },
-      "mc": {
-       "p_target": 0.125,
-       "p_stop": 0.5,
-       "p_neither": 0.375,
-       "p_green": 0.375,
-       "avg_R": -0.18,
-       "target_share": 0.2,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "TAO",
-     "pair": "TAOUSDT",
-     "session": "ny",
-     "price": 224.8,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 224.4,
-     "or_low": 222.2,
-     "pct_over": 0.18,
-     "detect_price": 224.2,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.73,
-     "qv24": 14011346.43224,
-     "grade": {
-      "entry": 224.2,
-      "stop": 223.3,
-      "target": 225.99999999999994,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 10,
-       "win_pct": 20.0,
-       "avg": -0.271,
-       "avg_win": 2.0,
-       "avg_loss": 0.839,
-       "payoff": 2.38
-      },
-      "mc": {
-       "p_target": 0.2,
-       "p_stop": 0.6,
-       "p_neither": 0.2,
-       "p_green": 0.2,
-       "avg_R": -0.271,
-       "target_share": 0.25,
+       "avg_R": -0.06,
+       "target_share": 0.5,
        "historic": true
       }
      }
@@ -2708,7 +1273,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 0.48,
-     "qv24": 13985021.26355,
+     "qv24": 13991146.0795,
      "grade": {
       "entry": 52.02,
       "stop": 51.72,
@@ -2716,61 +1281,20 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 9,
-       "win_pct": 22.2,
-       "avg": -0.474,
-       "avg_win": 1.145,
-       "avg_loss": 0.937,
-       "payoff": 1.22
+       "n": 5,
+       "win_pct": 40.0,
+       "avg": -0.242,
+       "avg_win": 1.015,
+       "avg_loss": 1.08,
+       "payoff": 0.94
       },
       "mc": {
-       "p_target": 0.1111111111111111,
-       "p_stop": 0.6666666666666666,
-       "p_neither": 0.2222222222222222,
-       "p_green": 0.2222222222222222,
-       "avg_R": -0.474,
-       "target_share": 0.143,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "KORUB",
-     "pair": "KORUBUSDT",
-     "session": "ny",
-     "price": 7.27,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 7.2,
-     "or_low": 6.83,
-     "pct_over": 0.97,
-     "detect_price": 7.44,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 6.5,
-     "qv24": 13354114.7886,
-     "grade": {
-      "entry": 7.44,
-      "stop": 7.015,
-      "target": 8.290000000000003,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 3,
-       "win_pct": 0.0,
-       "avg": -0.683,
-       "avg_win": 0.0,
-       "avg_loss": 0.683,
-       "payoff": 0.0
-      },
-      "mc": {
-       "p_target": 0.0,
-       "p_stop": 0.6666666666666666,
-       "p_neither": 0.3333333333333333,
-       "p_green": 0.0,
-       "avg_R": -0.683,
-       "target_share": 0.0,
+       "p_target": 0.2,
+       "p_stop": 0.4,
+       "p_neither": 0.4,
+       "p_green": 0.4,
+       "avg_R": -0.242,
+       "target_share": 0.333,
        "historic": true
       }
      }
@@ -2790,7 +1314,7 @@
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
      "vol_ratio": 1.3,
-     "qv24": 12454952.1172,
+     "qv24": 12469972.907,
      "grade": {
       "entry": 242.9,
       "stop": 241.6,
@@ -2798,102 +1322,102 @@
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 8,
-       "win_pct": 37.5,
-       "avg": -0.023,
-       "avg_win": 1.363,
-       "avg_loss": 0.854,
-       "payoff": 1.6
-      },
-      "mc": {
-       "p_target": 0.25,
-       "p_stop": 0.5,
-       "p_neither": 0.25,
-       "p_green": 0.375,
-       "avg_R": -0.023,
-       "target_share": 0.333,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "INTCB",
-     "pair": "INTCBUSDT",
-     "session": "ny",
-     "price": 57.62,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 57.58,
-     "or_low": 55.91,
-     "pct_over": 0.07,
-     "detect_price": 57.85,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-09T15:10:00Z",
-     "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 1.05,
-     "qv24": 11844620.16819,
-     "grade": {
-      "entry": 57.85,
-      "stop": 56.745,
-      "target": 60.06000000000001,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
        "n": 5,
-       "win_pct": 40.0,
-       "avg": -0.18,
-       "avg_win": 1.05,
-       "avg_loss": 1.0,
-       "payoff": 1.05
+       "win_pct": 60.0,
+       "avg": 0.398,
+       "avg_win": 1.207,
+       "avg_loss": 0.815,
+       "payoff": 1.48
       },
       "mc": {
-       "p_target": 0.2,
-       "p_stop": 0.6,
-       "p_neither": 0.2,
-       "p_green": 0.4,
-       "avg_R": -0.18,
-       "target_share": 0.25,
+       "p_target": 0.4,
+       "p_stop": 0.2,
+       "p_neither": 0.4,
+       "p_green": 0.6,
+       "avg_R": 0.398,
+       "target_share": 0.667,
        "historic": true
       }
      }
     },
     {
-     "symbol": "ASTER",
-     "pair": "ASTERUSDT",
+     "symbol": "TRUMP",
+     "pair": "TRUMPUSDT",
      "session": "ny",
-     "price": 0.6424,
+     "price": 1.138,
      "at": "9:50 AM",
      "bar_start": "09:45",
-     "or_high": 0.641,
-     "or_low": 0.6382,
-     "pct_over": 0.22,
-     "detect_price": 0.6413,
+     "or_high": 1.133,
+     "or_low": 1.115,
+     "pct_over": 0.44,
+     "detect_price": 1.134,
      "detect_bar": "10:05",
      "detect_ts": "2026-11-09T15:10:00Z",
      "signal_ts": "2026-11-09T14:50:00Z",
-     "vol_ratio": 0.91,
-     "qv24": 11774585.422785,
+     "vol_ratio": 0.74,
+     "qv24": 9572506.768456,
      "grade": {
-      "entry": 0.6413,
-      "stop": 0.63959999,
-      "target": 0.6447000199999999,
+      "entry": 1.134,
+      "stop": 1.124,
+      "target": 1.1539999999999995,
       "rr": 2.0,
       "unit": "R",
       "hist": {
-       "n": 7,
-       "win_pct": 28.6,
-       "avg": -0.427,
-       "avg_win": 1.005,
-       "avg_loss": 1.0,
-       "payoff": 1.0
+       "n": 9,
+       "win_pct": 22.2,
+       "avg": -0.626,
+       "avg_win": 1.52,
+       "avg_loss": 1.239,
+       "payoff": 1.23
       },
       "mc": {
-       "p_target": 0.14285714285714285,
-       "p_stop": 0.7142857142857143,
-       "p_neither": 0.14285714285714285,
-       "p_green": 0.2857142857142857,
-       "avg_R": -0.427,
-       "target_share": 0.167,
+       "p_target": 0.1111111111111111,
+       "p_stop": 0.7777777777777778,
+       "p_neither": 0.1111111111111111,
+       "p_green": 0.2222222222222222,
+       "avg_R": -0.626,
+       "target_share": 0.125,
+       "historic": true
+      }
+     }
+    },
+    {
+     "symbol": "XPL",
+     "pair": "XPLUSDT",
+     "session": "ny",
+     "price": 0.05389,
+     "at": "9:50 AM",
+     "bar_start": "09:45",
+     "or_high": 0.05351,
+     "or_low": 0.05299,
+     "pct_over": 0.71,
+     "detect_price": 0.05365,
+     "detect_bar": "10:05",
+     "detect_ts": "2026-11-09T15:10:00Z",
+     "signal_ts": "2026-11-09T14:50:00Z",
+     "vol_ratio": 0.47,
+     "qv24": 7563874.16059,
+     "grade": {
+      "entry": 0.05365,
+      "stop": 0.05325,
+      "target": 0.05445000000000001,
+      "rr": 2.0,
+      "unit": "R",
+      "hist": {
+       "n": 6,
+       "win_pct": 33.3,
+       "avg": -0.273,
+       "avg_win": 1.09,
+       "avg_loss": 0.955,
+       "payoff": 1.14
+      },
+      "mc": {
+       "p_target": 0.0,
+       "p_stop": 0.5,
+       "p_neither": 0.5,
+       "p_green": 0.3333333333333333,
+       "avg_R": -0.273,
+       "target_share": 0.0,
        "historic": true
       }
      }
@@ -2901,12 +1425,12 @@
    ],
    "market": {
     "orb": {
-     "n": 208,
-     "win_pct": 26.4,
-     "avg": -0.264,
-     "avg_win": 1.418,
-     "avg_loss": 0.868,
-     "payoff": 1.63
+     "n": 56,
+     "win_pct": 30.4,
+     "avg": -0.281,
+     "avg_win": 1.414,
+     "avg_loss": 1.02,
+     "payoff": 1.39
     }
    },
    "earnings": []
