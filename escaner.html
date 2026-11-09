@@ -212,7 +212,7 @@ footer a{color:var(--mut)}
       <th>Señal que lo provoca</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
     </tr></thead><tbody></tbody></table></div>
     <div class="wrap"><table id="t-pf"><thead><tr>
-      <th data-k="sigts">Señal activada</th><th data-k="buyts">Compra simulada</th><th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="sig">Señal que lo provoca</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
+      <th data-k="sigts">Señal activada</th><th data-k="buyts">Compra</th><th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="sig">Señal que lo provoca</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
       <th class="num" data-k="ret_now">Ahora %</th><th class="num" data-k="eur">Resultado €</th>
       <th class="num" data-k="d1">1 ses.</th><th class="num" data-k="d3">3 ses.</th><th class="num" data-k="d5">5 ses.</th><th class="num" data-k="d10">10 ses.</th><th class="num" data-k="d20">20 ses.</th><th data-k="planR">Plan</th>
     </tr></thead><tbody></tbody></table></div>
@@ -590,7 +590,7 @@ function drawPF(){
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
   document.getElementById('pf-sum').innerHTML=rows.length?`<span>Señales (${days} ${days===1?'día':'días'})</span><span>${rows.length}</span>
-    <span>Invertido (simulado)</span><span>${fmtN(inv,0)} €</span>
+    <span>Invertido</span><span>${fmtN(inv,0)} €</span>
     <span>Resultado ahora</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
     <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
     <span>Actualizado</span><span>${madrid(PF.updated)}</span>${annulled?`<span>Anuladas (ya bajo el stop al detectarlas)</span><span>${annulled}</span>`:''}`:'<span>Sin señales con este filtro</span><span></span>';
