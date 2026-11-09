@@ -56,6 +56,8 @@ SESSION_COINS = 40       # monedas con más volumen que se miran en cada sesión
 OR_MIN = 15              # minutos del rango de apertura
 DETECT_MIN = 40          # el escáner mira la ruptura a los 40 minutos de la apertura
 HIST_DAYS = 45           # días de historia intradía para la estadística
+MIN_RISK = 0.005         # riesgo mínimo (entrada menos stop) del 0,5 %: con rangos más estrechos no compensa
+FEES = 0.002             # comisiones de compra y venta en Binance (0,1 % + 0,1 %), descontadas del resultado
 NY = ZoneInfo("America/New_York")
 
 _spec = importlib.util.spec_from_file_location("dts_scan", os.path.join(ROOT, "scripts", "daytrader", "scan.py"))
@@ -287,20 +289,25 @@ def orb_day(bars, t_open, t_or, t_det, t_close):
     if entry <= stop:
         res["void"] = True
         return res
+    if (entry - stop) / entry < MIN_RISK:
+        res["void"] = True          # rango demasiado estrecho: las comisiones se comerían el resultado
+        res["tight"] = True
+        return res
     target = entry + 2 * (entry - stop)
+    fee_r = FEES * entry / (entry - stop)   # comisiones expresadas en R
     res["target"] = target
     rest = [b for b in bars if b["t"] > det["t"] and b["end"] <= t_close]
     res["outcome"] = None
     for b in rest:
         if b["l"] <= stop:
-            res.update(outcome="stop", R=-1.0, at=b["t"])
+            res.update(outcome="stop", R=round(-1.0 - fee_r, 2), at=b["t"])
             break
         if b["h"] >= target:
-            res.update(outcome="objetivo", R=2.0, at=b["t"])
+            res.update(outcome="objetivo", R=round(2.0 - fee_r, 2), at=b["t"])
             break
     if res["outcome"] is None and rest and rest[-1]["end"] >= t_close - 1000:
         c = rest[-1]["c"]
-        res.update(outcome="cierre", R=round((c - entry) / (entry - stop), 2), at=rest[-1]["t"])
+        res.update(outcome="cierre", R=round((c - entry) / (entry - stop) - fee_r, 2), at=rest[-1]["t"])
     return res
 
 
@@ -428,6 +435,7 @@ def session_outcomes(pf):
         except Exception:
             continue
         risk = p["entry"] - p["stop"]
+        fee_r = FEES * p["entry"] / risk
         res = None
         last = None
         for b in bars:
@@ -435,15 +443,16 @@ def session_outcomes(pf):
                 continue
             last = b
             if b["l"] <= p["stop"]:
-                res = {"outcome": "stop", "R": -1.0}
+                res = {"outcome": "stop", "R": round(-1.0 - fee_r, 2)}
                 break
             if b["h"] >= p["target"]:
-                res = {"outcome": "objetivo", "R": 2.0}
+                res = {"outcome": "objetivo", "R": round(2.0 - fee_r, 2)}
                 break
         if not res and last:
-            res = {"outcome": "cierre", "R": round((last["c"] - p["entry"]) / risk, 2)}
+            res = {"outcome": "cierre", "R": round((last["c"] - p["entry"]) / risk - fee_r, 2)}
         if res:
             res["ret"] = round(res["R"] * risk / p["entry"] * 100, 2)
+            res["net"] = True
             p["plan"] = res
 
 
@@ -517,6 +526,12 @@ def portfolio_update(data, mode):
     elig = set(data.get("eligible") or [])
     if elig:   # fuera acciones tokenizadas y monedas sin historia
         pos[:] = [p for p in pos if p.get("kind") != "orb" or p["symbol"] in elig]
+    # fuera las rupturas con riesgo menor del mínimo (rango demasiado estrecho)
+    pos[:] = [p for p in pos if p.get("kind") != "orb" or (p["entry"] - p["stop"]) / p["entry"] >= MIN_RISK]
+    for p in pos:   # rupturas ya cerradas sin comisiones: se recalculan
+        if p.get("kind") == "orb" and p.get("plan") and not p["plan"].get("net"):
+            p["plan"]["R"] = round(p["plan"]["R"] - FEES * p["entry"] / (p["entry"] - p["stop"]), 2)
+            p["plan"]["net"] = True
     if mode == "session":
         added += session_register(data, pf)
     session_outcomes(pf)
