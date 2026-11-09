@@ -34,6 +34,10 @@ PTR_FETCH_MAX = 40       # PDF nuevos que se leen como mucho en cada pasada
 GRADE_DAILY = 40         # acciones de pre-apertura con histórico calculado
 GRADE_ORB = 40           # rupturas de apertura con máquina del tiempo
 HOLD_DAYS = 5            # sesiones que se mantiene una señal diaria en el histórico
+PORTFOLIO = os.path.join(ROOT, "data", "cartera.json")
+STAKE = 1000.0           # euros simulados por cada verde
+HORIZONS = (1, 3, 5, 10, 20)   # sesiones a las que se mira el resultado
+RULES = {"win": 55.0, "n": 5}  # reglas por defecto del semáforo (las mismas que la página)
 
 WORK = tempfile.mkdtemp(prefix="escaner-")
 
@@ -296,6 +300,151 @@ def earnings_flags(news_block):
     return sorted(t for t in out if t)
 
 
+# ------------------------------------------------------------------ cartera simulada
+
+def is_green(h, kind, earn):
+    """Semáforo con las reglas por defecto: aciertos, que compense y sin resultados."""
+    g = h.get("grade") or {}
+    hs = g.get("hist") or {}
+    if g.get("error") or not hs.get("n"):
+        return False
+    r1 = hs["n"] >= RULES["n"] and hs.get("win_pct", 0) >= RULES["win"]
+    if kind == "orb":
+        ts = (g.get("mc") or {}).get("target_share")
+        r2 = ts is not None and ts >= 1 / 3
+    else:
+        r2 = (hs.get("avg") or 0) > 0
+    r3 = h["symbol"] not in earn
+    return r1 and r2 and r3
+
+
+def portfolio_update(data, mode):
+    """Compra simulada de STAKE euros en cada verde nuevo y seguimiento a días vista."""
+    pf = load(PORTFOLIO, {"stake": STAKE, "horizons": list(HORIZONS), "positions": []})
+    pos = pf["positions"]
+    have = {(p["symbol"], p["kind"], p["date"]) for p in pos}
+    added = []
+    block = data.get("daily") if mode == "premarket" else data.get("orb")
+    kind = "daily" if mode == "premarket" else "orb"
+    if block and block.get("run_at", "")[:10] == now_utc()[:10]:
+        earn = set(block.get("earnings") or [])
+        if kind == "daily":
+            day = dt.date.today().isoformat()   # se compra en la sesión de hoy al precio del último cierre
+        else:
+            day = (block.get("as_of") or "").split(" ")[0]
+        for h in block.get("hits", []):
+            if not is_green(h, kind, earn):
+                continue
+            key = (h["symbol"], kind, day)
+            if key in have:
+                continue
+            g = h["grade"]
+            entry = g.get("entry") or h.get("price")
+            p = {"symbol": h["symbol"], "kind": kind, "date": day, "entry": entry,
+                 "stop": g.get("stop"), "target": g.get("target"),
+                 "setups": h.get("setups"), "shares": round(STAKE / entry, 4),
+                 "opened_at": now_utc(), "closes": {}, "last": entry, "status": "abierta"}
+            pos.append(p)
+            have.add(key)
+            added.append(h["symbol"])
+    # Seguimiento: cierres diarios desde la fecha de compra
+    sm = scanmod()
+    now = dt.datetime.now(dt.timezone.utc)
+    for p in pos:
+        if p.get("status") == "terminada":
+            continue
+        try:
+            series = sm.parse_chart(sm.yahoo_get(sm.chart_path(p["symbol"], "3mo", "1d")), p["symbol"])
+            time.sleep(0.3)
+        except Exception:
+            continue
+        bars = [(d.isoformat(), c) for d, c in sm.daily_closes(series, now)]
+        after = [(d, c) for d, c in bars if d >= p["date"]]
+        last_price = (series.get("meta") or {}).get("regularMarketPrice") or (bars[-1][1] if bars else None)
+        if last_price:
+            p["last"] = round(float(last_price), 4)
+        for k in HORIZONS:
+            if len(after) >= k:
+                d, c = after[k - 1]
+                p["closes"][str(k)] = {"date": d, "close": round(c, 4),
+                                       "ret": round((c / p["entry"] - 1) * 100, 2)}
+        p["sessions"] = len(after)
+        p["ret_now"] = round((p["last"] / p["entry"] - 1) * 100, 2)
+        if len(after) >= max(HORIZONS):
+            p["status"] = "terminada"
+    pf["updated"] = now_utc()
+    pf["stake"], pf["horizons"], pf["rules"] = STAKE, list(HORIZONS), RULES
+    save(PORTFOLIO, pf)
+    log("cartera: %d posiciones, nuevas %s" % (len(pos), ", ".join(added) or "ninguna"))
+    return added
+
+
+def notify(data, mode, added):
+    """Aviso al móvil con ntfy si hay tema configurado (secreto NTFY_TOPIC)."""
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic:
+        return
+    block = data.get("daily") if mode == "premarket" else data.get("orb")
+    if not block:
+        return
+    earn = set(block.get("earnings") or [])
+    kind = "daily" if mode == "premarket" else "orb"
+    greens = [h for h in block.get("hits", []) if is_green(h, kind, earn)]
+    lines = []
+    for h in greens[:15]:
+        g = h["grade"]
+        lines.append("%s  %.1f %% aciertos (%d)  entrada %.2f  stop %.2f  objetivo %.2f" % (
+            h["symbol"], g["hist"]["win_pct"], g["hist"]["n"], g["entry"], g["stop"], g["target"]))
+    scan_syms = {h["symbol"] for h in block.get("hits", [])}
+    cong = set()
+    for f in (data.get("congress") or {}).get("filings", []):
+        for r in f.get("rows") or []:
+            if r.get("ticker") in scan_syms:
+                cong.add(r["ticker"])
+    if cong:
+        lines.append("Congreso también en el escáner: " + ", ".join(sorted(cong)[:12]))
+    title = ("Pre-apertura" if mode == "premarket" else "Ruptura de apertura") + \
+        ": %d en verde" % len(greens)
+    if added:
+        title += " (%d a la cartera simulada)" % len(added)
+    msg = "\n".join(lines) or "Ninguna acción cumple las tres reglas hoy."
+    body = json.dumps({"topic": topic, "title": title, "message": msg,
+                       "tags": ["chart_with_upwards_trend"],
+                       "click": os.environ.get("ATALAYA_URL", "https://mchamosa.github.io/atalaya/escaner.html")}).encode("utf-8")
+    try:
+        import urllib.request
+        req = urllib.request.Request("https://ntfy.sh/", data=body, method="POST",
+                                     headers={"Content-Type": "application/json"})
+        urllib.request.urlopen(req, timeout=20).read()
+        log("aviso enviado a ntfy")
+    except Exception as exc:
+        log("ntfy: %s" % exc)
+
+
+def fundamentals(data, tickers):
+    """Datos de la SEC (trader-analyst) de las acciones valoradas."""
+    ua = os.environ.get("SEC_USER_AGENT", "").strip()
+    if not ua:
+        data["fundamentals_note"] = ("Para ver ingresos, beneficios y márgenes de la SEC hay que añadir el "
+                                     "secreto SEC_USER_AGENT (nombre y correo) en GitHub.")
+        return
+    tickers = [t for t in dict.fromkeys(tickers) if t][:80]
+    if not tickers:
+        return
+    out = os.path.join(WORK, "metrics.json")
+    run_tool("facts.py", tickers + ["--metrics", out, "--no-filings", "--quarters", "8",
+                                    "--user-agent", ua], timeout=900)
+    m = load(out, {})
+    fund = data.get("fundamentals") or {}
+    for c in m.get("companies", []):
+        fund[c["ticker"]] = {k: c.get(k) for k in ("name", "period_end", "revenue_ttm", "net_income_ttm",
+                                                    "eps_ttm", "revenue_growth_yoy", "eps_growth_yoy",
+                                                    "gross_margin", "operating_margin", "net_margin")}
+    data["fundamentals"] = fund
+    data.pop("fundamentals_note", None)
+    log("fundamentales: %d empresas" % len(m.get("companies", [])))
+
+
 # ------------------------------------------------------------------ principal
 
 def main():
@@ -341,6 +490,11 @@ def main():
         else:
             data.setdefault("status", {})["orb"] = reason
 
+    blk = data.get("daily") if mode == "premarket" else data.get("orb")
+    if blk and blk.get("run_at", "")[:10] == now_utc()[:10]:
+        fundamentals(data, [h["symbol"] for h in blk.get("hits", [])[:GRADE_DAILY]])
+    added = portfolio_update(data, mode)
+    notify(data, mode, added)
     data["updated"] = now_utc()
     save(OUT, data)
 
