@@ -135,7 +135,18 @@ footer a{color:var(--mut)}
     Apertura: aciertos = rupturas de los últimos 60 días que acabaron en positivo con el mismo plan (stop en la mitad del rango, objetivo a 2R, salida a las 15:55); compensa si en 5.000 simulaciones el objetivo llega antes que el stop al menos un 33 % de las veces, que es lo mínimo para no perder a 2R.</p>
   </section>
 
+  <section class="panel" id="s-all">
+    <h2>Todas las operaciones de hoy en una tabla <span class="count" id="c-all">0</span></h2>
+    <p class="sub">Cada acción valorada, de pre-apertura y de apertura, con su precio de compra (entrada), su stop y su precio de venta (objetivo), ordenadas por el semáforo. Las unidades salen de invertir 1.000 € por operación, como en la cartera simulada. Toca un ticker para ver el detalle y calcular el tamaño con tu capital.</p>
+    <div class="wrap"><table id="t-all"><thead><tr>
+      <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="origin">Origen</th>
+      <th class="num" data-k="entry">Compra $</th><th class="num" data-k="stop">Stop $</th><th class="num" data-k="target">Venta $</th>
+      <th class="num" data-k="riskp">Riesgo %</th><th class="num" data-k="rr">B/R</th><th class="num" data-k="win">Aciertos hist.</th><th class="num" data-k="units">Acciones con 1.000 €</th><th class="num" data-k="lossE">Pérdida si stop €</th><th class="num" data-k="gainE">Ganancia si objetivo €</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
   <div class="jump" id="jump">
+    <a href="#s-all">Todas en una tabla</a>
     <a href="#s-daily">Pre-apertura <b id="j-daily">·</b></a>
     <a href="#s-orb">Ruptura de apertura <b id="j-orb">·</b></a>
     <a href="#s-news">Noticias <b id="j-news">·</b></a>
@@ -465,6 +476,31 @@ function initCong(){
 }
 function amountLow(a){ const m=/\$?([\d,]+)/.exec(a||''); return m? +m[1].replace(/,/g,'') : null; }
 
+// ---------- Tabla conjunta
+function initAll(){
+  const earn=new Set([...(DATA.daily?.earnings||[]),...(DATA.orb?.earnings||[])]);
+  const items=[];
+  (DATA.orb?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'orb'}); });
+  (DATA.daily?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'daily'}); });
+  const tb=document.querySelector('#t-all tbody');
+  if(!items.length){ tb.innerHTML='<tr><td colspan="12" class="empty">Todavía no hay acciones valoradas.</td></tr>'; return; }
+  const rows=()=>{ const r=items.map(({h,kind})=>{ const g=h.grade, gr=grade(h,kind,earn), risk=g.entry-g.stop, units=1000/g.entry;
+    return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,
+      riskp:risk/g.entry*100, rr:(g.target-g.entry)/risk, win:g.hist?.n?g.hist.win_pct:null, units, lossE:units*risk, gainE:units*(g.target-g.entry)}; });
+    return RULES.green? r.filter(x=>x.sem===2) : r; };
+  const draw=sortable(document.getElementById('t-all'), rows, r=>{
+    document.getElementById('c-all').textContent=r.length;
+    tb.innerHTML=r.length? r.map(x=>`<tr><td>${semCell(x.gr)}</td><td><a class="tk" data-sym="${esc(x.symbol)}">${esc(x.symbol)}</a></td>
+      <td>${x.kind==='orb'?'<span class="tag orb">Apertura</span>':x.h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
+      <td class="num"><b>${fmtN(x.entry)}</b></td><td class="num dn">${fmtN(x.stop)}</td><td class="num up">${fmtN(x.target)}</td>
+      <td class="num">${fmtN(x.riskp)}</td><td class="num">${fmtN(x.rr,1)}</td>
+      <td class="num">${x.win!=null?fmtN(x.win,0)+' % <span class="mut">('+x.h.grade.hist.n+')</span>':''}</td>
+      <td class="num">${fmtN(x.units,1)}</td><td class="num dn">−${fmtN(x.lossE)}</td><td class="num up">+${fmtN(x.gainE)}</td></tr>`).join('')
+      : '<tr><td colspan="12" class="empty">Ninguna acción con este filtro.</td></tr>';
+  }, 'sem','desc');
+  redraws.push(draw); draw();
+}
+
 // ---------- Cartera simulada
 function pctCell(v){ return v==null?'<td class="num mut">·</td>':`<td class="num ${v>0?'up':v<0?'dn':''}">${v>0?'+':''}${fmtN(v)} %</td>`; }
 async function initPortfolio(){
@@ -642,7 +678,7 @@ document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'
     DATA=await r.json();
     (DATA.daily?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
     (DATA.orb?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
-    bindRules(); initCong(); initDaily(); initOrb(); initNews(); initPortfolio();
+    bindRules(); initCong(); initDaily(); initOrb(); initNews(); initAll(); initPortfolio();
     st.textContent=`Última actualización: ${madrid(DATA.updated)} (${ago(DATA.updated)}).`;
   }catch(e){
     st.className='status err';
