@@ -75,6 +75,35 @@ details a{color:var(--blue)}
 .status{color:var(--mut);font-size:13px}
 .status.err{color:var(--dn)}
 .btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+.rules{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:13px}
+.rules label{display:flex;gap:6px;align-items:center;color:var(--txt)}
+.rules input[type=number]{width:64px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px}
+.sem{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;margin-right:4px}
+.sem.g{background:var(--up)}.sem.a{background:var(--acc)}.sem.r{background:var(--dn)}.sem.x{background:var(--line)}
+.lv{font-size:12px;color:var(--mut)}
+.lv b{color:var(--txt);font-weight:600}
+.drawer-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:50}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--bg);border-left:1px solid var(--line);overflow-y:auto;z-index:51;transform:translateX(100%);transition:transform .2s;padding:0 0 30px}
+.drawer.open{transform:none}.drawer-bg.open{display:block}
+.drawer .dh{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:10px;z-index:2}
+.drawer .dh h3{margin:0;font-size:20px}
+.drawer .dh .x{margin-left:auto;background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:16px}
+.drawer .blk{margin:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.drawer .blk h4{margin:0 0 8px;font-size:13px;color:var(--acc);font-weight:600}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px}
+.kv span:nth-child(odd){color:var(--mut)}.kv span:nth-child(even){text-align:right;font-variant-numeric:tabular-nums}
+.calc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 10px;margin-bottom:10px}
+.calc label{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--mut)}
+.calc input{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:6px 7px;font-size:13px;width:100%}
+.chk{list-style:none;margin:8px 0 0;padding:0;font-size:13px}
+.chk li{padding:3px 0}
+.pass{color:var(--up);font-weight:700}.block{color:var(--dn);font-weight:700}
+.big{font-size:18px;font-weight:700;margin:6px 0}
+.bar3{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:6px 0 4px}
+.bar3 i{display:block}
+.dnews{list-style:none;margin:0;padding:0;font-size:13px}
+.dnews li{padding:6px 0;border-bottom:1px solid var(--line)}.dnews li:last-child{border:0}
+.dnews a{color:var(--txt);text-decoration:none}
 footer{color:var(--mut);font-size:12px;text-align:center;padding:10px 16px 28px}
 footer a{color:var(--mut)}
 </style>
@@ -93,11 +122,25 @@ footer a{color:var(--mut)}
     <div class="status" id="status" style="margin-top:6px">Cargando datos…</div>
   </div>
 
+  <section class="panel" id="s-rules">
+    <h2>Semáforo según tus reglas</h2>
+    <p class="sub">Verde si cumple las tres reglas, ámbar si cumple dos y rojo si cumple una o ninguna. Es tu criterio aplicado a cada acción, no una recomendación: el histórico no garantiza lo que pasará.</p>
+    <div class="rules">
+      <label>1. Aciertos históricos ≥ <input type="number" id="r-win" value="55" min="0" max="100" step="1"> % con al menos <input type="number" id="r-n" value="5" min="1" step="1"> señales</label>
+      <label><input type="checkbox" id="r-exp" checked> 2. El plan a 2R compensa</label>
+      <label><input type="checkbox" id="r-earn" checked> 3. Sin noticias de resultados en 36 h</label>
+      <label><input type="checkbox" id="r-green"> Mostrar solo verdes</label>
+    </div>
+    <p class="sub" style="margin:10px 0 0">Pre-apertura: aciertos = veces que el mismo patrón en esa acción acabó en positivo 5 sesiones después (últimos 2 años); compensa si la media de esas 5 sesiones es positiva.
+    Apertura: aciertos = rupturas de los últimos 60 días que acabaron en positivo con el mismo plan (stop en la mitad del rango, objetivo a 2R, salida a las 15:55); compensa si en 5.000 simulaciones el objetivo llega antes que el stop al menos un 33 % de las veces, que es lo mínimo para no perder a 2R.</p>
+  </section>
+
   <div class="jump" id="jump">
     <a href="#s-daily">Pre-apertura <b id="j-daily">·</b></a>
     <a href="#s-orb">Ruptura de apertura <b id="j-orb">·</b></a>
     <a href="#s-news">Noticias <b id="j-news">·</b></a>
     <a href="#s-cong">Congreso <b id="j-cong">·</b></a>
+    <a href="#s-pf">Cartera simulada <b id="j-pf">·</b></a>
   </div>
 
   <section class="panel" id="s-daily">
@@ -105,7 +148,8 @@ footer a{color:var(--mut)}
     <p class="sub" id="m-daily"></p>
     <div class="chips" id="f-daily"></div>
     <div class="wrap"><table id="t-daily"><thead><tr>
-      <th data-k="symbol">Ticker</th><th data-k="setups">Patrón</th><th class="num" data-k="price">Precio $</th>
+      <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="setups">Patrón</th><th class="num" data-k="win">Aciertos hist.</th>
+      <th class="num" data-k="exp">Media 5 ses. %</th><th data-k="entry">Entrada / stop / objetivo</th><th class="num" data-k="price">Precio $</th>
       <th class="num" data-k="rsi">RSI 14</th><th class="num" data-k="volume">Volumen</th><th class="num" data-k="dollar">Volumen $</th>
     </tr></thead><tbody></tbody></table></div>
   </section>
@@ -114,7 +158,8 @@ footer a{color:var(--mut)}
     <h2>Ruptura del rango de apertura <span class="count" id="c-orb">0</span></h2>
     <p class="sub" id="m-orb"></p>
     <div class="wrap"><table id="t-orb"><thead><tr>
-      <th data-k="symbol">Ticker</th><th data-k="bar_index">Hora ruptura</th><th class="num" data-k="price">Cierre $</th>
+      <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th class="num" data-k="win">Aciertos hist.</th>
+      <th class="num" data-k="exp">Media R hist.</th><th class="num" data-k="ts">Objetivo antes que stop</th><th data-k="entry">Entrada / stop / objetivo</th><th data-k="bar_index">Hora ruptura</th><th class="num" data-k="price">Cierre $</th>
       <th class="num" data-k="or_low">Mín. rango</th><th class="num" data-k="or_high">Máx. rango</th>
       <th class="num" data-k="range_pct">Rango %</th><th class="num" data-k="pct_over">Sobre máx. %</th>
     </tr></thead><tbody></tbody></table></div>
@@ -143,7 +188,22 @@ footer a{color:var(--mut)}
     </tr></thead><tbody></tbody></table></div>
     <details id="cong-pending"><summary></summary><ul></ul></details>
   </section>
+  <section class="panel" id="s-pf">
+    <h2>Cartera simulada <span class="count" id="c-pf">0</span></h2>
+    <p class="sub" id="m-pf">Cada acción que sale en verde con las reglas por defecto (55 % de aciertos con 5 señales, que compense y sin resultados) se compra de forma simulada por 1.000 € al precio de entrada del plan, y se sigue su resultado a 1, 3, 5, 10 y 20 sesiones. Sin comisiones ni tipo de cambio: el resultado es el % que movió la acción en dólares.</p>
+    <div class="kv" id="pf-sum" style="max-width:520px;margin-bottom:12px"></div>
+    <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
+      <th>A días vista</th><th class="num">Posiciones</th><th class="num">En positivo</th><th class="num">Media %</th><th class="num">Resultado €</th>
+    </tr></thead><tbody></tbody></table></div>
+    <div class="wrap"><table id="t-pf"><thead><tr>
+      <th data-k="date">Fecha</th><th data-k="symbol">Ticker</th><th data-k="kind">Origen</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
+      <th class="num" data-k="ret_now">Ahora %</th><th class="num" data-k="eur">Resultado €</th>
+      <th class="num" data-k="d1">1 ses.</th><th class="num" data-k="d3">3 ses.</th><th class="num" data-k="d5">5 ses.</th><th class="num" data-k="d10">10 ses.</th><th class="num" data-k="d20">20 ses.</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
 </main>
+<div class="drawer-bg" id="dbg"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
 <footer>
   Herramientas de escaneo basadas en <a href="https://github.com/Jakeschincariol/day-trader-skill" target="_blank" rel="noopener">day-trader-skill</a> (Jake Schincariol, licencia MIT).
   Fuentes: Yahoo Finance, SEC EDGAR, Nasdaq Trader y House Clerk. Información, no asesoramiento financiero.
@@ -186,8 +246,42 @@ let DATA = {}, scanSyms = new Set(), congSyms = new Set(), newsFilter = null;
 
 function tkCell(sym){
   const extra = congSyms.has(sym) ? ' <span class="tag cong" title="También aparece en declaraciones del Congreso">Congreso</span>' : '';
-  return `<a class="tk" data-sym="${esc(sym)}" title="Ver noticias de ${esc(sym)}">${esc(sym)}</a>
+  return `<a class="tk" data-sym="${esc(sym)}" title="Ver detalle de ${esc(sym)}">${esc(sym)}</a>
     <a href="${tv(sym)}" target="_blank" rel="noopener" class="mut" title="Gráfico en TradingView" style="text-decoration:none;font-size:11px;margin-left:4px">gráfico</a>${extra}`;
+}
+
+// ---------- Semáforo
+const RULES = {win:55, n:5, exp:true, earn:true, green:false};
+try{ Object.assign(RULES, JSON.parse(localStorage.getItem('atalaya-escaner-reglas')||'{}')); }catch(e){}
+function grade(h, kind, earnSet){
+  const g=h.grade;
+  if(!g||!g.hist||g.error) return {sem:-1, why:g&&g.error?'Sin valorar: '+g.error:'Sin valorar (solo se calculan las primeras acciones de la lista)'};
+  const hs=g.hist, why=[];
+  const r1 = hs.n>=RULES.n && hs.win_pct>=RULES.win;
+  why.push((r1?'Cumple':'No cumple')+` aciertos: ${hs.n? fmtN(hs.win_pct,0)+' % de '+hs.n+' señales' : 'sin señales'}`);
+  let r2=true;
+  if(RULES.exp){
+    if(kind==='orb'){ const ts=g.mc?.target_share; r2 = ts!=null && ts>=1/3;
+      why.push((r2?'Cumple':'No cumple')+` compensa: objetivo antes que stop en el ${ts!=null?fmtN(ts*100,0):'?'} % de las simulaciones que tocan uno de los dos (mínimo 33 %)`); }
+    else { r2 = hs.avg>0; why.push((r2?'Cumple':'No cumple')+` compensa: media a 5 sesiones ${fmtN(hs.avg)} %`); }
+  }
+  let r3=true;
+  if(RULES.earn){ r3 = !earnSet.has(h.symbol); why.push(r3?'Cumple: sin noticias de resultados':'No cumple: hay noticias de resultados en las últimas 36 h'); }
+  const ok=[r1,r2,r3].filter(Boolean).length;
+  return {sem: ok===3?2:ok===2?1:0, why:why.join('\n')};
+}
+const SEM = ['r','a','g'], SEMTXT=['Rojo','Ámbar','Verde'];
+function semCell(gr){ return gr.sem<0 ? `<span class="sem x" title="${esc(gr.why)}"></span><span class="mut">·</span>`
+  : `<span class="sem ${SEM[gr.sem]}" title="${esc(gr.why)}"></span>${SEMTXT[gr.sem]}`; }
+function lvCell(g){ return g&&g.entry ? `<span class="lv"><b>${fmtN(g.entry)}</b> / <span class="dn">${fmtN(g.stop)}</span> / <span class="up">${fmtN(g.target)}</span></span>` : ''; }
+const redraws=[];
+function bindRules(){
+  const ids={win:'r-win',n:'r-n',exp:'r-exp',earn:'r-earn',green:'r-green'};
+  Object.entries(ids).forEach(([k,id])=>{ const el=document.getElementById(id);
+    if(el.type==='checkbox') el.checked=!!RULES[k]; else el.value=RULES[k];
+    el.addEventListener('input',()=>{ RULES[k]= el.type==='checkbox'? el.checked : +el.value;
+      try{ localStorage.setItem('atalaya-escaner-reglas', JSON.stringify(RULES)); }catch(e){}
+      redraws.forEach(f=>f()); }); });
 }
 
 // Tablas ordenables
@@ -213,8 +307,10 @@ function sortable(table, rows, render, defKey, defDir){
 let dailySel = new Set();
 function initDaily(){
   const d=DATA.daily, tb=document.querySelector('#t-daily tbody');
-  if(!d){ tb.innerHTML='<tr><td colspan="6" class="empty">Todavía no hay escaneo de pre-apertura.</td></tr>'; return; }
-  const hits=(d.hits||[]).map(h=>({...h, dollar:(h.price||0)*(h.volume||0)}));
+  if(!d){ tb.innerHTML='<tr><td colspan="10" class="empty">Todavía no hay escaneo de pre-apertura.</td></tr>'; return; }
+  const earnD=new Set(d.earnings||[]);
+  const hits=(d.hits||[]).map(h=>({...h, dollar:(h.price||0)*(h.volume||0), win:h.grade?.hist?.win_pct??null, exp:h.grade?.hist?.avg??null, entry:h.grade?.entry??null}));
+  const regrade=()=>hits.forEach(h=>{ h.gr=grade(h,'daily',earnD); h.sem=h.gr.sem; });
   const c=d.counts||{};
   const asOf=(d.as_of||'').replace(' close','');
   document.getElementById('m-daily').innerHTML =
@@ -224,20 +320,26 @@ function initDaily(){
     (d.failed?` · ${fmtN(d.failed,0)} fallidos`:'');
   const counts={}; hits.forEach(h=>h.setups.forEach(s=>counts[s]=(counts[s]||0)+1));
   const fd=document.getElementById('f-daily');
+  const mk=d.market||{};
   fd.innerHTML = `<span class="chip on" data-s="">Todos <b>${hits.length}</b></span>` +
-    Object.keys(SETUPS).filter(s=>counts[s]).map(s=>`<span class="chip" data-s="${s}">${SETUPS[s]} <b>${counts[s]}</b></span>`).join('');
-  const rows=()=> dailySel.size? hits.filter(h=>h.setups.some(s=>dailySel.has(s))) : hits;
+    Object.keys(SETUPS).filter(s=>counts[s]).map(s=>`<span class="chip" data-s="${s}" title="${mk[s]?.n?'Histórico en las acciones valoradas: '+fmtN(mk[s].win_pct,0)+' % de aciertos en '+mk[s].n+' señales, media '+fmtN(mk[s].avg)+' % a 5 sesiones':''}">${SETUPS[s]} <b>${counts[s]}</b>${mk[s]?.n?' <span style="font-weight:400">· '+fmtN(mk[s].win_pct,0)+' %</span>':''}</span>`).join('');
+  const rows=()=>{ regrade(); let r= dailySel.size? hits.filter(h=>h.setups.some(s=>dailySel.has(s))) : hits; return RULES.green? r.filter(h=>h.sem===2) : r; };
   const draw=sortable(document.getElementById('t-daily'), rows, r=>{
     document.getElementById('c-daily').textContent=r.length;
     tb.innerHTML = r.length ? r.map(h=>`<tr>
+      <td>${semCell(h.gr)}</td>
       <td>${tkCell(h.symbol)}</td>
       <td>${h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
+      <td class="num">${h.win!=null?fmtN(h.win,0)+' % <span class="mut">('+h.grade.hist.n+')</span>':''}</td>
+      <td class="num ${h.exp>0?'up':h.exp<0?'dn':''}">${h.exp!=null?(h.exp>0?'+':'')+fmtN(h.exp):''}</td>
+      <td>${lvCell(h.grade)}</td>
       <td class="num">${fmtN(h.price)}</td>
       <td class="num ${h.rsi<30?'dn':h.rsi>70?'up':''}">${fmtN(h.rsi,0)}</td>
       <td class="num">${fmtBig(h.volume)}</td>
       <td class="num">${fmtBig(h.dollar)}</td></tr>`).join('')
-      : '<tr><td colspan="6" class="empty">Ningún gráfico cumple este patrón.</td></tr>';
-  }, 'dollar','desc');
+      : '<tr><td colspan="10" class="empty">Ningún gráfico cumple este filtro.</td></tr>';
+  }, 'sem','desc');
+  redraws.push(draw);
   fd.addEventListener('click',e=>{ const ch=e.target.closest('.chip'); if(!ch) return;
     const s=ch.dataset.s;
     if(!s) dailySel.clear(); else dailySel.has(s)?dailySel.delete(s):dailySel.add(s);
@@ -251,26 +353,35 @@ function initDaily(){
 function initOrb(){
   const d=DATA.orb, tb=document.querySelector('#t-orb tbody');
   const st=DATA.status?.orb;
-  if(!d){ tb.innerHTML=`<tr><td colspan="7" class="empty">Todavía no hay escaneo de apertura${st?': '+esc(st):'.'}</td></tr>`; document.getElementById('j-orb').textContent='0'; return; }
+  if(!d){ tb.innerHTML=`<tr><td colspan="12" class="empty">Todavía no hay escaneo de apertura${st?': '+esc(st):'.'}</td></tr>`; document.getElementById('j-orb').textContent='0'; return; }
   const [day,time]=(d.as_of||'').replace(' ET','').split(' ');
+  const earnO=new Set(d.earnings||[]);
   const hits=(d.hits||[]).map(h=>({...h, range_pct: h.or_low? (h.or_high-h.or_low)/h.or_low*100 : null,
-    hora: to24(h.at)}));
+    hora: to24(h.at), win:h.grade?.hist?.n?h.grade.hist.win_pct:null, exp:h.grade?.hist?.n?h.grade.hist.avg:null,
+    ts:h.grade?.mc?.target_share??null, entry:h.grade?.entry??null}));
+  const regrade=()=>hits.forEach(h=>{ h.gr=grade(h,'orb',earnO); h.sem=h.gr.sem; });
   document.getElementById('m-orb').innerHTML =
     `Sesión del ${fmtDate(day)} hasta las ${time} de Nueva York (${nyToMadrid(day,time)} en España) · `+
     `rango de los primeros ${d.or_minutes||15} minutos con velas de 5 minutos · ${fmtN(d.scanned,0)} gráficos completos`+
     (d.unconfirmed?` · <span class="dn">parcial: ${fmtN(d.unconfirmed,0)} candidatos sin confirmar</span>`:'')+
     ` · una ruptura es la primera vela de 5 minutos que cierra por encima del máximo del rango`;
-  const draw=sortable(document.getElementById('t-orb'), ()=>hits, r=>{
+  const draw=sortable(document.getElementById('t-orb'), ()=>{ regrade(); return RULES.green? hits.filter(h=>h.sem===2) : hits; }, r=>{
     document.getElementById('c-orb').textContent=r.length;
     tb.innerHTML = r.length ? r.map(h=>`<tr>
+      <td>${semCell(h.gr)}</td>
       <td>${tkCell(h.symbol)}</td>
+      <td class="num">${h.win!=null?fmtN(h.win,0)+' % <span class="mut">('+h.grade.hist.n+')</span>':''}</td>
+      <td class="num ${h.exp>0?'up':h.exp<0?'dn':''}">${h.exp!=null?(h.exp>0?'+':'')+fmtN(h.exp):''}</td>
+      <td class="num ${h.ts!=null?(h.ts>=1/3?'up':'dn'):''}">${h.ts!=null?fmtN(h.ts*100,0)+' %':''}</td>
+      <td>${lvCell(h.grade)}</td>
       <td>${h.hora} NY <span class="mut">(${nyToMadrid(day,h.hora)})</span></td>
       <td class="num">${fmtN(h.price)}</td>
       <td class="num">${fmtN(h.or_low)}</td><td class="num">${fmtN(h.or_high)}</td>
       <td class="num">${fmtN(h.range_pct)}</td>
       <td class="num up">+${fmtN(h.pct_over)}</td></tr>`).join('')
-      : '<tr><td colspan="7" class="empty">Ninguna ruptura en esta sesión.</td></tr>';
-  }, 'bar_index','asc');
+      : '<tr><td colspan="12" class="empty">Ninguna ruptura con este filtro.</td></tr>';
+  }, 'sem','desc');
+  redraws.push(draw);
   draw();
   document.getElementById('j-orb').textContent=hits.length;
 }
@@ -354,8 +465,174 @@ function initCong(){
 }
 function amountLow(a){ const m=/\$?([\d,]+)/.exec(a||''); return m? +m[1].replace(/,/g,'') : null; }
 
-// Clic en un ticker: filtra las noticias
-document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'); if(!a) return; e.preventDefault(); setNewsFilter(a.dataset.sym); });
+// ---------- Cartera simulada
+function pctCell(v){ return v==null?'<td class="num mut">·</td>':`<td class="num ${v>0?'up':v<0?'dn':''}">${v>0?'+':''}${fmtN(v)} %</td>`; }
+async function initPortfolio(){
+  let pf;
+  try{ const r=await fetch(`data/cartera.json?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; pf=await r.json(); }catch(e){ pf=null; }
+  const tb=document.querySelector('#t-pf tbody'), th=document.querySelector('#t-pfh tbody');
+  if(!pf||!(pf.positions||[]).length){
+    tb.innerHTML='<tr><td colspan="12" class="empty">Todavía no hay compras simuladas. Se añaden solas cuando una acción sale en verde.</td></tr>';
+    th.innerHTML=''; document.getElementById('j-pf').textContent='0'; return; }
+  const stake=pf.stake||1000, H=pf.horizons||[1,3,5,10,20];
+  const rows=pf.positions.map(p=>{ const o={...p, eur: stake*(p.ret_now||0)/100};
+    H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
+  const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
+  document.getElementById('pf-sum').innerHTML=`<span>Invertido (simulado)</span><span>${fmtN(inv,0)} €</span>
+    <span>Valor ahora</span><span>${fmtN(inv+pl,0)} €</span>
+    <span>Resultado</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
+    <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
+    <span>Actualizado</span><span>${madrid(pf.updated)}</span>`;
+  th.innerHTML=H.map(k=>{ const v=rows.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return `<tr><td>${k} ${k===1?'sesión':'sesiones'}</td><td class="num">0</td><td class="num mut">·</td><td class="num mut">·</td><td class="num mut">·</td></tr>`;
+    const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length, eur=v.reduce((a,b)=>a+stake*b/100,0);
+    return `<tr><td>${k} ${k===1?'sesión':'sesiones'}</td><td class="num">${v.length}</td><td class="num">${w} (${fmtN(w/v.length*100,0)} %)</td>${pctCell(avg)}<td class="num ${eur>=0?'up':'dn'}">${eur>=0?'+':''}${fmtN(eur,0)} €</td></tr>`; }).join('');
+  const draw=sortable(document.getElementById('t-pf'), ()=>rows, r=>{
+    document.getElementById('c-pf').textContent=r.length;
+    tb.innerHTML=r.map(p=>`<tr><td>${fmtDate(p.date)}</td><td><a class="tk" data-sym="${esc(p.symbol)}">${esc(p.symbol)}</a></td>
+      <td>${p.kind==='orb'?'<span class="tag orb">Apertura</span>':(p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
+      <td class="num">${fmtN(p.entry)}</td><td class="num">${fmtN(p.last)}</td>${pctCell(p.ret_now)}
+      <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}</tr>`).join('');
+  }, 'date','desc');
+  draw();
+  document.getElementById('j-pf').textContent=rows.length;
+}
+
+// ---------- Detalle: plan, riesgo y tamaño, máquina del tiempo, fundamentales, noticias
+const CALC = {capital:10000, riskPct:1, dayLossPct:3, lossToday:0, maxTrades:3, tradesToday:0, minRR:2, lastEntry:'15:30'};
+try{ Object.assign(CALC, JSON.parse(localStorage.getItem('atalaya-escaner-calc')||'{}')); }catch(e){}
+const drawer=document.getElementById('drawer'), dbg=document.getElementById('dbg');
+function closeDrawer(){ drawer.classList.remove('open'); dbg.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+dbg.addEventListener('click',closeDrawer);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+function nyNow(){ const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hourCycle:'h23',weekday:'short'}).formatToParts(new Date());
+  return {hm:p.find(x=>x.type==='hour').value+':'+p.find(x=>x.type==='minute').value, wd:p.find(x=>x.type==='weekday').value}; }
+function verdictEs(mc){
+  if(!mc||mc.target_share==null) return '';
+  const ts=mc.target_share*100, d=ts-33.3;
+  const lean = Math.abs(d)<5 ? 'Casi en el punto de equilibrio' : d>=15 ? 'Claramente a favor del objetivo' : d>0 ? 'Algo a favor del objetivo' : d<=-15 ? 'Claramente a favor del stop' : 'Algo a favor del stop';
+  return `${lean}: con objetivo a 2R hace falta que el objetivo llegue antes que el stop en al menos el 33 % de las simulaciones que tocan uno de los dos, y llegó en el ${fmtN(ts,0)} %.`;
+}
+function findHit(sym){
+  const o=(DATA.orb?.hits||[]).find(h=>h.symbol===sym), d=(DATA.daily?.hits||[]).find(h=>h.symbol===sym);
+  return {o,d};
+}
+function openDrawer(sym){
+  const {o,d}=findHit(sym);
+  const kind = o&&o.grade&&o.grade.entry ? 'orb' : d ? 'daily' : o ? 'orb' : null;
+  const h = kind==='orb'?o:d;
+  drawer.dataset.sym=sym; drawer.dataset.kind=kind||'';
+  renderDrawer(sym,kind,h);
+  drawer.classList.add('open'); dbg.classList.add('open'); drawer.setAttribute('aria-hidden','false'); drawer.scrollTop=0;
+}
+function renderDrawer(sym,kind,h){
+  const g=h?.grade||{};
+  const earn=new Set([...(DATA.daily?.earnings||[]),...(DATA.orb?.earnings||[])]);
+  const gr = h ? grade(h, kind, earn) : {sem:-1, why:'No está en el escáner de hoy'};
+  const news=(DATA.news?.items||[]).filter(i=>i.ticker===sym);
+  const fund=(DATA.fundamentals||{})[sym];
+  const cong=[];
+  (DATA.congress?.filings||[]).forEach(f=>(f.rows||[]).forEach(r=>{ if(r.ticker===sym) cong.push({...r, name:(f.name||'').replace(/^Hon\.\s*/,''), filed:f.filed, url:f.url}); }));
+  let html=`<div class="dh"><h3>${esc(sym)}</h3>${h?semCell(gr):''}<button class="x" id="dclose" aria-label="Cerrar">×</button></div>`;
+  if(h){
+    html+=`<div class="blk"><h4>${kind==='orb'?'Ruptura del rango de apertura':'Patrón de pre-apertura'}</h4>
+      <div>${kind==='orb'?`<span class="tag orb">Ruptura de apertura</span> a las ${to24(h.at)} NY`:h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</div>
+      <p class="sub" style="margin:8px 0 0;white-space:pre-line">${esc(gr.why)}</p></div>`;
+  }
+  if(g.entry){
+    const risk=g.entry-g.stop;
+    html+=`<div class="blk"><h4>Plan (entrada, stop y objetivo)</h4><div class="kv">
+      <span>Entrada</span><span>${fmtN(g.entry)} $</span>
+      <span>Stop${kind==='orb'?' (mitad del rango)':' (mínimo de 10 sesiones)'}</span><span class="dn">${fmtN(g.stop)} $</span>
+      <span>Objetivo (2R)</span><span class="up">${fmtN(g.target)} $</span>
+      <span>Riesgo por acción</span><span>${fmtN(risk)} $ (${fmtN(risk/g.entry*100)} %)</span>
+      ${kind==='orb'?'<span>Salida si no toca ninguno</span><span>15:55 NY</span>':''}
+    </div></div>
+    <div class="blk"><h4>Riesgo y tamaño de la posición</h4>
+      <div class="calc">
+        <label>Capital ($)<input type="number" data-c="capital" value="${CALC.capital}"></label>
+        <label>Riesgo por operación (%)<input type="number" step="0.1" data-c="riskPct" value="${CALC.riskPct}"></label>
+        <label>Pérdida máxima diaria (%)<input type="number" step="0.1" data-c="dayLossPct" value="${CALC.dayLossPct}"></label>
+        <label>Pérdida acumulada hoy ($)<input type="number" data-c="lossToday" value="${CALC.lossToday}"></label>
+        <label>Operaciones máximas al día<input type="number" data-c="maxTrades" value="${CALC.maxTrades}"></label>
+        <label>Operaciones hechas hoy<input type="number" data-c="tradesToday" value="${CALC.tradesToday}"></label>
+        <label>Beneficio/riesgo mínimo<input type="number" step="0.1" data-c="minRR" value="${CALC.minRR}"></label>
+        <label>Sin entradas después de (NY)<input type="text" data-c="lastEntry" value="${CALC.lastEntry}"></label>
+      </div>
+      <div id="calc-out"></div>
+    </div>`;
+  }
+  if(kind==='orb'&&g.mc){
+    const m=g.mc, pt=(m.p_target||0)*100, ps=(m.p_stop||0)*100, pn=(m.p_neither||0)*100;
+    html+=`<div class="blk"><h4>Máquina del tiempo (5.000 simulaciones con los últimos 60 días)</h4>
+      <div class="bar3"><i style="width:${pt}%;background:var(--up)"></i><i style="width:${pn}%;background:var(--line)"></i><i style="width:${ps}%;background:var(--dn)"></i></div>
+      <div class="kv"><span>Objetivo primero</span><span class="up">${fmtN(pt,1)} %</span><span>Ninguno antes de las 15:55</span><span>${fmtN(pn,1)} %</span>
+      <span>Stop primero</span><span class="dn">${fmtN(ps,1)} %</span><span>Termina en positivo</span><span>${fmtN((m.p_green||0)*100,1)} %</span>
+      <span>Resultado medio</span><span>${m.avg_R>0?'+':''}${fmtN(m.avg_R)} R</span></div>
+      <p class="sub" style="margin:8px 0 0">${verdictEs(m)}</p></div>`;
+  }
+  if(g.hist&&g.hist.n){
+    const hs=g.hist, u=g.unit==='R'?' R':' %';
+    html+=`<div class="blk"><h4>${kind==='orb'?'Histórico real de la misma regla (60 días)':'Histórico del patrón en esta acción (2 años, a 5 sesiones)'}</h4><div class="kv">
+      <span>Señales</span><span>${hs.n}</span><span>Acabaron en positivo</span><span>${fmtN(hs.win_pct,0)} %</span>
+      <span>Resultado medio</span><span class="${hs.avg>0?'up':'dn'}">${hs.avg>0?'+':''}${fmtN(hs.avg)}${u}</span>
+      <span>Ganancia media / pérdida media</span><span>${fmtN(hs.avg_win)}${u} / ${fmtN(hs.avg_loss)}${u}</span></div>
+      <p class="sub" style="margin:8px 0 0">Lo que pasó antes no garantiza lo que pasará; con menos de 10 señales el dato es poco fiable.</p></div>`;
+  }
+  if(fund){
+    const pct=v=>v==null?'':(v>0?'+':'')+fmtN(v,1)+' %';
+    html+=`<div class="blk"><h4>Fundamentales (SEC, últimos 12 meses)</h4><div class="kv">
+      <span>Empresa</span><span>${esc(fund.name||'')}</span><span>Ingresos</span><span>${fmtBig(fund.revenue_ttm)} $</span>
+      <span>Beneficio neto</span><span>${fmtBig(fund.net_income_ttm)} $</span><span>BPA</span><span>${fmtN(fund.eps_ttm)} $</span>
+      <span>PER aproximado</span><span>${fund.eps_ttm>0&&h?.price?fmtN(h.price/fund.eps_ttm,1):''}</span>
+      <span>Crecimiento ingresos (interanual)</span><span>${pct(fund.revenue_growth_yoy)}</span><span>Crecimiento BPA (interanual)</span><span>${pct(fund.eps_growth_yoy)}</span>
+      <span>Margen bruto / operativo / neto</span><span>${[fund.gross_margin,fund.operating_margin,fund.net_margin].map(v=>v==null?'·':fmtN(v,0)+' %').join(' / ')}</span>
+      <span>Último trimestre</span><span>${fmtDate(fund.period_end)}</span></div></div>`;
+  } else if(DATA.fundamentals_note){
+    html+=`<div class="blk"><h4>Fundamentales</h4><p class="sub" style="margin:0">${esc(DATA.fundamentals_note)}</p></div>`;
+  }
+  html+=`<div class="blk"><h4>Noticias (36 h)</h4>${news.length?`<ul class="dnews">${news.slice(0,12).map(i=>`<li>${i.important?'<span class="imp">! </span>':''}<a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a><div class="mut" style="font-size:11.5px">${esc(i.source)} · ${madrid(i.time)} ${(i.tags||[]).map(t=>`<span class="tag">${TAGS[t]||esc(t)}</span>`).join('')}</div></li>`).join('')}</ul>`:'<p class="sub" style="margin:0">Sin noticias recogidas para esta acción.</p>'}</div>`;
+  if(cong.length) html+=`<div class="blk"><h4>Congreso</h4><ul class="dnews">${cong.map(r=>`<li>${esc(r.name)}: ${esc(TXN[r.type_name]||r.type_name)} ${esc(r.amount||'')} el ${fmtDate(r.date)} <span class="mut">(declarado el ${fmtDate(r.filed)})</span></li>`).join('')}</ul></div>`;
+  html+=`<div class="blk"><a href="${tv(sym)}" target="_blank" rel="noopener" style="color:var(--blue)">Abrir el gráfico en TradingView</a></div>`;
+  drawer.innerHTML=html;
+  document.getElementById('dclose').addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('[data-c]').forEach(el=>el.addEventListener('input',()=>{ const k=el.dataset.c; CALC[k]= k==='lastEntry'? el.value : +el.value;
+    try{ localStorage.setItem('atalaya-escaner-calc', JSON.stringify(CALC)); }catch(e){} calcOut(kind,h); }));
+  if(g.entry) calcOut(kind,h);
+}
+function calcOut(kind,h){
+  const g=h.grade, out=document.getElementById('calc-out'); if(!out) return;
+  const risk=g.entry-g.stop, cap=CALC.capital, maxRisk=cap*CALC.riskPct/100;
+  let shares=Math.floor(maxRisk/risk); const byCash=Math.floor(cap/g.entry);
+  const capped = shares>byCash; shares=Math.max(0,Math.min(shares,byCash));
+  const cost=shares*g.entry, loss=shares*risk, gain=shares*(g.target-g.entry), rr=(g.target-g.entry)/risk;
+  const dayMax=cap*CALC.dayLossPct/100;
+  const checks=[];
+  const add=(ok,txt)=>checks.push({ok,txt});
+  add(shares>0, shares>0?`Tamaño: ${shares} acciones`:'Con este capital y riesgo no llega ni a una acción');
+  add(loss<=maxRisk+0.01, `Pérdida si salta el stop: ${fmtN(loss)} $ (máximo ${fmtN(maxRisk)} $)`);
+  add(CALC.lossToday+loss<=dayMax+0.01, `Pérdida del día con esta operación: ${fmtN(CALC.lossToday+loss)} $ (máximo ${fmtN(dayMax)} $)`);
+  add(CALC.tradesToday<CALC.maxTrades, `Operaciones hoy: ${CALC.tradesToday} de ${CALC.maxTrades}`);
+  add(rr>=CALC.minRR-0.01, `Beneficio/riesgo: ${fmtN(rr,1)} (mínimo ${fmtN(CALC.minRR,1)})`);
+  add(cost<=cap+0.01, `Coste: ${fmtN(cost)} $ de ${fmtN(cap)} $ de capital${capped?' (limitado por el capital, sin apalancamiento)':''}`);
+  if(kind==='orb'){
+    const n=nyNow(), open=!['Sat','Sun'].includes(n.wd)&&n.hm>='09:30'&&n.hm<'16:00';
+    const day=(DATA.orb.as_of||'').split(' ')[0], today=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
+    add(day===today && open && n.hm<=CALC.lastEntry, day!==today?'Horario: esta ruptura es de otra sesión':!open?'Horario: el mercado está cerrado':n.hm>CALC.lastEntry?`Horario: pasadas las ${CALC.lastEntry} de NY ya no se entra`:`Horario: ${n.hm} NY, dentro de la ventana`);
+    const age=(Date.now()-new Date(DATA.orb.run_at||DATA.orb.created_at))/60000;
+    add(age<=30, age<=30?`Precio de hace ${Math.round(age)} min`:`El precio es de hace ${Math.round(age)} min: revísalo antes de nada`);
+  } else {
+    add(true, 'Plan para la próxima sesión: entrada al precio de cierre, revisa el precio de apertura');
+  }
+  const pass=checks.every(c=>c.ok);
+  out.innerHTML=`<div class="big ${pass?'pass':'block'}">${pass?'PASS':'BLOCK'}</div>
+    <div class="kv"><span>Acciones</span><span>${shares}</span><span>Coste</span><span>${fmtN(cost)} $</span>
+    <span>Pérdida si toca el stop</span><span class="dn">−${fmtN(loss)} $</span><span>Ganancia si toca el objetivo</span><span class="up">+${fmtN(gain)} $</span></div>
+    <ul class="chk">${checks.map(c=>`<li><span class="${c.ok?'pass':'block'}">${c.ok?'Cumple':'No cumple'}</span> · ${c.txt}</li>`).join('')}</ul>
+    <p class="sub" style="margin:8px 0 0">PASS solo significa que la operación respeta tus límites; no dice si va a salir bien. Las órdenes las pones tú en tu bróker.</p>`;
+}
+
+// Clic en un ticker: abre el detalle
+document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'); if(!a) return; e.preventDefault(); openDrawer(a.dataset.sym); });
 
 (async()=>{
   const st=document.getElementById('status');
@@ -365,12 +642,12 @@ document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'
     DATA=await r.json();
     (DATA.daily?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
     (DATA.orb?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
-    initCong(); initDaily(); initOrb(); initNews();
+    bindRules(); initCong(); initDaily(); initOrb(); initNews(); initPortfolio();
     st.textContent=`Última actualización: ${madrid(DATA.updated)} (${ago(DATA.updated)}).`;
   }catch(e){
     st.className='status err';
     st.textContent='Todavía no hay datos del escáner. Se generan en la primera pasada automática (o lanzando a mano el flujo "Escáner de acciones" en GitHub Actions).';
-    initDaily(); initOrb(); initNews(); initCong();
+    initDaily(); initOrb(); initNews(); initCong(); initPortfolio();
   }
 })();
 </script>
