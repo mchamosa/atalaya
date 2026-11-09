@@ -235,9 +235,9 @@ if(CRIPTO){
   document.title='Atalaya · Escáner cripto';
   document.querySelector('header h1 span').textContent='· Escáner cripto';
   document.querySelectorAll('.tabs a').forEach(a=>{ a.removeAttribute('aria-current'); if(a.getAttribute('href')==='escaner.html?m=cripto') a.setAttribute('aria-current','page'); });
-  ['s-orb','s-news','s-cong'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; });
-  document.querySelectorAll('#jump a').forEach(a=>{ if(['#s-orb','#s-news','#s-cong'].includes(a.getAttribute('href'))) a.style.display='none'; });
-  document.getElementById('note').innerHTML='<strong>Escaneo automático</strong> de las criptomonedas de Binance contra USDT con más de 2 millones de volumen diario y al menos 200 días de historia, cada día tras el cierre de la vela diaria (00:00 UTC, 01:00 en España). Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Precios en USDT.<div class="status" id="status" style="margin-top:6px">Cargando datos…</div>';
+  ['s-news','s-cong'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; });
+  document.querySelectorAll('#jump a').forEach(a=>{ if(['#s-news','#s-cong'].includes(a.getAttribute('href'))) a.style.display='none'; });
+  document.getElementById('note').innerHTML='<strong>Escaneo automático</strong> de las criptomonedas de Binance contra USDT con más de 2 millones de volumen diario y al menos 200 días de historia, cada día tras el cierre de la vela diaria (00:00 UTC, 01:00 en España), y ruptura del rango de apertura de las 40 con más volumen en las sesiones de Londres (09:00 en España) y Nueva York (15:30 en España), de lunes a viernes. Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Precios en USDT.<div class="status" id="status" style="margin-top:6px">Cargando datos…</div>';
   document.querySelector('#s-daily h2').firstChild.textContent='Señales de la vela diaria ';
   const jd=document.querySelector('#jump a[href="#s-daily"]'); if(jd) jd.firstChild.textContent='Señales diarias ';
   document.querySelector('label:has(#r-earn)').lastChild.textContent=' 3. Volumen del día ≥ 1,5 veces la media de 20 días';
@@ -248,7 +248,7 @@ if(CRIPTO){
 const SETUPS = {
   breakout_20d:'Ruptura máx. 20 días', bull_flag:'Bandera alcista', reclaim_ma20:'Recupera media 20',
   oversold:'Sobreventa RSI<30', oversold_bounce:'Rebote de sobreventa', orb:'Ruptura de apertura',
-  high_52w:'Máx. 52 semanas', ath:'Máximo histórico'
+  high_52w:'Máx. 52 semanas', ath:'Máximo histórico', orb_london:'Apertura Londres', orb_ny:'Apertura Nueva York'
 };
 const TAGS = {earnings:'Resultados',analyst:'Analistas',legal:'Legal',deal:'Operación corporativa',capital:'Dividendos y recompras',
   people:'Directivos',risk:'Riesgo',halt:'Suspensión',regulatory:'Regulatorio',macro:'Macro'};
@@ -399,7 +399,8 @@ function initOrb(){
     hora: to24(h.at), win:h.grade?.hist?.n?h.grade.hist.win_pct:null, exp:h.grade?.hist?.n?h.grade.hist.avg:null,
     ts:h.grade?.mc?.target_share??null, entry:h.grade?.entry??null}));
   const regrade=()=>hits.forEach(h=>{ h.gr=grade(h,'orb',earnO); h.sem=h.gr.sem; });
-  document.getElementById('m-orb').innerHTML =
+  if(CRIPTO&&d.session_name) document.querySelector('#s-orb h2').firstChild.textContent='Ruptura del rango de apertura · sesión de '+d.session_name+' ';
+  document.getElementById('m-orb').innerHTML = (CRIPTO&&d.session_name?'Sesión de '+d.session_name+' · ':'')+
     `Sesión del ${fmtDate(day)} hasta las ${time} de Nueva York (${nyToMadrid(day,time)} en España) · `+
     `rango de los primeros ${d.or_minutes||15} minutos con velas de 5 minutos · ${fmtN(d.scanned,0)} gráficos completos`+
     (d.unconfirmed?` · <span class="dn">parcial: ${fmtN(d.unconfirmed,0)} candidatos sin confirmar</span>`:'')+
@@ -539,7 +540,7 @@ function whenCell(day, hm, extra){
   return `<td style="white-space:nowrap">${fmtDate(day)}${hm?` <b>${es}</b> <span class="mut">(${hm} NY)</span>`:''}${extra?`<div class="mut" style="font-size:11.5px">${extra}</div>`:''}</td>`;
 }
 function sigWhen(p){
-  if(p.signal_ts) return ['iso', p.signal_ts, 'cierre de la vela diaria (00:00 UTC)'];
+  if(p.signal_ts) return ['iso', p.signal_ts, p.kind==='orb'?'cierre de la vela de ruptura':'cierre de la vela diaria (00:00 UTC)'];
   if(p.kind==='orb') return [p.date, p.at?to24(p.at):null, 'cierre de la vela de ruptura'];
   return [p.signal_date||null, p.signal_date?'16:00':null, 'cierre de la sesión'];
 }
@@ -554,8 +555,8 @@ function buyWhen(p){
 }
 function sigCell(p){
   if(p.kind==='orb'){
-    const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtN(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+buyWhen(p)[1]+' NY':'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
-    return `<span class="tag orb">Ruptura de apertura</span>${det?`<div class="mut" style="font-size:11.5px">${det}</div>`:''}`;
+    const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtN(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+(p.buy_ts?madrid(p.buy_ts)+' (España)':buyWhen(p)[1]+' NY'):'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
+    return `<span class="tag orb">${p.session_name?'Apertura '+p.session_name:'Ruptura de apertura'}</span>${det?`<div class="mut" style="font-size:11.5px">${det}</div>`:''}`;
   }
   const sp=p.entry_type==='deteccion'?'señal con el cierre diario del '+fmtDate(p.signal_date)+' a '+fmtP(p.signal_price)+(p.vol_ratio!=null?' · volumen '+fmtN(p.vol_ratio,1)+' veces la media':''):p.signal_price&&p.entry_type==='apertura'?'señal con el cierre del '+fmtDate(p.signal_date)+' a '+fmtN(p.signal_price)+' $, compra a la apertura':p.entry_type==='apertura pendiente'?'compra a la apertura (pendiente del precio)':'';
   const det=[sp, p.rsi!=null?'RSI '+fmtN(p.rsi,0):'', p.n?'patrón con '+fmtN(p.win,0)+' % de aciertos en '+p.n+' señales':'', p.gap_below_stop?'abrió por debajo del stop':''].filter(Boolean).join(' · ');
@@ -570,7 +571,7 @@ async function initPortfolio(){
     document.getElementById('j-pf').textContent='0'; return; }
   const f=document.getElementById('pf-f');
   f.innerHTML=[['all','Todas'],['2','Verdes'],['1','Ámbar'],['0','Rojas']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-sem="${k}">${t}</span>`).join('')+
-    (CRIPTO?'':' '+[['all','Ambos orígenes'],['daily','Pre-apertura'],['orb','Apertura']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-kind="${k}">${t}</span>`).join(''));
+    ' '+(CRIPTO?[['all','Todos los orígenes'],['daily','Vela diaria'],['orb','Aperturas de sesión']]:[['all','Ambos orígenes'],['daily','Pre-apertura'],['orb','Apertura']]).map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-kind="${k}">${t}</span>`).join('');
   f.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return;
     if(c.dataset.sem){ pfSem=c.dataset.sem; f.querySelectorAll('[data-sem]').forEach(x=>x.classList.toggle('on',x===c)); }
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
@@ -602,8 +603,9 @@ function drawPF(){
     const planTxt=pr.length?`${fmtN(cnt('objetivo')/pr.length*100,0)} / ${fmtN(cnt('stop')/pr.length*100,0)} / ${fmtN(cnt('cierre')/pr.length*100,0)} % <span class="mut">(${pr.length})</span>`:'<span class="mut">·</span>';
     const mR=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
     return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mR==null?'·':(mR>0?'+':'')+fmtN(mR)+' R'}</td></tr>`; };
-  const sigKeys=[...Object.keys(SETUPS)].filter(k=>rows.some(r=>(r.kind==='orb'?['orb']:(r.setups||[])).includes(k)));
-  document.querySelector('#t-pfs tbody').innerHTML=sigKeys.length? sigKeys.map(k=>sumRow(`<span class="tag ${k}">${SETUPS[k]}</span>`, rows.filter(r=>(r.kind==='orb'?['orb']:(r.setups||[])).includes(k)))).join('')
+  const sigList=r=>r.kind==='orb'?[r.session?'orb_'+r.session:'orb']:(r.setups||[]);
+  const sigKeys=[...Object.keys(SETUPS)].filter(k=>rows.some(r=>sigList(r).includes(k)));
+  document.querySelector('#t-pfs tbody').innerHTML=sigKeys.length? sigKeys.map(k=>sumRow(`<span class="tag ${k.startsWith('orb')?'orb':k}">${SETUPS[k]}</span>`, rows.filter(r=>sigList(r).includes(k)))).join('')
     : '<tr><td colspan="9" class="empty">Sin señales con este filtro.</td></tr>';
   const th=document.querySelector('#t-pfh tbody');
   const grp=[['Verdes',2],['Ámbar',1],['Rojas',0],['Todas',null]];
@@ -642,7 +644,7 @@ function verdictEs(mc){
   if(!mc||mc.target_share==null) return '';
   const ts=mc.target_share*100, d=ts-33.3;
   const lean = Math.abs(d)<5 ? 'Casi en el punto de equilibrio' : d>=15 ? 'Claramente a favor del objetivo' : d>0 ? 'Algo a favor del objetivo' : d<=-15 ? 'Claramente a favor del stop' : 'Algo a favor del stop';
-  return `${lean}: con objetivo a 2R hace falta que el objetivo llegue antes que el stop en al menos el 33 % de las simulaciones que tocan uno de los dos, y llegó en el ${fmtN(ts,0)} %.`;
+  return `${lean}: con objetivo a 2R hace falta que el objetivo llegue antes que el stop en al menos el 33 % de las ${mc.historic?'sesiones':'simulaciones'} que tocan uno de los dos, y llegó en el ${fmtN(ts,0)} %.`;
 }
 function findHit(sym){
   const o=(DATA.orb?.hits||[]).find(h=>h.symbol===sym), d=(DATA.daily?.hits||[]).find(h=>h.symbol===sym);
@@ -677,7 +679,7 @@ function renderDrawer(sym,kind,h){
       <span>Stop${kind==='orb'?' (mitad del rango)':CRIPTO?' (mínimo de 10 días)':' (mínimo de 10 sesiones)'}</span><span class="dn">${fmtP(g.stop)} $</span>
       <span>Objetivo (2R)</span><span class="up">${fmtP(g.target)} $</span>
       <span>Riesgo por ${CRIPTO?'unidad':'acción'}</span><span>${fmtP(risk)} $ (${fmtN(risk/g.entry*100)} %)</span>
-      ${kind==='orb'?'<span>Salida si no toca ninguno</span><span>15:55 NY</span>':''}
+      ${kind==='orb'?`<span>Salida si no toca ninguno</span><span>${CRIPTO?'cierre de la sesión':'15:55 NY'}</span>`:''}
     </div></div>
     <div class="blk"><h4>Riesgo y tamaño de la posición</h4>
       <div class="calc">
@@ -695,16 +697,16 @@ function renderDrawer(sym,kind,h){
   }
   if(kind==='orb'&&g.mc){
     const m=g.mc, pt=(m.p_target||0)*100, ps=(m.p_stop||0)*100, pn=(m.p_neither||0)*100;
-    html+=`<div class="blk"><h4>Máquina del tiempo (5.000 simulaciones con los últimos 60 días)</h4>
+    html+=`<div class="blk"><h4>${m.historic?'Histórico real de la misma regla en esta sesión (últimos 45 días)':'Máquina del tiempo (5.000 simulaciones con los últimos 60 días)'}</h4>
       <div class="bar3"><i style="width:${pt}%;background:var(--up)"></i><i style="width:${pn}%;background:var(--line)"></i><i style="width:${ps}%;background:var(--dn)"></i></div>
-      <div class="kv"><span>Objetivo primero</span><span class="up">${fmtN(pt,1)} %</span><span>Ninguno antes de las 15:55</span><span>${fmtN(pn,1)} %</span>
+      <div class="kv"><span>Objetivo primero</span><span class="up">${fmtN(pt,1)} %</span><span>${m.historic?'Ninguno antes del cierre de la sesión':'Ninguno antes de las 15:55'}</span><span>${fmtN(pn,1)} %</span>
       <span>Stop primero</span><span class="dn">${fmtN(ps,1)} %</span><span>Termina en positivo</span><span>${fmtN((m.p_green||0)*100,1)} %</span>
       <span>Resultado medio</span><span>${m.avg_R>0?'+':''}${fmtN(m.avg_R)} R</span></div>
       <p class="sub" style="margin:8px 0 0">${verdictEs(m)}</p></div>`;
   }
   if(g.hist&&g.hist.n){
     const hs=g.hist, u=g.unit==='R'?' R':' %';
-    html+=`<div class="blk"><h4>${kind==='orb'?'Histórico real de la misma regla (60 días)':'Histórico del patrón en esta acción (2 años, a 5 sesiones)'}</h4><div class="kv">
+    html+=`<div class="blk"><h4>${kind==='orb'?(CRIPTO?'Histórico real de la misma regla en esta sesión (45 días)':'Histórico real de la misma regla (60 días)'):'Histórico del patrón en esta acción (2 años, a 5 sesiones)'}</h4><div class="kv">
       <span>Señales</span><span>${hs.n}</span><span>Acabaron en positivo</span><span>${fmtN(hs.win_pct,0)} %</span>
       <span>Resultado medio</span><span class="${hs.avg>0?'up':'dn'}">${hs.avg>0?'+':''}${fmtN(hs.avg)}${u}</span>
       <span>Ganancia media / pérdida media</span><span>${fmtN(hs.avg_win)}${u} / ${fmtN(hs.avg_loss)}${u}</span></div>
@@ -746,7 +748,10 @@ function calcOut(kind,h){
   add(CALC.tradesToday<CALC.maxTrades, `Operaciones hoy: ${CALC.tradesToday} de ${CALC.maxTrades}`);
   add(rr>=CALC.minRR-0.01, `Beneficio/riesgo: ${fmtN(rr,1)} (mínimo ${fmtN(CALC.minRR,1)})`);
   add(cost<=cap+0.01, `Coste: ${fmtN(cost)} $ de ${fmtN(cap)} $ de capital${capped?' (limitado por el capital, sin apalancamiento)':''}`);
-  if(kind==='orb'){
+  if(kind==='orb'&&CRIPTO){
+    const age=(Date.now()-new Date(DATA.orb.run_at))/60000;
+    add(age<=60, age<=60?`Ruptura de la sesión de ${DATA.orb.session_name||''}, precio de hace ${Math.round(age)} min`:`El precio es de hace ${Math.round(age)} min: revísalo antes de nada`);
+  } else if(kind==='orb'){
     const n=nyNow(), open=!['Sat','Sun'].includes(n.wd)&&n.hm>='09:30'&&n.hm<'16:00';
     const day=(DATA.orb.as_of||'').split(' ')[0], today=new Date().toLocaleDateString('en-CA',{timeZone:'America/New_York'});
     add(day===today && open && n.hm<=CALC.lastEntry, day!==today?'Horario: esta ruptura es de otra sesión':!open?'Horario: el mercado está cerrado':n.hm>CALC.lastEntry?`Horario: pasadas las ${CALC.lastEntry} de NY ya no se entra`:`Horario: ${n.hm} NY, dentro de la ventana`);
