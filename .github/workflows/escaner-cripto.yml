@@ -3,13 +3,15 @@ name: Escáner cripto
 on:
   schedule:
     - cron: "10 0 * * *"        # tras el cierre de la vela diaria (00:00 UTC): señales y registro
+    - cron: "40 7,8 * * 1-5"    # apertura de Londres (una de las dos cae a los 40 min según el horario de verano)
+    - cron: "10 14,15 * * 1-5"  # apertura de Nueva York (ídem)
     - cron: "10 6,12,18 * * *"  # resto del día: solo actualiza el registro
   workflow_dispatch:
     inputs:
       modo:
         description: "Qué hacer"
         type: choice
-        options: [scan, update]
+        options: [scan, session, update]
         default: scan
 
 permissions:
@@ -36,7 +38,11 @@ jobs:
         run: |
           MODO="${{ inputs.modo }}"
           if [ -z "$MODO" ]; then
-            if [ "${{ github.event.schedule }}" = "10 0 * * *" ]; then MODO=scan; else MODO=update; fi
+            case "${{ github.event.schedule }}" in
+              "10 0 * * *") MODO=scan ;;
+              "40 7,8 * * 1-5"|"10 14,15 * * 1-5") MODO=session ;;
+              *) MODO=update ;;
+            esac
           fi
           python scripts/escaner_cripto.py "$MODO"
       - name: Guardar cambios
