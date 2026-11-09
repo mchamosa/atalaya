@@ -201,7 +201,7 @@ footer a{color:var(--mut)}
   </section>
   <section class="panel" id="s-pf">
     <h2>Registro de señales <span class="count" id="c-pf">0</span></h2>
-    <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al cierre de la vela de ruptura. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
+    <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
     <div class="kv" id="pf-sum" style="max-width:560px;margin-bottom:12px"></div>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
@@ -508,10 +508,10 @@ function initAll(){
 
 // ---------- Registro de señales
 function pctCell(v){ return v==null?'<td class="num mut">·</td>':`<td class="num ${v>0?'up':v<0?'dn':''}">${v>0?'+':''}${fmtN(v)} %</td>`; }
-const PLAN_TXT={objetivo:'Objetivo',stop:'Stop',cierre:'Cierre'};
+const PLAN_TXT={objetivo:'Objetivo',stop:'Stop',cierre:'Cierre',anulada:'Anulada'};
 function sigCell(p){
   if(p.kind==='orb'){
-    const det=[p.at?'cierra sobre el rango a las '+to24(p.at)+' NY':'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
+    const det=[p.at?'rompe el rango a las '+to24(p.at)+' NY'+(p.breakout_price?' a '+fmtN(p.breakout_price)+' $':''):'', p.breakout_price&&p.entry_bar?'detectada y comprada a las '+p.entry_bar+' NY':'', p.pct_over!=null?'+'+fmtN(p.pct_over)+' % sobre el máximo':'', p.or_low!=null?'rango '+fmtN(p.or_low)+' a '+fmtN(p.or_high):''].filter(Boolean).join(' · ');
     return `<span class="tag orb">Ruptura de apertura</span>${det?`<div class="mut" style="font-size:11.5px">${det}</div>`:''}`;
   }
   const sp=p.signal_price&&p.entry_type==='apertura'?'señal con el cierre del '+fmtDate(p.signal_date)+' a '+fmtN(p.signal_price)+' $, compra a la apertura':p.entry_type==='apertura pendiente'?'compra a la apertura (pendiente del precio)':'';
@@ -539,7 +539,8 @@ function drawPF(){
   const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
   const all=PF.positions.map(p=>{ const o={...p, sem:p.sem??2, eur: stake*(p.ret_now||0)/100, planR:p.plan?.R??null, sig:p.kind==='orb'?'orb':(p.setups||[]).join(',')};
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
-  const byKind=all.filter(r=>pfKind==='all'||r.kind===pfKind);
+  const annulled=all.filter(r=>r.status==='anulada').length;
+  const byKind=all.filter(r=>r.status!=='anulada'&&(pfKind==='all'||r.kind===pfKind));
   const rows=byKind.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
@@ -547,7 +548,7 @@ function drawPF(){
     <span>Invertido (simulado)</span><span>${fmtN(inv,0)} €</span>
     <span>Resultado ahora</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
     <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
-    <span>Actualizado</span><span>${madrid(PF.updated)}</span>`:'<span>Sin señales con este filtro</span><span></span>';
+    <span>Actualizado</span><span>${madrid(PF.updated)}</span>${annulled?`<span>Anuladas (ya bajo el stop al detectarlas)</span><span>${annulled}</span>`:''}`:'<span>Sin señales con este filtro</span><span></span>';
   const sumRow=(label,rs)=>{
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
