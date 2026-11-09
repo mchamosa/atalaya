@@ -368,6 +368,44 @@ def _daily_outcome(p, after):
     return None
 
 
+def orb_detection_prices(block):
+    """Precio de cada ruptura en el momento en que la detecta el escáner: cierre de la
+    última vela de 5 minutos completa a la hora del escaneo. {SYM: (precio, "HH:MM")}."""
+    sm = scanmod()
+    as_of = (block.get("as_of") or "").replace(" ET", "")
+    try:
+        cutoff = dt.datetime.strptime(as_of, "%Y-%m-%d %H:%M")
+    except ValueError:
+        return {}
+    syms = [h["symbol"] for h in block.get("hits", []) if (h.get("grade") or {}).get("entry")]
+    data, _ = sm.fetch_spark(syms, "1d", "5m", 0.3) if syms else ({}, {})
+    out = {}
+    for sym, series in data.items():
+        bars = sm.session_bars(series, cutoff.date(), cutoff)
+        if bars:
+            b = bars[-1]
+            out[sym] = (round(b["c"], 2), b["start"].strftime("%H:%M"))
+    return out
+
+
+def _fix_old_orb(sm, p):
+    series = sm.parse_chart(sm.yahoo_get(sm.chart_path(p["symbol"], "5d", "5m")), p["symbol"])
+    reg = dt.datetime.strptime(p["opened_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+    cutoff = sm.to_eastern(reg).replace(tzinfo=None)
+    bars = sm.session_bars(series, dt.date.fromisoformat(p["date"]), cutoff)
+    if not bars:
+        return
+    b = bars[-1]
+    p["breakout_price"] = p["entry"]
+    entry = round(b["c"], 2)
+    p["entry"], p["entry_bar"] = entry, b["start"].strftime("%H:%M")
+    if p.get("stop") and entry > p["stop"]:
+        p["target"] = round(entry + 2 * (entry - p["stop"]), 2)
+    else:
+        p["status"] = "anulada"     # cuando se detectó ya estaba por debajo del stop
+        p["plan"] = {"outcome": "anulada", "R": 0.0, "ret": 0.0}
+
+
 def portfolio_update(data, mode):
     """Registro de TODAS las señales valoradas de cada día (1.000 € simulados cada una),
     con su color de semáforo de ese momento, y seguimiento a días vista."""
@@ -380,9 +418,12 @@ def portfolio_update(data, mode):
     if block and block.get("run_at", "")[:10] == now_utc()[:10]:
         earn = set(block.get("earnings") or [])
         if kind == "daily":
-            day = dt.date.today().isoformat()   # se compra en la sesión de hoy al precio del último cierre
+            day = dt.date.today().isoformat()   # se compra a la apertura de la sesión de hoy
         else:
             day = (block.get("as_of") or "").split(" ")[0]
+        now_px = {}
+        if kind == "orb":
+            now_px = orb_detection_prices(block)
         for h in block.get("hits", []):
             g = h.get("grade") or {}
             if not g.get("entry") or g.get("error"):
@@ -392,16 +433,27 @@ def portfolio_update(data, mode):
                 continue
             sem = sem_color(h, kind, earn)
             hs = g.get("hist") or {}
+            entry, target, entry_bar = g["entry"], g.get("target"), h.get("bar_start")
+            if kind == "orb":
+                # Solo se puede comprar cuando el escáner la detecta: precio de ese momento
+                px = now_px.get(h["symbol"])
+                if not px:
+                    continue
+                entry, entry_bar = px
+                if not g.get("stop") or entry <= g["stop"]:
+                    continue                      # ya volvió por debajo del stop: no hay operación
+                target = round(entry + 2 * (entry - g["stop"]), 2)
             p = {"symbol": h["symbol"], "kind": kind, "date": day, "sem": sem,
-                 "entry": g["entry"], "stop": g.get("stop"), "target": g.get("target"),
+                 "entry": entry, "stop": g.get("stop"), "target": target,
+                 "breakout_price": g["entry"] if kind == "orb" else None,
                  "setups": h.get("setups"), "win": hs.get("win_pct"), "n": hs.get("n"),
                  "ts": (g.get("mc") or {}).get("target_share"),
-                 "entry_bar": h.get("bar_start"), "earn": h["symbol"] in earn,
+                 "entry_bar": entry_bar, "earn": h["symbol"] in earn,
                  "rsi": h.get("rsi"), "at": h.get("at"), "pct_over": h.get("pct_over"),
                  "or_high": h.get("or_high"), "or_low": h.get("or_low"),
                  "signal_date": h.get("close_date") or day, "signal_price": g["entry"],
                  "entry_type": "apertura pendiente" if kind == "daily" else "ruptura",
-                 "opened_at": now_utc(), "closes": {}, "last": g["entry"], "status": "abierta"}
+                 "opened_at": now_utc(), "closes": {}, "last": entry, "status": "abierta"}
             pos.append(p)
             have.add(key)
             added.append(h["symbol"])
@@ -421,7 +473,8 @@ def portfolio_update(data, mode):
             continue
         opens = series.get("o") or []
         for i, ts in enumerate(series["t"]):
-            if sm.ts_to_eastern(ts).date().isoformat() == p["date"] and i < len(opens) and opens[i]:
+            if sm.ts_to_eastern(ts).date().isoformat() >= p["date"] and i < len(opens) and opens[i]:
+                p["date"] = sm.ts_to_eastern(ts).date().isoformat()   # si era festivo, la siguiente sesión
                 if not p.get("signal_price"):
                     p["signal_price"] = p["entry"]
                 op = round(float(opens[i]), 2)
@@ -461,6 +514,16 @@ def portfolio_update(data, mode):
     for p in live:
         if p["kind"] != "orb" or p.get("plan") or not p.get("entry_bar"):
             continue
+        if "breakout_price" not in p:
+            # Registros antiguos: se compraban al precio de la vela de ruptura; se pasa al
+            # precio que había cuando se registraron (lo que se podía comprar de verdad)
+            try:
+                _fix_old_orb(sm, p)
+                time.sleep(0.3)
+            except Exception:
+                pass
+            if p.get("status") == "anulada":
+                continue
         try:
             o = _orb_outcome(sm, p)
             time.sleep(0.3)
