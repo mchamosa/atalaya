@@ -185,7 +185,7 @@ def sem_color(h, kind="daily"):
 def scan(data):
     uni = universe()
     log("universo: %d pares con más de %.0f M USDT en 24 h" % (len(uni), MIN_QUOTE_VOL / 1e6))
-    hits, pooled, failed = [], {}, 0
+    hits, pooled, failed, eligible = [], {}, 0, []
     signal_day = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=1)).isoformat()
     for u in uni:
         try:
@@ -195,6 +195,7 @@ def scan(data):
             continue
         if len(ks) < MIN_DAYS or ks[-1]["date"] != signal_day:
             continue                     # poca historia o sin la vela de ayer (par parado)
+        eligible.append(u["base"])
         closes = [k["c"] for k in ks]
         qvs = [k["qv"] for k in ks]
         i = len(closes) - 1
@@ -232,6 +233,7 @@ def scan(data):
     for h in hits:
         h.pop("_closes", None)
         h.pop("_qvs", None)
+    data["eligible"] = eligible           # monedas con historia suficiente (también para las sesiones)
     data["daily"] = {"run_at": now_utc(), "as_of": "%s cierre UTC" % (signal_day or ""), "close_date": signal_day,
                      "universe": len(uni), "scanned": len(uni) - failed, "failed": failed,
                      "filters": {"min_quote_volume": MIN_QUOTE_VOL}, "hits": hits,
@@ -322,7 +324,8 @@ def active_session(now):
 
 def scan_session(data, key, day):
     ss = SESSIONS[key]
-    uni = universe()[:SESSION_COINS]
+    elig = set(data.get("eligible") or [])
+    uni = [u for u in universe() if not elig or u["base"] in elig][:SESSION_COINS]
     t_open, t_or, t_det, t_close = session_times(key, day)
     now_ms = int(time.time() * 1000)
     t_det = min(max(t_det, t_or + 5 * 60000), now_ms)      # detección: ahora, como mínimo tras el rango
@@ -511,6 +514,9 @@ def portfolio_update(data, mode):
                 p["plan"] = {"outcome": "cierre", "R": round((c - p["entry"]) / risk, 2), "ret": round((c / p["entry"] - 1) * 100, 2), "sessions": 10}
         if len(closed) >= max(HORIZONS) and p.get("plan"):
             p["status"] = "terminada"
+    elig = set(data.get("eligible") or [])
+    if elig:   # fuera acciones tokenizadas y monedas sin historia
+        pos[:] = [p for p in pos if p.get("kind") != "orb" or p["symbol"] in elig]
     if mode == "session":
         added += session_register(data, pf)
     session_outcomes(pf)
