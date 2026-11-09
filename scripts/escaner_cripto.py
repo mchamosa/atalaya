@@ -169,22 +169,22 @@ def sem_color(h):
 def scan(data):
     uni = universe()
     log("universo: %d pares con más de %.0f M USDT en 24 h" % (len(uni), MIN_QUOTE_VOL / 1e6))
-    hits, pooled, failed, signal_day = [], {}, 0, None
+    hits, pooled, failed = [], {}, 0
+    signal_day = (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=1)).isoformat()
     for u in uni:
         try:
             ks = [k for k in klines(u["symbol"]) if k["closed"]]
         except Exception:
             failed += 1
             continue
-        if len(ks) < MIN_DAYS:
-            continue
+        if len(ks) < MIN_DAYS or ks[-1]["date"] != signal_day:
+            continue                     # poca historia o sin la vela de ayer (par parado)
         closes = [k["c"] for k in ks]
         qvs = [k["qv"] for k in ks]
         i = len(closes) - 1
         tags, nums = setups_at(closes, qvs, i)
         if not tags:
             continue
-        signal_day = ks[i]["date"]
         h = {"symbol": u["base"], "pair": u["symbol"], "setups": tags, "price": u["price"],
              "close": closes[i], "close_date": ks[i]["date"], "rsi": round(nums["rsi"], 1) if nums.get("rsi") else None,
              "volume": qvs[i], "qv24": u["qv24"], "chg24": u["chg24"],
@@ -232,7 +232,8 @@ def portfolio_update(data, mode):
     if mode == "scan" and blk.get("run_at", "")[:10] == now_utc()[:10]:
         # Si se repite el escaneo del mismo cierre, quedan solo las señales que siguen saliendo
         today_syms = {h["symbol"] for h in blk.get("hits", []) if (h.get("grade") or {}).get("entry")}
-        pos[:] = [p for p in pos if p["signal_date"] != blk.get("close_date") or p["symbol"] in today_syms]
+        pos[:] = [p for p in pos if p["date"] != now_utc()[:10]
+                  or (p["signal_date"] == blk.get("close_date") and p["symbol"] in today_syms)]
         have = {(p["symbol"], p["signal_date"]) for p in pos}
         prices = {u["symbol"]: u["price"] for u in universe()}
         for h in blk.get("hits", []):
