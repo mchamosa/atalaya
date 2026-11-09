@@ -29,6 +29,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -48,7 +50,11 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/salida
+          cp data/escaner.json data/escaner_congreso.json data/cartera.json /tmp/salida/ 2>/dev/null || true
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/salida/* data/ 2>/dev/null || true
           git add data/escaner.json data/escaner_congreso.json data/cartera.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Escáner $(date -u +'%Y-%m-%d %H:%M') UTC"
-          git pull --rebase --autostash || true
           git push
