@@ -399,16 +399,41 @@ def portfolio_update(data, mode):
                  "entry_bar": h.get("bar_start"), "earn": h["symbol"] in earn,
                  "rsi": h.get("rsi"), "at": h.get("at"), "pct_over": h.get("pct_over"),
                  "or_high": h.get("or_high"), "or_low": h.get("or_low"),
+                 "signal_date": h.get("close_date") or day, "signal_price": g["entry"],
+                 "entry_type": "apertura pendiente" if kind == "daily" else "ruptura",
                  "opened_at": now_utc(), "closes": {}, "last": g["entry"], "status": "abierta"}
             pos.append(p)
             have.add(key)
             added.append(h["symbol"])
             if sem == 2:
                 greens.append(h["symbol"])
-    # Seguimiento: cierres diarios por lotes de 20 acciones
     sm = scanmod()
     now = dt.datetime.now(dt.timezone.utc)
     live = [p for p in pos if p.get("status") != "terminada"]
+    # Las señales de pre-apertura se compran a la apertura del día, no al cierre de la señal
+    for p in live:
+        if p["kind"] != "daily" or p.get("entry_type") == "apertura":
+            continue
+        try:
+            series = sm.parse_chart(sm.yahoo_get(sm.chart_path(p["symbol"], "1mo", "1d")), p["symbol"])
+            time.sleep(0.3)
+        except Exception:
+            continue
+        opens = series.get("o") or []
+        for i, ts in enumerate(series["t"]):
+            if sm.ts_to_eastern(ts).date().isoformat() == p["date"] and i < len(opens) and opens[i]:
+                if not p.get("signal_price"):
+                    p["signal_price"] = p["entry"]
+                op = round(float(opens[i]), 2)
+                p["entry"] = op
+                if p.get("stop") and op > p["stop"]:
+                    p["target"] = round(op + 2 * (op - p["stop"]), 2)
+                elif p.get("stop"):
+                    p["gap_below_stop"] = True    # abrió por debajo del stop: se habría anulado
+                p["entry_type"] = "apertura"
+                p["shares"] = round(STAKE / op, 4)
+                break
+    # Seguimiento: cierres diarios por lotes de 20 acciones
     syms = sorted({p["symbol"] for p in live})
     series_by, _ = sm.fetch_spark(syms, "3mo", "1d", 0.3) if syms else ({}, {})
     for p in live:
