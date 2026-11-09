@@ -237,7 +237,7 @@ if(CRIPTO){
   document.querySelectorAll('.tabs a').forEach(a=>{ a.removeAttribute('aria-current'); if(a.getAttribute('href')==='escaner.html?m=cripto') a.setAttribute('aria-current','page'); });
   ['s-orb','s-news','s-cong'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display='none'; });
   document.querySelectorAll('#jump a').forEach(a=>{ if(['#s-orb','#s-news','#s-cong'].includes(a.getAttribute('href'))) a.style.display='none'; });
-  document.getElementById('note').innerHTML='<strong>Escaneo automático</strong> de las criptomonedas de Binance contra USDT con más de 5 millones de volumen diario, cada día tras el cierre de la vela diaria (00:00 UTC, 01:00 en España). Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Precios en USDT.<div class="status" id="status" style="margin-top:6px">Cargando datos…</div>';
+  document.getElementById('note').innerHTML='<strong>Escaneo automático</strong> de las criptomonedas de Binance contra USDT con más de 2 millones de volumen diario y al menos 200 días de historia, cada día tras el cierre de la vela diaria (00:00 UTC, 01:00 en España). Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Precios en USDT.<div class="status" id="status" style="margin-top:6px">Cargando datos…</div>';
   document.querySelector('#s-daily h2').firstChild.textContent='Señales de la vela diaria ';
   const jd=document.querySelector('#jump a[href="#s-daily"]'); if(jd) jd.firstChild.textContent='Señales diarias ';
   document.querySelector('label:has(#r-earn)').lastChild.textContent=' 3. Volumen del día ≥ 1,5 veces la media de 20 días';
