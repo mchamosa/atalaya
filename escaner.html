@@ -137,7 +137,7 @@ footer a{color:var(--mut)}
 
   <section class="panel" id="s-all">
     <h2>Todas las operaciones de hoy en una tabla <span class="count" id="c-all">0</span></h2>
-    <p class="sub">Cada acción valorada, de pre-apertura y de apertura, con su precio de compra (entrada), su stop y su precio de venta (objetivo), ordenadas por el semáforo. Las unidades salen de invertir 1.000 € por operación, como en la cartera simulada. Toca un ticker para ver el detalle y calcular el tamaño con tu capital.</p>
+    <p class="sub">Cada acción valorada, de pre-apertura y de apertura, con su precio de compra (entrada), su stop y su precio de venta (objetivo), ordenadas por el semáforo. Las unidades salen de invertir 1.000 € por operación, como en el registro de señales. Toca un ticker para ver el detalle y calcular el tamaño con tu capital.</p>
     <div class="wrap"><table id="t-all"><thead><tr>
       <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="origin">Origen</th>
       <th class="num" data-k="entry">Compra $</th><th class="num" data-k="stop">Stop $</th><th class="num" data-k="target">Venta $</th>
@@ -151,7 +151,7 @@ footer a{color:var(--mut)}
     <a href="#s-orb">Ruptura de apertura <b id="j-orb">·</b></a>
     <a href="#s-news">Noticias <b id="j-news">·</b></a>
     <a href="#s-cong">Congreso <b id="j-cong">·</b></a>
-    <a href="#s-pf">Cartera simulada <b id="j-pf">·</b></a>
+    <a href="#s-pf">Registro de señales <b id="j-pf">·</b></a>
   </div>
 
   <section class="panel" id="s-daily">
@@ -200,16 +200,18 @@ footer a{color:var(--mut)}
     <details id="cong-pending"><summary></summary><ul></ul></details>
   </section>
   <section class="panel" id="s-pf">
-    <h2>Cartera simulada <span class="count" id="c-pf">0</span></h2>
-    <p class="sub" id="m-pf">Cada acción que sale en verde con las reglas por defecto (55 % de aciertos con 5 señales, que compense y sin resultados) se compra de forma simulada por 1.000 € al precio de entrada del plan, y se sigue su resultado a 1, 3, 5, 10 y 20 sesiones. Sin comisiones ni tipo de cambio: el resultado es el % que movió la acción en dólares.</p>
-    <div class="kv" id="pf-sum" style="max-width:520px;margin-bottom:12px"></div>
+    <h2>Registro de señales <span class="count" id="c-pf">0</span></h2>
+    <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una al precio de entrada del plan. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
+    <div class="chips" id="pf-f"></div>
+    <div class="kv" id="pf-sum" style="max-width:560px;margin-bottom:12px"></div>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
-      <th>A días vista</th><th class="num">Posiciones</th><th class="num">En positivo</th><th class="num">Media %</th><th class="num">Resultado €</th>
+      <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
     </tr></thead><tbody></tbody></table></div>
+    <p class="sub" style="margin:-4px 0 12px">En cada horizonte: media de rentabilidad y, entre paréntesis, el % de señales en positivo.</p>
     <div class="wrap"><table id="t-pf"><thead><tr>
-      <th data-k="date">Fecha</th><th data-k="symbol">Ticker</th><th data-k="kind">Origen</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
+      <th data-k="date">Fecha</th><th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="kind">Origen</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
       <th class="num" data-k="ret_now">Ahora %</th><th class="num" data-k="eur">Resultado €</th>
-      <th class="num" data-k="d1">1 ses.</th><th class="num" data-k="d3">3 ses.</th><th class="num" data-k="d5">5 ses.</th><th class="num" data-k="d10">10 ses.</th><th class="num" data-k="d20">20 ses.</th>
+      <th class="num" data-k="d1">1 ses.</th><th class="num" data-k="d3">3 ses.</th><th class="num" data-k="d5">5 ses.</th><th class="num" data-k="d10">10 ses.</th><th class="num" data-k="d20">20 ses.</th><th data-k="planR">Plan</th>
     </tr></thead><tbody></tbody></table></div>
   </section>
 </main>
@@ -501,36 +503,61 @@ function initAll(){
   redraws.push(draw); draw();
 }
 
-// ---------- Cartera simulada
+// ---------- Registro de señales
 function pctCell(v){ return v==null?'<td class="num mut">·</td>':`<td class="num ${v>0?'up':v<0?'dn':''}">${v>0?'+':''}${fmtN(v)} %</td>`; }
+const PLAN_TXT={objetivo:'Objetivo',stop:'Stop',cierre:'Cierre'};
+let PF=null, pfSem='all', pfKind='all';
 async function initPortfolio(){
-  let pf;
-  try{ const r=await fetch(`data/cartera.json?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; pf=await r.json(); }catch(e){ pf=null; }
-  const tb=document.querySelector('#t-pf tbody'), th=document.querySelector('#t-pfh tbody');
-  if(!pf||!(pf.positions||[]).length){
-    tb.innerHTML='<tr><td colspan="12" class="empty">Todavía no hay compras simuladas. Se añaden solas cuando una acción sale en verde.</td></tr>';
-    th.innerHTML=''; document.getElementById('j-pf').textContent='0'; return; }
-  const stake=pf.stake||1000, H=pf.horizons||[1,3,5,10,20];
-  const rows=pf.positions.map(p=>{ const o={...p, eur: stake*(p.ret_now||0)/100};
+  try{ const r=await fetch(`data/cartera.json?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
+  const tb=document.querySelector('#t-pf tbody');
+  if(!PF||!(PF.positions||[]).length){
+    tb.innerHTML='<tr><td colspan="14" class="empty">Todavía no hay señales registradas. Se añaden solas en cada pasada del escáner.</td></tr>';
+    document.getElementById('j-pf').textContent='0'; return; }
+  const f=document.getElementById('pf-f');
+  f.innerHTML=[['all','Todas'],['2','Verdes'],['1','Ámbar'],['0','Rojas']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-sem="${k}">${t}</span>`).join('')+
+    ' '+[['all','Ambos orígenes'],['daily','Pre-apertura'],['orb','Apertura']].map(([k,t])=>`<span class="chip${k==='all'?' on':''}" data-kind="${k}">${t}</span>`).join('');
+  f.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return;
+    if(c.dataset.sem){ pfSem=c.dataset.sem; f.querySelectorAll('[data-sem]').forEach(x=>x.classList.toggle('on',x===c)); }
+    if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
+    drawPF(); });
+  drawPF();
+}
+let pfDraw=null;
+function drawPF(){
+  const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
+  const all=PF.positions.map(p=>{ const o={...p, sem:p.sem??2, eur: stake*(p.ret_now||0)/100, planR:p.plan?.R??null};
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
+  const byKind=all.filter(r=>pfKind==='all'||r.kind===pfKind);
+  const rows=byKind.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
-  document.getElementById('pf-sum').innerHTML=`<span>Invertido (simulado)</span><span>${fmtN(inv,0)} €</span>
-    <span>Valor ahora</span><span>${fmtN(inv+pl,0)} €</span>
-    <span>Resultado</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
+  const days=new Set(rows.map(r=>r.date)).size;
+  document.getElementById('pf-sum').innerHTML=rows.length?`<span>Señales (${days} ${days===1?'día':'días'})</span><span>${rows.length}</span>
+    <span>Invertido (simulado)</span><span>${fmtN(inv,0)} €</span>
+    <span>Resultado ahora</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
     <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
-    <span>Actualizado</span><span>${madrid(pf.updated)}</span>`;
-  th.innerHTML=H.map(k=>{ const v=rows.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return `<tr><td>${k} ${k===1?'sesión':'sesiones'}</td><td class="num">0</td><td class="num mut">·</td><td class="num mut">·</td><td class="num mut">·</td></tr>`;
-    const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length, eur=v.reduce((a,b)=>a+stake*b/100,0);
-    return `<tr><td>${k} ${k===1?'sesión':'sesiones'}</td><td class="num">${v.length}</td><td class="num">${w} (${fmtN(w/v.length*100,0)} %)</td>${pctCell(avg)}<td class="num ${eur>=0?'up':'dn'}">${eur>=0?'+':''}${fmtN(eur,0)} €</td></tr>`; }).join('');
-  const draw=sortable(document.getElementById('t-pf'), ()=>rows, r=>{
+    <span>Actualizado</span><span>${madrid(PF.updated)}</span>`:'<span>Sin señales con este filtro</span><span></span>';
+  const th=document.querySelector('#t-pfh tbody');
+  const grp=[['Verdes',2],['Ámbar',1],['Rojas',0],['Todas',null]];
+  th.innerHTML=grp.map(([name,sv])=>{ const rs=byKind.filter(r=>sv==null||r.sem===sv);
+    const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
+      const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
+      return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
+    const pr=rs.filter(r=>r.plan); const cnt=o=>pr.filter(r=>r.plan.outcome===o).length;
+    const planTxt=pr.length?`${fmtN(cnt('objetivo')/pr.length*100,0)} / ${fmtN(cnt('stop')/pr.length*100,0)} / ${fmtN(cnt('cierre')/pr.length*100,0)} % <span class="mut">(${pr.length})</span>`:'<span class="mut">·</span>';
+    const mR=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
+    return `<tr><td>${sv==null?'<b>Todas</b>':`<span class="sem ${SEM[sv]}"></span>${name}`}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mR==null?'·':(mR>0?'+':'')+fmtN(mR)+' R'}</td></tr>`; }).join('');
+  const tb=document.querySelector('#t-pf tbody');
+  if(!pfDraw) pfDraw=sortable(document.getElementById('t-pf'), ()=>window.__pfRows||[], r=>{
     document.getElementById('c-pf').textContent=r.length;
-    tb.innerHTML=r.map(p=>`<tr><td>${fmtDate(p.date)}</td><td><a class="tk" data-sym="${esc(p.symbol)}">${esc(p.symbol)}</a></td>
+    tb.innerHTML=r.length? r.slice(0,400).map(p=>`<tr><td>${fmtDate(p.date)}</td><td><span class="sem ${SEM[p.sem]||'x'}"></span>${SEMTXT[p.sem]||'·'}</td><td><a class="tk" data-sym="${esc(p.symbol)}">${esc(p.symbol)}</a></td>
       <td>${p.kind==='orb'?'<span class="tag orb">Apertura</span>':(p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
       <td class="num">${fmtN(p.entry)}</td><td class="num">${fmtN(p.last)}</td>${pctCell(p.ret_now)}
-      <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}</tr>`).join('');
+      <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}
+      <td>${p.plan?`<span class="${p.plan.outcome==='objetivo'?'up':p.plan.outcome==='stop'?'dn':''}">${PLAN_TXT[p.plan.outcome]||p.plan.outcome}</span> <span class="mut">${p.plan.R>0?'+':''}${fmtN(p.plan.R)} R</span>`:'<span class="mut">en curso</span>'}</td></tr>`).join('')
+      : '<tr><td colspan="14" class="empty">Sin señales con este filtro.</td></tr>';
   }, 'date','desc');
-  draw();
-  document.getElementById('j-pf').textContent=rows.length;
+  window.__pfRows=rows; pfDraw();
+  document.getElementById('j-pf').textContent=all.length;
 }
 
 // ---------- Detalle: plan, riesgo y tamaño, máquina del tiempo, fundamentales, noticias
