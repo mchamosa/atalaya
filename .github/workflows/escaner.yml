@@ -1,0 +1,53 @@
+name: Escáner de acciones
+
+on:
+  schedule:
+    # Pre-apertura: 13:05 UTC = 14:05 en España en invierno (8:05 en Nueva York)
+    - cron: "5 13 * * 1-5"
+    # Ruptura de apertura: dos pasadas para cubrir el horario de verano e invierno de EE. UU.
+    # (la que cae antes de las 9:50 de Nueva York no escribe nada)
+    - cron: "25 14 * * 1-5"
+    - cron: "25 15 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "Qué escanear"
+        type: choice
+        options: [premarket, orb]
+        default: premarket
+
+permissions:
+  contents: write
+
+concurrency:
+  group: escaner
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar pdftotext (para leer las declaraciones del Congreso)
+        run: sudo apt-get install -y -qq poppler-utils >/dev/null
+      - name: Escanear
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          MODO="${{ inputs.modo }}"
+          if [ -z "$MODO" ]; then
+            if [ "${{ github.event.schedule }}" = "5 13 * * 1-5" ]; then MODO=premarket; else MODO=orb; fi
+          fi
+          python scripts/escaner.py "$MODO"
+      - name: Guardar cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/escaner.json data/escaner_congreso.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "Escáner $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase --autostash || true
+          git push
