@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Escáner</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;--vio:#a78bfa;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1280px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 4px;font-size:15px;color:var(--acc);font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel .sub{color:var(--mut);font-size:12.5px;margin:0 0 10px}
+.panel h2 .count{background:var(--panel2);border:1px solid var(--line);color:var(--txt);font-size:12px;border-radius:999px;padding:1px 9px;font-weight:600}
+.jump{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.jump a{font-size:13px;text-decoration:none;color:var(--txt);background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:8px}
+.jump a b{color:var(--acc);margin-left:4px}
+.note{color:var(--mut);font-size:12.5px;background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+.note strong{color:var(--txt)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{background:var(--panel2);border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:4px 11px;font-size:12.5px;cursor:pointer;user-select:none}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#1a1405;font-weight:600}
+.chip b{font-weight:700;margin-left:3px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+input[type=search]{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 9px;font-size:14px;min-width:200px}
+label.chk{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--txt)}
+.wrap{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);color:var(--mut);font-weight:600;font-size:12px;position:sticky;top:0;cursor:pointer}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+th[data-dir="asc"]::after{content:" ▲";font-size:9px}
+th[data-dir="desc"]::after{content:" ▼";font-size:9px}
+tbody tr:hover{background:#151d2e}
+td.wrapcell{white-space:normal;min-width:220px}
+.tk{font-weight:700;color:var(--txt);text-decoration:none;cursor:pointer;border-bottom:1px dotted var(--mut)}
+.tk:hover{color:var(--acc)}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin:1px 3px 1px 0;color:var(--txt);background:var(--panel2)}
+.tag.breakout_20d,.tag.orb{border-color:#1f6f43;color:#86efac}
+.tag.bull_flag{border-color:#1e4f8f;color:#93c5fd}
+.tag.reclaim_ma20{border-color:#5b4a9e;color:#c4b5fd}
+.tag.oversold,.tag.oversold_bounce{border-color:#8f3a3a;color:#fca5a5}
+.tag.cong{border-color:#8a6a10;color:var(--acc)}
+.up{color:var(--up)}.dn{color:var(--dn)}.mut{color:var(--mut)}
+.empty{color:var(--mut);padding:16px;text-align:center}
+.news{list-style:none;margin:0;padding:0 4px 0 0;max-height:620px;overflow-y:auto}
+.news li{padding:9px 2px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.news li:last-child{border-bottom:0}
+.news .meta{color:var(--mut);font-size:12px;grid-column:2}
+.news a.t{color:var(--txt);text-decoration:none;font-weight:500}
+.news a.t:hover{color:var(--acc)}
+.news .imp{color:var(--acc);font-weight:700}
+.moves{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.moves span{font-size:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;cursor:pointer}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--mut);font-size:13px}
+details ul{margin:8px 0 0;padding-left:18px;color:var(--mut);font-size:12.5px;columns:2;column-gap:24px}
+@media (max-width:700px){details ul{columns:1}}
+details a{color:var(--blue)}
+.status{color:var(--mut);font-size:13px}
+.status.err{color:var(--dn)}
+.btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:10px 16px 28px}
+footer a{color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Escáner de acciones</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html">Apertura</a><a href="soldados.html">Soldados</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a><a href="escaner.html" aria-current="page">Escáner</a></nav>
+</header>
+<main>
+  <div class="note" id="note">
+    <strong>Escaneo automático</strong> de unas 5.900 acciones de EE. UU. todos los días laborables:
+    antes de la apertura (patrones con cierres diarios) y después de la apertura (ruptura del rango de los primeros 15 minutos).
+    Una coincidencia es un gráfico que cumple una regla, no una recomendación de compra. Datos gratuitos y con retraso.
+    <div class="status" id="status" style="margin-top:6px">Cargando datos…</div>
+  </div>
+
+  <div class="jump" id="jump">
+    <a href="#s-daily">Pre-apertura <b id="j-daily">·</b></a>
+    <a href="#s-orb">Ruptura de apertura <b id="j-orb">·</b></a>
+    <a href="#s-news">Noticias <b id="j-news">·</b></a>
+    <a href="#s-cong">Congreso <b id="j-cong">·</b></a>
+  </div>
+
+  <section class="panel" id="s-daily">
+    <h2>Pre-apertura <span class="count" id="c-daily">0</span></h2>
+    <p class="sub" id="m-daily"></p>
+    <div class="chips" id="f-daily"></div>
+    <div class="wrap"><table id="t-daily"><thead><tr>
+      <th data-k="symbol">Ticker</th><th data-k="setups">Patrón</th><th class="num" data-k="price">Precio $</th>
+      <th class="num" data-k="rsi">RSI 14</th><th class="num" data-k="volume">Volumen</th><th class="num" data-k="dollar">Volumen $</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="panel" id="s-orb">
+    <h2>Ruptura del rango de apertura <span class="count" id="c-orb">0</span></h2>
+    <p class="sub" id="m-orb"></p>
+    <div class="wrap"><table id="t-orb"><thead><tr>
+      <th data-k="symbol">Ticker</th><th data-k="bar_index">Hora ruptura</th><th class="num" data-k="price">Cierre $</th>
+      <th class="num" data-k="or_low">Mín. rango</th><th class="num" data-k="or_high">Máx. rango</th>
+      <th class="num" data-k="range_pct">Rango %</th><th class="num" data-k="pct_over">Sobre máx. %</th>
+    </tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="panel" id="s-news">
+    <h2>Noticias de las acciones detectadas <span class="count" id="c-news">0</span>
+      <button class="btn" id="news-clear" style="display:none">Ver todas</button></h2>
+    <p class="sub" id="m-news"></p>
+    <div class="moves" id="moves"></div>
+    <ul class="news" id="newslist"></ul>
+  </section>
+
+  <section class="panel" id="s-cong">
+    <h2>Operaciones declaradas por congresistas <span class="count" id="c-cong">0</span></h2>
+    <p class="sub" id="m-cong"></p>
+    <div class="tools">
+      <input type="search" id="q-cong" placeholder="Buscar congresista o ticker">
+      <label class="chk"><input type="checkbox" id="only-tk" checked> Solo con ticker</label>
+      <label class="chk"><input type="checkbox" id="only-stock"> Solo acciones (sin opciones)</label>
+    </div>
+    <div class="wrap"><table id="t-cong"><thead><tr>
+      <th data-k="filed">Declarado</th><th data-k="name">Congresista</th><th data-k="owner">Titular</th>
+      <th data-k="type">Operación</th><th data-k="ticker">Ticker</th><th data-k="asset">Activo</th>
+      <th class="num" data-k="amount_low">Importe $</th><th data-k="date">Fecha operación</th><th class="num" data-k="days">Días hasta declarar</th>
+    </tr></thead><tbody></tbody></table></div>
+    <details id="cong-pending"><summary></summary><ul></ul></details>
+  </section>
+</main>
+<footer>
+  Herramientas de escaneo basadas en <a href="https://github.com/Jakeschincariol/day-trader-skill" target="_blank" rel="noopener">day-trader-skill</a> (Jake Schincariol, licencia MIT).
+  Fuentes: Yahoo Finance, SEC EDGAR, Nasdaq Trader y House Clerk. Información, no asesoramiento financiero.
+</footer>
+
+<script>
+const SETUPS = {
+  breakout_20d:'Ruptura máx. 20 días', bull_flag:'Bandera alcista', reclaim_ma20:'Recupera media 20',
+  oversold:'Sobreventa RSI<30', oversold_bounce:'Rebote de sobreventa', orb:'Ruptura de apertura'
+};
+const TAGS = {earnings:'Resultados',analyst:'Analistas',legal:'Legal',deal:'Operación corporativa',capital:'Dividendos y recompras',
+  people:'Directivos',risk:'Riesgo',halt:'Suspensión',regulatory:'Regulatorio',macro:'Macro'};
+const TXN = {purchase:'Compra',sale:'Venta','partial sale':'Venta parcial',exchange:'Canje'};
+const OWN = {spouse:'Cónyuge',joint:'Conjunta','dependent child':'Hijo/a',self:'Titular'};
+const fmtN = (v,d=2) => v==null||isNaN(v) ? '' : Number(v).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtBig = v => { if(v==null) return ''; const a=Math.abs(v);
+  if(a>=1e9) return fmtN(v/1e9,1)+' mil M'; if(a>=1e6) return fmtN(v/1e6,1)+' M'; if(a>=1e3) return fmtN(v/1e3,0)+' mil'; return fmtN(v,0); };
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtDate = iso => { if(!iso) return ''; const [y,m,d]=iso.slice(0,10).split('-'); return `${d}/${m}/${y}`; };
+const madrid = iso => new Date(iso).toLocaleString('es-ES',{timeZone:'Europe/Madrid',day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+function ago(iso){ const m=Math.round((Date.now()-new Date(iso))/60000);
+  if(m<60) return `hace ${m} min`; const h=Math.round(m/60); if(h<48) return `hace ${h} h`; return `hace ${Math.round(h/24)} días`; }
+
+// Hora de Nueva York (fecha + HH:MM) a hora de España
+function nyToMadrid(day, hhmm){
+  const [h,mi]=hhmm.split(':').map(Number); const [y,m,d]=day.split('-').map(Number);
+  let t=Date.UTC(y,m-1,d,h+5,mi);                       // primera estimación (horario de invierno)
+  for(let i=0;i<2;i++){
+    const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date(t));
+    const nh=+p.find(x=>x.type==='hour').value, nm=+p.find(x=>x.type==='minute').value;
+    t+=((h*60+mi)-(nh*60+nm))*60000;
+  }
+  return new Date(t).toLocaleTimeString('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'});
+}
+function to24(s){ const m=/(\d+):(\d+)\s*(AM|PM)?/i.exec(s||''); if(!m) return s; let h=+m[1];
+  if(m[3]){ const pm=m[3].toUpperCase()==='PM'; if(pm&&h<12) h+=12; if(!pm&&h===12) h=0; } return String(h).padStart(2,'0')+':'+m[2]; }
+
+const tv = s => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(s.replace('.','-'))}`;
+let DATA = {}, scanSyms = new Set(), congSyms = new Set(), newsFilter = null;
+
+function tkCell(sym){
+  const extra = congSyms.has(sym) ? ' <span class="tag cong" title="También aparece en declaraciones del Congreso">Congreso</span>' : '';
+  return `<a class="tk" data-sym="${esc(sym)}" title="Ver noticias de ${esc(sym)}">${esc(sym)}</a>
+    <a href="${tv(sym)}" target="_blank" rel="noopener" class="mut" title="Gráfico en TradingView" style="text-decoration:none;font-size:11px;margin-left:4px">gráfico</a>${extra}`;
+}
+
+// Tablas ordenables
+function sortable(table, rows, render, defKey, defDir){
+  let key=defKey, dir=defDir;
+  const ths=table.querySelectorAll('th');
+  const draw=()=>{
+    ths.forEach(th=>th.removeAttribute('data-dir'));
+    const th=table.querySelector(`th[data-k="${key}"]`); if(th) th.dataset.dir=dir;
+    const r=[...rows()].sort((a,b)=>{ let x=a[key], y=b[key];
+      if(Array.isArray(x)) x=x.join(); if(Array.isArray(y)) y=y.join();
+      if(x==null) return 1; if(y==null) return -1;
+      const c= typeof x==='number'&&typeof y==='number' ? x-y : String(x).localeCompare(String(y),'es');
+      return dir==='asc'?c:-c; });
+    render(r);
+  };
+  ths.forEach(th=>th.addEventListener('click',()=>{ const k=th.dataset.k; if(!k) return;
+    if(k===key) dir= dir==='asc'?'desc':'asc'; else { key=k; dir= ['symbol','name','asset','ticker','owner','type','setups'].includes(k)?'asc':'desc'; } draw(); }));
+  return draw;
+}
+
+// ---------- Pre-apertura
+let dailySel = new Set();
+function initDaily(){
+  const d=DATA.daily, tb=document.querySelector('#t-daily tbody');
+  if(!d){ tb.innerHTML='<tr><td colspan="6" class="empty">Todavía no hay escaneo de pre-apertura.</td></tr>'; return; }
+  const hits=(d.hits||[]).map(h=>({...h, dollar:(h.price||0)*(h.volume||0)}));
+  const c=d.counts||{};
+  const asOf=(d.as_of||'').replace(' close','');
+  document.getElementById('m-daily').innerHTML =
+    `Cierre del ${fmtDate(asOf)} · escaneado ${madrid(d.run_at||d.created_at)} (${ago(d.run_at||d.created_at)}) · `+
+    `${fmtN(c.fetched??d.scanned,0)} gráficos descargados de ${fmtN(d.universe,0)}, ${fmtN(c.scanned??d.scanned,0)} con liquidez suficiente `+
+    `(precio ≥ ${fmtN(d.filters?.min_price,0)} $, volumen ≥ ${fmtBig(d.filters?.min_volume)} acciones)`+
+    (d.failed?` · ${fmtN(d.failed,0)} fallidos`:'');
+  const counts={}; hits.forEach(h=>h.setups.forEach(s=>counts[s]=(counts[s]||0)+1));
+  const fd=document.getElementById('f-daily');
+  fd.innerHTML = `<span class="chip on" data-s="">Todos <b>${hits.length}</b></span>` +
+    Object.keys(SETUPS).filter(s=>counts[s]).map(s=>`<span class="chip" data-s="${s}">${SETUPS[s]} <b>${counts[s]}</b></span>`).join('');
+  const rows=()=> dailySel.size? hits.filter(h=>h.setups.some(s=>dailySel.has(s))) : hits;
+  const draw=sortable(document.getElementById('t-daily'), rows, r=>{
+    document.getElementById('c-daily').textContent=r.length;
+    tb.innerHTML = r.length ? r.map(h=>`<tr>
+      <td>${tkCell(h.symbol)}</td>
+      <td>${h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</td>
+      <td class="num">${fmtN(h.price)}</td>
+      <td class="num ${h.rsi<30?'dn':h.rsi>70?'up':''}">${fmtN(h.rsi,0)}</td>
+      <td class="num">${fmtBig(h.volume)}</td>
+      <td class="num">${fmtBig(h.dollar)}</td></tr>`).join('')
+      : '<tr><td colspan="6" class="empty">Ningún gráfico cumple este patrón.</td></tr>';
+  }, 'dollar','desc');
+  fd.addEventListener('click',e=>{ const ch=e.target.closest('.chip'); if(!ch) return;
+    const s=ch.dataset.s;
+    if(!s) dailySel.clear(); else dailySel.has(s)?dailySel.delete(s):dailySel.add(s);
+    fd.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on', x.dataset.s? dailySel.has(x.dataset.s) : dailySel.size===0));
+    draw(); });
+  draw();
+  document.getElementById('j-daily').textContent=hits.length;
+}
+
+// ---------- Ruptura de apertura
+function initOrb(){
+  const d=DATA.orb, tb=document.querySelector('#t-orb tbody');
+  const st=DATA.status?.orb;
+  if(!d){ tb.innerHTML=`<tr><td colspan="7" class="empty">Todavía no hay escaneo de apertura${st?': '+esc(st):'.'}</td></tr>`; document.getElementById('j-orb').textContent='0'; return; }
+  const [day,time]=(d.as_of||'').replace(' ET','').split(' ');
+  const hits=(d.hits||[]).map(h=>({...h, range_pct: h.or_low? (h.or_high-h.or_low)/h.or_low*100 : null,
+    hora: to24(h.at)}));
+  document.getElementById('m-orb').innerHTML =
+    `Sesión del ${fmtDate(day)} hasta las ${time} de Nueva York (${nyToMadrid(day,time)} en España) · `+
+    `rango de los primeros ${d.or_minutes||15} minutos con velas de 5 minutos · ${fmtN(d.scanned,0)} gráficos completos`+
+    (d.unconfirmed?` · <span class="dn">parcial: ${fmtN(d.unconfirmed,0)} candidatos sin confirmar</span>`:'')+
+    ` · una ruptura es la primera vela de 5 minutos que cierra por encima del máximo del rango`;
+  const draw=sortable(document.getElementById('t-orb'), ()=>hits, r=>{
+    document.getElementById('c-orb').textContent=r.length;
+    tb.innerHTML = r.length ? r.map(h=>`<tr>
+      <td>${tkCell(h.symbol)}</td>
+      <td>${h.hora} NY <span class="mut">(${nyToMadrid(day,h.hora)})</span></td>
+      <td class="num">${fmtN(h.price)}</td>
+      <td class="num">${fmtN(h.or_low)}</td><td class="num">${fmtN(h.or_high)}</td>
+      <td class="num">${fmtN(h.range_pct)}</td>
+      <td class="num up">+${fmtN(h.pct_over)}</td></tr>`).join('')
+      : '<tr><td colspan="7" class="empty">Ninguna ruptura en esta sesión.</td></tr>';
+  }, 'bar_index','asc');
+  draw();
+  document.getElementById('j-orb').textContent=hits.length;
+}
+
+// ---------- Noticias
+function initNews(){
+  const n=DATA.news, ul=document.getElementById('newslist');
+  if(!n){ ul.innerHTML='<li class="empty" style="display:block">Sin noticias todavía.</li>'; document.getElementById('j-news').textContent='0'; return; }
+  document.getElementById('m-news').innerHTML =
+    `Titulares de Yahoo Finance${n.sec?' y comunicaciones 8-K de la SEC':''} de las últimas 36 horas para las ${n.tickers.length} primeras acciones detectadas · `+
+    `actualizado ${madrid(n.run_at)} (${ago(n.run_at)}) · los titulares están en inglés y son pistas, no hechos`;
+  const mv=document.getElementById('moves');
+  mv.innerHTML = (n.moves||[]).filter(m=>m.pct!=null).sort((a,b)=>Math.abs(b.pct)-Math.abs(a.pct))
+    .map(m=>`<span data-sym="${esc(m.ticker)}" title="Último ${fmtN(m.price)} $, cierre anterior ${fmtN(m.prev_close)} $"><b>${esc(m.ticker)}</b> <span class="${m.pct>=0?'up':'dn'}">${m.pct>=0?'+':''}${fmtN(m.pct)} %</span></span>`).join('');
+  mv.addEventListener('click',e=>{ const s=e.target.closest('[data-sym]'); if(s) setNewsFilter(s.dataset.sym,false); });
+  drawNews();
+}
+function drawNews(){
+  const n=DATA.news; if(!n) return;
+  const ul=document.getElementById('newslist');
+  const items=(n.items||[]).filter(i=>!newsFilter||i.ticker===newsFilter);
+  document.getElementById('c-news').textContent=items.length;
+  document.getElementById('j-news').textContent=(n.items||[]).length;
+  document.getElementById('news-clear').style.display=newsFilter?'':'none';
+  ul.innerHTML = items.length ? items.map(i=>`<li>
+    <span><a class="tk" data-sym="${esc(i.ticker)}">${esc(i.ticker)}</a></span>
+    <span>${i.important?'<span class="imp" title="Comunicación relevante">!</span> ':''}<a class="t" href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a></span>
+    <span class="meta">${esc(i.source)}${i.form?' · '+esc(i.form):''} · ${madrid(i.time)} (${ago(i.time)}) ${(i.tags||[]).map(t=>`<span class="tag">${TAGS[t]||esc(t)}</span>`).join('')}</span>
+  </li>`).join('') : `<li class="empty" style="display:block">Sin noticias${newsFilter?' de '+esc(newsFilter):''} en las últimas 36 horas.</li>`;
+}
+function setNewsFilter(sym, scroll=true){
+  newsFilter = newsFilter===sym ? null : sym; drawNews();
+  if(scroll) document.getElementById('s-news').scrollIntoView({behavior:'smooth'});
+}
+document.getElementById('news-clear').addEventListener('click',()=>{ newsFilter=null; drawNews(); });
+
+// ---------- Congreso
+function initCong(){
+  const c=DATA.congress, tb=document.querySelector('#t-cong tbody');
+  if(!c){ tb.innerHTML='<tr><td colspan="9" class="empty">Todavía no hay datos del Congreso.</td></tr>'; document.getElementById('j-cong').textContent='0'; return; }
+  const rows=[];
+  const pend=[], unread=[];
+  (c.filings||[]).forEach(f=>{
+    if(f.rows==null){ pend.push(f); return; }
+    if(!f.rows.length){ unread.push(f); return; }
+    f.rows.forEach(r=>rows.push({...r, filed:f.filed, name:(f.name||'').replace(/^Hon\.\s*/,''), district:f.district, url:f.url,
+      owner:OWN[r.owner_name]||r.owner_name, type:TXN[r.type_name]||r.type_name, days:r.days_to_disclose,
+      amount_low: amountLow(r.amount)}));
+  });
+  rows.forEach(r=>{ if(r.ticker) congSyms.add(r.ticker); });
+  document.getElementById('m-cong').innerHTML =
+    `Declaraciones (PTR) de la Cámara de Representantes desde el ${fmtDate(c.since)} · actualizado ${madrid(c.run_at)} · `+
+    `por ley se presentan hasta 45 días después de la operación, así que llegan con retraso; los importes son rangos, no cifras exactas`;
+  const q=document.getElementById('q-cong'), ot=document.getElementById('only-tk'), os=document.getElementById('only-stock');
+  const filt=()=>{ const s=q.value.trim().toLowerCase();
+    return rows.filter(r=>(!ot.checked||r.ticker)&&(!os.checked||r.asset_type!=='OP')&&
+      (!s||(r.name||'').toLowerCase().includes(s)||(r.ticker||'').toLowerCase()===s||(r.asset||'').toLowerCase().includes(s))); };
+  const draw=sortable(document.getElementById('t-cong'), filt, r=>{
+    document.getElementById('c-cong').textContent=r.length;
+    tb.innerHTML = r.length ? r.map(x=>`<tr>
+      <td><a href="${esc(x.url)}" target="_blank" rel="noopener" style="color:var(--txt)" title="Abrir la declaración en PDF">${fmtDate(x.filed)}</a></td>
+      <td>${esc(x.name)} <span class="mut">${esc(x.district||'')}</span></td>
+      <td>${esc(x.owner)}</td>
+      <td class="${x.type==='Compra'?'up':/Venta/.test(x.type)?'dn':''}">${esc(x.type)}${x.asset_type==='OP'?' <span class="tag" title="'+esc(x.description||'')+'">opciones</span>':''}</td>
+      <td>${x.ticker? `<a class="tk" href="${tv(x.ticker)}" target="_blank" rel="noopener">${esc(x.ticker)}</a>${scanSyms.has(x.ticker)?' <span class="tag orb" title="Está en el escáner de hoy">escáner</span>':''}`:''}</td>
+      <td class="wrapcell">${esc(x.asset)}</td>
+      <td class="num">${esc((x.amount||'').replace(/\$/g,''))}</td>
+      <td>${fmtDate(x.date)}</td>
+      <td class="num ${x.late?'dn':''}">${x.days??''}${x.late?' (tarde)':''}</td></tr>`).join('')
+      : '<tr><td colspan="9" class="empty">Sin operaciones con estos filtros.</td></tr>';
+  }, 'filed','desc');
+  [q,ot,os].forEach(el=>el.addEventListener('input',draw));
+  draw();
+  document.getElementById('j-cong').textContent=rows.length;
+  const det=document.getElementById('cong-pending');
+  const other=[...unread.map(f=>({...f,why:'PDF escaneado o sin filas legibles'})),...pend.map(f=>({...f,why:'pendiente de leer'}))];
+  if(other.length){
+    det.querySelector('summary').textContent=`${other.length} declaraciones más sin tabla (PDF escaneado o pendiente de leer)`;
+    det.querySelector('ul').innerHTML=other.map(f=>`<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc((f.name||'').replace(/^Hon\.\s*/,''))}</a> ${esc(f.district||'')} · ${fmtDate(f.filed)} · ${f.why}</li>`).join('');
+  } else det.style.display='none';
+}
+function amountLow(a){ const m=/\$?([\d,]+)/.exec(a||''); return m? +m[1].replace(/,/g,'') : null; }
+
+// Clic en un ticker: filtra las noticias
+document.addEventListener('click',e=>{ const a=e.target.closest('a.tk[data-sym]'); if(!a) return; e.preventDefault(); setNewsFilter(a.dataset.sym); });
+
+(async()=>{
+  const st=document.getElementById('status');
+  try{
+    const r=await fetch(`data/escaner.json?t=${Date.now()}`,{cache:'no-store'});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    DATA=await r.json();
+    (DATA.daily?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
+    (DATA.orb?.hits||[]).forEach(h=>scanSyms.add(h.symbol));
+    initCong(); initDaily(); initOrb(); initNews();
+    st.textContent=`Última actualización: ${madrid(DATA.updated)} (${ago(DATA.updated)}).`;
+  }catch(e){
+    st.className='status err';
+    st.textContent='Todavía no hay datos del escáner. Se generan en la primera pasada automática (o lanzando a mano el flujo "Escáner de acciones" en GitHub Actions).';
+    initDaily(); initOrb(); initNews(); initCong();
+  }
+})();
+</script>
+</body>
+</html>
