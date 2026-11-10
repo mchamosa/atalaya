@@ -209,11 +209,11 @@ footer a{color:var(--mut)}
       <th>Día</th><th class="num">Señales</th><th class="num">Invertido</th><th class="num">Resultado ahora</th><th class="num">%</th><th class="num">En positivo</th><th class="num">Acumulado</th>
     </tr></thead><tbody></tbody></table></div>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
-      <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
+      <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
     <p class="sub" style="margin:-4px 0 12px">En cada horizonte: media de rentabilidad y, entre paréntesis, el % de señales en positivo.</p>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfs"><thead><tr>
-      <th>Señal que lo provoca (cada combinación por separado)</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
+      <th>Señal que lo provoca (cada combinación por separado)</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
     <div class="wrap"><table id="t-pf"><thead><tr>
       <th data-k="sigts">Señal activada</th><th data-k="buyts">Compra</th><th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="sig">Señal que lo provoca</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
@@ -583,6 +583,16 @@ async function initPortfolio(){
   document.getElementById('pf-days').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfDay=c.dataset.day; drawPF(); });
   drawPF();
 }
+// Plan: terminadas (objetivo / stop / cierre) y R medio contando también las que siguen en curso, valoradas a precio actual
+function planStats(rs){
+  const pr=rs.filter(r=>r.plan), cnt=o=>pr.filter(r=>r.plan.outcome===o).length, live=rs.length-pr.length;
+  const planTxt=pr.length?`${cnt('objetivo')} / ${cnt('stop')} / ${cnt('cierre')} <span class="mut">de ${pr.length} terminadas${live?' · '+live+' en curso':''}</span>`:(live?`<span class="mut">${live} en curso</span>`:'<span class="mut">·</span>');
+  const Rs=rs.map(r=>r.plan?r.plan.R:(r.stop&&r.entry>r.stop&&r.last?(r.last-r.entry)/(r.entry-r.stop):null)).filter(x=>x!=null);
+  const mR=Rs.length?Rs.reduce((a,b)=>a+b,0)/Rs.length:null;
+  const fin=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
+  const mTxt=mR==null?'·':`${mR>0?'+':''}${fmtN(mR)} R`+(fin!=null&&live?` <span class="mut">(terminadas ${fin>0?'+':''}${fmtN(fin)} R)</span>`:'');
+  return {planTxt,mR,mTxt};
+}
 let pfDraw=null;
 function drawPF(){
   const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
@@ -620,10 +630,8 @@ function drawPF(){
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
-    const pr=rs.filter(r=>r.plan); const cnt=o=>pr.filter(r=>r.plan.outcome===o).length;
-    const planTxt=pr.length?`${fmtN(cnt('objetivo')/pr.length*100,0)} / ${fmtN(cnt('stop')/pr.length*100,0)} / ${fmtN(cnt('cierre')/pr.length*100,0)} % <span class="mut">(${pr.length})</span>`:'<span class="mut">·</span>';
-    const mR=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
-    return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mR==null?'·':(mR>0?'+':'')+fmtN(mR)+' R'}</td></tr>`; };
+    const {planTxt,mR,mTxt}=planStats(rs);
+    return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mTxt}</td></tr>`; };
   // cada señal cuenta una sola vez, por la combinación exacta de patrones que la provocó
   const ORD=Object.keys(SETUPS);
   const combo=r=>r.kind==='orb'?(r.session?'orb_'+r.session:'orb'):(r.setups||[]).slice().sort((a,b)=>ORD.indexOf(a)-ORD.indexOf(b)).join('+');
@@ -637,10 +645,8 @@ function drawPF(){
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
-    const pr=rs.filter(r=>r.plan); const cnt=o=>pr.filter(r=>r.plan.outcome===o).length;
-    const planTxt=pr.length?`${fmtN(cnt('objetivo')/pr.length*100,0)} / ${fmtN(cnt('stop')/pr.length*100,0)} / ${fmtN(cnt('cierre')/pr.length*100,0)} % <span class="mut">(${pr.length})</span>`:'<span class="mut">·</span>';
-    const mR=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
-    return `<tr><td>${sv==null?'<b>Todas</b>':`<span class="sem ${SEM[sv]}"></span>${name}`}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mR==null?'·':(mR>0?'+':'')+fmtN(mR)+' R'}</td></tr>`; }).join('');
+    const {planTxt,mR,mTxt}=planStats(rs);
+    return `<tr><td>${sv==null?'<b>Todas</b>':`<span class="sem ${SEM[sv]}"></span>${name}`}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mTxt}</td></tr>`; }).join('');
   const tb=document.querySelector('#t-pf tbody');
   if(!pfDraw) pfDraw=sortable(document.getElementById('t-pf'), ()=>window.__pfRows||[], r=>{
     document.getElementById('c-pf').textContent=r.length;
