@@ -213,7 +213,7 @@ footer a{color:var(--mut)}
     </tr></thead><tbody></tbody></table></div>
     <p class="sub" style="margin:-4px 0 12px">En cada horizonte: media de rentabilidad y, entre paréntesis, el % de señales en positivo.</p>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfs"><thead><tr>
-      <th>Señal que lo provoca</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
+      <th>Señal que lo provoca (cada combinación por separado)</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
     </tr></thead><tbody></tbody></table></div>
     <div class="wrap"><table id="t-pf"><thead><tr>
       <th data-k="sigts">Señal activada</th><th data-k="buyts">Compra</th><th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="sig">Señal que lo provoca</th><th class="num" data-k="entry">Entrada $</th><th class="num" data-k="last">Ahora $</th>
@@ -624,9 +624,12 @@ function drawPF(){
     const planTxt=pr.length?`${fmtN(cnt('objetivo')/pr.length*100,0)} / ${fmtN(cnt('stop')/pr.length*100,0)} / ${fmtN(cnt('cierre')/pr.length*100,0)} % <span class="mut">(${pr.length})</span>`:'<span class="mut">·</span>';
     const mR=pr.length?pr.reduce((a,r)=>a+r.plan.R,0)/pr.length:null;
     return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mR==null?'·':(mR>0?'+':'')+fmtN(mR)+' R'}</td></tr>`; };
-  const sigList=r=>r.kind==='orb'?[r.session?'orb_'+r.session:'orb']:(r.setups||[]);
-  const sigKeys=[...Object.keys(SETUPS)].filter(k=>rows.some(r=>sigList(r).includes(k)));
-  document.querySelector('#t-pfs tbody').innerHTML=sigKeys.length? sigKeys.map(k=>sumRow(`<span class="tag ${k.startsWith('orb')?'orb':k}">${SETUPS[k]}</span>`, rows.filter(r=>sigList(r).includes(k)))).join('')
+  // cada señal cuenta una sola vez, por la combinación exacta de patrones que la provocó
+  const ORD=Object.keys(SETUPS);
+  const combo=r=>r.kind==='orb'?(r.session?'orb_'+r.session:'orb'):(r.setups||[]).slice().sort((a,b)=>ORD.indexOf(a)-ORD.indexOf(b)).join('+');
+  const keys=[...new Set(rows.map(combo))].filter(Boolean).sort((a,b)=>rows.filter(r=>combo(r)===b).length-rows.filter(r=>combo(r)===a).length);
+  const lab=k=>{ const parts=k.split('+'); return (parts.length===1?'<span class="mut">Solo </span>':'')+parts.map(x=>`<span class="tag ${x.startsWith('orb')?'orb':x}">${SETUPS[x]||x}</span>`).join(' + '); };
+  document.querySelector('#t-pfs tbody').innerHTML=keys.length? keys.map(k=>sumRow(lab(k), rows.filter(r=>combo(r)===k))).join('')
     : '<tr><td colspan="9" class="empty">Sin señales con este filtro.</td></tr>';
   const th=document.querySelector('#t-pfh tbody');
   const grp=[['Verdes',2],['Ámbar',1],['Rojas',0],['Todas',null]];
