@@ -655,6 +655,32 @@ def fundamentals(data, tickers):
     log("fundamentales: %d empresas" % len(m.get("companies", [])))
 
 
+# ------------------------------------------------------------------ tipo de mercado
+
+def market_regime():
+    """Alcista: SPY por encima de su media de 200 y la de 50 por encima de la de 200 y subiendo.
+    Bajista: por debajo de la media de 200 y la de 50 bajando. Lateral: el resto."""
+    sm = scanmod()
+    try:
+        se = sm.parse_chart(sm.yahoo_get(sm.chart_path("SPY", "2y", "1d")), "SPY")
+    except Exception as exc:
+        log("régimen: %s" % exc)
+        return None
+    c = [x for x in se["c"] if x is not None]
+    if len(c) < 230:
+        return None
+    ma = lambda n, end=None: sum(c[len(c) - n - (end or 0): len(c) - (end or 0)]) / n
+    m50, m50_prev, m200, last = ma(50), ma(50, 20), ma(200), c[-1]
+    if last > m200 and m50 > m200 and m50 > m50_prev:
+        name = "alcista"
+    elif last < m200 and m50 < m50_prev:
+        name = "bajista"
+    else:
+        name = "lateral"
+    return {"name": name, "spy": round(last, 2), "ma50": round(m50, 2), "ma200": round(m200, 2),
+            "ma50_slope_pct": round((m50 / m50_prev - 1) * 100, 2), "at": now_utc()}
+
+
 # ------------------------------------------------------------------ principal
 
 def main():
@@ -667,6 +693,10 @@ def main():
                               "Yahoo Finance, SEC EDGAR y House Clerk")
     build_universe()
 
+    reg = market_regime()
+    if reg:
+        data["regime"] = reg
+        log("mercado: %s" % reg["name"])
     if mode == "premarket":
         res, reason = scan("daily")
         if res:

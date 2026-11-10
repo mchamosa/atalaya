@@ -53,6 +53,10 @@ td.wrapcell{white-space:normal;min-width:220px}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin:1px 3px 1px 0;color:var(--txt);background:var(--panel2)}
 .tag.breakout_20d,.tag.orb,.tag.high_52w,.tag.ath{border-color:#1f6f43;color:#86efac}
 .tag.bull_flag{border-color:#1e4f8f;color:#93c5fd}
+.tag.pullback_trend{border-color:#0e7490;color:#67e8f9}
+.fit{font-size:12px;font-weight:600}.fit.y{color:var(--up)}.fit.n{color:var(--dn)}
+.regime{border-radius:10px;padding:10px 12px;margin-bottom:10px;border:1px solid var(--line);background:var(--panel2);font-size:13px}
+.regime b.alcista{color:var(--up)}.regime b.bajista{color:var(--dn)}.regime b.lateral{color:var(--acc)}
 .tag.reclaim_ma20{border-color:#5b4a9e;color:#c4b5fd}
 .tag.oversold,.tag.oversold_bounce{border-color:#8f3a3a;color:#fca5a5}
 .tag.cong{border-color:#8a6a10;color:var(--acc)}
@@ -138,13 +142,15 @@ footer a{color:var(--mut)}
   <section class="panel" id="s-all">
     <h2>Todas las operaciones de hoy en una tabla <span class="count" id="c-all">0</span></h2>
     <p class="sub">Cada acción valorada, de pre-apertura y de apertura, con su precio de compra (entrada), su stop y su precio de venta (objetivo), ordenadas por el semáforo. Las unidades salen de invertir 1.000 € por operación, como en el registro de señales. Toca un ticker para ver el detalle y calcular el tamaño con tu capital.</p>
+    <div class="regime" id="regime" style="display:none"></div>
+    <div class="chips" id="all-cats"></div>
     <div class="tools"><label class="chk">Mostrar solo con aciertos ≥ <input type="number" id="a-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
       <label class="chk">y al menos <input type="number" id="a-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
       <span class="mut" style="font-size:12px">Solo filtra la tabla; no cambia el semáforo.</span></div>
     <div class="wrap"><table id="t-all"><thead><tr>
       <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="origin">Origen</th>
       <th class="num" data-k="entry">Compra $</th><th class="num" data-k="stop">Stop $</th><th class="num" data-k="target">Venta $</th>
-      <th class="num" data-k="riskp">Riesgo %</th><th class="num" data-k="rr">B/R</th><th class="num" data-k="win">Aciertos hist.</th><th class="num" data-k="units">Acciones con 1.000 €</th><th class="num" data-k="lossE">Pérdida si stop €</th><th class="num" data-k="gainE">Ganancia si objetivo €</th>
+      <th class="num" data-k="riskp">Riesgo %</th><th class="num" data-k="rr">B/R</th><th class="num" data-k="win">Aciertos hist.</th><th data-k="fitv">Mercado</th><th class="num" data-k="units">Acciones con 1.000 €</th><th class="num" data-k="lossE">Pérdida si stop €</th><th class="num" data-k="gainE">Ganancia si objetivo €</th>
     </tr></thead><tbody></tbody></table></div>
   </section>
 
@@ -262,7 +268,7 @@ if(CRIPTO){
 const SETUPS = {
   breakout_20d:'Ruptura máx. 20 días', bull_flag:'Bandera alcista', reclaim_ma20:'Recupera media 20',
   oversold:'Sobreventa RSI<30', oversold_bounce:'Rebote de sobreventa', orb:'Ruptura de apertura',
-  high_52w:'Máx. 52 semanas', ath:'Máximo histórico', orb_london:'Apertura Londres', orb_ny:'Apertura Nueva York'
+  high_52w:'Máx. 52 semanas', ath:'Máximo histórico', pullback_trend:'Retroceso en tendencia', orb_london:'Apertura Londres', orb_ny:'Apertura Nueva York'
 };
 const TAGS = {earnings:'Resultados',analyst:'Analistas',legal:'Legal',deal:'Operación corporativa',capital:'Dividendos y recompras',
   people:'Directivos',risk:'Riesgo',halt:'Suspensión',regulatory:'Regulatorio',macro:'Macro'};
@@ -519,6 +525,18 @@ function initCong(){
 }
 function amountLow(a){ const m=/\$?([\d,]+)/.exec(a||''); return m? +m[1].replace(/,/g,'') : null; }
 
+// ---------- Tipo de mercado y qué patrones encajan (estudio 2005-2026 con 86 acciones, media a 5 sesiones)
+const FIT={
+  alcista:{y:['pullback_trend','reclaim_ma20'], n:['oversold_bounce'],
+    txt:'En mercado alcista lo que mejor ha funcionado a 5 sesiones es comprar el retroceso dentro de la tendencia; el rebote de sobreventa ha ido peor que una acción cualquiera. Las rupturas de máximos quedan en la media a 5 sesiones, pero son las que funcionan manteniendo semanas (estrategia de escalones).'},
+  lateral:{y:['pullback_trend','bull_flag','trend_ma'], n:['reclaim_ma20'],
+    txt:'En mercado lateral han funcionado el retroceso en tendencia y la bandera alcista; recuperar la media de 20, peor que la media. Las rupturas de máximos, en la media a 5 sesiones.'},
+  bajista:{y:['oversold','bull_flag'], n:['breakout_20d','high_52w','reclaim_ma20','ath'],
+    txt:'En mercado bajista lo que mejor ha funcionado es la sobreventa (RSI<30); las rupturas, máximos y recuperar la media de 20 han ido claramente peor.'}};
+const fitOf=(cats,reg)=>{ const f=FIT[reg]; if(!f) return 0; if(cats.some(c=>f.y.includes(c))) return 1; if(cats.length&&cats.every(c=>f.n.includes(c))) return -1; return 0; };
+let allCats=null, onlyFit=false;
+try{ const v=JSON.parse(localStorage.getItem('atalaya-tabla-cats')||'null'); if(Array.isArray(v)) allCats=new Set(v); onlyFit=localStorage.getItem('atalaya-tabla-fit')==='1'; }catch(e){}
+
 // ---------- Tabla conjunta
 function initAll(){
   const earn=new Set([...(DATA.daily?.earnings||[]),...(DATA.orb?.earnings||[])]);
@@ -526,10 +544,25 @@ function initAll(){
   (DATA.orb?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'orb'}); });
   (DATA.daily?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'daily'}); });
   const tb=document.querySelector('#t-all tbody');
-  if(!items.length){ tb.innerHTML='<tr><td colspan="12" class="empty">Todavía no hay acciones valoradas.</td></tr>'; return; }
-  const rows=()=>{ const r=items.map(({h,kind})=>{ const g=h.grade, gr=grade(h,kind,earn), risk=g.entry-g.stop, units=1000/g.entry;
-    return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,
-      riskp:risk/g.entry*100, rr:(g.target-g.entry)/risk, win:g.hist?.n?g.hist.win_pct:null, units, lossE:units*risk, gainE:units*(g.target-g.entry)}; });
+  if(!items.length){ tb.innerHTML='<tr><td colspan="13" class="empty">Todavía no hay acciones valoradas.</td></tr>'; return; }
+  const REG=DATA.regime?.name;
+  const catsOf=(h,kind)=>kind==='orb'?['orb']:(h.setups||[]);
+  const present=[...new Set(items.flatMap(({h,kind})=>catsOf(h,kind)))].sort((a,b)=>Object.keys(SETUPS).indexOf(a)-Object.keys(SETUPS).indexOf(b));
+  if(!allCats) allCats=new Set(present);
+  present.forEach(c=>{ if(!allCats.has(c)&&!allCats.has('_seen_'+c)){ allCats.add(c); } allCats.add('_seen_'+c); });
+  const rb=document.getElementById('regime');
+  if(REG&&FIT[REG]){ const R=DATA.regime; rb.style.display='';
+    rb.innerHTML=`Mercado hoy: <b class="${REG}">${REG}</b> <span class="mut">(${R.ref||'SPY'} ${fmtP(R.spy)} · media 50 ${fmtP(R.ma50)} · media 200 ${fmtP(R.ma200)})</span><br>${FIT[REG].txt}`+(CRIPTO?' <span class="mut">(Estudio hecho con acciones; en cripto, tómalo como orientación.)</span>':''); }
+  const catsBox=document.getElementById('all-cats');
+  const drawCats=()=>{ const f=FIT[REG]||{y:[],n:[]};
+    catsBox.innerHTML=present.map(c=>{ const cnt=items.filter(({h,kind})=>catsOf(h,kind).includes(c)).length; const mark=f.y.includes(c)?' ✓':f.n.includes(c)?' ✗':'';
+      return `<span class="chip${allCats.has(c)?' on':''}" data-cat="${c}" title="${f.y.includes(c)?'Encaja con el mercado de hoy':f.n.includes(c)?'No encaja con el mercado de hoy':''}">${c==='orb'?'Ruptura de apertura':SETUPS[c]||c}${mark} <b>${cnt}</b></span>`; }).join('')+
+      ` <span class="chip" data-cat="_all">Todas</span> <span class="chip" data-cat="_none">Ninguna</span>`+(REG&&FIT[REG]?` <span class="chip${onlyFit?' on':''}" data-cat="_fit">Solo las que encajan con el mercado</span>`:''); };
+  const saveCats=()=>{ try{ localStorage.setItem('atalaya-tabla-cats', JSON.stringify([...allCats])); localStorage.setItem('atalaya-tabla-fit', onlyFit?'1':'0'); }catch(e){} };
+  const rows=()=>{ const r=items.map(({h,kind})=>{ const g=h.grade, gr=grade(h,kind,earn), risk=g.entry-g.stop, units=1000/g.entry, cats=catsOf(h,kind), fit=fitOf(cats,REG);
+    return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,cats,fit,fitv:fit,
+      riskp:risk/g.entry*100, rr:(g.target-g.entry)/risk, win:g.hist?.n?g.hist.win_pct:null, units, lossE:units*risk, gainE:units*(g.target-g.entry)}; })
+      .filter(x=>x.cats.some(c=>allCats.has(c))&&(!onlyFit||x.fit===1));
     const mw=parseFloat(document.getElementById('a-win').value), mn=parseFloat(document.getElementById('a-n').value);
     let out=RULES.green? r.filter(x=>x.sem===2) : r;
     if(!isNaN(mw)) out=out.filter(x=>x.win!=null&&x.win>=mw);
@@ -542,9 +575,15 @@ function initAll(){
       <td class="num"><b>${fmtP(x.entry)}</b></td><td class="num dn">${fmtP(x.stop)}</td><td class="num up">${fmtP(x.target)}</td>
       <td class="num">${fmtN(x.riskp)}</td><td class="num">${fmtN(x.rr,1)}</td>
       <td class="num">${x.win!=null?fmtN(x.win,0)+' % <span class="mut">('+x.h.grade.hist.n+')</span>':''}</td>
+      <td>${x.fit===1?'<span class="fit y">✓ encaja</span>':x.fit===-1?'<span class="fit n">✗ no encaja</span>':'<span class="mut">·</span>'}</td>
       <td class="num">${fmtN(x.units,1)}</td><td class="num dn">−${fmtN(x.lossE)}</td><td class="num up">+${fmtN(x.gainE)}</td></tr>`).join('')
-      : '<tr><td colspan="12" class="empty">Ninguna acción con este filtro.</td></tr>';
+      : '<tr><td colspan="13" class="empty">Ninguna acción con este filtro.</td></tr>';
   }, 'sem','desc');
+  drawCats();
+  catsBox.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; const k=c.dataset.cat;
+    if(k==='_all') present.forEach(x=>allCats.add(x)); else if(k==='_none') present.forEach(x=>allCats.delete(x));
+    else if(k==='_fit') onlyFit=!onlyFit; else if(allCats.has(k)) allCats.delete(k); else allCats.add(k);
+    saveCats(); drawCats(); draw(); });
   ['a-win','a-n'].forEach(id=>{ const el=document.getElementById(id);
     try{ const v=localStorage.getItem('atalaya-tabla-'+id); if(v!==null) el.value=v; }catch(e){}
     el.addEventListener('input',()=>{ try{ localStorage.setItem('atalaya-tabla-'+id, el.value); }catch(e){} draw(); }); });

@@ -535,6 +535,14 @@ def find_setups(closes):
         tags.append("oversold")
     if r_prev is not None and r_prev < 30 and last > c[-2]:
         tags.append("oversold_bounce")
+    # Retroceso dentro de una tendencia alcista: por encima de la media de 200 y RSI de 2 días < 10
+    # (añadido en Atalaya: el patrón que mejor funcionó en mercado alcista y lateral, 2005-2026)
+    if len(c) >= 240 and last > max(c[:-1]) and "breakout_20d" in tags:
+        tags.append("high_52w")         # máximo del último año (Atalaya)
+    if len(c) >= 200:
+        r2 = rsi(c[-60:], 2)
+        if last > sum(c[-200:]) / 200.0 and r2 is not None and r2 < 10:
+            tags.append("pullback_trend")
     return tags, {"rsi": r, "rsi_prev": r_prev, "high20": hi20, "ma20": ma20,
                   "run_pct": run * 100, "range5_pct": rng5 * 100}
 
@@ -891,7 +899,7 @@ def cmd_daily(a):
     if not a.offline:
         progress(a, "Fetching daily closes for %s symbols (%d spark requests)..."
                  % ("{:,}".format(len(symbols)), (len(symbols) + SPARK_MAX - 1) // SPARK_MAX))
-        data, failed = fetch_spark(symbols, "3mo", "1d", a.pause, a)
+        data, failed = fetch_spark(symbols, "1y", "1d", a.pause, a)   # 1 año: hace falta la media de 200
     hits, counts, last_date = scan_daily(data, symbols, now, a.min_price, a.min_volume)
     nfailed = len(symbols) - counts["fetched"]
     as_of = ("%s close" % last_date.isoformat()) if last_date else None

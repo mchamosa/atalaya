@@ -199,6 +199,11 @@ def scan(data):
             continue                     # poca historia o sin la vela de ayer (par parado)
         eligible.append(u["base"])
         closes = [k["c"] for k in ks]
+        if u["base"] == "BTC" and len(closes) >= 230:
+            m50, m50p, m200 = sum(closes[-50:]) / 50, sum(closes[-70:-20]) / 50, sum(closes[-200:]) / 200
+            name = "alcista" if closes[-1] > m200 and m50 > m200 and m50 > m50p else "bajista" if closes[-1] < m200 and m50 < m50p else "lateral"
+            data["regime"] = {"name": name, "ref": "BTC", "spy": closes[-1], "ma50": round(m50, 2), "ma200": round(m200, 2),
+                              "ma50_slope_pct": round((m50 / m50p - 1) * 100, 2), "at": now_utc()}
         qvs = [k["qv"] for k in ks]
         i = len(closes) - 1
         tags, nums = setups_at(closes, qvs, i)
@@ -571,7 +576,8 @@ def notify(data):
         return
     greens = [h for h in blk.get("hits", []) if sem_color(h) == 2]
     labels = {"breakout_20d": "ruptura 20 d", "bull_flag": "bandera", "reclaim_ma20": "recupera media 20",
-              "oversold": "sobreventa", "oversold_bounce": "rebote", "high_52w": "máx. 52 sem", "ath": "máx. histórico"}
+              "oversold": "sobreventa", "oversold_bounce": "rebote", "high_52w": "máx. 52 sem", "ath": "máx. histórico",
+              "pullback_trend": "retroceso en tendencia"}
     lines = ["%s  %s  %.0f %% aciertos (%d)  vol %.1fx" % (
         h["symbol"], ", ".join(labels.get(t, t) for t in h["setups"]), h["grade"]["hist"]["win_pct"],
         h["grade"]["hist"]["n"], h.get("vol_ratio") or 0) for h in greens[:15]]
