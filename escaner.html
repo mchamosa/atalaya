@@ -203,7 +203,11 @@ footer a{color:var(--mut)}
     <h2>Registro de señales <span class="count" id="c-pf">0</span></h2>
     <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
+    <div class="chips" id="pf-days"></div>
     <div class="kv" id="pf-sum" style="max-width:560px;margin-bottom:12px"></div>
+    <div class="wrap" style="margin-bottom:12px;max-height:none"><table id="t-pfd"><thead><tr>
+      <th>Día</th><th class="num">Señales</th><th class="num">Invertido</th><th class="num">Resultado ahora</th><th class="num">%</th><th class="num">En positivo</th><th class="num">Acumulado</th>
+    </tr></thead><tbody></tbody></table></div>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
       <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: media R</th>
     </tr></thead><tbody></tbody></table></div>
@@ -562,7 +566,7 @@ function sigCell(p){
   const det=[sp, p.rsi!=null?'RSI '+fmtN(p.rsi,0):'', p.n?'patrón con '+fmtN(p.win,0)+' % de aciertos en '+p.n+' señales':'', p.gap_below_stop?'abrió por debajo del stop':''].filter(Boolean).join(' · ');
   return (p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')+(det?`<div class="mut" style="font-size:11.5px">${det}</div>`:'');
 }
-let PF=null, pfSem='all', pfKind='all';
+let PF=null, pfSem='all', pfKind='all', pfDay='all';
 async function initPortfolio(){
   try{ const r=await fetch(`${PFILE}?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
   const tb=document.querySelector('#t-pf tbody');
@@ -576,6 +580,7 @@ async function initPortfolio(){
     if(c.dataset.sem){ pfSem=c.dataset.sem; f.querySelectorAll('[data-sem]').forEach(x=>x.classList.toggle('on',x===c)); }
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
     drawPF(); });
+  document.getElementById('pf-days').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfDay=c.dataset.day; drawPF(); });
   drawPF();
 }
 let pfDraw=null;
@@ -587,14 +592,30 @@ function drawPF(){
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
   const annulled=all.filter(r=>r.status==='anulada').length;
   const byKind=all.filter(r=>r.status!=='anulada'&&(pfKind==='all'||r.kind===pfKind));
-  const rows=byKind.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
+  const bySem=byKind.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
+  const dayList=[...new Set(all.filter(r=>r.status!=='anulada').map(r=>r.date))].sort();
+  if(pfDay!=='all'&&!dayList.includes(pfDay)) pfDay='all';
+  document.getElementById('pf-days').innerHTML=[['all','Todos los días'],...dayList.slice().reverse().map(d=>[d,fmtDate(d)])].map(([k,t])=>`<span class="chip${k===pfDay?' on':''}" data-day="${k}">${t}</span>`).join('');
+  const rows=bySem.filter(r=>pfDay==='all'||r.date===pfDay);
+  // resumen por día con acumulado (respeta los filtros de color y origen)
+  let acc=0;
+  const drows=dayList.map(d=>{ const rs=bySem.filter(r=>r.date===d), pl=rs.reduce((a,r)=>a+r.eur,0); acc+=pl;
+    return {d,n:rs.length,inv:rs.length*stake,pl,pos:rs.filter(r=>r.ret_now>0).length,acc}; });
+  const tot=bySem.reduce((a,r)=>a+r.eur,0), totN=bySem.length;
+  document.querySelector('#t-pfd tbody').innerHTML=drows.slice().reverse().map(x=>`<tr${x.d===pfDay?' style="background:#1b2438"':''}><td>${fmtDate(x.d)}</td><td class="num">${x.n}</td><td class="num">${fmtN(x.inv,0)} €</td>
+      <td class="num ${x.pl>=0?'up':'dn'}">${x.pl>=0?'+':''}${fmtN(x.pl,0)} €</td><td class="num ${x.pl>=0?'up':'dn'}">${x.n?(x.pl>=0?'+':'')+fmtN(x.pl/x.inv*100)+' %':''}</td>
+      <td class="num">${x.pos} de ${x.n}</td><td class="num ${x.acc>=0?'up':'dn'}">${x.acc>=0?'+':''}${fmtN(x.acc,0)} €</td></tr>`).join('')+
+    `<tr><td><b>Total</b></td><td class="num"><b>${totN}</b></td><td class="num"><b>${fmtN(totN*stake,0)} €</b></td><td class="num ${tot>=0?'up':'dn'}"><b>${tot>=0?'+':''}${fmtN(tot,0)} €</b></td>
+      <td class="num ${tot>=0?'up':'dn'}"><b>${totN?(tot>=0?'+':'')+fmtN(tot/(totN*stake)*100)+' %':''}</b></td><td class="num"><b>${bySem.filter(r=>r.ret_now>0).length} de ${totN}</b></td><td></td></tr>`;
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
-  document.getElementById('pf-sum').innerHTML=rows.length?`<span>Señales (${days} ${days===1?'día':'días'})</span><span>${rows.length}</span>
+  const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):''].filter(Boolean).join(', ');
+  const allOk=all.filter(r=>r.status!=='anulada'), allPl=allOk.reduce((a,r)=>a+r.eur,0);
+  document.getElementById('pf-sum').innerHTML=(filt?`<span>Total del registro, sin filtros</span><span class="${allPl>=0?'up':'dn'}">${allOk.length} señales · ${allPl>=0?'+':''}${fmtN(allPl,0)} € (${allPl>=0?'+':''}${fmtN(allPl/(allOk.length*stake)*100)} %)</span>`:'')+(rows.length?`<span>Señales${filt?' ('+filt+')':''} · ${days} ${days===1?'día':'días'}</span><span>${rows.length}</span>
     <span>Invertido</span><span>${fmtN(inv,0)} €</span>
     <span>Resultado ahora</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
     <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
-    <span>Actualizado</span><span>${madrid(PF.updated)}</span>${annulled?`<span>Anuladas (ya bajo el stop al detectarlas)</span><span>${annulled}</span>`:''}`:'<span>Sin señales con este filtro</span><span></span>';
+    <span>Actualizado</span><span>${madrid(PF.updated)}</span>${annulled?`<span>Anuladas (ya bajo el stop al detectarlas)</span><span>${annulled}</span>`:''}`:'<span>Sin señales con este filtro</span><span></span>');
   const sumRow=(label,rs)=>{
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
@@ -609,7 +630,7 @@ function drawPF(){
     : '<tr><td colspan="9" class="empty">Sin señales con este filtro.</td></tr>';
   const th=document.querySelector('#t-pfh tbody');
   const grp=[['Verdes',2],['Ámbar',1],['Rojas',0],['Todas',null]];
-  th.innerHTML=grp.map(([name,sv])=>{ const rs=byKind.filter(r=>sv==null||r.sem===sv);
+  th.innerHTML=grp.map(([name,sv])=>{ const rs=byKind.filter(r=>(sv==null||r.sem===sv)&&(pfDay==='all'||r.date===pfDay));
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
