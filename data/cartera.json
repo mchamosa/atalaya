@@ -21,11 +21,16 @@
    ],
    "shares": 1.1669,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 886.28,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.45
+    }
+   },
+   "last": 880.455,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.42,
+   "sessions": 1,
+   "ret_now": 2.74,
    "signal_price": 835.06,
    "entry_type": "apertura"
   },
@@ -42,11 +47,16 @@
    ],
    "shares": 3.4209,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 289.275,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.43
+    }
+   },
+   "last": 289.03,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -1.04,
+   "sessions": 1,
+   "ret_now": -1.13,
    "signal_price": 284.78,
    "entry_type": "apertura"
   },
@@ -62,11 +72,16 @@
    ],
    "shares": 2.1322,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 501.566,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.92
+    }
+   },
+   "last": 498.755,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 6.94,
+   "sessions": 1,
+   "ret_now": 6.34,
    "signal_price": 460.99,
    "entry_type": "apertura"
   },
@@ -82,11 +97,16 @@
    ],
    "shares": 3.6881,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 288.99,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 6.87
+    }
+   },
+   "last": 290.15,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 6.58,
+   "sessions": 1,
+   "ret_now": 7.01,
    "signal_price": 263.78,
    "entry_type": "apertura"
   },
@@ -102,11 +122,16 @@
    ],
    "shares": 5.6625,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 187.29,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 5.49
+    }
+   },
+   "last": 183.2,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 6.05,
+   "sessions": 1,
+   "ret_now": 3.74,
    "signal_price": 174.62,
    "entry_type": "apertura"
   },
@@ -123,11 +148,16 @@
    ],
    "shares": 5.1733,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 192.75,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.56
+    }
+   },
+   "last": 187.23,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -0.28,
+   "sessions": 1,
+   "ret_now": -3.14,
    "signal_price": 189.99,
    "entry_type": "apertura"
   },
@@ -143,11 +173,16 @@
    ],
    "shares": 17.0619,
    "opened_at": "2026-11-09T17:02:55Z",
-   "closes": {},
-   "last": 61.53,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.93
+    }
+   },
+   "last": 61.895,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 4.98,
+   "sessions": 1,
+   "ret_now": 5.6,
    "signal_price": 58.35,
    "entry_type": "apertura"
   },
@@ -163,11 +198,16 @@
    ],
    "shares": 3.8462,
    "opened_at": "2026-11-09T17:12:43Z",
-   "closes": {},
-   "last": 256.51,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -2.17
+    }
+   },
+   "last": 253.295,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -1.34,
+   "sessions": 1,
+   "ret_now": -2.58,
    "signal_price": 260.5,
    "entry_type": "apertura"
   },
@@ -188,12 +228,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 52.365,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.62
+    }
+   },
+   "last": 50.355,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -0.12,
-   "breakout_price": 52.43
+   "sessions": 1,
+   "ret_now": -4.92,
+   "breakout_price": 52.43,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.28,
+    "ret": -1.6,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ADI",
@@ -212,12 +263,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 391.57,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.49
+    }
+   },
+   "last": 388.74,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.15,
-   "breakout_price": 379.62
+   "sessions": 1,
+   "ret_now": -0.03,
+   "breakout_price": 379.62,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.22,
+    "ret": 0.92,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ALAB",
@@ -236,12 +298,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 214.015,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.42
+    }
+   },
+   "last": 219.31,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.0,
-   "breakout_price": 207.78
+   "sessions": 1,
+   "ret_now": 0.7,
+   "breakout_price": 207.78,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.1,
+    "ret": -0.79,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "AMAT",
@@ -260,12 +333,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 372.335,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.02
+    }
+   },
+   "last": 375.21,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.38,
-   "breakout_price": 360.17
+   "sessions": 1,
+   "ret_now": 1.23,
+   "breakout_price": 360.17,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.01,
+    "ret": -0.06,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "AMD",
@@ -284,12 +368,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 509.663,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.27
+    }
+   },
+   "last": 524.08,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 4.29,
-   "breakout_price": 488.69
+   "sessions": 1,
+   "ret_now": 4.36,
+   "breakout_price": 488.69,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.17,
+    "ret": 0.96,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ANET",
@@ -308,12 +403,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 186.925,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.41
+    }
+   },
+   "last": 189.0,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.57,
-   "breakout_price": 184.04
+   "sessions": 1,
+   "ret_now": 1.11,
+   "breakout_price": 184.04,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.12,
+    "ret": -0.48,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ARM",
@@ -332,12 +438,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 187.29,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.94
+    }
+   },
+   "last": 183.2,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.02,
-   "breakout_price": 183.59
+   "sessions": 1,
+   "ret_now": -2.58,
+   "breakout_price": 183.59,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.18,
+    "ret": -0.96,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ASML",
@@ -356,12 +473,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 1515.595,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.08
+    }
+   },
+   "last": 1522.355,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.78,
-   "breakout_price": 1503.93
+   "sessions": 1,
+   "ret_now": 0.52,
+   "breakout_price": 1503.93,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.08,
+    "ret": -0.15,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ASTS",
@@ -380,12 +508,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 36.865,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.57
+    }
+   },
+   "last": 35.67,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 6.64,
-   "breakout_price": 34.57
+   "sessions": 1,
+   "ret_now": -3.85,
+   "breakout_price": 34.57,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.1,
+    "ret": -1.08,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "AXTI",
@@ -404,12 +543,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 43.136,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.96
+    }
+   },
+   "last": 41.66,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.64,
-   "breakout_price": 41.62
+   "sessions": 1,
+   "ret_now": -1.98,
+   "breakout_price": 41.62,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.15,
+    "ret": 1.18,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "BE",
@@ -428,12 +578,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 196.06,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.67
+    }
+   },
+   "last": 189.02,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.64,
-   "breakout_price": 192.89
+   "sessions": 1,
+   "ret_now": -4.14,
+   "breakout_price": 192.89,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.38,
+    "ret": -2.2,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "BLK",
@@ -452,12 +613,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 1225.94,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.75
+    }
+   },
+   "last": 1212.17,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.74,
-   "breakout_price": 1205.01
+   "sessions": 1,
+   "ret_now": -0.96,
+   "breakout_price": 1205.01,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.2,
+    "ret": -0.41,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "BX",
@@ -476,12 +648,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 125.12,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.1
+    }
+   },
+   "last": 122.165,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.72,
-   "breakout_price": 123.0
+   "sessions": 1,
+   "ret_now": -1.61,
+   "breakout_price": 123.0,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.09,
+    "ret": 0.17,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CAT",
@@ -500,12 +683,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 597.18,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.6
+    }
+   },
+   "last": 577.56,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.05,
-   "breakout_price": 585.16
+   "sessions": 1,
+   "ret_now": -2.98,
+   "breakout_price": 585.16,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.03,
+    "ret": 0.08,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CIEN",
@@ -524,12 +718,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 270.225,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.7
+    }
+   },
+   "last": 273.943,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.2,
-   "breakout_price": 267.01
+   "sessions": 1,
+   "ret_now": 1.0,
+   "breakout_price": 267.01,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.13,
+    "ret": -0.65,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CLS",
@@ -548,12 +753,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 219.43,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.55
+    }
+   },
+   "last": 230.055,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.49,
-   "breakout_price": 218.35
+   "sessions": 1,
+   "ret_now": 3.77,
+   "breakout_price": 218.35,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.02,
+    "ret": 0.1,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "COHR",
@@ -572,12 +788,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 227.5,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.56
+    }
+   },
+   "last": 222.7,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 6.63,
-   "breakout_price": 213.36
+   "sessions": 1,
+   "ret_now": -2.64,
+   "breakout_price": 213.36,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.18,
+    "ret": -2.01,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "COIN",
@@ -596,12 +823,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 137.59,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.87
+    }
+   },
+   "last": 134.06,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.16,
-   "breakout_price": 136.01
+   "sessions": 1,
+   "ret_now": -2.35,
+   "breakout_price": 136.01,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.13,
+    "ret": -0.39,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CRCL",
@@ -620,12 +858,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 67.97,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.66
+    }
+   },
+   "last": 66.833,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.8,
-   "breakout_price": 67.43
+   "sessions": 1,
+   "ret_now": -1.73,
+   "breakout_price": 67.43,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.17,
+    "ret": -0.45,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CRDO",
@@ -644,12 +893,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 132.561,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.55
+    }
+   },
+   "last": 133.5,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.81,
-   "breakout_price": 131.49
+   "sessions": 1,
+   "ret_now": -1.1,
+   "breakout_price": 131.49,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.25,
+    "ret": -1.78,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CRWD",
@@ -668,12 +928,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 229.635,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.81
+    }
+   },
+   "last": 229.64,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 3.5,
-   "breakout_price": 221.86
+   "sessions": 1,
+   "ret_now": 2.28,
+   "breakout_price": 221.86,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.65,
+    "ret": 1.73,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CRWV",
@@ -692,12 +963,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 49.214,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.2
+    }
+   },
+   "last": 49.085,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -0.26,
-   "breakout_price": 49.34
+   "sessions": 1,
+   "ret_now": 0.01,
+   "breakout_price": 49.34,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.2,
+    "ret": -1.11,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "CSCO",
@@ -716,12 +998,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 98.92,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.37
+    }
+   },
+   "last": 97.78,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.31,
-   "breakout_price": 97.64
+   "sessions": 1,
+   "ret_now": -0.52,
+   "breakout_price": 97.64,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.2,
+    "ret": 0.49,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "DDOG",
@@ -740,12 +1033,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 179.935,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.55
+    }
+   },
+   "last": 181.73,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": -0.31,
-   "breakout_price": 180.5
+   "sessions": 1,
+   "ret_now": 0.62,
+   "breakout_price": 180.5,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.42,
+    "ret": -0.59,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "DE",
@@ -764,12 +1068,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 694.2,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.17
+    }
+   },
+   "last": 677.81,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.74,
-   "breakout_price": 689.09
+   "sessions": 1,
+   "ret_now": -1.78,
+   "breakout_price": 689.09,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.12,
+    "ret": -0.08,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "DELL",
@@ -788,12 +1103,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 347.9,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.7
+    }
+   },
+   "last": 340.19,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.08,
-   "breakout_price": 344.18
+   "sessions": 1,
+   "ret_now": -3.44,
+   "breakout_price": 344.18,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.33,
+    "ret": -1.73,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ECHO",
@@ -812,12 +1138,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 100.662,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.12
+    }
+   },
+   "last": 101.711,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.86,
-   "breakout_price": 98.82
+   "sessions": 1,
+   "ret_now": 1.64,
+   "breakout_price": 98.82,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.28,
+    "ret": 1.07,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "EQIX",
@@ -836,12 +1173,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 1063.81,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.24
+    }
+   },
+   "last": 1055.11,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.76,
-   "breakout_price": 1045.42
+   "sessions": 1,
+   "ret_now": -1.19,
+   "breakout_price": 1045.42,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.28,
+    "ret": -0.84,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "ETN",
@@ -860,12 +1208,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 361.8,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.72
+    }
+   },
+   "last": 355.87,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.31,
-   "breakout_price": 353.62
+   "sessions": 1,
+   "ret_now": -1.67,
+   "breakout_price": 353.62,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.23,
+    "ret": -0.8,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "FIX",
@@ -884,12 +1243,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 1109.03,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.16
+    }
+   },
+   "last": 1124.598,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.8,
-   "breakout_price": 1078.86
+   "sessions": 1,
+   "ret_now": 2.19,
+   "breakout_price": 1078.86,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.21,
+    "ret": 0.81,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "FLEX",
@@ -908,12 +1278,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 78.025,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.28
+    }
+   },
+   "last": 77.65,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.05,
-   "breakout_price": 76.46
+   "sessions": 1,
+   "ret_now": -0.94,
+   "breakout_price": 76.46,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.13,
+    "ret": -0.74,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "FN",
@@ -932,12 +1313,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 366.01,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.73
+    }
+   },
+   "last": 360.82,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 4.87,
-   "breakout_price": 349.01
+   "sessions": 1,
+   "ret_now": -0.67,
+   "breakout_price": 349.01,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.03,
+    "ret": -0.23,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "GEV",
@@ -956,12 +1348,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 832.55,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.15
+    }
+   },
+   "last": 772.26,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.05,
-   "breakout_price": 823.92
+   "sessions": 1,
+   "ret_now": -7.02,
+   "breakout_price": 823.92,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.12,
+    "ret": -0.32,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "GLW",
@@ -980,12 +1383,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 115.465,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.07
+    }
+   },
+   "last": 113.6,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.65,
-   "breakout_price": 112.48
+   "sessions": 1,
+   "ret_now": -0.98,
+   "breakout_price": 112.48,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.12,
+    "ret": 0.56,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "GS",
@@ -1004,12 +1418,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 911.335,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.23
+    }
+   },
+   "last": 907.68,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.66,
-   "breakout_price": 896.41
+   "sessions": 1,
+   "ret_now": -0.07,
+   "breakout_price": 896.41,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.04,
+    "ret": -0.09,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "HOOD",
@@ -1028,12 +1453,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 84.57,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.9
+    }
+   },
+   "last": 82.135,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.79,
-   "breakout_price": 83.91
+   "sessions": 1,
+   "ret_now": -2.31,
+   "breakout_price": 83.91,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.15,
+    "ret": -0.43,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "HPE",
@@ -1052,12 +1488,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 47.94,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.76
+    }
+   },
+   "last": 47.58,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.59,
-   "breakout_price": 47.19
+   "sessions": 1,
+   "ret_now": -1.67,
+   "breakout_price": 47.19,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.36,
+    "ret": -1.76,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "IBM",
@@ -1076,12 +1523,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 247.755,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.65
+    }
+   },
+   "last": 244.505,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 0.14,
-   "breakout_price": 247.42
+   "sessions": 1,
+   "ret_now": -1.3,
+   "breakout_price": 247.42,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.46,
+    "ret": -0.29,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "INTC",
@@ -1100,12 +1558,23 @@
    "entry_bar": "12:15",
    "earn": true,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 58.76,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.71
+    }
+   },
+   "last": 59.33,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 2.03,
-   "breakout_price": 57.59
+   "sessions": 1,
+   "ret_now": 1.64,
+   "breakout_price": 57.59,
+   "plan": {
+    "outcome": "cierre",
+    "R": 0.38,
+    "ret": 1.1,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "JCI",
@@ -1124,12 +1593,23 @@
    "entry_bar": "12:15",
    "earn": false,
    "opened_at": "2026-11-09T17:21:16Z",
-   "closes": {},
-   "last": 141.93,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -0.4
+    }
+   },
+   "last": 142.8,
    "status": "abierta",
-   "sessions": 0,
-   "ret_now": 1.0,
-   "breakout_price": 140.52
+   "sessions": 1,
+   "ret_now": 0.52,
+   "breakout_price": 140.52,
+   "plan": {
+    "outcome": "cierre",
+    "R": -0.26,
+    "ret": -0.62,
+    "at": "15:55"
+   }
   },
   {
    "symbol": "NVDA",
@@ -1156,13 +1636,18 @@
    "signal_price": 186.64,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 177.23,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.25
+    }
+   },
+   "last": 171.56,
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 5.779,
-   "sessions": 0,
-   "ret_now": 2.42
+   "sessions": 1,
+   "ret_now": -0.86
   },
   {
    "symbol": "AMD",
@@ -1189,12 +1674,17 @@
    "signal_price": 449.04,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 509.663,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.43
+    }
+   },
+   "last": 524.08,
    "status": "abierta",
    "shares": 2.1124,
-   "sessions": 0,
-   "ret_now": 7.66
+   "sessions": 1,
+   "ret_now": 10.71
   },
   {
    "symbol": "MU",
@@ -1221,12 +1711,17 @@
    "signal_price": 690.0,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 730.365,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.2
+    }
+   },
+   "last": 727.73,
    "status": "abierta",
    "shares": 1.4213,
-   "sessions": 0,
-   "ret_now": 3.81
+   "sessions": 1,
+   "ret_now": 3.43
   },
   {
    "symbol": "INTC",
@@ -1254,12 +1749,17 @@
    "signal_price": 56.28,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 58.76,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.3
+    }
+   },
+   "last": 59.33,
    "status": "abierta",
    "shares": 17.5685,
-   "sessions": 0,
-   "ret_now": 3.23
+   "sessions": 1,
+   "ret_now": 4.23
   },
   {
    "symbol": "GOOG",
@@ -1287,12 +1787,17 @@
    "signal_price": 283.93,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 287.32,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -1.7
+    }
+   },
+   "last": 286.66,
    "status": "abierta",
    "shares": 3.4369,
-   "sessions": 0,
-   "ret_now": -1.25
+   "sessions": 1,
+   "ret_now": -1.48
   },
   {
    "symbol": "TSM",
@@ -1319,12 +1824,17 @@
    "signal_price": 375.44,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 391.1,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.6
+    }
+   },
+   "last": 395.782,
    "status": "abierta",
    "shares": 2.6144,
-   "sessions": 0,
-   "ret_now": 2.25
+   "sessions": 1,
+   "ret_now": 3.47
   },
   {
    "symbol": "MRVL",
@@ -1352,12 +1862,17 @@
    "signal_price": 141.2,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 153.48,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.55
+    }
+   },
+   "last": 155.42,
    "status": "abierta",
    "shares": 6.9565,
-   "sessions": 0,
-   "ret_now": 6.77
+   "sessions": 1,
+   "ret_now": 8.12
   },
   {
    "symbol": "LITE",
@@ -1385,12 +1900,17 @@
    "signal_price": 538.59,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 597.65,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 8.9
+    }
+   },
+   "last": 599.64,
    "status": "abierta",
    "shares": 1.8267,
-   "sessions": 0,
-   "ret_now": 9.17
+   "sessions": 1,
+   "ret_now": 9.53
   },
   {
    "symbol": "LLY",
@@ -1417,12 +1937,17 @@
    "signal_price": 1354.0,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 1417.51,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.41
+    }
+   },
+   "last": 1413.052,
    "status": "abierta",
    "shares": 0.7324,
-   "sessions": 0,
-   "ret_now": 3.82
+   "sessions": 1,
+   "ret_now": 3.49
   },
   {
    "symbol": "PLTR",
@@ -1449,12 +1974,17 @@
    "signal_price": 160.38,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 169.42,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.92
+    }
+   },
+   "last": 168.71,
    "status": "abierta",
    "shares": 6.2008,
-   "sessions": 0,
-   "ret_now": 5.05
+   "sessions": 1,
+   "ret_now": 4.61
   },
   {
    "symbol": "COHR",
@@ -1481,12 +2011,17 @@
    "signal_price": 192.81,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 227.5,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 14.02
+    }
+   },
+   "last": 222.7,
    "status": "abierta",
    "shares": 5.0633,
-   "sessions": 0,
-   "ret_now": 15.19
+   "sessions": 1,
+   "ret_now": 12.76
   },
   {
    "symbol": "ASML",
@@ -1513,12 +2048,17 @@
    "signal_price": 1424.75,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 1515.595,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 2.68
+    }
+   },
+   "last": 1522.355,
    "status": "abierta",
    "shares": 0.6785,
-   "sessions": 0,
-   "ret_now": 2.84
+   "sessions": 1,
+   "ret_now": 3.29
   },
   {
    "symbol": "APP",
@@ -1545,12 +2085,17 @@
    "signal_price": 391.22,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 412.06,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 5.74
+    }
+   },
+   "last": 398.75,
    "status": "abierta",
    "shares": 2.5791,
-   "sessions": 0,
-   "ret_now": 6.27
+   "sessions": 1,
+   "ret_now": 2.84
   },
   {
    "symbol": "AMAT",
@@ -1577,12 +2122,17 @@
    "signal_price": 332.72,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 372.335,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 8.0
+    }
+   },
+   "last": 375.21,
    "status": "abierta",
    "shares": 2.9146,
-   "sessions": 0,
-   "ret_now": 8.52
+   "sessions": 1,
+   "ret_now": 9.36
   },
   {
    "symbol": "CRWV",
@@ -1609,12 +2159,17 @@
    "signal_price": 46.4,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 49.214,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 5.67
+    }
+   },
+   "last": 49.085,
    "status": "abierta",
    "shares": 21.575,
-   "sessions": 0,
-   "ret_now": 6.18
+   "sessions": 1,
+   "ret_now": 5.9
   },
   {
    "symbol": "DELL",
@@ -1642,12 +2197,17 @@
    "signal_price": 328.53,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 347.9,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 2.66
+    }
+   },
+   "last": 340.19,
    "status": "abierta",
    "shares": 2.9643,
-   "sessions": 0,
-   "ret_now": 3.13
+   "sessions": 1,
+   "ret_now": 0.84
   },
   {
    "symbol": "LRCX",
@@ -1674,12 +2234,17 @@
    "signal_price": 200.44,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 218.12,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.2
+    }
+   },
+   "last": 224.34,
    "status": "abierta",
    "shares": 4.8438,
-   "sessions": 0,
-   "ret_now": 5.65
+   "sessions": 1,
+   "ret_now": 8.67
   },
   {
    "symbol": "IREN",
@@ -1706,12 +2271,17 @@
    "signal_price": 21.64,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 21.74,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 0.09
+    }
+   },
+   "last": 20.99,
    "status": "abierta",
    "shares": 46.7508,
-   "sessions": 0,
-   "ret_now": 1.64
+   "sessions": 1,
+   "ret_now": -1.87
   },
   {
    "symbol": "CAT",
@@ -1739,12 +2309,17 @@
    "signal_price": 558.63,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 597.18,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.34
+    }
+   },
+   "last": 577.56,
    "status": "abierta",
    "shares": 1.7422,
-   "sessions": 0,
-   "ret_now": 4.04
+   "sessions": 1,
+   "ret_now": 0.62
   },
   {
    "symbol": "KLAC",
@@ -1771,12 +2346,17 @@
    "signal_price": 138.49,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 151.38,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 6.47
+    }
+   },
+   "last": 151.61,
    "status": "abierta",
    "shares": 7.0333,
-   "sessions": 0,
-   "ret_now": 6.47
+   "sessions": 1,
+   "ret_now": 6.63
   },
   {
    "symbol": "NET",
@@ -1803,12 +2383,17 @@
    "signal_price": 268.75,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 297.4,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 5.86
+    }
+   },
+   "last": 302.13,
    "status": "abierta",
    "shares": 3.6036,
-   "sessions": 0,
-   "ret_now": 7.17
+   "sessions": 1,
+   "ret_now": 8.88
   },
   {
    "symbol": "HOOD",
@@ -1835,12 +2420,17 @@
    "signal_price": 80.91,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 84.57,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.06
+    }
+   },
+   "last": 82.135,
    "status": "abierta",
    "shares": 12.3686,
-   "sessions": 0,
-   "ret_now": 4.6
+   "sessions": 1,
+   "ret_now": 1.59
   },
   {
    "symbol": "CSCO",
@@ -1867,12 +2457,17 @@
    "signal_price": 93.85,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 98.92,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.53
+    }
+   },
+   "last": 97.78,
    "status": "abierta",
    "shares": 10.4943,
-   "sessions": 0,
-   "ret_now": 3.81
+   "sessions": 1,
+   "ret_now": 2.61
   },
   {
    "symbol": "NOW",
@@ -1899,12 +2494,17 @@
    "signal_price": 101.97,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 103.165,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.11
+    }
+   },
+   "last": 101.81,
    "status": "abierta",
    "shares": 9.8396,
-   "sessions": 0,
-   "ret_now": 1.51
+   "sessions": 1,
+   "ret_now": 0.18
   },
   {
    "symbol": "IONQ",
@@ -1931,12 +2531,17 @@
    "signal_price": 32.62,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 36.05,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.97
+    }
+   },
+   "last": 34.97,
    "status": "abierta",
    "shares": 30.553,
-   "sessions": 0,
-   "ret_now": 10.14
+   "sessions": 1,
+   "ret_now": 6.84
   },
   {
    "symbol": "ALAB",
@@ -1964,12 +2569,17 @@
    "signal_price": 190.71,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 214.015,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 8.98
+    }
+   },
+   "last": 219.31,
    "status": "abierta",
    "shares": 5.0251,
-   "sessions": 0,
-   "ret_now": 7.55
+   "sessions": 1,
+   "ret_now": 10.21
   },
   {
    "symbol": "AXON",
@@ -1996,12 +2606,23 @@
    "signal_price": 313.0,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 303.025,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -5.4
+    }
+   },
+   "last": 301.68,
    "status": "abierta",
    "shares": 3.1201,
-   "sessions": 0,
-   "ret_now": -5.45
+   "sessions": 1,
+   "ret_now": -5.87,
+   "plan": {
+    "outcome": "stop",
+    "R": -1.13,
+    "ret": -5.4,
+    "sessions": 1
+   }
   },
   {
    "symbol": "SNOW",
@@ -2028,12 +2649,17 @@
    "signal_price": 275.88,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 292.06,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 4.61
+    }
+   },
+   "last": 297.47,
    "status": "abierta",
    "shares": 3.593,
-   "sessions": 0,
-   "ret_now": 4.94
+   "sessions": 1,
+   "ret_now": 6.88
   },
   {
    "symbol": "HUM",
@@ -2061,12 +2687,17 @@
    "signal_price": 433.74,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 431.04,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -3.5
+    }
+   },
+   "last": 425.15,
    "status": "abierta",
    "shares": 2.2801,
-   "sessions": 0,
-   "ret_now": -1.72
+   "sessions": 1,
+   "ret_now": -3.06
   },
   {
    "symbol": "AKAM",
@@ -2093,12 +2724,17 @@
    "signal_price": 83.09,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 80.825,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 1.89
+    }
+   },
+   "last": 82.305,
    "status": "abierta",
    "shares": 12.6904,
-   "sessions": 0,
-   "ret_now": 2.57
+   "sessions": 1,
+   "ret_now": 4.45
   },
   {
    "symbol": "FSLR",
@@ -2125,12 +2761,17 @@
    "signal_price": 201.14,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 192.96,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": -3.23
+    }
+   },
+   "last": 183.08,
    "status": "abierta",
    "shares": 5.0502,
-   "sessions": 0,
-   "ret_now": -2.55
+   "sessions": 1,
+   "ret_now": -7.54
   },
   {
    "symbol": "GLW",
@@ -2158,12 +2799,17 @@
    "signal_price": 106.13,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 115.465,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 7.36
+    }
+   },
+   "last": 113.6,
    "status": "abierta",
    "shares": 9.2593,
-   "sessions": 0,
-   "ret_now": 6.91
+   "sessions": 1,
+   "ret_now": 5.19
   },
   {
    "symbol": "ASTS",
@@ -2190,12 +2836,17 @@
    "signal_price": 32.33,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T19:56:35Z",
-   "closes": {},
-   "last": 36.865,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 10.15
+    }
+   },
+   "last": 35.67,
    "status": "abierta",
    "shares": 29.8597,
-   "sessions": 0,
-   "ret_now": 10.08
+   "sessions": 1,
+   "ret_now": 6.51
   },
   {
    "symbol": "TMO",
@@ -2223,15 +2874,1348 @@
    "signal_price": 694.76,
    "entry_type": "apertura",
    "opened_at": "2026-11-09T20:05:43Z",
-   "closes": {},
-   "last": 719.03,
+   "closes": {
+    "1": {
+     "date": "2026-11-09",
+     "ret": 3.2
+    }
+   },
+   "last": 716.58,
    "status": "abierta",
    "shares": 1.4301,
+   "sessions": 1,
+   "ret_now": 2.48
+  },
+  {
+   "symbol": "NVDA",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 173.98,
+   "stop": 174.22,
+   "target": 187.57,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 100.0,
+   "n": 1,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 27.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 178.67,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 171.56,
+   "status": "abierta",
+   "gap_below_stop": true,
+   "shares": 5.7478,
    "sessions": 0,
-   "ret_now": 2.83
+   "ret_now": -1.39
+  },
+  {
+   "symbol": "SNDK",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 861.34,
+   "stop": 802.4,
+   "target": 979.22,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 66.7,
+   "n": 3,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 30.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 886.51,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 880.455,
+   "status": "abierta",
+   "shares": 1.161,
+   "sessions": 0,
+   "ret_now": 2.22
+  },
+  {
+   "symbol": "AMZN",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 266.33,
+   "stop": 239.15,
+   "target": 320.69,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 56.9,
+   "n": 58,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 58.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 266.93,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 269.94,
+   "status": "abierta",
+   "shares": 3.7547,
+   "sessions": 0,
+   "ret_now": 1.36
+  },
+  {
+   "symbol": "AAPL",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 351.55,
+   "stop": 330.24,
+   "target": 394.17,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d",
+    "reclaim_ma20"
+   ],
+   "win": 52.9,
+   "n": 102,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 57.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 350.69,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 348.63,
+   "status": "abierta",
+   "shares": 2.8445,
+   "sessions": 0,
+   "ret_now": -0.83
+  },
+  {
+   "symbol": "GOOGL",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 289.11,
+   "stop": 277.6,
+   "target": 312.13,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 50.0,
+   "n": 6,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 32.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 288.15,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 289.03,
+   "status": "abierta",
+   "shares": 3.4589,
+   "sessions": 0,
+   "ret_now": -0.03
+  },
+  {
+   "symbol": "MSFT",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 543.41,
+   "stop": 504.58,
+   "target": 621.07,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 56.5,
+   "n": 23,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 57.1,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 545.18,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 541.58,
+   "status": "abierta",
+   "shares": 1.8402,
+   "sessions": 0,
+   "ret_now": -0.34
+  },
+  {
+   "symbol": "INTC",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 57.97,
+   "stop": 51.99,
+   "target": 69.93,
+   "breakout_price": null,
+   "setups": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "win": 50.0,
+   "n": 6,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 29.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 59.37,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 59.33,
+   "status": "abierta",
+   "shares": 17.2503,
+   "sessions": 0,
+   "ret_now": 2.35
+  },
+  {
+   "symbol": "GOOG",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 287.27,
+   "stop": 276.65,
+   "target": 308.51,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 50.0,
+   "n": 6,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 31.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 286.01,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 286.66,
+   "status": "abierta",
+   "shares": 3.481,
+   "sessions": 0,
+   "ret_now": -0.21
+  },
+  {
+   "symbol": "MRVL",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 149.97,
+   "stop": 132.88,
+   "target": 184.15,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 50.0,
+   "n": 6,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 32.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 154.6,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 155.42,
+   "status": "abierta",
+   "shares": 6.668,
+   "sessions": 0,
+   "ret_now": 3.63
+  },
+  {
+   "symbol": "MRNA",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 265.86,
+   "stop": 206.93,
+   "target": 383.72,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 52.4,
+   "n": 63,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 67.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 269.0,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 261.53,
+   "status": "abierta",
+   "shares": 3.7614,
+   "sessions": 0,
+   "ret_now": -1.63
+  },
+  {
+   "symbol": "COHR",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 214.91,
+   "stop": 168.91,
+   "target": 306.91,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 51.4,
+   "n": 35,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 46.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 225.19,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 222.7,
+   "status": "abierta",
+   "shares": 4.6531,
+   "sessions": 0,
+   "ret_now": 3.62
+  },
+  {
+   "symbol": "RKLB",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 54.99,
+   "stop": 45.76,
+   "target": 73.45,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 59.3,
+   "n": 27,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 51.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 58.86,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 58.265,
+   "status": "abierta",
+   "shares": 18.1851,
+   "sessions": 0,
+   "ret_now": 5.96
+  },
+  {
+   "symbol": "TTD",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 14.6,
+   "stop": 12.23,
+   "target": 19.34,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 50.0,
+   "n": 28,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 68.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 14.93,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 14.72,
+   "status": "abierta",
+   "shares": 68.4932,
+   "sessions": 0,
+   "ret_now": 0.82
+  },
+  {
+   "symbol": "NOW",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 100.55,
+   "stop": 100.2,
+   "target": 101.25,
+   "breakout_price": null,
+   "setups": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "win": 51.0,
+   "n": 49,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 28.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 102.76,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 101.81,
+   "status": "abierta",
+   "shares": 9.9453,
+   "sessions": 0,
+   "ret_now": 1.25
+  },
+  {
+   "symbol": "KO",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 96.65,
+   "stop": 90.72,
+   "target": 108.51,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 48.5,
+   "n": 66,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 65.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 96.03,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 95.91,
+   "status": "abierta",
+   "shares": 10.3466,
+   "sessions": 0,
+   "ret_now": -0.77
+  },
+  {
+   "symbol": "CSCO",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 97.25,
+   "stop": 93.38,
+   "target": 104.99,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 0.0,
+   "n": 1,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 38.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 98.65,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 97.78,
+   "status": "abierta",
+   "shares": 10.2828,
+   "sessions": 0,
+   "ret_now": 0.54
+  },
+  {
+   "symbol": "SMX",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 17.99,
+   "stop": 3.29,
+   "target": 47.39,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20",
+    "oversold_bounce"
+   ],
+   "win": 24.6,
+   "n": 61,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 48.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 9.35,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 17.61,
+   "status": "abierta",
+   "shares": 55.5864,
+   "sessions": 0,
+   "ret_now": -2.11
+  },
+  {
+   "symbol": "OMH",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 27.4,
+   "stop": 2.85,
+   "target": 76.5,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 36.4,
+   "n": 22,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 78.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 25.84,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 25.5,
+   "status": "abierta",
+   "shares": 36.4964,
+   "sessions": 0,
+   "ret_now": -6.93
+  },
+  {
+   "symbol": "CBRS",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 93.5,
+   "stop": 81.3,
+   "target": 117.9,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 0.0,
+   "n": 3,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 34.1,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 96.7,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 95.285,
+   "status": "abierta",
+   "shares": 10.6952,
+   "sessions": 0,
+   "ret_now": 1.91
+  },
+  {
+   "symbol": "QBTS",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 11.06,
+   "stop": 9.0,
+   "target": 15.18,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 51.9,
+   "n": 27,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 44.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 11.47,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 10.55,
+   "status": "abierta",
+   "shares": 90.4159,
+   "sessions": 0,
+   "ret_now": -4.61
+  },
+  {
+   "symbol": "RIOT",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 17.93,
+   "stop": 11.78,
+   "target": 30.23,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 53.2,
+   "n": 62,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 57.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 17.66,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 18.22,
+   "status": "abierta",
+   "shares": 55.7724,
+   "sessions": 0,
+   "ret_now": 1.62
+  },
+  {
+   "symbol": "APH",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 80.31,
+   "stop": 71.28,
+   "target": 98.37,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 53.8,
+   "n": 26,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 51.1,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 80.71,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 80.32,
+   "status": "abierta",
+   "shares": 12.4517,
+   "sessions": 0,
+   "ret_now": 0.01
+  },
+  {
+   "symbol": "WULF",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 2,
+   "entry": 12.12,
+   "stop": 10.03,
+   "target": 16.3,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 64.0,
+   "n": 25,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 48.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 12.38,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 12.26,
+   "status": "abierta",
+   "shares": 82.5083,
+   "sessions": 0,
+   "ret_now": 1.16
+  },
+  {
+   "symbol": "JHX",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 29.51,
+   "stop": 25.93,
+   "target": 36.67,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 50.8,
+   "n": 65,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 65.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 29.94,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 29.37,
+   "status": "abierta",
+   "shares": 33.8868,
+   "sessions": 0,
+   "ret_now": -0.47
+  },
+  {
+   "symbol": "PBR",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 18.1,
+   "stop": 17.89,
+   "target": 18.52,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 44.4,
+   "n": 18,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 24.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 18.35,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 18.255,
+   "status": "abierta",
+   "shares": 55.2486,
+   "sessions": 0,
+   "ret_now": 0.86
+  },
+  {
+   "symbol": "APPS",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 8.18,
+   "stop": 8.42,
+   "target": 17.06,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 53.0,
+   "n": 66,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 57.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 11.3,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 7.38,
+   "status": "abierta",
+   "gap_below_stop": true,
+   "shares": 122.2494,
+   "sessions": 0,
+   "ret_now": -9.78
+  },
+  {
+   "symbol": "AAL",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 14.23,
+   "stop": 12.52,
+   "target": 17.65,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 52.8,
+   "n": 53,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 62.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 14.16,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 14.069,
+   "status": "abierta",
+   "shares": 70.2741,
+   "sessions": 0,
+   "ret_now": -1.13
+  },
+  {
+   "symbol": "SMA",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 37.4,
+   "stop": 35.04,
+   "target": 42.12,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 35.1,
+   "n": 37,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 79.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 39.69,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 37.705,
+   "status": "abierta",
+   "shares": 26.738,
+   "sessions": 0,
+   "ret_now": 0.82
+  },
+  {
+   "symbol": "RBLX",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 51.1,
+   "stop": 42.67,
+   "target": 67.96,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 42.9,
+   "n": 21,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 55.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 51.6,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 51.335,
+   "status": "abierta",
+   "shares": 19.5695,
+   "sessions": 0,
+   "ret_now": 0.46
+  },
+  {
+   "symbol": "B",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 2,
+   "entry": 40.71,
+   "stop": 36.82,
+   "target": 48.49,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 55.4,
+   "n": 83,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 59.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 42.27,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 40.105,
+   "status": "abierta",
+   "shares": 24.564,
+   "sessions": 0,
+   "ret_now": -1.49
+  },
+  {
+   "symbol": "OKLO",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 25.7,
+   "stop": 19.1,
+   "target": 38.9,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 36.4,
+   "n": 22,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 46.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 26.84,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 25.8,
+   "status": "abierta",
+   "shares": 38.9105,
+   "sessions": 0,
+   "ret_now": 0.39
+  },
+  {
+   "symbol": "RKT",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 14.76,
+   "stop": 11.51,
+   "target": 21.26,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 47.3,
+   "n": 55,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 74.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 15.19,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 14.37,
+   "status": "abierta",
+   "shares": 67.7507,
+   "sessions": 0,
+   "ret_now": -2.64
+  },
+  {
+   "symbol": "LFST",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 14.39,
+   "stop": 13.03,
+   "target": 17.11,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 54.5,
+   "n": 66,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 68.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 14.6,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 14.615,
+   "status": "abierta",
+   "shares": 69.4927,
+   "sessions": 0,
+   "ret_now": 1.56
+  },
+  {
+   "symbol": "CHYM",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 2,
+   "entry": 32.46,
+   "stop": 27.81,
+   "target": 41.76,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 63.4,
+   "n": 41,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 66.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 32.53,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 32.265,
+   "status": "abierta",
+   "shares": 30.8071,
+   "sessions": 0,
+   "ret_now": -0.6
+  },
+  {
+   "symbol": "AG",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 15.2,
+   "stop": 14.03,
+   "target": 17.54,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 42.1,
+   "n": 38,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 49.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 15.87,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 15.085,
+   "status": "abierta",
+   "shares": 65.7895,
+   "sessions": 0,
+   "ret_now": -0.76
+  },
+  {
+   "symbol": "EQX",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 11.55,
+   "stop": 9.65,
+   "target": 15.35,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 54.5,
+   "n": 66,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 62.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 12.09,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 11.67,
+   "status": "abierta",
+   "shares": 86.5801,
+   "sessions": 0,
+   "ret_now": 1.04
+  },
+  {
+   "symbol": "QXO",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 13.57,
+   "stop": 10.59,
+   "target": 19.53,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 44.4,
+   "n": 45,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 65.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 13.78,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 13.24,
+   "status": "abierta",
+   "shares": 73.692,
+   "sessions": 0,
+   "ret_now": -2.43
+  },
+  {
+   "symbol": "UMC",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 1,
+   "entry": 15.0,
+   "stop": 13.31,
+   "target": 18.38,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 50.0,
+   "n": 4,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 30.1,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 14.89,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 15.22,
+   "status": "abierta",
+   "shares": 66.6667,
+   "sessions": 0,
+   "ret_now": 1.47
+  },
+  {
+   "symbol": "KVYO",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 0,
+   "entry": 19.77,
+   "stop": 20.04,
+   "target": 22.38,
+   "breakout_price": null,
+   "setups": [
+    "bull_flag"
+   ],
+   "win": 41.4,
+   "n": 29,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 60.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 20.82,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 20.29,
+   "status": "abierta",
+   "gap_below_stop": true,
+   "shares": 50.5817,
+   "sessions": 0,
+   "ret_now": 2.63
+  },
+  {
+   "symbol": "JBS",
+   "kind": "daily",
+   "date": "2026-11-10",
+   "sem": 2,
+   "entry": 12.34,
+   "stop": 11.8,
+   "target": 13.42,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d",
+    "reclaim_ma20"
+   ],
+   "win": 64.7,
+   "n": 68,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 58.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-09",
+   "signal_price": 13.12,
+   "entry_type": "apertura",
+   "opened_at": "2026-11-10T14:54:16Z",
+   "closes": {},
+   "last": 12.55,
+   "status": "abierta",
+   "shares": 81.0373,
+   "sessions": 0,
+   "ret_now": 1.7
   }
  ],
- "updated": "2026-11-09T20:06:20Z",
+ "updated": "2026-11-10T14:54:47Z",
  "rules": {
   "win": 55.0,
   "n": 5
