@@ -1,0 +1,41 @@
+name: Estrategias
+
+on:
+  schedule:
+    - cron: "7 0,4,8,12,16,20 * * *"   # tras el cierre de cada vela de 4 h (la de 00:00 UTC también cierra la diaria)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: estrategias
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Calcular
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python scripts/estrategias.py
+      - name: Guardar cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/salida
+          cp data/estrategias.json /tmp/salida/
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/salida/estrategias.json data/
+          git add data/estrategias.json
+          git diff --cached --quiet || git commit -m "Estrategias $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push

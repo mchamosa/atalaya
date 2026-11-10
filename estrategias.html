@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atalaya · Estrategias</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+:root{
+  --bg:#0b0f17;--panel:#121826;--panel2:#182032;--line:#253049;--txt:#e6ebf5;--mut:#8a96ad;
+  --acc:#f0b429;--up:#22c55e;--dn:#ef4444;--blue:#3b82f6;--vio:#a78bfa;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#111827,#0b0f17)}
+header h1{margin:0;font-size:22px;letter-spacing:.5px}
+header h1 span{color:var(--acc)}
+header .by{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.tabs a{font-weight:600;font-size:14px;text-decoration:none;color:var(--mut);padding:5px 14px;border-radius:999px;border:1px solid var(--line)}
+.tabs a[aria-current="page"]{background:var(--acc);color:#1a1405;border-color:var(--acc)}
+.tabs a:hover:not([aria-current]){color:var(--txt);border-color:var(--mut)}
+@media (max-width:600px){.tabs{margin-left:0}}
+main{max-width:1280px;margin:0 auto;padding:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.panel h2{margin:0 0 4px;font-size:15px;color:var(--acc);font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel .sub{color:var(--mut);font-size:12.5px;margin:0 0 10px}
+.panel h2 .count{background:var(--panel2);border:1px solid var(--line);color:var(--txt);font-size:12px;border-radius:999px;padding:1px 9px;font-weight:600}
+.jump{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.jump a{font-size:13px;text-decoration:none;color:var(--txt);background:var(--panel);border:1px solid var(--line);padding:6px 12px;border-radius:8px}
+.jump a b{color:var(--acc);margin-left:4px}
+.note{color:var(--mut);font-size:12.5px;background:var(--panel);border:1px dashed var(--line);border-radius:10px;padding:10px 14px;margin-bottom:14px}
+.note strong{color:var(--txt)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{background:var(--panel2);border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:4px 11px;font-size:12.5px;cursor:pointer;user-select:none}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#1a1405;font-weight:600}
+.chip b{font-weight:700;margin-left:3px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+input[type=search]{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 9px;font-size:14px;min-width:200px}
+label.chk{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--txt)}
+.wrap{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--panel2);color:var(--mut);font-weight:600;font-size:12px;position:sticky;top:0;cursor:pointer}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+th[data-dir="asc"]::after{content:" ▲";font-size:9px}
+th[data-dir="desc"]::after{content:" ▼";font-size:9px}
+tbody tr:hover{background:#151d2e}
+td.wrapcell{white-space:normal;min-width:220px}
+.tk{font-weight:700;color:var(--txt);text-decoration:none;cursor:pointer;border-bottom:1px dotted var(--mut)}
+.tk:hover{color:var(--acc)}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin:1px 3px 1px 0;color:var(--txt);background:var(--panel2)}
+.tag.breakout_20d,.tag.orb,.tag.high_52w,.tag.ath{border-color:#1f6f43;color:#86efac}
+.tag.bull_flag{border-color:#1e4f8f;color:#93c5fd}
+.tag.reclaim_ma20{border-color:#5b4a9e;color:#c4b5fd}
+.tag.oversold,.tag.oversold_bounce{border-color:#8f3a3a;color:#fca5a5}
+.tag.cong{border-color:#8a6a10;color:var(--acc)}
+.up{color:var(--up)}.dn{color:var(--dn)}.mut{color:var(--mut)}
+.empty{color:var(--mut);padding:16px;text-align:center}
+.news{list-style:none;margin:0;padding:0 4px 0 0;max-height:620px;overflow-y:auto}
+.news li{padding:9px 2px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.news li:last-child{border-bottom:0}
+.news .meta{color:var(--mut);font-size:12px;grid-column:2}
+.news a.t{color:var(--txt);text-decoration:none;font-weight:500}
+.news a.t:hover{color:var(--acc)}
+.news .imp{color:var(--acc);font-weight:700}
+.moves{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.moves span{font-size:12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:3px 8px;cursor:pointer}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--mut);font-size:13px}
+details ul{margin:8px 0 0;padding-left:18px;color:var(--mut);font-size:12.5px;columns:2;column-gap:24px}
+@media (max-width:700px){details ul{columns:1}}
+details a{color:var(--blue)}
+.status{color:var(--mut);font-size:13px}
+.status.err{color:var(--dn)}
+.btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:5px 11px;font-size:12.5px;cursor:pointer}
+.rules{display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;font-size:13px}
+.rules label{display:flex;gap:6px;align-items:center;color:var(--txt)}
+.rules input[type=number]{width:64px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px}
+.sem{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;margin-right:4px}
+.sem.g{background:var(--up)}.sem.a{background:var(--acc)}.sem.r{background:var(--dn)}.sem.x{background:var(--line)}
+.lv{font-size:12px;color:var(--mut)}
+.lv b{color:var(--txt);font-weight:600}
+.drawer-bg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:50}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--bg);border-left:1px solid var(--line);overflow-y:auto;z-index:51;transform:translateX(100%);transition:transform .2s;padding:0 0 30px}
+.drawer.open{transform:none}.drawer-bg.open{display:block}
+.drawer .dh{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:10px;z-index:2}
+.drawer .dh h3{margin:0;font-size:20px}
+.drawer .dh .x{margin-left:auto;background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:16px}
+.drawer .blk{margin:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.drawer .blk h4{margin:0 0 8px;font-size:13px;color:var(--acc);font-weight:600}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-size:13px}
+.kv span:nth-child(odd){color:var(--mut)}.kv span:nth-child(even){text-align:right;font-variant-numeric:tabular-nums}
+.calc{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 10px;margin-bottom:10px}
+.calc label{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--mut)}
+.calc input{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:6px 7px;font-size:13px;width:100%}
+.chk{list-style:none;margin:8px 0 0;padding:0;font-size:13px}
+.chk li{padding:3px 0}
+.pass{color:var(--up);font-weight:700}.block{color:var(--dn);font-weight:700}
+.big{font-size:18px;font-weight:700;margin:6px 0}
+.bar3{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:6px 0 4px}
+.bar3 i{display:block}
+.dnews{list-style:none;margin:0;padding:0;font-size:13px}
+.dnews li{padding:6px 0;border-bottom:1px solid var(--line)}.dnews li:last-child{border:0}
+.dnews a{color:var(--txt);text-decoration:none}
+footer{color:var(--mut);font-size:12px;text-align:center;padding:10px 16px 28px}
+footer a{color:var(--mut)}
+</style>
+<style>
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+.card h3{margin:0 0 6px;font-size:14px;color:var(--txt)}
+.card .st{font-size:18px;font-weight:700;margin:4px 0}
+.card p{margin:4px 0;color:var(--mut);font-size:12.5px}
+.pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.pill.on{background:#123d24;color:#86efac}.pill.off{background:#3a1717;color:#fca5a5}.pill.wait{background:#3a2f0e;color:var(--acc)}
+</style>
+</head>
+<body>
+<header>
+  <h1>ATALAYA <span>· Estrategias</span></h1>
+  <div class="by">Por Marcos Chamosa</div>
+  <nav class="tabs" aria-label="Secciones"><a href="index.html">Mercados</a><a href="crypto.html">Cripto</a><a href="backtester.html">Backtester</a><a href="apertura.html">Apertura</a><a href="soldados.html">Soldados</a><a href="patrones.html">Patrones</a><a href="valoracion.html">Valoración</a><a href="escaner.html">Escáner</a><a href="escaner.html?m=cripto">Escáner cripto</a><a href="estrategias.html" aria-current="page">Estrategias</a></nav>
+</header>
+<main>
+  <div class="note">
+    <strong>Las tres reglas que ganaron dinero</strong> en el estudio de BTC de 2018 a 2026, con comisiones, tanto en 2018-2022 como en 2023-2026.
+    Se calculan solas cada 4 horas para las 25 criptomonedas con más volumen de Binance y se apuntan en el registro, como si se compraran 1.000 € en cada entrada.
+    Solo están probadas en BTC: en el resto de monedas el registro dirá si también funcionan. Información, no asesoramiento financiero.
+    <div class="status" id="status" style="margin-top:6px">Cargando datos…</div>
+  </div>
+
+  <section class="panel">
+    <h2>BTC ahora</h2>
+    <div class="cards" id="btc"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Cómo funciona cada una</h2>
+    <div class="cards">
+      <div class="card"><h3>1. Tendencia media 50</h3><p>Compra cuando la vela diaria cierra por encima de su media de 50 días y vende cuando cierra por debajo. Se opera a la apertura del día siguiente (01:00 en España).</p><p>BTC 2018-2026: multiplicó por 30 el dinero, frente a 10 de mantener; peor caída −59 %.</p></div>
+      <div class="card"><h3>2. Rupturas 20/55/100</h3><p>Tres tercios. Cada uno compra cuando el cierre supera el máximo de los 20, 55 o 100 cierres anteriores y vende cuando baja del mínimo de los 10, 27 o 50 anteriores.</p><p>BTC 2018-2026: multiplicó por 15; peor caída −37 %, la menor de todas.</p></div>
+      <div class="card"><h3>3. Zona verde 4 h</h3><p>Hueco alcista de al menos un 1 % en velas de 4 horas. Cuando el precio vuelve a la zona y la moneda está por encima de su media de 50 días: compra a mitad de zona, stop si una vela de 4 h cierra por debajo de la zona y objetivo a dos veces el ancho de la zona. Sale a las 100 velas si no toca nada.</p><p>BTC: acertó el 45 % con +0,5 veces el riesgo por operación.</p></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Órdenes de zona verde <span class="count" id="c-ord">0</span></h2>
+    <p class="sub">Pendientes: el precio ya tocó la zona con la tendencia a favor; la compra salta si baja hasta la mitad de la zona. A vigilar: zonas aún sin tocar en monedas por encima de su media de 50.</p>
+    <div class="wrap"><table><thead><tr><th>Moneda</th><th>Estado</th><th class="num">Compra</th><th class="num">Stop (cierre 4 h)</th><th class="num">Objetivo</th><th class="num">Ancho</th><th class="num">Distancia</th><th>Zona creada</th><th>Caduca</th></tr></thead><tbody id="t-ord"></tbody></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Estado por moneda <span class="count" id="c-coins">0</span></h2>
+    <p class="sub">Histórico con las velas que da Binance (unos 2,5 años en diario y 5 meses en 4 h). Media 50 y rupturas: veces que se multiplicó el dinero, frente a comprar y mantener.</p>
+    <div class="wrap"><table><thead><tr><th>Moneda</th><th class="num">Precio</th><th>Media 50</th><th class="num">Media</th><th>Rupturas</th><th class="num">Entra si cierra &gt;</th><th class="num">Sale si cierra &lt;</th><th class="num">Mantener</th><th class="num">Media 50 hist.</th><th class="num">Rupturas hist.</th><th class="num">Zona 4 h hist.</th></tr></thead><tbody id="t-coins"></tbody></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Registro <span class="count" id="c-log">0</span></h2>
+    <p class="sub" id="m-log"></p>
+    <div class="wrap" style="max-height:none;margin-bottom:10px"><table><thead><tr><th>Estrategia</th><th class="num">Operaciones</th><th class="num">Abiertas</th><th class="num">Cerradas</th><th class="num">Aciertos</th><th class="num">Resultado (€)</th></tr></thead><tbody id="t-sum"></tbody></table></div>
+    <div class="wrap"><table><thead><tr><th>Moneda</th><th>Estrategia</th><th>Señal</th><th>Compra</th><th class="num">Precio compra</th><th>Venta</th><th class="num">Precio venta</th><th>Motivo</th><th class="num">%</th><th class="num">€</th></tr></thead><tbody id="t-log"></tbody></table></div>
+  </section>
+</main>
+<footer>Datos: Binance. Estudio con datos de BTC de Bitstamp (2018-2026). Información, no asesoramiento financiero.</footer>
+<script>
+const fmtN=(v,d=2)=>v==null||isNaN(v)?'':Number(v).toLocaleString('es-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtP=v=>v==null||isNaN(v)?'':Math.abs(v)>=1?Number(v).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2}):Number(v).toLocaleString('es-ES',{maximumSignificantDigits:4});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const madrid=iso=>iso?new Date(iso).toLocaleString('es-ES',{timeZone:'Europe/Madrid',day:'2-digit',month:'2-digit',year:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+const day=iso=>iso?new Date(iso).toLocaleDateString('es-ES',{timeZone:'Europe/Madrid',day:'2-digit',month:'2-digit',year:'2-digit'}):'';
+const cls=v=>v==null?'':v>=0?'up':'dn';
+const pct=v=>v==null?'':(v>0?'+':'')+fmtN(v,1)+' %';
+const tv=s=>`https://www.tradingview.com/chart/?symbol=BINANCE:${encodeURIComponent(s)}USDT`;
+const tk=s=>`<a class="tk" href="${tv(s)}" target="_blank" rel="noopener" title="Gráfico en TradingView">${esc(s)}</a>`;
+const mult=(x,ref)=>x==null?'':`<span class="${ref!=null&&x>=ref?'up':'dn'}">x${fmtN(x,2)}</span>`;
+let D=null;
+function render(){
+  const N=D.names, coins=D.coins||[];
+  document.getElementById('status').textContent=`Actualizado ${madrid(D.updated)} · registro desde ${madrid(D.go_live)}`;
+  const b=coins.find(c=>c.symbol==='BTC');
+  if(b){
+    const on=b.rupturas.tramos.filter(t=>t.on).length, dist=(b.price/b.sma50-1)*100;
+    const z=b.zona4h, nz=z.pending.length+z.open.length;
+    document.getElementById('btc').innerHTML=`
+      <div class="card"><h3>1. Tendencia media 50</h3><div class="st"><span class="pill ${b.media50.on?'on':'off'}">${b.media50.on?'Dentro':'Fuera'}</span></div>
+        <p>Precio ${fmtP(b.price)} $ · media ${fmtP(b.sma50)} $ (${pct(dist)})</p><p>${b.media50.on?'Dentro desde '+day(b.media50.since)+'. Vende si cierra el día por debajo de la media.':'Compra si cierra el día por encima de la media.'}</p></div>
+      <div class="card"><h3>2. Rupturas 20/55/100</h3><div class="st"><span class="pill ${on?'on':'off'}">${on}/3 tercios dentro</span></div>
+        ${b.rupturas.tramos.map(t=>`<p>${t.n} días: ${t.on?'dentro, vende si cierra &lt; '+fmtP(t.level_out):'fuera, compra si cierra &gt; '+fmtP(t.level_in)} $</p>`).join('')}</div>
+      <div class="card"><h3>3. Zona verde 4 h</h3><div class="st"><span class="pill ${z.open.length?'on':z.pending.length?'wait':'off'}">${z.open.length?z.open.length+' abierta(s)':z.pending.length?z.pending.length+' orden(es) pendiente(s)':'Sin órdenes'}</span></div>
+        <p>${b.media50.on?(z.watch.length?z.watch.length+' zona(s) por debajo a vigilar':'Ninguna zona verde por debajo'):'No opera: BTC está por debajo de su media de 50 días.'}</p>
+        ${z.open.map(t=>`<p>Comprada a ${fmtP(t.entry)} · stop cierre &lt; ${fmtP(t.stop)} · objetivo ${fmtP(t.target)}</p>`).join('')}
+        ${z.pending.map(t=>`<p>Compra a ${fmtP(t.mid)} · stop cierre &lt; ${fmtP(t.bot)} · objetivo ${fmtP(t.target)}</p>`).join('')}</div>`;
+  }
+  // órdenes
+  const ord=[];
+  coins.forEach(c=>{
+    c.zona4h.open.forEach(t=>ord.push({c,s:'Comprada',k:0,buy:t.entry,stop:t.stop,tgt:t.target,w:t.width,z:t.zone_ts,exp:''}));
+    c.zona4h.pending.forEach(t=>ord.push({c,s:'Pendiente',k:1,buy:t.mid,stop:t.bot,tgt:t.target,w:t.width,z:t.zone_ts,exp:t.expires_ts}));
+    c.zona4h.watch.forEach(t=>ord.push({c,s:'A vigilar',k:2,buy:t.mid,stop:t.bot,tgt:t.target,w:t.width,z:t.zone_ts,exp:''}));
+  });
+  ord.sort((a,b)=>a.k-b.k||Math.abs(a.c.price/a.buy-1)-Math.abs(b.c.price/b.buy-1));
+  document.getElementById('c-ord').textContent=ord.length;
+  document.getElementById('t-ord').innerHTML=ord.length?ord.map(o=>`<tr><td>${tk(o.c.symbol)}</td><td><span class="pill ${o.k===0?'on':o.k===1?'wait':'off'}">${o.s}</span></td>
+    <td class="num">${fmtP(o.buy)}</td><td class="num dn">${fmtP(o.stop)}</td><td class="num up">${fmtP(o.tgt)}</td><td class="num">${fmtN(o.w,1)} %</td>
+    <td class="num">${pct((o.buy/o.c.price-1)*100)}</td><td>${madrid(o.z)}</td><td>${madrid(o.exp)}</td></tr>`).join(''):'<tr><td colspan="9" class="empty">Ninguna orden ahora mismo.</td></tr>';
+  // monedas
+  document.getElementById('c-coins').textContent=coins.length;
+  document.getElementById('t-coins').innerHTML=coins.map(c=>{
+    const on=c.rupturas.tramos.filter(t=>t.on).length, nxt=c.rupturas.tramos.filter(t=>!t.on).map(t=>t.level_in), out=c.rupturas.tramos.filter(t=>t.on).map(t=>t.level_out);
+    const z=c.bt.zona4h;
+    return `<tr><td>${tk(c.symbol)}</td><td class="num">${fmtP(c.price)}</td>
+      <td><span class="pill ${c.media50.on?'on':'off'}">${c.media50.on?'Dentro':'Fuera'}</span></td><td class="num">${fmtP(c.sma50)} <span class="mut">(${pct((c.price/c.sma50-1)*100)})</span></td>
+      <td><span class="pill ${on?'on':'off'}">${on}/3</span></td><td class="num">${nxt.length?fmtP(Math.min(...nxt)):''}</td><td class="num">${out.length?fmtP(Math.max(...out)):''}</td>
+      <td class="num">x${fmtN(c.bt.bh,2)}</td><td class="num">${mult(c.bt.media50.mult,c.bt.bh)} <span class="mut">${fmtN(c.bt.media50.dd,0)} %</span></td>
+      <td class="num">${mult(c.bt.rupturas.mult,c.bt.bh)} <span class="mut">${fmtN(c.bt.rupturas.dd,0)} %</span></td>
+      <td class="num">${z.n?`${z.n} ops · ${z.win} % · <span class="${cls(z.avgR)}">${fmtN(z.avgR,2)} R</span>`:'<span class="mut">sin ops</span>'}</td></tr>`;}).join('');
+  // registro
+  const L=D.log||[];
+  document.getElementById('c-log').textContent=L.length;
+  document.getElementById('m-log').textContent=`Operaciones que empiezan desde ${madrid(D.go_live)}. 1.000 € por operación (en rupturas, 333 € por tercio). Comisiones de Binance (0,2 % ida y vuelta) descontadas. Las abiertas se valoran al precio actual.`;
+  document.getElementById('t-sum').innerHTML=Object.keys(N).map(k=>{
+    const x=L.filter(t=>t.kind===k), cl=x.filter(t=>!t.open), w=cl.filter(t=>(t.ret||0)>0).length, eur=x.reduce((s,t)=>s+(t.eur||0),0);
+    return `<tr><td>${N[k]}</td><td class="num">${x.length}</td><td class="num">${x.length-cl.length}</td><td class="num">${cl.length}</td><td class="num">${cl.length?fmtN(100*w/cl.length,0)+' %':''}</td><td class="num ${cls(eur)}">${x.length?fmtN(eur,2):''}</td></tr>`;}).join('');
+  document.getElementById('t-log').innerHTML=L.length?L.map(t=>`<tr><td>${tk(t.symbol)}</td><td>${N[t.kind]}${t.tramo?' ('+t.tramo+')':''}</td><td>${madrid(t.signal_ts)}</td><td>${madrid(t.entry_ts)}</td>
+    <td class="num">${fmtP(t.entry)}</td><td>${t.open?'<span class="pill wait">abierta</span>':madrid(t.exit_ts)}</td><td class="num">${t.open?'':fmtP(t.exit)}</td><td>${esc(t.open?(t.kind==='zona4h'?'stop cierre < '+fmtP(t.stop)+' · objetivo '+fmtP(t.target):''):t.reason)}</td>
+    <td class="num ${cls(t.ret)}">${pct(t.ret)}</td><td class="num ${cls(t.eur)}">${fmtN(t.eur,2)}</td></tr>`).join(''):'<tr><td colspan="10" class="empty">Aún no hay operaciones desde la puesta en marcha. Saldrán aquí en cuanto alguna regla dé entrada.</td></tr>';
+}
+(async()=>{
+  try{ const r=await fetch('data/estrategias.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok) throw 0; D=await r.json(); render(); }
+  catch(e){ const s=document.getElementById('status'); s.textContent='Todavía no hay datos: se generan en la primera ejecución del flujo «Estrategias» en GitHub Actions.'; s.classList.add('err'); }
+})();
+</script>
+</body>
+</html>
