@@ -27,7 +27,9 @@ ec = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ec)
 
 OUT = os.path.join(ROOT, "data", "estrategias.json")
-COINS = 25               # monedas con más volumen (BTC siempre incluido)
+COINS = 100              # monedas con más volumen (BTC siempre incluido)
+DAY_BARS = 2000           # velas diarias de historia (unos 5,5 años si la moneda los tiene)
+H4_BARS = 3000            # velas de 4 h (unos 16 meses)
 STAKE = 1000.0           # euros por operación (en la de rupturas, un tercio por tramo)
 FEE = 0.002              # compra + venta en Binance
 ZONE_MIN = 0.01          # ancho mínimo de la zona verde
@@ -48,8 +50,19 @@ def iso(ms):
 
 
 def kl(symbol, interval, limit=1000):
-    rows = ec.get("/api/v3/klines", {"symbol": symbol, "interval": interval, "limit": limit})
-    time.sleep(0.12)
+    rows, end = [], None
+    while len(rows) < limit:
+        q = {"symbol": symbol, "interval": interval, "limit": min(1000, limit - len(rows))}
+        if end:
+            q["endTime"] = end
+        part = ec.get("/api/v3/klines", q)
+        time.sleep(0.12)
+        if not part:
+            break
+        rows = part + rows
+        if len(part) < q["limit"]:
+            break
+        end = part[0][0] - 1
     now = time.time() * 1000
     return [{"t": k[0], "o": float(k[1]), "h": float(k[2]), "l": float(k[3]), "c": float(k[4])}
             for k in rows if k[6] < now]
@@ -217,7 +230,7 @@ def main():
         if len(coins) >= COINS:
             break
         try:
-            d = kl(u["symbol"], "1d")
+            d = kl(u["symbol"], "1d", DAY_BARS)
         except Exception as exc:
             log("%s: %s" % (u["symbol"], exc))
             continue
@@ -227,7 +240,7 @@ def main():
         if max(c200) / min(c200) < 1.05:   # moneda estable (no se mueve): fuera
             continue
         try:
-            b4 = kl(u["symbol"], "4h")
+            b4 = kl(u["symbol"], "4h", H4_BARS)
         except Exception:
             b4 = []
         last = u.get("price") or d[-1]["c"]
@@ -263,6 +276,12 @@ def main():
         z_closed = [t for t in z_tr if not t.get("open")]
         zr = [t["R"] for t in z_closed if t.get("R") is not None]
         open_tr = [t for t in tr if t.get("open")]
+        sim = {}
+        for k in NAMES:
+            x = [t for t in tr if t["kind"] == k and t.get("eur") is not None]
+            cl = [t for t in x if not t.get("open")]
+            sim[k] = {"n": len(x), "closed": len(cl), "wins": sum(t["ret"] > 0 for t in cl),
+                      "eur": round(sum(t["eur"] for t in x), 2), "stake": round(sum(STAKE * t["weight"] for t in x), 2)}
         coin = {
             "symbol": u["base"], "pair": u["symbol"], "price": last, "close": d[-1]["c"],
             "close_date": iso(d[-1]["t"])[:10], "sma50": sma([x["c"] for x in d], 50)[-1],
@@ -271,7 +290,8 @@ def main():
                                       "level_out": min(x["c"] for x in d[-(n // 2):])} for n in BREAKS]},
             "zona4h": {"pending": pend, "watch": watch if s50[-1] else [],
                        "open": [t for t in open_tr if t["kind"] == "zona4h"]},
-            "bt": {"from": iso(d[100]["t"])[:10], "bh": round(bh, 2),
+            "sim": sim,
+            "bt": {"from": iso(d[100]["t"])[:10], "days": len(d), "bh": round(bh, 2),
                    "media50": {"mult": round(eq50, 2), "dd": round(dd50 * 100, 1)},
                    "rupturas": {"mult": round(eqb, 2), "dd": round(ddb * 100, 1)},
                    "zona4h": {"n": len(zr), "win": round(100 * sum(r > 0 for r in zr) / len(zr)) if zr else None,
@@ -294,7 +314,15 @@ def main():
                 t["eur"] = round(r * STAKE * t["weight"], 2)
     news = [t for t in reg if t["id"] not in old]
     closed_now = [t for t in reg if not t.get("open") and old.get(t["id"], {}).get("open")]
-    out = {"updated": ec.now_utc(), "go_live": go_live, "stake": STAKE, "fee": FEE, "names": NAMES,
+    agg = {}
+    for k in NAMES:
+        cs = [c["sim"][k] for c in coins if c["sim"][k]["n"]]
+        n = sum(x["n"] for x in cs); cl = sum(x["closed"] for x in cs); w = sum(x["wins"] for x in cs)
+        eur = sum(x["eur"] for x in cs)
+        agg[k] = {"coins": len(cs), "coins_pos": sum(x["eur"] > 0 for x in cs), "n": n, "closed": cl,
+                  "win": round(100 * w / cl, 1) if cl else None, "eur": round(eur, 2),
+                  "per_trade": round(eur / n, 2) if n else None}
+    out = {"updated": ec.now_utc(), "sim": agg, "go_live": go_live, "stake": STAKE, "fee": FEE, "names": NAMES,
            "params": {"coins": COINS, "zone_min": ZONE_MIN, "zone_target": ZONE_TARGET, "zone_hold": ZONE_HOLD},
            "coins": coins, "log": reg,
            "history": sorted([t for t in all_trades if not t.get("open") and t["entry_ts"] < go_live and t["kind"] == "zona4h"],

@@ -126,7 +126,7 @@ footer a{color:var(--mut)}
 <main>
   <div class="note">
     <strong>Las tres reglas que ganaron dinero</strong> en el estudio de BTC de 2018 a 2026, con comisiones, tanto en 2018-2022 como en 2023-2026.
-    Se calculan solas cada 4 horas para las 25 criptomonedas con más volumen de Binance y se apuntan en el registro, como si se compraran 1.000 € en cada entrada.
+    Se calculan solas cada 4 horas para las 100 criptomonedas con más volumen de Binance y se apuntan en el registro, como si se compraran 1.000 € en cada entrada.
     Solo están probadas en BTC: en el resto de monedas el registro dirá si también funcionan. Información, no asesoramiento financiero.
     <div class="status" id="status" style="margin-top:6px">Cargando datos…</div>
   </div>
@@ -153,8 +153,15 @@ footer a{color:var(--mut)}
 
   <section class="panel">
     <h2>Estado por moneda <span class="count" id="c-coins">0</span></h2>
-    <p class="sub">Histórico con las velas que da Binance (unos 2,5 años en diario y 5 meses en 4 h). Media 50 y rupturas: veces que se multiplicó el dinero, frente a comprar y mantener.</p>
+    <p class="sub">Histórico con las velas que da Binance (hasta unos 5,5 años en diario y 16 meses en 4 h). Media 50 y rupturas: veces que se multiplicó el dinero, frente a comprar y mantener.</p>
     <div class="wrap"><table><thead><tr><th>Moneda</th><th class="num">Precio</th><th>Media 50</th><th class="num">Media</th><th>Rupturas</th><th class="num">Entra si cierra &gt;</th><th class="num">Sale si cierra &lt;</th><th class="num">Mantener</th><th class="num">Media 50 hist.</th><th class="num">Rupturas hist.</th><th class="num">Zona 4 h hist.</th></tr></thead><tbody id="t-coins"></tbody></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Resultados simulados en el histórico <span class="count" id="c-sim">0</span></h2>
+    <p class="sub" id="m-sim"></p>
+    <div class="wrap" style="max-height:none;margin-bottom:10px"><table><thead><tr><th>Estrategia</th><th class="num">Monedas</th><th class="num">Con beneficio</th><th class="num">Operaciones</th><th class="num">Aciertos</th><th class="num">Resultado (€)</th><th class="num">€ por operación</th></tr></thead><tbody id="t-simsum"></tbody></table></div>
+    <div class="wrap"><table id="tbl-sim"><thead><tr><th data-k="s">Moneda</th><th data-k="from">Desde</th><th class="num" data-k="bh">Mantener</th><th class="num" data-k="m50">Media 50 (€)</th><th class="num" data-k="m50n">Ops</th><th class="num" data-k="rup">Rupturas (€)</th><th class="num" data-k="rupn">Ops</th><th class="num" data-k="z">Zona 4 h (€)</th><th class="num" data-k="zn">Ops</th><th class="num" data-k="zw">Aciertos</th></tr></thead><tbody id="t-sim"></tbody></table></div>
   </section>
 
   <section class="panel">
@@ -176,7 +183,16 @@ const pct=v=>v==null?'':(v>0?'+':'')+fmtN(v,1)+' %';
 const tv=s=>`https://www.tradingview.com/chart/?symbol=BINANCE:${encodeURIComponent(s)}USDT`;
 const tk=s=>`<a class="tk" href="${tv(s)}" target="_blank" rel="noopener" title="Gráfico en TradingView">${esc(s)}</a>`;
 const mult=(x,ref)=>x==null?'':`<span class="${ref!=null&&x>=ref?'up':'dn'}">x${fmtN(x,2)}</span>`;
-let D=null;
+let D=null, SIM=[], simSort={k:'m50',dir:-1};
+function drawSim(){
+  const k=simSort.k, d=simSort.dir;
+  SIM.sort((a,b)=>{const x=a[k],y=b[k]; if(x==null) return 1; if(y==null) return -1; return (typeof x==='string'?x.localeCompare(y):x-y)*d;});
+  document.querySelectorAll('#tbl-sim th').forEach(th=>th.dataset.dir=th.dataset.k===k?(d>0?'asc':'desc'):'');
+  document.getElementById('t-sim').innerHTML=SIM.map(r=>`<tr><td>${tk(r.s)}</td><td>${day(r.from)}</td><td class="num">x${fmtN(r.bh,2)}</td>
+    <td class="num ${cls(r.m50)}">${fmtN(r.m50,0)}</td><td class="num mut">${r.m50n}</td><td class="num ${cls(r.rup)}">${fmtN(r.rup,0)}</td><td class="num mut">${r.rupn}</td>
+    <td class="num ${cls(r.z)}">${r.zn?fmtN(r.z,0):''}</td><td class="num mut">${r.zn}</td><td class="num">${r.zw!=null?fmtN(r.zw,0)+' %':''}</td></tr>`).join('');
+}
+document.addEventListener('click',e=>{const th=e.target.closest('#tbl-sim th'); if(!th) return; const k=th.dataset.k; simSort.dir=simSort.k===k?-simSort.dir:(k==='s'||k==='from'?1:-1); simSort.k=k; drawSim();});
 function render(){
   const N=D.names, coins=D.coins||[];
   document.getElementById('status').textContent=`Actualizado ${madrid(D.updated)} · registro desde ${madrid(D.go_live)}`;
@@ -217,6 +233,13 @@ function render(){
       <td class="num">x${fmtN(c.bt.bh,2)}</td><td class="num">${mult(c.bt.media50.mult,c.bt.bh)} <span class="mut">${fmtN(c.bt.media50.dd,0)} %</span></td>
       <td class="num">${mult(c.bt.rupturas.mult,c.bt.bh)} <span class="mut">${fmtN(c.bt.rupturas.dd,0)} %</span></td>
       <td class="num">${z.n?`${z.n} ops · ${z.win} % · <span class="${cls(z.avgR)}">${fmtN(z.avgR,2)} R</span>`:'<span class="mut">sin ops</span>'}</td></tr>`;}).join('');
+  // simulados
+  const S=D.sim||{};
+  document.getElementById('m-sim').textContent='Las mismas reglas aplicadas a toda la historia que da Binance de cada moneda (hasta unos 5,5 años en diario y 16 meses en 4 h), con 1.000 € por operación (333 € por tercio en rupturas) y comisiones descontadas. Las operaciones abiertas se valoran al precio actual. Mantener: veces que se multiplicó el precio en el mismo tiempo.';
+  document.getElementById('t-simsum').innerHTML=Object.keys(N).map(k=>{const a=S[k]||{};return `<tr><td>${N[k]}</td><td class="num">${a.coins??''}</td><td class="num">${a.coins?a.coins_pos+' ('+fmtN(100*a.coins_pos/a.coins,0)+' %)':''}</td><td class="num">${a.n??''}</td><td class="num">${a.win!=null?fmtN(a.win,0)+' %':''}</td><td class="num ${cls(a.eur)}">${fmtN(a.eur,0)}</td><td class="num ${cls(a.per_trade)}">${fmtN(a.per_trade,2)}</td></tr>`;}).join('');
+  SIM=coins.filter(c=>c.sim).map(c=>({s:c.symbol,from:c.bt.from,bh:c.bt.bh,m50:c.sim.media50.eur,m50n:c.sim.media50.n,rup:c.sim.rupturas.eur,rupn:c.sim.rupturas.n,z:c.sim.zona4h.eur,zn:c.sim.zona4h.n,zw:c.sim.zona4h.closed?100*c.sim.zona4h.wins/c.sim.zona4h.closed:null}));
+  document.getElementById('c-sim').textContent=SIM.length;
+  drawSim();
   // registro
   const L=D.log||[];
   document.getElementById('c-log').textContent=L.length;
