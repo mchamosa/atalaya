@@ -1,0 +1,36 @@
+name: Investigación
+
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "Script de scripts/investigacion a ejecutar"
+        default: "escalones.py"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pandas numpy
+      - name: Ejecutar
+        run: python scripts/investigacion/${{ inputs.script }}
+      - name: Guardar resultados
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/salida && cp data/investigacion_*.json /tmp/salida/
+          git fetch origin main && git reset --hard origin/main
+          cp /tmp/salida/* data/
+          git add data/investigacion_*.json
+          git diff --cached --quiet || git commit -m "Investigación $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
