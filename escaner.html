@@ -207,6 +207,9 @@ footer a{color:var(--mut)}
     <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
     <div class="chips" id="pf-days"></div>
+    <div class="tools"><label class="chk">Solo con aciertos ≥ <input type="number" id="pf-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
+      <label class="chk">y al menos <input type="number" id="pf-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
+      <span class="mut" style="font-size:12px">Aciertos que tenía la señal el día que se apuntó.</span></div>
     <div class="kv" id="pf-sum" style="max-width:560px;margin-bottom:12px"></div>
     <div class="wrap" style="margin-bottom:12px;max-height:none"><table id="t-pfd"><thead><tr>
       <th>Día</th><th class="num">Señales</th><th class="num">Invertido</th><th class="num">Resultado ahora</th><th class="num">%</th><th class="num">En positivo</th><th class="num">Acumulado</th>
@@ -591,6 +594,9 @@ async function initPortfolio(){
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
     drawPF(); });
   document.getElementById('pf-days').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfDay=c.dataset.day; drawPF(); });
+  ['pf-win','pf-n'].forEach(id=>{ const el=document.getElementById(id);
+    try{ const v=localStorage.getItem('atalaya-reg-'+id); if(v!==null) el.value=v; }catch(e){}
+    el.addEventListener('input',()=>{ try{ localStorage.setItem('atalaya-reg-'+id, el.value); }catch(e){} drawPF(); }); });
   drawPF();
 }
 // Plan: terminadas (objetivo / stop / cierre) y R medio contando también las que siguen en curso, valoradas a precio actual
@@ -612,7 +618,9 @@ function drawPF(){
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
   const annulled=all.filter(r=>r.status==='anulada').length;
   const byKind=all.filter(r=>r.status!=='anulada'&&(pfKind==='all'||r.kind===pfKind));
-  const bySem=byKind.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
+  const mw=parseFloat(document.getElementById('pf-win').value), mn=parseFloat(document.getElementById('pf-n').value);
+  const byWin=byKind.filter(r=>(isNaN(mw)||(r.win!=null&&r.win>=mw))&&(isNaN(mn)||mn<=0||(r.n||0)>=mn));
+  const bySem=byWin.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
   const dayList=[...new Set(all.filter(r=>r.status!=='anulada').map(r=>r.date))].sort();
   if(pfDay!=='all'&&!dayList.includes(pfDay)) pfDay='all';
   document.getElementById('pf-days').innerHTML=[['all','Todos los días'],...dayList.slice().reverse().map(d=>[d,fmtDate(d)])].map(([k,t])=>`<span class="chip${k===pfDay?' on':''}" data-day="${k}">${t}</span>`).join('');
@@ -629,7 +637,7 @@ function drawPF(){
       <td class="num ${tot>=0?'up':'dn'}"><b>${totN?(tot>=0?'+':'')+fmtN(tot/(totN*stake)*100)+' %':''}</b></td><td class="num"><b>${bySem.filter(r=>r.ret_now>0).length} de ${totN}</b></td><td></td></tr>`;
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
-  const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):''].filter(Boolean).join(', ');
+  const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):'', !isNaN(mw)?'aciertos ≥ '+mw+' %':'', !isNaN(mn)&&mn>0?'≥ '+mn+' señales':''].filter(Boolean).join(', ');
   const allOk=all.filter(r=>r.status!=='anulada'), allPl=allOk.reduce((a,r)=>a+r.eur,0);
   document.getElementById('pf-sum').innerHTML=(filt?`<span>Total del registro, sin filtros</span><span class="${allPl>=0?'up':'dn'}">${allOk.length} señales · ${allPl>=0?'+':''}${fmtN(allPl,0)} € (${allPl>=0?'+':''}${fmtN(allPl/(allOk.length*stake)*100)} %)</span>`:'')+(rows.length?`<span>Señales${filt?' ('+filt+')':''} · ${days} ${days===1?'día':'días'}</span><span>${rows.length}</span>
     <span>Invertido</span><span>${fmtN(inv,0)} €</span>
@@ -651,7 +659,7 @@ function drawPF(){
     : '<tr><td colspan="9" class="empty">Sin señales con este filtro.</td></tr>';
   const th=document.querySelector('#t-pfh tbody');
   const grp=[['Verdes',2],['Ámbar',1],['Rojas',0],['Todas',null]];
-  th.innerHTML=grp.map(([name,sv])=>{ const rs=byKind.filter(r=>(sv==null||r.sem===sv)&&(pfDay==='all'||r.date===pfDay));
+  th.innerHTML=grp.map(([name,sv])=>{ const rs=byWin.filter(r=>(sv==null||r.sem===sv)&&(pfDay==='all'||r.date===pfDay));
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
       const avg=v.reduce((a,b)=>a+b,0)/v.length, w=v.filter(x=>x>0).length;
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
