@@ -11,7 +11,11 @@ TICKERS = ["SPY","QQQ","IWM","DIA","AAPL","MSFT","NVDA","AMZN","GOOGL","META","T
 FEE = 0.0005   # por lado (comisión + deslizamiento aproximado, en acciones de EE. UU.)
 
 def load(sym, rng, itv):
-    se = sm.parse_chart(sm.yahoo_get(sm.chart_path(sym, rng, itv)), sym)
+    if rng == "max":   # con range=max Yahoo devuelve velas mensuales: se pide por fechas
+        path = "/v8/finance/chart/%s?period1=1104537600&period2=%d&interval=%s" % (sm.to_yahoo(sym), int(time.time()), itv)
+    else:
+        path = sm.chart_path(sym, rng, itv)
+    se = sm.parse_chart(sm.yahoo_get(path), sym)
     df = pd.DataFrame({"open": se["o"], "high": se["h"], "low": se["l"], "close": se["c"]},
                       index=pd.to_datetime(se["t"], unit="s", utc=True)).dropna()
     return df
