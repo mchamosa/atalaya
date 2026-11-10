@@ -700,7 +700,9 @@ function renderDrawer(sym,kind,h){
   if(h){
     html+=`<div class="blk"><h4>${kind==='orb'?'Ruptura del rango de apertura':'Patrón de pre-apertura'}</h4>
       <div>${kind==='orb'?`<span class="tag orb">Ruptura de apertura</span> a las ${to24(h.at)} NY`:h.setups.map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')}</div>
-      <p class="sub" style="margin:8px 0 0;white-space:pre-line">${esc(gr.why)}</p></div>`;
+      <p class="sub" style="margin:8px 0 0;white-space:pre-line">${esc(gr.why)}</p>
+      <div class="rules" style="margin-top:8px"><label>Aciertos mínimos <input type="number" id="d-win" value="${RULES.win}" min="0" max="100" step="1"> % con al menos <input type="number" id="d-n" value="${RULES.n}" min="1" step="1"> señales</label></div>
+      <p class="sub" style="margin:4px 0 0">Cambia la regla 1 para todas las tablas (es la misma del panel «Semáforo según tus reglas»).</p></div>`;
   }
   if(g.entry){
     const risk=g.entry-g.stop;
@@ -759,6 +761,11 @@ function renderDrawer(sym,kind,h){
   html+=`<div class="blk"><a href="${tv(sym)}" target="_blank" rel="noopener" style="color:var(--blue)">Abrir el gráfico en TradingView</a></div>`;
   drawer.innerHTML=html;
   document.getElementById('dclose').addEventListener('click',closeDrawer);
+  [['d-win','win','r-win'],['d-n','n','r-n']].forEach(([id,k,main])=>{ const el=document.getElementById(id); if(!el) return;
+    el.addEventListener('change',()=>{ const v=+el.value; if(isNaN(v)) return; RULES[k]=v;
+      try{ localStorage.setItem('atalaya-escaner-reglas', JSON.stringify(RULES)); }catch(e){}
+      const m=document.getElementById(main); if(m) m.value=v;
+      redraws.forEach(f=>f()); const top=drawer.scrollTop; renderDrawer(sym,kind,h); drawer.scrollTop=top; }); });
   drawer.querySelectorAll('[data-c]').forEach(el=>el.addEventListener('input',()=>{ const k=el.dataset.c; CALC[k]= k==='lastEntry'? el.value : +el.value;
     try{ localStorage.setItem('atalaya-escaner-calc', JSON.stringify(CALC)); }catch(e){} calcOut(kind,h); }));
   if(g.entry) calcOut(kind,h);
