@@ -218,6 +218,10 @@ footer a{color:var(--mut)}
       <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
     <p class="sub" style="margin:-4px 0 12px">En cada horizonte: media de rentabilidad y, entre paréntesis, el % de señales en positivo.</p>
+    <div class="wrap" style="margin-bottom:12px"><table id="t-pfr"><thead><tr>
+      <th>Qué aporta cada regla</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="sub" style="margin:-4px 0 12px">Cada regla por separado, con los umbrales del panel «Semáforo según tus reglas». Si la fila «No cumple» va mejor que «Cumple», esa regla está quitando buenas señales. La regla 2 en pre-apertura solo se puede comprobar en señales apuntadas desde el 11/11.</p>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfs"><thead><tr>
       <th>Señal que lo provoca (cada combinación por separado)</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
@@ -650,6 +654,15 @@ function drawPF(){
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
     const {planTxt,mR,mTxt}=planStats(rs);
     return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mTxt}</td></tr>`; };
+  // qué aporta cada regla
+  const ruleOf=(r,i)=>{ if(i===1) return r.n!=null&&r.win!=null ? (r.n>=RULES.n&&r.win>=RULES.win) : null;
+    if(i===2) return r.kind==='orb' ? (r.ts!=null ? r.ts>=1/3 : null) : (r.avg!=null ? r.avg>0 : null);
+    return CRIPTO ? (r.vol_ratio!=null ? r.vol_ratio>=1.5 : null) : (r.earn!=null ? !r.earn : null); };
+  const RNAME=['','1. Aciertos ≥ '+RULES.win+' % (≥ '+RULES.n+' señales)','2. El plan a 2R compensa',CRIPTO?'3. Volumen ≥ 1,5 veces':'3. Sin resultados en 36 h'];
+  const rr=[];
+  [1,2,3].forEach(i=>{ const yes=rows.filter(r=>ruleOf(r,i)===true), no=rows.filter(r=>ruleOf(r,i)===false);
+    rr.push(sumRow(`${RNAME[i]} · <span class="up">cumple</span>`, yes)); rr.push(sumRow(`${RNAME[i]} · <span class="dn">no cumple</span>`, no)); });
+  document.querySelector('#t-pfr tbody').innerHTML=rr.join('');
   // cada señal cuenta una sola vez, por la combinación exacta de patrones que la provocó
   const ORD=Object.keys(SETUPS);
   const combo=r=>r.kind==='orb'?(r.session?'orb_'+r.session:'orb'):(r.setups||[]).slice().sort((a,b)=>ORD.indexOf(a)-ORD.indexOf(b)).join('+');

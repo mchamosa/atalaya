@@ -489,7 +489,7 @@ def portfolio_update(data, mode):
             p = {"symbol": h["symbol"], "kind": kind, "date": day, "sem": sem,
                  "entry": entry, "stop": g.get("stop"), "target": target,
                  "breakout_price": g["entry"] if kind == "orb" else None,
-                 "setups": h.get("setups"), "win": hs.get("win_pct"), "n": hs.get("n"),
+                 "setups": h.get("setups"), "win": hs.get("win_pct"), "n": hs.get("n"), "avg": hs.get("avg"),
                  "ts": (g.get("mc") or {}).get("target_share"),
                  "entry_bar": entry_bar, "earn": h["symbol"] in earn,
                  "rsi": h.get("rsi"), "at": h.get("at"), "pct_over": h.get("pct_over"),

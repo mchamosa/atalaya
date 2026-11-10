@@ -486,7 +486,7 @@ def portfolio_update(data, mode):
                  "signal_ts": (dt.date.fromisoformat(h["close_date"]) + dt.timedelta(days=1)).isoformat() + "T00:00:00Z",
                  "date": now_utc()[:10], "buy_ts": now_utc(), "entry_type": "deteccion",
                  "entry": px, "stop": g["stop"], "target": px + 2 * (px - g["stop"]),
-                 "win": hs.get("win_pct"), "n": hs.get("n"), "rsi": h.get("rsi"), "vol_ratio": h.get("vol_ratio"),
+                 "win": hs.get("win_pct"), "n": hs.get("n"), "avg": hs.get("avg"), "rsi": h.get("rsi"), "vol_ratio": h.get("vol_ratio"),
                  "closes": {}, "last": px, "status": "abierta"}
             pos.append(p)
             have.add(key)
