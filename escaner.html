@@ -138,6 +138,9 @@ footer a{color:var(--mut)}
   <section class="panel" id="s-all">
     <h2>Todas las operaciones de hoy en una tabla <span class="count" id="c-all">0</span></h2>
     <p class="sub">Cada acción valorada, de pre-apertura y de apertura, con su precio de compra (entrada), su stop y su precio de venta (objetivo), ordenadas por el semáforo. Las unidades salen de invertir 1.000 € por operación, como en el registro de señales. Toca un ticker para ver el detalle y calcular el tamaño con tu capital.</p>
+    <div class="tools"><label class="chk">Mostrar solo con aciertos ≥ <input type="number" id="a-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
+      <label class="chk">y al menos <input type="number" id="a-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
+      <span class="mut" style="font-size:12px">Solo filtra la tabla; no cambia el semáforo.</span></div>
     <div class="wrap"><table id="t-all"><thead><tr>
       <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="origin">Origen</th>
       <th class="num" data-k="entry">Compra $</th><th class="num" data-k="stop">Stop $</th><th class="num" data-k="target">Venta $</th>
@@ -520,7 +523,11 @@ function initAll(){
   const rows=()=>{ const r=items.map(({h,kind})=>{ const g=h.grade, gr=grade(h,kind,earn), risk=g.entry-g.stop, units=1000/g.entry;
     return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,
       riskp:risk/g.entry*100, rr:(g.target-g.entry)/risk, win:g.hist?.n?g.hist.win_pct:null, units, lossE:units*risk, gainE:units*(g.target-g.entry)}; });
-    return RULES.green? r.filter(x=>x.sem===2) : r; };
+    const mw=parseFloat(document.getElementById('a-win').value), mn=parseFloat(document.getElementById('a-n').value);
+    let out=RULES.green? r.filter(x=>x.sem===2) : r;
+    if(!isNaN(mw)) out=out.filter(x=>x.win!=null&&x.win>=mw);
+    if(!isNaN(mn)&&mn>0) out=out.filter(x=>(x.h.grade.hist?.n||0)>=mn);
+    return out; };
   const draw=sortable(document.getElementById('t-all'), rows, r=>{
     document.getElementById('c-all').textContent=r.length;
     tb.innerHTML=r.length? r.map(x=>`<tr><td>${semCell(x.gr)}</td><td><a class="tk" data-sym="${esc(x.symbol)}" data-kind="${x.kind}">${esc(x.symbol)}</a></td>
@@ -531,6 +538,9 @@ function initAll(){
       <td class="num">${fmtN(x.units,1)}</td><td class="num dn">−${fmtN(x.lossE)}</td><td class="num up">+${fmtN(x.gainE)}</td></tr>`).join('')
       : '<tr><td colspan="12" class="empty">Ninguna acción con este filtro.</td></tr>';
   }, 'sem','desc');
+  ['a-win','a-n'].forEach(id=>{ const el=document.getElementById(id);
+    try{ const v=localStorage.getItem('atalaya-tabla-'+id); if(v!==null) el.value=v; }catch(e){}
+    el.addEventListener('input',()=>{ try{ localStorage.setItem('atalaya-tabla-'+id, el.value); }catch(e){} draw(); }); });
   redraws.push(draw); draw();
 }
 
