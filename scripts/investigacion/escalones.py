@@ -42,9 +42,15 @@ def sim(d, N=20, X=None, mode="ls", M=None):
     return {"n": int(len(t)), "win": float((t > 0).mean()) if len(t) else None, "avg": float(t.mean()) if len(t) else None,
             "mult": float(cu.iloc[-1]), "dd": float((cu / cu.cummax() - 1).min())}
 
-RULES = {"ls": dict(mode="ls"), "long20": dict(mode="long"), "short20": dict(mode="short"),
-         "long_x10": dict(mode="long", X=10), "short_x10": dict(mode="short", X=10), "ls_x10": dict(mode="ls", X=10),
-         "ls_x10_ma100": dict(mode="ls", X=10, M=100), "long_x10_ma100": dict(mode="long", X=10, M=100), "short_x10_ma100": dict(mode="short", X=10, M=100)}
+NS = (5, 10, 20, 30, 50, 100)
+RULES = {}
+for N in NS:
+    X = max(2, N // 2)
+    RULES["ls_%d" % N] = dict(N=N, mode="ls")                       # gira en cada escalón
+    RULES["long_%d" % N] = dict(N=N, X=X, mode="long")              # largo en máximo nuevo, sale con mínimo de N/2
+    RULES["short_%d" % N] = dict(N=N, X=X, mode="short")            # corto en mínimo nuevo, sale con máximo de N/2
+    RULES["lsf_%d" % N] = dict(N=N, X=X, mode="ls", M=100)          # ambos, filtrado por la media de 100
+    RULES["shortf_%d" % N] = dict(N=N, X=X, mode="short", M=100)    # cortos solo bajo la media de 100
 out = {"run_at": dt.datetime.utcnow().isoformat() + "Z", "fee_per_side": FEE, "daily": {}, "hourly": {}}
 for sym in TICKERS:
     try:
@@ -59,7 +65,7 @@ for sym in TICKERS:
     out["daily"][sym] = res
     try:
         hdf = load(sym, "730d", "60m"); time.sleep(0.4)
-        out["hourly"][sym] = {"bh": float(hdf.close.iloc[-1] / hdf.close.iloc[101]), **{k: sim(hdf, **kw) for k, kw in RULES.items() if "ma100" not in k}}
+        out["hourly"][sym] = {"bh": float(hdf.close.iloc[-1] / hdf.close.iloc[101]), **{k: sim(hdf, **kw) for k, kw in RULES.items()}}
     except Exception as e:
         print(sym, "1h", e)
     print(sym, "ok", flush=True)
