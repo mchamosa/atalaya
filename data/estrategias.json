@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T10:41:25Z",
+ "updated": "2026-11-10T10:43:06Z",
  "go_live": "2026-11-10T10:40:18Z",
  "stake": 1000.0,
  "fee": 0.002,
@@ -18,7 +18,7 @@
   {
    "symbol": "BTC",
    "pair": "BTCUSDT",
-   "price": 74221.59,
+   "price": 74152.02,
    "close": 75368.41,
    "close_date": "2026-11-09",
    "sma50": 81705.43319999998,
@@ -75,7 +75,7 @@
   {
    "symbol": "ETH",
    "pair": "ETHUSDT",
-   "price": 2089.76,
+   "price": 2086.75,
    "close": 2135.24,
    "close_date": "2026-11-09",
    "sma50": 2472.9401999999986,
@@ -132,7 +132,7 @@
   {
    "symbol": "ZEC",
    "pair": "ZECUSDT",
-   "price": 1142.02,
+   "price": 1141.7,
    "close": 1163.94,
    "close_date": "2026-11-09",
    "sma50": 1298.7460000000005,
@@ -189,7 +189,7 @@
   {
    "symbol": "SOL",
    "pair": "SOLUSDT",
-   "price": 84.57,
+   "price": 84.47,
    "close": 86.74,
    "close_date": "2026-11-09",
    "sma50": 106.80979999999987,
@@ -246,7 +246,7 @@
   {
    "symbol": "XRP",
    "pair": "XRPUSDT",
-   "price": 1.0782,
+   "price": 1.0786,
    "close": 1.0989,
    "close_date": "2026-11-09",
    "sma50": 1.3657320000000046,
@@ -303,7 +303,7 @@
   {
    "symbol": "PEPE",
    "pair": "PEPEUSDT",
-   "price": 5.29e-06,
+   "price": 5.27e-06,
    "close": 5.12e-06,
    "close_date": "2026-11-09",
    "sma50": 4.454599999999962e-06,
@@ -369,7 +369,7 @@
   {
    "symbol": "BNB",
    "pair": "BNBUSDT",
-   "price": 687.61,
+   "price": 687.3,
    "close": 691.44,
    "close_date": "2026-11-09",
    "sma50": 742.1031999999982,
@@ -426,7 +426,7 @@
   {
    "symbol": "AVAX",
    "pair": "AVAXUSDT",
-   "price": 8.296,
+   "price": 8.291,
    "close": 8.656,
    "close_date": "2026-11-09",
    "sma50": 9.8231,
@@ -483,7 +483,7 @@
   {
    "symbol": "NEAR",
    "pair": "NEARUSDT",
-   "price": 3.578,
+   "price": 3.577,
    "close": 3.63,
    "close_date": "2026-11-09",
    "sma50": 4.671380000000004,
@@ -540,7 +540,7 @@
   {
    "symbol": "UNI",
    "pair": "UNIUSDT",
-   "price": 6.957,
+   "price": 6.947,
    "close": 6.986,
    "close_date": "2026-11-09",
    "sma50": 7.830780000000011,
@@ -597,7 +597,7 @@
   {
    "symbol": "ARB",
    "pair": "ARBUSDT",
-   "price": 0.1652,
+   "price": 0.1651,
    "close": 0.1749,
    "close_date": "2026-11-09",
    "sma50": 0.18696399999999977,
@@ -652,66 +652,9 @@
    }
   },
   {
-   "symbol": "DOGE",
-   "pair": "DOGEUSDT",
-   "price": 0.06935,
-   "close": 0.07007,
-   "close_date": "2026-11-09",
-   "sma50": 0.08409640000000021,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.08197,
-      "level_out": 0.06896
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.10044,
-      "level_out": 0.06896
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.10044,
-      "level_out": 0.06896
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "bt": {
-    "from": "2024-05-25",
-    "bh": 0.42,
-    "media50": {
-     "mult": 0.98,
-     "dd": -74.9
-    },
-    "rupturas": {
-     "mult": 1.74,
-     "dd": -47.8
-    },
-    "zona4h": {
-     "n": 9,
-     "win": 67,
-     "avgR": 1.52,
-     "from": "2026-05-27"
-    }
-   }
-  },
-  {
    "symbol": "SUI",
    "pair": "SUIUSDT",
-   "price": 0.8341,
+   "price": 0.8332,
    "close": 0.8455,
    "close_date": "2026-11-09",
    "sma50": 1.0203720000000025,
@@ -761,6 +704,63 @@
      "n": 14,
      "win": 29,
      "avgR": -0.39,
+     "from": "2026-05-27"
+    }
+   }
+  },
+  {
+   "symbol": "DOGE",
+   "pair": "DOGEUSDT",
+   "price": 0.06932,
+   "close": 0.07007,
+   "close_date": "2026-11-09",
+   "sma50": 0.08409640000000021,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.08197,
+      "level_out": 0.06896
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.10044,
+      "level_out": 0.06896
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.10044,
+      "level_out": 0.06896
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "bt": {
+    "from": "2024-05-25",
+    "bh": 0.42,
+    "media50": {
+     "mult": 0.98,
+     "dd": -74.9
+    },
+    "rupturas": {
+     "mult": 1.74,
+     "dd": -47.8
+    },
+    "zona4h": {
+     "n": 9,
+     "win": 67,
+     "avgR": 1.52,
      "from": "2026-05-27"
     }
    }
@@ -825,7 +825,7 @@
   {
    "symbol": "INIT",
    "pair": "INITUSDT",
-   "price": 0.20689,
+   "price": 0.20963,
    "close": 0.19114,
    "close_date": "2026-11-09",
    "sma50": 0.1295221999999994,
@@ -915,7 +915,7 @@
   {
    "symbol": "LINK",
    "pair": "LINKUSDT",
-   "price": 10.434,
+   "price": 10.433,
    "close": 10.663,
    "close_date": "2026-11-09",
    "sma50": 12.509499999999996,
@@ -972,7 +972,7 @@
   {
    "symbol": "ONDO",
    "pair": "ONDOUSDT",
-   "price": 0.3722,
+   "price": 0.3718,
    "close": 0.3742,
    "close_date": "2026-11-09",
    "sma50": 0.4505900000000008,
@@ -1029,7 +1029,7 @@
   {
    "symbol": "TRX",
    "pair": "TRXUSDT",
-   "price": 0.3193,
+   "price": 0.3192,
    "close": 0.3178,
    "close_date": "2026-11-09",
    "sma50": 0.330698,
@@ -1084,66 +1084,9 @@
    }
   },
   {
-   "symbol": "U",
-   "pair": "UUSDT",
-   "price": 1.0008,
-   "close": 1.0005,
-   "close_date": "2026-11-09",
-   "sma50": 1.0001300000000009,
-   "media50": {
-    "on": true,
-    "since": "2026-11-06T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 1.0008,
-      "level_out": 0.9995
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 1.0008,
-      "level_out": 0.9995
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 1.0008,
-      "level_out": 0.9993
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "bt": {
-    "from": "2026-04-23",
-    "bh": 1.0,
-    "media50": {
-     "mult": 0.97,
-     "dd": -2.8
-    },
-    "rupturas": {
-     "mult": 0.99,
-     "dd": -0.6
-    },
-    "zona4h": {
-     "n": 0,
-     "win": null,
-     "avgR": null,
-     "from": "2026-05-27"
-    }
-   }
-  },
-  {
    "symbol": "ONE",
    "pair": "ONEUSDT",
-   "price": 0.002035,
+   "price": 0.002018,
    "close": 0.001461,
    "close_date": "2026-11-09",
    "sma50": 0.0018466599999999646,
@@ -1200,7 +1143,7 @@
   {
    "symbol": "AAVE",
    "pair": "AAVEUSDT",
-   "price": 124.84,
+   "price": 124.93,
    "close": 131.64,
    "close_date": "2026-11-09",
    "sma50": 150.19079999999983,
@@ -1257,7 +1200,7 @@
   {
    "symbol": "PROM",
    "pair": "PROMUSDT",
-   "price": 5.204,
+   "price": 5.208,
    "close": 5.255,
    "close_date": "2026-11-09",
    "sma50": 5.517999999999995,
@@ -1314,7 +1257,7 @@
   {
    "symbol": "INJ",
    "pair": "INJUSDT",
-   "price": 7.955,
+   "price": 7.967,
    "close": 8.115,
    "close_date": "2026-11-09",
    "sma50": 7.831860000000026,
@@ -1380,7 +1323,7 @@
   {
    "symbol": "QNT",
    "pair": "QNTUSDT",
-   "price": 186.81,
+   "price": 186.7,
    "close": 194.86,
    "close_date": "2026-11-09",
    "sma50": 201.5949999999999,
@@ -1437,7 +1380,7 @@
   {
    "symbol": "LTC",
    "pair": "LTCUSDT",
-   "price": 51.11,
+   "price": 51.1,
    "close": 51.42,
    "close_date": "2026-11-09",
    "sma50": 61.3824,
@@ -1487,6 +1430,63 @@
      "n": 9,
      "win": 44,
      "avgR": 0.75,
+     "from": "2026-05-27"
+    }
+   }
+  },
+  {
+   "symbol": "WLD",
+   "pair": "WLDUSDT",
+   "price": 0.3158,
+   "close": 0.3189,
+   "close_date": "2026-11-09",
+   "sma50": 0.47372400000000264,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.5842,
+      "level_out": 0.3121
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.598,
+      "level_out": 0.3121
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.598,
+      "level_out": 0.3121
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "bt": {
+    "from": "2024-05-25",
+    "bh": 0.07,
+    "media50": {
+     "mult": 1.83,
+     "dd": -61.9
+    },
+    "rupturas": {
+     "mult": 0.38,
+     "dd": -72.5
+    },
+    "zona4h": {
+     "n": 30,
+     "win": 50,
+     "avgR": 0.42,
      "from": "2026-05-27"
     }
    }
@@ -2300,6 +2300,29 @@
    "R": -3.48
   },
   {
+   "zone_ts": "2026-10-20T16:00:00Z",
+   "top": 0.556,
+   "bot": 0.5451,
+   "mid": 0.5505500000000001,
+   "target": 0.5723500000000001,
+   "width": 2.0,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-22T04:00:00Z",
+   "entry_ts": "2026-10-22T04:00:00Z",
+   "entry": 0.5505500000000001,
+   "stop": 0.5451,
+   "weight": 1.0,
+   "exit_ts": "2026-10-22T08:00:00Z",
+   "exit": 0.5403,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "WLD",
+   "pair": "WLDUSDT",
+   "id": "zona4h|WLD|2026-10-20T16:00:00Z|2026-10-22T04:00:00Z",
+   "ret": -2.06,
+   "eur": -20.62,
+   "R": -2.08
+  },
+  {
    "zone_ts": "2026-10-21T16:00:00Z",
    "top": 1330.45,
    "bot": 1294.79,
@@ -2646,6 +2669,29 @@
   },
   {
    "zone_ts": "2026-10-15T16:00:00Z",
+   "top": 0.4928,
+   "bot": 0.4796,
+   "mid": 0.4862,
+   "target": 0.5126,
+   "width": 2.75,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-17T16:00:00Z",
+   "entry_ts": "2026-10-17T20:00:00Z",
+   "entry": 0.4862,
+   "stop": 0.4796,
+   "weight": 1.0,
+   "exit_ts": "2026-10-18T08:00:00Z",
+   "exit": 0.5126,
+   "reason": "objetivo",
+   "symbol": "WLD",
+   "pair": "WLDUSDT",
+   "id": "zona4h|WLD|2026-10-15T16:00:00Z|2026-10-17T20:00:00Z",
+   "ret": 5.23,
+   "eur": 52.3,
+   "R": 3.85
+  },
+  {
+   "zone_ts": "2026-10-15T16:00:00Z",
    "top": 9.892,
    "bot": 9.688,
    "mid": 9.79,
@@ -2760,6 +2806,29 @@
    "R": -2.02
   },
   {
+   "zone_ts": "2026-10-17T04:00:00Z",
+   "top": 0.5237,
+   "bot": 0.5172,
+   "mid": 0.5204500000000001,
+   "target": 0.5334500000000002,
+   "width": 1.26,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-17T12:00:00Z",
+   "entry_ts": "2026-10-17T12:00:00Z",
+   "entry": 0.5204500000000001,
+   "stop": 0.5172,
+   "weight": 1.0,
+   "exit_ts": "2026-10-17T16:00:00Z",
+   "exit": 0.4959,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "WLD",
+   "pair": "WLDUSDT",
+   "id": "zona4h|WLD|2026-10-17T04:00:00Z|2026-10-17T12:00:00Z",
+   "ret": -4.92,
+   "eur": -49.17,
+   "R": -7.87
+  },
+  {
    "zone_ts": "2026-10-15T16:00:00Z",
    "top": 5.083,
    "bot": 4.759,
@@ -2804,75 +2873,6 @@
    "ret": -1.06,
    "eur": -10.62,
    "R": -1.51
-  },
-  {
-   "zone_ts": "2026-10-15T16:00:00Z",
-   "top": 1.0153,
-   "bot": 1.0051,
-   "mid": 1.0102000000000002,
-   "target": 1.0306000000000002,
-   "width": 1.01,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-16T16:00:00Z",
-   "entry_ts": "2026-10-16T16:00:00Z",
-   "entry": 1.0102000000000002,
-   "stop": 1.0051,
-   "weight": 1.0,
-   "exit_ts": "2026-10-17T12:00:00Z",
-   "exit": 1.0017,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "SUI",
-   "pair": "SUIUSDT",
-   "id": "zona4h|SUI|2026-10-15T16:00:00Z|2026-10-16T16:00:00Z",
-   "ret": -1.04,
-   "eur": -10.41,
-   "R": -2.06
-  },
-  {
-   "zone_ts": "2026-10-16T04:00:00Z",
-   "top": 9.024,
-   "bot": 8.618,
-   "mid": 8.821,
-   "target": 9.632999999999997,
-   "width": 4.71,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-16T12:00:00Z",
-   "entry_ts": "2026-10-16T16:00:00Z",
-   "entry": 8.821,
-   "stop": 8.618,
-   "weight": 1.0,
-   "exit_ts": "2026-10-17T16:00:00Z",
-   "exit": 8.467,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "INJ",
-   "pair": "INJUSDT",
-   "id": "zona4h|INJ|2026-10-16T04:00:00Z|2026-10-16T16:00:00Z",
-   "ret": -4.21,
-   "eur": -42.13,
-   "R": -1.83
-  },
-  {
-   "zone_ts": "2026-10-15T16:00:00Z",
-   "top": 60.04,
-   "bot": 58.73,
-   "mid": 59.385,
-   "target": 62.005,
-   "width": 2.23,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-16T12:00:00Z",
-   "entry_ts": "2026-10-16T16:00:00Z",
-   "entry": 59.385,
-   "stop": 58.73,
-   "weight": 1.0,
-   "exit_ts": "2026-10-18T16:00:00Z",
-   "exit": 58.13,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "LTC",
-   "pair": "LTCUSDT",
-   "id": "zona4h|LTC|2026-10-15T16:00:00Z|2026-10-16T16:00:00Z",
-   "ret": -2.31,
-   "eur": -23.13,
-   "R": -2.1
   }
  ]
 }
