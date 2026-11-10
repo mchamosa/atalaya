@@ -368,6 +368,49 @@ def _daily_outcome(p, after):
     return None
 
 
+def _daily_outcome_ohlc(p, bars):
+    """Plan diario con máximos y mínimos, como una orden de stop y otra de objetivo reales.
+    bars: [(fecha, o, h, l, c)] desde el día de la compra (se compra a la apertura del primero).
+    Si en el mismo día toca stop y objetivo, se cuenta el stop (lo prudente). Si abre por
+    debajo del stop o por encima del objetivo, se sale al precio de apertura."""
+    entry, stop, target = p["entry"], p["stop"], p["target"]
+    if not (entry and stop and target) or entry <= stop:
+        return None
+    risk = entry - stop
+
+    def res(outcome, px, k):
+        return {"outcome": outcome, "R": round((px - entry) / risk, 2), "ret": round((px / entry - 1) * 100, 2),
+                "sessions": k, "ohlc": True}
+    for k, (d, o, h, l, c) in enumerate(bars[:10], 1):
+        if k > 1 and o <= stop:
+            return res("stop", o, k)
+        if l <= stop:
+            return res("stop", stop, k)
+        if k > 1 and o >= target:
+            return res("objetivo", o, k)
+        if h >= target:
+            return res("objetivo", target, k)
+    if len(bars) >= 10:
+        return res("cierre", bars[9][4], 10)
+    return None
+
+
+def daily_ohlc(sm, sym, now):
+    """Velas diarias completas (fecha, o, h, l, c) de Yahoo; la de hoy solo si la sesión ha cerrado."""
+    series = sm.parse_chart(sm.yahoo_get(sm.chart_path(sym, "3mo", "1d")), sym)
+    ny = sm.to_eastern(now)
+    out = []
+    for i, ts in enumerate(series["t"]):
+        vals = [series.get(k) and series[k][i] for k in ("o", "h", "l", "c")]
+        if any(v is None for v in vals):
+            continue
+        d = sm.ts_to_eastern(ts).date()
+        if d > ny.date() or (d == ny.date() and (ny.hour, ny.minute) < (16, 5)):
+            continue
+        out.append((d.isoformat(),) + tuple(float(v) for v in vals))
+    return out
+
+
 def orb_detection_prices(block):
     """Precio de cada ruptura en el momento en que la detecta el escáner: cierre de la
     última vela de 5 minutos completa a la hora del escaneo. {SYM: (precio, "HH:MM")}."""
@@ -504,10 +547,18 @@ def portfolio_update(data, mode):
                 p["closes"][str(k)] = {"date": d, "ret": round((c / p["entry"] - 1) * 100, 2)}
         p["sessions"] = len(after)
         p["ret_now"] = round((p["last"] / p["entry"] - 1) * 100, 2)
-        if p["kind"] == "daily" and not p.get("plan"):
-            o = _daily_outcome(p, after)
+        if p["kind"] == "daily" and not (p.get("plan") or {}).get("ohlc") and not p.get("gap_below_stop"):
+            # plan con máximos y mínimos (los registros antiguos usaban solo cierres: se recalculan)
+            try:
+                ob = [b for b in daily_ohlc(sm, p["symbol"], now) if b[0] >= p["date"]]
+                time.sleep(0.3)
+                o = _daily_outcome_ohlc(p, ob)
+            except Exception:
+                o = None
             if o:
                 p["plan"] = o
+            elif p.get("plan") and not p["plan"].get("ohlc"):
+                p.pop("plan")
         if len(after) >= max(HORIZONS) and p.get("plan"):
             p["status"] = "terminada"
     # Resultado del plan de apertura (stop, objetivo o 15:55), una vez cerrada la sesión
