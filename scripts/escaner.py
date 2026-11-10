@@ -456,7 +456,7 @@ def portfolio_update(data, mode):
     pos = pf["positions"]
     have = {(p["symbol"], p["kind"], p["date"]) for p in pos}
     added, greens = [], []
-    block = data.get("daily") if mode == "premarket" else data.get("orb")
+    block = data.get("daily") if mode == "premarket" else data.get("orb") if mode == "orb" else None
     kind = "daily" if mode == "premarket" else "orb"
     if block and block.get("run_at", "")[:10] == now_utc()[:10]:
         earn = set(block.get("earnings") or [])
@@ -683,16 +683,45 @@ def market_regime():
 
 # ------------------------------------------------------------------ principal
 
+def auto_mode(data):
+    """Decide qué toca según la hora de Nueva York, para que no importe si GitHub lanza tarde:
+    pre-apertura la primera vez del día (hasta el cierre), ruptura de apertura la primera vez
+    entre las 9:50 y las 11:30, y el resto de veces solo se actualiza el registro."""
+    sm = scanmod()
+    now = dt.datetime.now(dt.timezone.utc)
+    ny = sm.to_eastern(now)
+    today, hm = ny.date().isoformat(), (ny.hour, ny.minute)
+    if ny.weekday() >= 5:
+        return "update"
+    def done(key):
+        b = data.get(key) or {}
+        return bool(b.get("run_at")) and sm.to_eastern(dt.datetime.strptime(b["run_at"], "%Y-%m-%dT%H:%M:%SZ")
+                                                      .replace(tzinfo=dt.timezone.utc)).date().isoformat() == today
+    if not done("daily") and hm < (16, 0):
+        return "premarket"
+    if (9, 50) <= hm <= (11, 30) and not done("orb"):
+        return "orb"
+    return "update"
+
+
 def main():
     mode = (sys.argv[1:] or ["premarket"])[0]
-    if mode not in ("premarket", "orb"):
-        raise SystemExit("modo: premarket u orb")
-
     data = load(OUT, {})
+    if mode == "auto":
+        mode = auto_mode(data)
+        log("modo automático: %s" % mode)
+    if mode not in ("premarket", "orb", "update"):
+        raise SystemExit("modo: premarket, orb, update o auto")
+
     data.setdefault("source", "day-trader-skill (Jake Schincariol, MIT) con datos gratuitos de "
                               "Yahoo Finance, SEC EDGAR y House Clerk")
     build_universe()
 
+    if mode == "update":
+        portfolio_update(data, "update")
+        data["updated"] = now_utc()
+        save(OUT, data)
+        return
     reg = market_regime()
     if reg:
         data["regime"] = reg

@@ -2,19 +2,23 @@ name: Escáner de acciones
 
 on:
   schedule:
-    # Pre-apertura: 13:05 UTC = 14:05 en España en invierno (8:05 en Nueva York)
-    - cron: "5 13 * * 1-5"
-    # Ruptura de apertura: dos pasadas para cubrir el horario de verano e invierno de EE. UU.
-    # (la que cae antes de las 9:50 de Nueva York no escribe nada)
-    - cron: "25 14 * * 1-5"
-    - cron: "25 15 * * 1-5"
+    # Varias pasadas: el script decide qué toca según la hora de Nueva York (modo auto),
+    # así da igual que GitHub lance con retraso o que cambie el horario de verano.
+    - cron: "7 12 * * 1-5"      # pre-apertura (7:07 u 8:07 en NY)
+    - cron: "37 12 * * 1-5"     # pre-apertura de reserva
+    - cron: "7 13 * * 1-5"      # pre-apertura de reserva
+    - cron: "53 13 * * 1-5"     # ruptura de apertura en verano (9:53 NY)
+    - cron: "23 14 * * 1-5"     # reserva
+    - cron: "53 14 * * 1-5"     # ruptura de apertura en invierno (9:53 NY)
+    - cron: "23 15 * * 1-5"     # reserva
+    - cron: "17 21 * * 1-5"     # tras el cierre: actualiza el registro
   workflow_dispatch:
     inputs:
       modo:
         description: "Qué escanear"
         type: choice
-        options: [premarket, orb]
-        default: premarket
+        options: [auto, premarket, orb, update]
+        default: auto
 
 permissions:
   contents: write
@@ -42,9 +46,7 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
           MODO="${{ inputs.modo }}"
-          if [ -z "$MODO" ]; then
-            if [ "${{ github.event.schedule }}" = "5 13 * * 1-5" ]; then MODO=premarket; else MODO=orb; fi
-          fi
+          if [ -z "$MODO" ]; then MODO=auto; fi
           python scripts/escaner.py "$MODO"
       - name: Guardar cambios
         run: |
