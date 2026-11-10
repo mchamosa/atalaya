@@ -5,7 +5,7 @@ import pandas as pd
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 s = importlib.util.spec_from_file_location("esc", os.path.join(ROOT, "scripts", "investigacion", "escalones.py"))
 src = open(s.origin).read()
-ns = {}
+ns = {"__file__": s.origin}
 exec(src[:src.index("out = {")], ns)          # carga, sim y lista de valores sin ejecutar el estudio diario
 load, sim, TICKERS = ns["load"], ns["sim"], ns["TICKERS"]
 out = {"run_at": dt.datetime.utcnow().isoformat() + "Z", "fee_per_side": ns["FEE"], "tf": {}}
