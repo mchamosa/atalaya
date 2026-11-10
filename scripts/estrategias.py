@@ -223,6 +223,9 @@ def main():
             continue
         if len(d) < 200 or iso(d[-1]["t"])[:10] != (dt.datetime.now(dt.timezone.utc).date() - dt.timedelta(days=1)).isoformat():
             continue
+        c200 = [x["c"] for x in d[-200:]]
+        if max(c200) / min(c200) < 1.05:   # moneda estable (no se mueve): fuera
+            continue
         try:
             b4 = kl(u["symbol"], "4h")
         except Exception:
