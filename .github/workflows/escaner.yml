@@ -39,7 +39,8 @@ jobs:
         with:
           python-version: "3.12"
       - name: Instalar pdftotext (para leer las declaraciones del Congreso)
-        run: sudo apt-get install -y -qq poppler-utils >/dev/null
+        continue-on-error: true      # si falla la descarga, el escáner sigue (solo afecta al Congreso)
+        run: (sudo apt-get install -y -qq poppler-utils || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)) >/dev/null
       - name: Escanear
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
