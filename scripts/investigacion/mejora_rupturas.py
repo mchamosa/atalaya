@@ -84,5 +84,26 @@ for (N, ex), T in res.items():
                             "avg_close": float(x.ret_close.mean() * 100), "win_close": float((x.ret_close > 0).mean() * 100),
                             "win": float((x.ret > 0).mean() * 100), "days": float(x.days.mean()),
                             "sum_per_year": float(x.ret.sum() / 11 * 1000)})
+detail = {}
+BK = [-100, -10, -5, 0, 5, 10, 20, 50, 1000]
+for (N, ex), T in res.items():
+    df = pd.DataFrame(T)
+    for name, cb in (("sin_filtros", ()), ("volumen+compresion", ("volumen", "compresion")),
+                     ("volumen+compresion+fuerza", ("volumen", "compresion", "fuerza"))):
+        m = np.ones(len(df), bool)
+        for f in cb: m &= df[f].values
+        x = df[m].copy(); r = x.ret_close * 100
+        x["year"] = x.t.dt.year
+        cnt, _ = np.histogram(r, BK)
+        detail["%d_%s" % (N, name)] = {
+            "n": int(len(x)), "win": float((r > 0).mean() * 100), "avg": float(r.mean()), "median": float(r.median()),
+            "avg_win": float(r[r > 0].mean()), "avg_loss": float(r[r <= 0].mean()), "max": float(r.max()), "min": float(r.min()),
+            "p90": float(r.quantile(0.9)), "days_win": float(x.days[r > 0].mean()), "days_loss": float(x.days[r <= 0].mean()),
+            "buckets": {"%s a %s" % (a, b): int(c) for a, b, c in zip(BK[:-1], BK[1:], cnt)},
+            "per_year": {int(y): {"n": int(len(g)), "eur": float((g.ret_close * 1000).sum()), "win": float((g.ret_close > 0).mean() * 100)} for y, g in x.groupby("year")},
+            "best": [{"sym": a.sym, "date": str(a.t.date()), "ret": round(a.ret_close * 100, 1), "days": int(a.days)} for a in x.nlargest(8, "ret_close").itertuples()],
+            "worst": [{"sym": a.sym, "date": str(a.t.date()), "ret": round(a.ret_close * 100, 1), "days": int(a.days)} for a in x.nsmallest(5, "ret_close").itertuples()],
+            "recent": [{"sym": a.sym, "date": str(a.t.date()), "ret": round(a.ret_close * 100, 1), "days": int(a.days)} for a in x.sort_values("t").tail(15).itertuples()],
+        }
 with open(os.path.join(ROOT, "data", "investigacion_mejora_rupturas.json"), "w") as fh:
-    json.dump({"run_at": dt.datetime.utcnow().isoformat() + "Z", "tickers": len(TICKERS), "summary": summary}, fh)
+    json.dump({"run_at": dt.datetime.utcnow().isoformat() + "Z", "tickers": len(TICKERS), "summary": summary, "detail": detail}, fh)
