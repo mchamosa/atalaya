@@ -42,7 +42,7 @@ def trades(d, N, X, exit_mode="canal"):
                 trail = stop
             if l[i] <= stop:
                 px = min(o[i], stop)
-                f["ret"] = px / ent - 1 - 2 * FEE; f["days"] = i - ei; out.append(f); pos = 0
+                f["ret"] = px / ent - 1 - 2 * FEE; f["ret_close"] = px / c[ei] - 1 - 2 * FEE; f["days"] = i - ei; out.append(f); pos = 0
             continue
         if h[i] > top[i] and not np.isnan(top[i]):
             j = i - 1    # filtros con datos del día anterior
@@ -62,7 +62,7 @@ for sym in TICKERS:
         print(sym, e); continue
     if len(d) < 600: continue
     for (N, X) in ((50, 25), (100, 50)):
-        for ex in ("canal", "atr"):
+        for ex in ("canal",):
             for t in trades(d, N, X, ex):
                 t["sym"] = sym
                 res.setdefault((N, ex), []).append(t)
@@ -81,6 +81,7 @@ for (N, ex), T in res.items():
             if len(x) < 30: continue
             summary.append({"N": N, "exit": ex, "filters": "+".join(cb) or "ninguno", "period": pe, "n": int(len(x)),
                             "avg": float(x.ret.mean() * 100), "median": float(x.ret.median() * 100),
+                            "avg_close": float(x.ret_close.mean() * 100), "win_close": float((x.ret_close > 0).mean() * 100),
                             "win": float((x.ret > 0).mean() * 100), "days": float(x.days.mean()),
                             "sum_per_year": float(x.ret.sum() / 11 * 1000)})
 with open(os.path.join(ROOT, "data", "investigacion_mejora_rupturas.json"), "w") as fh:
