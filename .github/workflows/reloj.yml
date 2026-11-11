@@ -1,0 +1,65 @@
+name: Reloj
+
+# GitHub a veces no lanza (o lanza con horas de retraso) los horarios del escáner de acciones.
+# Este flujo ligero corre cada 15 minutos en horario de bolsa y, si falta la pre-apertura o la
+# ruptura de apertura de hoy, lanza el escáner. Si ya están hechas, no hace nada.
+on:
+  schedule:
+    - cron: "4,19,34,49 11-16 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: reloj
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: data/escaner.json
+          sparse-checkout-cone-mode: false
+      - name: Decidir y lanzar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          MODO=$(python3 - <<'PY'
+          import json, datetime as dt
+          from zoneinfo import ZoneInfo
+          ny = dt.datetime.now(ZoneInfo("America/New_York"))
+          try:
+              d = json.load(open("data/escaner.json"))
+          except Exception:
+              d = {}
+          def done(k):
+              r = (d.get(k) or {}).get("run_at")
+              if not r:
+                  return False
+              t = dt.datetime.strptime(r, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc).astimezone(ZoneInfo("America/New_York"))
+              return t.date() == ny.date()
+          hm = (ny.hour, ny.minute)
+          if ny.weekday() < 5 and (7, 0) <= hm < (16, 0) and not done("daily"):
+              print("premarket")
+          elif ny.weekday() < 5 and (9, 50) <= hm <= (11, 30) and not done("orb"):
+              print("orb")
+          else:
+              print("")
+          PY
+          )
+          echo "Toca: ${MODO:-nada}"
+          if [ -n "$MODO" ]; then
+            ACTIVOS=$(gh run list --workflow escaner.yml --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued" or .status=="pending")] | length')
+            if [ "$ACTIVOS" = "0" ]; then
+              gh workflow run escaner.yml --ref main -f modo="$MODO"
+              echo "Lanzado el escáner en modo $MODO"
+            else
+              echo "Ya hay un escáner en marcha"
+            fi
+          fi
