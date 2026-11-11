@@ -6,7 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 src = open(os.path.join(ROOT, "scripts", "investigacion", "regimen.py")).read()
 ns = {"__file__": os.path.join(ROOT, "scripts", "investigacion", "regimen.py")}
 exec(src[:src.index("H = (1, 5, 10, 20)")], ns)
-sm, TICKERS = ns["sm"], ns["TICKERS"]
+sm, TICKERS = ns["ns"]["sm"], ns["TICKERS"]
 FEE = 0.0005
 
 def load(sym):
