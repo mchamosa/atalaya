@@ -585,294 +585,36 @@
   },
   "earnings": []
  },
- "updated": "2026-11-12T15:05:12Z",
+ "updated": "2026-11-12T16:19:46Z",
  "orb": {
-  "run_at": "2026-11-11T15:42:01Z",
-  "as_of": "2026-11-11 10:10 ET",
+  "run_at": "2026-11-12T16:18:48Z",
+  "as_of": "2026-11-12 10:10 ET",
   "session": "ny",
   "session_name": "Nueva York",
   "or_minutes": 15,
   "scanned": 40,
   "universe": 40,
-  "hits": [
-   {
-    "symbol": "ONE",
-    "pair": "ONEUSDT",
-    "session": "ny",
-    "price": 0.001571,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.001566,
-    "or_low": 0.001533,
-    "pct_over": 0.32,
-    "detect_price": 0.001565,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-11T15:10:00Z",
-    "signal_ts": "2026-11-11T14:50:00Z",
-    "vol_ratio": 2.07,
-    "qv24": 16883083.425817,
-    "grade": {
-     "entry": 0.001565,
-     "stop": 0.0015495,
-     "target": 0.0015959999999999998,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 5,
-      "win_pct": 60.0,
-      "avg": 0.256,
-      "avg_win": 1.223,
-      "avg_loss": 1.195,
-      "payoff": 1.02
-     },
-     "mc": {
-      "p_target": 0.4,
-      "p_stop": 0.4,
-      "p_neither": 0.2,
-      "p_green": 0.6,
-      "avg_R": 0.256,
-      "target_share": 0.5,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "XLM",
-    "pair": "XLMUSDT",
-    "session": "ny",
-    "price": 0.1502,
-    "at": "10:05 AM",
-    "bar_start": "10:00",
-    "or_high": 0.1498,
-    "or_low": 0.148,
-    "pct_over": 0.27,
-    "detect_price": 0.1503,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-11T15:10:00Z",
-    "signal_ts": "2026-11-11T15:05:00Z",
-    "vol_ratio": 0.98,
-    "qv24": 8460210.0819,
-    "grade": {
-     "entry": 0.1503,
-     "stop": 0.14889999,
-     "target": 0.15310001999999995,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 4,
-      "win_pct": 25.0,
-      "avg": -0.087,
-      "avg_win": 1.71,
-      "avg_loss": 0.687,
-      "payoff": 2.49
-     },
-     "mc": {
-      "p_target": 0.25,
-      "p_stop": 0.25,
-      "p_neither": 0.5,
-      "p_green": 0.25,
-      "avg_R": -0.087,
-      "target_share": 0.5,
-      "historic": true
-     }
-    }
-   },
-   {
-    "symbol": "ASTER",
-    "pair": "ASTERUSDT",
-    "session": "ny",
-    "price": 0.6569,
-    "at": "9:50 AM",
-    "bar_start": "09:45",
-    "or_high": 0.6562,
-    "or_low": 0.6503,
-    "pct_over": 0.11,
-    "detect_price": 0.6588,
-    "detect_bar": "10:05",
-    "detect_ts": "2026-11-11T15:10:00Z",
-    "signal_ts": "2026-11-11T14:50:00Z",
-    "vol_ratio": 4.82,
-    "qv24": 6826837.647493,
-    "grade": {
-     "entry": 0.6588,
-     "stop": 0.65325,
-     "target": 0.6699000000000002,
-     "rr": 2.0,
-     "unit": "R",
-     "hist": {
-      "n": 6,
-      "win_pct": 16.7,
-      "avg": -0.59,
-      "avg_win": 1.72,
-      "avg_loss": 1.052,
-      "payoff": 1.63
-     },
-     "mc": {
-      "p_target": 0.16666666666666666,
-      "p_stop": 0.6666666666666666,
-      "p_neither": 0.16666666666666666,
-      "p_green": 0.16666666666666666,
-      "avg_R": -0.59,
-      "target_share": 0.2,
-      "historic": true
-     }
-    }
-   }
-  ],
+  "hits": [],
   "market": {
    "orb": {
-    "n": 15,
-    "win_pct": 33.3,
-    "avg": -0.174,
-    "avg_win": 1.42,
-    "avg_loss": 0.971,
-    "payoff": 1.46
+    "n": 0
    }
   },
   "earnings": []
  },
  "orb_sessions": {
   "ny": {
-   "run_at": "2026-11-11T15:42:01Z",
-   "as_of": "2026-11-11 10:10 ET",
+   "run_at": "2026-11-12T16:18:48Z",
+   "as_of": "2026-11-12 10:10 ET",
    "session": "ny",
    "session_name": "Nueva York",
    "or_minutes": 15,
    "scanned": 40,
    "universe": 40,
-   "hits": [
-    {
-     "symbol": "ONE",
-     "pair": "ONEUSDT",
-     "session": "ny",
-     "price": 0.001571,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.001566,
-     "or_low": 0.001533,
-     "pct_over": 0.32,
-     "detect_price": 0.001565,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-11T15:10:00Z",
-     "signal_ts": "2026-11-11T14:50:00Z",
-     "vol_ratio": 2.07,
-     "qv24": 16883083.425817,
-     "grade": {
-      "entry": 0.001565,
-      "stop": 0.0015495,
-      "target": 0.0015959999999999998,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 5,
-       "win_pct": 60.0,
-       "avg": 0.256,
-       "avg_win": 1.223,
-       "avg_loss": 1.195,
-       "payoff": 1.02
-      },
-      "mc": {
-       "p_target": 0.4,
-       "p_stop": 0.4,
-       "p_neither": 0.2,
-       "p_green": 0.6,
-       "avg_R": 0.256,
-       "target_share": 0.5,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "XLM",
-     "pair": "XLMUSDT",
-     "session": "ny",
-     "price": 0.1502,
-     "at": "10:05 AM",
-     "bar_start": "10:00",
-     "or_high": 0.1498,
-     "or_low": 0.148,
-     "pct_over": 0.27,
-     "detect_price": 0.1503,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-11T15:10:00Z",
-     "signal_ts": "2026-11-11T15:05:00Z",
-     "vol_ratio": 0.98,
-     "qv24": 8460210.0819,
-     "grade": {
-      "entry": 0.1503,
-      "stop": 0.14889999,
-      "target": 0.15310001999999995,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 4,
-       "win_pct": 25.0,
-       "avg": -0.087,
-       "avg_win": 1.71,
-       "avg_loss": 0.687,
-       "payoff": 2.49
-      },
-      "mc": {
-       "p_target": 0.25,
-       "p_stop": 0.25,
-       "p_neither": 0.5,
-       "p_green": 0.25,
-       "avg_R": -0.087,
-       "target_share": 0.5,
-       "historic": true
-      }
-     }
-    },
-    {
-     "symbol": "ASTER",
-     "pair": "ASTERUSDT",
-     "session": "ny",
-     "price": 0.6569,
-     "at": "9:50 AM",
-     "bar_start": "09:45",
-     "or_high": 0.6562,
-     "or_low": 0.6503,
-     "pct_over": 0.11,
-     "detect_price": 0.6588,
-     "detect_bar": "10:05",
-     "detect_ts": "2026-11-11T15:10:00Z",
-     "signal_ts": "2026-11-11T14:50:00Z",
-     "vol_ratio": 4.82,
-     "qv24": 6826837.647493,
-     "grade": {
-      "entry": 0.6588,
-      "stop": 0.65325,
-      "target": 0.6699000000000002,
-      "rr": 2.0,
-      "unit": "R",
-      "hist": {
-       "n": 6,
-       "win_pct": 16.7,
-       "avg": -0.59,
-       "avg_win": 1.72,
-       "avg_loss": 1.052,
-       "payoff": 1.63
-      },
-      "mc": {
-       "p_target": 0.16666666666666666,
-       "p_stop": 0.6666666666666666,
-       "p_neither": 0.16666666666666666,
-       "p_green": 0.16666666666666666,
-       "avg_R": -0.59,
-       "target_share": 0.2,
-       "historic": true
-      }
-     }
-    }
-   ],
+   "hits": [],
    "market": {
     "orb": {
-     "n": 15,
-     "win_pct": 33.3,
-     "avg": -0.174,
-     "avg_win": 1.42,
-     "avg_loss": 0.971,
-     "payoff": 1.46
+     "n": 0
     }
    },
    "earnings": []
