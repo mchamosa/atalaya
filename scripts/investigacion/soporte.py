@@ -27,6 +27,8 @@ def events(d):
                 if l[k] < L * 0.95 and peak < L * 1.10: break      # se perdió antes de alejarse: no es soporte
             if t is not None:
                 ent = min(o[t], L * 1.02); stop = L * 0.95
+                if ent <= stop * 1.005:              # abrió por debajo del stop: no hay operación
+                    busy_until = t + 1; i = t + 1; continue
                 for tgt_name, tgt in (("maximo", peak), ("mitad", (ent + peak) / 2)):
                     res = None
                     for k in range(t, min(n, t + 120)):
@@ -35,7 +37,9 @@ def events(d):
                         if h[k] >= tgt and k > t:
                             res = (max(o[k], tgt), k, "objetivo"); break
                     if res is None:
-                        k = min(n - 1, t + 119); res = (c[k], k, "tiempo")
+                        if t + 119 >= n:                 # aún abierta: no cuenta
+                            continue
+                        k = t + 119; res = (c[k], k, "tiempo")
                     px, k, why = res
                     r = px / ent - 1 - 2 * FEE; R = (px - ent) / (ent - stop)
                     out.append({"t": d.index[t], "target": tgt_name, "ret": r, "R": R, "why": why, "days": k - t,
