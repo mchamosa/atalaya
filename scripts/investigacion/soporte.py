@@ -62,7 +62,7 @@ df["per"] = np.where(df.t < pd.Timestamp("2016-01-01", tz="UTC"), "2005-2015", "
 summary = []
 for tg in ("maximo", "mitad"):
     for flt in ("todas", "tendencia", "mercado", "tendencia+mercado", "sobre50"):
-        m = (df.target == tg).values
+        m = (df.target == tg).values.copy()
         for f in flt.split("+"):
             if f != "todas": m &= df[f].values
         for pe in ("2005-2015", "2016-2026", "2021-2026"):
