@@ -26,10 +26,10 @@ res = {}
 for itv, days in (("1m", 29), ("5m", 59), ("15m", 59)):
     d = get(itv, days)
     o, h, l, c = [d[k].values for k in ("open", "high", "low", "close")]; n = len(d); rng = h - l
-    ma = pd.Series(c).rolling(50).mean().values
+    ma = pd.Series(c).ewm(span=40, adjust=False).mean().values      # EMA 40
     red = (c < o) & (rng > 0)
     for name, sig in (("sin_mecha_arriba", red & ((h - o) <= 0.05 * rng)), ("sin_mecha_abajo", red & ((c - l) <= 0.05 * rng)),
-                      ("sin_mecha_arriba_tendencia", red & ((h - o) <= 0.05 * rng) & (c < ma))):
+                      ("sin_mecha_arriba_bajo_ema40", red & ((h - o) <= 0.05 * rng) & (c < ma)), ("sin_mecha_abajo_bajo_ema40", red & ((c - l) <= 0.05 * rng) & (c < ma))):
         Rg, Rn, rk = [], [], []
         for i in np.where(sig)[0]:
             if i + 1 >= n: break
