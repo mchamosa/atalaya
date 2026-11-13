@@ -1009,36 +1009,212 @@
   },
   "earnings": []
  },
- "updated": "2026-11-13T14:30:10Z",
+ "updated": "2026-11-13T15:50:29Z",
  "orb": {
-  "run_at": "2026-11-12T16:18:48Z",
-  "as_of": "2026-11-12 10:10 ET",
+  "run_at": "2026-11-13T15:49:00Z",
+  "as_of": "2026-11-13 10:10 ET",
   "session": "ny",
   "session_name": "Nueva York",
   "or_minutes": 15,
   "scanned": 40,
   "universe": 40,
-  "hits": [],
+  "hits": [
+   {
+    "symbol": "BARD",
+    "pair": "BARDUSDT",
+    "session": "ny",
+    "price": 0.1711,
+    "at": "10:05 AM",
+    "bar_start": "10:00",
+    "or_high": 0.17,
+    "or_low": 0.162,
+    "pct_over": 0.65,
+    "detect_price": 0.1702,
+    "detect_bar": "10:05",
+    "detect_ts": "2026-11-13T15:10:00Z",
+    "signal_ts": "2026-11-13T15:05:00Z",
+    "vol_ratio": 70.37,
+    "qv24": 27806506.80872,
+    "grade": {
+     "entry": 0.1702,
+     "stop": 0.166,
+     "target": 0.17859999999999995,
+     "rr": 2.0,
+     "unit": "R",
+     "hist": {
+      "n": 7,
+      "win_pct": 28.6,
+      "avg": -0.027,
+      "avg_win": 1.76,
+      "avg_loss": 0.742,
+      "payoff": 2.37
+     },
+     "mc": {
+      "p_target": 0.2857142857142857,
+      "p_stop": 0.42857142857142855,
+      "p_neither": 0.2857142857142857,
+      "p_green": 0.2857142857142857,
+      "avg_R": -0.027,
+      "target_share": 0.4,
+      "historic": true
+     }
+    }
+   },
+   {
+    "symbol": "BMT",
+    "pair": "BMTUSDT",
+    "session": "ny",
+    "price": 0.02365,
+    "at": "10:05 AM",
+    "bar_start": "10:00",
+    "or_high": 0.02363,
+    "or_low": 0.0231,
+    "pct_over": 0.08,
+    "detect_price": 0.02391,
+    "detect_bar": "10:05",
+    "detect_ts": "2026-11-13T15:10:00Z",
+    "signal_ts": "2026-11-13T15:05:00Z",
+    "vol_ratio": 0.65,
+    "qv24": 5966769.437915,
+    "grade": {
+     "entry": 0.02391,
+     "stop": 0.023365,
+     "target": 0.025,
+     "rr": 2.0,
+     "unit": "R",
+     "hist": {
+      "n": 6,
+      "win_pct": 16.7,
+      "avg": -0.678,
+      "avg_win": 1.88,
+      "avg_loss": 1.19,
+      "payoff": 1.58
+     },
+     "mc": {
+      "p_target": 0.16666666666666666,
+      "p_stop": 0.8333333333333334,
+      "p_neither": 0.0,
+      "p_green": 0.16666666666666666,
+      "avg_R": -0.678,
+      "target_share": 0.167,
+      "historic": true
+     }
+    }
+   }
+  ],
   "market": {
    "orb": {
-    "n": 0
+    "n": 13,
+    "win_pct": 23.1,
+    "avg": -0.328,
+    "avg_win": 1.8,
+    "avg_loss": 0.966,
+    "payoff": 1.86
    }
   },
   "earnings": []
  },
  "orb_sessions": {
   "ny": {
-   "run_at": "2026-11-12T16:18:48Z",
-   "as_of": "2026-11-12 10:10 ET",
+   "run_at": "2026-11-13T15:49:00Z",
+   "as_of": "2026-11-13 10:10 ET",
    "session": "ny",
    "session_name": "Nueva York",
    "or_minutes": 15,
    "scanned": 40,
    "universe": 40,
-   "hits": [],
+   "hits": [
+    {
+     "symbol": "BARD",
+     "pair": "BARDUSDT",
+     "session": "ny",
+     "price": 0.1711,
+     "at": "10:05 AM",
+     "bar_start": "10:00",
+     "or_high": 0.17,
+     "or_low": 0.162,
+     "pct_over": 0.65,
+     "detect_price": 0.1702,
+     "detect_bar": "10:05",
+     "detect_ts": "2026-11-13T15:10:00Z",
+     "signal_ts": "2026-11-13T15:05:00Z",
+     "vol_ratio": 70.37,
+     "qv24": 27806506.80872,
+     "grade": {
+      "entry": 0.1702,
+      "stop": 0.166,
+      "target": 0.17859999999999995,
+      "rr": 2.0,
+      "unit": "R",
+      "hist": {
+       "n": 7,
+       "win_pct": 28.6,
+       "avg": -0.027,
+       "avg_win": 1.76,
+       "avg_loss": 0.742,
+       "payoff": 2.37
+      },
+      "mc": {
+       "p_target": 0.2857142857142857,
+       "p_stop": 0.42857142857142855,
+       "p_neither": 0.2857142857142857,
+       "p_green": 0.2857142857142857,
+       "avg_R": -0.027,
+       "target_share": 0.4,
+       "historic": true
+      }
+     }
+    },
+    {
+     "symbol": "BMT",
+     "pair": "BMTUSDT",
+     "session": "ny",
+     "price": 0.02365,
+     "at": "10:05 AM",
+     "bar_start": "10:00",
+     "or_high": 0.02363,
+     "or_low": 0.0231,
+     "pct_over": 0.08,
+     "detect_price": 0.02391,
+     "detect_bar": "10:05",
+     "detect_ts": "2026-11-13T15:10:00Z",
+     "signal_ts": "2026-11-13T15:05:00Z",
+     "vol_ratio": 0.65,
+     "qv24": 5966769.437915,
+     "grade": {
+      "entry": 0.02391,
+      "stop": 0.023365,
+      "target": 0.025,
+      "rr": 2.0,
+      "unit": "R",
+      "hist": {
+       "n": 6,
+       "win_pct": 16.7,
+       "avg": -0.678,
+       "avg_win": 1.88,
+       "avg_loss": 1.19,
+       "payoff": 1.58
+      },
+      "mc": {
+       "p_target": 0.16666666666666666,
+       "p_stop": 0.8333333333333334,
+       "p_neither": 0.0,
+       "p_green": 0.16666666666666666,
+       "avg_R": -0.678,
+       "target_share": 0.167,
+       "historic": true
+      }
+     }
+    }
+   ],
    "market": {
     "orb": {
-     "n": 0
+     "n": 13,
+     "win_pct": 23.1,
+     "avg": -0.328,
+     "avg_win": 1.8,
+     "avg_loss": 0.966,
+     "payoff": 1.86
     }
    },
    "earnings": []
