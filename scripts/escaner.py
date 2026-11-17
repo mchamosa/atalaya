@@ -307,8 +307,13 @@ def earnings_flags(news_block):
 
 # ------------------------------------------------------------------ cartera simulada
 
+RETIRED = {"breakout_20d", "reclaim_ma20"}   # perdían en el registro (17/11/2026): siempre en rojo, sin aviso
+
+
 def sem_color(h, kind, earn):
     """Semáforo con las reglas por defecto: 2 verde, 1 ámbar, 0 rojo, -1 sin valorar."""
+    if kind == "orb" or (h.get("setups") and set(h["setups"]) <= RETIRED):
+        return 0
     g = h.get("grade") or {}
     hs = g.get("hist") or {}
     if g.get("error") or not hs.get("n"):
