@@ -683,6 +683,43 @@ def fundamentals(data, tickers):
 
 # ------------------------------------------------------------------ tipo de mercado
 
+MIN_DOLLAR_VOL = 20e6   # volumen medio diario mínimo en dólares (últimas 5 sesiones)
+MIN_PRICE = 5.0
+
+
+def liquid_filter(res):
+    """Quita de las coincidencias los valores con poco volumen en dólares o precio bajo."""
+    hits = res.get("hits") or []
+    if not hits:
+        return res
+    sm = scanmod()
+    keep, out = [], []
+    for h in hits:
+        try:
+            se = sm.parse_chart(sm.yahoo_get(sm.chart_path(h["symbol"], "10d", "1d")), h["symbol"])
+            time.sleep(0.2)
+        except Exception:
+            keep.append(h)          # sin datos: no se descarta por esto
+            continue
+        cs, vs = se.get("c") or [], se.get("v") or []
+        dv = [c * v for c, v in zip(cs, vs) if c and v][-6:-1] or [c * v for c, v in zip(cs, vs) if c and v]
+        if not dv:
+            keep.append(h)
+            continue
+        avg = sum(dv) / len(dv)
+        price = h.get("price") or cs[-1]
+        h["dollar_vol"] = round(avg)
+        if avg >= MIN_DOLLAR_VOL and price >= MIN_PRICE:
+            keep.append(h)
+        else:
+            out.append(h["symbol"])
+    res["hits"] = keep
+    res["filtered_illiquid"] = out
+    res.setdefault("filters", {})["min_dollar_volume"] = MIN_DOLLAR_VOL
+    log("filtro de liquidez: quedan %d de %d (fuera: %s)" % (len(keep), len(hits), ", ".join(out[:20])))
+    return res
+
+
 def market_regime():
     """Alcista: SPY por encima de su media de 200 y la de 50 por encima de la de 200 y subiendo.
     Bajista: por debajo de la media de 200 y la de 50 bajando. Lateral: el resto."""
@@ -755,6 +792,7 @@ def main():
     if mode == "premarket":
         res, reason = scan("daily")
         if res:
+            res = liquid_filter(res)
             data["daily"] = res
             data.get("status", {}).pop("daily", None)
             log("pre-apertura: %d coincidencias" % len(res.get("hits", [])))
@@ -774,6 +812,7 @@ def main():
     else:
         res, reason = scan("orb")
         if res:
+            res = liquid_filter(res)
             data["orb"] = res
             data.get("status", {}).pop("orb", None)
             log("apertura: %d rupturas" % len(res.get("hits", [])))
