@@ -218,12 +218,16 @@ footer a{color:var(--mut)}
       <span class="mut" style="font-size:12px">Aciertos que tenía la señal el día que se apuntó.</span></div>
     <div class="kv" id="pf-sum" style="max-width:560px;margin-bottom:12px"></div>
     <div class="wrap" style="margin-bottom:12px;max-height:none"><table id="t-pfd"><thead><tr>
-      <th>Día</th><th class="num">Señales</th><th class="num">Invertido</th><th class="num">Resultado ahora</th><th class="num">%</th><th class="num">En positivo</th><th class="num">Acumulado</th>
+      <th>Día</th><th class="num">Señales</th><th class="num">Invertido</th><th class="num">Resultado</th><th class="num">%</th><th class="num">En positivo</th><th class="num">Acumulado</th>
     </tr></thead><tbody></tbody></table></div>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfh"><thead><tr>
       <th>Semáforo</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
     <p class="sub" style="margin:-4px 0 12px">En cada horizonte: media de rentabilidad y, entre paréntesis, el % de señales en positivo.</p>
+    <div class="wrap" style="margin-bottom:12px;max-height:none"><table id="t-pfe"><thead><tr>
+      <th>Resultado por estrategia</th><th class="num">Señales</th><th class="num">Cerradas</th><th class="num">Objetivo / stop / fin</th><th class="num">Aciertos</th><th class="num">Resultado €</th><th class="num">€ por señal</th><th class="num">R medio</th>
+    </tr></thead><tbody></tbody></table></div>
+    <p class="sub" style="margin:-4px 0 12px">Cada señal cuenta una vez, en la combinación exacta de patrones que la provocó. El resultado aplica el plan: si saltó el stop o llegó al objetivo cuenta ese resultado; si sigue abierta, el precio actual. Aciertos = señales en positivo. Ordenado por resultado.</p>
     <div class="wrap" style="margin-bottom:12px"><table id="t-pfr"><thead><tr>
       <th>Qué aporta cada regla</th><th class="num">Señales</th><th class="num">1 ses.</th><th class="num">3 ses.</th><th class="num">5 ses.</th><th class="num">10 ses.</th><th class="num">20 ses.</th><th class="num">Plan: objetivo / stop / cierre</th><th class="num">Plan: R medio (incluye en curso)</th>
     </tr></thead><tbody></tbody></table></div>
@@ -656,7 +660,8 @@ let pfDraw=null;
 function drawPF(){
   const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
   const all=PF.positions.map(p=>{ const sw=sigWhen(p), bw=buyWhen(p);
-    const o={...p, sem:p.sem??2, eur: stake*(p.ret_now||0)/100, planR:p.plan?.R??null, sig:p.kind==='orb'?'orb':(p.setups||[]).join(','),
+    const done=p.plan&&p.plan.ret!=null, res=done?p.plan.ret:(p.ret_now||0);
+    const o={...p, sem:p.sem??2, eur: stake*res/100, res, done, ret_now_raw:p.ret_now, planR:p.plan?.R??null, sig:p.kind==='orb'?'orb':(p.setups||[]).join(','),
       sw, bw, sigts:(sw[0]||'')+' '+(sw[1]||''), buyts:(bw[0]||'')+' '+(bw[1]||'')};
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
   const annulled=all.filter(r=>r.status==='anulada').length;
@@ -671,21 +676,21 @@ function drawPF(){
   // resumen por día con acumulado (respeta los filtros de color y origen)
   let acc=0;
   const drows=dayList.map(d=>{ const rs=bySem.filter(r=>r.date===d), pl=rs.reduce((a,r)=>a+r.eur,0); acc+=pl;
-    return {d,n:rs.length,inv:rs.length*stake,pl,pos:rs.filter(r=>r.ret_now>0).length,acc}; });
+    return {d,n:rs.length,inv:rs.length*stake,pl,pos:rs.filter(r=>r.res>0).length,acc}; });
   const tot=bySem.reduce((a,r)=>a+r.eur,0), totN=bySem.length;
   document.querySelector('#t-pfd tbody').innerHTML=drows.slice().reverse().map(x=>`<tr${x.d===pfDay?' style="background:#1b2438"':''}><td>${fmtDate(x.d)}</td><td class="num">${x.n}</td><td class="num">${fmtN(x.inv,0)} €</td>
       <td class="num ${x.pl>=0?'up':'dn'}">${x.pl>=0?'+':''}${fmtN(x.pl,0)} €</td><td class="num ${x.pl>=0?'up':'dn'}">${x.n?(x.pl>=0?'+':'')+fmtN(x.pl/x.inv*100)+' %':''}</td>
       <td class="num">${x.pos} de ${x.n}</td><td class="num ${x.acc>=0?'up':'dn'}">${x.acc>=0?'+':''}${fmtN(x.acc,0)} €</td></tr>`).join('')+
     `<tr><td><b>Total</b></td><td class="num"><b>${totN}</b></td><td class="num"><b>${fmtN(totN*stake,0)} €</b></td><td class="num ${tot>=0?'up':'dn'}"><b>${tot>=0?'+':''}${fmtN(tot,0)} €</b></td>
-      <td class="num ${tot>=0?'up':'dn'}"><b>${totN?(tot>=0?'+':'')+fmtN(tot/(totN*stake)*100)+' %':''}</b></td><td class="num"><b>${bySem.filter(r=>r.ret_now>0).length} de ${totN}</b></td><td></td></tr>`;
-  const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.ret_now>0).length;
+      <td class="num ${tot>=0?'up':'dn'}"><b>${totN?(tot>=0?'+':'')+fmtN(tot/(totN*stake)*100)+' %':''}</b></td><td class="num"><b>${bySem.filter(r=>r.res>0).length} de ${totN}</b></td><td></td></tr>`;
+  const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.res>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
   const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):'', !isNaN(mw)?'aciertos ≥ '+mw+' %':'', !isNaN(mn)&&mn>0?'≥ '+mn+' señales':''].filter(Boolean).join(', ');
   const allOk=all.filter(r=>r.status!=='anulada'), allPl=allOk.reduce((a,r)=>a+r.eur,0);
   document.getElementById('pf-sum').innerHTML=(filt?`<span>Total del registro, sin filtros</span><span class="${allPl>=0?'up':'dn'}">${allOk.length} señales · ${allPl>=0?'+':''}${fmtN(allPl,0)} € (${allPl>=0?'+':''}${fmtN(allPl/(allOk.length*stake)*100)} %)</span>`:'')+(rows.length?`<span>Señales${filt?' ('+filt+')':''} · ${days} ${days===1?'día':'días'}</span><span>${rows.length}</span>
     <span>Invertido</span><span>${fmtN(inv,0)} €</span>
-    <span>Resultado ahora</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
-    <span>En positivo ahora</span><span>${pos} de ${rows.length}</span>
+    <span>Resultado (con stop y objetivo)</span><span class="${pl>=0?'up':'dn'}">${pl>=0?'+':''}${fmtN(pl,0)} € (${pl>=0?'+':''}${fmtN(pl/inv*100)} %)</span>
+    <span>En positivo</span><span>${pos} de ${rows.length} · cerradas ${rows.filter(r=>r.done).length}</span>
     <span>Actualizado</span><span>${madrid(PF.updated)}</span>${annulled?`<span>Anuladas (ya bajo el stop al detectarlas)</span><span>${annulled}</span>`:''}`:'<span>Sin señales con este filtro</span><span></span>');
   const sumRow=(label,rs)=>{
     const cells=H.map(k=>{ const v=rs.map(r=>r['d'+k]).filter(x=>x!=null); if(!v.length) return '<td class="num mut">·</td>';
@@ -693,6 +698,20 @@ function drawPF(){
       return `<td class="num ${avg>0?'up':avg<0?'dn':''}">${avg>0?'+':''}${fmtN(avg)} % <span class="mut">(${fmtN(w/v.length*100,0)} %)</span></td>`; }).join('');
     const {planTxt,mR,mTxt}=planStats(rs);
     return `<tr><td>${label}</td><td class="num">${rs.length}</td>${cells}<td class="num">${planTxt}</td><td class="num ${mR>0?'up':mR<0?'dn':''}">${mTxt}</td></tr>`; };
+  // resultado por estrategia
+  { const ORD2=Object.keys(SETUPS);
+    const cmb=r=>r.kind==='orb'?(r.session?'orb_'+r.session:'orb'):(r.setups||[]).slice().sort((a,b)=>ORD2.indexOf(a)-ORD2.indexOf(b)).join('+');
+    const G={}; rows.forEach(r=>{ (G[cmb(r)]=G[cmb(r)]||[]).push(r); });
+    const lines=Object.entries(G).map(([k,rs])=>{ const cl=rs.filter(r=>r.done), cnt=o=>cl.filter(r=>r.plan.outcome===o).length;
+      const eur=rs.reduce((a,r)=>a+r.eur,0), win=rs.filter(r=>r.res>0).length;
+      const Rs=rs.map(r=>r.done?r.plan.R:(r.stop&&r.entry>r.stop&&r.last?(r.last-r.entry)/(r.entry-r.stop):null)).filter(x=>x!=null);
+      const mR=Rs.length?Rs.reduce((a,b)=>a+b,0)/Rs.length:null;
+      return {k,n:rs.length,cl:cl.length,o:cnt('objetivo'),st:cnt('stop'),f:cl.length-cnt('objetivo')-cnt('stop'),win,eur,mR}; }).sort((a,b)=>b.eur-a.eur);
+    const lab=k=>k.split('+').map(x=>`<span class="tag ${x.startsWith('orb')?'orb':x}">${SETUPS[x]||x}</span>`).join(' + ');
+    const cls=v=>v>0?'up':v<0?'dn':'';
+    document.querySelector('#t-pfe tbody').innerHTML=lines.length?lines.map(x=>`<tr><td>${lab(x.k)}</td><td class="num">${x.n}</td><td class="num">${x.cl}</td><td class="num">${x.o} / ${x.st} / ${x.f}</td>
+      <td class="num">${fmtN(100*x.win/x.n,0)} %</td><td class="num ${cls(x.eur)}">${x.eur>0?'+':''}${fmtN(x.eur,0)}</td><td class="num ${cls(x.eur)}">${x.eur>0?'+':''}${fmtN(x.eur/x.n,1)}</td>
+      <td class="num ${cls(x.mR)}">${x.mR==null?'·':(x.mR>0?'+':'')+fmtN(x.mR)+' R'}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">Sin señales con este filtro.</td></tr>'; }
   // qué aporta cada regla
   const ruleOf=(r,i)=>{ if(i===1) return r.n!=null&&r.win!=null ? (r.n>=RULES.n&&r.win>=RULES.win) : null;
     if(i===2) return r.kind==='orb' ? (r.ts!=null ? r.ts>=1/3 : null) : (r.avg!=null ? r.avg>0 : null);
@@ -723,7 +742,7 @@ function drawPF(){
     tb.innerHTML=r.length? r.slice(0,400).map(p=>`<tr>${whenCell(...p.sw)}${whenCell(...p.bw)}<td><span class="sem ${SEM[p.sem]||'x'}"></span>${SEMTXT[p.sem]||'·'}</td><td><a class="tk" data-sym="${esc(p.symbol)}" data-kind="${p.kind}">${esc(p.symbol)}</a></td>
       <td>${sigCell(p)}</td>
       <td class="num">${fmtP(p.entry)}</td><td class="num">${fmtP(p.last)}</td>${pctCell(p.ret_now)}
-      <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €</td>${H.map(k=>pctCell(p['d'+k])).join('')}
+      <td class="num ${p.eur>=0?'up':'dn'}">${p.eur>=0?'+':''}${fmtN(p.eur)} €${p.done?' <span class="mut" style="font-size:11px">cerrada</span>':''}</td>${H.map(k=>pctCell(p['d'+k])).join('')}
       <td>${p.plan?`<span class="${p.plan.outcome==='objetivo'?'up':p.plan.outcome==='stop'?'dn':''}">${PLAN_TXT[p.plan.outcome]||p.plan.outcome}</span> <span class="mut">${p.plan.R>0?'+':''}${fmtN(p.plan.R)} R</span>`:'<span class="mut">en curso</span>'}</td></tr>`).join('')
       : '<tr><td colspan="15" class="empty">Sin señales con este filtro.</td></tr>';
   }, 'buyts','desc');

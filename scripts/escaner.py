@@ -212,6 +212,9 @@ def stats_from(results):
     }
 
 
+MAX_RISK = 0.10   # riesgo máximo por operación en el plan diario
+
+
 def grade_daily(hits):
     """Para cada acción de pre-apertura: cuántas veces sus mismos patrones dieron
     ganancia a HOLD_DAYS sesiones en los últimos 2 años, y niveles propuestos."""
@@ -245,6 +248,8 @@ def grade_daily(hits):
         if entry - stop < entry * 0.01:      # soporte demasiado pegado: 2 % por debajo
             stop = entry * 0.98
         stop = round(stop * 0.995, 2)
+        if stop < entry * (1 - MAX_RISK):    # mínimo de 10 sesiones demasiado lejos: stop máximo del 10 %
+            stop = round(entry * (1 - MAX_RISK), 2)
         target = round(entry + 2 * (entry - stop), 2)
         h["grade"] = {"hist": stats_from(results), "unit": "%", "hold_days": HOLD_DAYS,
                       "entry": round(entry, 2), "stop": stop, "target": target, "rr": 2.0}
@@ -454,6 +459,18 @@ def portfolio_update(data, mode):
     con su color de semáforo de ese momento, y seguimiento a días vista."""
     pf = load(PORTFOLIO, {"positions": []})
     pos = pf["positions"]
+    for p in pos:   # registros antiguos: hueco de apertura enorme -> anulada; stop demasiado lejos -> se recorta al 10 %
+        if p.get("kind") != "daily" or p.get("status") == "anulada" or p.get("entry_type") != "apertura" or not p.get("stop"):
+            continue
+        sig = p.get("signal_price") or p["entry"]
+        if p["entry"] > sig * 1.20:
+            p["status"] = "anulada"
+            p["void_reason"] = "abrió un %.0f %% por encima de la señal" % ((p["entry"] / sig - 1) * 100)
+        elif p["stop"] < p["entry"] * (1 - MAX_RISK):
+            p["stop"] = round(p["entry"] * (1 - MAX_RISK), 2)
+            p["target"] = round(p["entry"] + 2 * (p["entry"] - p["stop"]), 2)
+            p["stop_capped"] = True
+            p.pop("plan", None)            # se recalcula con el stop nuevo
     have = {(p["symbol"], p["kind"], p["date"]) for p in pos}
     added, greens = [], []
     block = data.get("daily") if mode == "premarket" else data.get("orb") if mode == "orb" else None
@@ -504,7 +521,7 @@ def portfolio_update(data, mode):
                 greens.append(h["symbol"])
     sm = scanmod()
     now = dt.datetime.now(dt.timezone.utc)
-    live = [p for p in pos if p.get("status") != "terminada"]
+    live = [p for p in pos if p.get("status") not in ("terminada", "anulada")]
     # Las señales de pre-apertura se compran a la apertura del día, no al cierre de la señal
     for p in live:
         if p["kind"] != "daily" or p.get("entry_type") == "apertura":
@@ -522,6 +539,15 @@ def portfolio_update(data, mode):
                     p["signal_price"] = p["entry"]
                 op = round(float(opens[i]), 2)
                 p["entry"] = op
+                sig = p.get("signal_price") or op
+                if op > sig * 1.20:
+                    # abrió con un hueco enorme (valores pequeños disparados): el plan no tiene sentido
+                    p["status"] = "anulada"
+                    p["void_reason"] = "abrió un %.0f %% por encima de la señal" % ((op / sig - 1) * 100)
+                elif p.get("stop") and p["stop"] < op * (1 - MAX_RISK):
+                    p["stop"] = round(op * (1 - MAX_RISK), 2)
+                    p["target"] = round(op + 2 * (op - p["stop"]), 2)
+                    p["stop_capped"] = True
                 if p.get("stop") and op > p["stop"]:
                     p["target"] = round(op + 2 * (op - p["stop"]), 2)
                 elif p.get("stop"):
