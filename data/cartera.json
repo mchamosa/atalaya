@@ -23,21 +23,21 @@
    "opened_at": "2026-11-09T17:02:55Z",
    "closes": {
     "1": {
-     "date": "2026-11-17",
-     "ret": -6.97
+     "date": "2026-11-09",
+     "ret": -87.07
     },
     "3": {
-     "date": "2026-11-19",
-     "ret": -11.88
+     "date": "2026-11-11",
+     "ret": -85.74
     },
     "5": {
      "date": "2026-11-13",
-     "ret": 3.27
+     "ret": -87.09
     }
    },
    "last": 755.16,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 9,
    "ret_now": -11.88,
    "signal_price": 835.06,
    "entry_type": "apertura",
@@ -78,7 +78,7 @@
    },
    "last": 272.66,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.73,
    "signal_price": 284.78,
    "entry_type": "apertura",
@@ -118,7 +118,7 @@
    },
    "last": 521.39,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 11.17,
    "signal_price": 460.99,
    "entry_type": "apertura",
@@ -158,7 +158,7 @@
    },
    "last": 296.78,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 9.46,
    "signal_price": 263.78,
    "entry_type": "apertura",
@@ -198,7 +198,7 @@
    },
    "last": 177.17,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 0.32,
    "signal_price": 174.62,
    "entry_type": "apertura",
@@ -239,11 +239,18 @@
    },
    "last": 172.79,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -10.61,
    "signal_price": 189.99,
    "entry_type": "apertura",
-   "stop_capped": true
+   "stop_capped": true,
+   "plan": {
+    "outcome": "stop",
+    "R": -1.0,
+    "ret": -10.0,
+    "sessions": 9,
+    "ohlc": true
+   }
   },
   {
    "symbol": "MCHP",
@@ -273,7 +280,7 @@
    },
    "last": 58.47,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -0.24,
    "signal_price": 58.35,
    "entry_type": "apertura",
@@ -313,7 +320,7 @@
    },
    "last": 218.58,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -15.93,
    "signal_price": 260.5,
    "entry_type": "apertura",
@@ -359,7 +366,7 @@
    },
    "last": 39.46,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -25.49,
    "breakout_price": 52.43,
    "plan": {
@@ -402,7 +409,7 @@
    },
    "last": 377.44,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.94,
    "breakout_price": 379.62,
    "plan": {
@@ -445,7 +452,7 @@
    },
    "last": 211.6,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.84,
    "breakout_price": 207.78,
    "plan": {
@@ -488,7 +495,7 @@
    },
    "last": 338.93,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -8.56,
    "breakout_price": 360.17,
    "plan": {
@@ -531,7 +538,7 @@
    },
    "last": 489.19,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.59,
    "breakout_price": 488.69,
    "plan": {
@@ -574,7 +581,7 @@
    },
    "last": 189.59,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 1.42,
    "breakout_price": 184.04,
    "plan": {
@@ -617,7 +624,7 @@
    },
    "last": 177.17,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -5.79,
    "breakout_price": 183.59,
    "plan": {
@@ -660,7 +667,7 @@
    },
    "last": 1356.2,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -10.45,
    "breakout_price": 1503.93,
    "plan": {
@@ -703,7 +710,7 @@
    },
    "last": 25.55,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -31.13,
    "breakout_price": 34.57,
    "plan": {
@@ -746,7 +753,7 @@
    },
    "last": 34.84,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -18.02,
    "breakout_price": 41.62,
    "plan": {
@@ -789,7 +796,7 @@
    },
    "last": 168.11,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -14.74,
    "breakout_price": 192.89,
    "plan": {
@@ -832,7 +839,7 @@
    },
    "last": 1135.81,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.19,
    "breakout_price": 1205.01,
    "plan": {
@@ -875,7 +882,7 @@
    },
    "last": 115.99,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.59,
    "breakout_price": 123.0,
    "plan": {
@@ -918,7 +925,7 @@
    },
    "last": 537.37,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -9.73,
    "breakout_price": 585.16,
    "plan": {
@@ -961,7 +968,7 @@
    },
    "last": 262.63,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -3.17,
    "breakout_price": 267.01,
    "plan": {
@@ -1004,7 +1011,7 @@
    },
    "last": 240.23,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 8.36,
    "breakout_price": 218.35,
    "plan": {
@@ -1047,7 +1054,7 @@
    },
    "last": 214.94,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.04,
    "breakout_price": 213.36,
    "plan": {
@@ -1090,7 +1097,7 @@
    },
    "last": 108.87,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -20.7,
    "breakout_price": 136.01,
    "plan": {
@@ -1133,7 +1140,7 @@
    },
    "last": 51.88,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -23.72,
    "breakout_price": 67.43,
    "plan": {
@@ -1176,7 +1183,7 @@
    },
    "last": 117.76,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -12.76,
    "breakout_price": 131.49,
    "plan": {
@@ -1219,7 +1226,7 @@
    },
    "last": 243.46,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 8.44,
    "breakout_price": 221.86,
    "plan": {
@@ -1262,7 +1269,7 @@
    },
    "last": 44.91,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -8.5,
    "breakout_price": 49.34,
    "plan": {
@@ -1305,7 +1312,7 @@
    },
    "last": 94.7,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -3.65,
    "breakout_price": 97.64,
    "plan": {
@@ -1348,7 +1355,7 @@
    },
    "last": 166.46,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.83,
    "breakout_price": 180.5,
    "plan": {
@@ -1391,7 +1398,7 @@
    },
    "last": 624.89,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -9.45,
    "breakout_price": 689.09,
    "plan": {
@@ -1434,7 +1441,7 @@
    },
    "last": 312.54,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -11.29,
    "breakout_price": 344.18,
    "plan": {
@@ -1477,7 +1484,7 @@
    },
    "last": 92.31,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.75,
    "breakout_price": 98.82,
    "plan": {
@@ -1520,7 +1527,7 @@
    },
    "last": 1018.05,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -4.66,
    "breakout_price": 1045.42,
    "plan": {
@@ -1563,7 +1570,7 @@
    },
    "last": 330.57,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -8.66,
    "breakout_price": 353.62,
    "plan": {
@@ -1606,7 +1613,7 @@
    },
    "last": 1114.02,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 1.23,
    "breakout_price": 1078.86,
    "plan": {
@@ -1649,7 +1656,7 @@
    },
    "last": 74.22,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -5.32,
    "breakout_price": 76.46,
    "plan": {
@@ -1692,7 +1699,7 @@
    },
    "last": 311.71,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -14.19,
    "breakout_price": 349.01,
    "plan": {
@@ -1735,7 +1742,7 @@
    },
    "last": 756.28,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -8.94,
    "breakout_price": 823.92,
    "plan": {
@@ -1778,7 +1785,7 @@
    },
    "last": 105.97,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.63,
    "breakout_price": 112.48,
    "plan": {
@@ -1821,7 +1828,7 @@
    },
    "last": 847.53,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.69,
    "breakout_price": 896.41,
    "plan": {
@@ -1864,7 +1871,7 @@
    },
    "last": 68.65,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -18.35,
    "breakout_price": 83.91,
    "plan": {
@@ -1907,7 +1914,7 @@
    },
    "last": 45.49,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -5.99,
    "breakout_price": 47.19,
    "plan": {
@@ -1950,7 +1957,7 @@
    },
    "last": 223.88,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -9.62,
    "breakout_price": 247.42,
    "plan": {
@@ -1993,7 +2000,7 @@
    },
    "last": 55.72,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -4.54,
    "breakout_price": 57.59,
    "plan": {
@@ -2036,7 +2043,7 @@
    },
    "last": 136.0,
    "status": "abierta",
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -4.27,
    "breakout_price": 140.52,
    "plan": {
@@ -2089,7 +2096,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 5.779,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -15.64
   },
   {
@@ -2134,7 +2141,7 @@
    "last": 489.19,
    "status": "abierta",
    "shares": 2.1124,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 3.34,
    "stop_capped": true,
    "plan": {
@@ -2187,7 +2194,7 @@
    "last": 690.44,
    "status": "abierta",
    "shares": 1.4213,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.87,
    "plan": {
     "outcome": "objetivo",
@@ -2240,7 +2247,7 @@
    "last": 55.72,
    "status": "abierta",
    "shares": 17.5685,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.11
   },
   {
@@ -2286,7 +2293,7 @@
    "last": 271.02,
    "status": "abierta",
    "shares": 3.4369,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.85,
    "plan": {
     "outcome": "stop",
@@ -2338,7 +2345,7 @@
    "last": 352.09,
    "status": "abierta",
    "shares": 2.6144,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.95,
    "plan": {
     "outcome": "stop",
@@ -2391,7 +2398,7 @@
    "last": 138.47,
    "status": "abierta",
    "shares": 6.9565,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -3.67,
    "plan": {
     "outcome": "objetivo",
@@ -2444,7 +2451,7 @@
    "last": 535.15,
    "status": "abierta",
    "shares": 1.8267,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.25,
    "plan": {
     "outcome": "objetivo",
@@ -2496,7 +2503,7 @@
    "last": 1351.12,
    "status": "abierta",
    "shares": 0.7324,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.05
   },
   {
@@ -2541,7 +2548,7 @@
    "last": 153.68,
    "status": "abierta",
    "shares": 6.2008,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -4.71,
    "plan": {
     "outcome": "objetivo",
@@ -2593,7 +2600,7 @@
    "last": 214.94,
    "status": "abierta",
    "shares": 5.0633,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 8.83,
    "stop_capped": true,
    "plan": {
@@ -2646,7 +2653,7 @@
    "last": 1356.2,
    "status": "abierta",
    "shares": 0.6785,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.98
   },
   {
@@ -2691,7 +2698,7 @@
    "last": 379.02,
    "status": "abierta",
    "shares": 2.5791,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -2.25,
    "stop_capped": true
   },
@@ -2737,7 +2744,7 @@
    "last": 338.93,
    "status": "abierta",
    "shares": 2.9146,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.22,
    "plan": {
     "outcome": "objetivo",
@@ -2789,7 +2796,7 @@
    "last": 44.91,
    "status": "abierta",
    "shares": 21.575,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -3.11,
    "plan": {
     "outcome": "objetivo",
@@ -2842,7 +2849,7 @@
    "last": 312.54,
    "status": "abierta",
    "shares": 2.9643,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -7.35,
    "plan": {
     "outcome": "objetivo",
@@ -2894,7 +2901,7 @@
    "last": 203.68,
    "status": "abierta",
    "shares": 4.8438,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.34,
    "stop_capped": true
   },
@@ -2940,7 +2947,7 @@
    "last": 14.41,
    "status": "abierta",
    "shares": 46.7508,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -32.63,
    "stop_capped": true,
    "plan": {
@@ -2994,7 +3001,7 @@
    "last": 537.37,
    "status": "abierta",
    "shares": 1.7422,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -6.38,
    "plan": {
     "outcome": "stop",
@@ -3046,7 +3053,7 @@
    "last": 141.48,
    "status": "abierta",
    "shares": 7.0333,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -0.49
   },
   {
@@ -3091,7 +3098,7 @@
    "last": 303.68,
    "status": "abierta",
    "shares": 3.6036,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 9.43,
    "stop_capped": true
   },
@@ -3137,7 +3144,7 @@
    "last": 68.65,
    "status": "abierta",
    "shares": 12.3686,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -15.09,
    "plan": {
     "outcome": "stop",
@@ -3189,7 +3196,7 @@
    "last": 94.7,
    "status": "abierta",
    "shares": 10.4943,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -0.62,
    "plan": {
     "outcome": "objetivo",
@@ -3241,7 +3248,7 @@
    "last": 88.87,
    "status": "abierta",
    "shares": 9.8396,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -12.56,
    "plan": {
     "outcome": "stop",
@@ -3293,7 +3300,7 @@
    "last": 22.71,
    "status": "abierta",
    "shares": 30.553,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -30.61,
    "stop_capped": true,
    "plan": {
@@ -3347,7 +3354,7 @@
    "last": 211.6,
    "status": "abierta",
    "shares": 5.0251,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 6.33,
    "stop_capped": true,
    "plan": {
@@ -3400,7 +3407,7 @@
    "last": 306.98,
    "status": "abierta",
    "shares": 3.1201,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -4.22,
    "plan": {
     "outcome": "stop",
@@ -3452,7 +3459,7 @@
    "last": 268.59,
    "status": "abierta",
    "shares": 3.593,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -3.5,
    "plan": {
     "outcome": "objetivo",
@@ -3505,7 +3512,7 @@
    "last": 380.0,
    "status": "abierta",
    "shares": 2.2801,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -13.35,
    "plan": {
     "outcome": "stop",
@@ -3557,7 +3564,7 @@
    "last": 91.71,
    "status": "abierta",
    "shares": 12.6904,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": 16.38,
    "plan": {
     "outcome": "objetivo",
@@ -3609,7 +3616,7 @@
    "last": 151.95,
    "status": "abierta",
    "shares": 5.0502,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -23.26,
    "stop_capped": true,
    "plan": {
@@ -3663,7 +3670,7 @@
    "last": 105.97,
    "status": "abierta",
    "shares": 9.2593,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.88,
    "plan": {
     "outcome": "objetivo",
@@ -3715,7 +3722,7 @@
    "last": 25.55,
    "status": "abierta",
    "shares": 29.8597,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -23.71,
    "stop_capped": true,
    "plan": {
@@ -3769,7 +3776,7 @@
    "last": 688.75,
    "status": "abierta",
    "shares": 1.4301,
-   "sessions": 8,
+   "sessions": 9,
    "ret_now": -1.5
   },
   {
@@ -3816,7 +3823,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 5.7478,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -16.09
   },
   {
@@ -3847,22 +3854,22 @@
    "opened_at": "2026-11-10T14:54:16Z",
    "closes": {
     "1": {
-     "date": "2026-11-17",
-     "ret": -7.44
+     "date": "2026-11-10",
+     "ret": -87.52
     },
     "3": {
-     "date": "2026-11-19",
-     "ret": -12.33
+     "date": "2026-11-12",
+     "ret": -86.4
     },
     "5": {
      "date": "2026-11-16",
-     "ret": -6.06
+     "ret": -88.26
     }
    },
    "last": 755.16,
    "status": "abierta",
    "shares": 1.161,
-   "sessions": 2,
+   "sessions": 8,
    "ret_now": -12.33,
    "plan": {
     "outcome": "objetivo",
@@ -3915,7 +3922,7 @@
    "last": 257.37,
    "status": "abierta",
    "shares": 3.7547,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.36,
    "stop_capped": true
   },
@@ -3963,7 +3970,7 @@
    "last": 349.21,
    "status": "abierta",
    "shares": 2.8445,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.67
   },
   {
@@ -4009,7 +4016,7 @@
    "last": 272.66,
    "status": "abierta",
    "shares": 3.4589,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -5.69,
    "plan": {
     "outcome": "stop",
@@ -4062,7 +4069,7 @@
    "last": 498.3,
    "status": "abierta",
    "shares": 1.8402,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -8.3,
    "plan": {
     "outcome": "stop",
@@ -4116,7 +4123,7 @@
    "last": 55.72,
    "status": "abierta",
    "shares": 17.2503,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.88,
    "stop_capped": true
   },
@@ -4163,7 +4170,7 @@
    "last": 271.02,
    "status": "abierta",
    "shares": 3.481,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -5.66,
    "plan": {
     "outcome": "stop",
@@ -4216,7 +4223,7 @@
    "last": 138.47,
    "status": "abierta",
    "shares": 6.668,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -7.67,
    "stop_capped": true
   },
@@ -4263,7 +4270,7 @@
    "last": 199.33,
    "status": "abierta",
    "shares": 3.7614,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -25.02,
    "stop_capped": true,
    "plan": {
@@ -4317,7 +4324,7 @@
    "last": 214.94,
    "status": "abierta",
    "shares": 4.6531,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.01,
    "stop_capped": true
   },
@@ -4364,7 +4371,7 @@
    "last": 50.99,
    "status": "abierta",
    "shares": 18.1851,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -7.27,
    "stop_capped": true,
    "plan": {
@@ -4418,7 +4425,7 @@
    "last": 14.56,
    "status": "abierta",
    "shares": 68.4932,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.27,
    "stop_capped": true
   },
@@ -4466,7 +4473,7 @@
    "last": 88.87,
    "status": "abierta",
    "shares": 9.9453,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -11.62,
    "plan": {
     "outcome": "stop",
@@ -4519,7 +4526,7 @@
    "last": 96.09,
    "status": "abierta",
    "shares": 10.3466,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.58
   },
   {
@@ -4565,7 +4572,7 @@
    "last": 94.7,
    "status": "abierta",
    "shares": 10.2828,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.62
   },
   {
@@ -4659,7 +4666,7 @@
    "last": 4.22,
    "status": "abierta",
    "shares": 36.4964,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -84.6,
    "stop_capped": true,
    "plan": {
@@ -4713,7 +4720,7 @@
    "last": 86.96,
    "status": "abierta",
    "shares": 10.6952,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.99,
    "stop_capped": true,
    "plan": {
@@ -4767,7 +4774,7 @@
    "last": 7.31,
    "status": "abierta",
    "shares": 90.4159,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -33.91,
    "stop_capped": true,
    "plan": {
@@ -4821,7 +4828,7 @@
    "last": 17.73,
    "status": "abierta",
    "shares": 55.7724,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.12,
    "stop_capped": true
   },
@@ -4868,7 +4875,7 @@
    "last": 75.61,
    "status": "abierta",
    "shares": 12.4517,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -5.85,
    "stop_capped": true
   },
@@ -4915,7 +4922,7 @@
    "last": 11.58,
    "status": "abierta",
    "shares": 82.5083,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.46,
    "stop_capped": true
   },
@@ -4962,7 +4969,7 @@
    "last": 26.77,
    "status": "abierta",
    "shares": 33.8868,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -9.28,
    "stop_capped": true,
    "plan": {
@@ -5016,7 +5023,7 @@
    "last": 16.29,
    "status": "abierta",
    "shares": 55.2486,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -10.0,
    "plan": {
     "outcome": "stop",
@@ -5070,7 +5077,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 122.2494,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -23.96
   },
   {
@@ -5116,7 +5123,7 @@
    "last": 12.72,
    "status": "abierta",
    "shares": 70.2741,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -10.61,
    "stop_capped": true,
    "plan": {
@@ -5170,7 +5177,7 @@
    "last": 39.11,
    "status": "abierta",
    "shares": 26.738,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 4.57
   },
   {
@@ -5216,7 +5223,7 @@
    "last": 46.35,
    "status": "abierta",
    "shares": 19.5695,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -9.3,
    "stop_capped": true,
    "plan": {
@@ -5270,7 +5277,7 @@
    "last": 33.37,
    "status": "abierta",
    "shares": 24.564,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -18.03,
    "plan": {
     "outcome": "stop",
@@ -5323,7 +5330,7 @@
    "last": 20.84,
    "status": "abierta",
    "shares": 38.9105,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -18.91,
    "stop_capped": true,
    "plan": {
@@ -5377,7 +5384,7 @@
    "last": 13.19,
    "status": "abierta",
    "shares": 67.7507,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -10.64,
    "stop_capped": true,
    "plan": {
@@ -5431,7 +5438,7 @@
    "last": 13.34,
    "status": "abierta",
    "shares": 69.4927,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -7.3
   },
   {
@@ -5477,7 +5484,7 @@
    "last": 30.85,
    "status": "abierta",
    "shares": 30.8071,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.96,
    "stop_capped": true
   },
@@ -5524,7 +5531,7 @@
    "last": 11.32,
    "status": "abierta",
    "shares": 65.7895,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -25.53,
    "plan": {
     "outcome": "stop",
@@ -5577,7 +5584,7 @@
    "last": 8.88,
    "status": "abierta",
    "shares": 86.5801,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -23.12,
    "stop_capped": true,
    "plan": {
@@ -5631,7 +5638,7 @@
    "last": 11.02,
    "status": "abierta",
    "shares": 73.692,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -18.79,
    "stop_capped": true,
    "plan": {
@@ -5685,7 +5692,7 @@
    "last": 13.4,
    "status": "abierta",
    "shares": 66.6667,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -10.67,
    "stop_capped": true,
    "plan": {
@@ -5740,7 +5747,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 50.5817,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 7.74
   },
   {
@@ -5787,7 +5794,7 @@
    "last": 11.86,
    "status": "abierta",
    "shares": 81.0373,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.89,
    "plan": {
     "outcome": "stop",
@@ -5839,7 +5846,7 @@
    },
    "last": 77.08,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.12,
    "plan": {
     "outcome": "stop",
@@ -5890,7 +5897,7 @@
    },
    "last": 44.62,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.04,
    "plan": {
     "outcome": "cierre",
@@ -5941,7 +5948,7 @@
    },
    "last": 346.65,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 5.34,
    "plan": {
     "outcome": "stop",
@@ -5992,7 +5999,7 @@
    },
    "last": 135.68,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.49,
    "plan": {
     "outcome": "stop",
@@ -6043,7 +6050,7 @@
    },
    "last": 46.67,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.51,
    "plan": {
     "outcome": "stop",
@@ -6094,7 +6101,7 @@
    },
    "last": 43.21,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.06,
    "plan": {
     "outcome": "cierre",
@@ -6145,7 +6152,7 @@
    },
    "last": 44.7,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.41,
    "plan": {
     "outcome": "cierre",
@@ -6196,7 +6203,7 @@
    },
    "last": 134.99,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.19,
    "plan": {
     "outcome": "cierre",
@@ -6247,7 +6254,7 @@
    },
    "last": 243.46,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 6.21,
    "plan": {
     "outcome": "stop",
@@ -6298,7 +6305,7 @@
    },
    "last": 206.5,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.2,
    "plan": {
     "outcome": "cierre",
@@ -6349,7 +6356,7 @@
    },
    "last": 42.05,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.32,
    "plan": {
     "outcome": "cierre",
@@ -6400,7 +6407,7 @@
    },
    "last": 117.22,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.57,
    "plan": {
     "outcome": "objetivo",
@@ -6451,7 +6458,7 @@
    },
    "last": 149.49,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.19,
    "plan": {
     "outcome": "cierre",
@@ -6502,7 +6509,7 @@
    },
    "last": 39.69,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.59,
    "plan": {
     "outcome": "cierre",
@@ -6553,7 +6560,7 @@
    },
    "last": 49.3,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.28,
    "plan": {
     "outcome": "objetivo",
@@ -6604,7 +6611,7 @@
    },
    "last": 176.77,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.28,
    "plan": {
     "outcome": "cierre",
@@ -6655,7 +6662,7 @@
    },
    "last": 31.73,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.6,
    "plan": {
     "outcome": "cierre",
@@ -6706,7 +6713,7 @@
    },
    "last": 34.9,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.69,
    "plan": {
     "outcome": "objetivo",
@@ -6757,7 +6764,7 @@
    },
    "last": 225.36,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.56,
    "plan": {
     "outcome": "objetivo",
@@ -6808,7 +6815,7 @@
    },
    "last": 136.0,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.76,
    "plan": {
     "outcome": "stop",
@@ -6859,7 +6866,7 @@
    },
    "last": 31.09,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.52,
    "plan": {
     "outcome": "cierre",
@@ -6910,7 +6917,7 @@
    },
    "last": 16.1,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -27.22,
    "plan": {
     "outcome": "stop",
@@ -6961,7 +6968,7 @@
    },
    "last": 13.34,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -8.76,
    "plan": {
     "outcome": "stop",
@@ -7012,7 +7019,7 @@
    },
    "last": 295.37,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 3.07,
    "plan": {
     "outcome": "cierre",
@@ -7063,7 +7070,7 @@
    },
    "last": 57.24,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.38,
    "plan": {
     "outcome": "stop",
@@ -7114,7 +7121,7 @@
    },
    "last": 247.43,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.39,
    "plan": {
     "outcome": "cierre",
@@ -7165,7 +7172,7 @@
    },
    "last": 251.76,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.71,
    "plan": {
     "outcome": "cierre",
@@ -7216,7 +7223,7 @@
    },
    "last": 86.52,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.28,
    "plan": {
     "outcome": "cierre",
@@ -7267,7 +7274,7 @@
    },
    "last": 361.73,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 9.55,
    "plan": {
     "outcome": "stop",
@@ -7318,7 +7325,7 @@
    },
    "last": 16.29,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -10.84,
    "plan": {
     "outcome": "cierre",
@@ -7369,7 +7376,7 @@
    },
    "last": 21.19,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.94,
    "plan": {
     "outcome": "cierre",
@@ -7420,7 +7427,7 @@
    },
    "last": 242.71,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -2.79,
    "plan": {
     "outcome": "cierre",
@@ -7471,7 +7478,7 @@
    },
    "last": 24.01,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.33,
    "plan": {
     "outcome": "stop",
@@ -7522,7 +7529,7 @@
    },
    "last": 47.9,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.74,
    "plan": {
     "outcome": "cierre",
@@ -7573,7 +7580,7 @@
    },
    "last": 218.26,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.75,
    "plan": {
     "outcome": "stop",
@@ -7624,7 +7631,7 @@
    },
    "last": 63.96,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.71,
    "plan": {
     "outcome": "cierre",
@@ -7675,7 +7682,7 @@
    },
    "last": 133.01,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -14.07,
    "plan": {
     "outcome": "stop",
@@ -7726,7 +7733,7 @@
    },
    "last": 64.88,
    "status": "abierta",
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.23,
    "plan": {
     "outcome": "stop",
@@ -7778,7 +7785,7 @@
    "last": 535.15,
    "status": "abierta",
    "shares": 1.739,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.94,
    "stop_capped": true
   },
@@ -7825,7 +7832,7 @@
    "last": 521.39,
    "status": "abierta",
    "shares": 2.0252,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 5.59,
    "plan": {
     "outcome": "objetivo",
@@ -7878,7 +7885,7 @@
    "last": 1351.12,
    "status": "abierta",
    "shares": 0.71,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.07
   },
   {
@@ -7924,7 +7931,7 @@
    "last": 312.54,
    "status": "abierta",
    "shares": 2.9605,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -7.47,
    "plan": {
     "outcome": "objetivo",
@@ -7977,7 +7984,7 @@
    "last": 379.02,
    "status": "abierta",
    "shares": 2.4655,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.55,
    "stop_capped": true
   },
@@ -8024,7 +8031,7 @@
    "last": 537.37,
    "status": "abierta",
    "shares": 1.7552,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -5.68,
    "plan": {
     "outcome": "objetivo",
@@ -8077,7 +8084,7 @@
    "last": 267.14,
    "status": "abierta",
    "shares": 3.5461,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -5.27,
    "plan": {
     "outcome": "stop",
@@ -8130,7 +8137,7 @@
    "last": 296.78,
    "status": "abierta",
    "shares": 3.5331,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 4.85
   },
   {
@@ -8176,7 +8183,7 @@
    "last": 189.59,
    "status": "abierta",
    "shares": 5.3763,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 1.93,
    "stop_capped": true
   },
@@ -8223,7 +8230,7 @@
    "last": 285.75,
    "status": "abierta",
    "shares": 3.4614,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -1.09,
    "plan": {
     "outcome": "objetivo",
@@ -8276,7 +8283,7 @@
    "last": 320.22,
    "status": "abierta",
    "shares": 2.9073,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.9,
    "plan": {
     "outcome": "stop",
@@ -8329,7 +8336,7 @@
    "last": 167.85,
    "status": "abierta",
    "shares": 5.9109,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.79
   },
   {
@@ -8375,7 +8382,7 @@
    "last": 688.75,
    "status": "abierta",
    "shares": 1.3861,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.54
   },
   {
@@ -8421,7 +8428,7 @@
    "last": 318.88,
    "status": "abierta",
    "shares": 2.9851,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -4.81,
    "stop_capped": true
   },
@@ -8468,7 +8475,7 @@
    "last": 272.35,
    "status": "abierta",
    "shares": 3.5491,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -3.34,
    "stop_capped": true
   },
@@ -8515,7 +8522,7 @@
    "last": 104.9,
    "status": "abierta",
    "shares": 9.5238,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -0.1,
    "stop_capped": true
   },
@@ -8562,7 +8569,7 @@
    "last": 218.17,
    "status": "abierta",
    "shares": 4.5848,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": 0.03,
    "stop_capped": true
   },
@@ -8609,7 +8616,7 @@
    "last": 105.97,
    "status": "abierta",
    "shares": 8.8044,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -6.7
   },
   {
@@ -8655,7 +8662,7 @@
    "last": 218.58,
    "status": "abierta",
    "shares": 3.9466,
-   "sessions": 7,
+   "sessions": 8,
    "ret_now": -13.73,
    "plan": {
     "outcome": "stop",
@@ -8709,7 +8716,7 @@
    "last": 145.98,
    "status": "abierta",
    "shares": 5.7897,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -15.48,
    "plan": {
     "outcome": "stop",
@@ -8748,22 +8755,22 @@
    "opened_at": "2026-11-11T16:13:08Z",
    "closes": {
     "1": {
-     "date": "2026-11-17",
-     "ret": -14.11
+     "date": "2026-11-11",
+     "ret": -86.83
     },
     "3": {
-     "date": "2026-11-19",
-     "ret": -18.65
+     "date": "2026-11-13",
+     "ret": -88.08
     },
     "5": {
      "date": "2026-11-17",
-     "ret": -14.11
+     "ret": -89.26
     }
    },
    "last": 755.16,
    "status": "abierta",
    "shares": 1.0773,
-   "sessions": 2,
+   "sessions": 7,
    "ret_now": -18.65,
    "stop_capped": true,
    "plan": {
@@ -8818,7 +8825,7 @@
    "last": 346.65,
    "status": "abierta",
    "shares": 2.8553,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.02,
    "stop_capped": true
   },
@@ -8866,7 +8873,7 @@
    "last": 257.37,
    "status": "abierta",
    "shares": 3.6594,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -5.82,
    "stop_capped": true
   },
@@ -8914,7 +8921,7 @@
    "last": 55.72,
    "status": "abierta",
    "shares": 16.1865,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.81,
    "stop_capped": true,
    "plan": {
@@ -8970,7 +8977,7 @@
    "last": 572.04,
    "status": "abierta",
    "shares": 1.733,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.86
   },
   {
@@ -9017,7 +9024,7 @@
    "last": 162.01,
    "status": "abierta",
    "shares": 5.6132,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.06,
    "stop_capped": true,
    "plan": {
@@ -9072,7 +9079,7 @@
    "last": 88.87,
    "status": "abierta",
    "shares": 9.9493,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -11.58,
    "plan": {
     "outcome": "stop",
@@ -9126,7 +9133,7 @@
    "last": 303.68,
    "status": "abierta",
    "shares": 3.1632,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -3.94,
    "stop_capped": true,
    "plan": {
@@ -9181,7 +9188,7 @@
    "last": 208.65,
    "status": "abierta",
    "shares": 4.3943,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -8.31,
    "stop_capped": true,
    "plan": {
@@ -9236,7 +9243,7 @@
    "last": 139.0,
    "status": "abierta",
    "shares": 7.0512,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.99
   },
   {
@@ -9283,7 +9290,7 @@
    "last": 272.35,
    "status": "abierta",
    "shares": 3.5842,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.38,
    "stop_capped": true
   },
@@ -9332,7 +9339,7 @@
    "last": 96.09,
    "status": "abierta",
    "shares": 10.3896,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.17
   },
   {
@@ -9379,7 +9386,7 @@
    "last": 158.93,
    "status": "abierta",
    "shares": 6.0555,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -3.76,
    "plan": {
     "outcome": "stop",
@@ -9433,7 +9440,7 @@
    "last": 48.57,
    "status": "abierta",
    "shares": 19.658,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.52,
    "plan": {
     "outcome": "stop",
@@ -9488,7 +9495,7 @@
    "last": 131.46,
    "status": "abierta",
    "shares": 7.8672,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 3.42
   },
   {
@@ -9536,7 +9543,7 @@
    "last": 167.85,
    "status": "abierta",
    "shares": 6.0172,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 1.0
   },
   {
@@ -9583,7 +9590,7 @@
    "last": 45.74,
    "status": "abierta",
    "shares": 21.7391,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.57
   },
   {
@@ -9630,7 +9637,7 @@
    "last": 42.99,
    "status": "abierta",
    "shares": 22.6963,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.43
   },
   {
@@ -9677,7 +9684,7 @@
    "last": 17.73,
    "status": "abierta",
    "shares": 53.4759,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -5.19,
    "stop_capped": true,
    "plan": {
@@ -9732,7 +9739,7 @@
    "last": 94.01,
    "status": "abierta",
    "shares": 10.176,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.33,
    "plan": {
     "outcome": "stop",
@@ -9786,7 +9793,7 @@
    "last": 16.02,
    "status": "abierta",
    "shares": 51.8941,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -16.87,
    "plan": {
     "outcome": "objetivo",
@@ -9840,7 +9847,7 @@
    "last": 105.53,
    "status": "abierta",
    "shares": 8.3766,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -11.6,
    "stop_capped": true,
    "plan": {
@@ -9896,7 +9903,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 56.8182,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.44
   },
   {
@@ -9943,7 +9950,7 @@
    "last": 14.56,
    "status": "abierta",
    "shares": 65.6599,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.4,
    "stop_capped": true
   },
@@ -9992,7 +9999,7 @@
    "last": 120.25,
    "status": "abierta",
    "shares": 8.4538,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 1.66
   },
   {
@@ -10040,7 +10047,7 @@
    "last": 19.88,
    "status": "abierta",
    "shares": 47.6417,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -5.29,
    "stop_capped": true
   },
@@ -10090,7 +10097,7 @@
    "last": 32.22,
    "status": "abierta",
    "shares": 27.7778,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -10.5,
    "stop_capped": true,
    "plan": {
@@ -10146,7 +10153,7 @@
    "last": 104.47,
    "status": "abierta",
    "shares": 9.1,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.93
   },
   {
@@ -10193,7 +10200,7 @@
    "last": 42.05,
    "status": "abierta",
    "shares": 22.748,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.34,
    "plan": {
     "outcome": "stop",
@@ -10247,7 +10254,7 @@
    "last": 25.94,
    "status": "abierta",
    "shares": 35.6125,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.62,
    "plan": {
     "outcome": "objetivo",
@@ -10301,7 +10308,7 @@
    "last": 83.17,
    "status": "abierta",
    "shares": 10.8909,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.42,
    "stop_capped": true
   },
@@ -10350,7 +10357,7 @@
    "last": 34.41,
    "status": "abierta",
    "shares": 26.9469,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.28,
    "plan": {
     "outcome": "stop",
@@ -10404,7 +10411,7 @@
    "last": 6.245,
    "status": "abierta",
    "shares": 130.2083,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -18.68,
    "stop_capped": true,
    "plan": {
@@ -10459,7 +10466,7 @@
    "last": 56.62,
    "status": "abierta",
    "shares": 15.9949,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.44,
    "stop_capped": true,
    "plan": {
@@ -10515,7 +10522,7 @@
    "last": 36.3,
    "status": "abierta",
    "shares": 28.0584,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 1.85,
    "stop_capped": true
   },
@@ -10563,7 +10570,7 @@
    "last": 37.84,
    "status": "abierta",
    "shares": 24.42,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.59,
    "stop_capped": true,
    "plan": {
@@ -10618,7 +10625,7 @@
    "last": 43.21,
    "status": "abierta",
    "shares": 22.1043,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.49,
    "plan": {
     "outcome": "stop",
@@ -10672,7 +10679,7 @@
    "last": 40.95,
    "status": "abierta",
    "shares": 23.7361,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.8,
    "plan": {
     "outcome": "stop",
@@ -10727,7 +10734,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 64.0205,
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -8.32
   },
   {
@@ -10773,7 +10780,7 @@
    },
    "last": 349.21,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.28,
    "plan": {
     "outcome": "cierre",
@@ -10825,7 +10832,7 @@
    },
    "last": 103.87,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -5.33,
    "plan": {
     "outcome": "objetivo",
@@ -10877,7 +10884,7 @@
    },
    "last": 147.82,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -5.62,
    "plan": {
     "outcome": "cierre",
@@ -10929,7 +10936,7 @@
    },
    "last": 175.41,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.91,
    "plan": {
     "outcome": "stop",
@@ -10981,7 +10988,7 @@
    },
    "last": 357.69,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.83,
    "plan": {
     "outcome": "cierre",
@@ -11033,7 +11040,7 @@
    },
    "last": 183.31,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -15.5,
    "plan": {
     "outcome": "cierre",
@@ -11085,7 +11092,7 @@
    },
    "last": 83.17,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.27,
    "plan": {
     "outcome": "stop",
@@ -11137,7 +11144,7 @@
    },
    "last": 56.62,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -11.06,
    "plan": {
     "outcome": "cierre",
@@ -11189,7 +11196,7 @@
    },
    "last": 166.53,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.99,
    "plan": {
     "outcome": "stop",
@@ -11241,7 +11248,7 @@
    },
    "last": 75.65,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -8.67,
    "plan": {
     "outcome": "cierre",
@@ -11293,7 +11300,7 @@
    },
    "last": 170.88,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.14,
    "plan": {
     "outcome": "cierre",
@@ -11345,7 +11352,7 @@
    },
    "last": 310.02,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -8.72,
    "plan": {
     "outcome": "stop",
@@ -11397,7 +11404,7 @@
    },
    "last": 267.14,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -3.86,
    "plan": {
     "outcome": "stop",
@@ -11449,7 +11456,7 @@
    },
    "last": 34.41,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.33,
    "plan": {
     "outcome": "cierre",
@@ -11501,7 +11508,7 @@
    },
    "last": 96.09,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.53,
    "plan": {
     "outcome": "objetivo",
@@ -11553,7 +11560,7 @@
    },
    "last": 219.14,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.17,
    "plan": {
     "outcome": "stop",
@@ -11605,7 +11612,7 @@
    },
    "last": 86.0,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 8.93,
    "plan": {
     "outcome": "cierre",
@@ -11657,7 +11664,7 @@
    },
    "last": 229.96,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.24,
    "plan": {
     "outcome": "objetivo",
@@ -11709,7 +11716,7 @@
    },
    "last": 923.34,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": 0.61,
    "plan": {
     "outcome": "objetivo",
@@ -11761,7 +11768,7 @@
    },
    "last": 83.82,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -12.99,
    "plan": {
     "outcome": "cierre",
@@ -11813,7 +11820,7 @@
    },
    "last": 12.72,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.66,
    "plan": {
     "outcome": "cierre",
@@ -11865,7 +11872,7 @@
    },
    "last": 306.98,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.62,
    "plan": {
     "outcome": "cierre",
@@ -11917,7 +11924,7 @@
    },
    "last": 160.51,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.39,
    "plan": {
     "outcome": "objetivo",
@@ -11969,7 +11976,7 @@
    },
    "last": 96.88,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -0.86,
    "plan": {
     "outcome": "stop",
@@ -12021,7 +12028,7 @@
    },
    "last": 318.88,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -6.78,
    "plan": {
     "outcome": "cierre",
@@ -12073,7 +12080,7 @@
    },
    "last": 295.37,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.7,
    "plan": {
     "outcome": "cierre",
@@ -12125,7 +12132,7 @@
    },
    "last": 74.68,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.46,
    "plan": {
     "outcome": "cierre",
@@ -12177,7 +12184,7 @@
    },
    "last": 521.92,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.03,
    "plan": {
     "outcome": "stop",
@@ -12229,7 +12236,7 @@
    },
    "last": 690.44,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -15.37,
    "plan": {
     "outcome": "cierre",
@@ -12281,7 +12288,7 @@
    },
    "last": 14.56,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -8.83,
    "plan": {
     "outcome": "cierre",
@@ -12333,7 +12340,7 @@
    },
    "last": 158.93,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -4.31,
    "plan": {
     "outcome": "cierre",
@@ -12385,7 +12392,7 @@
    },
    "last": 115.28,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -7.53,
    "plan": {
     "outcome": "cierre",
@@ -12437,7 +12444,7 @@
    },
    "last": 134.99,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -1.45,
    "plan": {
     "outcome": "cierre",
@@ -12489,7 +12496,7 @@
    },
    "last": 206.5,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -2.84,
    "plan": {
     "outcome": "cierre",
@@ -12541,7 +12548,7 @@
    },
    "last": 624.89,
    "status": "abierta",
-   "sessions": 6,
+   "sessions": 7,
    "ret_now": -9.37,
    "plan": {
     "outcome": "cierre",
@@ -12596,7 +12603,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 6.623,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -3.32
   },
   {
@@ -12643,7 +12650,7 @@
    "last": 489.19,
    "status": "abierta",
    "shares": 1.7566,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -14.07,
    "stop_capped": true,
    "plan": {
@@ -12683,22 +12690,22 @@
    "opened_at": "2026-11-12T16:21:25Z",
    "closes": {
     "1": {
-     "date": "2026-11-17",
-     "ret": -10.23
+     "date": "2026-11-12",
+     "ret": -86.81
     },
     "3": {
-     "date": "2026-11-19",
-     "ret": -14.97
+     "date": "2026-11-16",
+     "ret": -88.61
     },
     "5": {
      "date": "2026-11-18",
-     "ret": -12.6
+     "ret": -89.07
     }
    },
    "last": 755.16,
    "status": "abierta",
    "shares": 1.126,
-   "sessions": 2,
+   "sessions": 6,
    "ret_now": -14.97,
    "plan": {
     "outcome": "stop",
@@ -12752,9 +12759,16 @@
    "last": 44.91,
    "status": "abierta",
    "shares": 19.6502,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.75,
-   "stop_capped": true
+   "stop_capped": true,
+   "plan": {
+    "outcome": "stop",
+    "R": -1.0,
+    "ret": -10.0,
+    "sessions": 6,
+    "ohlc": true
+   }
   },
   {
    "symbol": "AAPL",
@@ -12801,7 +12815,7 @@
    "last": 349.21,
    "status": "abierta",
    "shares": 2.7956,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.38
   },
   {
@@ -12848,7 +12862,7 @@
    "last": 374.41,
    "status": "abierta",
    "shares": 2.5917,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.96,
    "stop_capped": true
   },
@@ -12896,7 +12910,7 @@
    "last": 352.09,
    "status": "abierta",
    "shares": 2.5341,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.78,
    "stop_capped": true,
    "plan": {
@@ -12951,7 +12965,7 @@
    "last": 55.72,
    "status": "abierta",
    "shares": 16.7588,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -6.62,
    "stop_capped": true,
    "plan": {
@@ -13006,7 +13020,7 @@
    "last": 168.11,
    "status": "abierta",
    "shares": 5.1049,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -14.18,
    "stop_capped": true,
    "plan": {
@@ -13061,7 +13075,7 @@
    "last": 110.57,
    "status": "abierta",
    "shares": 8.1083,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.35,
    "plan": {
     "outcome": "stop",
@@ -13116,7 +13130,7 @@
    "last": 572.04,
    "status": "abierta",
    "shares": 1.6861,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -3.55
   },
   {
@@ -13163,7 +13177,7 @@
    "last": 119.2,
    "status": "abierta",
    "shares": 7.4488,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.21,
    "plan": {
     "outcome": "stop",
@@ -13217,7 +13231,7 @@
    "last": 214.94,
    "status": "abierta",
    "shares": 4.6731,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": 0.44,
    "stop_capped": true
   },
@@ -13265,7 +13279,7 @@
    "last": 338.93,
    "status": "abierta",
    "shares": 2.6363,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.65,
    "stop_capped": true,
    "plan": {
@@ -13320,7 +13334,7 @@
    "last": 189.59,
    "status": "abierta",
    "shares": 5.1773,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -1.84,
    "stop_capped": true
   },
@@ -13369,7 +13383,7 @@
    "last": 34.41,
    "status": "abierta",
    "shares": 27.4048,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.7,
    "plan": {
     "outcome": "stop",
@@ -13423,7 +13437,7 @@
    "last": 50.99,
    "status": "abierta",
    "shares": 15.6691,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -20.1,
    "stop_capped": true,
    "plan": {
@@ -13478,7 +13492,7 @@
    "last": 272.35,
    "status": "abierta",
    "shares": 3.6101,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -1.68
   },
   {
@@ -13526,7 +13540,7 @@
    "last": 96.09,
    "status": "abierta",
    "shares": 10.1781,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.2
   },
   {
@@ -13573,7 +13587,7 @@
    "last": 141.48,
    "status": "abierta",
    "shares": 6.4185,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -9.19,
    "stop_capped": true,
    "plan": {
@@ -13628,7 +13642,7 @@
    "last": 88.87,
    "status": "abierta",
    "shares": 9.86,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -12.37,
    "plan": {
     "outcome": "stop",
@@ -13682,7 +13696,7 @@
    "last": 139.0,
    "status": "abierta",
    "shares": 6.9238,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -3.76
   },
   {
@@ -13729,7 +13743,7 @@
    "last": 208.65,
    "status": "abierta",
    "shares": 4.3074,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.13,
    "stop_capped": true,
    "plan": {
@@ -13785,7 +13799,7 @@
    "last": 283.54,
    "status": "abierta",
    "shares": 3.3411,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.27,
    "plan": {
     "outcome": "stop",
@@ -13839,7 +13853,7 @@
    "last": 219.14,
    "status": "abierta",
    "shares": 4.279,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -6.23,
    "stop_capped": true
   },
@@ -13887,7 +13901,7 @@
    "last": 79.46,
    "status": "abierta",
    "shares": 12.2609,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.57
   },
   {
@@ -13935,7 +13949,7 @@
    "status": "abierta",
    "gap_below_stop": true,
    "shares": 63.0915,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -14.64
   },
   {
@@ -13982,7 +13996,7 @@
    "last": 83.79,
    "status": "abierta",
    "shares": 11.5035,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -3.61
   },
   {
@@ -14029,7 +14043,7 @@
    "last": 45.74,
    "status": "abierta",
    "shares": 21.2947,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.6
   },
   {
@@ -14076,7 +14090,7 @@
    "last": 103.87,
    "status": "abierta",
    "shares": 9.0645,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.85,
    "plan": {
     "outcome": "stop",
@@ -14131,7 +14145,7 @@
    "last": 120.25,
    "status": "abierta",
    "shares": 8.3661,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": 0.6
   },
   {
@@ -14179,7 +14193,7 @@
    "last": 147.82,
    "status": "abierta",
    "shares": 6.2438,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -7.7,
    "plan": {
     "outcome": "stop",
@@ -14233,7 +14247,7 @@
    "last": 166.53,
    "status": "abierta",
    "shares": 5.8418,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.72
   },
   {
@@ -14280,7 +14294,7 @@
    "last": 115.28,
    "status": "abierta",
    "shares": 8.0593,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -7.09,
    "plan": {
     "outcome": "stop",
@@ -14334,7 +14348,7 @@
    "last": 78.35,
    "status": "abierta",
    "shares": 11.7855,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -7.66
   },
   {
@@ -14381,7 +14395,7 @@
    "last": 17.73,
    "status": "abierta",
    "shares": 57.7701,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": 2.43,
    "stop_capped": true
   },
@@ -14429,7 +14443,7 @@
    "last": 9.78,
    "status": "abierta",
    "shares": 69.5894,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -31.94,
    "stop_capped": true,
    "plan": {
@@ -14484,7 +14498,7 @@
    "last": 21.85,
    "status": "abierta",
    "shares": 44.6628,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -2.41
   },
   {
@@ -14531,9 +14545,16 @@
    "last": 144.46,
    "status": "abierta",
    "shares": 8.4034,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": 21.39,
-   "stop_capped": true
+   "stop_capped": true,
+   "plan": {
+    "outcome": "objetivo",
+    "R": 2.0,
+    "ret": 20.0,
+    "sessions": 6,
+    "ohlc": true
+   }
   },
   {
    "symbol": "MANE",
@@ -14579,7 +14600,7 @@
    "last": 124.39,
    "status": "abierta",
    "shares": 6.8185,
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -15.18,
    "stop_capped": true,
    "plan": {
@@ -14633,7 +14654,7 @@
    },
    "last": 13.98,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -19.98,
    "plan": {
     "outcome": "stop",
@@ -14685,7 +14706,7 @@
    },
    "last": 147.32,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.64,
    "plan": {
     "outcome": "stop",
@@ -14737,7 +14758,7 @@
    },
    "last": 1135.81,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.08,
    "plan": {
     "outcome": "stop",
@@ -14789,7 +14810,7 @@
    },
    "last": 6.48,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.96,
    "plan": {
     "outcome": "cierre",
@@ -14841,7 +14862,7 @@
    },
    "last": 94.7,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -7.0,
    "plan": {
     "outcome": "cierre",
@@ -14893,7 +14914,7 @@
    },
    "last": 312.54,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -14.71,
    "plan": {
     "outcome": "cierre",
@@ -14945,7 +14966,7 @@
    },
    "last": 239.19,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.21,
    "plan": {
     "outcome": "stop",
@@ -14997,7 +15018,7 @@
    },
    "last": 1423.88,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.79,
    "plan": {
     "outcome": "cierre",
@@ -15049,7 +15070,7 @@
    },
    "last": 55.8,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.92,
    "plan": {
     "outcome": "cierre",
@@ -15101,7 +15122,7 @@
    },
    "last": 173.83,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -0.59,
    "plan": {
     "outcome": "stop",
@@ -15153,7 +15174,7 @@
    },
    "last": 242.71,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -7.73,
    "plan": {
     "outcome": "cierre",
@@ -15205,7 +15226,7 @@
    },
    "last": 162.01,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.31,
    "plan": {
     "outcome": "stop",
@@ -15257,7 +15278,7 @@
    },
    "last": 303.15,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.74,
    "plan": {
     "outcome": "stop",
@@ -15309,7 +15330,7 @@
    },
    "last": 65.94,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.74,
    "plan": {
     "outcome": "cierre",
@@ -15361,7 +15382,7 @@
    },
    "last": 131.97,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -11.77,
    "plan": {
     "outcome": "cierre",
@@ -15413,7 +15434,7 @@
    },
    "last": 521.39,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -6.08,
    "plan": {
     "outcome": "cierre",
@@ -15465,7 +15486,7 @@
    },
    "last": 184.99,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -13.46,
    "plan": {
     "outcome": "cierre",
@@ -15517,7 +15538,7 @@
    },
    "last": 124.15,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.52,
    "plan": {
     "outcome": "cierre",
@@ -15569,7 +15590,7 @@
    },
    "last": 172.79,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -6.2,
    "plan": {
     "outcome": "stop",
@@ -15621,7 +15642,7 @@
    },
    "last": 257.37,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.04,
    "plan": {
     "outcome": "stop",
@@ -15673,7 +15694,7 @@
    },
    "last": 34.84,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -23.95,
    "plan": {
     "outcome": "cierre",
@@ -15725,7 +15746,7 @@
    },
    "last": 240.23,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -9.58,
    "plan": {
     "outcome": "cierre",
@@ -15777,7 +15798,7 @@
    },
    "last": 756.28,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -9.97,
    "plan": {
     "outcome": "cierre",
@@ -15829,7 +15850,7 @@
    },
    "last": 144.46,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": 21.18,
    "plan": {
     "outcome": "stop",
@@ -15881,7 +15902,7 @@
    },
    "last": 78.66,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -14.95,
    "plan": {
     "outcome": "cierre",
@@ -15933,7 +15954,7 @@
    },
    "last": 211.6,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -9.34,
    "plan": {
     "outcome": "cierre",
@@ -15985,7 +16006,7 @@
    },
    "last": 86.96,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -16.09,
    "plan": {
     "outcome": "cierre",
@@ -16037,7 +16058,7 @@
    },
    "last": 262.63,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -12.03,
    "plan": {
     "outcome": "cierre",
@@ -16089,7 +16110,7 @@
    },
    "last": 166.46,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.42,
    "plan": {
     "outcome": "cierre",
@@ -16141,7 +16162,7 @@
    },
    "last": 42.05,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.29,
    "plan": {
     "outcome": "cierre",
@@ -16193,7 +16214,7 @@
    },
    "last": 105.97,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -12.26,
    "plan": {
     "outcome": "cierre",
@@ -16245,7 +16266,7 @@
    },
    "last": 271.02,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -8.63,
    "plan": {
     "outcome": "cierre",
@@ -16297,7 +16318,7 @@
    },
    "last": 45.49,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -10.21,
    "plan": {
     "outcome": "cierre",
@@ -16349,7 +16370,7 @@
    },
    "last": 191.99,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -12.01,
    "plan": {
     "outcome": "cierre",
@@ -16401,7 +16422,7 @@
    },
    "last": 295.37,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -4.85,
    "plan": {
     "outcome": "cierre",
@@ -16453,7 +16474,7 @@
    },
    "last": 138.47,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -18.03,
    "plan": {
     "outcome": "cierre",
@@ -16505,7 +16526,7 @@
    },
    "last": 498.3,
    "status": "abierta",
-   "sessions": 5,
+   "sessions": 6,
    "ret_now": -5.7,
    "plan": {
     "outcome": "stop",
@@ -16558,7 +16579,7 @@
    "last": 145.98,
    "status": "abierta",
    "shares": 5.8862,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -14.07,
    "plan": {
     "outcome": "stop",
@@ -16612,7 +16633,7 @@
    "last": 489.19,
    "status": "abierta",
    "shares": 1.7647,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -13.67,
    "stop_capped": true,
    "plan": {
@@ -16667,7 +16688,7 @@
    "last": 346.65,
    "status": "abierta",
    "shares": 2.8047,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -2.77,
    "stop_capped": true
   },
@@ -16715,7 +16736,7 @@
    "last": 189.59,
    "status": "abierta",
    "shares": 4.8804,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -7.47,
    "stop_capped": true,
    "plan": {
@@ -16770,7 +16791,7 @@
    "last": 184.99,
    "status": "abierta",
    "shares": 4.6935,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -13.17,
    "stop_capped": true,
    "plan": {
@@ -16825,7 +16846,7 @@
    "last": 88.87,
    "status": "abierta",
    "shares": 9.7847,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -13.04,
    "plan": {
     "outcome": "stop",
@@ -16879,7 +16900,7 @@
    "last": 37.45,
    "status": "abierta",
    "shares": 23.5905,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -11.65,
    "plan": {
     "outcome": "stop",
@@ -16933,7 +16954,7 @@
    "last": 46.7,
    "status": "abierta",
    "shares": 19.802,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -7.52,
    "stop_capped": true
   },
@@ -16982,7 +17003,7 @@
    "last": 16.29,
    "status": "abierta",
    "shares": 54.8546,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -10.64,
    "plan": {
     "outcome": "stop",
@@ -17036,7 +17057,7 @@
    "last": 9.78,
    "status": "abierta",
    "shares": 76.1615,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -25.51,
    "stop_capped": true,
    "plan": {
@@ -17091,7 +17112,7 @@
    "last": 8.12,
    "status": "abierta",
    "shares": 109.7695,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -10.87,
    "plan": {
     "outcome": "objetivo",
@@ -17145,7 +17166,7 @@
    "last": 24.92,
    "status": "abierta",
    "shares": 40.7,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 1.42
   },
   {
@@ -17192,7 +17213,7 @@
    "last": 13.13,
    "status": "abierta",
    "shares": 80.1925,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 5.29,
    "plan": {
     "outcome": "stop",
@@ -17246,7 +17267,7 @@
    "last": 5.18,
    "status": "abierta",
    "shares": 173.913,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -9.91,
    "plan": {
     "outcome": "objetivo",
@@ -17300,7 +17321,7 @@
    "last": 17.07,
    "status": "abierta",
    "shares": 55.2486,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -5.69,
    "plan": {
     "outcome": "stop",
@@ -17355,7 +17376,7 @@
    "last": 14.32,
    "status": "abierta",
    "shares": 62.7746,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -10.11,
    "plan": {
     "outcome": "stop",
@@ -17409,7 +17430,7 @@
    "last": 12.13,
    "status": "abierta",
    "shares": 74.8503,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -9.21,
    "stop_capped": true,
    "plan": {
@@ -17507,7 +17528,7 @@
    "last": 7.31,
    "status": "abierta",
    "shares": 129.5337,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -5.31,
    "plan": {
     "outcome": "stop",
@@ -17561,7 +17582,7 @@
    "last": 4.07,
    "status": "abierta",
    "shares": 202.8398,
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -17.44,
    "plan": {
     "outcome": "objetivo",
@@ -17614,7 +17635,7 @@
    },
    "last": 103.87,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.24,
    "plan": {
     "outcome": "cierre",
@@ -17666,7 +17687,7 @@
    },
    "last": 221.68,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -7.69,
    "plan": {
     "outcome": "stop",
@@ -17718,7 +17739,7 @@
    },
    "last": 301.19,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -2.69,
    "plan": {
     "outcome": "stop",
@@ -17770,7 +17791,7 @@
    },
    "last": 277.62,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -1.87,
    "plan": {
     "outcome": "cierre",
@@ -17822,7 +17843,7 @@
    },
    "last": 181.15,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.86,
    "plan": {
     "outcome": "objetivo",
@@ -17874,7 +17895,7 @@
    },
    "last": 34.15,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 0.62,
    "plan": {
     "outcome": "objetivo",
@@ -17926,7 +17947,7 @@
    },
    "last": 57.47,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -6.32,
    "plan": {
     "outcome": "objetivo",
@@ -17978,7 +17999,7 @@
    },
    "last": 96.88,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -1.81,
    "plan": {
     "outcome": "objetivo",
@@ -18030,7 +18051,7 @@
    },
    "last": 69.53,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -0.47,
    "plan": {
     "outcome": "objetivo",
@@ -18082,7 +18103,7 @@
    },
    "last": 1093.83,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -0.75,
    "plan": {
     "outcome": "objetivo",
@@ -18134,7 +18155,7 @@
    },
    "last": 128.86,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 0.33,
    "plan": {
     "outcome": "objetivo",
@@ -18186,7 +18207,7 @@
    },
    "last": 103.88,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -2.44,
    "plan": {
     "outcome": "objetivo",
@@ -18238,7 +18259,7 @@
    },
    "last": 45.42,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -1.05,
    "plan": {
     "outcome": "objetivo",
@@ -18290,7 +18311,7 @@
    },
    "last": 40.95,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.26,
    "plan": {
     "outcome": "stop",
@@ -18342,7 +18363,7 @@
    },
    "last": 26.93,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 2.79,
    "plan": {
     "outcome": "stop",
@@ -18394,7 +18415,7 @@
    },
    "last": 9.05,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -1.42,
    "plan": {
     "outcome": "cierre",
@@ -18446,7 +18467,7 @@
    },
    "last": 310.02,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -9.71,
    "plan": {
     "outcome": "stop",
@@ -18498,7 +18519,7 @@
    },
    "last": 6.69,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -10.8,
    "plan": {
     "outcome": "cierre",
@@ -18550,7 +18571,7 @@
    },
    "last": 25.64,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -7.0,
    "plan": {
     "outcome": "objetivo",
@@ -18602,7 +18623,7 @@
    },
    "last": 34.41,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.84,
    "plan": {
     "outcome": "stop",
@@ -18654,7 +18675,7 @@
    },
    "last": 12.67,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -5.87,
    "plan": {
     "outcome": "cierre",
@@ -18706,7 +18727,7 @@
    },
    "last": 105.25,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -2.86,
    "plan": {
     "outcome": "cierre",
@@ -18758,7 +18779,7 @@
    },
    "last": 65.69,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -2.23,
    "plan": {
     "outcome": "objetivo",
@@ -18810,7 +18831,7 @@
    },
    "last": 43.94,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.02,
    "plan": {
     "outcome": "objetivo",
@@ -18862,7 +18883,7 @@
    },
    "last": 498.3,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -4.14,
    "plan": {
     "outcome": "objetivo",
@@ -18914,7 +18935,7 @@
    },
    "last": 66.84,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -3.61,
    "plan": {
     "outcome": "stop",
@@ -18966,7 +18987,7 @@
    },
    "last": 31.85,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": -7.41,
    "plan": {
     "outcome": "cierre",
@@ -19018,7 +19039,7 @@
    },
    "last": 63.86,
    "status": "abierta",
-   "sessions": 4,
+   "sessions": 5,
    "ret_now": 6.29,
    "plan": {
     "outcome": "stop",
@@ -19066,7 +19087,7 @@
    },
    "last": 145.98,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.19,
    "shares": 6.2893,
    "plan": {
@@ -19117,7 +19138,7 @@
    },
    "last": 349.21,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -2.21,
    "shares": 2.8003
   },
@@ -19160,7 +19181,7 @@
    },
    "last": 596.22,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -6.9,
    "shares": 1.5615,
    "plan": {
@@ -19210,7 +19231,7 @@
    },
    "last": 86.96,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -15.57,
    "shares": 9.7087,
    "stop_capped": true,
@@ -19262,7 +19283,7 @@
    },
    "last": 572.04,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.85,
    "shares": 1.6808
   },
@@ -19306,7 +19327,7 @@
    },
    "last": 1351.12,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.06,
    "shares": 0.6879,
    "plan": {
@@ -19356,7 +19377,7 @@
    },
    "last": 34.41,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -6.27,
    "shares": 27.2405,
    "plan": {
@@ -19407,7 +19428,7 @@
    },
    "last": 1093.83,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -1.5,
    "shares": 0.9005
   },
@@ -19450,7 +19471,7 @@
    },
    "last": 93.29,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -0.21,
    "shares": 10.6963
   },
@@ -19493,7 +19514,7 @@
    },
    "last": 11.82,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.8,
    "shares": 77.1605,
    "stop_capped": true
@@ -19537,7 +19558,7 @@
    },
    "last": 199.33,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.22,
    "gap_below_stop": true,
    "shares": 4.6045
@@ -19582,7 +19603,7 @@
    },
    "last": 267.14,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.56,
    "shares": 3.4603,
    "plan": {
@@ -19633,7 +19654,7 @@
    },
    "last": 96.09,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.92,
    "shares": 9.999
   },
@@ -19676,7 +19697,7 @@
    },
    "last": 379.02,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.73,
    "shares": 2.408,
    "stop_capped": true
@@ -19720,7 +19741,7 @@
    },
    "last": 272.35,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -1.68,
    "shares": 3.6101
   },
@@ -19764,7 +19785,7 @@
    },
    "last": 167.85,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -2.5,
    "shares": 5.8086
   },
@@ -19807,7 +19828,7 @@
    },
    "last": 139.0,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -5.38,
    "shares": 6.8074
   },
@@ -19850,7 +19871,7 @@
    },
    "last": 134.56,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": 1.67,
    "shares": 7.5557,
    "stop_capped": true
@@ -19894,7 +19915,7 @@
    },
    "last": 923.34,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.22,
    "shares": 1.0373
   },
@@ -19937,7 +19958,7 @@
    },
    "last": 318.88,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.72,
    "shares": 3.0192
   },
@@ -19980,7 +20001,7 @@
    },
    "last": 48.57,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.48,
    "shares": 19.6657,
    "plan": {
@@ -20031,7 +20052,7 @@
    },
    "last": 283.54,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -5.48,
    "shares": 3.3336,
    "plan": {
@@ -20081,7 +20102,7 @@
    },
    "last": 79.46,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.03,
    "shares": 12.2041
   },
@@ -20124,7 +20145,7 @@
    },
    "last": 172.79,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -6.29,
    "shares": 5.4236
   },
@@ -20167,7 +20188,7 @@
    },
    "last": 88.87,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -12.26,
    "shares": 9.8726,
    "plan": {
@@ -20218,7 +20239,7 @@
    },
    "last": 4.3,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -16.83,
    "shares": 193.4236,
    "stop_capped": true,
@@ -20269,7 +20290,7 @@
    },
    "last": 219.14,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.81,
    "shares": 4.3892,
    "plan": {
@@ -20320,7 +20341,7 @@
    },
    "last": 380.0,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -17.39,
    "shares": 2.1739,
    "stop_capped": true,
@@ -20372,10 +20393,17 @@
    },
    "last": 46.7,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -10.83,
    "shares": 19.0949,
-   "stop_capped": true
+   "stop_capped": true,
+   "plan": {
+    "outcome": "stop",
+    "R": -1.0,
+    "ret": -10.01,
+    "sessions": 4,
+    "ohlc": true
+   }
   },
   {
    "symbol": "UAL",
@@ -20416,7 +20444,7 @@
    },
    "last": 105.53,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.09,
    "shares": 9.1827,
    "plan": {
@@ -20466,7 +20494,7 @@
    },
    "last": 147.82,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -11.19,
    "shares": 6.0082,
    "plan": {
@@ -20517,7 +20545,7 @@
    },
    "last": 370.11,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -2.75,
    "shares": 2.6277
   },
@@ -20561,7 +20589,7 @@
    },
    "last": 96.88,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.12,
    "shares": 10.0
   },
@@ -20604,7 +20632,7 @@
    },
    "last": 250.55,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -5.82,
    "shares": 3.7591,
    "plan": {
@@ -20654,7 +20682,7 @@
    },
    "last": 105.25,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.49,
    "shares": 9.0744
   },
@@ -20697,7 +20725,7 @@
    },
    "last": 149.49,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.49,
    "shares": 6.3894
   },
@@ -20740,7 +20768,7 @@
    },
    "last": 306.31,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.93,
    "shares": 3.1363
   },
@@ -20783,7 +20811,7 @@
    },
    "last": 341.25,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -5.89,
    "shares": 2.7579
   },
@@ -20826,7 +20854,7 @@
    },
    "last": 218.17,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -0.03,
    "shares": 4.5821
   },
@@ -20869,7 +20897,7 @@
    },
    "last": 178.47,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -2.6,
    "shares": 5.4573
   },
@@ -20912,7 +20940,7 @@
    },
    "last": 158.24,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -10.81,
    "plan": {
     "outcome": "stop",
@@ -20960,7 +20988,7 @@
    },
    "last": 11.32,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -13.92,
    "plan": {
     "outcome": "stop",
@@ -21008,7 +21036,7 @@
    },
    "last": 25.97,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.62,
    "plan": {
     "outcome": "stop",
@@ -21056,7 +21084,7 @@
    },
    "last": 174.34,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.87,
    "plan": {
     "outcome": "stop",
@@ -21104,7 +21132,7 @@
    },
    "last": 76.99,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -11.76,
    "plan": {
     "outcome": "stop",
@@ -21152,7 +21180,7 @@
    },
    "last": 95.91,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -16.74,
    "plan": {
     "outcome": "stop",
@@ -21200,7 +21228,7 @@
    },
    "last": 33.37,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -11.32,
    "plan": {
     "outcome": "stop",
@@ -21248,7 +21276,7 @@
    },
    "last": 8.32,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -5.24,
    "plan": {
     "outcome": "stop",
@@ -21296,7 +21324,7 @@
    },
    "last": 21.33,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.4,
    "plan": {
     "outcome": "stop",
@@ -21344,7 +21372,7 @@
    },
    "last": 68.55,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -11.67,
    "plan": {
     "outcome": "stop",
@@ -21392,7 +21420,7 @@
    },
    "last": 64.08,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": 13.32,
    "plan": {
     "outcome": "cierre",
@@ -21440,7 +21468,7 @@
    },
    "last": 34.15,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.02,
    "plan": {
     "outcome": "stop",
@@ -21488,7 +21516,7 @@
    },
    "last": 11.54,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -15.02,
    "plan": {
     "outcome": "stop",
@@ -21536,7 +21564,7 @@
    },
    "last": 71.92,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -6.43,
    "plan": {
     "outcome": "stop",
@@ -21584,7 +21612,7 @@
    },
    "last": 30.72,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.25,
    "plan": {
     "outcome": "stop",
@@ -21632,7 +21660,7 @@
    },
    "last": 11.72,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.13,
    "plan": {
     "outcome": "stop",
@@ -21680,7 +21708,7 @@
    },
    "last": 240.23,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": 0.25,
    "plan": {
     "outcome": "cierre",
@@ -21728,7 +21756,7 @@
    },
    "last": 23.35,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -1.68,
    "plan": {
     "outcome": "cierre",
@@ -21776,7 +21804,7 @@
    },
    "last": 352.28,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": 1.19,
    "plan": {
     "outcome": "stop",
@@ -21824,7 +21852,7 @@
    },
    "last": 92.31,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.15,
    "plan": {
     "outcome": "stop",
@@ -21872,7 +21900,7 @@
    },
    "last": 26.84,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -14.03,
    "plan": {
     "outcome": "stop",
@@ -21920,7 +21948,7 @@
    },
    "last": 8.88,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -13.03,
    "plan": {
     "outcome": "stop",
@@ -21968,7 +21996,7 @@
    },
    "last": 230.85,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.07,
    "plan": {
     "outcome": "stop",
@@ -22016,7 +22044,7 @@
    },
    "last": 20.96,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.59,
    "plan": {
     "outcome": "stop",
@@ -22064,7 +22092,7 @@
    },
    "last": 109.27,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -0.96,
    "plan": {
     "outcome": "stop",
@@ -22112,7 +22140,7 @@
    },
    "last": 168.18,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.8,
    "plan": {
     "outcome": "stop",
@@ -22160,7 +22188,7 @@
    },
    "last": 106.41,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -3.16,
    "plan": {
     "outcome": "cierre",
@@ -22208,7 +22236,7 @@
    },
    "last": 32.71,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -9.82,
    "plan": {
     "outcome": "stop",
@@ -22256,7 +22284,7 @@
    },
    "last": 53.87,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -4.65,
    "plan": {
     "outcome": "cierre",
@@ -22304,7 +22332,7 @@
    },
    "last": 11.15,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -12.27,
    "plan": {
     "outcome": "stop",
@@ -22352,7 +22380,7 @@
    },
    "last": 13.49,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -11.02,
    "plan": {
     "outcome": "stop",
@@ -22400,7 +22428,7 @@
    },
    "last": 108.1,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.3,
    "plan": {
     "outcome": "objetivo",
@@ -22448,7 +22476,7 @@
    },
    "last": 44.63,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -8.81,
    "plan": {
     "outcome": "stop",
@@ -22496,7 +22524,7 @@
    },
    "last": 15.23,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -13.17,
    "plan": {
     "outcome": "stop",
@@ -22544,7 +22572,7 @@
    },
    "last": 6.57,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": 11.17,
    "plan": {
     "outcome": "objetivo",
@@ -22592,7 +22620,7 @@
    },
    "last": 25.64,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.74,
    "plan": {
     "outcome": "stop",
@@ -22640,7 +22668,7 @@
    },
    "last": 18.25,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -12.3,
    "plan": {
     "outcome": "stop",
@@ -22688,7 +22716,7 @@
    },
    "last": 270.33,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -7.54,
    "plan": {
     "outcome": "stop",
@@ -22736,7 +22764,7 @@
    },
    "last": 56.63,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -1.43,
    "plan": {
     "outcome": "stop",
@@ -22784,7 +22812,7 @@
    },
    "last": 16.91,
    "status": "abierta",
-   "sessions": 3,
+   "sessions": 4,
    "ret_now": -2.7,
    "plan": {
     "outcome": "stop",
@@ -22832,7 +22860,7 @@
    },
    "last": 145.98,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -6.97,
    "shares": 6.3731,
    "plan": {
@@ -22882,7 +22910,7 @@
    },
    "last": 257.37,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 0.01,
    "shares": 3.8858,
    "plan": {
@@ -22932,7 +22960,7 @@
    },
    "last": 55.72,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 1.03,
    "shares": 18.1324
   },
@@ -22975,7 +23003,7 @@
    },
    "last": 1351.12,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.58,
    "shares": 0.7062,
    "plan": {
@@ -23026,7 +23054,7 @@
    },
    "last": 1093.83,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.46,
    "shares": 0.9009
   },
@@ -23069,7 +23097,7 @@
    },
    "last": 153.68,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.93,
    "shares": 6.2512,
    "plan": {
@@ -23120,7 +23148,7 @@
    },
    "last": 167.85,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.04,
    "shares": 5.8363
   },
@@ -23163,7 +23191,7 @@
    },
    "last": 86.13,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -16.11,
    "shares": 9.7399,
    "plan": {
@@ -23213,7 +23241,7 @@
    },
    "last": 68.65,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.27,
    "shares": 13.9451,
    "plan": {
@@ -23263,7 +23291,7 @@
    },
    "last": 336.68,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 0.48,
    "shares": 2.9845,
    "plan": {
@@ -23313,7 +23341,7 @@
    },
    "last": 379.02,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -7.91,
    "shares": 2.4297,
    "stop_capped": true
@@ -23358,7 +23386,7 @@
    },
    "last": 96.09,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.73,
    "shares": 10.1225
   },
@@ -23401,7 +23429,7 @@
    },
    "last": 330.48,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -17.22,
    "shares": 2.5048,
    "plan": {
@@ -23451,7 +23479,7 @@
    },
    "last": 272.35,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 0.28,
    "shares": 3.6819
   },
@@ -23494,7 +23522,7 @@
    },
    "last": 139.0,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.85,
    "shares": 6.9891
   },
@@ -23537,7 +23565,7 @@
    },
    "last": 199.33,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -9.33,
    "shares": 4.5486,
    "plan": {
@@ -23587,7 +23615,7 @@
    },
    "last": 108.87,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -7.53,
    "shares": 8.494,
    "plan": {
@@ -23637,7 +23665,7 @@
    },
    "last": 93.29,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.44,
    "shares": 10.6724
   },
@@ -23680,7 +23708,7 @@
    },
    "last": 172.79,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -6.98,
    "shares": 5.3836,
    "stop_capped": true
@@ -23724,7 +23752,7 @@
    },
    "last": 83.31,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -5.5,
    "gap_below_stop": true,
    "shares": 11.343
@@ -23769,7 +23797,7 @@
    },
    "last": 390.16,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -10.92,
    "shares": 2.2831,
    "plan": {
@@ -23820,7 +23848,7 @@
    },
    "last": 96.88,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.12,
    "shares": 10.0
   },
@@ -23863,7 +23891,7 @@
    },
    "last": 219.14,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.63,
    "shares": 4.5347,
    "plan": {
@@ -23914,7 +23942,7 @@
    },
    "last": 81.9,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.74,
    "shares": 12.1197,
    "stop_capped": true,
@@ -23966,7 +23994,7 @@
    },
    "last": 301.19,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.84,
    "shares": 3.2258
   },
@@ -24009,7 +24037,7 @@
    },
    "last": 167.46,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 5.99,
    "shares": 6.3291,
    "plan": {
@@ -24060,7 +24088,7 @@
    },
    "last": 24.86,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.24,
    "shares": 39.3236
   },
@@ -24103,7 +24131,7 @@
    },
    "last": 128.86,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.4,
    "shares": 7.7292
   },
@@ -24146,7 +24174,7 @@
    },
    "last": 268.59,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.83,
    "shares": 3.5804,
    "plan": {
@@ -24196,7 +24224,7 @@
    },
    "last": 421.19,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.41,
    "shares": 2.2934,
    "plan": {
@@ -24246,7 +24274,7 @@
    },
    "last": 162.53,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.67,
    "shares": 5.8654
   },
@@ -24290,7 +24318,7 @@
    },
    "last": 289.92,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.54,
    "shares": 3.4305,
    "plan": {
@@ -24340,7 +24368,7 @@
    },
    "last": 624.89,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.26,
    "shares": 1.5322,
    "plan": {
@@ -24390,7 +24418,7 @@
    },
    "last": 520.66,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.27,
    "shares": 1.877,
    "plan": {
@@ -24440,7 +24468,7 @@
    },
    "last": 109.11,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.91,
    "shares": 8.9896
   },
@@ -24483,7 +24511,7 @@
    },
    "last": 430.91,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.36,
    "shares": 2.266,
    "plan": {
@@ -24533,7 +24561,7 @@
    },
    "last": 178.47,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -0.81,
    "shares": 5.5577
   },
@@ -24576,7 +24604,7 @@
    },
    "last": 133.01,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -10.33,
    "shares": 6.7413,
    "plan": {
@@ -24626,7 +24654,7 @@
    },
    "last": 51.88,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -9.43,
    "shares": 17.4581,
    "plan": {
@@ -24677,7 +24705,7 @@
    },
    "last": 380.0,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -14.99,
    "shares": 2.2371,
    "plan": {
@@ -24727,7 +24755,7 @@
    },
    "last": 12.72,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.71,
    "plan": {
     "outcome": "stop",
@@ -24775,7 +24803,7 @@
    },
    "last": 377.44,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.79,
    "plan": {
     "outcome": "stop",
@@ -24823,7 +24851,7 @@
    },
    "last": 158.24,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -9.12,
    "plan": {
     "outcome": "stop",
@@ -24871,7 +24899,7 @@
    },
    "last": 11.32,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -13.19,
    "plan": {
     "outcome": "stop",
@@ -24919,7 +24947,7 @@
    },
    "last": 33.37,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -10.22,
    "plan": {
     "outcome": "stop",
@@ -24967,7 +24995,7 @@
    },
    "last": 48.57,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.09,
    "plan": {
     "outcome": "stop",
@@ -25015,7 +25043,7 @@
    },
    "last": 1135.81,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -5.71,
    "plan": {
     "outcome": "stop",
@@ -25063,7 +25091,7 @@
    },
    "last": 245.54,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": 1.62,
    "plan": {
     "outcome": "stop",
@@ -25111,7 +25139,7 @@
    },
    "last": 115.28,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -5.28,
    "plan": {
     "outcome": "stop",
@@ -25159,7 +25187,7 @@
    },
    "last": 86.96,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -15.96,
    "plan": {
     "outcome": "objetivo",
@@ -25207,7 +25235,7 @@
    },
    "last": 11.54,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -14.96,
    "plan": {
     "outcome": "stop",
@@ -25255,7 +25283,7 @@
    },
    "last": 65.58,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -10.71,
    "plan": {
     "outcome": "stop",
@@ -25303,7 +25331,7 @@
    },
    "last": 90.54,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.6,
    "plan": {
     "outcome": "stop",
@@ -25351,7 +25379,7 @@
    },
    "last": 218.92,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.66,
    "plan": {
     "outcome": "stop",
@@ -25399,7 +25427,7 @@
    },
    "last": 80.19,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.43,
    "plan": {
     "outcome": "stop",
@@ -25447,7 +25475,7 @@
    },
    "last": 297.32,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.33,
    "plan": {
     "outcome": "stop",
@@ -25495,7 +25523,7 @@
    },
    "last": 230.85,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -6.8,
    "plan": {
     "outcome": "cierre",
@@ -25543,7 +25571,7 @@
    },
    "last": 166.53,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.27,
    "plan": {
     "outcome": "cierre",
@@ -25591,7 +25619,7 @@
    },
    "last": 81.75,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.24,
    "plan": {
     "outcome": "stop",
@@ -25639,7 +25667,7 @@
    },
    "last": 14.71,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -6.19,
    "plan": {
     "outcome": "stop",
@@ -25687,7 +25715,7 @@
    },
    "last": 336.68,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.67,
    "plan": {
     "outcome": "stop",
@@ -25735,7 +25763,7 @@
    },
    "last": 26.24,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.09,
    "plan": {
     "outcome": "stop",
@@ -25783,7 +25811,7 @@
    },
    "last": 11.15,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -12.75,
    "plan": {
     "outcome": "stop",
@@ -25831,7 +25859,7 @@
    },
    "last": 217.84,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.06,
    "plan": {
     "outcome": "stop",
@@ -25879,7 +25907,7 @@
    },
    "last": 320.22,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.68,
    "plan": {
     "outcome": "stop",
@@ -25927,7 +25955,7 @@
    },
    "last": 510.21,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.62,
    "plan": {
     "outcome": "stop",
@@ -25975,7 +26003,7 @@
    },
    "last": 219.14,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.09,
    "plan": {
     "outcome": "stop",
@@ -26023,7 +26051,7 @@
    },
    "last": 414.04,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.55,
    "plan": {
     "outcome": "stop",
@@ -26071,7 +26099,7 @@
    },
    "last": 272.35,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.64,
    "plan": {
     "outcome": "cierre",
@@ -26119,7 +26147,7 @@
    },
    "last": 58.47,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.16,
    "plan": {
     "outcome": "stop",
@@ -26167,7 +26195,7 @@
    },
    "last": 178.47,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -2.5,
    "plan": {
     "outcome": "stop",
@@ -26215,7 +26243,7 @@
    },
    "last": 174.98,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -6.08,
    "plan": {
     "outcome": "stop",
@@ -26263,7 +26291,7 @@
    },
    "last": 96.92,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -11.78,
    "plan": {
     "outcome": "objetivo",
@@ -26311,7 +26339,7 @@
    },
    "last": 100.05,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -12.4,
    "plan": {
     "outcome": "stop",
@@ -26359,7 +26387,7 @@
    },
    "last": 57.66,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.39,
    "plan": {
     "outcome": "cierre",
@@ -26407,7 +26435,7 @@
    },
    "last": 92.61,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -1.38,
    "plan": {
     "outcome": "stop",
@@ -26455,7 +26483,7 @@
    },
    "last": 32.39,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -10.99,
    "plan": {
     "outcome": "stop",
@@ -26503,7 +26531,7 @@
    },
    "last": 906.13,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -4.34,
    "plan": {
     "outcome": "stop",
@@ -26551,7 +26579,7 @@
    },
    "last": 923.34,
    "status": "abierta",
-   "sessions": 2,
+   "sessions": 3,
    "ret_now": -3.71,
    "plan": {
     "outcome": "stop",
@@ -26595,7 +26623,7 @@
    },
    "last": 145.98,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -8.3,
    "shares": 6.2818,
    "plan": {
@@ -26641,7 +26669,7 @@
    },
    "last": 498.3,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.35,
    "shares": 1.9798
   },
@@ -26680,7 +26708,7 @@
    },
    "last": 138.43,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.35,
    "stop_capped": true,
    "shares": 6.9818
@@ -26720,7 +26748,7 @@
    },
    "last": 55.72,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.6,
    "shares": 18.0538
   },
@@ -26759,7 +26787,7 @@
    },
    "last": 1351.12,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -4.04,
    "shares": 0.7103,
    "plan": {
@@ -26805,7 +26833,7 @@
    },
    "last": 153.68,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.89,
    "shares": 6.3191,
    "plan": {
@@ -26851,7 +26879,7 @@
    },
    "last": 320.22,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.23,
    "shares": 3.0532,
    "plan": {
@@ -26897,7 +26925,7 @@
    },
    "last": 183.31,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -5.06,
    "shares": 5.1795,
    "plan": {
@@ -26944,7 +26972,7 @@
    },
    "last": 336.68,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 1.64,
    "shares": 3.019,
    "plan": {
@@ -26990,7 +27018,7 @@
    },
    "last": 361.73,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 15.29,
    "shares": 3.1873,
    "plan": {
@@ -27038,7 +27066,7 @@
    },
    "last": 14.86,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -23.79,
    "stop_capped": true,
    "shares": 51.2821,
@@ -27085,7 +27113,7 @@
    },
    "last": 86.13,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -9.36,
    "shares": 10.5241,
    "plan": {
@@ -27131,7 +27159,7 @@
    },
    "last": 88.87,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -4.44,
    "shares": 10.7527,
    "plan": {
@@ -27177,7 +27205,7 @@
    },
    "last": 243.46,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 8.78,
    "shares": 4.4683,
    "plan": {
@@ -27223,7 +27251,7 @@
    },
    "last": 199.33,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.61,
    "shares": 4.8356,
    "plan": {
@@ -27269,7 +27297,7 @@
    },
    "last": 68.65,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.58,
    "shares": 14.4823,
    "plan": {
@@ -27315,7 +27343,7 @@
    },
    "last": 83.31,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.33,
    "shares": 11.6036,
    "plan": {
@@ -27361,7 +27389,7 @@
    },
    "last": 313.08,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.25,
    "shares": 3.1859
   },
@@ -27400,7 +27428,7 @@
    },
    "last": 30.85,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -7.08,
    "stop_capped": true,
    "shares": 30.1205
@@ -27440,7 +27468,7 @@
    },
    "last": 14.41,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -11.65,
    "shares": 61.3121,
    "plan": {
@@ -27486,7 +27514,7 @@
    },
    "last": 86.96,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -17.03,
    "stop_capped": true,
    "shares": 9.5411,
@@ -27533,7 +27561,7 @@
    },
    "last": 272.35,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.02,
    "shares": 3.6726,
    "plan": {
@@ -27579,7 +27607,7 @@
    },
    "last": 218.58,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -7.71,
    "shares": 4.2224,
    "plan": {
@@ -27625,7 +27653,7 @@
    },
    "last": 166.46,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.56,
    "shares": 5.9737,
    "plan": {
@@ -27671,7 +27699,7 @@
    },
    "last": 268.59,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.51,
    "shares": 3.6298,
    "plan": {
@@ -27717,7 +27745,7 @@
    },
    "last": 193.44,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.81,
    "shares": 5.0761
   },
@@ -27756,7 +27784,7 @@
    },
    "last": 688.75,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 1.17,
    "shares": 1.4689,
    "plan": {
@@ -27802,7 +27830,7 @@
    },
    "last": 407.24,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -5.34,
    "shares": 2.3245,
    "plan": {
@@ -27848,7 +27876,7 @@
    },
    "last": 251.76,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.06,
    "shares": 3.9299
   },
@@ -27887,7 +27915,7 @@
    },
    "last": 108.87,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -5.49,
    "shares": 8.6806,
    "plan": {
@@ -27933,7 +27961,7 @@
    },
    "last": 132.81,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -5.87,
    "shares": 7.0877,
    "plan": {
@@ -27979,7 +28007,7 @@
    },
    "last": 27.54,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.85,
    "shares": 35.6379,
    "plan": {
@@ -28025,7 +28053,7 @@
    },
    "last": 438.82,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.87,
    "shares": 2.2135,
    "plan": {
@@ -28071,7 +28099,7 @@
    },
    "last": 95.0,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 1.01,
    "shares": 10.6326
   },
@@ -28110,7 +28138,7 @@
    },
    "last": 303.68,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 4.7,
    "stop_capped": true,
    "shares": 3.4477
@@ -28150,7 +28178,7 @@
    },
    "last": 520.66,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.18,
    "shares": 1.8787,
    "plan": {
@@ -28196,7 +28224,7 @@
    },
    "last": 227.56,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.25,
    "shares": 4.4053
   },
@@ -28236,7 +28264,7 @@
    },
    "last": 421.19,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.95,
    "shares": 2.3041,
    "plan": {
@@ -28282,7 +28310,7 @@
    },
    "last": 24.86,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.23,
    "shares": 39.7298
   },
@@ -28321,7 +28349,7 @@
    },
    "last": 339.83,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.15,
    "shares": 2.9472,
    "plan": {
@@ -28367,7 +28395,7 @@
    },
    "last": 36.3,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.93,
    "plan": {
     "outcome": "cierre",
@@ -28411,7 +28439,7 @@
    },
    "last": 157.13,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -7.48,
    "plan": {
     "outcome": "stop",
@@ -28455,7 +28483,7 @@
    },
    "last": 120.25,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.98,
    "plan": {
     "outcome": "objetivo",
@@ -28499,7 +28527,7 @@
    },
    "last": 239.19,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.51,
    "plan": {
     "outcome": "cierre",
@@ -28543,7 +28571,7 @@
    },
    "last": 247.39,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.62,
    "plan": {
     "outcome": "cierre",
@@ -28587,7 +28615,7 @@
    },
    "last": 25.64,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 1.02,
    "plan": {
     "outcome": "stop",
@@ -28631,7 +28659,7 @@
    },
    "last": 16.91,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -4.73,
    "plan": {
     "outcome": "cierre",
@@ -28675,7 +28703,7 @@
    },
    "last": 36.66,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.77,
    "plan": {
     "outcome": "cierre",
@@ -28719,7 +28747,7 @@
    },
    "last": 6.93,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -7.6,
    "plan": {
     "outcome": "cierre",
@@ -28763,7 +28791,7 @@
    },
    "last": 405.44,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.6,
    "plan": {
     "outcome": "cierre",
@@ -28807,7 +28835,7 @@
    },
    "last": 31.98,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.42,
    "plan": {
     "outcome": "cierre",
@@ -28851,7 +28879,7 @@
    },
    "last": 10.57,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.49,
    "plan": {
     "outcome": "cierre",
@@ -28895,7 +28923,7 @@
    },
    "last": 139.41,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.21,
    "plan": {
     "outcome": "cierre",
@@ -28939,7 +28967,7 @@
    },
    "last": 63.86,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.02,
    "plan": {
     "outcome": "objetivo",
@@ -28983,7 +29011,7 @@
    },
    "last": 290.63,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.34,
    "plan": {
     "outcome": "cierre",
@@ -29027,7 +29055,7 @@
    },
    "last": 6.87,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -4.72,
    "plan": {
     "outcome": "stop",
@@ -29071,7 +29099,7 @@
    },
    "last": 49.14,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.08,
    "plan": {
     "outcome": "cierre",
@@ -29115,7 +29143,7 @@
    },
    "last": 8.58,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.7,
    "plan": {
     "outcome": "cierre",
@@ -29159,7 +29187,7 @@
    },
    "last": 80.31,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.88,
    "plan": {
     "outcome": "objetivo",
@@ -29203,7 +29231,7 @@
    },
    "last": 169.05,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.49,
    "plan": {
     "outcome": "objetivo",
@@ -29247,7 +29275,7 @@
    },
    "last": 91.71,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 6.29,
    "plan": {
     "outcome": "objetivo",
@@ -29291,7 +29319,7 @@
    },
    "last": 174.34,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.65,
    "plan": {
     "outcome": "objetivo",
@@ -29335,7 +29363,7 @@
    },
    "last": 95.91,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -8.88,
    "plan": {
     "outcome": "stop",
@@ -29379,7 +29407,7 @@
    },
    "last": 147.32,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -5.09,
    "plan": {
     "outcome": "stop",
@@ -29423,7 +29451,7 @@
    },
    "last": 49.35,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -0.18,
    "plan": {
     "outcome": "cierre",
@@ -29467,7 +29495,7 @@
    },
    "last": 7.53,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -19.12,
    "plan": {
     "outcome": "stop",
@@ -29511,7 +29539,7 @@
    },
    "last": 51.52,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.06,
    "plan": {
     "outcome": "objetivo",
@@ -29555,7 +29583,7 @@
    },
    "last": 155.5,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 3.43,
    "plan": {
     "outcome": "objetivo",
@@ -29599,7 +29627,7 @@
    },
    "last": 133.18,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -4.1,
    "plan": {
     "outcome": "stop",
@@ -29643,7 +29671,7 @@
    },
    "last": 157.31,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.21,
    "plan": {
     "outcome": "objetivo",
@@ -29687,7 +29715,7 @@
    },
    "last": 49.98,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.72,
    "plan": {
     "outcome": "cierre",
@@ -29731,7 +29759,7 @@
    },
    "last": 68.0,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -6.72,
    "plan": {
     "outcome": "stop",
@@ -29775,7 +29803,7 @@
    },
    "last": 174.02,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.12,
    "plan": {
     "outcome": "stop",
@@ -29819,7 +29847,7 @@
    },
    "last": 157.6,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.37,
    "plan": {
     "outcome": "objetivo",
@@ -29863,7 +29891,7 @@
    },
    "last": 314.64,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -1.45,
    "plan": {
     "outcome": "stop",
@@ -29907,7 +29935,7 @@
    },
    "last": 228.99,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -3.4,
    "plan": {
     "outcome": "cierre",
@@ -29951,7 +29979,7 @@
    },
    "last": 1114.02,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.24,
    "plan": {
     "outcome": "cierre",
@@ -29995,7 +30023,7 @@
    },
    "last": 109.27,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 0.6,
    "plan": {
     "outcome": "objetivo",
@@ -30039,7 +30067,7 @@
    },
    "last": 168.18,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": -2.65,
    "plan": {
     "outcome": "cierre",
@@ -30083,7 +30111,7 @@
    },
    "last": 131.46,
    "status": "abierta",
-   "sessions": 1,
+   "sessions": 2,
    "ret_now": 2.95,
    "plan": {
     "outcome": "objetivo",
@@ -30127,7 +30155,7 @@
    },
    "last": 145.98,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.54,
    "shares": 6.5394,
    "plan": {
@@ -30173,10 +30201,17 @@
    },
    "last": 489.19,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -9.99,
    "stop_capped": true,
-   "shares": 1.84
+   "shares": 1.84,
+   "plan": {
+    "outcome": "stop",
+    "R": -1.0,
+    "ret": -10.0,
+    "sessions": 1,
+    "ohlc": true
+   }
   },
   {
    "symbol": "UNH",
@@ -30213,7 +30248,7 @@
    },
    "last": 330.48,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.88,
    "shares": 2.8479,
    "plan": {
@@ -30259,7 +30294,7 @@
    },
    "last": 55.72,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.18,
    "shares": 17.3762
   },
@@ -30299,7 +30334,7 @@
    },
    "last": 1351.12,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.33,
    "shares": 0.7303,
    "plan": {
@@ -30345,7 +30380,7 @@
    },
    "last": 572.04,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.04,
    "shares": 1.7475
   },
@@ -30384,7 +30419,7 @@
    },
    "last": 158.93,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.48,
    "shares": 6.1989
   },
@@ -30423,7 +30458,7 @@
    },
    "last": 208.65,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.44,
    "shares": 4.6757
   },
@@ -30462,7 +30497,7 @@
    },
    "last": 139.41,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 0.59,
    "shares": 7.2155
   },
@@ -30501,7 +30536,7 @@
    },
    "last": 1093.83,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 0.44,
    "shares": 0.9183
   },
@@ -30540,7 +30575,7 @@
    },
    "last": 153.68,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.51,
    "shares": 6.2135,
    "plan": {
@@ -30586,7 +30621,7 @@
    },
    "last": 86.13,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -7.5,
    "shares": 10.74,
    "plan": {
@@ -30632,7 +30667,7 @@
    },
    "last": 267.14,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.92,
    "shares": 3.7091,
    "plan": {
@@ -30679,7 +30714,7 @@
    },
    "last": 120.25,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.4,
    "shares": 8.1994
   },
@@ -30718,7 +30753,7 @@
    },
    "last": 206.5,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.47,
    "shares": 4.8197
   },
@@ -30757,7 +30792,7 @@
    },
    "last": 167.46,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 0.29,
    "shares": 5.9891
   },
@@ -30796,7 +30831,7 @@
    },
    "last": 537.37,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.38,
    "shares": 1.7607,
    "plan": {
@@ -30842,7 +30877,7 @@
    },
    "last": 183.31,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.34,
    "shares": 5.2184,
    "plan": {
@@ -30888,7 +30923,7 @@
    },
    "last": 88.87,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.34,
    "shares": 10.989,
    "plan": {
@@ -30935,7 +30970,7 @@
    },
    "last": 336.68,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 0.5,
    "shares": 2.9851
   },
@@ -30974,7 +31009,7 @@
    },
    "last": 380.0,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.24,
    "shares": 2.5463,
    "plan": {
@@ -31020,7 +31055,7 @@
    },
    "last": 49.12,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.9,
    "shares": 19.1571,
    "plan": {
@@ -31066,7 +31101,7 @@
    },
    "last": 83.31,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.11,
    "shares": 11.9904,
    "plan": {
@@ -31112,7 +31147,7 @@
    },
    "last": 14.41,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -9.94,
    "shares": 62.5,
    "plan": {
@@ -31158,7 +31193,7 @@
    },
    "last": 283.54,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.51,
    "shares": 3.5088
   },
@@ -31197,7 +31232,7 @@
    },
    "last": 199.33,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 1.85,
    "shares": 5.1099,
    "plan": {
@@ -31243,7 +31278,7 @@
    },
    "last": 132.81,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.57,
    "shares": 7.1855,
    "plan": {
@@ -31289,7 +31324,7 @@
    },
    "last": 218.58,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.22,
    "shares": 4.3819,
    "plan": {
@@ -31335,7 +31370,7 @@
    },
    "last": 218.17,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.54,
    "stop_capped": true,
    "shares": 4.4671
@@ -31375,7 +31410,7 @@
    },
    "last": 303.68,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.11,
    "stop_capped": true,
    "shares": 3.1905
@@ -31415,7 +31450,7 @@
    },
    "last": 219.14,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.58,
    "shares": 4.537,
    "plan": {
@@ -31461,7 +31496,7 @@
    },
    "last": 338.46,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.06,
    "shares": 2.9232
   },
@@ -31500,7 +31535,7 @@
    },
    "last": 318.88,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.23,
    "shares": 3.0347
   },
@@ -31539,7 +31574,7 @@
    },
    "last": 438.82,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.99,
    "shares": 2.2563
   },
@@ -31578,7 +31613,7 @@
    },
    "last": 68.65,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.8,
    "shares": 13.7212
   },
@@ -31617,7 +31652,7 @@
    },
    "last": 242.71,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.38,
    "shares": 4.0632
   },
@@ -31656,7 +31691,7 @@
    },
    "last": 27.54,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.36,
    "shares": 35.8166
   },
@@ -31695,7 +31730,7 @@
    },
    "last": 108.87,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.86,
    "shares": 8.739
   },
@@ -31734,7 +31769,7 @@
    },
    "last": 134.99,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.19,
    "shares": 7.3937
   },
@@ -31773,7 +31808,7 @@
    },
    "last": 206.85,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 1.77,
    "stop_capped": true,
    "shares": 4.92
@@ -31813,7 +31848,7 @@
    },
    "last": 377.44,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.68,
    "plan": {
     "outcome": "stop",
@@ -31857,7 +31892,7 @@
    },
    "last": 91.71,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.12,
    "plan": {
     "outcome": "stop",
@@ -31901,7 +31936,7 @@
    },
    "last": 211.6,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -9.31,
    "plan": {
     "outcome": "objetivo",
@@ -31945,7 +31980,7 @@
    },
    "last": 58.93,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.77,
    "plan": {
     "outcome": "stop",
@@ -31989,7 +32024,7 @@
    },
    "last": 489.19,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -10.75,
    "plan": {
     "outcome": "stop",
@@ -32033,7 +32068,7 @@
    },
    "last": 116.29,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.93,
    "plan": {
     "outcome": "stop",
@@ -32077,7 +32112,7 @@
    },
    "last": 30.49,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -6.24,
    "plan": {
     "outcome": "stop",
@@ -32121,7 +32156,7 @@
    },
    "last": 83.31,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.02,
    "plan": {
     "outcome": "stop",
@@ -32165,7 +32200,7 @@
    },
    "last": 99.27,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.07,
    "plan": {
     "outcome": "stop",
@@ -32209,7 +32244,7 @@
    },
    "last": 21.32,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.87,
    "plan": {
     "outcome": "stop",
@@ -32253,7 +32288,7 @@
    },
    "last": 1135.81,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.03,
    "plan": {
     "outcome": "stop",
@@ -32297,7 +32332,7 @@
    },
    "last": 115.99,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.54,
    "plan": {
     "outcome": "stop",
@@ -32341,7 +32376,7 @@
    },
    "last": 115.28,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.03,
    "plan": {
     "outcome": "stop",
@@ -32385,7 +32420,7 @@
    },
    "last": 11.72,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.9,
    "plan": {
     "outcome": "stop",
@@ -32429,7 +32464,7 @@
    },
    "last": 240.23,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -8.16,
    "plan": {
     "outcome": "stop",
@@ -32473,7 +32508,7 @@
    },
    "last": 306.31,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -0.81,
    "plan": {
     "outcome": "stop",
@@ -32517,7 +32552,7 @@
    },
    "last": 181.76,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.87,
    "plan": {
     "outcome": "stop",
@@ -32561,7 +32596,7 @@
    },
    "last": 13.36,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -8.81,
    "plan": {
     "outcome": "stop",
@@ -32605,7 +32640,7 @@
    },
    "last": 38.93,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.68,
    "plan": {
     "outcome": "stop",
@@ -32649,7 +32684,7 @@
    },
    "last": 44.91,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -12.75,
    "plan": {
     "outcome": "stop",
@@ -32693,7 +32728,7 @@
    },
    "last": 77.09,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -9.75,
    "plan": {
     "outcome": "stop",
@@ -32737,7 +32772,7 @@
    },
    "last": 190.89,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.41,
    "plan": {
     "outcome": "stop",
@@ -32781,7 +32816,7 @@
    },
    "last": 330.57,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.03,
    "plan": {
     "outcome": "objetivo",
@@ -32825,7 +32860,7 @@
    },
    "last": 74.22,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -6.65,
    "plan": {
     "outcome": "stop",
@@ -32869,7 +32904,7 @@
    },
    "last": 311.71,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -7.36,
    "plan": {
     "outcome": "stop",
@@ -32913,7 +32948,7 @@
    },
    "last": 151.95,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.96,
    "plan": {
     "outcome": "stop",
@@ -32957,7 +32992,7 @@
    },
    "last": 16.86,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -10.51,
    "plan": {
     "outcome": "stop",
@@ -33001,7 +33036,7 @@
    },
    "last": 87.21,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -1.81,
    "plan": {
     "outcome": "stop",
@@ -33045,7 +33080,7 @@
    },
    "last": 18.79,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.52,
    "plan": {
     "outcome": "stop",
@@ -33089,7 +33124,7 @@
    },
    "last": 26.93,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 1.2,
    "plan": {
     "outcome": "stop",
@@ -33133,7 +33168,7 @@
    },
    "last": 205.09,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.57,
    "plan": {
     "outcome": "stop",
@@ -33177,7 +33212,7 @@
    },
    "last": 847.53,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.38,
    "plan": {
     "outcome": "stop",
@@ -33221,7 +33256,7 @@
    },
    "last": 45.49,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.71,
    "plan": {
     "outcome": "stop",
@@ -33265,7 +33300,7 @@
    },
    "last": 83.35,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.54,
    "plan": {
     "outcome": "stop",
@@ -33309,7 +33344,7 @@
    },
    "last": 75.65,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -3.81,
    "plan": {
     "outcome": "stop",
@@ -33353,7 +33388,7 @@
    },
    "last": 55.72,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -5.17,
    "plan": {
     "outcome": "stop",
@@ -33397,7 +33432,7 @@
    },
    "last": 246.44,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -4.45,
    "plan": {
     "outcome": "stop",
@@ -33441,7 +33476,7 @@
    },
    "last": 25.64,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": 0.79,
    "plan": {
     "outcome": "objetivo",
@@ -33485,7 +33520,7 @@
    },
    "last": 320.22,
    "status": "abierta",
-   "sessions": 0,
+   "sessions": 1,
    "ret_now": -2.15,
    "plan": {
     "outcome": "stop",
@@ -33493,9 +33528,1330 @@
     "ret": -0.19,
     "at": "10:00"
    }
+  },
+  {
+   "symbol": "NVDA",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 145.98,
+   "stop": 142.35,
+   "target": 153.24,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 16.7,
+   "n": 6,
+   "avg": -6.115,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 19.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 145.98,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 145.98,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "MSFT",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 498.3,
+   "stop": 485.89,
+   "target": 523.12,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 71.4,
+   "n": 14,
+   "avg": 1.344,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 39.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 498.3,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 498.3,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "GOOG",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 271.02,
+   "stop": 264.27,
+   "target": 284.52,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 80.0,
+   "n": 15,
+   "avg": 3.166,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 29.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 271.02,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 271.02,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "INTC",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 55.72,
+   "stop": 54.4,
+   "target": 58.36,
+   "breakout_price": null,
+   "setups": [
+    "oversold_bounce"
+   ],
+   "win": 33.3,
+   "n": 6,
+   "avg": -3.646,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 31.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 55.72,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 55.72,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "PANW",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 361.73,
+   "stop": 325.56,
+   "target": 434.07,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 43.5,
+   "n": 23,
+   "avg": -0.616,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 54.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 361.73,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 361.73,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "UNH",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 330.48,
+   "stop": 322.25,
+   "target": 346.94,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 43.6,
+   "n": 39,
+   "avg": -3.054,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 24.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 330.48,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 330.48,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "LLY",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 1351.12,
+   "stop": 1317.48,
+   "target": 1418.4,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 58.3,
+   "n": 36,
+   "avg": 1.547,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 50.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 1351.12,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 1351.12,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "WMT",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 126.04,
+   "stop": 122.9,
+   "target": 132.32,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 51.9,
+   "n": 27,
+   "avg": 0.789,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 59.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 126.04,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 126.04,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "V",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 402.25,
+   "stop": 392.23,
+   "target": 422.29,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 77.8,
+   "n": 9,
+   "avg": 0.841,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 43.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 402.25,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 402.25,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "BRK.B",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 572.04,
+   "stop": 557.8,
+   "target": 600.52,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 66.7,
+   "n": 6,
+   "avg": 0.078,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 58.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 572.04,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 572.04,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "CRWD",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 243.46,
+   "stop": 219.11,
+   "target": 292.16,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 42.3,
+   "n": 26,
+   "avg": 0.976,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 53.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 243.46,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 243.46,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "JNJ",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 267.14,
+   "stop": 260.49,
+   "target": 280.44,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 78.6,
+   "n": 28,
+   "avg": 2.234,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 44.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 267.14,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 267.14,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "COHR",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 214.94,
+   "stop": 193.45,
+   "target": 257.92,
+   "breakout_price": null,
+   "setups": [
+    "reclaim_ma20"
+   ],
+   "win": 50.0,
+   "n": 36,
+   "avg": -1.662,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 45.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 214.94,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 214.94,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "MA",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 626.5,
+   "stop": 610.9,
+   "target": 657.7,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 72.2,
+   "n": 18,
+   "avg": 0.472,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 46.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 626.5,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 626.5,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "KO",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 96.09,
+   "stop": 93.7,
+   "target": 100.87,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 60.0,
+   "n": 20,
+   "avg": 1.031,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 54.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 96.09,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 96.09,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "CAT",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 537.37,
+   "stop": 523.99,
+   "target": 564.13,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 47.6,
+   "n": 21,
+   "avg": -1.031,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 27.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 537.37,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 537.37,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "INSM",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 144.46,
+   "stop": 130.01,
+   "target": 173.36,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d"
+   ],
+   "win": 58.8,
+   "n": 68,
+   "avg": 2.219,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 77.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 144.46,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 144.46,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "MSTR",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 86.13,
+   "stop": 83.99,
+   "target": 90.41,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 72.2,
+   "n": 18,
+   "avg": 4.199,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 22.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 86.13,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 86.13,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "PDD",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 86.0,
+   "stop": 77.4,
+   "target": 103.2,
+   "breakout_price": null,
+   "setups": [
+    "breakout_20d",
+    "reclaim_ma20"
+   ],
+   "win": 46.7,
+   "n": 75,
+   "avg": -0.347,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 64.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 86.0,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 86.0,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "PM",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 186.43,
+   "stop": 181.79,
+   "target": 195.71,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 64.7,
+   "n": 17,
+   "avg": 1.457,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 34.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 186.43,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 186.43,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "NOW",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 88.87,
+   "stop": 86.66,
+   "target": 93.29,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 47.7,
+   "n": 44,
+   "avg": -1.298,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 24.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 88.87,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 88.87,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "BABA",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 83.31,
+   "stop": 81.24,
+   "target": 87.45,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 60.0,
+   "n": 30,
+   "avg": 1.222,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 23.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 83.31,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 83.31,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "MRK",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 132.81,
+   "stop": 129.5,
+   "target": 139.43,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 65.0,
+   "n": 20,
+   "avg": 1.371,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 31.9,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 132.81,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 132.81,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "XOM",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 158.93,
+   "stop": 154.97,
+   "target": 166.85,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 63.3,
+   "n": 30,
+   "avg": 1.393,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 34.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 158.93,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 158.93,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "HOOD",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 68.65,
+   "stop": 66.94,
+   "target": 72.07,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 20.0,
+   "n": 10,
+   "avg": -2.52,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 26.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 68.65,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 68.65,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "IREN",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 14.41,
+   "stop": 14.05,
+   "target": 15.13,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 33.3,
+   "n": 15,
+   "avg": -3.63,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 27.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 14.41,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 14.41,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "TXN",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 285.75,
+   "stop": 275.97,
+   "target": 305.31,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 31.6,
+   "n": 19,
+   "avg": -0.409,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 45.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 285.75,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 285.75,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "HD",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 0,
+   "entry": 336.68,
+   "stop": 328.3,
+   "target": 353.44,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 18.2,
+   "n": 11,
+   "avg": -2.136,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 53.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 336.68,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 336.68,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "CRM",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 183.31,
+   "stop": 178.75,
+   "target": 192.43,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 53.8,
+   "n": 39,
+   "avg": 0.186,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 21.6,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 183.31,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 183.31,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "SNDK",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 94.39,
+   "stop": 92.04,
+   "target": 99.1,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 57.1,
+   "n": 7,
+   "avg": 0.776,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 29.4,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 94.39,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 755.16,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 700.04
+  },
+  {
+   "symbol": "ABBV",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 283.54,
+   "stop": 276.48,
+   "target": 297.66,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 64.0,
+   "n": 25,
+   "avg": 1.001,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 45.5,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 283.54,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 283.54,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "ACN",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 218.58,
+   "stop": 213.14,
+   "target": 229.46,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 100.0,
+   "n": 1,
+   "avg": 1.133,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 37.2,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 218.58,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 218.58,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "FCX",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 49.12,
+   "stop": 47.9,
+   "target": 51.56,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 77.8,
+   "n": 9,
+   "avg": 6.11,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 23.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 49.12,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 49.12,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "COF",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 181.76,
+   "stop": 177.23,
+   "target": 190.82,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 83.3,
+   "n": 6,
+   "avg": 1.678,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 28.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 181.76,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 181.76,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "LIN",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 510.21,
+   "stop": 497.51,
+   "target": 535.61,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 88.2,
+   "n": 17,
+   "avg": 1.563,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 49.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 510.21,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 510.21,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "BA",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 160.51,
+   "stop": 156.51,
+   "target": 168.51,
+   "breakout_price": null,
+   "setups": [
+    "oversold"
+   ],
+   "win": 75.0,
+   "n": 20,
+   "avg": 5.454,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 28.0,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 160.51,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 160.51,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "AMGN",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 438.82,
+   "stop": 427.89,
+   "target": 460.68,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 77.8,
+   "n": 27,
+   "avg": 1.024,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 42.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 438.82,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 438.82,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "ELV",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 390.16,
+   "stop": 380.45,
+   "target": 409.58,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 46.7,
+   "n": 15,
+   "avg": 0.381,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 36.3,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 390.16,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 390.16,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "VLO",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 1,
+   "entry": 338.46,
+   "stop": 330.03,
+   "target": 355.32,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 57.1,
+   "n": 21,
+   "avg": 1.873,
+   "ts": null,
+   "entry_bar": null,
+   "earn": true,
+   "rsi": 34.7,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 338.46,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 338.46,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
+  },
+  {
+   "symbol": "ABNB",
+   "kind": "daily",
+   "date": "2026-11-20",
+   "sem": 2,
+   "entry": 172.79,
+   "stop": 168.49,
+   "target": 181.39,
+   "breakout_price": null,
+   "setups": [
+    "pullback_trend"
+   ],
+   "win": 57.9,
+   "n": 19,
+   "avg": 2.449,
+   "ts": null,
+   "entry_bar": null,
+   "earn": false,
+   "rsi": 46.8,
+   "at": null,
+   "pct_over": null,
+   "or_high": null,
+   "or_low": null,
+   "signal_date": "2026-11-19",
+   "signal_price": 172.79,
+   "entry_type": "apertura pendiente",
+   "opened_at": "2026-11-20T13:13:43Z",
+   "closes": {},
+   "last": 172.79,
+   "status": "abierta",
+   "sessions": 0,
+   "ret_now": 0.0
   }
  ],
- "updated": "2026-11-20T02:18:39Z",
+ "updated": "2026-11-20T13:15:31Z",
  "rules": {
   "win": 55.0,
   "n": 5
