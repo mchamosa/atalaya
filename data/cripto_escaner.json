@@ -2,11 +2,11 @@
  "mode": "cripto",
  "source": "Binance (data-api.binance.vision), velas diarias UTC",
  "daily": {
-  "run_at": "2026-11-21T06:58:10Z",
-  "as_of": "2026-11-20 cierre UTC",
-  "close_date": "2026-11-20",
-  "universe": 132,
-  "scanned": 132,
+  "run_at": "2026-11-22T06:35:03Z",
+  "as_of": "2026-11-21 cierre UTC",
+  "close_date": "2026-11-21",
+  "universe": 87,
+  "scanned": 87,
   "failed": 0,
   "filters": {
    "min_quote_volume": 2000000.0
@@ -16,30 +16,31 @@
     "symbol": "BTC",
     "pair": "BTCUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 57784.85,
-    "close": 58951.51,
-    "close_date": "2026-11-20",
-    "rsi": 17.4,
-    "volume": 2290922104.9134936,
-    "qv24": 3202303365.630711,
-    "chg24": -6.874,
-    "vol_ratio": 1.79,
+    "price": 59093.07,
+    "close": 60215.77,
+    "close_date": "2026-11-21",
+    "rsi": 22.5,
+    "volume": 2820633667.4081187,
+    "qv24": 1908145905.149243,
+    "chg24": 4.733,
+    "vol_ratio": 2.06,
     "grade": {
      "hist": {
-      "n": 34,
-      "win_pct": 58.8,
-      "avg": -0.404,
-      "avg_win": 4.488,
-      "avg_loss": 7.393,
-      "payoff": 0.61
+      "n": 44,
+      "win_pct": 56.8,
+      "avg": -0.468,
+      "avg_win": 4.267,
+      "avg_loss": 6.697,
+      "payoff": 0.64
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 58951.51,
-     "stop": 56897.049876499994,
-     "target": 63060.43024700002,
+     "entry": 60215.77,
+     "stop": 58656.75245,
+     "target": 63333.80509999999,
      "rr": 2.0
     }
    },
@@ -47,30 +48,31 @@
     "symbol": "ETH",
     "pair": "ETHUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 1639.88,
-    "close": 1623.09,
-    "close_date": "2026-11-20",
-    "rsi": 19.2,
-    "volume": 1114007789.060743,
-    "qv24": 1380062326.989588,
-    "chg24": -6.283,
-    "vol_ratio": 2.06,
+    "price": 1661.77,
+    "close": 1685.63,
+    "close_date": "2026-11-21",
+    "rsi": 25.9,
+    "volume": 1008375740.021547,
+    "qv24": 728413617.490202,
+    "chg24": 5.353,
+    "vol_ratio": 1.71,
     "grade": {
      "hist": {
-      "n": 40,
-      "win_pct": 52.5,
-      "avg": -0.046,
-      "avg_win": 6.398,
-      "avg_loss": 7.167,
-      "payoff": 0.89
+      "n": 51,
+      "win_pct": 52.9,
+      "avg": -0.35,
+      "avg_win": 5.7,
+      "avg_loss": 7.156,
+      "payoff": 0.8
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 1623.09,
-     "stop": 1566.5253134999998,
-     "target": 1736.2193730000001,
+     "entry": 1685.63,
+     "stop": 1614.97455,
+     "target": 1826.9409000000005,
      "rr": 2.0
     }
    },
@@ -78,30 +80,31 @@
     "symbol": "SOL",
     "pair": "SOLUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 68.16,
-    "close": 68.88,
-    "close_date": "2026-11-20",
-    "rsi": 23.7,
-    "volume": 268082373.94381,
-    "qv24": 346750944.4525,
-    "chg24": -6.476,
-    "vol_ratio": 1.44,
+    "price": 69.08,
+    "close": 70.31,
+    "close_date": "2026-11-21",
+    "rsi": 27.1,
+    "volume": 272255007.46833,
+    "qv24": 195761969.97393,
+    "chg24": 4.193,
+    "vol_ratio": 1.39,
     "grade": {
      "hist": {
-      "n": 41,
-      "win_pct": 39.0,
-      "avg": -2.358,
-      "avg_win": 7.024,
-      "avg_loss": 8.363,
-      "payoff": 0.84
+      "n": 51,
+      "win_pct": 35.3,
+      "avg": -2.572,
+      "avg_win": 6.96,
+      "avg_loss": 7.771,
+      "payoff": 0.9
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 68.88,
-     "stop": 66.47953199999999,
-     "target": 73.680936,
+     "entry": 70.31,
+     "stop": 68.53559999999999,
+     "target": 73.85880000000003,
      "rr": 2.0
     }
    },
@@ -109,30 +112,30 @@
     "symbol": "ZEC",
     "pair": "ZECUSDT",
     "setups": [
-     "oversold"
+     "oversold_bounce"
     ],
-    "price": 729.49,
-    "close": 760.3,
-    "close_date": "2026-11-20",
-    "rsi": 29.4,
-    "volume": 275093859.18005,
-    "qv24": 341316475.41553,
-    "chg24": -14.978,
-    "vol_ratio": 1.55,
+    "price": 786.1,
+    "close": 779.96,
+    "close_date": "2026-11-21",
+    "rsi": 31.3,
+    "volume": 231831483.72348,
+    "qv24": 168881626.40067,
+    "chg24": 11.535,
+    "vol_ratio": 1.24,
     "grade": {
      "hist": {
-      "n": 18,
-      "win_pct": 72.2,
-      "avg": 3.363,
-      "avg_win": 7.098,
-      "avg_loss": 6.346,
-      "payoff": 1.12
+      "n": 12,
+      "win_pct": 58.3,
+      "avg": -0.245,
+      "avg_win": 4.415,
+      "avg_loss": 6.769,
+      "payoff": 0.65
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 760.3,
-     "stop": 733.803545,
-     "target": 813.2929099999999,
+     "entry": 779.96,
+     "stop": 756.4984999999999,
+     "target": 826.8830000000003,
      "rr": 2.0
     }
    },
@@ -140,30 +143,31 @@
     "symbol": "XRP",
     "pair": "XRPUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 0.899,
-    "close": 0.9107,
-    "close_date": "2026-11-20",
-    "rsi": 25.6,
-    "volume": 152081764.17397,
-    "qv24": 187761727.54104,
-    "chg24": -7.377,
-    "vol_ratio": 1.31,
+    "price": 0.9168,
+    "close": 0.9321,
+    "close_date": "2026-11-21",
+    "rsi": 29.4,
+    "volume": 135430379.09324,
+    "qv24": 98792443.5176,
+    "chg24": 4.753,
+    "vol_ratio": 1.11,
     "grade": {
      "hist": {
-      "n": 25,
-      "win_pct": 32.0,
-      "avg": -3.355,
-      "avg_win": 6.023,
-      "avg_loss": 7.769,
-      "payoff": 0.78
+      "n": 32,
+      "win_pct": 31.2,
+      "avg": -3.059,
+      "avg_win": 5.477,
+      "avg_loss": 6.938,
+      "payoff": 0.79
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.9107,
-     "stop": 0.8789621049999999,
-     "target": 0.97417579,
+     "entry": 0.9321,
+     "stop": 0.9061465,
+     "target": 0.9840070000000002,
      "rr": 2.0
     }
    },
@@ -171,92 +175,31 @@
     "symbol": "BNB",
     "pair": "BNBUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 525.69,
-    "close": 540.84,
-    "close_date": "2026-11-20",
-    "rsi": 20.6,
-    "volume": 134233162.61813,
-    "qv24": 170769653.97626,
-    "chg24": -8.218,
-    "vol_ratio": 1.63,
-    "grade": {
-     "hist": {
-      "n": 30,
-      "win_pct": 46.7,
-      "avg": -0.732,
-      "avg_win": 6.85,
-      "avg_loss": 7.366,
-      "payoff": 0.93
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 540.84,
-     "stop": 521.9917260000001,
-     "target": 578.5365479999999,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "NEAR",
-    "pair": "NEARUSDT",
-    "setups": [
-     "pullback_trend"
-    ],
-    "price": 2.707,
-    "close": 2.851,
-    "close_date": "2026-11-20",
-    "rsi": 32.0,
-    "volume": 112033867.8946,
-    "qv24": 139193341.8611,
-    "chg24": -11.246,
-    "vol_ratio": 1.44,
-    "grade": {
-     "hist": {
-      "n": 21,
-      "win_pct": 47.6,
-      "avg": 0.759,
-      "avg_win": 7.046,
-      "avg_loss": 4.956,
-      "payoff": 1.42
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 2.851,
-     "stop": 2.75164265,
-     "target": 3.0497147,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "DOGE",
-    "pair": "DOGEUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.05361,
-    "close": 0.05439,
-    "close_date": "2026-11-20",
-    "rsi": 23.1,
-    "volume": 48703668.09962,
-    "qv24": 62581379.52658,
-    "chg24": -7.088,
-    "vol_ratio": 1.49,
+    "price": 539.25,
+    "close": 548.61,
+    "close_date": "2026-11-21",
+    "rsi": 23.7,
+    "volume": 115674035.68213,
+    "qv24": 74040009.7799,
+    "chg24": 4.978,
+    "vol_ratio": 1.34,
     "grade": {
      "hist": {
       "n": 39,
-      "win_pct": 59.0,
-      "avg": 1.24,
-      "avg_win": 6.123,
-      "avg_loss": 5.78,
-      "payoff": 1.06
+      "win_pct": 48.7,
+      "avg": -0.363,
+      "avg_win": 6.071,
+      "avg_loss": 6.474,
+      "payoff": 0.94
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.05439,
-     "stop": 0.0524945085,
-     "target": 0.058180983,
+     "entry": 548.61,
+     "stop": 529.4909415,
+     "target": 586.8481170000001,
      "rr": 2.0
     }
    },
@@ -266,14 +209,14 @@
     "setups": [
      "breakout_20d"
     ],
-    "price": 1.0006,
-    "close": 1.0008,
-    "close_date": "2026-11-20",
-    "rsi": 58.9,
-    "volume": 45746473.0027,
-    "qv24": 58385916.9448,
-    "chg24": 0.02,
-    "vol_ratio": 1.65,
+    "price": 1.0018,
+    "close": 1.0011,
+    "close_date": "2026-11-21",
+    "rsi": 63.0,
+    "volume": 50130812.8634,
+    "qv24": 45576113.4375,
+    "chg24": 0.12,
+    "vol_ratio": 1.69,
     "grade": {
      "hist": {
       "n": 17,
@@ -285,9 +228,9 @@
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 1.0008,
-     "stop": 0.9659221199999999,
-     "target": 1.07055576,
+     "entry": 1.0011,
+     "stop": 0.9662116650000001,
+     "target": 1.07087667,
      "rr": 2.0
     }
    },
@@ -295,30 +238,62 @@
     "symbol": "UNI",
     "pair": "UNIUSDT",
     "setups": [
-     "oversold"
+     "oversold_bounce"
     ],
-    "price": 4.444,
-    "close": 4.476,
-    "close_date": "2026-11-20",
-    "rsi": 28.1,
-    "volume": 35939881.40372,
-    "qv24": 45015803.97081,
-    "chg24": -8.541,
-    "vol_ratio": 0.83,
+    "price": 4.618,
+    "close": 4.745,
+    "close_date": "2026-11-21",
+    "rsi": 32.8,
+    "volume": 44817135.06271,
+    "qv24": 34719372.98321,
+    "chg24": 7.696,
+    "vol_ratio": 1.04,
     "grade": {
      "hist": {
-      "n": 48,
-      "win_pct": 62.5,
-      "avg": 2.369,
-      "avg_win": 7.852,
-      "avg_loss": 6.769,
-      "payoff": 1.16
+      "n": 25,
+      "win_pct": 60.0,
+      "avg": 4.199,
+      "avg_win": 11.567,
+      "avg_loss": 6.853,
+      "payoff": 1.69
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 4.476,
-     "stop": 4.320011399999999,
-     "target": 4.787977200000001,
+     "entry": 4.745,
+     "stop": 4.45362,
+     "target": 5.3277600000000005,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "DOGE",
+    "pair": "DOGEUSDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 0.05417,
+    "close": 0.0553,
+    "close_date": "2026-11-21",
+    "rsi": 25.8,
+    "volume": 42099801.43121,
+    "qv24": 28417040.5141,
+    "chg24": 4.616,
+    "vol_ratio": 1.23,
+    "grade": {
+     "hist": {
+      "n": 54,
+      "win_pct": 51.9,
+      "avg": 0.634,
+      "avg_win": 5.736,
+      "avg_loss": 4.861,
+      "payoff": 1.18
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.0553,
+     "stop": 0.053372795,
+     "target": 0.059154410000000004,
      "rr": 2.0
     }
    },
@@ -328,14 +303,14 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.6237,
-    "close": 0.6517,
-    "close_date": "2026-11-20",
-    "rsi": 28.0,
-    "volume": 41374356.59431,
-    "qv24": 44624238.9164,
-    "chg24": -10.951,
-    "vol_ratio": 1.62,
+    "price": 0.6395,
+    "close": 0.6487,
+    "close_date": "2026-11-21",
+    "rsi": 27.7,
+    "volume": 34158747.78787,
+    "qv24": 24122000.95547,
+    "chg24": 6.265,
+    "vol_ratio": 1.27,
     "grade": {
      "hist": {
       "n": 45,
@@ -347,9 +322,9 @@
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.6517,
-     "stop": 0.628988255,
-     "target": 0.6971234899999998,
+     "entry": 0.6487,
+     "stop": 0.626092805,
+     "target": 0.6939143900000002,
      "rr": 2.0
     }
    },
@@ -359,28 +334,28 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.095,
-    "close": 0.0991,
-    "close_date": "2026-11-20",
-    "rsi": 25.2,
-    "volume": 31850483.815915,
-    "qv24": 40153234.12455,
-    "chg24": -9.351,
-    "vol_ratio": 1.25,
+    "price": 0.0982,
+    "close": 0.0986,
+    "close_date": "2026-11-21",
+    "rsi": 25.1,
+    "volume": 34207004.601788,
+    "qv24": 23141300.92661,
+    "chg24": 6.855,
+    "vol_ratio": 1.31,
     "grade": {
      "hist": {
-      "n": 40,
-      "win_pct": 52.5,
-      "avg": -0.206,
+      "n": 41,
+      "win_pct": 51.2,
+      "avg": -0.545,
       "avg_win": 9.153,
-      "avg_loss": 10.551,
-      "payoff": 0.87
+      "avg_loss": 10.729,
+      "payoff": 0.85
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.0991,
-     "stop": 0.09564636499999998,
-     "target": 0.10600727000000001,
+     "entry": 0.0986,
+     "stop": 0.09516378999999998,
+     "target": 0.10547242000000001,
      "rr": 2.0
     }
    },
@@ -388,30 +363,31 @@
     "symbol": "ADA",
     "pair": "ADAUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 0.1402,
-    "close": 0.1431,
-    "close_date": "2026-11-20",
-    "rsi": 25.1,
-    "volume": 24831017.72127,
-    "qv24": 34562461.27417,
-    "chg24": -6.782,
-    "vol_ratio": 1.59,
+    "price": 0.1419,
+    "close": 0.1444,
+    "close_date": "2026-11-21",
+    "rsi": 26.6,
+    "volume": 30682623.70249,
+    "qv24": 20849744.30882,
+    "chg24": 3.956,
+    "vol_ratio": 1.86,
     "grade": {
      "hist": {
-      "n": 50,
-      "win_pct": 60.0,
-      "avg": 2.449,
-      "avg_win": 8.367,
-      "avg_loss": 6.427,
-      "payoff": 1.3
+      "n": 70,
+      "win_pct": 55.7,
+      "avg": 1.966,
+      "avg_win": 8.636,
+      "avg_loss": 6.426,
+      "payoff": 1.34
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.1431,
-     "stop": 0.138112965,
-     "target": 0.15307407,
+     "entry": 0.1444,
+     "stop": 0.13936766,
+     "target": 0.15446468,
      "rr": 2.0
     }
    },
@@ -419,30 +395,31 @@
     "symbol": "LINK",
     "pair": "LINKUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 8.377,
-    "close": 8.545,
-    "close_date": "2026-11-20",
-    "rsi": 28.6,
-    "volume": 24930081.94472,
-    "qv24": 32674022.4068,
-    "chg24": -5.898,
-    "vol_ratio": 1.26,
+    "price": 8.547,
+    "close": 8.612,
+    "close_date": "2026-11-21",
+    "rsi": 29.7,
+    "volume": 23716521.45398,
+    "qv24": 16738482.2686,
+    "chg24": 5.155,
+    "vol_ratio": 1.2,
     "grade": {
      "hist": {
-      "n": 30,
-      "win_pct": 56.7,
-      "avg": 1.93,
-      "avg_win": 8.954,
-      "avg_loss": 7.255,
-      "payoff": 1.23
+      "n": 39,
+      "win_pct": 48.7,
+      "avg": 1.576,
+      "avg_win": 9.007,
+      "avg_loss": 5.484,
+      "payoff": 1.64
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 8.545,
-     "stop": 8.24720675,
-     "target": 9.1405865,
+     "entry": 8.612,
+     "stop": 8.3118718,
+     "target": 9.2122564,
      "rr": 2.0
     }
    },
@@ -452,90 +429,92 @@
     "setups": [
      "oversold"
     ],
-    "price": 39.04,
-    "close": 40.65,
-    "close_date": "2026-11-20",
-    "rsi": 23.9,
-    "volume": 20750073.97312,
-    "qv24": 25067327.61762,
-    "chg24": -6.131,
-    "vol_ratio": 1.66,
+    "price": 39.1,
+    "close": 39.81,
+    "close_date": "2026-11-21",
+    "rsi": 22.9,
+    "volume": 18266652.64838,
+    "qv24": 12585901.62508,
+    "chg24": 2.598,
+    "vol_ratio": 1.38,
     "grade": {
      "hist": {
-      "n": 35,
-      "win_pct": 68.6,
-      "avg": 1.134,
+      "n": 36,
+      "win_pct": 66.7,
+      "avg": 0.81,
       "avg_win": 5.279,
-      "avg_loss": 7.909,
-      "payoff": 0.67
+      "avg_loss": 8.128,
+      "payoff": 0.65
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 40.65,
-     "stop": 39.233347499999994,
-     "target": 43.48330500000001,
+     "entry": 39.81,
+     "stop": 38.422621500000005,
+     "target": 42.584756999999996,
      "rr": 2.0
     }
    },
    {
-    "symbol": "WLD",
-    "pair": "WLDUSDT",
+    "symbol": "ASTER",
+    "pair": "ASTERUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 0.2203,
-    "close": 0.2302,
-    "close_date": "2026-11-20",
-    "rsi": 24.5,
-    "volume": 15467437.08702,
-    "qv24": 18479531.49831,
-    "chg24": -10.81,
-    "vol_ratio": 1.14,
+    "price": 0.491,
+    "close": 0.4874,
+    "close_date": "2026-11-21",
+    "rsi": 29.5,
+    "volume": 16617151.821709,
+    "qv24": 11617002.578076,
+    "chg24": 2.27,
+    "vol_ratio": 1.29,
     "grade": {
      "hist": {
-      "n": 48,
-      "win_pct": 33.3,
-      "avg": -0.536,
-      "avg_win": 20.993,
-      "avg_loss": 11.301,
-      "payoff": 1.86
+      "n": 9,
+      "win_pct": 77.8,
+      "avg": 5.931,
+      "avg_win": 8.223,
+      "avg_loss": 2.088,
+      "payoff": 3.94
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.2302,
-     "stop": 0.22217752999999998,
-     "target": 0.24624494,
+     "entry": 0.4874,
+     "stop": 0.47041411,
+     "target": 0.52137178,
      "rr": 2.0
     }
    },
    {
-    "symbol": "AVAX",
-    "pair": "AVAXUSDT",
+    "symbol": "DODO",
+    "pair": "DODOUSDT",
     "setups": [
-     "oversold"
+     "breakout_20d",
+     "high_52w",
+     "high_52w"
     ],
-    "price": 6.325,
-    "close": 6.521,
-    "close_date": "2026-11-20",
-    "rsi": 28.7,
-    "volume": 14512732.76003,
-    "qv24": 18436989.72233,
-    "chg24": -8.572,
-    "vol_ratio": 0.78,
+    "price": 0.03802,
+    "close": 0.03962,
+    "close_date": "2026-11-21",
+    "rsi": 75.1,
+    "volume": 12063391.971258,
+    "qv24": 11385749.707745,
+    "chg24": 8.381,
+    "vol_ratio": 4.73,
     "grade": {
      "hist": {
-      "n": 49,
-      "win_pct": 63.3,
-      "avg": 1.749,
-      "avg_win": 7.058,
-      "avg_loss": 7.395,
-      "payoff": 0.95
+      "n": 77,
+      "win_pct": 40.3,
+      "avg": -1.403,
+      "avg_win": 10.604,
+      "avg_loss": 9.494,
+      "payoff": 1.12
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 6.521,
-     "stop": 6.293743149999999,
-     "target": 6.975513700000001,
+     "entry": 0.03962,
+     "stop": 0.0280988,
+     "target": 0.06266240000000001,
      "rr": 2.0
     }
    },
@@ -545,60 +524,153 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.002301,
-    "close": 0.002429,
-    "close_date": "2026-11-20",
-    "rsi": 24.6,
-    "volume": 11256643.388491,
-    "qv24": 14646779.015585,
-    "chg24": -9.835,
-    "vol_ratio": 0.99,
+    "price": 0.002322,
+    "close": 0.002354,
+    "close_date": "2026-11-21",
+    "rsi": 23.8,
+    "volume": 14568894.153076,
+    "qv24": 11226157.0762,
+    "chg24": 3.753,
+    "vol_ratio": 1.27,
     "grade": {
      "hist": {
-      "n": 7,
-      "win_pct": 42.9,
-      "avg": -1.107,
+      "n": 8,
+      "win_pct": 37.5,
+      "avg": -3.097,
       "avg_win": 6.284,
-      "avg_loss": 6.651,
-      "payoff": 0.94
+      "avg_loss": 8.726,
+      "payoff": 0.72
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.002429,
-     "stop": 0.0023443493500000002,
-     "target": 0.0025983013,
+     "entry": 0.002354,
+     "stop": 0.0022719631,
+     "target": 0.0025180738000000003,
      "rr": 2.0
     }
    },
    {
-    "symbol": "KERNEL",
-    "pair": "KERNELUSDT",
+    "symbol": "WLD",
+    "pair": "WLDUSDT",
     "setups": [
-     "breakout_20d",
-     "reclaim_ma20"
+     "oversold"
     ],
-    "price": 0.0438,
-    "close": 0.0476,
-    "close_date": "2026-11-20",
-    "rsi": 58.0,
-    "volume": 12516971.28035,
-    "qv24": 14029395.02977,
-    "chg24": 7.882,
-    "vol_ratio": 48.02,
+    "price": 0.2246,
+    "close": 0.2283,
+    "close_date": "2026-11-21",
+    "rsi": 24.2,
+    "volume": 15450055.24116,
+    "qv24": 10980757.0174,
+    "chg24": 5.248,
+    "vol_ratio": 1.11,
     "grade": {
      "hist": {
-      "n": 68,
-      "win_pct": 32.4,
-      "avg": -1.957,
-      "avg_win": 14.511,
-      "avg_loss": 9.833,
-      "payoff": 1.48
+      "n": 49,
+      "win_pct": 32.7,
+      "avg": -0.79,
+      "avg_win": 20.993,
+      "avg_loss": 11.351,
+      "payoff": 1.85
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.0476,
-     "stop": 0.037809999999999996,
-     "target": 0.06718000000000002,
+     "entry": 0.2283,
+     "stop": 0.220343745,
+     "target": 0.24421251,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "AVAX",
+    "pair": "AVAXUSDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 6.519,
+    "close": 6.584,
+    "close_date": "2026-11-21",
+    "rsi": 30.0,
+    "volume": 14396153.78047,
+    "qv24": 9748712.59154,
+    "chg24": 6.433,
+    "vol_ratio": 0.77,
+    "grade": {
+     "hist": {
+      "n": 65,
+      "win_pct": 58.5,
+      "avg": 1.062,
+      "avg_win": 6.636,
+      "avg_loss": 6.783,
+      "payoff": 0.98
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 6.584,
+     "stop": 6.3545476,
+     "target": 7.042904799999999,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "INJ",
+    "pair": "INJUSDT",
+    "setups": [
+     "pullback_trend"
+    ],
+    "price": 5.966,
+    "close": 5.987,
+    "close_date": "2026-11-21",
+    "rsi": 35.0,
+    "volume": 11640538.98966,
+    "qv24": 8962446.89923,
+    "chg24": -0.267,
+    "vol_ratio": 0.88,
+    "grade": {
+     "hist": {
+      "n": 41,
+      "win_pct": 58.5,
+      "avg": 1.891,
+      "avg_win": 6.723,
+      "avg_loss": 4.93,
+      "payoff": 1.36
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 5.987,
+     "stop": 5.77835305,
+     "target": 6.404293900000001,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "RARE",
+    "pair": "RAREUSDT",
+    "setups": [
+     "breakout_20d"
+    ],
+    "price": 0.01363,
+    "close": 0.01423,
+    "close_date": "2026-11-21",
+    "rsi": 59.3,
+    "volume": 9311492.453456,
+    "qv24": 8571829.265691,
+    "chg24": -4.418,
+    "vol_ratio": 3.55,
+    "grade": {
+     "hist": {
+      "n": 55,
+      "win_pct": 45.5,
+      "avg": 1.822,
+      "avg_win": 20.004,
+      "avg_loss": 13.33,
+      "payoff": 1.5
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.01423,
+     "stop": 0.00846745,
+     "target": 0.0257551,
      "rr": 2.0
     }
    },
@@ -608,14 +680,14 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.1097,
-    "close": 0.1143,
-    "close_date": "2026-11-20",
-    "rsi": 26.7,
-    "volume": 11989197.63766,
-    "qv24": 13869574.85632,
-    "chg24": -10.522,
-    "vol_ratio": 1.77,
+    "price": 0.1064,
+    "close": 0.109,
+    "close_date": "2026-11-21",
+    "rsi": 24.9,
+    "volume": 10157260.40366,
+    "qv24": 8239027.94588,
+    "chg24": -0.281,
+    "vol_ratio": 1.45,
     "grade": {
      "hist": {
       "n": 56,
@@ -627,164 +699,40 @@
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.1143,
-     "stop": 0.11031664499999999,
-     "target": 0.12226671000000001,
+     "entry": 0.109,
+     "stop": 0.10520134999999999,
+     "target": 0.11659730000000003,
      "rr": 2.0
     }
    },
    {
-    "symbol": "PROM",
-    "pair": "PROMUSDT",
+    "symbol": "ORCA",
+    "pair": "ORCAUSDT",
     "setups": [
-     "pullback_trend"
+     "oversold_bounce"
     ],
-    "price": 4.811,
-    "close": 4.565,
-    "close_date": "2026-11-20",
-    "rsi": 38.1,
-    "volume": 12427729.22311,
-    "qv24": 13587020.61654,
-    "chg24": -13.797,
-    "vol_ratio": 4.11,
+    "price": 1.214,
+    "close": 1.202,
+    "close_date": "2026-11-21",
+    "rsi": 39.8,
+    "volume": 6716850.52484,
+    "qv24": 8081758.45545,
+    "chg24": 11.889,
+    "vol_ratio": 13.36,
     "grade": {
      "hist": {
-      "n": 25,
-      "win_pct": 68.0,
-      "avg": 6.259,
-      "avg_win": 12.338,
-      "avg_loss": 6.659,
-      "payoff": 1.85
+      "n": 18,
+      "win_pct": 61.1,
+      "avg": 11.688,
+      "avg_win": 24.81,
+      "avg_loss": 8.932,
+      "payoff": 2.78
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 4.565,
-     "stop": 4.40590975,
-     "target": 4.883180500000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "ONDO",
-    "pair": "ONDOUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.269,
-    "close": 0.282,
-    "close_date": "2026-11-20",
-    "rsi": 28.7,
-    "volume": 9768215.93802,
-    "qv24": 12435249.92034,
-    "chg24": -8.128,
-    "vol_ratio": 1.2,
-    "grade": {
-     "hist": {
-      "n": 14,
-      "win_pct": 78.6,
-      "avg": 3.466,
-      "avg_win": 7.597,
-      "avg_loss": 11.682,
-      "payoff": 0.65
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.282,
-     "stop": 0.2721722999999999,
-     "target": 0.3016554000000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "TRUMP",
-    "pair": "TRUMPUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.841,
-    "close": 0.861,
-    "close_date": "2026-11-20",
-    "rsi": 20.9,
-    "volume": 10227499.524152,
-    "qv24": 12433525.917072,
-    "chg24": -9.957,
-    "vol_ratio": 1.04,
-    "grade": {
-     "hist": {
-      "n": 63,
-      "win_pct": 49.2,
-      "avg": 0.585,
-      "avg_win": 9.477,
-      "avg_loss": 8.029,
-      "payoff": 1.18
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.861,
-     "stop": 0.83099415,
-     "target": 0.9210117,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "XLM",
-    "pair": "XLMUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.1249,
-    "close": 0.1276,
-    "close_date": "2026-11-20",
-    "rsi": 28.2,
-    "volume": 9184789.7544,
-    "qv24": 12104890.2631,
-    "chg24": -7.207,
-    "vol_ratio": 1.3,
-    "grade": {
-     "hist": {
-      "n": 16,
-      "win_pct": 50.0,
-      "avg": 1.949,
-      "avg_win": 9.666,
-      "avg_loss": 5.768,
-      "payoff": 1.68
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.1276,
-     "stop": 0.12315314,
-     "target": 0.13649371999999999,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "BCH",
-    "pair": "BCHUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 188.9,
-    "close": 194.8,
-    "close_date": "2026-11-20",
-    "rsi": 25.8,
-    "volume": 7910111.0091,
-    "qv24": 11594144.0649,
-    "chg24": -7.988,
-    "vol_ratio": 1.35,
-    "grade": {
-     "hist": {
-      "n": 58,
-      "win_pct": 31.0,
-      "avg": -3.9,
-      "avg_win": 7.006,
-      "avg_loss": 8.808,
-      "payoff": 0.8
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 194.8,
-     "stop": 188.01122,
-     "target": 208.37756000000002,
+     "entry": 1.202,
+     "stop": 1.08654,
+     "target": 1.4329199999999997,
      "rr": 2.0
     }
    },
@@ -794,14 +742,14 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.1093,
-    "close": 0.1142,
-    "close_date": "2026-11-20",
-    "rsi": 28.9,
-    "volume": 8805218.32682,
-    "qv24": 10834216.27538,
-    "chg24": -8.459,
-    "vol_ratio": 0.86,
+    "price": 0.1112,
+    "close": 0.1135,
+    "close_date": "2026-11-21",
+    "rsi": 28.6,
+    "volume": 9116928.37433,
+    "qv24": 6643485.09237,
+    "chg24": 4.708,
+    "vol_ratio": 0.87,
     "grade": {
      "hist": {
       "n": 67,
@@ -813,40 +761,41 @@
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.1142,
-     "stop": 0.11022013,
-     "target": 0.12215973999999999,
+     "entry": 0.1135,
+     "stop": 0.109544525,
+     "target": 0.12141095,
      "rr": 2.0
     }
    },
    {
-    "symbol": "ZRO",
-    "pair": "ZROUSDT",
+    "symbol": "TRUMP",
+    "pair": "TRUMPUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 1.124,
-    "close": 1.155,
-    "close_date": "2026-11-20",
-    "rsi": 29.9,
-    "volume": 8639239.9105,
-    "qv24": 10189814.02191,
-    "chg24": -11.566,
-    "vol_ratio": 1.18,
+    "price": 0.896,
+    "close": 0.889,
+    "close_date": "2026-11-21",
+    "rsi": 24.2,
+    "volume": 8039740.987712,
+    "qv24": 6336987.491059,
+    "chg24": 9.402,
+    "vol_ratio": 0.78,
     "grade": {
      "hist": {
-      "n": 18,
-      "win_pct": 77.8,
-      "avg": 9.429,
-      "avg_win": 14.34,
-      "avg_loss": 7.762,
-      "payoff": 1.85
+      "n": 80,
+      "win_pct": 46.2,
+      "avg": 0.831,
+      "avg_win": 9.89,
+      "avg_loss": 6.964,
+      "payoff": 1.42
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 1.155,
-     "stop": 1.1147482499999999,
-     "target": 1.2355035000000003,
+     "entry": 0.889,
+     "stop": 0.856695,
+     "target": 0.9536100000000001,
      "rr": 2.0
     }
    },
@@ -856,28 +805,59 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.05019,
-    "close": 0.05161,
-    "close_date": "2026-11-20",
+    "price": 0.05065,
+    "close": 0.05155,
+    "close_date": "2026-11-21",
     "rsi": 23.7,
-    "volume": 9294343.27014,
-    "qv24": 10150570.5107,
-    "chg24": -7.193,
-    "vol_ratio": 1.63,
+    "volume": 8238865.49618,
+    "qv24": 6253847.89002,
+    "chg24": 3.199,
+    "vol_ratio": 1.38,
     "grade": {
      "hist": {
-      "n": 33,
-      "win_pct": 69.7,
-      "avg": 2.351,
+      "n": 34,
+      "win_pct": 67.6,
+      "avg": 1.982,
       "avg_win": 6.688,
-      "avg_loss": 7.626,
-      "payoff": 0.88
+      "avg_loss": 7.859,
+      "payoff": 0.85
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.05161,
-     "stop": 0.0498113915,
-     "target": 0.055207217,
+     "entry": 0.05155,
+     "stop": 0.0497534825,
+     "target": 0.05514303499999999,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "XLM",
+    "pair": "XLMUSDT",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 0.1273,
+    "close": 0.1292,
+    "close_date": "2026-11-21",
+    "rsi": 30.2,
+    "volume": 9329665.2825,
+    "qv24": 5735800.5557,
+    "chg24": 4.344,
+    "vol_ratio": 1.26,
+    "grade": {
+     "hist": {
+      "n": 12,
+      "win_pct": 33.3,
+      "avg": -0.882,
+      "avg_win": 9.846,
+      "avg_loss": 6.246,
+      "payoff": 1.58
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.1292,
+     "stop": 0.12469738000000002,
+     "target": 0.13820523999999998,
      "rr": 2.0
     }
    },
@@ -887,28 +867,248 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.5087,
-    "close": 0.5359,
-    "close_date": "2026-11-20",
-    "rsi": 20.2,
-    "volume": 8249137.02021,
-    "qv24": 9753195.33413,
-    "chg24": -8.573,
-    "vol_ratio": 1.59,
+    "price": 0.5129,
+    "close": 0.5185,
+    "close_date": "2026-11-21",
+    "rsi": 19.2,
+    "volume": 8351438.521594,
+    "qv24": 5529386.632778,
+    "chg24": 3.512,
+    "vol_ratio": 1.52,
     "grade": {
      "hist": {
-      "n": 37,
-      "win_pct": 56.8,
-      "avg": 0.119,
+      "n": 38,
+      "win_pct": 55.3,
+      "avg": -0.267,
       "avg_win": 6.192,
-      "avg_loss": 7.852,
-      "payoff": 0.79
+      "avg_loss": 8.245,
+      "payoff": 0.75
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.5359,
-     "stop": 0.517223885,
-     "target": 0.57325223,
+     "entry": 0.5185,
+     "stop": 0.5004302749999999,
+     "target": 0.55463945,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "ZRO",
+    "pair": "ZROUSDT",
+    "setups": [
+     "oversold_bounce"
+    ],
+    "price": 1.161,
+    "close": 1.175,
+    "close_date": "2026-11-21",
+    "rsi": 31.3,
+    "volume": 7324573.72198,
+    "qv24": 5401721.19874,
+    "chg24": 6.124,
+    "vol_ratio": 1.07,
+    "grade": {
+     "hist": {
+      "n": 9,
+      "win_pct": 77.8,
+      "avg": 12.988,
+      "avg_win": 18.275,
+      "avg_loss": 5.52,
+      "payoff": 3.31
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 1.175,
+     "stop": 1.13405125,
+     "target": 1.2568975000000002,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "ENSO",
+    "pair": "ENSOUSDT",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 0.51,
+    "close": 0.481,
+    "close_date": "2026-11-21",
+    "rsi": 47.7,
+    "volume": 7956503.73297,
+    "qv24": 5265273.88861,
+    "chg24": 5.809,
+    "vol_ratio": 10.24,
+    "grade": {
+     "hist": {
+      "n": 14,
+      "win_pct": 57.1,
+      "avg": 10.437,
+      "avg_win": 21.393,
+      "avg_loss": 4.172,
+      "payoff": 5.13
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.481,
+     "stop": 0.369145,
+     "target": 0.70471,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "APT",
+    "pair": "APTUSDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 0.3676,
+    "close": 0.371,
+    "close_date": "2026-11-21",
+    "rsi": 19.7,
+    "volume": 6518308.198053,
+    "qv24": 5061418.089506,
+    "chg24": 7.016,
+    "vol_ratio": 1.69,
+    "grade": {
+     "hist": {
+      "n": 103,
+      "win_pct": 46.6,
+      "avg": -0.246,
+      "avg_win": 8.383,
+      "avg_loss": 7.776,
+      "payoff": 1.08
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.371,
+     "stop": 0.35807065,
+     "target": 0.3968587,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "ONDO",
+    "pair": "ONDOUSDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 0.2775,
+    "close": 0.2823,
+    "close_date": "2026-11-21",
+    "rsi": 28.8,
+    "volume": 7943815.30017,
+    "qv24": 4730807.77183,
+    "chg24": 6.444,
+    "vol_ratio": 0.98,
+    "grade": {
+     "hist": {
+      "n": 22,
+      "win_pct": 68.2,
+      "avg": 1.63,
+      "avg_win": 6.675,
+      "avg_loss": 9.182,
+      "payoff": 0.73
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.2823,
+     "stop": 0.272461845,
+     "target": 0.30197631,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "INIT",
+    "pair": "INITUSDT",
+    "setups": [
+     "pullback_trend"
+    ],
+    "price": 0.09104,
+    "close": 0.09051,
+    "close_date": "2026-11-21",
+    "rsi": 41.9,
+    "volume": 4139306.225939,
+    "qv24": 4592611.744303,
+    "chg24": 4.704,
+    "vol_ratio": 0.44,
+    "grade": {
+     "hist": {
+      "n": 2,
+      "win_pct": 0.0,
+      "avg": -5.857,
+      "avg_win": 0.0,
+      "avg_loss": 5.857,
+      "payoff": 0.0
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.09051,
+     "stop": 0.0873557265,
+     "target": 0.09681854699999999,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "YB",
+    "pair": "YBUSDT",
+    "setups": [
+     "reclaim_ma20"
+    ],
+    "price": 0.0534,
+    "close": 0.0533,
+    "close_date": "2026-11-21",
+    "rsi": 49.6,
+    "volume": 4703524.76151,
+    "qv24": 4558379.73196,
+    "chg24": 0.188,
+    "vol_ratio": 5.03,
+    "grade": {
+     "hist": {
+      "n": 27,
+      "win_pct": 40.7,
+      "avg": -1.419,
+      "avg_win": 6.949,
+      "avg_loss": 7.171,
+      "payoff": 0.97
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 0.0533,
+     "stop": 0.042287500000000006,
+     "target": 0.07532499999999999,
+     "rr": 2.0
+    }
+   },
+   {
+    "symbol": "BCH",
+    "pair": "BCHUSDT",
+    "setups": [
+     "oversold",
+     "oversold_bounce"
+    ],
+    "price": 195.3,
+    "close": 199.7,
+    "close_date": "2026-11-21",
+    "rsi": 29.6,
+    "volume": 8390422.2829,
+    "qv24": 4389717.8344,
+    "chg24": 6.373,
+    "vol_ratio": 1.39,
+    "grade": {
+     "hist": {
+      "n": 69,
+      "win_pct": 36.2,
+      "avg": -2.928,
+      "avg_win": 6.705,
+      "avg_loss": 8.401,
+      "payoff": 0.8
+     },
+     "unit": "%",
+     "hold_days": 5,
+     "entry": 199.7,
+     "stop": 193.82600000000002,
+     "target": 211.44799999999992,
      "rr": 2.0
     }
    },
@@ -918,14 +1118,14 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.044,
+    "price": 0.0435,
     "close": 0.044,
-    "close_date": "2026-11-20",
+    "close_date": "2026-11-21",
     "rsi": 28.1,
-    "volume": 7450436.92735,
-    "qv24": 9630693.74062,
-    "chg24": -3.93,
-    "vol_ratio": 1.42,
+    "volume": 5954105.05868,
+    "qv24": 3703460.73648,
+    "chg24": -0.685,
+    "vol_ratio": 1.07,
     "grade": {
      "hist": {
       "n": 39,
@@ -944,64 +1144,64 @@
     }
    },
    {
-    "symbol": "APT",
-    "pair": "APTUSDT",
+    "symbol": "XPL",
+    "pair": "XPLUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 0.3537,
-    "close": 0.3699,
-    "close_date": "2026-11-20",
-    "rsi": 19.4,
-    "volume": 8302853.955141,
-    "qv24": 9356621.026715,
-    "chg24": -12.903,
-    "vol_ratio": 2.31,
+    "price": 0.04455,
+    "close": 0.04508,
+    "close_date": "2026-11-21",
+    "rsi": 28.6,
+    "volume": 5153170.414123,
+    "qv24": 3569591.541913,
+    "chg24": -0.669,
+    "vol_ratio": 0.74,
     "grade": {
      "hist": {
-      "n": 79,
-      "win_pct": 46.8,
-      "avg": 0.278,
-      "avg_win": 8.616,
-      "avg_loss": 7.068,
-      "payoff": 1.22
+      "n": 21,
+      "win_pct": 47.6,
+      "avg": -1.019,
+      "avg_win": 9.125,
+      "avg_loss": 10.24,
+      "payoff": 0.89
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.3699,
-     "stop": 0.357008985,
-     "target": 0.39568203,
+     "entry": 0.04508,
+     "stop": 0.04331235,
+     "target": 0.04861530000000001,
      "rr": 2.0
     }
    },
    {
-    "symbol": "QNT",
-    "pair": "QNTUSDT",
+    "symbol": "DASH",
+    "pair": "DASHUSDT",
     "setups": [
-     "pullback_trend"
+     "oversold_bounce"
     ],
-    "price": 132.2,
-    "close": 139.09,
-    "close_date": "2026-11-20",
-    "rsi": 32.5,
-    "volume": 7760254.54109,
-    "qv24": 8679244.20586,
-    "chg24": -9.57,
-    "vol_ratio": 0.87,
+    "price": 34.71,
+    "close": 34.66,
+    "close_date": "2026-11-21",
+    "rsi": 33.1,
+    "volume": 4364125.35708,
+    "qv24": 3401872.15493,
+    "chg24": 10.296,
+    "vol_ratio": 1.29,
     "grade": {
      "hist": {
-      "n": 35,
-      "win_pct": 37.1,
-      "avg": -2.41,
-      "avg_win": 5.166,
-      "avg_loss": 6.887,
-      "payoff": 0.75
+      "n": 9,
+      "win_pct": 55.6,
+      "avg": 0.124,
+      "avg_win": 4.592,
+      "avg_loss": 5.46,
+      "payoff": 0.84
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 139.09,
-     "stop": 134.2427135,
-     "target": 148.784573,
+     "entry": 34.66,
+     "stop": 33.034000000000006,
+     "target": 37.91199999999998,
      "rr": 2.0
     }
    },
@@ -1011,152 +1211,28 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.648,
-    "close": 0.663,
-    "close_date": "2026-11-20",
-    "rsi": 21.5,
-    "volume": 4422891.12922,
-    "qv24": 6218154.62542,
-    "chg24": -8.215,
-    "vol_ratio": 1.43,
+    "price": 0.646,
+    "close": 0.655,
+    "close_date": "2026-11-21",
+    "rsi": 21.0,
+    "volume": 5372871.67848,
+    "qv24": 3318557.59198,
+    "chg24": 2.54,
+    "vol_ratio": 1.66,
     "grade": {
      "hist": {
-      "n": 54,
-      "win_pct": 57.4,
-      "avg": -0.248,
+      "n": 55,
+      "win_pct": 56.4,
+      "avg": -0.437,
       "avg_win": 5.345,
-      "avg_loss": 7.786,
-      "payoff": 0.69
+      "avg_loss": 7.905,
+      "payoff": 0.68
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.663,
-     "stop": 0.6398944500000001,
-     "target": 0.7092110999999999,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "XPL",
-    "pair": "XPLUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.04585,
-    "close": 0.04576,
-    "close_date": "2026-11-20",
-    "rsi": 29.3,
-    "volume": 4768176.310223,
-    "qv24": 6166871.823107,
-    "chg24": -0.326,
-    "vol_ratio": 0.65,
-    "grade": {
-     "hist": {
-      "n": 20,
-      "win_pct": 50.0,
-      "avg": -1.035,
-      "avg_win": 9.125,
-      "avg_loss": 11.194,
-      "payoff": 0.82
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.04576,
-     "stop": 0.04331235,
-     "target": 0.05065530000000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "HMSTR",
-    "pair": "HMSTRUSDT",
-    "setups": [
-     "breakout_20d"
-    ],
-    "price": 0.0001439,
-    "close": 0.0001453,
-    "close_date": "2026-11-20",
-    "rsi": 55.3,
-    "volume": 5579491.6762947,
-    "qv24": 5794860.8499093,
-    "chg24": 3.376,
-    "vol_ratio": 7.52,
-    "grade": {
-     "hist": {
-      "n": 53,
-      "win_pct": 35.8,
-      "avg": -6.233,
-      "avg_win": 8.11,
-      "avg_loss": 14.248,
-      "payoff": 0.57
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.0001453,
-     "stop": 0.000131141,
-     "target": 0.000173618,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "SHIB",
-    "pair": "SHIBUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 3.53e-06,
-    "close": 3.58e-06,
-    "close_date": "2026-11-20",
-    "rsi": 23.6,
-    "volume": 3883195.70512991,
-    "qv24": 5215561.56780377,
-    "chg24": -6.117,
-    "vol_ratio": 1.91,
-    "grade": {
-     "hist": {
-      "n": 42,
-      "win_pct": 59.5,
-      "avg": 2.126,
-      "avg_win": 5.847,
-      "avg_loss": 3.346,
-      "payoff": 1.75
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 3.58e-06,
-     "stop": 3.455237e-06,
-     "target": 3.829526000000001e-06,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "CAKE",
-    "pair": "CAKEUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 1.44,
-    "close": 1.487,
-    "close_date": "2026-11-20",
-    "rsi": 25.6,
-    "volume": 3890540.1509,
-    "qv24": 4976885.78514,
-    "chg24": -8.455,
-    "vol_ratio": 1.79,
-    "grade": {
-     "hist": {
-      "n": 46,
-      "win_pct": 50.0,
-      "avg": 3.376,
-      "avg_win": 12.862,
-      "avg_loss": 6.11,
-      "payoff": 2.11
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 1.487,
-     "stop": 1.43517805,
-     "target": 1.5906439000000003,
+     "entry": 0.655,
+     "stop": 0.63217325,
+     "target": 0.7006535,
      "rr": 2.0
     }
    },
@@ -1166,121 +1242,28 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.004209,
-    "close": 0.004352,
-    "close_date": "2026-11-20",
-    "rsi": 21.1,
-    "volume": 4386030.611768,
-    "qv24": 4933940.123424,
-    "chg24": -6.983,
-    "vol_ratio": 0.92,
+    "price": 0.004213,
+    "close": 0.004288,
+    "close_date": "2026-11-21",
+    "rsi": 20.6,
+    "volume": 4312217.231009,
+    "qv24": 3173757.122706,
+    "chg24": 3.412,
+    "vol_ratio": 0.88,
     "grade": {
      "hist": {
-      "n": 48,
-      "win_pct": 45.8,
-      "avg": -1.341,
+      "n": 49,
+      "win_pct": 44.9,
+      "avg": -1.553,
       "avg_win": 11.559,
-      "avg_loss": 12.257,
+      "avg_loss": 12.237,
       "payoff": 0.94
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.004352,
-     "stop": 0.0042003328,
-     "target": 0.004655334400000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "DASH",
-    "pair": "DASHUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 32.27,
-    "close": 33.2,
-    "close_date": "2026-11-20",
-    "rsi": 28.9,
-    "volume": 3786455.70237,
-    "qv24": 4902018.74992,
-    "chg24": -10.733,
-    "vol_ratio": 1.15,
-    "grade": {
-     "hist": {
-      "n": 12,
-      "win_pct": 91.7,
-      "avg": 4.548,
-      "avg_win": 5.172,
-      "avg_loss": 2.32,
-      "payoff": 2.23
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 33.2,
-     "stop": 32.04298,
-     "target": 35.51404000000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "SKY",
-    "pair": "SKYUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.04504,
-    "close": 0.0439,
-    "close_date": "2026-11-20",
-    "rsi": 23.1,
-    "volume": 5468775.68886,
-    "qv24": 4763589.76902,
-    "chg24": 1.305,
-    "vol_ratio": 2.42,
-    "grade": {
-     "hist": {
-      "n": 18,
-      "win_pct": 72.2,
-      "avg": 2.775,
-      "avg_win": 6.459,
-      "avg_loss": 6.802,
-      "payoff": 0.95
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.0439,
-     "stop": 0.042370085,
-     "target": 0.04695983,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "BLUR",
-    "pair": "BLURUSDT",
-    "setups": [
-     "reclaim_ma20"
-    ],
-    "price": 0.00725,
-    "close": 0.00726,
-    "close_date": "2026-11-20",
-    "rsi": 44.8,
-    "volume": 4489835.196639,
-    "qv24": 4741007.518605,
-    "chg24": 7.09,
-    "vol_ratio": 4.47,
-    "grade": {
-     "hist": {
-      "n": 37,
-      "win_pct": 40.5,
-      "avg": -0.182,
-      "avg_win": 13.12,
-      "avg_loss": 9.251,
-      "payoff": 1.42
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.00726,
-     "stop": 0.00586055,
-     "target": 0.010058899999999999,
+     "entry": 0.004288,
+     "stop": 0.0041385632,
+     "target": 0.004586873600000001,
      "rr": 2.0
     }
    },
@@ -1288,185 +1271,61 @@
     "symbol": "NIGHT",
     "pair": "NIGHTUSDT",
     "setups": [
-     "pullback_trend"
+     "reclaim_ma20"
     ],
-    "price": 0.03999,
-    "close": 0.0423,
-    "close_date": "2026-11-20",
-    "rsi": 48.1,
-    "volume": 3965002.50505,
-    "qv24": 4344120.16615,
-    "chg24": -8.111,
-    "vol_ratio": 1.09,
+    "price": 0.04465,
+    "close": 0.0444,
+    "close_date": "2026-11-21",
+    "rsi": 52.5,
+    "volume": 3857910.39532,
+    "qv24": 3005294.45316,
+    "chg24": 12.44,
+    "vol_ratio": 1.02,
     "grade": {
      "hist": {
-      "n": 4,
-      "win_pct": 0.0,
-      "avg": -3.764,
-      "avg_win": 0.0,
-      "avg_loss": 3.764,
-      "payoff": 0.0
+      "n": 13,
+      "win_pct": 61.5,
+      "avg": 4.187,
+      "avg_win": 10.422,
+      "avg_loss": 5.789,
+      "payoff": 1.8
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.0423,
-     "stop": 0.040825845,
-     "target": 0.04524830999999999,
+     "entry": 0.0444,
+     "stop": 0.042088499999999994,
+     "target": 0.04902300000000002,
      "rr": 2.0
     }
    },
    {
-    "symbol": "BONK",
-    "pair": "BONKUSDT",
+    "symbol": "USUAL",
+    "pair": "USUALUSDT",
     "setups": [
-     "oversold"
+     "breakout_20d"
     ],
-    "price": 2.04e-06,
-    "close": 2.1e-06,
-    "close_date": "2026-11-20",
-    "rsi": 28.2,
-    "volume": 3425875.72729138,
-    "qv24": 4211514.6857258,
-    "chg24": -9.333,
-    "vol_ratio": 1.81,
+    "price": 0.01107,
+    "close": 0.01118,
+    "close_date": "2026-11-21",
+    "rsi": 56.2,
+    "volume": 3039697.33204,
+    "qv24": 2905759.069408,
+    "chg24": 4.041,
+    "vol_ratio": 3.57,
     "grade": {
      "hist": {
-      "n": 39,
-      "win_pct": 56.4,
-      "avg": 1.919,
-      "avg_win": 8.198,
-      "avg_loss": 6.207,
-      "payoff": 1.32
+      "n": 41,
+      "win_pct": 34.1,
+      "avg": -4.163,
+      "avg_win": 7.988,
+      "avg_loss": 10.463,
+      "payoff": 0.76
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 2.1e-06,
-     "stop": 2.0268149999999996e-06,
-     "target": 2.2463700000000002e-06,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "OP",
-    "pair": "OPUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.0675,
-    "close": 0.0702,
-    "close_date": "2026-11-20",
-    "rsi": 25.1,
-    "volume": 3330476.175172,
-    "qv24": 4011254.773726,
-    "chg24": -7.913,
-    "vol_ratio": 1.41,
-    "grade": {
-     "hist": {
-      "n": 67,
-      "win_pct": 61.2,
-      "avg": 1.081,
-      "avg_win": 7.414,
-      "avg_loss": 8.906,
-      "payoff": 0.83
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.0702,
-     "stop": 0.06775353,
-     "target": 0.07509293999999998,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "RAY",
-    "pair": "RAYUSDT",
-    "setups": [
-     "pullback_trend"
-    ],
-    "price": 1.2799,
-    "close": 1.288,
-    "close_date": "2026-11-20",
-    "rsi": 34.3,
-    "volume": 2716228.09295,
-    "qv24": 3478833.37022,
-    "chg24": -9.117,
-    "vol_ratio": 1.23,
-    "grade": {
-     "hist": {
-      "n": 33,
-      "win_pct": 51.5,
-      "avg": 1.851,
-      "avg_win": 11.204,
-      "avg_loss": 8.086,
-      "payoff": 1.39
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 1.288,
-     "stop": 1.2431132,
-     "target": 1.3777736,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "PLUME",
-    "pair": "PLUMEUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.01065,
-    "close": 0.01103,
-    "close_date": "2026-11-20",
-    "rsi": 28.4,
-    "volume": 3049742.97401,
-    "qv24": 3458922.76118,
-    "chg24": -4.655,
-    "vol_ratio": 1.95,
-    "grade": {
-     "hist": {
-      "n": 42,
-      "win_pct": 31.0,
-      "avg": -5.214,
-      "avg_win": 7.346,
-      "avg_loss": 10.844,
-      "payoff": 0.68
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.01103,
-     "stop": 0.0106456045,
-     "target": 0.011798791000000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "SEI",
-    "pair": "SEIUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.03384,
-    "close": 0.03525,
-    "close_date": "2026-11-20",
-    "rsi": 27.1,
-    "volume": 2944751.333695,
-    "qv24": 3408450.731423,
-    "chg24": -9.856,
-    "vol_ratio": 1.52,
-    "grade": {
-     "hist": {
-      "n": 60,
-      "win_pct": 63.3,
-      "avg": 4.42,
-      "avg_win": 11.063,
-      "avg_loss": 7.055,
-      "payoff": 1.57
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.03525,
-     "stop": 0.03402153749999999,
-     "target": 0.03770692500000001,
+     "entry": 0.01118,
+     "stop": 0.0099102,
+     "target": 0.013719600000000004,
      "rr": 2.0
     }
    },
@@ -1476,441 +1335,148 @@
     "setups": [
      "oversold"
     ],
-    "price": 0.1716,
-    "close": 0.18,
-    "close_date": "2026-11-20",
-    "rsi": 21.7,
-    "volume": 2517610.08545,
-    "qv24": 3405469.66474,
-    "chg24": -10.95,
-    "vol_ratio": 1.44,
+    "price": 0.1784,
+    "close": 0.1789,
+    "close_date": "2026-11-21",
+    "rsi": 21.5,
+    "volume": 3509623.50714,
+    "qv24": 2460455.72262,
+    "chg24": 6.507,
+    "vol_ratio": 1.96,
     "grade": {
      "hist": {
-      "n": 31,
-      "win_pct": 58.1,
-      "avg": 2.231,
+      "n": 32,
+      "win_pct": 56.2,
+      "avg": 1.745,
       "avg_win": 9.953,
-      "avg_loss": 8.461,
-      "payoff": 1.18
+      "avg_loss": 8.808,
+      "payoff": 1.13
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.18,
-     "stop": 0.17372699999999996,
-     "target": 0.19254600000000005,
+     "entry": 0.1789,
+     "stop": 0.172665335,
+     "target": 0.19136933,
      "rr": 2.0
     }
    },
    {
-    "symbol": "PENDLE",
-    "pair": "PENDLEUSDT",
+    "symbol": "CAKE",
+    "pair": "CAKEUSDT",
     "setups": [
      "oversold"
     ],
-    "price": 1.249,
-    "close": 1.274,
-    "close_date": "2026-11-20",
-    "rsi": 24.7,
-    "volume": 2439891.5521,
-    "qv24": 3118836.1307,
-    "chg24": -7.207,
-    "vol_ratio": 1.2,
-    "grade": {
-     "hist": {
-      "n": 31,
-      "win_pct": 48.4,
-      "avg": 0.783,
-      "avg_win": 8.62,
-      "avg_loss": 6.564,
-      "payoff": 1.31
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 1.274,
-     "stop": 1.2296010999999998,
-     "target": 1.3627978000000005,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "ETC",
-    "pair": "ETCUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 5.32,
-    "close": 5.47,
-    "close_date": "2026-11-20",
-    "rsi": 27.1,
-    "volume": 1819356.1869,
-    "qv24": 2820628.4844,
-    "chg24": -7.317,
-    "vol_ratio": 1.2,
-    "grade": {
-     "hist": {
-      "n": 36,
-      "win_pct": 66.7,
-      "avg": 2.32,
-      "avg_win": 6.576,
-      "avg_loss": 6.193,
-      "payoff": 1.06
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 5.47,
-     "stop": 5.2793705,
-     "target": 5.851259,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "ZEN",
-    "pair": "ZENUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 3.451,
-    "close": 3.578,
-    "close_date": "2026-11-20",
-    "rsi": 23.0,
-    "volume": 1623110.99017,
-    "qv24": 2490903.43416,
-    "chg24": -11.034,
-    "vol_ratio": 1.29,
-    "grade": {
-     "hist": {
-      "n": 27,
-      "win_pct": 55.6,
-      "avg": 1.655,
-      "avg_win": 7.367,
-      "avg_loss": 5.487,
-      "payoff": 1.34
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 3.578,
-     "stop": 3.4533066999999997,
-     "target": 3.8273866,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "LDO",
-    "pair": "LDOUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.2308,
-    "close": 0.2403,
-    "close_date": "2026-11-20",
-    "rsi": 25.1,
-    "volume": 1821966.358857,
-    "qv24": 2472757.10102,
-    "chg24": -10.09,
-    "vol_ratio": 1.32,
-    "grade": {
-     "hist": {
-      "n": 34,
-      "win_pct": 52.9,
-      "avg": -0.635,
-      "avg_win": 5.777,
-      "avg_loss": 7.848,
-      "payoff": 0.74
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.2403,
-     "stop": 0.231925545,
-     "target": 0.25704891,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "KAVA",
-    "pair": "KAVAUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.02701,
-    "close": 0.02693,
-    "close_date": "2026-11-20",
-    "rsi": 14.9,
-    "volume": 2531497.909544,
-    "qv24": 2419980.110955,
-    "chg24": -7.341,
-    "vol_ratio": 0.96,
-    "grade": {
-     "hist": {
-      "n": 98,
-      "win_pct": 40.8,
-      "avg": -1.596,
-      "avg_win": 7.162,
-      "avg_loss": 7.636,
-      "payoff": 0.94
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.02693,
-     "stop": 0.0261685,
-     "target": 0.028452999999999996,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "VIRTUAL",
-    "pair": "VIRTUALUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.3659,
-    "close": 0.3786,
-    "close_date": "2026-11-20",
-    "rsi": 21.2,
-    "volume": 1922219.19356,
-    "qv24": 2314940.16134,
-    "chg24": -10.275,
-    "vol_ratio": 1.01,
-    "grade": {
-     "hist": {
-      "n": 6,
-      "win_pct": 66.7,
-      "avg": 3.04,
-      "avg_win": 9.855,
-      "avg_loss": 10.591,
-      "payoff": 0.93
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.3786,
-     "stop": 0.36540578999999995,
-     "target": 0.40498842000000007,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "AR",
-    "pair": "ARUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 2.127,
-    "close": 2.197,
-    "close_date": "2026-11-20",
-    "rsi": 25.5,
-    "volume": 1918863.02768,
-    "qv24": 2275402.28579,
-    "chg24": -11.079,
-    "vol_ratio": 1.23,
-    "grade": {
-     "hist": {
-      "n": 37,
-      "win_pct": 62.2,
-      "avg": 1.541,
-      "avg_win": 10.838,
-      "avg_loss": 13.734,
-      "payoff": 0.79
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 2.197,
-     "stop": 2.12043455,
-     "target": 2.3501309,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "WIF",
-    "pair": "WIFUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.1172,
-    "close": 0.1221,
-    "close_date": "2026-11-20",
-    "rsi": 23.4,
-    "volume": 1538439.037744,
-    "qv24": 2244371.675475,
-    "chg24": -9.428,
-    "vol_ratio": 1.61,
-    "grade": {
-     "hist": {
-      "n": 38,
-      "win_pct": 52.6,
-      "avg": 1.29,
-      "avg_win": 14.889,
-      "avg_loss": 13.819,
-      "payoff": 1.08
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.1221,
-     "stop": 0.117844815,
-     "target": 0.13061036999999998,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "W",
-    "pair": "WUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.00781,
-    "close": 0.00805,
-    "close_date": "2026-11-20",
-    "rsi": 29.8,
-    "volume": 1735352.035128,
-    "qv24": 2236353.697131,
-    "chg24": -9.397,
-    "vol_ratio": 1.54,
-    "grade": {
-     "hist": {
-      "n": 62,
-      "win_pct": 40.3,
-      "avg": -0.334,
-      "avg_win": 10.281,
-      "avg_loss": 7.507,
-      "payoff": 1.37
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.00805,
-     "stop": 0.007769457499999999,
-     "target": 0.008611085000000001,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "EIGEN",
-    "pair": "EIGENUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.1109,
-    "close": 0.1137,
-    "close_date": "2026-11-20",
-    "rsi": 21.0,
-    "volume": 2069378.813673,
-    "qv24": 2216217.464931,
-    "chg24": -8.874,
+    "price": 1.457,
+    "close": 1.481,
+    "close_date": "2026-11-21",
+    "rsi": 25.4,
+    "volume": 3330589.09302,
+    "qv24": 2200956.66138,
+    "chg24": 3.849,
     "vol_ratio": 1.46,
     "grade": {
      "hist": {
-      "n": 42,
-      "win_pct": 47.6,
-      "avg": -1.033,
-      "avg_win": 7.812,
-      "avg_loss": 9.073,
-      "payoff": 0.86
+      "n": 47,
+      "win_pct": 48.9,
+      "avg": 3.118,
+      "avg_win": 12.862,
+      "avg_loss": 6.22,
+      "payoff": 2.07
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.1137,
-     "stop": 0.109737555,
-     "target": 0.12162488999999999,
+     "entry": 1.481,
+     "stop": 1.4293871500000002,
+     "target": 1.5842257,
      "rr": 2.0
     }
    },
    {
-    "symbol": "ALGO",
-    "pair": "ALGOUSDT",
+    "symbol": "SHIB",
+    "pair": "SHIBUSDT",
     "setups": [
-     "oversold"
+     "oversold",
+     "oversold_bounce"
     ],
-    "price": 0.0722,
-    "close": 0.0733,
-    "close_date": "2026-11-20",
-    "rsi": 26.4,
-    "volume": 1786582.1278,
-    "qv24": 2128053.1872,
-    "chg24": -5.744,
-    "vol_ratio": 1.73,
+    "price": 3.59e-06,
+    "close": 3.63e-06,
+    "close_date": "2026-11-21",
+    "rsi": 26.2,
+    "volume": 3506509.99124267,
+    "qv24": 2135338.81541997,
+    "chg24": 4.665,
+    "vol_ratio": 1.65,
     "grade": {
      "hist": {
-      "n": 18,
-      "win_pct": 83.3,
-      "avg": 5.484,
-      "avg_win": 6.771,
-      "avg_loss": 0.952,
-      "payoff": 7.12
+      "n": 58,
+      "win_pct": 50.0,
+      "avg": 1.027,
+      "avg_win": 6.024,
+      "avg_loss": 3.969,
+      "payoff": 1.52
      },
      "unit": "%",
      "hold_days": 5,
-     "entry": 0.0733,
-     "stop": 0.07074549499999999,
-     "target": 0.07840901000000003,
-     "rr": 2.0
-    }
-   },
-   {
-    "symbol": "ALT",
-    "pair": "ALTUSDT",
-    "setups": [
-     "oversold"
-    ],
-    "price": 0.00416,
-    "close": 0.00429,
-    "close_date": "2026-11-20",
-    "rsi": 29.2,
-    "volume": 1653691.13491,
-    "qv24": 2012542.07888,
-    "chg24": -6.726,
-    "vol_ratio": 1.44,
-    "grade": {
-     "hist": {
-      "n": 66,
-      "win_pct": 34.8,
-      "avg": -2.753,
-      "avg_win": 10.542,
-      "avg_loss": 9.864,
-      "payoff": 1.07
-     },
-     "unit": "%",
-     "hold_days": 5,
-     "entry": 0.00429,
-     "stop": 0.004140493500000001,
-     "target": 0.004589012999999999,
+     "entry": 3.63e-06,
+     "stop": 3.5034945e-06,
+     "target": 3.883011e-06,
      "rr": 2.0
     }
    }
   ],
   "market": {
    "oversold": {
-    "n": 2033,
-    "win_pct": 53.1,
-    "avg": 0.649,
-    "avg_win": 8.666,
-    "avg_loss": 8.418,
-    "payoff": 1.03
+    "n": 1230,
+    "win_pct": 52.1,
+    "avg": 0.46,
+    "avg_win": 8.626,
+    "avg_loss": 8.428,
+    "payoff": 1.02
    },
-   "pullback_trend": {
-    "n": 118,
-    "win_pct": 48.3,
-    "avg": 1.136,
-    "avg_win": 9.436,
-    "avg_loss": 6.619,
-    "payoff": 1.43
+   "oversold_bounce": {
+    "n": 381,
+    "win_pct": 48.0,
+    "avg": 0.8,
+    "avg_win": 8.63,
+    "avg_loss": 6.436,
+    "payoff": 1.34
    },
    "breakout_20d": {
-    "n": 110,
-    "win_pct": 30.9,
-    "avg": -3.837,
-    "avg_win": 10.022,
-    "avg_loss": 10.038,
-    "payoff": 1.0
+    "n": 190,
+    "win_pct": 39.5,
+    "avg": -0.941,
+    "avg_win": 12.544,
+    "avg_loss": 9.735,
+    "payoff": 1.29
+   },
+   "high_52w": {
+    "n": 4,
+    "win_pct": 75.0,
+    "avg": 14.049,
+    "avg_win": 20.409,
+    "avg_loss": 5.031,
+    "payoff": 4.06
+   },
+   "pullback_trend": {
+    "n": 43,
+    "win_pct": 55.8,
+    "avg": 1.531,
+    "avg_win": 6.723,
+    "avg_loss": 5.028,
+    "payoff": 1.34
    },
    "reclaim_ma20": {
-    "n": 67,
-    "win_pct": 40.3,
-    "avg": -0.93,
-    "avg_win": 12.203,
-    "avg_loss": 9.794,
-    "payoff": 1.25
+    "n": 54,
+    "win_pct": 50.0,
+    "avg": 3.004,
+    "avg_win": 12.258,
+    "avg_loss": 6.249,
+    "payoff": 1.96
    }
   },
   "earnings": []
  },
- "updated": "2026-11-21T23:12:14Z",
+ "updated": "2026-11-22T06:39:19Z",
  "orb": {
   "run_at": "2026-11-20T16:30:50Z",
   "as_of": "2026-11-20 10:10 ET",
@@ -2127,106 +1693,76 @@
   "SOL",
   "ZEC",
   "XRP",
-  "BNB",
   "NEAR",
-  "DOGE",
+  "BNB",
   "U",
-  "PEPE",
   "UNI",
+  "DOGE",
+  "TRX",
   "SUI",
   "ENA",
-  "TRX",
+  "PEPE",
   "ADA",
   "LINK",
   "TAO",
   "LTC",
-  "MMT",
+  "ASTER",
+  "DODO",
+  "PUMP",
   "WLD",
+  "AAVE",
   "AVAX",
   "INJ",
-  "AAVE",
-  "PUMP",
-  "KERNEL",
-  "FET",
-  "ASTER",
-  "PROM",
-  "ONDO",
-  "TRUMP",
-  "XLM",
-  "BCH",
-  "CYBER",
-  "ARB",
-  "ZRO",
-  "HBAR",
-  "ICP",
-  "FIL",
-  "WLFI",
-  "APT",
   "RARE",
+  "FET",
+  "ORCA",
+  "ARB",
   "QNT",
-  "BMT",
+  "TRUMP",
+  "MMT",
+  "HBAR",
+  "XLM",
+  "FIL",
+  "ZRO",
   "ENSO",
-  "HUMA",
+  "ICP",
+  "APT",
+  "ONDO",
   "BARD",
-  "RENDER",
-  "DOT",
-  "XPL",
-  "POL",
-  "HMSTR",
-  "SHIB",
-  "STRK",
-  "CAKE",
-  "PENGU",
-  "DASH",
-  "SKY",
-  "BLUR",
-  "NIGHT",
-  "BONK",
-  "LUNC",
-  "TIA",
-  "MEGA",
-  "OP",
-  "DODO",
-  "SENT",
-  "JST",
-  "ERA",
-  "RAY",
-  "PLUME",
   "INIT",
-  "SEI",
-  "CRV",
   "YB",
-  "PENDLE",
-  "SOPH",
-  "ZAMA",
-  "BREV",
-  "PYTH",
-  "ETC",
-  "CHIP",
+  "BCH",
+  "RENDER",
+  "WLFI",
+  "JST",
+  "XPL",
+  "DASH",
+  "RAY",
+  "DOT",
   "ETHFI",
-  "币安人生",
-  "HOT",
-  "ZEN",
-  "LDO",
-  "KAVA",
-  "ATOM",
-  "VIRTUAL",
-  "AR",
+  "PENGU",
+  "NIGHT",
+  "USUAL",
+  "SENT",
+  "CRV",
   "SAPIEN",
-  "WIF",
-  "W",
-  "EIGEN",
-  "ALGO",
-  "KITE",
-  "ALT"
+  "POL",
+  "HUMA",
+  "CAKE",
+  "STRK",
+  "TIA",
+  "SHIB",
+  "PARTI",
+  "HOT",
+  "MEGA"
  ],
  "regime": {
   "name": "bajista",
   "ref": "BTC",
-  "spy": 58951.51,
-  "ma50": 77717.72,
-  "ma200": 72589.19,
-  "ma50_slope_pct": -5.18,
-  "at": "2026-11-21T06:55:45Z"
+  "spy": 60215.77,
+  "ma50": 77231.67,
+  "ma200": 72485.74,
+  "ma50_slope_pct": -5.79,
+  "at": "2026-11-22T06:33:47Z"
  }
 }
