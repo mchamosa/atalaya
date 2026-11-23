@@ -313,11 +313,12 @@ function tkCell(sym, kind){
 // ---------- Semáforo
 const RULES = {win:55, n:5, exp:true, earn:true, green:false};
 try{ Object.assign(RULES, JSON.parse(localStorage.getItem('atalaya-escaner-reglas')||'{}')); }catch(e){}
-// Estrategias retiradas por perder en el registro (17/11/2026): siguen apuntándose para ver si cambian, pero siempre en rojo
-const RETIRED=new Set(['breakout_20d','reclaim_ma20']);
-const retired=(h,kind)=>!CRIPTO&&(kind==='orb'||((h.setups||[]).length&&(h.setups||[]).every(s=>RETIRED.has(s))));
+// Solo queda activa la estrategia que gana en el registro (23/11/2026): rebote de sobreventa (solo o con RSI<30).
+// El resto se sigue apuntando para ver si cambia, pero siempre en rojo, oculta por defecto y sin aviso.
+const ACTIVE='oversold_bounce';
+const retired=(h,kind)=>!CRIPTO&&(kind==='orb'||!(h.setups||[]).includes(ACTIVE));
 function grade(h, kind, earnSet){
-  if(retired(h,kind)) return {sem:0, why:'Estrategia retirada: '+(kind==='orb'?'la ruptura de apertura':'la ruptura de 20 días y recuperar la media 20')+' perdían en el registro (−0,26 a −0,46 R por operación). Se sigue apuntando, pero no se recomienda.'};
+  if(retired(h,kind)) return {sem:0, why:'Estrategia retirada: perdía en el registro de señales. Solo queda activo el rebote de sobreventa (solo o con RSI<30). Se sigue apuntando por si cambia, pero no se recomienda.'};
   const g=h.grade;
   if(!g||!g.hist||g.error) return {sem:-1, why:g&&g.error?'Sin valorar: '+g.error:'Sin valorar (solo se calculan las primeras acciones de la lista)'};
   const hs=g.hist, why=[];
@@ -543,9 +544,9 @@ const FIT={
     txt:'En mercado bajista lo que mejor ha funcionado es la sobreventa (RSI<30); las rupturas, máximos y recuperar la media de 20 han ido claramente peor.'}};
 const fitOf=(cats,reg)=>{ const f=FIT[reg]; if(!f) return 0; if(cats.some(c=>f.y.includes(c))) return 1; if(cats.length&&cats.every(c=>f.n.includes(c))) return -1; return 0; };
 let allCats=null, onlyFit=false;
-try{ if(localStorage.getItem('atalaya-tabla-v')!=='2'){ localStorage.removeItem('atalaya-tabla-cats'); localStorage.setItem('atalaya-tabla-v','2'); }
+try{ if(localStorage.getItem('atalaya-tabla-v')!=='3'){ localStorage.removeItem('atalaya-tabla-cats'); localStorage.setItem('atalaya-tabla-v','3'); }
   const v=JSON.parse(localStorage.getItem('atalaya-tabla-cats')||'null'); if(Array.isArray(v)) allCats=new Set(v); onlyFit=localStorage.getItem('atalaya-tabla-fit')==='1'; }catch(e){}
-const CATS_OFF=CRIPTO?[]:['orb','breakout_20d','reclaim_ma20'];   // retiradas: ocultas por defecto en la tabla
+const CATS_OFF=CRIPTO?[]:['orb','breakout_20d','reclaim_ma20','high_52w','bull_flag','pullback_trend','oversold','trend_ma','ath'];   // retiradas: ocultas por defecto
 
 // ---------- Tabla conjunta
 function initAll(){

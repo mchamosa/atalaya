@@ -312,8 +312,8 @@ RETIRED = {"breakout_20d", "reclaim_ma20"}   # perdían en el registro (17/11/20
 
 def sem_color(h, kind, earn):
     """Semáforo con las reglas por defecto: 2 verde, 1 ámbar, 0 rojo, -1 sin valorar."""
-    if kind == "orb" or (h.get("setups") and set(h["setups"]) <= RETIRED):
-        return 0
+    if kind == "orb" or "oversold_bounce" not in (h.get("setups") or []):
+        return 0          # retiradas el 23/11/2026: solo queda activo el rebote de sobreventa
     g = h.get("grade") or {}
     hs = g.get("hist") or {}
     if g.get("error") or not hs.get("n"):
