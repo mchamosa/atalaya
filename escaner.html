@@ -132,7 +132,7 @@ footer a{color:var(--mut)}
     <div class="rules">
       <label>1. Aciertos históricos ≥ <input type="number" id="r-win" value="55" min="0" max="100" step="1"> % con al menos <input type="number" id="r-n" value="5" min="1" step="1"> señales</label>
       <label><input type="checkbox" id="r-exp" checked> 2. El plan a 2R compensa</label>
-      <label><input type="checkbox" id="r-earn" checked> 3. Sin noticias de resultados en 36 h</label>
+      <label><input type="checkbox" id="r-earn" checked> 3. Sin resultados entre ayer y mañana (calendario)</label>
       <label><input type="checkbox" id="r-green"> Mostrar solo verdes</label>
     </div>
     <p class="sub" style="margin:10px 0 0">Pre-apertura: aciertos = veces que el mismo patrón en esa acción acabó en positivo 5 sesiones después (últimos 2 años); compensa si la media de esas 5 sesiones es positiva.
@@ -150,7 +150,7 @@ footer a{color:var(--mut)}
     <div class="wrap"><table id="t-all"><thead><tr>
       <th data-k="sem">Semáforo</th><th data-k="symbol">Ticker</th><th data-k="origin">Origen</th>
       <th class="num" data-k="entry">Compra $</th><th class="num" data-k="stop">Stop $</th><th class="num" data-k="target">Venta $</th>
-      <th class="num" data-k="riskp">Riesgo %</th><th class="num" data-k="rr">B/R</th><th class="num" data-k="win">Aciertos hist.</th><th data-k="fitv">Mercado</th><th class="num" data-k="units">Acciones con 1.000 €</th><th class="num" data-k="lossE">Pérdida si stop €</th><th class="num" data-k="gainE">Ganancia si objetivo €</th>
+      <th class="num" data-k="riskp">Riesgo %</th><th class="num" data-k="rr">B/R</th><th class="num" data-k="win">Aciertos hist.</th><th data-k="earnd">Resultados</th><th data-k="fitv">Mercado</th><th class="num" data-k="units">Acciones con 1.000 €</th><th class="num" data-k="lossE">Pérdida si stop €</th><th class="num" data-k="gainE">Ganancia si objetivo €</th>
     </tr></thead><tbody></tbody></table></div>
   </section>
 
@@ -212,7 +212,7 @@ footer a{color:var(--mut)}
     <h2>Registro de señales <span class="count" id="c-pf">0</span></h2>
     <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
-    <div class="chips" id="pf-act" style="display:none"><span class="chip on" data-act="1">Solo estrategias activas (rebote de sobreventa y ruptura de apertura con la regla 2)</span><span class="chip" data-act="0">Ver también las retiradas</span></div>
+    <div class="chips" id="pf-act" style="display:none"><span class="chip on" data-act="1">Solo estrategias activas (rebote de sobreventa y ruptura de apertura con reglas 2 y 3)</span><span class="chip" data-act="0">Ver también las retiradas</span></div>
     <div class="chips" id="pf-days"></div>
     <div class="tools"><label class="chk">Solo con aciertos ≥ <input type="number" id="pf-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
       <label class="chk">y al menos <input type="number" id="pf-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
@@ -317,9 +317,9 @@ try{ Object.assign(RULES, JSON.parse(localStorage.getItem('atalaya-escaner-regla
 // Solo queda activa la estrategia que gana en el registro (23/11/2026): rebote de sobreventa (solo o con RSI<30).
 // El resto se sigue apuntando para ver si cambia, pero siempre en rojo, oculta por defecto y sin aviso.
 const ACTIVE='oversold_bounce';
-const retired=(h,kind)=>!CRIPTO&&(kind==='orb'?!((h.grade?.mc?.target_share??0)>=1/3):!(h.setups||[]).includes(ACTIVE));
+const retired=(h,kind,earn)=>!CRIPTO&&(kind==='orb'?(!((h.grade?.mc?.target_share??0)>=1/3)||(earn&&earn.has(h.symbol))):!(h.setups||[]).includes(ACTIVE));
 function grade(h, kind, earnSet){
-  if(retired(h,kind)) return {sem:0, why:'Estrategia retirada: perdía en el registro de señales. Solo quedan activos el rebote de sobreventa (solo o con RSI<30) y la ruptura de apertura que cumple la regla 2 (el plan a 2R compensa). Se sigue apuntando por si cambia, pero no se recomienda.'};
+  if(retired(h,kind,earnSet)) return {sem:0, why:kind==='orb'?'Ruptura de apertura descartada: solo vale si el plan a 2R compensa (regla 2) y la empresa no tiene resultados entre ayer y mañana según el calendario (regla 3).':'Estrategia retirada: perdía en el registro de señales. Solo quedan activos el rebote de sobreventa (solo o con RSI<30) y la ruptura de apertura con las reglas 2 y 3.'};
   const g=h.grade;
   if(!g||!g.hist||g.error) return {sem:-1, why:g&&g.error?'Sin valorar: '+g.error:'Sin valorar (solo se calculan las primeras acciones de la lista)'};
   const hs=g.hist, why=[];
@@ -334,7 +334,7 @@ function grade(h, kind, earnSet){
   let r3=true;
   if(RULES.earn){
     if(CRIPTO){ r3 = (h.vol_ratio||0)>=1.5; why.push((r3?'Cumple':'No cumple')+' volumen: '+(h.vol_ratio!=null?fmtN(h.vol_ratio,1)+' veces la media de 20 días':'sin dato')); }
-    else { r3 = !earnSet.has(h.symbol); why.push(r3?'Cumple: sin noticias de resultados':'No cumple: hay noticias de resultados en las últimas 36 h'); } }
+    else { r3 = !earnSet.has(h.symbol); why.push(r3?'Cumple: sin resultados entre ayer y mañana':'No cumple: presenta resultados entre ayer y mañana (calendario)'); } }
   const ok=[r1,r2,r3].filter(Boolean).length;
   return {sem: ok===3?2:ok===2?1:0, why:why.join('\n')};
 }
@@ -556,7 +556,7 @@ function initAll(){
   (DATA.orb?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'orb'}); });
   (DATA.daily?.hits||[]).forEach(h=>{ if(h.grade&&h.grade.entry) items.push({h,kind:'daily'}); });
   const tb=document.querySelector('#t-all tbody');
-  if(!items.length){ tb.innerHTML='<tr><td colspan="13" class="empty">Todavía no hay acciones valoradas.</td></tr>'; return; }
+  if(!items.length){ tb.innerHTML='<tr><td colspan="14" class="empty">Todavía no hay acciones valoradas.</td></tr>'; return; }
   const REG=DATA.regime?.name;
   const catsOf=(h,kind)=>kind==='orb'?['orb']:(h.setups||[]);
   const present=[...new Set(items.flatMap(({h,kind})=>catsOf(h,kind)))].sort((a,b)=>Object.keys(SETUPS).indexOf(a)-Object.keys(SETUPS).indexOf(b));
@@ -572,7 +572,8 @@ function initAll(){
       ` <span class="chip" data-cat="_all">Todas</span> <span class="chip" data-cat="_none">Ninguna</span>`+(REG&&FIT[REG]?` <span class="chip${onlyFit?' on':''}" data-cat="_fit">Solo las que encajan con el mercado</span>`:''); };
   const saveCats=()=>{ try{ localStorage.setItem('atalaya-tabla-cats', JSON.stringify([...allCats])); localStorage.setItem('atalaya-tabla-fit', onlyFit?'1':'0'); }catch(e){} };
   const rows=()=>{ const r=items.map(({h,kind})=>{ const g=h.grade, gr=grade(h,kind,earn), risk=g.entry-g.stop, units=1000/g.entry, cats=catsOf(h,kind), fit=fitOf(cats,REG);
-    return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,cats,fit,fitv:fit,
+    const en=(DATA.earnings_next||{})[h.symbol];
+    return {h,kind,gr,sem:gr.sem,symbol:h.symbol,origin:kind==='orb'?'Apertura':'Pre-apertura',entry:g.entry,stop:g.stop,target:g.target,cats,fit,fitv:fit,earnd:en?.date||null,earnw:en?.when||'',
       riskp:risk/g.entry*100, rr:(g.target-g.entry)/risk, win:g.hist?.n?g.hist.win_pct:null, units, lossE:units*risk, gainE:units*(g.target-g.entry)}; })
       .filter(x=>x.cats.some(c=>allCats.has(c))&&(!onlyFit||x.fit===1));
     const mw=parseFloat(document.getElementById('a-win').value), mn=parseFloat(document.getElementById('a-n').value);
@@ -587,9 +588,10 @@ function initAll(){
       <td class="num"><b>${fmtP(x.entry)}</b></td><td class="num dn">${fmtP(x.stop)}</td><td class="num up">${fmtP(x.target)}</td>
       <td class="num">${fmtN(x.riskp)}</td><td class="num">${fmtN(x.rr,1)}</td>
       <td class="num">${x.win!=null?fmtN(x.win,0)+' % <span class="mut">('+x.h.grade.hist.n+')</span>':''}</td>
+      <td>${x.earnd?`<span class="${earn.has(x.symbol)?'dn':'mut'}">${fmtDate(x.earnd)}${x.earnw?' '+x.earnw:''}</span>`:'<span class="mut">·</span>'}</td>
       <td>${x.fit===1?'<span class="fit y">✓ encaja</span>':x.fit===-1?'<span class="fit n">✗ no encaja</span>':'<span class="mut">·</span>'}</td>
       <td class="num">${fmtN(x.units,1)}</td><td class="num dn">−${fmtN(x.lossE)}</td><td class="num up">+${fmtN(x.gainE)}</td></tr>`).join('')
-      : '<tr><td colspan="13" class="empty">Ninguna acción con este filtro.</td></tr>';
+      : '<tr><td colspan="14" class="empty">Ninguna acción con este filtro.</td></tr>';
   }, 'sem','desc');
   drawCats();
   catsBox.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; const k=c.dataset.cat;
@@ -669,7 +671,7 @@ function planStats(rs){
 let pfDraw=null;
 function drawPF(){
   const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
-  const isActive=p=>CRIPTO||(p.kind==='orb'?(p.ts??0)>=1/3:(p.setups||[]).includes('oversold_bounce'));
+  const isActive=p=>CRIPTO||(p.kind==='orb'?(p.ts??0)>=1/3&&!p.earn:(p.setups||[]).includes('oversold_bounce'));
   const all=PF.positions.filter(p=>!pfActive||isActive(p)).map(p=>{ const sw=sigWhen(p), bw=buyWhen(p);
     const done=p.plan&&p.plan.ret!=null, res=done?p.plan.ret:(p.ret_now||0);
     const o={...p, sem:p.sem??2, eur: stake*res/100, res, done, ret_now_raw:p.ret_now, planR:p.plan?.R??null, sig:p.kind==='orb'?'orb':(p.setups||[]).join(','),
