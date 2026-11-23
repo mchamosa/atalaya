@@ -212,6 +212,7 @@ footer a{color:var(--mut)}
     <h2>Registro de señales <span class="count" id="c-pf">0</span></h2>
     <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
+    <div class="chips" id="pf-act" style="display:none"><span class="chip on" data-act="1">Solo estrategias activas (rebote de sobreventa)</span><span class="chip" data-act="0">Ver también las retiradas</span></div>
     <div class="chips" id="pf-days"></div>
     <div class="tools"><label class="chk">Solo con aciertos ≥ <input type="number" id="pf-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
       <label class="chk">y al menos <input type="number" id="pf-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
@@ -633,7 +634,7 @@ function sigCell(p){
   const det=[sp, p.rsi!=null?'RSI '+fmtN(p.rsi,0):'', p.n?'patrón con '+fmtN(p.win,0)+' % de aciertos en '+p.n+' señales':'', p.gap_below_stop?'abrió por debajo del stop':''].filter(Boolean).join(' · ');
   return (p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')+(det?`<div class="mut" style="font-size:11.5px">${det}</div>`:'');
 }
-let PF=null, pfSem='all', pfKind='all', pfDay='all';
+let PF=null, pfSem='all', pfKind='all', pfDay='all', pfActive=true;
 async function initPortfolio(){
   try{ const r=await fetch(`${PFILE}?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
   const tb=document.querySelector('#t-pf tbody');
@@ -648,6 +649,8 @@ async function initPortfolio(){
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
     drawPF(); });
   document.getElementById('pf-days').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfDay=c.dataset.day; drawPF(); });
+  if(!CRIPTO){ const pa=document.getElementById('pf-act'); pa.style.display='';
+    pa.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfActive=c.dataset.act==='1'; pa.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c)); drawPF(); }); }
   ['pf-win','pf-n'].forEach(id=>{ const el=document.getElementById(id);
     try{ const v=localStorage.getItem('atalaya-reg-'+id); if(v!==null) el.value=v; }catch(e){}
     el.addEventListener('input',()=>{ try{ localStorage.setItem('atalaya-reg-'+id, el.value); }catch(e){} drawPF(); }); });
@@ -666,7 +669,8 @@ function planStats(rs){
 let pfDraw=null;
 function drawPF(){
   const stake=PF.stake||1000, H=PF.horizons||[1,3,5,10,20];
-  const all=PF.positions.map(p=>{ const sw=sigWhen(p), bw=buyWhen(p);
+  const isActive=p=>CRIPTO||(p.kind==='daily'&&(p.setups||[]).includes('oversold_bounce'));
+  const all=PF.positions.filter(p=>!pfActive||isActive(p)).map(p=>{ const sw=sigWhen(p), bw=buyWhen(p);
     const done=p.plan&&p.plan.ret!=null, res=done?p.plan.ret:(p.ret_now||0);
     const o={...p, sem:p.sem??2, eur: stake*res/100, res, done, ret_now_raw:p.ret_now, planR:p.plan?.R??null, sig:p.kind==='orb'?'orb':(p.setups||[]).join(','),
       sw, bw, sigts:(sw[0]||'')+' '+(sw[1]||''), buyts:(bw[0]||'')+' '+(bw[1]||'')};

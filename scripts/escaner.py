@@ -493,6 +493,8 @@ def portfolio_update(data, mode):
             g = h.get("grade") or {}
             if not g.get("entry") or g.get("error"):
                 continue
+            if kind == "orb" or "oversold_bounce" not in (h.get("setups") or []):
+                continue      # desde el 23/11/2026 solo se registra el rebote de sobreventa (solo o con RSI<30)
             key = (h["symbol"], kind, day)
             if key in have:
                 continue
