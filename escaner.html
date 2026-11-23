@@ -213,6 +213,7 @@ footer a{color:var(--mut)}
     <p class="sub" id="m-pf">Desde el 9/11/2026 se guardan todas las señales valoradas de cada día, de pre-apertura y de apertura, con el color que tenían en ese momento, como si se compraran 1.000 € de cada una: las de pre-apertura al precio de apertura de ese día y las de apertura al precio que había cuando el escáner las detectó. Así se puede ver con el tiempo qué señales funcionan: a 1, 3, 5, 10 y 20 sesiones, y con el plan completo (stop, objetivo o salida al final). Sin comisiones ni tipo de cambio.</p>
     <div class="chips" id="pf-f"></div>
     <div class="chips" id="pf-act" style="display:none"><span class="chip on" data-act="1">Solo estrategias activas (rebote de sobreventa y ruptura de apertura con reglas 2 y 3)</span><span class="chip" data-act="0">Ver también las retiradas</span></div>
+    <div class="chips" id="pf-strat"></div>
     <div class="chips" id="pf-days"></div>
     <div class="tools"><label class="chk">Solo con aciertos ≥ <input type="number" id="pf-win" min="0" max="100" step="1" placeholder="todas" style="width:70px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> %</label>
       <label class="chk">y al menos <input type="number" id="pf-n" min="0" step="1" placeholder="0" style="width:60px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:5px 6px;font-size:13px"> señales</label>
@@ -636,7 +637,7 @@ function sigCell(p){
   const det=[sp, p.rsi!=null?'RSI '+fmtN(p.rsi,0):'', p.n?'patrón con '+fmtN(p.win,0)+' % de aciertos en '+p.n+' señales':'', p.gap_below_stop?'abrió por debajo del stop':''].filter(Boolean).join(' · ');
   return (p.setups||[]).map(s=>`<span class="tag ${s}">${SETUPS[s]||s}</span>`).join('')+(det?`<div class="mut" style="font-size:11.5px">${det}</div>`:'');
 }
-let PF=null, pfSem='all', pfKind='all', pfDay='all', pfActive=true;
+let PF=null, pfSem='all', pfKind='all', pfDay='all', pfActive=true, pfStrat='all';
 async function initPortfolio(){
   try{ const r=await fetch(`${PFILE}?t=${Date.now()}`,{cache:'no-store'}); if(!r.ok) throw 0; PF=await r.json(); }catch(e){ PF=null; }
   const tb=document.querySelector('#t-pf tbody');
@@ -651,6 +652,7 @@ async function initPortfolio(){
     if(c.dataset.kind){ pfKind=c.dataset.kind; f.querySelectorAll('[data-kind]').forEach(x=>x.classList.toggle('on',x===c)); }
     drawPF(); });
   document.getElementById('pf-days').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfDay=c.dataset.day; drawPF(); });
+  document.getElementById('pf-strat').addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c||!c.dataset.strat) return; pfStrat=c.dataset.strat; drawPF(); });
   if(!CRIPTO){ const pa=document.getElementById('pf-act'); pa.style.display='';
     pa.addEventListener('click',e=>{ const c=e.target.closest('.chip'); if(!c) return; pfActive=c.dataset.act==='1'; pa.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c)); drawPF(); }); }
   ['pf-win','pf-n'].forEach(id=>{ const el=document.getElementById(id);
@@ -678,7 +680,12 @@ function drawPF(){
       sw, bw, sigts:(sw[0]||'')+' '+(sw[1]||''), buyts:(bw[0]||'')+' '+(bw[1]||'')};
     H.forEach(k=>o['d'+k]=p.closes?.[k]?.ret??null); return o; });
   const annulled=all.filter(r=>r.status==='anulada').length;
-  const byKind=all.filter(r=>r.status!=='anulada'&&(pfKind==='all'||r.kind===pfKind));
+  const ORDS=Object.keys(SETUPS);
+  const stratOf=r=>r.kind==='orb'?'orb':(r.setups||[]).slice().sort((a,b)=>ORDS.indexOf(a)-ORDS.indexOf(b)).join('+');
+  const stratList=[...new Set(all.filter(r=>r.status!=='anulada').map(stratOf))].sort((a,b)=>all.filter(r=>stratOf(r)===b).length-all.filter(r=>stratOf(r)===a).length);
+  if(pfStrat!=='all'&&!stratList.includes(pfStrat)) pfStrat='all';
+  document.getElementById('pf-strat').innerHTML='<span class="mut" style="font-size:12px;align-self:center">Estrategia:</span> '+[['all','Todas'],...stratList.map(k=>[k,k.split('+').map(x=>SETUPS[x]||x).join(' + ')])].map(([k,t])=>`<span class="chip${k===pfStrat?' on':''}" data-strat="${k}">${t}</span>`).join('');
+  const byKind=all.filter(r=>r.status!=='anulada'&&(pfKind==='all'||r.kind===pfKind)&&(pfStrat==='all'||stratOf(r)===pfStrat));
   const mw=parseFloat(document.getElementById('pf-win').value), mn=parseFloat(document.getElementById('pf-n').value);
   const byWin=byKind.filter(r=>(isNaN(mw)||(r.win!=null&&r.win>=mw))&&(isNaN(mn)||mn<=0||(r.n||0)>=mn));
   const bySem=byWin.filter(r=>pfSem==='all'||String(r.sem)===pfSem);
@@ -698,7 +705,7 @@ function drawPF(){
       <td class="num ${tot>=0?'up':'dn'}"><b>${totN?(tot>=0?'+':'')+fmtN(tot/(totN*stake)*100)+' %':''}</b></td><td class="num"><b>${bySem.filter(r=>r.res>0).length} de ${totN}</b></td><td></td></tr>`;
   const inv=rows.length*stake, pl=rows.reduce((a,r)=>a+r.eur,0), pos=rows.filter(r=>r.res>0).length;
   const days=new Set(rows.map(r=>r.date)).size;
-  const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):'', !isNaN(mw)?'aciertos ≥ '+mw+' %':'', !isNaN(mn)&&mn>0?'≥ '+mn+' señales':''].filter(Boolean).join(', ');
+  const filt=[pfSem!=='all'?{2:'verdes',1:'ámbar',0:'rojas'}[pfSem]:'', pfKind!=='all'?(pfKind==='orb'?(CRIPTO?'aperturas de sesión':'apertura'):(CRIPTO?'vela diaria':'pre-apertura')):'', pfDay!=='all'?'del '+fmtDate(pfDay):'', pfStrat!=='all'?pfStrat.split('+').map(x=>SETUPS[x]||x).join(' + '):'', !isNaN(mw)?'aciertos ≥ '+mw+' %':'', !isNaN(mn)&&mn>0?'≥ '+mn+' señales':''].filter(Boolean).join(', ');
   const allOk=all.filter(r=>r.status!=='anulada'), allPl=allOk.reduce((a,r)=>a+r.eur,0);
   document.getElementById('pf-sum').innerHTML=(filt?`<span>Total del registro, sin filtros</span><span class="${allPl>=0?'up':'dn'}">${allOk.length} señales · ${allPl>=0?'+':''}${fmtN(allPl,0)} € (${allPl>=0?'+':''}${fmtN(allPl/(allOk.length*stake)*100)} %)</span>`:'')+(rows.length?`<span>Señales${filt?' ('+filt+')':''} · ${days} ${days===1?'día':'días'}</span><span>${rows.length}</span>
     <span>Invertido</span><span>${fmtN(inv,0)} €</span>
