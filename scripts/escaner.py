@@ -22,6 +22,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOLS = os.path.join(ROOT, "scripts", "daytrader")
@@ -296,6 +297,66 @@ def grade_orb(orb):
     return {"orb": stats_from(pooled)}
 
 
+def earnings_calendar(days_ahead=14):
+    """Calendario de resultados de Nasdaq: {SYM: [(fecha, 'antes'|'después'|'')]} desde ayer hasta days_ahead."""
+    sm = scanmod()
+    today = sm.to_eastern(dt.datetime.now(dt.timezone.utc)).date()
+    cal, ok = {}, 0
+    for k in range(-3, days_ahead + 1):
+        d = today + dt.timedelta(days=k)
+        if d.weekday() >= 5:
+            continue
+        url = "https://api.nasdaq.com/api/calendar/earnings?date=%s" % d.isoformat()
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                                                       "Accept": "application/json, text/plain, */*", "Origin": "https://www.nasdaq.com", "Referer": "https://www.nasdaq.com/"})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                rows = ((json.loads(r.read().decode("utf-8")).get("data") or {}).get("rows")) or []
+            ok += 1
+        except Exception as exc:
+            log("calendario %s: %s" % (d, exc))
+            continue
+        for row in rows:
+            sym = (row.get("symbol") or "").upper().strip()
+            t = row.get("time") or ""
+            when = "antes" if "pre" in t else "después" if "after" in t else ""
+            if sym:
+                cal.setdefault(sym, []).append((d.isoformat(), when))
+        time.sleep(0.4)
+    log("calendario de resultados: %d días leídos, %d empresas" % (ok, len(cal)))
+    return cal if ok else None
+
+
+def earnings_risk(cal):
+    """Empresas con resultados que pueden mover el precio de la sesión: hoy, ayer después del cierre
+    o el próximo día de bolsa antes de la apertura."""
+    sm = scanmod()
+    today = sm.to_eastern(dt.datetime.now(dt.timezone.utc)).date()
+    prev = today - dt.timedelta(days=1)
+    while prev.weekday() >= 5:
+        prev -= dt.timedelta(days=1)
+    nxt = today + dt.timedelta(days=1)
+    while nxt.weekday() >= 5:
+        nxt += dt.timedelta(days=1)
+    out = set()
+    for sym, evs in cal.items():
+        for d, when in evs:
+            if d == today.isoformat() or (d == prev.isoformat() and when != "antes") or (d == nxt.isoformat() and when != "después"):
+                out.add(sym)
+    return sorted(out)
+
+
+def next_earnings(cal, syms):
+    """Próxima fecha de resultados de cada símbolo (desde hoy), para mostrarla en la web."""
+    today = dt.date.today().isoformat()
+    out = {}
+    for s in syms:
+        fut = sorted(e for e in cal.get(s, []) if e[0] >= today)
+        if fut:
+            out[s] = {"date": fut[0][0], "when": fut[0][1]}
+    return out
+
+
 def earnings_flags(news_block):
     """Tickers con noticias de resultados en el bloque de noticias."""
     out = set()
@@ -314,6 +375,8 @@ def sem_color(h, kind, earn):
     """Semáforo con las reglas por defecto: 2 verde, 1 ámbar, 0 rojo, -1 sin valorar."""
     if kind != "orb" and "oversold_bounce" not in (h.get("setups") or []):
         return 0          # retiradas el 23/11/2026: solo quedan el rebote de sobreventa y la ruptura de apertura
+    if kind == "orb" and (not (((h.get("grade") or {}).get("mc") or {}).get("target_share") or 0) >= 1 / 3 or h["symbol"] in earn):
+        return 0          # ruptura de apertura sin la regla 2 o la 3: retirada
     g = h.get("grade") or {}
     hs = g.get("hist") or {}
     if g.get("error") or not hs.get("n"):
@@ -495,6 +558,8 @@ def portfolio_update(data, mode):
                 continue
             if kind != "orb" and "oversold_bounce" not in (h.get("setups") or []):
                 continue      # solo se registran el rebote de sobreventa (solo o con RSI<30) y la ruptura de apertura
+            if kind == "orb" and (not ((g.get("mc") or {}).get("target_share") or 0) >= 1 / 3 or h["symbol"] in earn):
+                continue      # ruptura de apertura: solo si cumple la regla 2 (el plan compensa) y la 3 (sin resultados)
             key = (h["symbol"], kind, day)
             if key in have:
                 continue
@@ -809,10 +874,17 @@ def main():
         if res:
             res["market"] = grade_daily(hits)
         n = news([h["symbol"] for h in hits[:GRADE_DAILY]])
+        cal = earnings_calendar()
         if n:
             data["news"] = n
-            if data.get("daily"):
+        if data.get("daily"):
+            if cal is not None:
+                data["daily"]["earnings"] = earnings_risk(cal)
+                data["daily"]["earnings_source"] = "calendario Nasdaq"
+                data["earnings_next"] = next_earnings(cal, [h["symbol"] for h in hits])
+            elif n:
                 data["daily"]["earnings"] = earnings_flags(n)
+                data["daily"]["earnings_source"] = "noticias"
         c = congress()
         if c:
             data["congress"] = c
@@ -825,9 +897,16 @@ def main():
             log("apertura: %d rupturas" % len(res.get("hits", [])))
             res["market"] = grade_orb(res)
             n = news([h["symbol"] for h in res.get("hits", [])[:GRADE_ORB]])
+            cal = earnings_calendar(days_ahead=7)
             if n:
                 data["news"] = n
+            if cal is not None:
+                res["earnings"] = earnings_risk(cal)
+                res["earnings_source"] = "calendario Nasdaq"
+                data.setdefault("earnings_next", {}).update(next_earnings(cal, [h["symbol"] for h in res.get("hits", [])]))
+            elif n:
                 res["earnings"] = earnings_flags(n)
+                res["earnings_source"] = "noticias"
         else:
             data.setdefault("status", {})["orb"] = reason
 
