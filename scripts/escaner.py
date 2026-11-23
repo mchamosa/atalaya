@@ -312,8 +312,8 @@ RETIRED = {"breakout_20d", "reclaim_ma20"}   # perdían en el registro (17/11/20
 
 def sem_color(h, kind, earn):
     """Semáforo con las reglas por defecto: 2 verde, 1 ámbar, 0 rojo, -1 sin valorar."""
-    if kind == "orb" or "oversold_bounce" not in (h.get("setups") or []):
-        return 0          # retiradas el 23/11/2026: solo queda activo el rebote de sobreventa
+    if kind != "orb" and "oversold_bounce" not in (h.get("setups") or []):
+        return 0          # retiradas el 23/11/2026: solo quedan el rebote de sobreventa y la ruptura de apertura
     g = h.get("grade") or {}
     hs = g.get("hist") or {}
     if g.get("error") or not hs.get("n"):
@@ -493,8 +493,8 @@ def portfolio_update(data, mode):
             g = h.get("grade") or {}
             if not g.get("entry") or g.get("error"):
                 continue
-            if kind == "orb" or "oversold_bounce" not in (h.get("setups") or []):
-                continue      # desde el 23/11/2026 solo se registra el rebote de sobreventa (solo o con RSI<30)
+            if kind != "orb" and "oversold_bounce" not in (h.get("setups") or []):
+                continue      # solo se registran el rebote de sobreventa (solo o con RSI<30) y la ruptura de apertura
             key = (h["symbol"], kind, day)
             if key in have:
                 continue
