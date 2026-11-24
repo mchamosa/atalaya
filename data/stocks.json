@@ -2,92 +2,268 @@
  "source": "Yahoo Finance (cotización, ratios, analistas y noticias)",
  "stocks": [
   {
+   "symbol": "META",
+   "market": "EE. UU.",
+   "name": "Meta Platforms, Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "price": 592.33,
+   "chg1m": -6.06,
+   "chg3m": 2.89,
+   "from_high": -23.82,
+   "rsi": 40.7,
+   "above_sma200": false,
+   "pe": 20.19618,
+   "fpe": 16.59278,
+   "peg": 0.729,
+   "pb": 5.5547214,
+   "div": 0.35,
+   "roe": 0.32264,
+   "eps_growth": 2.648,
+   "rev_growth": 0.261,
+   "target": 845.3814,
+   "upside": 42.72,
+   "rec": 1.41935,
+   "analysts": 58,
+   "earnings": "2027-01-27",
+   "news7d": 10,
+   "news_tone": 2,
+   "news": [
+    {
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:44:08+00:00",
+     "score": 1
+    },
+    {
+     "title": "AMD Sinks 10%, Nvidia Down 7% as Chip Stocks Give Back Huang Rally, Resale Filing Weighs",
+     "link": "https://www.tikr.com/blog/amd-sinks-10-nvidia-down-7-as-chip-stocks-give-back-huang-rally-resale-filing-weighs?ref=yahoofinance&tlnk=yf-261124-gwx42qj3",
+     "source": "TIKR",
+     "published": "2026-11-24T15:19:57+00:00",
+     "score": 1
+    },
+    {
+     "title": "Anthropic Stock Sinks Below IPO Price. What History Says Happens Next.",
+     "link": "https://www.barrons.com/articles/anthropic-stock-sinks-below-ipo-price-555c757e?siteid=yhoof2&yptr=yahoo",
+     "source": "Barrons.com",
+     "published": "2026-11-24T15:16:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Meta launches its Muse personal agent in the UK – but it comes with a big warning",
+     "link": "https://www.independent.co.uk/tech/meta-muse-uk-launch-release-warning-b3090758.html",
+     "source": "The Independent",
+     "published": "2026-11-24T15:11:48+00:00",
+     "score": 0
+    },
+    {
+     "title": "What Just Happened To Booking Holdings Stock?",
+     "link": "https://www.trefis.com/stock/bkng/articles/628361/what-just-happened-to-booking-holdings-stock/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T14:33:12+00:00",
+     "score": 0
+    },
+    {
+     "title": "Tiger Global Cut Its Alphabet Stake 42% as the Stock Hit Its “Lowest P/E Ratio Ever.” Who’s Right?",
+     "link": "https://www.tikr.com/blog/tiger-global-alphabet-stake-cut-lowest-pe-ratio?ref=yahoofinance&tlnk=yf-261124-5w8hm5cf",
+     "source": "TIKR",
+     "published": "2026-11-24T14:21:08+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 15.7,
+   "sub": {
+    "valor": 23.9,
+    "analistas": 25,
+    "calidad": 15,
+    "momento": 2.0,
+    "noticias": 12.5
+   },
+   "score": 78,
+   "why": [
+    "PEG 0.73",
+    "Precio objetivo +43 %",
+    "Consenso de compra",
+    "Beneficio +265 %",
+    "Noticias positivas"
+   ]
+  },
+  {
+   "symbol": "UNH",
+   "market": "EE. UU.",
+   "name": "UnitedHealth Group Incorporated",
+   "sector": "Healthcare",
+   "currency": "USD",
+   "price": 340.26,
+   "chg1m": -17.15,
+   "chg3m": -14.63,
+   "from_high": -21.54,
+   "rsi": 31.3,
+   "above_sma200": false,
+   "pe": 19.419806,
+   "fpe": 14.49433,
+   "peg": 0.8638,
+   "pb": 3.1076796,
+   "div": 2.76,
+   "roe": 0.15773,
+   "eps_growth": 0.761,
+   "rev_growth": -0.004,
+   "target": 478.48,
+   "upside": 40.62,
+   "rec": 1.5,
+   "analysts": 25,
+   "earnings": "2027-01-12",
+   "news7d": 10,
+   "news_tone": 2,
+   "news": [
+    {
+     "title": "ACCA and Enterprise Uzbekistan partner to advance AI and finance skills",
+     "link": "https://www.theaccountant-online.com/news/acca-and-enterprise-uzbekistan-partner-to-advance-ai-and-finance-skills/",
+     "source": "The Accountant",
+     "published": "2026-11-24T14:04:19+00:00",
+     "score": 1
+    },
+    {
+     "title": "Own Humana Stock? Its Profit Cushion Is The Thinnest",
+     "link": "https://www.trefis.com/stock/unh/articles/628256/own-humana-stock-its-profit-cushion-is-the-thinnest/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T13:03:08+00:00",
+     "score": 0
+    },
+    {
+     "title": "Can Genoa Help UNH Expand Its Behavioral Health Pharmacy Business?",
+     "link": "https://finance.yahoo.com/healthcare/articles/genoa-help-unh-expand-behavioral-124100378.html",
+     "source": "Zacks",
+     "published": "2026-11-24T12:41:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "State Street Health Care SPDR (XLV) Sells Eli Lilly and J&J on Friday",
+     "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110402940.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:04:02+00:00",
+     "score": 0
+    },
+    {
+     "title": "UnitedHealth Sues Trump’s Medicare Agency Over Star Ratings. Stephanie Link Calls It “Number One on Sale”",
+     "link": "https://www.tikr.com/blog/unitedhealth-sues-trumps-medicare-agency-over-star-ratings-stephanie-link-calls-it-number-one-on-sale?ref=yahoofinance&tlnk=yf-261124-v443284m",
+     "source": "TIKR",
+     "published": "2026-11-24T09:20:45+00:00",
+     "score": 0
+    },
+    {
+     "title": "Healthcare stocks are sinking, yet this $15 hospital pick surged 72%",
+     "link": "https://finance.yahoo.com/healthcare/articles/healthcare-stocks-sinking-yet-15-071251674.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T07:12:51+00:00",
+     "score": 1
+    }
+   ],
+   "pe_ref": 17.0,
+   "sub": {
+    "valor": 28.0,
+    "analistas": 25,
+    "calidad": 12.9,
+    "momento": 0,
+    "noticias": 12.5
+   },
+   "score": 78,
+   "why": [
+    "PEG 0.86",
+    "Precio objetivo +41 %",
+    "Consenso de compra",
+    "Beneficio +76 %",
+    "Noticias positivas"
+   ]
+  },
+  {
    "symbol": "NVDA",
    "market": "EE. UU.",
    "name": "NVIDIA Corporation",
    "sector": "Technology",
    "currency": "USD",
-   "price": 165.05,
-   "chg1m": -21.76,
-   "chg3m": -22.44,
-   "from_high": -31.01,
-   "rsi": 42.9,
+   "price": 152.43,
+   "chg1m": -29.43,
+   "chg3m": -27.22,
+   "from_high": -36.29,
+   "rsi": 38.5,
    "above_sma200": false,
-   "pe": 17.728249,
-   "fpe": 9.93961,
+   "pe": 16.366219,
+   "fpe": 9.175967,
    "peg": 0.1519,
-   "pb": 14.920448,
-   "div": 0.8,
+   "pb": 13.774137,
+   "div": 0.61,
    "roe": 1.17364,
    "eps_growth": 1.077,
    "rev_growth": 1.032,
    "target": 244.54807,
-   "upside": 48.17,
+   "upside": 60.44,
    "rec": 1.80952,
    "analysts": 57,
    "earnings": "2026-11-17",
    "news7d": 10,
-   "news_tone": 2,
+   "news_tone": -2,
    "news": [
     {
-     "title": "Jensen Huang is back: Does Washington have a seat in the boardroom?",
-     "link": "https://finance.yahoo.com/video/jensen-huang-is-back-does-washington-have-a-seat-in-the-boardroom-221214249.html",
+     "title": "Despite Jensen's return, Nvidia still needs to address several management issues",
+     "link": "https://finance.yahoo.com/video/despite-jensens-return-nvidia-still-153000278.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T22:12:14+00:00",
+     "published": "2026-11-24T15:30:00+00:00",
      "score": 0
     },
     {
-     "title": "Ex-Nvidia employee: 'Stability and accountability can coexist'",
-     "link": "https://finance.yahoo.com/video/ex-nvidia-employee-stability-and-accountability-can-coexist-221105947.html",
+     "title": "Who is holding Jensen Huang accountable at Nvidia now?",
+     "link": "https://finance.yahoo.com/video/who-is-holding-jensen-huang-accountable-at-nvidia-now-152401001.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T22:11:05+00:00",
+     "published": "2026-11-24T15:24:01+00:00",
      "score": 0
     },
     {
-     "title": "Nvidia's stability is a systemic issue for the US now, this AI CEO says",
-     "link": "https://finance.yahoo.com/video/nvidias-stability-is-a-systemic-issue-for-the-us-now-this-ai-ceo-says-220035003.html",
+     "title": "Nvidia stock in focus: Why CEO comebacks are usually good for shares",
+     "link": "https://finance.yahoo.com/video/nvidia-stock-in-focus-why-ceo-comebacks-are-usually-good-for-shares-151307354.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T22:00:35+00:00",
+     "published": "2026-11-24T15:13:07+00:00",
      "score": 0
     },
     {
-     "title": "It's not over for Jensen Huang",
-     "link": "https://finance.yahoo.com/video/its-not-over-for-jensen-huang-215809126.html",
+     "title": "More shoes to drop: Nvidia's turmoil isn't over with Huang back",
+     "link": "https://finance.yahoo.com/video/more-shoes-to-drop-nvidias-turmoil-isnt-over-with-huang-back-145606522.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T21:58:09+00:00",
+     "published": "2026-11-24T14:56:06+00:00",
+     "score": -1
+    },
+    {
+     "title": "Why bringing Jensen Huang back was Nvidia's 'least bad' option",
+     "link": "https://finance.yahoo.com/video/why-bringing-jensen-huang-back-was-nvidias-least-bad-option-145052627.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T14:50:52+00:00",
      "score": 0
     },
     {
-     "title": "3 truths that Jensen Huang's return to Nvidia made clear",
-     "link": "https://finance.yahoo.com/video/3-truths-that-jensen-huangs-return-to-nvidia-made-clear-213610744.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T21:36:10+00:00",
-     "score": 0
-    },
-    {
-     "title": "Elon Musk on his support for Jensen Huang: 'Fair-weather friends are worthless'",
-     "link": "https://finance.yahoo.com/markets/article/musk-on-support-for-jensen-huangs-return-to-nvidia-fair-weather-friends-are-worthless-212613771.html",
+     "title": "Nvidia jumped 31% on Jensen Huang's return. A day later, the AI trade sold off: AlphaCheck",
+     "link": "https://finance.yahoo.com/markets/article/nvidia-leads-semiconductors-lower-alphacheck-144509267.html",
      "source": "Yahoo Finance",
-     "published": "2026-11-23T21:26:13+00:00",
-     "score": 0
+     "published": "2026-11-24T14:45:09+00:00",
+     "score": 1
     }
    ],
-   "pe_ref": 18.2,
+   "pe_ref": 18.0,
    "sub": {
     "valor": 30,
     "analistas": 24.2,
     "calidad": 15,
     "momento": 0,
-    "noticias": 12.5
+    "noticias": 6.5
    },
-   "score": 82,
+   "score": 76,
    "why": [
-    "PER 9.9 frente a 18.2 del sector",
+    "PER 9.2 frente a 18.0 del sector",
     "PEG 0.15",
-    "Precio objetivo +48 %",
+    "Precio objetivo +60 %",
     "Consenso de compra",
     "Beneficio +108 %",
-    "Noticias positivas"
+    "Noticias negativas"
    ]
   },
   {
@@ -96,346 +272,173 @@
    "name": "Broadcom Inc.",
    "sector": "Technology",
    "currency": "USD",
-   "price": 313.55,
-   "chg1m": -2.53,
-   "chg3m": -11.95,
-   "from_high": -34.67,
-   "rsi": 43.8,
+   "price": 301.86,
+   "chg1m": -8.3,
+   "chg3m": -14.95,
+   "from_high": -37.1,
+   "rsi": 41.0,
    "above_sma200": false,
-   "pe": 40.044697,
-   "fpe": 16.150682,
+   "pe": 38.54406,
+   "fpe": 15.54545,
    "peg": 0.3008,
-   "pb": 15.015324,
-   "div": 0.85,
+   "pb": 14.452638,
+   "div": 0.83,
    "roe": 0.44245,
    "eps_growth": 2.153,
    "rev_growth": 0.855,
    "target": 525.5147,
-   "upside": 67.6,
+   "upside": 74.09,
    "rec": 1.27451,
    "analysts": 47,
    "earnings": "2026-12-09",
    "news7d": 10,
-   "news_tone": 6,
+   "news_tone": -1,
    "news": [
     {
-     "title": "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
-     "link": "https://finance.yahoo.com/markets/article/nvidia-soars-25-as-board-reinstates-jensen-huang-as-ceo-chip-stocks-jump-142353537.html",
+     "title": "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
+     "link": "https://finance.yahoo.com/markets/article/nvidia-amd-broadcom-lead-chip-stocks-lower-as-ai-trade-comes-under-pressure-141635463.html",
      "source": "Yahoo Finance",
-     "published": "2026-11-23T13:31:09+00:00",
-     "score": 2
+     "published": "2026-11-24T14:16:35+00:00",
+     "score": -1
     },
     {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-at-nvidia-stock-soars-anthropic-slides-161339662.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:39+00:00",
-     "score": 0
-    },
-    {
-     "title": "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-as-nvidia-ceo-after-12-days-shares-surge-30-161302539.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:02+00:00",
+     "published": "2026-11-24T15:44:08+00:00",
      "score": 1
     },
     {
-     "title": "Jensen Huang’s Return As Nvidia CEO Sparks AI Stock Rally, But Congressional Probes Loom – And Analysts See Risks Ahead",
-     "link": "https://stocktwits.com/news-articles/markets/equity/jensen-huang-s-return-as-nvidia-ceo-sparks-ai-stock-rally-but-congressional-probes-loom-and-analysts-see-risks-ahead/cNbrt2TR9ju",
-     "source": "Stocktwits",
-     "published": "2026-11-24T02:35:41+00:00",
-     "score": 1
+     "title": "Stock market today: Dow, S&P 500, Nasdaq fall as chip stocks tumble, investors test Nvidia-fueled rally",
+     "link": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T09:06:14+00:00",
+     "score": -1
     },
     {
-     "title": "AMD Stock Rallies Nearly 8% as a Bernstein Analyst Remains Bullish Despite the Hunterbrook Short Report",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-rallies-nearly-8-235832362.html",
-     "source": "TipRanks",
-     "published": "2026-11-23T23:58:32+00:00",
-     "score": 2
+     "title": "30 Analysts Have Weighed In on Nvidia. Here’s What Their Price Targets Reveal",
+     "link": "https://247wallst.com/investing/2026/11/24/30-analysts-have-weighed-in-on-nvidia-heres-what-their-price-targets-reveal/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T15:03:15+00:00",
+     "score": 0
+    },
+    {
+     "title": "How Did Cathie Wood Play The Market Crash And Snapback?",
+     "link": "https://www.investors.com/news/cathie-wood-ark-invest-etfs-nvidia-jensen-huang-anthropic/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T14:49:26+00:00",
+     "score": 0
+    },
+    {
+     "title": "AMD Stock Shows the Market Has Stopped Making Sense After Huang’s Dramatic Return",
+     "link": "https://www.barrons.com/articles/amd-broadcom-stock-market-huang-return-bbaadf20?siteid=yhoof2&yptr=yahoo",
+     "source": "Barrons.com",
+     "published": "2026-11-24T14:42:00+00:00",
+     "score": 0
     }
    ],
-   "pe_ref": 18.2,
+   "pe_ref": 18.0,
    "sub": {
-    "valor": 27.3,
+    "valor": 27.8,
     "analistas": 25,
     "calidad": 15,
     "momento": 0,
-    "noticias": 15
+    "noticias": 8.0
    },
-   "score": 82,
+   "score": 76,
    "why": [
     "PEG 0.30",
-    "Precio objetivo +68 %",
+    "Precio objetivo +74 %",
     "Consenso de compra",
-    "Beneficio +215 %",
-    "Noticias positivas"
+    "Beneficio +215 %"
    ]
   },
   {
-   "symbol": "MSFT",
+   "symbol": "NFLX",
    "market": "EE. UU.",
-   "name": "Microsoft Corporation",
-   "sector": "Technology",
+   "name": "Netflix, Inc.",
+   "sector": "Communication Services",
    "currency": "USD",
-   "price": 492.5,
-   "chg1m": -5.92,
-   "chg3m": 0.35,
-   "from_high": -11.22,
-   "rsi": 39.3,
-   "above_sma200": true,
-   "pe": 25.704594,
-   "fpe": 20.348078,
-   "peg": 1.4334,
-   "pb": 7.774147,
-   "div": 0.81,
-   "roe": 0.34221,
-   "eps_growth": 0.323,
-   "rev_growth": 0.188,
-   "target": 637.3617,
-   "upside": 29.41,
-   "rec": 1.34483,
-   "analysts": 54,
-   "earnings": "2027-01-27",
+   "price": 59.15,
+   "chg1m": -7.43,
+   "chg3m": -27.38,
+   "from_high": -45.9,
+   "rsi": 37.7,
+   "above_sma200": false,
+   "pe": 17.093931,
+   "fpe": 15.69066,
+   "peg": 0.9051,
+   "pb": 8.292905,
+   "div": 0.0,
+   "roe": 0.53463,
+   "eps_growth": 0.475,
+   "rev_growth": 0.118,
+   "target": 84.54884,
+   "upside": 42.93,
+   "rec": 1.92157,
+   "analysts": 43,
+   "earnings": "2027-01-19",
    "news7d": 10,
    "news_tone": 2,
    "news": [
     {
-     "title": "Nvidia gains nearly $1T as Trump says nobody could 'revive the stock like it's being revived'",
-     "link": "https://finance.yahoo.com/markets/article/nvidia-gains-nearly-1t-as-trump-says-nobody-could-revive-the-stock-like-its-being-revived-194634496.html",
-     "source": "Yahoo Finance",
-     "published": "2026-11-23T19:46:34+00:00",
-     "score": 1
-    },
-    {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Amazon's Profit Riskier Than It Looks?",
-     "link": "https://www.trefis.com/stock/amzn/articles/627559/is-amazon-s-profit-riskier-than-it-looks/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:25:13+00:00",
-     "score": 0
-    },
-    {
-     "title": "What Microsoft (MSFT)'s Enterprise AI Partnerships Mean For Shareholders",
-     "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-msft-enterprise-ai-partnerships-001743463.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-24T00:17:43+00:00",
+     "published": "2026-11-24T15:44:08+00:00",
      "score": 1
     },
     {
-     "title": "Chamath Says Microsoft “Clearly Is Going to Need to Have a Frontier Model.” Nadella Is Betting It Won’t",
-     "link": "https://www.tikr.com/blog/chamath-says-microsoft-clearly-is-going-to-need-to-have-a-frontier-model-nadella-is-betting-it-wont?ref=yahoofinance&tlnk=yf-261123-rjg9hgh9",
-     "source": "TIKR",
-     "published": "2026-11-23T22:50:31+00:00",
+     "title": "Banque Cantonale de Genève And 2 Top Undervalued Stocks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/banque-cantonale-gen-ve-2-151338119.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T15:13:38+00:00",
      "score": 0
     },
     {
-     "title": "Crypto traders saw Anthropic's 34% debut pop coming",
-     "link": "https://www.thestreet.com/crypto/markets/crypto-traders-saw-anthropics-34-debut-pop-coming-",
-     "source": "TheStreet",
-     "published": "2026-11-23T22:47:15+00:00",
+     "title": "Trump Gave A Massive Clue Before Nvidia Rehired Huang. What Is The Next One?",
+     "link": "https://www.trefis.com/stock/nvda/articles/628213/trump-gave-a-massive-clue-before-nvidia-rehired-huang-what-is-the-next-one/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T14:01:46+00:00",
+     "score": 0
+    },
+    {
+     "title": "Should You Invest in Netflix (NFLX) Based on Bullish Wall Street Views?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/invest-netflix-nflx-based-bullish-133003766.html",
+     "source": "Zacks",
+     "published": "2026-11-24T13:30:03+00:00",
+     "score": 1
+    },
+    {
+     "title": "First Trust Alerian NextGen Infra (FTQI) Buys $22 Million More Walmart on Nov. 20",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/first-trust-alerian-nextgen-infra-110348918.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:03:48+00:00",
+     "score": 0
+    },
+    {
+     "title": "Disney Stops Reporting Streaming Profit. Should You Worry?",
+     "link": "https://www.trefis.com/stock/dis/articles/627655/disney-stops-reporting-streaming-profit-should-you-worry/2026-11-23",
+     "source": "Trefis",
+     "published": "2026-11-24T05:06:42+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 18.2,
+   "pe_ref": 15.7,
    "sub": {
-    "valor": 17.7,
-    "analistas": 25,
+    "valor": 25.0,
+    "analistas": 23.8,
     "calidad": 15,
-    "momento": 6.1,
+    "momento": 0,
     "noticias": 12.5
    },
    "score": 76,
    "why": [
-    "Precio objetivo +29 %",
+    "PEG 0.91",
+    "Precio objetivo +43 %",
     "Consenso de compra",
-    "Beneficio +32 %",
+    "Beneficio +48 %",
     "Noticias positivas"
-   ]
-  },
-  {
-   "symbol": "AMZN",
-   "market": "EE. UU.",
-   "name": "Amazon.com, Inc.",
-   "sector": "Consumer Cyclical",
-   "currency": "USD",
-   "price": 255.39,
-   "chg1m": 2.98,
-   "chg3m": -2.17,
-   "from_high": -10.08,
-   "rsi": 48.4,
-   "above_sma200": true,
-   "pe": 20.645918,
-   "fpe": 23.37435,
-   "peg": 1.1455,
-   "pb": 4.499709,
-   "div": 0.0,
-   "roe": 0.27416,
-   "eps_growth": -0.031,
-   "rev_growth": 0.121,
-   "target": 326.34033,
-   "upside": 27.78,
-   "rec": 1.32258,
-   "analysts": 60,
-   "earnings": "2026-10-29",
-   "news7d": 10,
-   "news_tone": 4,
-   "news": [
-    {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-at-nvidia-stock-soars-anthropic-slides-161339662.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:39+00:00",
-     "score": 0
-    },
-    {
-     "title": "Dow Jones Futures: Tech Stocks, Nvidia Snap Back On Jensen Huang's Return; Elon Musk-Led SpaceX, Tesla Rally",
-     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-nvidia-jensen-huang-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "published": "2026-11-24T02:14:39+00:00",
-     "score": 1
-    },
-    {
-     "title": "Why Amazon’s Rival to Starlink Is Struggling to Catch Up With SpaceX",
-     "link": "https://www.wsj.com/tech/amazon-leo-starlink-rival-5bb0e6a0?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal",
-     "published": "2026-11-24T01:00:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "The Nasdaq Just Had Its Best Day Since April 2025. Anthropic Stock Fell Anyway.",
-     "link": "https://www.fool.com/investing/2026/11/23/the-nasdaq-just-had-its-best-day-since-april-2025-anthropic-stock-fell-anyway/",
-     "source": "Motley Fool",
-     "published": "2026-11-24T00:42:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Amazon's Profit Riskier Than It Looks?",
-     "link": "https://www.trefis.com/stock/amzn/articles/627559/is-amazon-s-profit-riskier-than-it-looks/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:25:13+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 24.1,
-   "sub": {
-    "valor": 20.6,
-    "analistas": 24.8,
-    "calidad": 9.4,
-    "momento": 5.3,
-    "noticias": 15
-   },
-   "score": 75,
-   "why": [
-    "Precio objetivo +28 %",
-    "Consenso de compra",
-    "Noticias positivas"
-   ]
-  },
-  {
-   "symbol": "META",
-   "market": "EE. UU.",
-   "name": "Meta Platforms, Inc.",
-   "sector": "Communication Services",
-   "currency": "USD",
-   "price": 597.6,
-   "chg1m": -7.01,
-   "chg3m": 4.92,
-   "from_high": -23.15,
-   "rsi": 41.8,
-   "above_sma200": false,
-   "pe": 20.388945,
-   "fpe": 16.75115,
-   "peg": 0.729,
-   "pb": 5.6077394,
-   "div": 0.37,
-   "roe": 0.32264,
-   "eps_growth": 2.648,
-   "rev_growth": 0.261,
-   "target": 845.3814,
-   "upside": 41.46,
-   "rec": 1.41935,
-   "analysts": 58,
-   "earnings": "2027-01-27",
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-at-nvidia-stock-soars-anthropic-slides-161339662.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:39+00:00",
-     "score": 0
-    },
-    {
-     "title": "How Taylor Sheridan still makes a profit from high-budget TV",
-     "link": "https://finance.yahoo.com/video/taylor-sheridan-still-makes-profit-110000407.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T11:00:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Mark Zuckerberg Has Collected Nearly $2 Billion in Dividends From the Stock He Started in a Dorm Room. It Now Pays Him About $2 Million a Day",
-     "link": "https://247wallst.com/investing/2026/11/23/mark-zuckerberg-has-collected-nearly-2-billion-in-dividends-from-the-stock-he-started-in-a-dorm-room-it-now-pays-him-about-2-million-a-day/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-24T02:43:06+00:00",
-     "score": 0
-    },
-    {
-     "title": "'He's Not Quite a God': Palmer Luckey Opens Up About Facebook Firing, Explains Why He'd Still Make a Deal With Mark Zuckerberg",
-     "link": "https://finance.yahoo.com/technology/articles/hes-not-quite-god-palmer-013007219.html",
-     "source": "Benzinga",
-     "published": "2026-11-24T01:30:07+00:00",
-     "score": 0
-    },
-    {
-     "title": "The Nasdaq Just Had Its Best Day Since April 2025. Anthropic Stock Fell Anyway.",
-     "link": "https://www.fool.com/investing/2026/11/23/the-nasdaq-just-had-its-best-day-since-april-2025-anthropic-stock-fell-anyway/",
-     "source": "Motley Fool",
-     "published": "2026-11-24T00:42:02+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 15.4,
-   "sub": {
-    "valor": 23.3,
-    "analistas": 25,
-    "calidad": 15,
-    "momento": 2.6,
-    "noticias": 9.5
-   },
-   "score": 75,
-   "why": [
-    "PEG 0.73",
-    "Precio objetivo +41 %",
-    "Consenso de compra",
-    "Beneficio +265 %"
    ]
   },
   {
@@ -444,22 +447,22 @@
    "name": "GRIFOLS S.A.",
    "sector": "Healthcare",
    "currency": "EUR",
-   "price": 10.9,
-   "chg1m": 8.18,
-   "chg3m": 8.56,
-   "from_high": -6.48,
-   "rsi": 48.6,
+   "price": 11.02,
+   "chg1m": 2.89,
+   "chg3m": 9.6,
+   "from_high": -5.49,
+   "rsi": 52.2,
    "above_sma200": true,
-   "pe": 15.215277,
-   "fpe": 10.021039,
+   "pe": 15.305555,
+   "fpe": 10.080499,
    "peg": 0.24,
-   "pb": 1.2880658,
-   "div": 0.76,
+   "pb": 1.2957084,
+   "div": 0.75,
    "roe": 0.07333,
    "eps_growth": null,
    "rev_growth": 0.094,
    "target": 15.25455,
-   "upside": 39.89,
+   "upside": 38.43,
    "rec": 1.90909,
    "analysts": 11,
    "earnings": null,
@@ -514,190 +517,15 @@
     "valor": 30,
     "analistas": 23.8,
     "calidad": 3.7,
-    "momento": 8.9,
+    "momento": 9.2,
     "noticias": 7.5
    },
    "score": 74,
    "why": [
-    "PER 10.0 frente a 17.0 del sector",
+    "PER 10.1 frente a 17.0 del sector",
     "PEG 0.24",
-    "Precio objetivo +40 %",
+    "Precio objetivo +38 %",
     "Consenso de compra"
-   ]
-  },
-  {
-   "symbol": "UNH",
-   "market": "EE. UU.",
-   "name": "UnitedHealth Group Incorporated",
-   "sector": "Healthcare",
-   "currency": "USD",
-   "price": 336.08,
-   "chg1m": -19.62,
-   "chg3m": -14.74,
-   "from_high": -22.51,
-   "rsi": 28.8,
-   "above_sma200": false,
-   "pe": 19.182648,
-   "fpe": 14.317324,
-   "peg": 0.8638,
-   "pb": 3.0697281,
-   "div": 2.73,
-   "roe": 0.15773,
-   "eps_growth": 0.761,
-   "rev_growth": -0.004,
-   "target": 478.48,
-   "upside": 42.37,
-   "rec": 1.5,
-   "analysts": 25,
-   "earnings": "2027-01-12",
-   "news7d": 10,
-   "news_tone": -1,
-   "news": [
-    {
-     "title": "Not Good: Medicare Proposes $107 Billion in Bonus Cuts. That’s a Big Risk for UnitedHealth and Humana",
-     "link": "https://www.tikr.com/blog/not-good-medicare-proposes-107-billion-in-bonus-cuts-thats-a-big-risk-for-unitedhealth-and-humana?ref=yahoofinance&tlnk=yf-261123-2phpfq43",
-     "source": "TIKR",
-     "published": "2026-11-23T21:35:40+00:00",
-     "score": 0
-    },
-    {
-     "title": "Nvidia, Dell, Micron, Anthropic, CrowdStrike, UnitedHealth, and More Stocks That Explain Today’s Market",
-     "link": "https://www.barrons.com/articles/stock-movers-901d6342?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-23T21:27:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Why Walmart and Other Defensive Stocks Are Losing Their Luster",
-     "link": "https://www.barrons.com/articles/defensive-stocks-ai-tyson-walmart-55bd8545?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-23T20:37:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "UnitedHealth and Humana Stocks Keep Sliding. Why They’re Not Taking Part in Today’s Rally.",
-     "link": "https://www.barrons.com/articles/unitedhealth-humana-stocks-medicare-trump-fde1da3e?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-23T18:42:00+00:00",
-     "score": 1
-    },
-    {
-     "title": "Health Insurers Stocks Slide Again on Latest Medicare Proposal",
-     "link": "https://finance.yahoo.com/healthcare/articles/health-insurers-stocks-slide-again-143658768.html",
-     "source": "Bloomberg",
-     "published": "2026-11-23T14:36:58+00:00",
-     "score": 0
-    },
-    {
-     "title": "UnitedHealth, Humana and CVS Shares Fall as Medicare Advantage Rating Changes Threaten $107 Billion in Payments",
-     "link": "https://investorshub.advfn.com/market-news/article/40536/unitedhealth-humana-and-cvs-shares-fall-as-medicare-advantage-rating-changes-threaten-107-billion-in-payments",
-     "source": "InvestorsHub",
-     "published": "2026-11-23T13:55:37+00:00",
-     "score": -1
-    }
-   ],
-   "pe_ref": 17.0,
-   "sub": {
-    "valor": 28.1,
-    "analistas": 25,
-    "calidad": 12.9,
-    "momento": 0,
-    "noticias": 8.0
-   },
-   "score": 74,
-   "why": [
-    "PEG 0.86",
-    "Precio objetivo +42 %",
-    "Consenso de compra",
-    "Beneficio +76 %",
-    "RSI 29 en sobreventa"
-   ]
-  },
-  {
-   "symbol": "NFLX",
-   "market": "EE. UU.",
-   "name": "Netflix, Inc.",
-   "sector": "Communication Services",
-   "currency": "USD",
-   "price": 58.1,
-   "chg1m": -11.77,
-   "chg3m": -29.34,
-   "from_high": -46.87,
-   "rsi": 33.4,
-   "above_sma200": false,
-   "pe": 16.791906,
-   "fpe": 15.41343,
-   "peg": 0.9051,
-   "pb": 8.146382,
-   "div": 0.0,
-   "roe": 0.53463,
-   "eps_growth": 0.475,
-   "rev_growth": 0.118,
-   "target": 84.54884,
-   "upside": 45.52,
-   "rec": 1.92157,
-   "analysts": 43,
-   "earnings": "2027-01-19",
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "Is Amazon's Profit Riskier Than It Looks?",
-     "link": "https://www.trefis.com/stock/amzn/articles/627559/is-amazon-s-profit-riskier-than-it-looks/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:25:13+00:00",
-     "score": 0
-    },
-    {
-     "title": "Netflix Cuts About 1,000 Jobs and Its Content Chief. YouTube Already Has Twice Its TV Share",
-     "link": "https://www.tikr.com/blog/netflix-cuts-about-1000-jobs-and-its-content-chief-youtube-already-has-twice-its-tv-share?ref=yahoofinance&tlnk=yf-261123-qvgmg437",
-     "source": "TIKR",
-     "published": "2026-11-23T23:31:46+00:00",
-     "score": 0
-    },
-    {
-     "title": "How Investors May Respond To Netflix (NFLX) Big Investors Split",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/investors-may-respond-netflix-nflx-232426716.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-23T23:24:26+00:00",
-     "score": 0
-    },
-    {
-     "title": "Bill Ackman Likes Netflix Under $60. Michael Burry Is Waiting for the High $30s. Who’s Right?",
-     "link": "https://www.tikr.com/blog/bill-ackman-likes-netflix-under-60-michael-burry-is-waiting-for-the-high-30s-whos-right?ref=yahoofinance&tlnk=yf-261123-69mq4g5h",
-     "source": "TIKR",
-     "published": "2026-11-23T19:28:58+00:00",
-     "score": 0
-    },
-    {
-     "title": "Netflix Needs 'Buzzy' Franchises",
-     "link": "https://www.mediapost.com/publications/article/419628/netflix-needs-buzzy-franchises.html",
-     "source": "MediaPost",
-     "published": "2026-11-23T16:47:50+00:00",
-     "score": 0
-    },
-    {
-     "title": "Paying for Subscriptions You Forgot About? How to Find and Cancel Them",
-     "link": "https://finance.yahoo.com/markets/articles/stop-wasting-money-cancel-unused-155722212.html",
-     "source": "The Penny Hoarder",
-     "published": "2026-11-23T14:19:00+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 15.4,
-   "sub": {
-    "valor": 25.0,
-    "analistas": 23.8,
-    "calidad": 15,
-    "momento": 0,
-    "noticias": 9.5
-   },
-   "score": 73,
-   "why": [
-    "PEG 0.91",
-    "Precio objetivo +46 %",
-    "Consenso de compra",
-    "Beneficio +48 %"
    ]
   },
   {
@@ -706,28 +534,35 @@
    "name": "REPSOL,  S.A.",
    "sector": "Energy",
    "currency": "EUR",
-   "price": 28.46,
-   "chg1m": 0.71,
-   "chg3m": 5.72,
-   "from_high": -9.77,
-   "rsi": 43.3,
+   "price": 28.17,
+   "chg1m": -4.35,
+   "chg3m": 6.83,
+   "from_high": -10.68,
+   "rsi": 42.5,
    "above_sma200": true,
-   "pe": 4.9413853,
-   "fpe": 5.8418503,
+   "pe": 5.0035524,
+   "fpe": 5.9153457,
    "peg": 0.4226,
-   "pb": 1.203912,
-   "div": 3.69,
+   "pb": 1.2190584,
+   "div": 3.78,
    "roe": 0.21069999,
    "eps_growth": 4.224,
    "rev_growth": 0.518,
    "target": 31.16217,
-   "upside": 9.49,
+   "upside": 10.62,
    "rec": 2.3913,
    "analysts": 23,
-   "earnings": "2026-10-29",
+   "earnings": "2027-02-18",
    "news7d": 1,
    "news_tone": 0,
    "news": [
+    {
+     "title": "The Zacks Analyst Blog Highlights Target, TJX, Teradyne, TKO and Repsol",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-target-141700753.html",
+     "source": "Zacks",
+     "published": "2026-11-24T14:17:00+00:00",
+     "score": 0
+    },
     {
      "title": "Are Investors Undervaluing Repsol (REPYY) Right Now?",
      "link": "https://finance.yahoo.com/markets/stocks/articles/investors-undervaluing-repsol-repyy-now-134003943.html",
@@ -762,28 +597,107 @@
      "source": "Zacks",
      "published": "2026-11-06T14:29:00+00:00",
      "score": 0
-    },
-    {
-     "title": "Midterm Election Rally: 5 Relative Price Strength Stocks to Buy",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/midterm-election-rally-5-relative-134700716.html",
-     "source": "Zacks",
-     "published": "2026-11-05T13:47:00+00:00",
-     "score": 1
     }
    ],
-   "pe_ref": 12.5,
+   "pe_ref": 12.6,
    "sub": {
     "valor": 30,
-    "analistas": 11.9,
+    "analistas": 12.4,
     "calidad": 15,
-    "momento": 7.9,
+    "momento": 8.3,
     "noticias": 7.7
    },
-   "score": 72,
+   "score": 73,
    "why": [
-    "PER 5.8 frente a 12.5 del sector",
+    "PER 5.9 frente a 12.6 del sector",
     "PEG 0.42",
     "Beneficio +422 %"
+   ]
+  },
+  {
+   "symbol": "MSFT",
+   "market": "EE. UU.",
+   "name": "Microsoft Corporation",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 496.13,
+   "chg1m": -6.67,
+   "chg3m": 0.14,
+   "from_high": -10.56,
+   "rsi": 41.3,
+   "above_sma200": true,
+   "pe": 25.889223,
+   "fpe": 20.494234,
+   "peg": 1.4334,
+   "pb": 7.8299866,
+   "div": 0.8,
+   "roe": 0.34221,
+   "eps_growth": 0.323,
+   "rev_growth": 0.188,
+   "target": 637.3617,
+   "upside": 28.47,
+   "rec": 1.34483,
+   "analysts": 54,
+   "earnings": "2027-01-27",
+   "news7d": 10,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "Who is holding Jensen Huang accountable? It sure looks like nobody",
+     "link": "https://finance.yahoo.com/video/who-is-holding-jensen-huang-accountable-it-sure-looks-like-nobody-154255467.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:42:55+00:00",
+     "score": 0
+    },
+    {
+     "title": "Microsoft Is Down 7% in a Month, but Not One Analyst Says Sell. Wall Street Sees $630+",
+     "link": "https://247wallst.com/investing/2026/11/24/microsoft-is-down-7-in-a-month-but-not-one-analyst-says-sell-wall-street-sees-630/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T15:33:36+00:00",
+     "score": 0
+    },
+    {
+     "title": "Guggenheim lifts CrowdStrike to Buy, sees 34% upside",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/guggenheim-lifts-crowdstrike-buy-sees-152606437.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T15:26:06+00:00",
+     "score": 0
+    },
+    {
+     "title": "Databricks Co-Founder Says Just One Neocloud Has “Robust Enough Isolation.” My Guess: It’s Probably Not CoreWeave",
+     "link": "https://www.tikr.com/blog/databricks-co-founder-says-just-one-neocloud-has-robust-enough-isolation-my-guess-its-probably-not-coreweave?ref=yahoofinance&tlnk=yf-261124-wcppqc25",
+     "source": "TIKR",
+     "published": "2026-11-24T15:22:39+00:00",
+     "score": 0
+    },
+    {
+     "title": "Should One Number Scare You About Amazon Stock?",
+     "link": "https://www.trefis.com/stock/amzn/articles/628397/should-one-number-scare-you-about-amazon-stock/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T15:08:45+00:00",
+     "score": 0
+    },
+    {
+     "title": "Anthropic Sinks 7% Below IPO Price as AI Stocks Slide: Cramer Blames “Endless Hammering of Small Bids”",
+     "link": "https://www.tikr.com/blog/anthropic-sinks-7-below-ipo-price-as-ai-stocks-slide-cramer-blames-endless-hammering-of-small-bids?ref=yahoofinance&tlnk=yf-261124-m94c8jgv",
+     "source": "TIKR",
+     "published": "2026-11-24T14:51:22+00:00",
+     "score": -1
+    }
+   ],
+   "pe_ref": 18.0,
+   "sub": {
+    "valor": 17.3,
+    "analistas": 25,
+    "calidad": 15,
+    "momento": 6.0,
+    "noticias": 9.5
+   },
+   "score": 73,
+   "why": [
+    "Precio objetivo +28 %",
+    "Consenso de compra",
+    "Beneficio +32 %"
    ]
   },
   {
@@ -792,173 +706,170 @@
    "name": "Chevron Corporation",
    "sector": "Energy",
    "currency": "USD",
-   "price": 206.17,
-   "chg1m": -10.86,
-   "chg3m": 4.0,
-   "from_high": -11.73,
-   "rsi": 39.3,
+   "price": 208.77,
+   "chg1m": -9.27,
+   "chg3m": 5.14,
+   "from_high": -10.62,
+   "rsi": 43.4,
    "above_sma200": true,
-   "pe": 15.137298,
-   "fpe": 12.47967,
-   "peg": 0.785,
-   "pb": 2.0701668,
-   "div": 3.42,
+   "pe": 15.32379,
+   "fpe": 12.633418,
+   "peg": 0.9441,
+   "pb": 2.0956712,
+   "div": 3.45,
    "roe": 0.13853,
    "eps_growth": 1.78,
    "rev_growth": 0.348,
    "target": 241.625,
-   "upside": 17.2,
+   "upside": 15.73,
    "rec": 1.61538,
    "analysts": 24,
    "earnings": "2027-01-29",
    "news7d": 10,
-   "news_tone": 0,
+   "news_tone": 1,
    "news": [
     {
-     "title": "Venture Global Owes More Than Its Stock Is Worth",
-     "link": "https://www.trefis.com/stock/vg/articles/627660/venture-global-owes-more-than-its-stock-is-worth/2026-11-23",
+     "title": "5 High-Yield Dividend Stocks That Put Payout Safety Ahead of Yield",
+     "link": "https://247wallst.com/investing/2026/11/24/5-high-yield-dividend-stocks-that-put-payout-safety-ahead-of-yield/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T14:17:03+00:00",
+     "score": 0
+    },
+    {
+     "title": "3 High-Yield S&P 500 Dividend Stocks Marked Down for Black Friday",
+     "link": "https://247wallst.com/investing/2026/11/24/3-high-yield-sp-500-dividend-stocks-marked-down-for-black-friday/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T13:48:11+00:00",
+     "score": 0
+    },
+    {
+     "title": "A $1 Million Retirement Portfolio Could Generate $25,000 a Year Without Selling Shares",
+     "link": "https://247wallst.com/investing/2026/11/24/a-1-million-retirement-portfolio-could-generate-25000-a-year-without-selling-shares/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T12:47:13+00:00",
+     "score": 0
+    },
+    {
+     "title": "ETFs Are Net Sellers of Chevron (CVX) on Friday",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-chevron-cvx-110223918.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:02:23+00:00",
+     "score": 0
+    },
+    {
+     "title": "ExxonMobil Sinks 14% and Chevron 12% in a Month as Trump Says Iran Wants “to Make a Deal”",
+     "link": "https://www.tikr.com/blog/exxonmobil-sinks-14-and-chevron-12-in-a-month-as-trump-says-iran-wants-to-make-a-deal?ref=yahoofinance&tlnk=yf-261124-fw5h76ch",
+     "source": "TIKR",
+     "published": "2026-11-24T10:45:16+00:00",
+     "score": 0
+    },
+    {
+     "title": "The Inflation Math, Updated: The Fed Is Fighting Oil",
+     "link": "https://www.trefis.com/stock/spy/articles/627433/the-inflation-math-updated-the-fed-is-fighting-oil/2026-11-23",
      "source": "Trefis",
-     "published": "2026-11-23T19:13:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Chevron vs. Occidental Petroleum: Which Energy Stock Is a Better Buy for 2027?",
-     "link": "https://www.fool.com/coverage/better-buy/2026/11/23/chevron-vs-occidental-petroleum-which-energy-stock-is-a-better-buy-for-2027/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T18:50:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Chevron Corp. (CVX): Q3 Earnings Triple on Refining Margin Surge",
-     "link": "https://finance.yahoo.com/energy/articles/chevron-corp-cvx-q3-earnings-173936863.html",
-     "source": "Insider Monkey",
-     "published": "2026-11-23T17:39:36+00:00",
-     "score": 1
-    },
-    {
-     "title": "Chevron Expands Greek Offshore Exploration With Seismic Surveys",
-     "link": "https://finance.yahoo.com/energy/articles/chevron-expands-greek-offshore-exploration-151800754.html",
-     "source": "Zacks",
-     "published": "2026-11-23T15:18:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Texas Pacific Land to Buy EagleRock, Expanding Permian Land and Water Footprint",
-     "link": "https://www.marketbeat.com/instant-alerts/event-texas-pacific-land-to-buy-eaglerock-expanding-permian-land-and-water-footprint-2026-11-23/?utm_source=yahoofinance&utm_medium=yahoofinance",
-     "source": "MarketBeat",
-     "published": "2026-11-23T15:13:36+00:00",
-     "score": 0
-    },
-    {
-     "title": "Should You Buy Chevron Stock For Its Cash?",
-     "link": "https://www.trefis.com/stock/cvx/articles/627550/should-you-buy-chevron-stock-for-its-cash/2026-11-22",
-     "source": "Trefis",
-     "published": "2026-11-23T14:40:03+00:00",
+     "published": "2026-11-24T05:06:42+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 12.5,
+   "pe_ref": 12.6,
    "sub": {
     "valor": 25.0,
-    "analistas": 18.4,
+    "analistas": 17.7,
     "calidad": 11.9,
-    "momento": 7.3,
-    "noticias": 9.5
+    "momento": 7.7,
+    "noticias": 11.0
    },
-   "score": 72,
+   "score": 73,
    "why": [
-    "PEG 0.79",
-    "Precio objetivo +17 %",
+    "PEG 0.94",
+    "Precio objetivo +16 %",
     "Consenso de compra",
     "Beneficio +178 %"
    ]
   },
   {
-   "symbol": "AMD",
+   "symbol": "AMZN",
    "market": "EE. UU.",
-   "name": "Advanced Micro Devices, Inc.",
-   "sector": "Technology",
+   "name": "Amazon.com, Inc.",
+   "sector": "Consumer Cyclical",
    "currency": "USD",
-   "price": 453.46,
-   "chg1m": -12.25,
-   "chg3m": -5.37,
-   "from_high": -30.17,
-   "rsi": 42.6,
+   "price": 253.39,
+   "chg1m": 1.73,
+   "chg3m": -2.65,
+   "from_high": -10.78,
+   "rsi": 47.2,
    "above_sma200": true,
-   "pe": 96.893166,
-   "fpe": 25.74175,
-   "peg": 0.3797,
-   "pb": 10.87408,
+   "pe": 20.470493,
+   "fpe": 23.175741,
+   "peg": 1.1455,
+   "pb": 4.4614763,
    "div": 0.0,
-   "roe": 0.1196,
-   "eps_growth": 0.938,
-   "rev_growth": 0.447,
-   "target": 656.2122,
-   "upside": 44.71,
-   "rec": 1.33333,
-   "analysts": 49,
-   "earnings": "2027-02-02",
+   "roe": 0.27416,
+   "eps_growth": -0.031,
+   "rev_growth": 0.121,
+   "target": 326.34033,
+   "upside": 28.79,
+   "rec": 1.32258,
+   "analysts": 60,
+   "earnings": "2027-02-04",
    "news7d": 10,
-   "news_tone": 8,
+   "news_tone": 1,
    "news": [
     {
-     "title": "Nvidia soars 31% as board reinstates Jensen Huang as CEO, chip stocks jump",
-     "link": "https://finance.yahoo.com/markets/article/nvidia-soars-25-as-board-reinstates-jensen-huang-as-ceo-chip-stocks-jump-142353537.html",
-     "source": "Yahoo Finance",
-     "published": "2026-11-23T13:31:09+00:00",
-     "score": 2
-    },
-    {
-     "title": "Why Jensen Huang is the 'key man' behind the market rally",
-     "link": "https://finance.yahoo.com/video/why-jensen-huang-is-the-key-man-behind-the-market-rally-193849634.html",
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
      "source": "Yahoo Finance Video",
-     "published": "2026-11-23T19:38:49+00:00",
+     "published": "2026-11-24T15:44:08+00:00",
      "score": 1
     },
     {
-     "title": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-at-nvidia-stock-soars-anthropic-slides-161339662.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:39+00:00",
+     "title": "Microsoft Is Down 7% in a Month, but Not One Analyst Says Sell. Wall Street Sees $630+",
+     "link": "https://247wallst.com/investing/2026/11/24/microsoft-is-down-7-in-a-month-but-not-one-analyst-says-sell-wall-street-sees-630/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T15:33:36+00:00",
      "score": 0
     },
     {
-     "title": "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-as-nvidia-ceo-after-12-days-shares-surge-30-161302539.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:02+00:00",
-     "score": 1
-    },
-    {
-     "title": "What does Jensen's return mean for AMD?",
-     "link": "https://finance.yahoo.com/video/what-does-jensens-return-mean-for-amd-153757690.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T15:37:57+00:00",
+     "title": "Anthropic Stock Sinks Below IPO Price. What History Says Happens Next.",
+     "link": "https://www.barrons.com/articles/anthropic-stock-sinks-below-ipo-price-555c757e?siteid=yhoof2&yptr=yahoo",
+     "source": "Barrons.com",
+     "published": "2026-11-24T15:16:00+00:00",
      "score": 0
     },
     {
-     "title": "Jensen Huang’s Return As Nvidia CEO Sparks AI Stock Rally, But Congressional Probes Loom – And Analysts See Risks Ahead",
-     "link": "https://stocktwits.com/news-articles/markets/equity/jensen-huang-s-return-as-nvidia-ceo-sparks-ai-stock-rally-but-congressional-probes-loom-and-analysts-see-risks-ahead/cNbrt2TR9ju",
-     "source": "Stocktwits",
-     "published": "2026-11-24T02:35:41+00:00",
-     "score": 1
+     "title": "Amazon.com (AMZN) Agreed To Acquire Decart AI Optimization Technology For $7.5 Billion",
+     "link": "https://finance.yahoo.com/technology/ai/articles/amazon-com-amzn-agreed-acquire-151147626.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T15:11:47+00:00",
+     "score": 0
+    },
+    {
+     "title": "Can Nvidia Stock Hold $165 After Huang's Return?",
+     "link": "https://www.trefis.com/stock/nvda/articles/628262/can-nvidia-stock-hold-165-after-huang-s-return/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T15:09:18+00:00",
+     "score": 0
+    },
+    {
+     "title": "Should One Number Scare You About Amazon Stock?",
+     "link": "https://www.trefis.com/stock/amzn/articles/628397/should-one-number-scare-you-about-amazon-stock/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T15:08:45+00:00",
+     "score": 0
     }
    ],
-   "pe_ref": 18.2,
+   "pe_ref": 23.9,
    "sub": {
-    "valor": 16.8,
+    "valor": 20.6,
     "analistas": 25,
-    "calidad": 11.0,
-    "momento": 4.2,
-    "noticias": 15
+    "calidad": 9.4,
+    "momento": 5.1,
+    "noticias": 11.0
    },
-   "score": 72,
+   "score": 71,
    "why": [
-    "PEG 0.38",
-    "Precio objetivo +45 %",
-    "Consenso de compra",
-    "Beneficio +94 %",
-    "Noticias positivas"
+    "Precio objetivo +29 %",
+    "Consenso de compra"
    ]
   },
   {
@@ -967,25 +878,25 @@
    "name": "BANCO SANTANDER S.A.",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 10.32,
-   "chg1m": -9.05,
-   "chg3m": -16.97,
-   "from_high": -19.36,
-   "rsi": 34.8,
+   "price": 10.48,
+   "chg1m": -4.87,
+   "chg3m": -15.4,
+   "from_high": -18.08,
+   "rsi": 39.6,
    "above_sma200": false,
-   "pe": 11.619781,
-   "fpe": 8.4763565,
+   "pe": 11.518682,
+   "fpe": 8.417655,
    "peg": 0.7635,
-   "pb": 1.3440956,
-   "div": 2.46,
+   "pb": 1.3324012,
+   "div": 2.4,
    "roe": 0.13063,
    "eps_growth": -0.043,
    "rev_growth": 0.088,
    "target": 13.64381,
-   "upside": 32.21,
+   "upside": 30.14,
    "rec": 1.7619,
    "analysts": 21,
-   "earnings": "2026-10-28",
+   "earnings": "2027-02-03",
    "news7d": 9,
    "news_tone": 1,
    "news": [
@@ -1032,7 +943,7 @@
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
     "valor": 29.2,
     "analistas": 24.3,
@@ -1042,9 +953,9 @@
    },
    "score": 70,
    "why": [
-    "PER 8.5 frente a 10.8 del sector",
+    "PER 8.4 frente a 10.6 del sector",
     "PEG 0.76",
-    "Precio objetivo +32 %",
+    "Precio objetivo +30 %",
     "Consenso de compra"
    ]
   },
@@ -1054,22 +965,22 @@
    "name": "INDRA SISTEMAS S.A., SERIE A",
    "sector": "Technology",
    "currency": "EUR",
-   "price": 49.67,
-   "chg1m": -20.02,
-   "chg3m": -18.39,
-   "from_high": -24.05,
-   "rsi": 27.2,
+   "price": 51.72,
+   "chg1m": -17.12,
+   "chg3m": -15.9,
+   "from_high": -20.92,
+   "rsi": 34.5,
    "above_sma200": false,
-   "pe": 15.713415,
-   "fpe": 15.528259,
+   "pe": 15.768293,
+   "fpe": 15.582491,
    "peg": 4.26,
-   "pb": 4.332549,
-   "div": 0.6,
+   "pb": 4.34768,
+   "div": 0.58,
    "roe": 0.26326,
    "eps_growth": 0.779,
    "rev_growth": 0.227,
    "target": 69.3175,
-   "upside": 39.56,
+   "upside": 34.02,
    "rec": 1.625,
    "analysts": 16,
    "earnings": "2026-10-29",
@@ -1119,9 +1030,9 @@
      "score": 0
     }
    ],
-   "pe_ref": 18.2,
+   "pe_ref": 18.0,
    "sub": {
-    "valor": 23.0,
+    "valor": 22.7,
     "analistas": 24.8,
     "calidad": 15,
     "momento": 0,
@@ -1129,10 +1040,9 @@
    },
    "score": 70,
    "why": [
-    "Precio objetivo +40 %",
+    "Precio objetivo +34 %",
     "Consenso de compra",
-    "Beneficio +78 %",
-    "RSI 27 en sobreventa"
+    "Beneficio +78 %"
    ]
   },
   {
@@ -1141,28 +1051,35 @@
    "name": "SOLARIA ENERGIA Y MEDIO AMBIENT",
    "sector": "Utilities",
    "currency": "EUR",
-   "price": 13.77,
-   "chg1m": -1.99,
-   "chg3m": -19.44,
-   "from_high": -46.5,
-   "rsi": 35.6,
+   "price": 13.27,
+   "chg1m": -6.51,
+   "chg3m": -25.0,
+   "from_high": -48.45,
+   "rsi": 33.8,
    "above_sma200": false,
-   "pe": 7.840782,
-   "fpe": 8.171951,
+   "pe": 7.416201,
+   "fpe": 7.6042247,
    "peg": null,
-   "pb": 1.6871017,
+   "pb": 1.5957446,
    "div": 0.0,
    "roe": 0.18944,
    "eps_growth": null,
    "rev_growth": -0.039,
    "target": 22.04,
-   "upside": 60.0,
+   "upside": 66.03,
    "rec": 2.125,
    "analysts": 15,
    "earnings": "2026-11-19",
-   "news7d": 0,
+   "news7d": 1,
    "news_tone": 0,
    "news": [
+    {
+     "title": "Solaria (BME:SLR) Stock Still Looks Undervalued On Contracted Earnings Strength",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/solaria-bme-slr-stock-still-101416684.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T10:14:16+00:00",
+     "score": 0
+    },
     {
      "title": "Can Solaria Energía y Medio Ambiente (BME:SLR) Keep Trading At A Discount?",
      "link": "https://finance.yahoo.com/markets/stocks/articles/solaria-energ-y-medio-ambiente-031624152.html",
@@ -1197,27 +1114,20 @@
      "source": "Simply Wall St.",
      "published": "2026-09-22T12:14:49+00:00",
      "score": 0
-    },
-    {
-     "title": "Solaria Energia y Medio Ambiente SA (SEYMF) Q1 2026 Earnings Call Highlights: Record Growth and ...",
-     "link": "https://finance.yahoo.com/sectors/energy/articles/solaria-energia-y-medio-ambiente-230053249.html",
-     "source": "GuruFocus.com",
-     "published": "2026-05-18T23:00:53+00:00",
-     "score": 1
     }
    ],
-   "pe_ref": 17.0,
+   "pe_ref": 17.3,
    "sub": {
     "valor": 30,
     "analistas": 23.1,
     "calidad": 9.5,
     "momento": 0,
-    "noticias": 7.5
+    "noticias": 7.7
    },
    "score": 70,
    "why": [
-    "PER 8.2 frente a 17.0 del sector",
-    "Precio objetivo +60 %"
+    "PER 7.6 frente a 17.3 del sector",
+    "Precio objetivo +66 %"
    ]
   },
   {
@@ -1226,22 +1136,22 @@
    "name": "ACERINOX, S.A.",
    "sector": "Basic Materials",
    "currency": "EUR",
-   "price": 14.55,
-   "chg1m": -11.66,
-   "chg3m": -15.65,
-   "from_high": -21.27,
-   "rsi": 30.8,
+   "price": 14.38,
+   "chg1m": -14.81,
+   "chg3m": -19.39,
+   "from_high": -22.19,
+   "rsi": 32.4,
    "above_sma200": false,
-   "pe": 28.113209,
-   "fpe": 9.583041,
+   "pe": 27.132076,
+   "fpe": 9.2486,
    "peg": 0.4,
-   "pb": 1.6666667,
-   "div": 4.26,
+   "pb": 1.6085012,
+   "div": 4.16,
    "roe": 0.04538,
    "eps_growth": 2.4,
    "rev_growth": 0.124,
    "target": 20.07692,
-   "upside": 37.99,
+   "upside": 39.62,
    "rec": 1.76923,
    "analysts": 13,
    "earnings": "2026-10-30",
@@ -1291,7 +1201,7 @@
      "score": 1
     }
    ],
-   "pe_ref": 16.2,
+   "pe_ref": 15.7,
    "sub": {
     "valor": 30,
     "analistas": 24.3,
@@ -1301,96 +1211,11 @@
    },
    "score": 69,
    "why": [
-    "PER 9.6 frente a 16.2 del sector",
+    "PER 9.2 frente a 15.7 del sector",
     "PEG 0.40",
-    "Precio objetivo +38 %",
+    "Precio objetivo +40 %",
     "Consenso de compra",
     "Beneficio +240 %"
-   ]
-  },
-  {
-   "symbol": "AMS.MC",
-   "market": "España",
-   "name": "AMADEUS IT GROUP, S.A.",
-   "sector": "Technology",
-   "currency": "EUR",
-   "price": 59.74,
-   "chg1m": 4.95,
-   "chg3m": 3.9,
-   "from_high": -5.85,
-   "rsi": 53.2,
-   "above_sma200": true,
-   "pe": 19.24759,
-   "fpe": 15.307193,
-   "peg": 1.2981,
-   "pb": 5.0425406,
-   "div": 2.58,
-   "roe": 0.26435,
-   "eps_growth": 0.098,
-   "rev_growth": 0.064,
-   "target": 70.86174,
-   "upside": 18.62,
-   "rec": 1.82609,
-   "analysts": 23,
-   "earnings": "2026-11-06",
-   "news7d": 0,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "NTTYY vs. AMADY: Which Stock Is the Better Value Option?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/nttyy-vs-amady-stock-better-154003787.html",
-     "source": "Zacks",
-     "published": "2026-11-13T15:40:03+00:00",
-     "score": 0
-    },
-    {
-     "title": "How Strong Earnings Will Impact Amadeus Shares Investors",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/strong-earnings-impact-amadeus-shares-211558139.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-07T21:15:58+00:00",
-     "score": 1
-    },
-    {
-     "title": "Amadeus IT Group SA (AMADF) (Q3 2026) Earnings Call Highlights: Solid H1 Growth, Air IT ...",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/amadeus-group-sa-amadf-q3-211441652.html",
-     "source": "GuruFocus.com",
-     "published": "2026-11-06T21:14:41+00:00",
-     "score": 0
-    },
-    {
-     "title": "Amadeus IT Group SA Unsponsored ADR (AMADY) Q3 Earnings Surpass Estimates",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/amadeus-group-sa-unsponsored-adr-111002517.html",
-     "source": "Zacks",
-     "published": "2026-11-06T11:10:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Airship AI Holdings, Inc. (AISP) Reports Q3 Loss, Lags Revenue Estimates",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/airship-ai-holdings-inc-aisp-163001465.html",
-     "source": "Zacks",
-     "published": "2026-11-05T16:30:01+00:00",
-     "score": 0
-    },
-    {
-     "title": "New Strong Sell Stocks for October 27th",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/strong-sell-stocks-october-27th-092300922.html",
-     "source": "Zacks",
-     "published": "2026-10-27T09:23:00+00:00",
-     "score": 1
-    }
-   ],
-   "pe_ref": 18.2,
-   "sub": {
-    "valor": 23.2,
-    "analistas": 18.4,
-    "calidad": 12.0,
-    "momento": 7.3,
-    "noticias": 7.5
-   },
-   "score": 68,
-   "why": [
-    "Precio objetivo +19 %",
-    "Consenso de compra"
    ]
   },
   {
@@ -1399,22 +1224,22 @@
    "name": "INTL CONSOLIDATED AIRLINES GROU",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 5.24,
-   "chg1m": 7.49,
-   "chg3m": 1.59,
-   "from_high": -7.52,
-   "rsi": 52.4,
+   "price": 5.39,
+   "chg1m": 9.74,
+   "chg3m": 5.73,
+   "from_high": -4.91,
+   "rsi": 58.1,
    "above_sma200": true,
-   "pe": 8.356924,
-   "fpe": 7.331525,
+   "pe": 8.286155,
+   "fpe": 7.269439,
    "peg": 2.6,
-   "pb": 2.7870703,
-   "div": 1.87,
+   "pb": 2.7634685,
+   "div": 1.8,
    "roe": null,
    "eps_growth": -0.05,
    "rev_growth": 0.045,
    "target": 6.12273,
-   "upside": 16.89,
+   "upside": 13.68,
    "rec": 1.81818,
    "analysts": 11,
    "earnings": "2026-11-06",
@@ -1464,18 +1289,17 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
     "valor": 30,
-    "analistas": 17.6,
+    "analistas": 16.0,
     "calidad": 6.5,
-    "momento": 6.5,
+    "momento": 7.9,
     "noticias": 7.5
    },
    "score": 68,
    "why": [
-    "PER 7.3 frente a 17.1 del sector",
-    "Precio objetivo +17 %",
+    "PER 7.3 frente a 16.9 del sector",
     "Consenso de compra"
    ]
   },
@@ -1485,22 +1309,22 @@
    "name": "FLUIDRA, S.A.",
    "sector": "Consumer Cyclical",
    "currency": "EUR",
-   "price": 18.03,
-   "chg1m": 0.17,
-   "chg3m": -7.06,
-   "from_high": -29.35,
-   "rsi": 36.9,
+   "price": 18.52,
+   "chg1m": 2.55,
+   "chg3m": -5.41,
+   "from_high": -27.43,
+   "rsi": 46.4,
    "above_sma200": false,
-   "pe": 20.988636,
-   "fpe": 11.807726,
+   "pe": 21.045456,
+   "fpe": 11.839692,
    "peg": 0.64,
-   "pb": 2.169368,
-   "div": 3.66,
+   "pb": 2.1752408,
+   "div": 3.57,
    "roe": 0.10524,
    "eps_growth": null,
    "rev_growth": 0.15,
    "target": 25.932,
-   "upside": 43.83,
+   "upside": 40.02,
    "rec": 1.6,
    "analysts": 15,
    "earnings": "2026-10-29",
@@ -1536,7 +1360,7 @@
      "score": 0
     }
    ],
-   "pe_ref": 24.1,
+   "pe_ref": 23.9,
    "sub": {
     "valor": 30,
     "analistas": 24.9,
@@ -1546,9 +1370,94 @@
    },
    "score": 68,
    "why": [
-    "PER 11.8 frente a 24.1 del sector",
+    "PER 11.8 frente a 23.9 del sector",
     "PEG 0.64",
-    "Precio objetivo +44 %",
+    "Precio objetivo +40 %",
+    "Consenso de compra"
+   ]
+  },
+  {
+   "symbol": "AMS.MC",
+   "market": "España",
+   "name": "AMADEUS IT GROUP, S.A.",
+   "sector": "Technology",
+   "currency": "EUR",
+   "price": 60.86,
+   "chg1m": 7.34,
+   "chg3m": 4.57,
+   "from_high": -4.09,
+   "rsi": 58.4,
+   "above_sma200": true,
+   "pe": 19.569132,
+   "fpe": 15.562909,
+   "peg": 1.2981,
+   "pb": 5.1267796,
+   "div": 2.57,
+   "roe": 0.26435,
+   "eps_growth": 0.098,
+   "rev_growth": 0.064,
+   "target": 70.86174,
+   "upside": 16.43,
+   "rec": 1.82609,
+   "analysts": 23,
+   "earnings": "2026-11-06",
+   "news7d": 0,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "NTTYY vs. AMADY: Which Stock Is the Better Value Option?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/nttyy-vs-amady-stock-better-154003787.html",
+     "source": "Zacks",
+     "published": "2026-11-13T15:40:03+00:00",
+     "score": 0
+    },
+    {
+     "title": "How Strong Earnings Will Impact Amadeus Shares Investors",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/strong-earnings-impact-amadeus-shares-211558139.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-07T21:15:58+00:00",
+     "score": 1
+    },
+    {
+     "title": "Amadeus IT Group SA (AMADF) (Q3 2026) Earnings Call Highlights: Solid H1 Growth, Air IT ...",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/amadeus-group-sa-amadf-q3-211441652.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-06T21:14:41+00:00",
+     "score": 0
+    },
+    {
+     "title": "Amadeus IT Group SA Unsponsored ADR (AMADY) Q3 Earnings Surpass Estimates",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/amadeus-group-sa-unsponsored-adr-111002517.html",
+     "source": "Zacks",
+     "published": "2026-11-06T11:10:02+00:00",
+     "score": 0
+    },
+    {
+     "title": "Airship AI Holdings, Inc. (AISP) Reports Q3 Loss, Lags Revenue Estimates",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/airship-ai-holdings-inc-aisp-163001465.html",
+     "source": "Zacks",
+     "published": "2026-11-05T16:30:01+00:00",
+     "score": 0
+    },
+    {
+     "title": "New Strong Sell Stocks for October 27th",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/strong-sell-stocks-october-27th-092300922.html",
+     "source": "Zacks",
+     "published": "2026-10-27T09:23:00+00:00",
+     "score": 1
+    }
+   ],
+   "pe_ref": 18.0,
+   "sub": {
+    "valor": 22.7,
+    "analistas": 17.3,
+    "calidad": 12.0,
+    "momento": 7.5,
+    "noticias": 7.5
+   },
+   "score": 67,
+   "why": [
+    "Precio objetivo +16 %",
     "Consenso de compra"
    ]
   },
@@ -1558,22 +1467,22 @@
    "name": "ACS,ACTIVIDADES DE CONSTRUCCION",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 82.8,
-   "chg1m": -4.77,
-   "chg3m": -20.61,
-   "from_high": -40.15,
-   "rsi": 33.7,
+   "price": 83.85,
+   "chg1m": -6.99,
+   "chg3m": -19.06,
+   "from_high": -39.39,
+   "rsi": 38.7,
    "above_sma200": false,
-   "pe": 17.679672,
-   "fpe": 17.103184,
+   "pe": 17.217659,
+   "fpe": 16.656237,
    "peg": 1.08,
-   "pb": 3.9673762,
-   "div": 2.81,
+   "pb": 3.8636992,
+   "div": 2.7,
    "roe": 0.25011,
    "eps_growth": 0.355,
    "rev_growth": 0.194,
    "target": 128.53824,
-   "upside": 55.24,
+   "upside": 53.3,
    "rec": 1.70588,
    "analysts": 17,
    "earnings": "2026-11-12",
@@ -1623,9 +1532,9 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
-    "valor": 20.0,
+    "valor": 20.3,
     "analistas": 24.5,
     "calidad": 15,
     "momento": 0,
@@ -1633,96 +1542,9 @@
    },
    "score": 67,
    "why": [
-    "Precio objetivo +55 %",
+    "Precio objetivo +53 %",
     "Consenso de compra",
     "Beneficio +36 %"
-   ]
-  },
-  {
-   "symbol": "GOOGL",
-   "market": "EE. UU.",
-   "name": "Alphabet Inc.",
-   "sector": "Communication Services",
-   "currency": "USD",
-   "price": 282.1,
-   "chg1m": -11.9,
-   "chg3m": -18.64,
-   "from_high": -29.85,
-   "rsi": 41.0,
-   "above_sma200": false,
-   "pe": 14.731071,
-   "fpe": 18.441067,
-   "peg": 0.9371,
-   "pb": 5.258547,
-   "div": 0.33,
-   "roe": 0.44286,
-   "eps_growth": -0.253,
-   "rev_growth": 0.247,
-   "target": 395.7702,
-   "upside": 40.29,
-   "rec": 1.37931,
-   "analysts": 53,
-   "earnings": "2026-10-28",
-   "news7d": 10,
-   "news_tone": 3,
-   "news": [
-    {
-     "title": "Google's Gemini 4 Neon gains momentum ahead of OpenAI, data shows",
-     "link": "https://finance.yahoo.com/video/googles-gemini-4-neon-gains-momentum-ahead-of-openai-data-shows-223324082.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T22:33:24+00:00",
-     "score": 1
-    },
-    {
-     "title": "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-as-nvidia-ceo-after-12-days-shares-surge-30-161302539.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:02+00:00",
-     "score": 1
-    },
-    {
-     "title": "The Nasdaq Just Had Its Best Day Since April 2025. Anthropic Stock Fell Anyway.",
-     "link": "https://www.fool.com/investing/2026/11/23/the-nasdaq-just-had-its-best-day-since-april-2025-anthropic-stock-fell-anyway/",
-     "source": "Motley Fool",
-     "published": "2026-11-24T00:42:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Amazon's Profit Riskier Than It Looks?",
-     "link": "https://www.trefis.com/stock/amzn/articles/627559/is-amazon-s-profit-riskier-than-it-looks/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:25:13+00:00",
-     "score": 0
-    },
-    {
-     "title": "Steve Eisman Said AI Was “No Longer One Trade.” Huang Is Back, but Alphabet and CoreWeave Still Show the Split",
-     "link": "https://www.tikr.com/blog/big-shorts-steve-eisman-without-nvidia-ai-is-no-longer-one-trade-alphabet-and-coreweave-show-the-split?ref=yahoofinance&tlnk=yf-261123-qrq8pv92",
-     "source": "TIKR",
-     "published": "2026-11-23T22:54:53+00:00",
-     "score": 0
-    },
-    {
-     "title": "Crypto traders saw Anthropic's 34% debut pop coming",
-     "link": "https://www.thestreet.com/crypto/markets/crypto-traders-saw-anthropics-34-debut-pop-coming-",
-     "source": "TheStreet",
-     "published": "2026-11-23T22:47:15+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 15.4,
-   "sub": {
-    "valor": 21.1,
-    "analistas": 25,
-    "calidad": 7,
-    "momento": 0,
-    "noticias": 14.0
-   },
-   "score": 67,
-   "why": [
-    "PEG 0.94",
-    "Precio objetivo +40 %",
-    "Consenso de compra",
-    "Noticias positivas"
    ]
   },
   {
@@ -1731,26 +1553,26 @@
    "name": "BANCO BILBAO VIZCAYA ARGENTARIA",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 21.83,
-   "chg1m": -1.62,
-   "chg3m": -10.17,
-   "from_high": -12.72,
-   "rsi": 37.3,
+   "price": 22.02,
+   "chg1m": -3.12,
+   "chg3m": -9.28,
+   "from_high": -11.96,
+   "rsi": 41.5,
    "above_sma200": true,
-   "pe": 11.479591,
-   "fpe": 9.571902,
+   "pe": 11.523561,
+   "fpe": 9.360302,
    "peg": 0.6872,
-   "pb": 2.1353326,
-   "div": 4.44,
+   "pb": 2.08883,
+   "div": 4.31,
    "roe": 0.19838,
    "eps_growth": 0.238,
    "rev_growth": 0.184,
    "target": 24.50091,
-   "upside": 12.24,
+   "upside": 11.27,
    "rec": 2.86364,
    "analysts": 22,
-   "earnings": "2026-10-29",
-   "news7d": 5,
+   "earnings": "2027-02-04",
+   "news7d": 4,
    "news_tone": 1,
    "news": [
     {
@@ -1796,13 +1618,13 @@
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
-    "valor": 27.2,
-    "analistas": 11.6,
+    "valor": 27.4,
+    "analistas": 11.1,
     "calidad": 14.7,
     "momento": 3,
-    "noticias": 10.0
+    "noticias": 9.8
    },
    "score": 66,
    "why": [
@@ -1811,32 +1633,291 @@
    ]
   },
   {
+   "symbol": "GOOGL",
+   "market": "EE. UU.",
+   "name": "Alphabet Inc.",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "price": 278.18,
+   "chg1m": -12.19,
+   "chg3m": -18.61,
+   "from_high": -30.82,
+   "rsi": 39.2,
+   "above_sma200": false,
+   "pe": 14.51813,
+   "fpe": 18.177338,
+   "peg": 0.9371,
+   "pb": 5.1825333,
+   "div": 0.31,
+   "roe": 0.44286,
+   "eps_growth": -0.253,
+   "rev_growth": 0.247,
+   "target": 395.7702,
+   "upside": 42.27,
+   "rec": 1.37931,
+   "analysts": 53,
+   "earnings": "2027-02-03",
+   "news7d": 10,
+   "news_tone": 2,
+   "news": [
+    {
+     "title": "Have robotaxis hit a tipping point? Wall Street and experts are split.",
+     "link": "https://finance.yahoo.com/markets/stocks/article/have-robotaxis-hit-a-tipping-point-wall-street-and-experts-are-split-150000412.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T15:00:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:44:08+00:00",
+     "score": 1
+    },
+    {
+     "title": "Who is holding Jensen Huang accountable? It sure looks like nobody",
+     "link": "https://finance.yahoo.com/video/who-is-holding-jensen-huang-accountable-it-sure-looks-like-nobody-154255467.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:42:55+00:00",
+     "score": 0
+    },
+    {
+     "title": "Microsoft Is Down 7% in a Month, but Not One Analyst Says Sell. Wall Street Sees $630+",
+     "link": "https://247wallst.com/investing/2026/11/24/microsoft-is-down-7-in-a-month-but-not-one-analyst-says-sell-wall-street-sees-630/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T15:33:36+00:00",
+     "score": 0
+    },
+    {
+     "title": "Should One Number Scare You About Amazon Stock?",
+     "link": "https://www.trefis.com/stock/amzn/articles/628397/should-one-number-scare-you-about-amazon-stock/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T15:08:45+00:00",
+     "score": 0
+    },
+    {
+     "title": "Amazon Is Reportedly Paying $7.5 Billion for Decart’s AI Chip Software",
+     "link": "https://247wallst.com/investing/2026/11/24/amazon-is-reportedly-paying-7-5-billion-for-decarts-ai-chip-software/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T15:08:04+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 15.7,
+   "sub": {
+    "valor": 21.8,
+    "analistas": 25,
+    "calidad": 7,
+    "momento": 0,
+    "noticias": 12.5
+   },
+   "score": 66,
+   "why": [
+    "PEG 0.94",
+    "Precio objetivo +42 %",
+    "Consenso de compra",
+    "Noticias positivas"
+   ]
+  },
+  {
+   "symbol": "AMD",
+   "market": "EE. UU.",
+   "name": "Advanced Micro Devices, Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 403.5,
+   "chg1m": -24.05,
+   "chg3m": -16.1,
+   "from_high": -37.87,
+   "rsi": 37.8,
+   "above_sma200": false,
+   "pe": 86.121796,
+   "fpe": 22.880106,
+   "peg": 0.3797,
+   "pb": 9.6652355,
+   "div": 0.0,
+   "roe": 0.1196,
+   "eps_growth": 0.938,
+   "rev_growth": 0.447,
+   "target": 656.2122,
+   "upside": 62.63,
+   "rec": 1.33333,
+   "analysts": 49,
+   "earnings": "2027-02-02",
+   "news7d": 10,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "Nvidia, AMD, Broadcom lead chip stocks lower as AI trade comes under pressure",
+     "link": "https://finance.yahoo.com/markets/article/nvidia-amd-broadcom-lead-chip-stocks-lower-as-ai-trade-comes-under-pressure-141635463.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T14:16:35+00:00",
+     "score": -1
+    },
+    {
+     "title": "Jensen Huang is back at Nvidia. Should AMD be worried?",
+     "link": "https://finance.yahoo.com/markets/stocks/article/jensen-huang-is-back-at-nvidia-should-amd-be-worried-130012666.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T13:00:12+00:00",
+     "score": 0
+    },
+    {
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:44:08+00:00",
+     "score": 1
+    },
+    {
+     "title": "Stock market today: Dow, S&P 500, Nasdaq fall as chip stocks tumble, investors test Nvidia-fueled rally",
+     "link": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-november-24-dow-sp-500-nasdaq-chip-stocks-nvidia-140629923.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T09:06:14+00:00",
+     "score": -1
+    },
+    {
+     "title": "Stock Market Today: Dow Up But Nasdaq Skids As Nvidia Dives; Bears Bite Chips (Live Coverage)",
+     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-amd-anthropic-nvidia/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T15:39:08+00:00",
+     "score": 0
+    },
+    {
+     "title": "AMD Sinks 10%, Nvidia Down 7% as Chip Stocks Give Back Huang Rally, Resale Filing Weighs",
+     "link": "https://www.tikr.com/blog/amd-sinks-10-nvidia-down-7-as-chip-stocks-give-back-huang-rally-resale-filing-weighs?ref=yahoofinance&tlnk=yf-261124-gwx42qj3",
+     "source": "TIKR",
+     "published": "2026-11-24T15:19:57+00:00",
+     "score": 1
+    }
+   ],
+   "pe_ref": 18.0,
+   "sub": {
+    "valor": 19.6,
+    "analistas": 25,
+    "calidad": 11.0,
+    "momento": 0,
+    "noticias": 9.5
+   },
+   "score": 65,
+   "why": [
+    "PEG 0.38",
+    "Precio objetivo +63 %",
+    "Consenso de compra",
+    "Beneficio +94 %"
+   ]
+  },
+  {
+   "symbol": "DIS",
+   "market": "EE. UU.",
+   "name": "Walt Disney Company (The)",
+   "sector": "Communication Services",
+   "currency": "USD",
+   "price": 121.55,
+   "chg1m": 10.1,
+   "chg3m": 10.87,
+   "from_high": -0.66,
+   "rsi": 63.0,
+   "above_sma200": true,
+   "pe": 21.57904,
+   "fpe": 14.189921,
+   "peg": 3.8013,
+   "pb": 1.888749,
+   "div": 1.66,
+   "roe": 0.09127,
+   "eps_growth": 1.073,
+   "rev_growth": 0.155,
+   "target": 131.34355,
+   "upside": 8.06,
+   "rec": 1.5625,
+   "analysts": 31,
+   "earnings": "2027-02-01",
+   "news7d": 10,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "Who is holding Jensen Huang accountable? It sure looks like nobody",
+     "link": "https://finance.yahoo.com/video/who-is-holding-jensen-huang-accountable-it-sure-looks-like-nobody-154255467.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:42:55+00:00",
+     "score": 0
+    },
+    {
+     "title": "Did Liberty Media's Industry Carry Its Stock?",
+     "link": "https://www.trefis.com/stock/fwona/articles/628585/did-liberty-media-s-industry-carry-its-stock/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T14:01:47+00:00",
+     "score": 0
+    },
+    {
+     "title": "Disney Stops Reporting Streaming Profit. Should You Worry?",
+     "link": "https://www.trefis.com/stock/dis/articles/627655/disney-stops-reporting-streaming-profit-should-you-worry/2026-11-23",
+     "source": "Trefis",
+     "published": "2026-11-24T05:06:42+00:00",
+     "score": 0
+    },
+    {
+     "title": "Walt Disney (DIS) Plans To Merge Hulu Into Disney+ By December 2026",
+     "link": "https://finance.yahoo.com/media-advertising/articles/walt-disney-dis-plans-merge-221202990.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-23T22:12:02+00:00",
+     "score": 0
+    },
+    {
+     "title": "The Super Bowl Is Coming Live to IMAX Theaters. Here’s the Appeal.",
+     "link": "https://www.barrons.com/articles/super-bowl-live-imax-theaters-disney-espn-nfl-14ab56ba?siteid=yhoof2&yptr=yahoo",
+     "source": "Barrons.com",
+     "published": "2026-11-23T20:28:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "IMAX to Show Super Bowl LXI in Theaters Through Partnership With Disney, the NFL",
+     "link": "https://www.wsj.com/business/media/imax-to-show-super-bowl-lxi-in-theaters-through-partnership-with-disney-the-nfl-997dc4be?siteid=yhoof2&yptr=yahoo",
+     "source": "The Wall Street Journal",
+     "published": "2026-11-23T19:18:00+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 15.7,
+   "sub": {
+    "valor": 21.9,
+    "analistas": 14.1,
+    "calidad": 9.6,
+    "momento": 9.6,
+    "noticias": 9.5
+   },
+   "score": 65,
+   "why": [
+    "Consenso de compra",
+    "Beneficio +107 %"
+   ]
+  },
+  {
    "symbol": "CABK.MC",
    "market": "España",
    "name": "CAIXABANK, S.A.",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 11.45,
-   "chg1m": 4.57,
-   "chg3m": -11.86,
-   "from_high": -13.95,
-   "rsi": 41.7,
-   "above_sma200": false,
-   "pe": 12.231579,
-   "fpe": 10.698338,
+   "price": 11.53,
+   "chg1m": 2.36,
+   "chg3m": -10.49,
+   "from_high": -13.31,
+   "rsi": 44.0,
+   "above_sma200": true,
+   "pe": 12.142105,
+   "fpe": 10.620079,
    "peg": 0.94,
-   "pb": 2.0304036,
-   "div": 4.51,
+   "pb": 2.0155513,
+   "div": 4.44,
    "roe": 0.16523,
    "eps_growth": 0.233,
    "rev_growth": 0.077,
    "target": 13.30429,
-   "upside": 16.19,
+   "upside": 15.34,
    "rec": 2.19048,
    "analysts": 21,
-   "earnings": "2027-01-28",
-   "news7d": 1,
-   "news_tone": 2,
+   "earnings": "2027-02-05",
+   "news7d": 0,
+   "news_tone": 0,
    "news": [
     {
      "title": "3 European Bank Stocks With Strong Compliance Records as Deutsche Bank Scrutiny Grows",
@@ -1881,105 +1962,103 @@
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
-    "valor": 25.1,
-    "analistas": 15.9,
+    "valor": 25.0,
+    "analistas": 15.5,
     "calidad": 12.9,
-    "momento": 0,
-    "noticias": 10.7
+    "momento": 3,
+    "noticias": 7.5
    },
-   "score": 65,
+   "score": 64,
    "why": [
     "PEG 0.94",
-    "Precio objetivo +16 %",
-    "Beneficio +23 %",
-    "Noticias positivas"
+    "Precio objetivo +15 %",
+    "Beneficio +23 %"
    ]
   },
   {
-   "symbol": "XOM",
-   "market": "EE. UU.",
-   "name": "ExxonMobil Holdings Corporation",
-   "sector": "Energy",
-   "currency": "USD",
-   "price": 156.9,
-   "chg1m": -13.82,
-   "chg3m": -1.71,
-   "from_high": -15.68,
-   "rsi": 33.7,
+   "symbol": "NTGY.MC",
+   "market": "España",
+   "name": "NATURGY ENERGY GROUP, S.A.",
+   "sector": "Utilities",
+   "currency": "EUR",
+   "price": 30.04,
+   "chg1m": 0.41,
+   "chg3m": 3.53,
+   "from_high": -3.16,
+   "rsi": 52.6,
    "above_sma200": true,
-   "pe": 16.141973,
-   "fpe": 12.566838,
-   "peg": 1.2599,
-   "pb": 2.4080298,
-   "div": 2.68,
-   "roe": 0.15528,
-   "eps_growth": 1.114,
-   "rev_growth": 0.326,
-   "target": 184.18182,
-   "upside": 17.39,
-   "rec": 2.42308,
-   "analysts": 22,
-   "earnings": "2027-01-29",
+   "pe": 13.907407,
+   "fpe": 13.902324,
+   "peg": 6.98,
+   "pb": 3.3080058,
+   "div": 7.96,
+   "roe": 0.23698999,
+   "eps_growth": null,
+   "rev_growth": 0.141,
+   "target": 31.33222,
+   "upside": 4.3,
+   "rec": 2.38889,
+   "analysts": 18,
+   "earnings": "2027-02-18",
    "news7d": 10,
-   "news_tone": 1,
+   "news_tone": 3,
    "news": [
     {
-     "title": "Should You Swap Tech For Johnson & Johnson Stock?",
-     "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T22:02:04+00:00",
+     "title": "Banque Cantonale de Genève And 2 Top Undervalued Stocks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/banque-cantonale-gen-ve-2-151338119.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T15:13:38+00:00",
      "score": 0
     },
     {
-     "title": "5 Energy Stocks That Can Shrug Off a December Fed Rate Hike",
-     "link": "https://finance.yahoo.com/energy/articles/5-energy-stocks-shrug-off-220000268.html",
-     "source": "Oilprice.com",
-     "published": "2026-11-23T22:00:00+00:00",
+     "title": "Is Koninklijke Heijmans (ENXTAM:HEIJM) Reasonable Or Looking Stretched?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/koninklijke-heijmans-enxtam-heijm-reasonable-141311092.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T14:13:11+00:00",
      "score": 0
     },
     {
-     "title": "5 Blue-Chip Dividend Stocks Built to Keep Paying Through Tough Markets",
-     "link": "https://247wallst.com/investing/2026/11/23/5-blue-chip-dividend-stocks-built-to-keep-paying-through-tough-markets/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T20:17:16+00:00",
+     "title": "Vicat shares rise as J.P. Morgan flags European cement pricing potential",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/vicat-shares-rise-j-p-131618301.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T13:16:18+00:00",
+     "score": 1
+    },
+    {
+     "title": "Ackermans & Van Haaren (ENXTBR:ACKB) Stock Could Be 40% Below Fair Value",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/ackermans-van-haaren-enxtbr-ackb-131511104.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T13:15:11+00:00",
      "score": 0
     },
     {
-     "title": "How Much You Really Need Invested to Generate $50,000 a Year in Retirement",
-     "link": "https://247wallst.com/investing/2026/11/23/how-much-you-really-need-invested-to-generate-50000-a-year-in-retirement/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T19:17:21+00:00",
-     "score": 0
+     "title": "European cement makers poised for price gains as costs climb, J.P. Morgan says",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/european-cement-makers-poised-price-131258529.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T13:12:58+00:00",
+     "score": 2
     },
     {
-     "title": "Venture Global Owes More Than Its Stock Is Worth",
-     "link": "https://www.trefis.com/stock/vg/articles/627660/venture-global-owes-more-than-its-stock-is-worth/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T19:13:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "ExxonMobil's $4B Kizomba Redevelopment: Can It Drive Earnings Growth?",
-     "link": "https://finance.yahoo.com/energy/articles/exxonmobils-4b-kizomba-redevelopment-drive-162400004.html",
-     "source": "Zacks",
-     "published": "2026-11-23T16:24:00+00:00",
+     "title": "The Morning Risk Report: U.S. Chip Restrictions Amplify Shell Company Headaches in AI Ecosystem",
+     "link": "https://www.wsj.com/risk-compliance-journal/the-morning-risk-report-u-s-chip-restrictions-amplify-shell-company-headaches-in-ai-ecosystem-fd7a749d?siteid=yhoof2&yptr=yahoo",
+     "source": "The Wall Street Journal",
+     "published": "2026-11-24T12:36:00+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 12.5,
+   "pe_ref": 17.3,
    "sub": {
-    "valor": 19.9,
-    "analistas": 15.7,
-    "calidad": 12.8,
-    "momento": 5.4,
-    "noticias": 11.0
+    "valor": 23.9,
+    "analistas": 9.3,
+    "calidad": 10,
+    "momento": 7.2,
+    "noticias": 14.0
    },
-   "score": 65,
+   "score": 64,
    "why": [
-    "Precio objetivo +17 %",
-    "Beneficio +111 %"
+    "Noticias positivas"
    ]
   },
   {
@@ -1988,28 +2067,56 @@
    "name": "Procter & Gamble Company (The)",
    "sector": "Consumer Defensive",
    "currency": "USD",
-   "price": 169.6,
-   "chg1m": 5.33,
-   "chg3m": 17.42,
-   "from_high": -1.98,
-   "rsi": 61.9,
+   "price": 172.22,
+   "chg1m": 7.69,
+   "chg3m": 19.56,
+   "from_high": -0.46,
+   "rsi": 66.0,
    "above_sma200": true,
-   "pe": 25.54217,
-   "fpe": 22.838123,
+   "pe": 25.9361,
+   "fpe": 23.190847,
    "peg": 4.3517,
-   "pb": 7.2327185,
+   "pb": 7.3442664,
    "div": 2.57,
    "roe": 0.29609,
    "eps_growth": 0.008,
    "rev_growth": 0.04,
    "target": 176.34782,
-   "upside": 3.98,
+   "upside": 2.4,
    "rec": 2.12,
    "analysts": 23,
    "earnings": "2027-01-22",
    "news7d": 10,
    "news_tone": 1,
    "news": [
+    {
+     "title": "Don’t Panic, Buy These Instead: Jim Cramer’s Emergency 5-Stock Portfolio",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/don-t-panic-buy-instead-142222405.html",
+     "source": "Insider Monkey",
+     "published": "2026-11-24T14:22:22+00:00",
+     "score": 0
+    },
+    {
+     "title": "A $1 Million Retirement Portfolio Could Generate $25,000 a Year Without Selling Shares",
+     "link": "https://247wallst.com/investing/2026/11/24/a-1-million-retirement-portfolio-could-generate-25000-a-year-without-selling-shares/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T12:47:13+00:00",
+     "score": 0
+    },
+    {
+     "title": "Who Pays P&G? The American Shopper In Four Lines",
+     "link": "https://www.trefis.com/stock/pg/articles/627486/who-pays-p-g-the-american-shopper-in-four-lines/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T11:37:23+00:00",
+     "score": 0
+    },
+    {
+     "title": "How Many Shares of Colgate-Palmolive, Clorox or Procter & Gamble Pay $1,000 a Month in Dividends?",
+     "link": "https://www.tikr.com/blog/how-many-shares-of-colgate-palmolive-clorox-or-procter-gamble-pay-1000-a-month-in-dividends?ref=yahoofinancedividend&tlnk=yf-261124-m57cx49c",
+     "source": "TIKR",
+     "published": "2026-11-24T10:50:34+00:00",
+     "score": 0
+    },
     {
      "title": "Should You Swap Tech For Johnson & Johnson Stock?",
      "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
@@ -2023,131 +2130,18 @@
      "source": "Investing.com",
      "published": "2026-11-23T21:19:33+00:00",
      "score": 0
-    },
-    {
-     "title": "How Much You Really Need Invested to Generate $50,000 a Year in Retirement",
-     "link": "https://247wallst.com/investing/2026/11/23/how-much-you-really-need-invested-to-generate-50000-a-year-in-retirement/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T19:17:21+00:00",
-     "score": 0
-    },
-    {
-     "title": "The Average 1-Year CD Pays 1.81%. Dividend Stocks Offer a Different Trade-Off",
-     "link": "https://247wallst.com/investing/2026/11/23/the-average-1-year-cd-pays-1-81-dividend-stocks-offer-a-different-trade-off/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T15:17:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Take the Zacks Approach to Beat the Markets: BRK.B, VRA & ULTA",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-approach-beat-markets-brk-143300578.html",
-     "source": "Zacks",
-     "published": "2026-11-23T14:33:00+00:00",
-     "score": 1
-    },
-    {
-     "title": "Meet the Dividend King Yielding Over Twice the S&P 500. It's Raised Its Payout 64 Straight Years.",
-     "link": "https://www.fool.com/investing/2026/11/23/meet-the-dividend-king-yielding-over-twice-the-sp/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T14:11:00+00:00",
-     "score": 0
     }
    ],
-   "pe_ref": 25.0,
+   "pe_ref": 25.4,
    "sub": {
     "valor": 21.7,
-    "analistas": 10.1,
+    "analistas": 9.3,
     "calidad": 10.2,
-    "momento": 11.8,
+    "momento": 12,
     "noticias": 11.0
    },
-   "score": 65,
-   "why": []
-  },
-  {
-   "symbol": "DIS",
-   "market": "EE. UU.",
-   "name": "Walt Disney Company (The)",
-   "sector": "Communication Services",
-   "currency": "USD",
-   "price": 120.27,
-   "chg1m": 6.89,
-   "chg3m": 8.11,
-   "from_high": -1.71,
-   "rsi": 60.8,
-   "above_sma200": true,
-   "pe": 21.362343,
-   "fpe": 14.047279,
-   "peg": 3.8013,
-   "pb": 1.8697822,
-   "div": 1.7,
-   "roe": 0.09127,
-   "eps_growth": 1.073,
-   "rev_growth": 0.155,
-   "target": 131.34355,
-   "upside": 9.21,
-   "rec": 1.5625,
-   "analysts": 31,
-   "earnings": "2027-02-01",
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "How Taylor Sheridan built a TV empire after being denied $20K",
-     "link": "https://finance.yahoo.com/video/taylor-sheridan-built-tv-empire-120000886.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T12:00:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Walt Disney (DIS) Plans To Merge Hulu Into Disney+ By December 2026",
-     "link": "https://finance.yahoo.com/media-advertising/articles/walt-disney-dis-plans-merge-221202990.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-23T22:12:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "The Super Bowl Is Coming Live to IMAX Theaters. Here’s the Appeal.",
-     "link": "https://www.barrons.com/articles/super-bowl-live-imax-theaters-disney-espn-nfl-14ab56ba?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-23T20:28:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "IMAX to Show Super Bowl LXI in Theaters Through Partnership With Disney, the NFL",
-     "link": "https://www.wsj.com/business/media/imax-to-show-super-bowl-lxi-in-theaters-through-partnership-with-disney-the-nfl-997dc4be?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal",
-     "published": "2026-11-23T19:18:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "What Will Move Netflix Stock Over Six Months?",
-     "link": "https://www.trefis.com/stock/nflx/articles/627584/what-will-move-netflix-stock-over-six-months/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T13:34:05+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Trending Stock The Walt Disney Company (DIS) a Buy Now?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/trending-stock-walt-disney-company-130004868.html",
-     "source": "Zacks",
-     "published": "2026-11-23T13:00:04+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 15.4,
-   "sub": {
-    "valor": 21.8,
-    "analistas": 14.6,
-    "calidad": 9.6,
-    "momento": 8.7,
-    "noticias": 9.5
-   },
    "score": 64,
-   "why": [
-    "Consenso de compra",
-    "Beneficio +107 %"
-   ]
+   "why": []
   },
   {
    "symbol": "PUIG.MC",
@@ -2155,25 +2149,25 @@
    "name": "PUIG BRANDS, S.A. CLASE B",
    "sector": "Consumer Defensive",
    "currency": "EUR",
-   "price": 19.69,
-   "chg1m": 2.07,
-   "chg3m": 10.12,
-   "from_high": -3.67,
-   "rsi": 52.6,
+   "price": 20.04,
+   "chg1m": 3.25,
+   "chg3m": 10.84,
+   "from_high": -1.96,
+   "rsi": 58.1,
    "above_sma200": true,
-   "pe": 19.514565,
-   "fpe": 16.802929,
+   "pe": 19.475729,
+   "fpe": 16.76949,
    "peg": 2.78,
-   "pb": 2.808047,
-   "div": 2.14,
+   "pb": 2.8024588,
+   "div": 2.1,
    "roe": 0.15607001,
    "eps_growth": -0.044,
    "rev_growth": 0.024,
    "target": 21.18438,
-   "upside": 7.59,
+   "upside": 5.71,
    "rec": 1.875,
    "analysts": 16,
-   "earnings": null,
+   "earnings": "2027-02-18",
    "news7d": 0,
    "news_tone": 0,
    "news": [
@@ -2220,18 +2214,188 @@
      "score": 0
     }
    ],
-   "pe_ref": 25.0,
+   "pe_ref": 25.4,
    "sub": {
-    "valor": 26.6,
-    "analistas": 12.7,
+    "valor": 26.8,
+    "analistas": 11.8,
     "calidad": 6.9,
-    "momento": 9.4,
+    "momento": 9.6,
     "noticias": 7.5
    },
    "score": 63,
    "why": [
-    "PER 16.8 frente a 25.0 del sector",
+    "PER 16.8 frente a 25.4 del sector",
     "Consenso de compra"
+   ]
+  },
+  {
+   "symbol": "XOM",
+   "market": "EE. UU.",
+   "name": "ExxonMobil Holdings Corporation",
+   "sector": "Energy",
+   "currency": "USD",
+   "price": 157.96,
+   "chg1m": -13.86,
+   "chg3m": 0.49,
+   "from_high": -15.11,
+   "rsi": 35.9,
+   "above_sma200": true,
+   "pe": 16.244854,
+   "fpe": 12.646933,
+   "peg": 1.2356,
+   "pb": 2.4233773,
+   "div": 2.73,
+   "roe": 0.15528,
+   "eps_growth": 1.114,
+   "rev_growth": 0.326,
+   "target": 184.18182,
+   "upside": 16.6,
+   "rec": 2.42308,
+   "analysts": 22,
+   "earnings": "2027-01-29",
+   "news7d": 10,
+   "news_tone": -1,
+   "news": [
+    {
+     "title": "3 High-Yield S&P 500 Dividend Stocks Marked Down for Black Friday",
+     "link": "https://247wallst.com/investing/2026/11/24/3-high-yield-sp-500-dividend-stocks-marked-down-for-black-friday/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T13:48:11+00:00",
+     "score": 0
+    },
+    {
+     "title": "Tesla Leads Goldman's Hedge Fund Short List With $26.4 Billion in Bearish Bets",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/tesla-leads-goldmans-hedge-fund-110429117.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:04:29+00:00",
+     "score": -1
+    },
+    {
+     "title": "ExxonMobil Sinks 14% and Chevron 12% in a Month as Trump Says Iran Wants “to Make a Deal”",
+     "link": "https://www.tikr.com/blog/exxonmobil-sinks-14-and-chevron-12-in-a-month-as-trump-says-iran-wants-to-make-a-deal?ref=yahoofinance&tlnk=yf-261124-fw5h76ch",
+     "source": "TIKR",
+     "published": "2026-11-24T10:45:16+00:00",
+     "score": 0
+    },
+    {
+     "title": "1966 Or 1995: Which Way Does America's $2.1 Trillion Deficit Go?",
+     "link": "https://www.trefis.com/stock/spy/articles/627413/1966-or-1995-which-way-does-america-s-2-1-trillion-deficit-go/2026-11-23",
+     "source": "Trefis",
+     "published": "2026-11-24T05:06:42+00:00",
+     "score": 0
+    },
+    {
+     "title": "The Inflation Math, Updated: The Fed Is Fighting Oil",
+     "link": "https://www.trefis.com/stock/spy/articles/627433/the-inflation-math-updated-the-fed-is-fighting-oil/2026-11-23",
+     "source": "Trefis",
+     "published": "2026-11-24T05:06:42+00:00",
+     "score": 0
+    },
+    {
+     "title": "Should You Swap Tech For Johnson & Johnson Stock?",
+     "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
+     "source": "Trefis",
+     "published": "2026-11-23T22:02:04+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 12.6,
+   "sub": {
+    "valor": 20.0,
+    "analistas": 15.3,
+    "calidad": 12.8,
+    "momento": 6.2,
+    "noticias": 8.0
+   },
+   "score": 62,
+   "why": [
+    "Precio objetivo +17 %",
+    "Beneficio +111 %"
+   ]
+  },
+  {
+   "symbol": "JPM",
+   "market": "EE. UU.",
+   "name": "JP Morgan Chase & Co.",
+   "sector": "Financial Services",
+   "currency": "USD",
+   "price": 314.27,
+   "chg1m": -5.92,
+   "chg3m": -11.41,
+   "from_high": -13.51,
+   "rsi": 35.6,
+   "above_sma200": false,
+   "pe": 13.176178,
+   "fpe": 12.283242,
+   "peg": 1.32,
+   "pb": 2.3743553,
+   "div": 2.08,
+   "roe": 0.18013,
+   "eps_growth": 0.099,
+   "rev_growth": 0.102,
+   "target": 373.47827,
+   "upside": 18.84,
+   "rec": 2.03846,
+   "analysts": 23,
+   "earnings": "2027-01-14",
+   "news7d": 10,
+   "news_tone": 4,
+   "news": [
+    {
+     "title": "JPMorgan And HSBC Complete First Digital Gold Trade",
+     "link": "https://www.cryptoprowl.com/releases/jpmorgan-and-hsbc-complete-first-digital-gold-trade-8041",
+     "source": "CryptoProwl",
+     "published": "2026-11-24T14:26:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "3 High-Yield S&P 500 Dividend Stocks Marked Down for Black Friday",
+     "link": "https://247wallst.com/investing/2026/11/24/3-high-yield-sp-500-dividend-stocks-marked-down-for-black-friday/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T13:48:11+00:00",
+     "score": 0
+    },
+    {
+     "title": "JPMorgan Treasury survey shows neutral positioning ahead of PCE data",
+     "link": "https://finance.yahoo.com/markets/options/articles/jpmorgan-treasury-survey-shows-neutral-132259516.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T13:22:59+00:00",
+     "score": 0
+    },
+    {
+     "title": "JPMorgan and Bank of America Just Sold Off. One Looks Better for Retirees",
+     "link": "https://247wallst.com/investing/2026/11/24/jpmorgan-and-bank-of-america-just-sold-off-one-looks-better-for-retirees/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T13:17:50+00:00",
+     "score": 0
+    },
+    {
+     "title": "Vicat shares rise as J.P. Morgan flags European cement pricing potential",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/vicat-shares-rise-j-p-131618301.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T13:16:18+00:00",
+     "score": 1
+    },
+    {
+     "title": "European cement makers poised for price gains as costs climb, J.P. Morgan says",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/european-cement-makers-poised-price-131258529.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T13:12:58+00:00",
+     "score": 2
+    }
+   ],
+   "pe_ref": 10.6,
+   "sub": {
+    "valor": 16.9,
+    "analistas": 17.8,
+    "calidad": 11.0,
+    "momento": 0,
+    "noticias": 15
+   },
+   "score": 61,
+   "why": [
+    "Precio objetivo +19 %",
+    "Noticias positivas"
    ]
   },
   {
@@ -2240,22 +2404,22 @@
    "name": "COLONIAL SFL, SOCIMI. S.A.",
    "sector": "Real Estate",
    "currency": "EUR",
-   "price": 4.87,
-   "chg1m": -4.51,
-   "chg3m": -11.62,
-   "from_high": -13.88,
-   "rsi": 31.9,
+   "price": 4.89,
+   "chg1m": -5.05,
+   "chg3m": -9.28,
+   "from_high": -13.53,
+   "rsi": 34.2,
    "above_sma200": false,
-   "pe": 8.898182,
-   "fpe": 12.976614,
+   "pe": 8.890908,
+   "fpe": 12.966007,
    "peg": null,
-   "pb": 0.51090926,
-   "div": 6.57,
+   "pb": 0.51049167,
+   "div": 6.54,
    "roe": null,
    "eps_growth": null,
    "rev_growth": -0.055,
    "target": 6.24281,
-   "upside": 28.19,
+   "upside": 27.66,
    "rec": 2.4375,
    "analysts": 16,
    "earnings": "2026-11-12",
@@ -2291,100 +2455,18 @@
      "score": 1
     }
    ],
-   "pe_ref": 16.2,
+   "pe_ref": 15.7,
    "sub": {
-    "valor": 23.9,
-    "analistas": 21.1,
+    "valor": 23.5,
+    "analistas": 20.8,
     "calidad": 7.5,
     "momento": 0,
     "noticias": 7.5
    },
-   "score": 60,
+   "score": 59,
    "why": [
     "Precio objetivo +28 %"
    ]
-  },
-  {
-   "symbol": "NTGY.MC",
-   "market": "España",
-   "name": "NATURGY ENERGY GROUP, S.A.",
-   "sector": "Utilities",
-   "currency": "EUR",
-   "price": 30.02,
-   "chg1m": -0.37,
-   "chg3m": 2.22,
-   "from_high": -3.22,
-   "rsi": 52.4,
-   "above_sma200": true,
-   "pe": 13.787037,
-   "fpe": 13.781997,
-   "peg": 6.98,
-   "pb": 3.2793744,
-   "div": 7.89,
-   "roe": 0.23698999,
-   "eps_growth": null,
-   "rev_growth": 0.141,
-   "target": 31.33222,
-   "upside": 4.37,
-   "rec": 2.38889,
-   "analysts": 18,
-   "earnings": null,
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "What Cegedim Bears Saw Before The Fall",
-     "link": "https://finance.yahoo.com/healthcare/articles/cegedim-bears-saw-fall-011201379.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-24T01:12:01+00:00",
-     "score": -1
-    },
-    {
-     "title": "Jungheinrich (XTRA:JUN3) Returned To Profit, Is The Valuation Discount Justified?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/jungheinrich-xtra-jun3-returned-profit-221314723.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-23T22:13:14+00:00",
-     "score": 0
-    },
-    {
-     "title": "Health Care Roundup: Market Talk",
-     "link": "https://www.wsj.com/business/health-care-roundup-market-talk-d350f360?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal",
-     "published": "2026-11-23T21:57:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Banca Transilvania SA (FRA:7TB) Q3 2026 Earnings Call Highlights: Double-Digit Loan Growth and ...",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/banca-transilvania-sa-fra-7tb-210031609.html",
-     "source": "GuruFocus.com",
-     "published": "2026-11-23T21:00:31+00:00",
-     "score": 0
-    },
-    {
-     "title": "Bayer Clears Major Roundup Hurdle, but a New Study Raises Cancer Link Again",
-     "link": "https://www.wsj.com/us-news/law/bayer-clears-major-roundup-hurdle-but-a-new-study-raises-cancer-link-again-15152a03?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal",
-     "published": "2026-11-23T20:48:00+00:00",
-     "score": 1
-    },
-    {
-     "title": "XPS Pensions Group PLC (FRA:406) (Q2 2027) Earnings Call Highlights: Double-Digit Growth, ...",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/xps-pensions-group-plc-fra-170110400.html",
-     "source": "GuruFocus.com",
-     "published": "2026-11-23T17:01:10+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 17.0,
-   "sub": {
-    "valor": 23.8,
-    "analistas": 9.3,
-    "calidad": 10,
-    "momento": 6.7,
-    "noticias": 9.5
-   },
-   "score": 59,
-   "why": []
   },
   {
    "symbol": "BKT.MC",
@@ -2392,22 +2474,22 @@
    "name": "BANKINTER, S.A.",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 13.68,
-   "chg1m": -3.18,
-   "chg3m": -18.47,
-   "from_high": -19.32,
-   "rsi": 32.4,
+   "price": 13.81,
+   "chg1m": -2.02,
+   "chg3m": -16.71,
+   "from_high": -18.55,
+   "rsi": 36.2,
    "above_sma200": false,
-   "pe": 10.933071,
-   "fpe": 9.555433,
+   "pe": 10.874016,
+   "fpe": 9.503819,
    "peg": 10.15,
-   "pb": 1.8625084,
-   "div": 4.51,
+   "pb": 1.8524481,
+   "div": 4.44,
    "roe": 0.17641,
    "eps_growth": 0.1,
    "rev_growth": 0.055,
    "target": 16.705,
-   "upside": 22.11,
+   "upside": 20.96,
    "rec": 2.40909,
    "analysts": 22,
    "earnings": "2027-01-21",
@@ -2457,101 +2539,17 @@
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
-    "valor": 22.2,
-    "analistas": 18.1,
+    "valor": 22.1,
+    "analistas": 17.5,
     "calidad": 10.8,
     "momento": 0,
     "noticias": 7.5
    },
-   "score": 59,
+   "score": 58,
    "why": [
-    "Precio objetivo +22 %"
-   ]
-  },
-  {
-   "symbol": "KO",
-   "market": "EE. UU.",
-   "name": "Coca-Cola Company (The)",
-   "sector": "Consumer Defensive",
-   "currency": "USD",
-   "price": 95.88,
-   "chg1m": 3.42,
-   "chg3m": 5.25,
-   "from_high": -3.62,
-   "rsi": 53.0,
-   "above_sma200": true,
-   "pe": 28.283184,
-   "fpe": 27.133493,
-   "peg": 3.2802,
-   "pb": 11.037181,
-   "div": 2.19,
-   "roe": 0.40592998,
-   "eps_growth": 0.083,
-   "rev_growth": 0.074,
-   "target": 99.64,
-   "upside": 3.92,
-   "rec": 1.69231,
-   "analysts": 25,
-   "earnings": "2026-10-27",
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Stock Market Today: Dow, Nasdaq Surge As Jensen Huang Makes This Nvidia Promise; Anthropic Falls",
-     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-nvidia-nvda-crowdstrike-zscaler/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "published": "2026-11-23T21:56:22+00:00",
-     "score": 0
-    },
-    {
-     "title": "How Much You Really Need Invested to Generate $50,000 a Year in Retirement",
-     "link": "https://247wallst.com/investing/2026/11/23/how-much-you-really-need-invested-to-generate-50000-a-year-in-retirement/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T19:17:21+00:00",
-     "score": 0
-    },
-    {
-     "title": "If a Recession Hits in 2027, This Is the Dividend Stock I Want to Own",
-     "link": "https://www.fool.com/investing/2026/11/23/if-recession-hits-2027-this-dividend-stock-i-want-to-own/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T18:20:02+00:00",
-     "score": -1
-    },
-    {
-     "title": "Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
-     "link": "https://www.fool.com/coverage/better-buy/2026/11/23/coca-cola-vs-pepsico-which-consumer-goods-stock-is-a-better-buy-for-2027/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T17:50:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "EU Probes Coca-Cola Bottler, Citing Antitrust Concerns",
-     "link": "https://www.wsj.com/world/europe/eu-probes-coca-cola-bottler-citing-antitrust-concerns-7717c957?siteid=yhoof2&yptr=yahoo",
-     "source": "The Wall Street Journal",
-     "published": "2026-11-23T17:27:00+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 25.0,
-   "sub": {
-    "valor": 18.3,
-    "analistas": 11.5,
-    "calidad": 11.7,
-    "momento": 7.8,
-    "noticias": 9.5
-   },
-   "score": 59,
-   "why": [
-    "Consenso de compra"
+    "Precio objetivo +21 %"
    ]
   },
   {
@@ -2560,22 +2558,22 @@
    "name": "SACYR, S.A.",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 4.06,
-   "chg1m": 2.42,
-   "chg3m": -6.33,
-   "from_high": -17.63,
-   "rsi": 43.7,
+   "price": 4.07,
+   "chg1m": 2.01,
+   "chg3m": -5.62,
+   "from_high": -17.42,
+   "rsi": 45.3,
    "above_sma200": false,
-   "pe": 23.033333,
-   "fpe": 17.751328,
+   "pe": 22.588888,
+   "fpe": 17.408804,
    "peg": 177.83,
-   "pb": 3.0986545,
-   "div": 4.93,
+   "pb": 3.038864,
+   "div": 4.82,
    "roe": 0.12042,
    "eps_growth": null,
    "rev_growth": 0.14,
    "target": 5.329,
-   "upside": 31.39,
+   "upside": 31.06,
    "rec": 1.1,
    "analysts": 10,
    "earnings": "2026-11-05",
@@ -2604,9 +2602,9 @@
      "score": 1
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
-    "valor": 19.3,
+    "valor": 19.5,
     "analistas": 25,
     "calidad": 6.0,
     "momento": 0,
@@ -2619,27 +2617,111 @@
    ]
   },
   {
+   "symbol": "KO",
+   "market": "EE. UU.",
+   "name": "Coca-Cola Company (The)",
+   "sector": "Consumer Defensive",
+   "currency": "USD",
+   "price": 97.52,
+   "chg1m": 5.2,
+   "chg3m": 8.91,
+   "from_high": -1.97,
+   "rsi": 58.7,
+   "above_sma200": true,
+   "pe": 28.772861,
+   "fpe": 27.603266,
+   "peg": 3.2427,
+   "pb": 11.2282715,
+   "div": 2.21,
+   "roe": 0.40592998,
+   "eps_growth": 0.083,
+   "rev_growth": 0.074,
+   "target": 99.64,
+   "upside": 2.17,
+   "rec": 1.69231,
+   "analysts": 25,
+   "earnings": "2027-02-09",
+   "news7d": 10,
+   "news_tone": -1,
+   "news": [
+    {
+     "title": "Coca-Cola (KO) Appoints David Elkins As CFO Effective April 2027",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-ko-appoints-david-151354439.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T15:13:54+00:00",
+     "score": 0
+    },
+    {
+     "title": "Coca-Cola at $95 or PepsiCo at $140: Which Dividend King Could Turn $1,000 Into More Money by 2036?",
+     "link": "https://www.fool.com/investing/2026/11/24/coca-cola-at-usd95-or-pepsico-at-usd140-which-dividend-king-could-turn-usd1-000-into-more-money-by-2036/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T14:29:01+00:00",
+     "score": 0
+    },
+    {
+     "title": "Coca-Cola Shakes up Leadership, Names Pharma Veteran as CFO",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-shakes-leadership-names-134351680.html",
+     "source": "Benzinga",
+     "published": "2026-11-24T13:43:51+00:00",
+     "score": 0
+    },
+    {
+     "title": "These 3 Stocks Have Raised Their Dividends Annually for at Least 49 Years. Should you Buy Them?",
+     "link": "https://www.fool.com/investing/2026/11/24/these-3-stocks-have-raised-their-dividends-annually-for-at-least-49-years-should-you-buy-them/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T11:18:02+00:00",
+     "score": 0
+    },
+    {
+     "title": "BofA spots opportunities in these nine consumer staples stocks for 2027",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/bofa-spots-opportunities-nine-consumer-030406689.html",
+     "source": "Investing.com",
+     "published": "2026-11-24T03:04:06+00:00",
+     "score": 0
+    },
+    {
+     "title": "Stock Market Today: Dow, Nasdaq Surge As Jensen Huang Makes This Nvidia Promise; Anthropic Falls",
+     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-nvidia-nvda-crowdstrike-zscaler/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-23T21:56:22+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 25.4,
+   "sub": {
+    "valor": 18.3,
+    "analistas": 10.7,
+    "calidad": 11.7,
+    "momento": 9.0,
+    "noticias": 8.0
+   },
+   "score": 58,
+   "why": [
+    "Consenso de compra"
+   ]
+  },
+  {
    "symbol": "ITX.MC",
    "market": "España",
    "name": "INDUSTRIA DE DISE...O TEXTIL S.",
    "sector": "Consumer Cyclical",
    "currency": "EUR",
-   "price": 57.78,
-   "chg1m": 4.34,
-   "chg3m": 0.69,
-   "from_high": -4.18,
-   "rsi": 50.5,
+   "price": 58.4,
+   "chg1m": 3.61,
+   "chg3m": 2.79,
+   "from_high": -3.15,
+   "rsi": 53.7,
    "above_sma200": true,
-   "pe": 28.485437,
-   "fpe": 24.79454,
+   "pe": 28.349516,
+   "fpe": 24.67623,
    "peg": 3.7687,
-   "pb": 10.237265,
-   "div": 1.13,
+   "pb": 10.1884165,
+   "div": 1.11,
    "roe": 0.36824,
    "eps_growth": 0.08,
    "rev_growth": 0.091,
    "target": 60.85625,
-   "upside": 5.32,
+   "upside": 4.21,
    "rec": 1.79167,
    "analysts": 24,
    "earnings": "2026-12-02",
@@ -2689,12 +2771,12 @@
      "score": 0
     }
    ],
-   "pe_ref": 24.1,
+   "pe_ref": 23.9,
    "sub": {
     "valor": 19.4,
-    "analistas": 11.9,
+    "analistas": 11.3,
     "calidad": 11.6,
-    "momento": 6.2,
+    "momento": 6.9,
     "noticias": 7.7
    },
    "score": 57,
@@ -2709,22 +2791,22 @@
    "name": "Pfizer, Inc.",
    "sector": "Healthcare",
    "currency": "USD",
-   "price": 27.4,
-   "chg1m": -7.43,
-   "chg3m": -2.69,
-   "from_high": -9.71,
-   "rsi": 33.8,
+   "price": 28.25,
+   "chg1m": -3.77,
+   "chg3m": 1.29,
+   "from_high": -6.9,
+   "rsi": 45.8,
    "above_sma200": true,
-   "pe": 39.142857,
-   "fpe": 9.275307,
+   "pe": 40.350002,
+   "fpe": 9.561353,
    "peg": 8.3588,
-   "pb": 1.7548354,
+   "pb": 1.8089535,
    "div": 6.28,
    "roe": 0.04468,
    "eps_growth": -0.097,
    "rev_growth": -0.004,
    "target": 30.22115,
-   "upside": 10.3,
+   "upside": 6.97,
    "rec": 2.46429,
    "analysts": 26,
    "earnings": "2027-02-02",
@@ -2732,59 +2814,59 @@
    "news_tone": 1,
    "news": [
     {
-     "title": "What Jacobs Solutions (J) Said on Its Q4 Earnings Call",
-     "link": "https://www.marketbeat.com/instant-alerts/transcript-what-jacobs-solutions-j-said-on-its-q4-earnings-call-2026-11-23/?utm_source=yahoofinance&utm_medium=yahoofinance",
-     "source": "MarketBeat",
-     "published": "2026-11-24T00:12:37+00:00",
+     "title": "Insmed Snags A Whopping Price Tag As Sanofi Confirms Rumored Buyout",
+     "link": "https://www.investors.com/news/technology/insmed-stock-sanofi-buyout/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T15:34:42+00:00",
      "score": 0
     },
     {
-     "title": "Should You Swap Tech For Johnson & Johnson Stock?",
-     "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T22:02:04+00:00",
-     "score": 0
-    },
-    {
-     "title": "Why Exelixis Stock Can Keep Compounding Your Money",
-     "link": "https://www.trefis.com/stock/exel/articles/627580/why-exelixis-stock-can-keep-compounding-your-money/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T21:14:01+00:00",
-     "score": 0
-    },
-    {
-     "title": "15 of the Highest-Yielding Dividend Stocks in the S&P 500",
-     "link": "https://www.kiplinger.com/investing/stocks-with-the-highest-dividend-yields-in-the-sandp-500",
-     "source": "Kiplinger",
-     "published": "2026-11-23T20:25:53+00:00",
-     "score": 0
-    },
-    {
-     "title": "What Do Pfizer (PFE) Investors Need To Know About The New Patent Lawsuits?",
-     "link": "https://finance.yahoo.com/healthcare/articles/pfizer-pfe-investors-know-patent-171327480.html",
+     "title": "Pfizer (PFE) Stock Could Be Above Fair Value Despite Fresh CAR T Deal",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/pfizer-pfe-stock-could-above-151634715.html",
      "source": "Simply Wall St.",
-     "published": "2026-11-23T17:13:27+00:00",
+     "published": "2026-11-24T15:16:34+00:00",
      "score": 0
     },
     {
-     "title": "Pfizer’s CEO Wants AI to “Halve the Time to First Human Study.” Here’s What That Means for Its Pipeline",
-     "link": "https://www.tikr.com/blog/pfizers-ceo-wants-ai-to-halve-the-time-to-first-human-study-heres-what-that-means-for-its-pipeline?ref=yahoofinance&tlnk=yf-261123-3hj78r26",
-     "source": "TIKR",
-     "published": "2026-11-23T15:50:52+00:00",
+     "title": "4 Dividend Stocks That Wall Street Gave Up On To Buy Now",
+     "link": "https://247wallst.com/investing/2026/11/24/4-dividend-stocks-that-wall-street-gave-up-on-to-buy-now/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T14:49:51+00:00",
+     "score": 0
+    },
+    {
+     "title": "3 High-Yield Dividend Stocks Paying Out More Cash Than They Generate",
+     "link": "https://247wallst.com/investing/2026/11/24/3-high-yield-dividend-stocks-paying-out-more-cash-than-they-generate/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T13:47:17+00:00",
+     "score": 0
+    },
+    {
+     "title": "Will 'Anti-Pharma' Democrats Chop Away At Biotech Stocks' Big Wins?",
+     "link": "https://www.investors.com/news/technology/biotech-stocks-election-2026-presidential-election-2028-drug-prices/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T13:01:37+00:00",
+     "score": 0
+    },
+    {
+     "title": "Can Tremfya, Icotyde and Imaavy Drive J&J's Immunology Turnaround?",
+     "link": "https://finance.yahoo.com/healthcare/articles/tremfya-icotyde-imaavy-drive-j-123200215.html",
+     "source": "Zacks",
+     "published": "2026-11-24T12:32:00+00:00",
      "score": 0
     }
    ],
    "pe_ref": 17.0,
    "sub": {
-    "valor": 29.1,
-    "analistas": 12.0,
+    "valor": 28.8,
+    "analistas": 10.4,
     "calidad": 0.3,
-    "momento": 5.1,
+    "momento": 6.4,
     "noticias": 11.0
    },
    "score": 57,
    "why": [
-    "PER 9.3 frente a 17.0 del sector"
+    "PER 9.6 frente a 17.0 del sector"
    ]
   },
   {
@@ -2793,22 +2875,22 @@
    "name": "TELEFONICA,S.A.",
    "sector": "Communication Services",
    "currency": "EUR",
-   "price": 3.36,
-   "chg1m": -3.28,
-   "chg3m": -8.71,
-   "from_high": -14.78,
-   "rsi": 45.8,
+   "price": 3.38,
+   "chg1m": 5.6,
+   "chg3m": -6.12,
+   "from_high": -14.43,
+   "rsi": 47.9,
    "above_sma200": false,
    "pe": null,
-   "fpe": 8.169644,
+   "fpe": 8.31241,
    "peg": 0.3783,
-   "pb": 1.2099891,
-   "div": 4.46,
+   "pb": 1.2311338,
+   "div": 4.52,
    "roe": -0.073460005,
    "eps_growth": 1.911,
    "rev_growth": -0.059,
    "target": 3.78636,
-   "upside": 12.59,
+   "upside": 12.12,
    "rec": 3.04762,
    "analysts": 22,
    "earnings": "2026-11-12",
@@ -2858,17 +2940,17 @@
      "score": 0
     }
    ],
-   "pe_ref": 15.4,
+   "pe_ref": 15.7,
    "sub": {
     "valor": 30,
-    "analistas": 11.1,
+    "analistas": 10.9,
     "calidad": 5,
     "momento": 0,
     "noticias": 10.0
    },
    "score": 56,
    "why": [
-    "PER 8.2 frente a 15.4 del sector",
+    "PER 8.3 frente a 15.7 del sector",
     "PEG 0.38",
     "Beneficio +191 %"
    ]
@@ -2879,22 +2961,22 @@
    "name": "MERLIN PROPERTIES SOCIMI, S.A.",
    "sector": "Real Estate",
    "currency": "EUR",
-   "price": 10.93,
-   "chg1m": -1.62,
-   "chg3m": -20.41,
-   "from_high": -29.36,
-   "rsi": 36.2,
+   "price": 10.99,
+   "chg1m": -0.73,
+   "chg3m": -17.38,
+   "from_high": -28.97,
+   "rsi": 39.9,
    "above_sma200": false,
-   "pe": 7.717241,
-   "fpe": 19.81934,
+   "pe": 7.57931,
+   "fpe": 19.465109,
    "peg": 2.2589,
-   "pb": 0.80266833,
-   "div": 3.66,
+   "pb": 0.7883222,
+   "div": 3.57,
    "roe": 0.10042,
    "eps_growth": 0.062,
    "rev_growth": -0.006,
    "target": 16.95143,
-   "upside": 55.09,
+   "upside": 54.24,
    "rec": 1.52381,
    "analysts": 21,
    "earnings": "2026-11-12",
@@ -2937,9 +3019,9 @@
      "score": 1
     }
    ],
-   "pe_ref": 16.2,
+   "pe_ref": 15.7,
    "sub": {
-    "valor": 15.5,
+    "valor": 15.2,
     "analistas": 25,
     "calidad": 6.3,
     "momento": 0,
@@ -2947,93 +3029,93 @@
    },
    "score": 54,
    "why": [
-    "Precio objetivo +55 %",
+    "Precio objetivo +54 %",
     "Consenso de compra"
    ]
   },
   {
-   "symbol": "LLY",
+   "symbol": "WMT",
    "market": "EE. UU.",
-   "name": "Eli Lilly and Company",
-   "sector": "Healthcare",
+   "name": "Walmart Inc.",
+   "sector": "Consumer Defensive",
    "currency": "USD",
-   "price": 1364.6,
-   "chg1m": 7.29,
-   "chg3m": 10.75,
-   "from_high": -5.47,
-   "rsi": 52.8,
+   "price": 131.85,
+   "chg1m": 9.61,
+   "chg3m": 26.37,
+   "from_high": -1.51,
+   "rsi": 70.9,
    "above_sma200": true,
-   "pe": 43.723167,
-   "fpe": 26.825014,
-   "peg": 1.245,
-   "pb": 30.19895,
-   "div": 0.51,
-   "roe": 0.86024004,
-   "eps_growth": 0.163,
-   "rev_growth": 0.386,
-   "target": 1470.0565,
-   "upside": 7.73,
-   "rec": 1.64516,
-   "analysts": 29,
-   "earnings": "2026-10-29",
+   "pe": 47.768116,
+   "fpe": 40.83883,
+   "peg": 4.3453,
+   "pb": 10.658905,
+   "div": 0.76,
+   "roe": 0.20552999,
+   "eps_growth": -0.195,
+   "rev_growth": 0.052,
+   "target": 136.14635,
+   "upside": 3.25,
+   "rec": 1.54545,
+   "analysts": 41,
+   "earnings": "2027-02-18",
    "news7d": 10,
-   "news_tone": 0,
+   "news_tone": 5,
    "news": [
     {
-     "title": "Should You Swap Tech For Johnson & Johnson Stock?",
-     "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T22:02:04+00:00",
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:44:08+00:00",
+     "score": 1
+    },
+    {
+     "title": "Dollar Tree Turnaround Blooms; Abercrombie Struts With Double-Digit Growth",
+     "link": "https://www.investors.com/news/dollar-tree-stock-q3-earnings-anf-kss/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T15:35:49+00:00",
      "score": 0
     },
     {
-     "title": "Lilly executive calls oncology the key growth area after obesity",
-     "link": "https://finance.yahoo.com/healthcare/articles/lilly-executive-calls-oncology-key-203928531.html",
-     "source": "Investing.com",
-     "published": "2026-11-23T20:39:28+00:00",
-     "score": 0
-    },
-    {
-     "title": "Ahmed family office pays $18M for Summit’s Fulton Market HQ",
-     "link": "https://finance.yahoo.com/real-estate/articles/ahmed-family-office-pays-18m-193000138.html",
-     "source": "The Real Deal",
-     "published": "2026-11-23T19:30:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Lilly buys Huntington’s drug developer LoQus23 in potentially $725M deal",
-     "link": "https://www.biopharmadive.com/news/lilly-loqus-huntingtons-drug-acquisition-deal/875448/",
-     "source": "BioPharma Dive",
-     "published": "2026-11-23T16:17:09+00:00",
-     "score": 0
-    },
-    {
-     "title": "Eli Lilly vs. Vertex Pharmaceuticals: Which Healthcare Stock Is a Better Buy for 2027?",
-     "link": "https://www.fool.com/coverage/better-buy/2026/11/23/eli-lilly-vs-vertex-pharmaceuticals-which-healthcare-stock-is-a-better-buy-for-2027/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T16:01:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Pfizer’s CEO Wants AI to “Halve the Time to First Human Study.” Here’s What That Means for Its Pipeline",
-     "link": "https://www.tikr.com/blog/pfizers-ceo-wants-ai-to-halve-the-time-to-first-human-study-heres-what-that-means-for-its-pipeline?ref=yahoofinance&tlnk=yf-261123-3hj78r26",
+     "title": "Dollar Tree Soars 11% on Traffic-Driven Q3 Beat and Raised Outlook: “Another Strong Proof Point”",
+     "link": "https://www.tikr.com/blog/dollar-tree-soars-11-on-traffic-driven-q3-beat-and-raised-outlook-another-strong-proof-point?ref=yahoofinance&tlnk=yf-261124-gq3x6qcw",
      "source": "TIKR",
-     "published": "2026-11-23T15:50:52+00:00",
+     "published": "2026-11-24T15:26:28+00:00",
+     "score": 3
+    },
+    {
+     "title": "Earnings: Late economic cycle anxiety isn't holding retail spending back",
+     "link": "https://finance.yahoo.com/video/earnings-late-economic-cycle-anxiety-isnt-holding-retail-spending-back-150150635.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:01:50+00:00",
      "score": 0
+    },
+    {
+     "title": "Target vs. Walmart: Which Consumer Goods Stock Is a Better Buy for 2027?",
+     "link": "https://www.fool.com/coverage/better-buy/2026/11/24/target-vs-walmart-which-consumer-goods-stock-is-a-better-buy-for-2027/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T14:29:07+00:00",
+     "score": 0
+    },
+    {
+     "title": "Symbotic Stock Earnings Beat Has The Bull Case Changed",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/symbotic-stock-earnings-beat-bull-140915960.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T14:09:15+00:00",
+     "score": 1
     }
    ],
-   "pe_ref": 17.0,
+   "pe_ref": 25.4,
    "sub": {
-    "valor": 8.4,
-    "analistas": 13.6,
-    "calidad": 13.3,
-    "momento": 9.6,
-    "noticias": 9.5
+    "valor": 7.8,
+    "analistas": 11.7,
+    "calidad": 7,
+    "momento": 12,
+    "noticias": 15
    },
    "score": 54,
    "why": [
     "Consenso de compra",
-    "Beneficio +16 %"
+    "Noticias positivas"
    ]
   },
   {
@@ -3042,22 +3124,22 @@
    "name": "AENA, S.M.E., S.A.",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 27.64,
-   "chg1m": 4.78,
-   "chg3m": 0.07,
-   "from_high": -5.28,
-   "rsi": 50.5,
+   "price": 28.14,
+   "chg1m": 5.71,
+   "chg3m": 5.08,
+   "from_high": -3.56,
+   "rsi": 56.4,
    "above_sma200": true,
-   "pe": 13.920398,
-   "fpe": 17.13327,
+   "pe": 14.0,
+   "fpe": 17.231243,
    "peg": 3.3471,
-   "pb": 4.511448,
-   "div": 3.94,
+   "pb": 4.5372458,
+   "div": 3.9,
    "roe": 0.25794,
    "eps_growth": 0.136,
    "rev_growth": 0.115,
    "target": 27.48636,
-   "upside": -0.56,
+   "upside": -2.32,
    "rec": 2.45455,
    "analysts": 22,
    "earnings": "2026-10-28",
@@ -3107,12 +3189,12 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
-    "valor": 20.0,
-    "analistas": 6.6,
+    "valor": 19.7,
+    "analistas": 5.7,
     "calidad": 12.7,
-    "momento": 6.0,
+    "momento": 7.7,
     "noticias": 7.5
    },
    "score": 53,
@@ -3124,28 +3206,35 @@
    "name": "ARCELORMITTAL SA",
    "sector": "Basic Materials",
    "currency": "EUR",
-   "price": 51.64,
-   "chg1m": -3.95,
-   "chg3m": -17.43,
-   "from_high": -23.37,
-   "rsi": 34.8,
+   "price": 50.54,
+   "chg1m": -4.15,
+   "chg3m": -20.71,
+   "from_high": -25.0,
+   "rsi": 36.5,
    "above_sma200": false,
-   "pe": 46.1017,
-   "fpe": 9.834584,
+   "pe": 42.830513,
+   "fpe": 9.136763,
    "peg": 0.42,
-   "pb": 0.8502706,
-   "div": 1.06,
+   "pb": 0.78993887,
+   "div": 1.01,
    "roe": 0.018339999,
    "eps_growth": null,
    "rev_growth": 0.052,
    "target": 59.1,
-   "upside": 14.45,
+   "upside": 16.94,
    "rec": null,
    "analysts": 2,
    "earnings": "2027-02-04",
    "news7d": 10,
    "news_tone": 2,
    "news": [
+    {
+     "title": "ArcelorMittal (ENXTAM:MT) Reaches Preliminary Deal On R10 Billion South Africa Exit",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/arcelormittal-enxtam-mt-reaches-preliminary-032018563.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T03:20:18+00:00",
+     "score": 0
+    },
     {
      "title": "Why ArcelorMittal Stock Is In Focus After EU Steel Import Duties",
      "link": "https://finance.yahoo.com/markets/stocks/articles/why-arcelormittal-stock-focus-eu-211523685.html",
@@ -3180,16 +3269,9 @@
      "source": "Trefis",
      "published": "2026-11-21T06:32:47+00:00",
      "score": 0
-    },
-    {
-     "title": "What Does ArcelorMittal (ENXTAM:MT) Leadership Reshuffle Mean After Brad Davey’s Retirement?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/does-arcelormittal-enxtam-mt-leadership-221308824.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-20T22:13:08+00:00",
-     "score": 0
     }
    ],
-   "pe_ref": 16.2,
+   "pe_ref": 15.7,
    "sub": {
     "valor": 30,
     "analistas": 10.0,
@@ -3199,7 +3281,7 @@
    },
    "score": 53,
    "why": [
-    "PER 9.8 frente a 16.2 del sector",
+    "PER 9.1 frente a 15.7 del sector",
     "PEG 0.42",
     "Noticias positivas"
    ]
@@ -3210,22 +3292,22 @@
    "name": "LABORATORIOS FARMACEUTICOS ROVI",
    "sector": "Healthcare",
    "currency": "EUR",
-   "price": 63.1,
-   "chg1m": 6.14,
-   "chg3m": 4.3,
-   "from_high": -24.96,
-   "rsi": 43.5,
+   "price": 64.55,
+   "chg1m": 5.13,
+   "chg3m": 4.96,
+   "from_high": -23.23,
+   "rsi": 48.8,
    "above_sma200": false,
    "pe": 15.821079,
    "fpe": 19.593857,
    "peg": 1.26,
    "pb": 4.23362,
-   "div": 1.52,
+   "div": 1.49,
    "roe": 0.28708,
    "eps_growth": null,
    "rev_growth": 0.264,
    "target": 74.77778,
-   "upside": 18.51,
+   "upside": 15.84,
    "rec": 2.44444,
    "analysts": 9,
    "earnings": "2026-11-05",
@@ -3277,185 +3359,101 @@
    ],
    "pe_ref": 17.0,
    "sub": {
-    "valor": 16.9,
-    "analistas": 16.2,
+    "valor": 17.0,
+    "analistas": 14.9,
     "calidad": 10,
-    "momento": 2.4,
+    "momento": 2.7,
     "noticias": 7.5
    },
-   "score": 53,
+   "score": 52,
    "why": [
-    "Precio objetivo +19 %"
+    "Precio objetivo +16 %"
    ]
   },
   {
-   "symbol": "JPM",
+   "symbol": "LLY",
    "market": "EE. UU.",
-   "name": "JP Morgan Chase & Co.",
-   "sector": "Financial Services",
+   "name": "Eli Lilly and Company",
+   "sector": "Healthcare",
    "currency": "USD",
-   "price": 316.66,
-   "chg1m": -4.5,
-   "chg3m": -10.78,
-   "from_high": -12.85,
-   "rsi": 36.9,
-   "above_sma200": false,
-   "pe": 13.025916,
-   "fpe": 12.382563,
-   "peg": 1.32,
-   "pb": 2.393554,
-   "div": 2.13,
-   "roe": 0.18013,
-   "eps_growth": 0.099,
-   "rev_growth": 0.102,
-   "target": 373.47827,
-   "upside": 17.94,
-   "rec": 2.03846,
-   "analysts": 23,
-   "earnings": "2027-01-14",
+   "price": 1404.32,
+   "chg1m": 9.92,
+   "chg3m": 18.21,
+   "from_high": -2.71,
+   "rsi": 58.9,
+   "above_sma200": true,
+   "pe": 45.586174,
+   "fpe": 27.609556,
+   "peg": 1.245,
+   "pb": 31.08217,
+   "div": 0.51,
+   "roe": 0.86024004,
+   "eps_growth": 0.163,
+   "rev_growth": 0.386,
+   "target": 1470.0565,
+   "upside": 4.68,
+   "rec": 1.64516,
+   "analysts": 29,
+   "earnings": "2027-02-03",
    "news7d": 10,
    "news_tone": -2,
    "news": [
     {
-     "title": "Jensen Huang is back: Does Washington have a seat in the boardroom?",
-     "link": "https://finance.yahoo.com/video/jensen-huang-is-back-does-washington-have-a-seat-in-the-boardroom-221214249.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T22:12:14+00:00",
+     "title": "Forget Zepbound: Lilly's Retatrutide Just Cut Sleep Apnea Severity by Up to 60%",
+     "link": "https://www.fool.com/investing/2026/11/24/forget-zepbound-lillys-retatrutide-just-cut-sleep-apnea-severity-by-up-to-60/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T15:35:02+00:00",
      "score": 0
     },
     {
-     "title": "Forget JPMorgan: Upstart Has More to Lose From a 10% Card Rate Cap",
-     "link": "https://www.tikr.com/blog/forget-jpmorgan-upstart-has-more-to-lose-from-a-10-card-rate-cap?ref=yahoofinance&tlnk=yf-261123-2gmrm77f",
-     "source": "TIKR",
-     "published": "2026-11-23T23:31:38+00:00",
-     "score": -1
-    },
-    {
-     "title": "Divided Wall Street: Wells Fargo Upgrades US Large Caps To ‘Most Favorable,’ But JPMorgan Is Taking A Measured Approach",
-     "link": "https://stocktwits.com/news-articles/markets/equity/divided-wall-street-wells-fargo-upgrades-us-large-caps-to-most-favorable-but-jp-morgan-is-taking-a-measured-approach/cNbpWcHR9jF",
-     "source": "Stocktwits",
-     "published": "2026-11-23T21:24:44+00:00",
+     "title": "From fringe to mainstream.",
+     "link": "https://myfirstmillion.videonest.co/videos/2465884/from-fringe-to-mainstream-ArNLq17GpI",
+     "source": "My First Million",
+     "published": "2026-11-24T15:33:15+00:00",
      "score": 0
     },
     {
-     "title": "Jensen Huang’s Shameless Return Is a New Low in This Era of Impunity",
-     "link": "https://www.barrons.com/articles/jensen-huang-ceo-return-36b5d5ac?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-23T21:00:00+00:00",
+     "title": "Don’t Panic, Buy These Instead: Jim Cramer’s Emergency 5-Stock Portfolio",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/don-t-panic-buy-instead-142222405.html",
+     "source": "Insider Monkey",
+     "published": "2026-11-24T14:22:22+00:00",
      "score": 0
     },
     {
-     "title": "Fidelity steps in where JPMorgan retreated",
-     "link": "https://www.thestreet.com/crypto/markets/fidelity-steps-in-where-jpmorgan-retreated",
-     "source": "TheStreet",
-     "published": "2026-11-23T20:56:55+00:00",
+     "title": "Will 'Anti-Pharma' Democrats Chop Away At Biotech Stocks' Big Wins?",
+     "link": "https://www.investors.com/news/technology/biotech-stocks-election-2026-presidential-election-2028-drug-prices/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T13:01:37+00:00",
      "score": 0
     },
     {
-     "title": "How Much You Really Need Invested to Generate $50,000 a Year in Retirement",
-     "link": "https://247wallst.com/investing/2026/11/23/how-much-you-really-need-invested-to-generate-50000-a-year-in-retirement/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T19:17:21+00:00",
+     "title": "Can Tremfya, Icotyde and Imaavy Drive J&J's Immunology Turnaround?",
+     "link": "https://finance.yahoo.com/healthcare/articles/tremfya-icotyde-imaavy-drive-j-123200215.html",
+     "source": "Zacks",
+     "published": "2026-11-24T12:32:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "State Street Health Care SPDR (XLV) Sells Eli Lilly and J&J on Friday",
+     "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110402940.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:04:02+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 17.0,
    "sub": {
-    "valor": 17.0,
-    "analistas": 17.3,
-    "calidad": 11.0,
-    "momento": 0,
+    "valor": 7.6,
+    "analistas": 12.1,
+    "calidad": 13.3,
+    "momento": 12,
     "noticias": 6.5
    },
-   "score": 52,
-   "why": [
-    "Precio objetivo +18 %",
-    "Noticias negativas"
-   ]
-  },
-  {
-   "symbol": "WMT",
-   "market": "EE. UU.",
-   "name": "Walmart Inc.",
-   "sector": "Consumer Defensive",
-   "currency": "USD",
-   "price": 129.58,
-   "chg1m": 8.08,
-   "chg3m": 22.96,
-   "from_high": -3.21,
-   "rsi": 67.1,
-   "above_sma200": true,
-   "pe": 46.949276,
-   "fpe": 40.13877,
-   "peg": 4.3453,
-   "pb": 10.476191,
-   "div": 0.77,
-   "roe": 0.20552999,
-   "eps_growth": -0.195,
-   "rev_growth": 0.052,
-   "target": 136.14635,
-   "upside": 5.07,
-   "rec": 1.54545,
-   "analysts": 41,
-   "earnings": "2027-02-18",
-   "news7d": 10,
-   "news_tone": 2,
-   "news": [
-    {
-     "title": "Jensen Huang's return to Nvidia: Long or short accountability?",
-     "link": "https://finance.yahoo.com/video/jensen-huangs-return-to-nvidia-long-or-short-accountability-185949254.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T18:59:49+00:00",
-     "score": 0
-    },
-    {
-     "title": "Pudgy Penguins sets key deadlines ahead of major shutdown",
-     "link": "https://www.thestreet.com/crypto/retail/pudgy-penguins-sets-key-deadlines-ahead-of-major-shutdown",
-     "source": "TheStreet",
-     "published": "2026-11-24T01:30:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Review & Preview: Reverse Uno",
-     "link": "https://www.barrons.com/articles/stocks-today-markets-rise-jensen-huang-return-nvidia-ceo-b028633c?siteid=yhoof2&yptr=yahoo",
-     "source": "Barrons.com",
-     "published": "2026-11-24T00:55:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Amazon's Profit Riskier Than It Looks?",
-     "link": "https://www.trefis.com/stock/amzn/articles/627559/is-amazon-s-profit-riskier-than-it-looks/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:25:13+00:00",
-     "score": 0
-    },
-    {
-     "title": "Tariffs Strike Again: 343 Companies Report $28.5 Billion in Trump Tariff Refunds. Retail Beats Need a Second Look",
-     "link": "https://www.tikr.com/blog/tariffs-strike-again-343-companies-report-28-5-billion-in-trump-tariff-refunds-retail-beats-need-a-second-look?ref=yahoofinance&tlnk=yf-261123-rf9p82g5",
-     "source": "TIKR",
-     "published": "2026-11-23T23:36:42+00:00",
-     "score": 2
-    },
-    {
-     "title": "Nvidia Adds Nearly $1 Trillion in Value as Trump Hails Huang as a “National Treasure.” It’s Still Cheaper Than Walmart",
-     "link": "https://www.tikr.com/blog/nvidia-adds-nearly-1-trillion-in-value-as-trump-hails-huang-as-a-national-treasure-its-still-cheaper-than-walmart?ref=yahoofinance&tlnk=yf-261123-v5m7h4gg",
-     "source": "TIKR",
-     "published": "2026-11-23T22:13:00+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 25.0,
-   "sub": {
-    "valor": 7.9,
-    "analistas": 12.6,
-    "calidad": 7,
-    "momento": 12,
-    "noticias": 12.5
-   },
-   "score": 52,
+   "score": 51,
    "why": [
     "Consenso de compra",
-    "Noticias positivas"
+    "Beneficio +16 %",
+    "Noticias negativas"
    ]
   },
   {
@@ -3464,22 +3462,22 @@
    "name": "COMPA...IA DE DISTRIBUCION INTE",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 36.48,
-   "chg1m": -2.09,
-   "chg3m": 2.18,
-   "from_high": -3.49,
-   "rsi": 47.2,
+   "price": 36.38,
+   "chg1m": -1.89,
+   "chg3m": 1.85,
+   "from_high": -3.76,
+   "rsi": 46.0,
    "above_sma200": true,
-   "pe": 17.173708,
-   "fpe": 14.473774,
+   "pe": 17.079811,
+   "fpe": 14.394639,
    "peg": null,
-   "pb": 7.4349594,
-   "div": 5.56,
+   "pb": 7.394309,
+   "div": 5.55,
    "roe": 0.43619,
    "eps_growth": 0.061,
    "rev_growth": 0.02,
    "target": 34.32182,
-   "upside": -5.92,
+   "upside": -5.66,
    "rec": 3.27273,
    "analysts": 11,
    "earnings": "2027-02-04",
@@ -3501,12 +3499,12 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
-    "valor": 23.1,
-    "analistas": 1.1,
+    "valor": 23.0,
+    "analistas": 1.2,
     "calidad": 11.2,
-    "momento": 6.7,
+    "momento": 6.6,
     "noticias": 7.5
    },
    "score": 50,
@@ -3518,22 +3516,22 @@
    "name": "Visa Inc.",
    "sector": "Financial Services",
    "currency": "USD",
-   "price": 409.4,
-   "chg1m": 0.55,
-   "chg3m": 6.77,
-   "from_high": -6.05,
-   "rsi": 49.8,
+   "price": 414.27,
+   "chg1m": 2.69,
+   "chg3m": 8.11,
+   "from_high": -4.93,
+   "rsi": 53.2,
    "above_sma200": true,
-   "pe": 33.23052,
-   "fpe": 23.88509,
+   "pe": 33.625805,
+   "fpe": 24.169209,
    "peg": 1.8189,
-   "pb": 21.359629,
-   "div": 0.78,
+   "pb": 21.613707,
+   "div": 0.76,
    "roe": 0.63507,
    "eps_growth": 0.219,
    "rev_growth": 0.132,
    "target": 450.9562,
-   "upside": 10.15,
+   "upside": 8.86,
    "rec": 1.5,
    "analysts": 37,
    "earnings": "2027-01-26",
@@ -3541,54 +3539,54 @@
    "news_tone": 1,
    "news": [
     {
-     "title": "A $6.8 Billion Fund Just Bought These 3 Stocks",
-     "link": "https://www.tikr.com/blog/a-6-8-billion-fund-just-bought-these-3-stocks?ref=yahoofinance&tlnk=yf-261123-22mgc93w",
-     "source": "TIKR",
-     "published": "2026-11-23T17:39:26+00:00",
-     "score": 0
-    },
-    {
-     "title": "Klarna stock surges on Visa partnership expansion",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/klarna-stock-surges-visa-partnership-155426625.html",
-     "source": "Investing.com",
-     "published": "2026-11-23T15:54:26+00:00",
-     "score": 1
-    },
-    {
-     "title": "Coinbase Global vs. Visa: Which Financial Stock Is a Better Buy for 2027?",
-     "link": "https://www.fool.com/coverage/better-buy/2026/11/23/coinbase-global-vs-visa-which-financial-stock-is-a-better-buy-for-2027/",
+     "title": "CME vs. Visa: Which Financial Stock Is a Better Buy for 2027?",
+     "link": "https://www.fool.com/coverage/better-buy/2026/11/24/cme-vs-visa-which-financial-stock-is-a-better-buy-for-2027/",
      "source": "Motley Fool",
-     "published": "2026-11-23T15:50:02+00:00",
+     "published": "2026-11-24T13:48:22+00:00",
      "score": 0
     },
     {
-     "title": "Klarna Expands Visa Partnership to Offer Flexible Payment Options Across Four Major Markets",
-     "link": "https://investorshub.advfn.com/market-news/article/40555/klarna-expands-visa-partnership-to-offer-flexible-payment-options-across-four-major-markets",
-     "source": "InvestorsHub",
-     "published": "2026-11-23T15:01:46+00:00",
+     "title": "Visa (V) Broadens Checkout Options On Its Acceptance Platform",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/visa-v-broadens-checkout-options-111840301.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T11:18:40+00:00",
      "score": 0
     },
     {
-     "title": "Visa Launches New A.I. Agent Wallet",
-     "link": "https://www.cryptoprowl.com/releases/visa-launches-new-ai-agent-wallet-8025",
-     "source": "CryptoProwl",
-     "published": "2026-11-23T14:34:00+00:00",
+     "title": "What State Street Fin Select Sector SPDR (XLF) Bought: Berkshire Leads on Nov. 20",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110322872.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:03:22+00:00",
      "score": 0
     },
     {
-     "title": "Is Mastercard Stock Really Expensive?",
-     "link": "https://www.trefis.com/stock/ma/articles/627651/is-mastercard-stock-really-expensive/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T13:34:05+00:00",
+     "title": "ETFs Are Buying Visa (V) on Nov. 20",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-buying-visa-v-nov-110157000.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:01:57+00:00",
+     "score": 0
+    },
+    {
+     "title": "Klarna expands Visa partnership across North America and Europe",
+     "link": "https://www.electronicpaymentsinternational.com/news/klarna-expands-visa-partnership-across-north-america-and-europe/",
+     "source": "Electronic Payments",
+     "published": "2026-11-24T09:30:07+00:00",
+     "score": 0
+    },
+    {
+     "title": "Mastercard Grew Revenue 14% to $9.8 Billion. Its CFO Says Q4 Will See “a Similar Offset”",
+     "link": "https://www.tikr.com/blog/mastercard-grew-revenue-14-to-9-8-billion-its-cfo-says-q4-will-see-a-similar-offset?ref=yahoofinance&tlnk=yf-261124-7g4hq38j",
+     "source": "TIKR",
+     "published": "2026-11-24T06:23:19+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
     "valor": 0,
-    "analistas": 15.3,
+    "analistas": 14.7,
     "calidad": 14.4,
-    "momento": 8.3,
+    "momento": 8.7,
     "noticias": 11.0
    },
    "score": 49,
@@ -3598,112 +3596,30 @@
    ]
   },
   {
-   "symbol": "RED.MC",
-   "market": "España",
-   "name": "REDEIA CORPORACION, S.A.",
-   "sector": "Utilities",
-   "currency": "EUR",
-   "price": 16.2,
-   "chg1m": 9.16,
-   "chg3m": 6.02,
-   "from_high": -0.61,
-   "rsi": 68.2,
-   "above_sma200": true,
-   "pe": 17.436169,
-   "fpe": 17.028395,
-   "peg": 4.8128,
-   "pb": 1.4935302,
-   "div": 4.94,
-   "roe": 0.09783,
-   "eps_growth": null,
-   "rev_growth": 0.092,
-   "target": 16.43545,
-   "upside": 1.45,
-   "rec": 2.36364,
-   "analysts": 22,
-   "earnings": "2026-10-28",
-   "news7d": 0,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "E.ON Stock Puts European Grid Operators Back On Investor Radars",
-     "link": "https://finance.yahoo.com/energy/articles/e-stock-puts-european-grid-231651683.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-11T23:16:51+00:00",
-     "score": 0
-    },
-    {
-     "title": "3 Eurozone Dividend Stocks Built For Market Stress",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/3-eurozone-dividend-stocks-built-042510362.html",
-     "source": "Simply Wall St.",
-     "published": "2026-10-06T04:25:10+00:00",
-     "score": 0
-    },
-    {
-     "title": "3 European Utility Stocks To Watch As Grid Spending And Regulation Collide",
-     "link": "https://finance.yahoo.com/energy/articles/3-european-utility-stocks-watch-091418895.html",
-     "source": "Simply Wall St.",
-     "published": "2026-09-23T09:14:18+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Redeia Corporación (BME:RED) Overvalued for a Slow Growing Dividend?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporaci-n-bme-red-121115283.html",
-     "source": "Simply Wall St.",
-     "published": "2026-09-21T12:11:15+00:00",
-     "score": 0
-    },
-    {
-     "title": "Is Redeia Corporación (BME:RED) A Bargain As Valuation Signals Send Mixed Messages?",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporaci-n-bme-red-011206995.html",
-     "source": "Simply Wall St.",
-     "published": "2026-09-21T01:12:06+00:00",
-     "score": 1
-    },
-    {
-     "title": "Redeia Corporacion SA (RDEIY) (Half Year 2026) Earnings Call Highlights: Strong Financial ...",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporacion-sa-rdeiy-half-170115600.html",
-     "source": "GuruFocus.com",
-     "published": "2026-07-29T17:01:15+00:00",
-     "score": 1
-    }
-   ],
-   "pe_ref": 17.0,
-   "sub": {
-    "valor": 20.0,
-    "analistas": 8.0,
-    "calidad": 4.9,
-    "momento": 8.0,
-    "noticias": 7.5
-   },
-   "score": 48,
-   "why": []
-  },
-  {
    "symbol": "ENG.MC",
    "market": "España",
    "name": "ENAGAS,S.A.",
    "sector": "Utilities",
    "currency": "EUR",
-   "price": 17.67,
-   "chg1m": 1.2,
-   "chg3m": 4.62,
-   "from_high": -3.97,
-   "rsi": 52.0,
+   "price": 17.76,
+   "chg1m": 1.31,
+   "chg3m": 6.47,
+   "from_high": -3.48,
+   "rsi": 54.3,
    "above_sma200": true,
-   "pe": 12.941606,
-   "fpe": 15.619769,
+   "pe": 12.963504,
+   "fpe": 15.646198,
    "peg": 16.55,
-   "pb": 1.9396127,
-   "div": 5.66,
+   "pb": 1.9428947,
+   "div": 5.64,
    "roe": 0.11879,
    "eps_growth": null,
    "rev_growth": -0.091,
    "target": 17.1825,
-   "upside": -2.76,
+   "upside": -3.25,
    "rec": 2.7,
    "analysts": 20,
-   "earnings": "2026-10-20",
+   "earnings": "2027-02-16",
    "news7d": 1,
    "news_tone": 0,
    "news": [
@@ -3750,100 +3666,16 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.0,
+   "pe_ref": 17.3,
    "sub": {
-    "valor": 21.7,
-    "analistas": 4.7,
+    "valor": 21.9,
+    "analistas": 4.4,
     "calidad": 5.9,
-    "momento": 7.5,
+    "momento": 8.2,
     "noticias": 7.7
    },
    "score": 48,
    "why": []
-  },
-  {
-   "symbol": "AAPL",
-   "market": "EE. UU.",
-   "name": "Apple Inc.",
-   "sector": "Technology",
-   "currency": "USD",
-   "price": 349.08,
-   "chg1m": 0.46,
-   "chg3m": 12.73,
-   "from_high": -2.02,
-   "rsi": 52.8,
-   "above_sma200": true,
-   "pe": 38.87305,
-   "fpe": 33.017014,
-   "peg": 2.7662,
-   "pb": 45.25865,
-   "div": 0.32,
-   "roe": 1.42257,
-   "eps_growth": 0.141,
-   "rev_growth": 0.117,
-   "target": 345.6313,
-   "upside": -0.99,
-   "rec": 2.17778,
-   "analysts": 39,
-   "earnings": "2027-01-28",
-   "news7d": 10,
-   "news_tone": 2,
-   "news": [
-    {
-     "title": "Jensen Huang back at Nvidia, stock soars; Anthropic slides",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-at-nvidia-stock-soars-anthropic-slides-161339662.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:39+00:00",
-     "score": 0
-    },
-    {
-     "title": "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-as-nvidia-ceo-after-12-days-shares-surge-30-161302539.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:02+00:00",
-     "score": 1
-    },
-    {
-     "title": "QQQ Paid a $300,000 Holder $1,524 in Dividends Over the Past Year While VYM Paid $7,164",
-     "link": "https://247wallst.com/investing/etf/2026/11/23/qqq-paid-a-300000-holder-1524-in-dividends-over-the-past-year-while-vym-paid-7164/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-24T02:03:39+00:00",
-     "score": 0
-    },
-    {
-     "title": "Huang returns as Nvidia CEO after Trump intervention in abrupt board reversal",
-     "link": "https://finance.yahoo.com/news/nvidia-reinstates-jensen-huang-ceo-135916841.html",
-     "source": "Reuters",
-     "published": "2026-11-24T01:14:56+00:00",
-     "score": 0
-    },
-    {
-     "title": "Own HP Stock? Memory Costs Are The Risk",
-     "link": "https://www.trefis.com/stock/hpq/articles/627662/own-hp-stock-memory-costs-are-the-risk/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T23:58:29+00:00",
-     "score": 0
-    },
-    {
-     "title": "Chamath Says Microsoft “Clearly Is Going to Need to Have a Frontier Model.” Nadella Is Betting It Won’t",
-     "link": "https://www.tikr.com/blog/chamath-says-microsoft-clearly-is-going-to-need-to-have-a-frontier-model-nadella-is-betting-it-wont?ref=yahoofinance&tlnk=yf-261123-rjg9hgh9",
-     "source": "TIKR",
-     "published": "2026-11-23T22:50:31+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 18.2,
-   "sub": {
-    "valor": 3.8,
-    "analistas": 7.4,
-    "calidad": 12.8,
-    "momento": 10.2,
-    "noticias": 12.5
-   },
-   "score": 47,
-   "why": [
-    "Noticias positivas"
-   ]
   },
   {
    "symbol": "MAP.MC",
@@ -3851,25 +3683,25 @@
    "name": "MAPFRE, S.A.",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 4.09,
-   "chg1m": -7.09,
-   "chg3m": -7.68,
-   "from_high": -10.47,
-   "rsi": 40.7,
+   "price": 4.05,
+   "chg1m": -4.22,
+   "chg3m": -7.31,
+   "from_high": -9.59,
+   "rsi": 43.8,
    "above_sma200": false,
-   "pe": 10.852632,
-   "fpe": 9.702389,
+   "pe": 10.652632,
+   "fpe": 9.579931,
    "peg": 2.59,
-   "pb": 1.3402666,
-   "div": 4.42,
+   "pb": 1.3155671,
+   "div": 4.38,
    "roe": 0.18375,
    "eps_growth": null,
    "rev_growth": 0.431,
    "target": 4.3475,
-   "upside": 6.35,
+   "upside": 7.4,
    "rec": 3.2,
    "analysts": 10,
-   "earnings": "2026-10-29",
+   "earnings": "2027-02-11",
    "news7d": 0,
    "news_tone": 0,
    "news": [
@@ -3916,102 +3748,16 @@
      "score": 1
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
     "valor": 22.0,
-    "analistas": 7.5,
+    "analistas": 8.0,
     "calidad": 9.2,
     "momento": 0,
     "noticias": 7.5
    },
-   "score": 46,
+   "score": 47,
    "why": []
-  },
-  {
-   "symbol": "BA",
-   "market": "EE. UU.",
-   "name": "Boeing Company (The)",
-   "sector": "Industrials",
-   "currency": "USD",
-   "price": 162.39,
-   "chg1m": -13.78,
-   "chg3m": -23.07,
-   "from_high": -35.6,
-   "rsi": 36.2,
-   "above_sma200": false,
-   "pe": 16.094152,
-   "fpe": 78.463684,
-   "peg": 3.3566,
-   "pb": 19.659805,
-   "div": 0.0,
-   "roe": null,
-   "eps_growth": null,
-   "rev_growth": 0.039,
-   "target": 233.03703,
-   "upside": 43.5,
-   "rec": 1.40741,
-   "analysts": 27,
-   "earnings": "2027-01-26",
-   "news7d": 10,
-   "news_tone": 3,
-   "news": [
-    {
-     "title": "Is Lockheed Martin Stock Ready For A Delayed Jet Contract?",
-     "link": "https://www.trefis.com/stock/lmt/articles/627680/is-lockheed-martin-stock-ready-for-a-delayed-jet-contract/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-24T00:29:38+00:00",
-     "score": 0
-    },
-    {
-     "title": "Stock Market Today: Dow, Nasdaq Surge As Jensen Huang Makes This Nvidia Promise; Anthropic Falls",
-     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-nvidia-nvda-crowdstrike-zscaler/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "published": "2026-11-23T21:56:22+00:00",
-     "score": 0
-    },
-    {
-     "title": "Why Boeing Stock Popped Today",
-     "link": "https://www.fool.com/investing/2026/11/23/why-boeing-stock-popped-today/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T18:29:09+00:00",
-     "score": 0
-    },
-    {
-     "title": "Boeing (BA) Gains Focus As Airborne Electronic Warfare Spending Expands",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/boeing-ba-gains-focus-airborne-171322937.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-23T17:13:22+00:00",
-     "score": 1
-    },
-    {
-     "title": "Trump thinks China will buy another 250 Boeing airplanes",
-     "link": "https://finance.yahoo.com/economy/policy/articles/trump-thinks-china-buy-another-161010068.html",
-     "source": "Reuters",
-     "published": "2026-11-23T16:10:10+00:00",
-     "score": 0
-    },
-    {
-     "title": "SpaceX Soars 9% as Jefferies Initiates at Buy With $210 Target, Calls Its Engineering “Exceptional”",
-     "link": "https://www.tikr.com/blog/spacex-soars-9-as-jefferies-initiates-at-buy-with-210-target-calls-its-engineering-exceptional?ref=yahoofinance&tlnk=yf-261123-j8j8v7wq",
-     "source": "TIKR",
-     "published": "2026-11-23T15:33:50+00:00",
-     "score": 1
-    }
-   ],
-   "pe_ref": 17.1,
-   "sub": {
-    "valor": 0,
-    "analistas": 25,
-    "calidad": 7.5,
-    "momento": 0,
-    "noticias": 14.0
-   },
-   "score": 46,
-   "why": [
-    "Precio objetivo +44 %",
-    "Consenso de compra",
-    "Noticias positivas"
-   ]
   },
   {
    "symbol": "SAB.MC",
@@ -4020,21 +3766,21 @@
    "sector": "Financial Services",
    "currency": "EUR",
    "price": 3.55,
-   "chg1m": 3.84,
-   "chg3m": -3.95,
-   "from_high": -5.87,
-   "rsi": 43.3,
+   "chg1m": 0.91,
+   "chg3m": -1.72,
+   "from_high": -5.84,
+   "rsi": 44.2,
    "above_sma200": true,
-   "pe": 14.436,
-   "fpe": 10.815751,
+   "pe": 14.188,
+   "fpe": 10.629945,
    "peg": 4.4,
-   "pb": 1.4103165,
-   "div": 1.97,
+   "pb": 1.3860883,
+   "div": 1.94,
    "roe": 0.08896,
    "eps_growth": 0.044,
    "rev_growth": -0.151,
    "target": 3.71075,
-   "upside": 4.65,
+   "upside": 4.62,
    "rec": 2.9,
    "analysts": 20,
    "earnings": "2027-01-28",
@@ -4084,12 +3830,94 @@
      "score": 1
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
-    "valor": 19.9,
+    "valor": 20.0,
     "analistas": 7.7,
     "calidad": 5.3,
-    "momento": 4.7,
+    "momento": 5.4,
+    "noticias": 7.5
+   },
+   "score": 46,
+   "why": []
+  },
+  {
+   "symbol": "RED.MC",
+   "market": "España",
+   "name": "REDEIA CORPORACION, S.A.",
+   "sector": "Utilities",
+   "currency": "EUR",
+   "price": 16.68,
+   "chg1m": 11.05,
+   "chg3m": 9.74,
+   "from_high": 0.0,
+   "rsi": 75.6,
+   "above_sma200": true,
+   "pe": 17.74468,
+   "fpe": 17.307035,
+   "peg": 4.8128,
+   "pb": 1.5199564,
+   "div": 4.88,
+   "roe": 0.09783,
+   "eps_growth": null,
+   "rev_growth": 0.092,
+   "target": 16.43545,
+   "upside": -1.47,
+   "rec": 2.36364,
+   "analysts": 22,
+   "earnings": "2026-10-28",
+   "news7d": 0,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "E.ON Stock Puts European Grid Operators Back On Investor Radars",
+     "link": "https://finance.yahoo.com/energy/articles/e-stock-puts-european-grid-231651683.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-11T23:16:51+00:00",
+     "score": 0
+    },
+    {
+     "title": "3 Eurozone Dividend Stocks Built For Market Stress",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/3-eurozone-dividend-stocks-built-042510362.html",
+     "source": "Simply Wall St.",
+     "published": "2026-10-06T04:25:10+00:00",
+     "score": 0
+    },
+    {
+     "title": "3 European Utility Stocks To Watch As Grid Spending And Regulation Collide",
+     "link": "https://finance.yahoo.com/energy/articles/3-european-utility-stocks-watch-091418895.html",
+     "source": "Simply Wall St.",
+     "published": "2026-09-23T09:14:18+00:00",
+     "score": 0
+    },
+    {
+     "title": "Is Redeia Corporación (BME:RED) Overvalued for a Slow Growing Dividend?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporaci-n-bme-red-121115283.html",
+     "source": "Simply Wall St.",
+     "published": "2026-09-21T12:11:15+00:00",
+     "score": 0
+    },
+    {
+     "title": "Is Redeia Corporación (BME:RED) A Bargain As Valuation Signals Send Mixed Messages?",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporaci-n-bme-red-011206995.html",
+     "source": "Simply Wall St.",
+     "published": "2026-09-21T01:12:06+00:00",
+     "score": 1
+    },
+    {
+     "title": "Redeia Corporacion SA (RDEIY) (Half Year 2026) Earnings Call Highlights: Strong Financial ...",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/redeia-corporacion-sa-rdeiy-half-170115600.html",
+     "source": "GuruFocus.com",
+     "published": "2026-07-29T17:01:15+00:00",
+     "score": 1
+    }
+   ],
+   "pe_ref": 17.3,
+   "sub": {
+    "valor": 20.0,
+    "analistas": 6.5,
+    "calidad": 4.9,
+    "momento": 6.2,
     "noticias": 7.5
    },
    "score": 45,
@@ -4101,22 +3929,22 @@
    "name": "ACCIONA, S.A.",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 184.7,
-   "chg1m": -10.43,
-   "chg3m": -13.45,
-   "from_high": -33.62,
-   "rsi": 29.7,
+   "price": 186.6,
+   "chg1m": -10.97,
+   "chg3m": -11.9,
+   "from_high": -32.94,
+   "rsi": 34.1,
    "above_sma200": false,
-   "pe": 28.776436,
-   "fpe": 16.924953,
+   "pe": 28.187313,
+   "fpe": 16.578459,
    "peg": 1.32,
-   "pb": 2.144618,
-   "div": 3.11,
+   "pb": 2.1007125,
+   "div": 3.02,
    "roe": 0.10446,
    "eps_growth": -0.841,
    "rev_growth": 0.04,
    "target": 224.86,
-   "upside": 21.74,
+   "upside": 20.5,
    "rec": 3.1,
    "analysts": 10,
    "earnings": null,
@@ -4166,18 +3994,17 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
-    "valor": 20.2,
-    "analistas": 15.5,
+    "valor": 20.4,
+    "analistas": 14.9,
     "calidad": 2.2,
     "momento": 0,
     "noticias": 7.5
    },
    "score": 45,
    "why": [
-    "Precio objetivo +22 %",
-    "RSI 30 en sobreventa"
+    "Precio objetivo +20 %"
    ]
   },
   {
@@ -4186,28 +4013,56 @@
    "name": "Johnson & Johnson",
    "sector": "Healthcare",
    "currency": "USD",
-   "price": 270.05,
-   "chg1m": 2.37,
-   "chg3m": -1.13,
-   "from_high": -5.49,
-   "rsi": 47.7,
+   "price": 274.67,
+   "chg1m": 3.14,
+   "chg3m": 1.73,
+   "from_high": -3.88,
+   "rsi": 52.5,
    "above_sma200": true,
-   "pe": 41.04103,
-   "fpe": 23.256193,
+   "pe": 41.679058,
+   "fpe": 23.65363,
    "peg": 3.0433,
-   "pb": 7.9731326,
+   "pb": 8.109389,
    "div": 1.98,
    "roe": 0.20018,
    "eps_growth": -0.959,
    "rev_growth": 0.059,
    "target": 279.84726,
-   "upside": 3.63,
+   "upside": 1.89,
    "rec": 2.0,
    "analysts": 22,
    "earnings": "2027-01-26",
    "news7d": 10,
    "news_tone": 0,
    "news": [
+    {
+     "title": "Coca-Cola Shakes up Leadership, Names Pharma Veteran as CFO",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-shakes-leadership-names-134351680.html",
+     "source": "Benzinga",
+     "published": "2026-11-24T13:43:51+00:00",
+     "score": 0
+    },
+    {
+     "title": "A $1 Million Retirement Portfolio Could Generate $25,000 a Year Without Selling Shares",
+     "link": "https://247wallst.com/investing/2026/11/24/a-1-million-retirement-portfolio-could-generate-25000-a-year-without-selling-shares/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T12:47:13+00:00",
+     "score": 0
+    },
+    {
+     "title": "Can Tremfya, Icotyde and Imaavy Drive J&J's Immunology Turnaround?",
+     "link": "https://finance.yahoo.com/healthcare/articles/tremfya-icotyde-imaavy-drive-j-123200215.html",
+     "source": "Zacks",
+     "published": "2026-11-24T12:32:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "State Street Health Care SPDR (XLV) Sells Eli Lilly and J&J on Friday",
+     "link": "https://finance.yahoo.com/healthcare/articles/state-street-health-care-spdr-110402940.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:04:02+00:00",
+     "score": 0
+    },
     {
      "title": "Should You Swap Tech For Johnson & Johnson Stock?",
      "link": "https://www.trefis.com/stock/jnj/articles/627623/should-you-swap-tech-for-johnson-johnson-stock/2026-11-23",
@@ -4221,42 +4076,14 @@
      "source": "Motley Fool",
      "published": "2026-11-23T19:20:02+00:00",
      "score": 0
-    },
-    {
-     "title": "How Much You Really Need Invested to Generate $50,000 a Year in Retirement",
-     "link": "https://247wallst.com/investing/2026/11/23/how-much-you-really-need-invested-to-generate-50000-a-year-in-retirement/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T19:17:21+00:00",
-     "score": 0
-    },
-    {
-     "title": "Bristol Myers Squibb vs. Johnson & Johnson: Which Healthcare Giant's Stock Is a Better Buy for 2027?",
-     "link": "https://www.fool.com/coverage/better-buy/2026/11/23/bristol-myers-squibb-vs-johnson-and-johnson-which-healthcare-giant-s-stock-is-a-better-buy-for-2027/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T16:31:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "The Average 1-Year CD Pays 1.81%. Dividend Stocks Offer a Different Trade-Off",
-     "link": "https://247wallst.com/investing/2026/11/23/the-average-1-year-cd-pays-1-81-dividend-stocks-offer-a-different-trade-off/",
-     "source": "24/7 Wall St.",
-     "published": "2026-11-23T15:17:00+00:00",
-     "score": 0
-    },
-    {
-     "title": "Will Pfizer Stock Ever Get Back To Its Old High?",
-     "link": "https://www.trefis.com/stock/pfe/articles/627687/will-pfizer-stock-ever-get-back-to-its-old-high/2026-11-23",
-     "source": "Trefis",
-     "published": "2026-11-23T14:45:47+00:00",
-     "score": 0
     }
    ],
    "pe_ref": 17.0,
    "sub": {
-    "valor": 12.6,
-    "analistas": 10.3,
+    "valor": 12.2,
+    "analistas": 9.4,
     "calidad": 7,
-    "momento": 5.6,
+    "momento": 6.6,
     "noticias": 9.5
    },
    "score": 45,
@@ -4265,27 +4092,113 @@
    ]
   },
   {
+   "symbol": "BA",
+   "market": "EE. UU.",
+   "name": "Boeing Company (The)",
+   "sector": "Industrials",
+   "currency": "USD",
+   "price": 162.02,
+   "chg1m": -13.96,
+   "chg3m": -23.61,
+   "from_high": -35.74,
+   "rsi": 35.9,
+   "above_sma200": false,
+   "pe": 16.746647,
+   "fpe": 78.40811,
+   "peg": 3.4965,
+   "pb": 19.645882,
+   "div": 0.0,
+   "roe": null,
+   "eps_growth": null,
+   "rev_growth": 0.039,
+   "target": 233.03703,
+   "upside": 43.83,
+   "rec": 1.40741,
+   "analysts": 27,
+   "earnings": "2027-01-26",
+   "news7d": 10,
+   "news_tone": 2,
+   "news": [
+    {
+     "title": "Boeing vs. Space Exploration Technologies: Which Industrials Stock Is a Better Buy for 2027?",
+     "link": "https://www.fool.com/coverage/better-buy/2026/11/24/boeing-vs-space-exploration-technologies-which-industrials-stock-is-a-better-buy-for-2027/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T15:28:03+00:00",
+     "score": 0
+    },
+    {
+     "title": "Micron downgraded, GameStop initiated: Wall Street's top analyst calls",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/snap-upgraded-pinterest-downgrade-wall-135144855.html",
+     "source": "The Fly",
+     "published": "2026-11-24T14:48:15+00:00",
+     "score": 0
+    },
+    {
+     "title": "A $19 Billion Fund Dumps These 2 Stocks",
+     "link": "https://www.tikr.com/blog/a-19-billion-fund-dumps-these-2-stocks?ref=yahoofinance&tlnk=yf-261124-h2j3hmwx",
+     "source": "TIKR",
+     "published": "2026-11-24T12:35:28+00:00",
+     "score": 0
+    },
+    {
+     "title": "Boeing Wins $7.4 Billion China Jet Order",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/boeing-wins-7-4-billion-121958921.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T12:19:58+00:00",
+     "score": 0
+    },
+    {
+     "title": "Company News for Nov 24, 2026",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/company-news-nov-24-2026-081300001.html",
+     "source": "Zacks",
+     "published": "2026-11-24T08:13:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "BA, NOC, LMT, KTOS Stocks Draw Bullish Call From Mizuho: Analyst Calls The Group ‘Underappreciated’ Defense Plays",
+     "link": "https://stocktwits.com/news-articles/markets/equity/ba-noc-lmt-ktos-stocks-bullish-call-mizuho-group-underappreciated-defense-plays/cNbr6tER9k4",
+     "source": "Stocktwits",
+     "published": "2026-11-24T07:24:04+00:00",
+     "score": 1
+    }
+   ],
+   "pe_ref": 16.9,
+   "sub": {
+    "valor": 0,
+    "analistas": 25,
+    "calidad": 7.5,
+    "momento": 0,
+    "noticias": 12.5
+   },
+   "score": 45,
+   "why": [
+    "Precio objetivo +44 %",
+    "Consenso de compra",
+    "Noticias positivas"
+   ]
+  },
+  {
    "symbol": "IBE.MC",
    "market": "España",
    "name": "ACCIONES IBERDROLA",
    "sector": "Utilities",
    "currency": "EUR",
-   "price": 22.67,
-   "chg1m": 4.28,
-   "chg3m": 12.62,
-   "from_high": -4.35,
-   "rsi": 55.7,
+   "price": 22.8,
+   "chg1m": 3.78,
+   "chg3m": 13.66,
+   "from_high": -3.8,
+   "rsi": 57.7,
    "above_sma200": true,
-   "pe": 30.85135,
-   "fpe": 20.50126,
+   "pe": 30.81081,
+   "fpe": 20.474321,
    "peg": 3.1585,
-   "pb": 2.950756,
-   "div": 3.0,
+   "pb": 2.9468784,
+   "div": 2.98,
    "roe": 0.09493,
    "eps_growth": -0.134,
    "rev_growth": 0.159,
    "target": 21.67292,
-   "upside": -4.4,
+   "upside": -4.94,
    "rec": 2.5,
    "analysts": 24,
    "earnings": "2026-10-21",
@@ -4335,12 +4248,12 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.0,
+   "pe_ref": 17.3,
    "sub": {
-    "valor": 15.9,
-    "analistas": 4.5,
+    "valor": 16.3,
+    "analistas": 4.3,
     "calidad": 2.1,
-    "momento": 10.2,
+    "momento": 10.6,
     "noticias": 11.1
    },
    "score": 44,
@@ -4349,30 +4262,112 @@
    ]
   },
   {
+   "symbol": "AAPL",
+   "market": "EE. UU.",
+   "name": "Apple Inc.",
+   "sector": "Technology",
+   "currency": "USD",
+   "price": 351.45,
+   "chg1m": 2.27,
+   "chg3m": 12.21,
+   "from_high": -1.35,
+   "rsi": 54.8,
+   "above_sma200": true,
+   "pe": 39.136974,
+   "fpe": 33.24118,
+   "peg": 2.8397,
+   "pb": 45.56593,
+   "div": 0.31,
+   "roe": 1.42257,
+   "eps_growth": 0.141,
+   "rev_growth": 0.117,
+   "target": 345.6313,
+   "upside": -1.66,
+   "rec": 2.17778,
+   "analysts": 39,
+   "earnings": "2027-01-28",
+   "news7d": 10,
+   "news_tone": 1,
+   "news": [
+    {
+     "title": "Jensen Huang's return revives an old Wall Street trade: Bet on the comeback CEO",
+     "link": "https://finance.yahoo.com/markets/article/jensen-huangs-return-revives-an-old-wall-street-trade-bet-on-the-comeback-ceo-124308005.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T12:43:08+00:00",
+     "score": 0
+    },
+    {
+     "title": "Stocks give back gains as Anthropic dips below IPO price",
+     "link": "https://finance.yahoo.com/video/stocks-give-back-gains-as-anthropic-dips-below-ipo-price-154408548.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:44:08+00:00",
+     "score": 1
+    },
+    {
+     "title": "Who is holding Jensen Huang accountable? It sure looks like nobody",
+     "link": "https://finance.yahoo.com/video/who-is-holding-jensen-huang-accountable-it-sure-looks-like-nobody-154255467.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:42:55+00:00",
+     "score": 0
+    },
+    {
+     "title": "Despite Jensen's return, Nvidia still needs to address several management issues",
+     "link": "https://finance.yahoo.com/video/despite-jensens-return-nvidia-still-153000278.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:30:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Nvidia stock in focus: Why CEO comebacks are usually good for shares",
+     "link": "https://finance.yahoo.com/video/nvidia-stock-in-focus-why-ceo-comebacks-are-usually-good-for-shares-151307354.html",
+     "source": "Yahoo Finance Video",
+     "published": "2026-11-24T15:13:07+00:00",
+     "score": 0
+    },
+    {
+     "title": "Target vs. Walmart: Which Consumer Goods Stock Is a Better Buy for 2027?",
+     "link": "https://www.fool.com/coverage/better-buy/2026/11/24/target-vs-walmart-which-consumer-goods-stock-is-a-better-buy-for-2027/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T14:29:07+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 18.0,
+   "sub": {
+    "valor": 3.1,
+    "analistas": 7.0,
+    "calidad": 12.8,
+    "momento": 10.1,
+    "noticias": 11.0
+   },
+   "score": 44,
+   "why": []
+  },
+  {
    "symbol": "ELE.MC",
    "market": "España",
    "name": "ENDESA,S.A.",
    "sector": "Utilities",
    "currency": "EUR",
-   "price": 43.12,
-   "chg1m": 0.72,
-   "chg3m": 2.52,
-   "from_high": -6.24,
-   "rsi": 45.0,
+   "price": 42.5,
+   "chg1m": -3.08,
+   "chg3m": 1.77,
+   "from_high": -7.59,
+   "rsi": 40.8,
    "above_sma200": true,
-   "pe": 18.163864,
-   "fpe": 17.860685,
+   "pe": 17.857141,
+   "fpe": 17.559082,
    "peg": 4.3137,
-   "pb": 5.636245,
-   "div": 3.67,
+   "pb": 5.541069,
+   "div": 3.66,
    "roe": 0.27212,
    "eps_growth": -0.267,
    "rev_growth": 0.27,
    "target": 36.88652,
-   "upside": -14.46,
+   "upside": -13.21,
    "rec": 3.6087,
    "analysts": 23,
-   "earnings": "2026-10-28",
+   "earnings": "2027-02-23",
    "news7d": 1,
    "news_tone": 0,
    "news": [
@@ -4419,101 +4414,16 @@
      "score": 1
     }
    ],
-   "pe_ref": 17.0,
+   "pe_ref": 17.3,
    "sub": {
-    "valor": 19.0,
+    "valor": 19.7,
     "analistas": 0,
     "calidad": 7,
-    "momento": 6.8,
+    "momento": 6.6,
     "noticias": 7.7
    },
    "score": 41,
    "why": []
-  },
-  {
-   "symbol": "INTC",
-   "market": "EE. UU.",
-   "name": "Intel Corporation",
-   "sector": "Technology",
-   "currency": "USD",
-   "price": 59.66,
-   "chg1m": -31.39,
-   "chg3m": -31.8,
-   "from_high": -57.67,
-   "rsi": 39.9,
-   "above_sma200": false,
-   "pe": null,
-   "fpe": 33.321045,
-   "peg": 1.36,
-   "pb": 2.7568042,
-   "div": 0.0,
-   "roe": -0.0962,
-   "eps_growth": -0.327,
-   "rev_growth": 0.209,
-   "target": 90.65116,
-   "upside": 51.95,
-   "rec": 2.5102,
-   "analysts": 43,
-   "earnings": "2027-01-28",
-   "news7d": 10,
-   "news_tone": 7,
-   "news": [
-    {
-     "title": "Jensen Huang back as Nvidia CEO after 12 days: Shares surge 30%",
-     "link": "https://finance.yahoo.com/video/jensen-huang-back-as-nvidia-ceo-after-12-days-shares-surge-30-161302539.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T16:13:02+00:00",
-     "score": 1
-    },
-    {
-     "title": "Jensen Huang’s Return As Nvidia CEO Sparks AI Stock Rally, But Congressional Probes Loom – And Analysts See Risks Ahead",
-     "link": "https://stocktwits.com/news-articles/markets/equity/jensen-huang-s-return-as-nvidia-ceo-sparks-ai-stock-rally-but-congressional-probes-loom-and-analysts-see-risks-ahead/cNbrt2TR9ju",
-     "source": "Stocktwits",
-     "published": "2026-11-24T02:35:41+00:00",
-     "score": 1
-    },
-    {
-     "title": "What Microsoft (MSFT)'s Enterprise AI Partnerships Mean For Shareholders",
-     "link": "https://finance.yahoo.com/technology/ai/articles/microsoft-msft-enterprise-ai-partnerships-001743463.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-24T00:17:43+00:00",
-     "score": 1
-    },
-    {
-     "title": "AMD Stock Rallies Nearly 8% as a Bernstein Analyst Remains Bullish Despite the Hunterbrook Short Report",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-rallies-nearly-8-235832362.html",
-     "source": "TipRanks",
-     "published": "2026-11-23T23:58:32+00:00",
-     "score": 2
-    },
-    {
-     "title": "Stock Market Today, Nov. 23: Advanced Micro Devices Climbs on AI-Chip Rebound After Nvidia Reinstates Jensen Huang as CEO",
-     "link": "https://www.fool.com/coverage/stock-market-today/2026/11/23/stock-market-today-nov-23-advanced-micro-devices-climbs-on-ai-chip-rebound-after-nvidia-reinstates-jensen-huang-as-ceo/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T22:10:40+00:00",
-     "score": 1
-    },
-    {
-     "title": "It's not over for Jensen Huang",
-     "link": "https://finance.yahoo.com/video/its-not-over-for-jensen-huang-215809126.html",
-     "source": "Yahoo Finance Video",
-     "published": "2026-11-23T21:58:09+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 18.2,
-   "sub": {
-    "valor": 3.5,
-    "analistas": 21.7,
-    "calidad": 0,
-    "momento": 0,
-    "noticias": 15
-   },
-   "score": 40,
-   "why": [
-    "Precio objetivo +52 %",
-    "Noticias positivas"
-   ]
   },
   {
    "symbol": "UNI.MC",
@@ -4521,25 +4431,25 @@
    "name": "UNICAJA BANCO, S.A.",
    "sector": "Financial Services",
    "currency": "EUR",
-   "price": 3.23,
-   "chg1m": 3.27,
-   "chg3m": -7.82,
-   "from_high": -11.03,
-   "rsi": 40.0,
+   "price": 3.25,
+   "chg1m": 2.46,
+   "chg3m": -6.3,
+   "from_high": -10.42,
+   "rsi": 43.3,
    "above_sma200": true,
-   "pe": 12.214815,
-   "fpe": 11.566248,
+   "pe": 12.029629,
+   "fpe": 11.390895,
    "peg": null,
-   "pb": 1.3379312,
-   "div": 5.92,
+   "pb": 1.3176471,
+   "div": 5.79,
    "roe": 0.101160005,
    "eps_growth": null,
    "rev_growth": 0.068,
    "target": 3.27444,
-   "upside": 1.5,
+   "upside": 0.81,
    "rec": 3.72222,
    "analysts": 18,
-   "earnings": "2026-10-30",
+   "earnings": "2027-02-02",
    "news7d": 0,
    "news_tone": 0,
    "news": [
@@ -4565,99 +4475,183 @@
      "score": 0
     }
    ],
-   "pe_ref": 10.8,
+   "pe_ref": 10.6,
    "sub": {
-    "valor": 18.5,
-    "analistas": 3.2,
+    "valor": 18.6,
+    "analistas": 2.9,
     "calidad": 5.1,
-    "momento": 3.4,
+    "momento": 3.9,
     "noticias": 7.5
    },
    "score": 38,
    "why": []
   },
   {
-   "symbol": "TSLA",
+   "symbol": "INTC",
    "market": "EE. UU.",
-   "name": "Tesla, Inc.",
-   "sector": "Consumer Cyclical",
+   "name": "Intel Corporation",
+   "sector": "Technology",
    "currency": "USD",
-   "price": 385.46,
-   "chg1m": 3.56,
-   "chg3m": 10.05,
-   "from_high": -21.32,
-   "rsi": 52.1,
-   "above_sma200": true,
-   "pe": 423.5824,
-   "fpe": 178.51817,
-   "peg": 4.0329,
-   "pb": 17.064814,
+   "price": 54.51,
+   "chg1m": -39.75,
+   "chg3m": -38.23,
+   "from_high": -61.32,
+   "rsi": 36.0,
+   "above_sma200": false,
+   "pe": null,
+   "fpe": 30.397217,
+   "peg": 1.36,
+   "pb": 2.514902,
    "div": 0.0,
-   "roe": 0.03844,
-   "eps_growth": -0.436,
-   "rev_growth": -0.002,
-   "target": 417.52625,
-   "upside": 8.32,
-   "rec": 2.25,
-   "analysts": 40,
-   "earnings": "2027-01-27",
+   "roe": -0.0962,
+   "eps_growth": -0.327,
+   "rev_growth": 0.209,
+   "target": 90.65116,
+   "upside": 66.3,
+   "rec": 2.5102,
+   "analysts": 43,
+   "earnings": "2027-01-28",
    "news7d": 10,
-   "news_tone": 3,
+   "news_tone": 0,
    "news": [
     {
-     "title": "Tesla's autonomy ambitions just got a Wall Street vote of confidence",
-     "link": "https://finance.yahoo.com/markets/stocks/article/teslas-autonomy-ambitions-just-got-a-wall-street-vote-of-confidence-130035595.html",
-     "source": "Yahoo Finance",
-     "published": "2026-11-23T13:00:35+00:00",
+     "title": "BC-Most Active Stocks",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/bc-most-active-stocks-153019321.html",
+     "source": "Associated Press",
+     "published": "2026-11-24T15:30:19+00:00",
      "score": 0
     },
     {
-     "title": "Dow Jones Futures: Tech Stocks, Nvidia Snap Back On Jensen Huang's Return; Elon Musk-Led SpaceX, Tesla Rally",
-     "link": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sp500-nasdaq-nvidia-jensen-huang-elon-musk-spacex-tesla/?src=A00220&yptr=yahoo",
-     "source": "Investor's Business Daily",
-     "published": "2026-11-24T02:14:39+00:00",
-     "score": 1
+     "title": "Do You Really Understand Intel Stock's Risk?",
+     "link": "https://www.trefis.com/stock/intc/articles/628282/do-you-really-understand-intel-stock-s-risk/2026-11-24",
+     "source": "Trefis",
+     "published": "2026-11-24T15:19:07+00:00",
+     "score": 0
     },
     {
-     "title": "TSLA And SPCX Rally As Musk Cheers Huang’s Return — Analyst Flags Nvidia’s Push To Send SpaceX More Chips",
-     "link": "https://stocktwits.com/news-articles/markets/equity/tsla-spcx-musk-cheers-huang-return-analyst-nvidia-spacex-more-chips/cNbrs1IR9jt",
-     "source": "Stocktwits",
-     "published": "2026-11-24T02:12:56+00:00",
-     "score": 1
+     "title": "Marvell Sinks 8%, Intel Down 6% as Chip Stocks Give Back Nvidia’s Record Huang Rally",
+     "link": "https://www.tikr.com/blog/marvell-sinks-8-intel-down-6-as-chip-stocks-give-back-nvidias-record-huang-rally?ref=yahoofinance&tlnk=yf-261124-rjmh24f9",
+     "source": "TIKR",
+     "published": "2026-11-24T15:14:59+00:00",
+     "score": 2
     },
     {
-     "title": "Stock Market Today, Nov. 23: Markets Rebound From Correction on AI Relief Rally",
-     "link": "https://www.fool.com/coverage/stock-market-today/2026/11/23/stock-market-today-nov-23-markets-rebound-from-correction-on-ai-relief-rally/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T22:16:13+00:00",
-     "score": 1
-    },
-    {
-     "title": "Tesla (TSLA) Is Advancing Toward A $3.5 Trillion Merger",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/tesla-tsla-advancing-toward-3-220707866.html",
+     "title": "What Intel Holders Bought Into",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/intel-holders-bought-151149057.html",
      "source": "Simply Wall St.",
-     "published": "2026-11-23T22:07:07+00:00",
+     "published": "2026-11-24T15:11:49+00:00",
      "score": 0
     },
     {
-     "title": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal",
-     "link": "https://finance.yahoo.com/technology/articles/elon-musk-others-rejoice-jensen-214741164.html",
-     "source": "TechCrunch",
-     "published": "2026-11-23T21:47:41+00:00",
+     "title": "Stocks to Watch: Nvidia, Alibaba, Hewlett Packard",
+     "link": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-24-2026/card/stocks-to-watch-nvidia-alibaba-hewlett-packard-OcmKGzhL652jokQhkx9J?siteid=yhoof2&yptr=yahoo",
+     "source": "The Wall Street Journal",
+     "published": "2026-11-24T15:06:36+00:00",
+     "score": 0
+    },
+    {
+     "title": "Nvidia, Anthropic, Micron, HPE, Analog Devices, Insmed, and More Stocks That Explain Today’s Market",
+     "link": "https://www.barrons.com/articles/stock-movers-0853c431?siteid=yhoof2&yptr=yahoo",
+     "source": "Barrons.com",
+     "published": "2026-11-24T15:04:00+00:00",
      "score": 0
     }
    ],
-   "pe_ref": 24.1,
+   "pe_ref": 18.0,
    "sub": {
-    "valor": 0,
-    "analistas": 11.8,
+    "valor": 6.3,
+    "analistas": 21.7,
     "calidad": 0,
-    "momento": 9.3,
-    "noticias": 14.0
+    "momento": 0,
+    "noticias": 9.5
    },
-   "score": 35,
+   "score": 38,
    "why": [
-    "Noticias positivas"
+    "Precio objetivo +66 %"
+   ]
+  },
+  {
+   "symbol": "ANE.MC",
+   "market": "España",
+   "name": "CORPORACI...N ACCIONA ENERG...A",
+   "sector": "Utilities",
+   "currency": "EUR",
+   "price": 18.74,
+   "chg1m": -13.0,
+   "chg3m": -13.16,
+   "from_high": -23.1,
+   "rsi": 31.8,
+   "above_sma200": false,
+   "pe": 32.877193,
+   "fpe": 27.89147,
+   "peg": 35.85,
+   "pb": 0.9811518,
+   "div": 0.16,
+   "roe": 0.03311,
+   "eps_growth": null,
+   "rev_growth": -0.344,
+   "target": 23.32632,
+   "upside": 24.47,
+   "rec": 2.84211,
+   "analysts": 19,
+   "earnings": null,
+   "news7d": 1,
+   "news_tone": 1,
+   "news": [
+    {
+     "title": "Acciona Energía (BME:ANE) Stock May Not Be A Bargain On Earnings",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/acciona-energ-bme-ane-stock-101455012.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-24T10:14:55+00:00",
+     "score": 1
+    },
+    {
+     "title": "3 Renewable Energy Stocks With Up To 16% Earnings Growth",
+     "link": "https://finance.yahoo.com/energy/articles/3-renewable-energy-stocks-16-051806740.html",
+     "source": "Simply Wall St.",
+     "published": "2026-11-07T05:18:06+00:00",
+     "score": 0
+    },
+    {
+     "title": "Alerion Clean Power And 2 Other Clean Energy Stocks To Watch",
+     "link": "https://finance.yahoo.com/energy/articles/alerion-clean-power-2-other-031211723.html",
+     "source": "Simply Wall St.",
+     "published": "2026-10-24T03:12:11+00:00",
+     "score": 0
+    },
+    {
+     "title": "Corporación Acciona Energías Renovables (BME:ANE) Finds Valuation Support As Asset Sales Back Outlook",
+     "link": "https://finance.yahoo.com/energy/articles/corporaci-n-acciona-energ-renovables-091107166.html",
+     "source": "Simply Wall St.",
+     "published": "2026-10-18T09:11:07+00:00",
+     "score": 0
+    },
+    {
+     "title": "Corporacion Acciona Energias Renovables SA (CRPAY) Full Year 2025 Earnings Call Highlights: ...",
+     "link": "https://finance.yahoo.com/news/corporacion-acciona-energias-renovables-sa-010058599.html",
+     "source": "GuruFocus.com",
+     "published": "2026-03-07T01:00:58+00:00",
+     "score": 0
+    },
+    {
+     "title": "A Look At Corporación Acciona Energías Renovables (BME:ANE) Valuation After Profit Growth In Full Year 2025 Results",
+     "link": "https://finance.yahoo.com/news/look-corporaci-n-acciona-energ-181353692.html",
+     "source": "Simply Wall St.",
+     "published": "2026-03-02T18:13:53+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 17.3,
+   "sub": {
+    "valor": 7.8,
+    "analistas": 17.8,
+    "calidad": 1.7,
+    "momento": 0,
+    "noticias": 9.2
+   },
+   "score": 36,
+   "why": [
+    "Precio objetivo +24 %"
    ]
   },
   {
@@ -4666,22 +4660,22 @@
    "name": "CELLNEX TELECOM, S.A.",
    "sector": "Real Estate",
    "currency": "EUR",
-   "price": 24.9,
-   "chg1m": -4.05,
-   "chg3m": -8.32,
-   "from_high": -22.17,
-   "rsi": 40.1,
+   "price": 25.47,
+   "chg1m": 0.2,
+   "chg3m": -3.52,
+   "from_high": -20.39,
+   "rsi": 47.8,
    "above_sma200": false,
    "pe": null,
-   "fpe": -618.0642,
+   "fpe": -633.73975,
    "peg": null,
-   "pb": 1.2599543,
+   "pb": 1.2919097,
    "div": 3.03,
    "roe": -0.02243,
    "eps_growth": null,
    "rev_growth": 0.301,
    "target": 34.17826,
-   "upside": 37.26,
+   "upside": 34.19,
    "rec": 1.95455,
    "analysts": 23,
    "earnings": "2026-11-05",
@@ -4731,7 +4725,7 @@
      "score": 0
     }
    ],
-   "pe_ref": 16.2,
+   "pe_ref": 15.7,
    "sub": {
     "valor": 3,
     "analistas": 23.7,
@@ -4741,169 +4735,9 @@
    },
    "score": 34,
    "why": [
-    "Precio objetivo +37 %",
+    "Precio objetivo +34 %",
     "Consenso de compra"
    ]
-  },
-  {
-   "symbol": "ANE.MC",
-   "market": "España",
-   "name": "CORPORACI...N ACCIONA ENERG...A",
-   "sector": "Utilities",
-   "currency": "EUR",
-   "price": 18.69,
-   "chg1m": -12.58,
-   "chg3m": -12.5,
-   "from_high": -23.3,
-   "rsi": 29.2,
-   "above_sma200": false,
-   "pe": 33.438595,
-   "fpe": 28.367737,
-   "peg": 35.85,
-   "pb": 0.99790573,
-   "div": 0.16,
-   "roe": 0.03311,
-   "eps_growth": null,
-   "rev_growth": -0.344,
-   "target": 23.32632,
-   "upside": 24.81,
-   "rec": 2.84211,
-   "analysts": 19,
-   "earnings": null,
-   "news7d": 0,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "3 Renewable Energy Stocks With Up To 16% Earnings Growth",
-     "link": "https://finance.yahoo.com/energy/articles/3-renewable-energy-stocks-16-051806740.html",
-     "source": "Simply Wall St.",
-     "published": "2026-11-07T05:18:06+00:00",
-     "score": 0
-    },
-    {
-     "title": "Alerion Clean Power And 2 Other Clean Energy Stocks To Watch",
-     "link": "https://finance.yahoo.com/energy/articles/alerion-clean-power-2-other-031211723.html",
-     "source": "Simply Wall St.",
-     "published": "2026-10-24T03:12:11+00:00",
-     "score": 0
-    },
-    {
-     "title": "Corporación Acciona Energías Renovables (BME:ANE) Finds Valuation Support As Asset Sales Back Outlook",
-     "link": "https://finance.yahoo.com/energy/articles/corporaci-n-acciona-energ-renovables-091107166.html",
-     "source": "Simply Wall St.",
-     "published": "2026-10-18T09:11:07+00:00",
-     "score": 0
-    },
-    {
-     "title": "Corporacion Acciona Energias Renovables SA (CRPAY) Full Year 2025 Earnings Call Highlights: ...",
-     "link": "https://finance.yahoo.com/news/corporacion-acciona-energias-renovables-sa-010058599.html",
-     "source": "GuruFocus.com",
-     "published": "2026-03-07T01:00:58+00:00",
-     "score": 0
-    },
-    {
-     "title": "A Look At Corporación Acciona Energías Renovables (BME:ANE) Valuation After Profit Growth In Full Year 2025 Results",
-     "link": "https://finance.yahoo.com/news/look-corporaci-n-acciona-energ-181353692.html",
-     "source": "Simply Wall St.",
-     "published": "2026-03-02T18:13:53+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 17.0,
-   "sub": {
-    "valor": 6.7,
-    "analistas": 18.0,
-    "calidad": 1.7,
-    "momento": 0,
-    "noticias": 7.5
-   },
-   "score": 34,
-   "why": [
-    "Precio objetivo +25 %",
-    "RSI 29 en sobreventa"
-   ]
-  },
-  {
-   "symbol": "BRK-B",
-   "market": "EE. UU.",
-   "name": "Berkshire Hathaway Inc. New",
-   "sector": "Financial Services",
-   "currency": "USD",
-   "price": 572.36,
-   "chg1m": 5.56,
-   "chg3m": 13.49,
-   "from_high": -3.47,
-   "rsi": 58.2,
-   "above_sma200": true,
-   "pe": 16.019032,
-   "fpe": 25.085222,
-   "peg": 10.06,
-   "pb": 0.0010670136,
-   "div": 0.0,
-   "roe": 0.10574,
-   "eps_growth": -0.276,
-   "rev_growth": 0.112,
-   "target": 564.6667,
-   "upside": -1.34,
-   "rec": 2.75,
-   "analysts": 3,
-   "earnings": "2026-11-09",
-   "news7d": 10,
-   "news_tone": 0,
-   "news": [
-    {
-     "title": "As Tech Stocks Crash, Is Berkshire Hathaway a Safe-Haven Investment?",
-     "link": "https://www.fool.com/investing/2026/11/23/as-tech-stocks-crash-is-berkshire-hathaway-a-safe-haven-investment/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T22:19:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Warren Buffett's Successor, Greg Abel, Just Sent a Massive Warning to the Market",
-     "link": "https://www.fool.com/investing/2026/11/23/warren-buffett-s-successor-greg-abel-just-sent-a-massive-warning-to-the-market/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T18:50:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Berkshire Has Owned These 2 Consumer Stocks for Decades. I'd Buy Both Before December and Never Sell.",
-     "link": "https://www.fool.com/investing/2026/11/23/berkshire-has-owned-these-2-consumer-stocks-for-decades-id-buy-both-before-december-and-never-sell/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T16:05:02+00:00",
-     "score": 0
-    },
-    {
-     "title": "Berkshire Hathaway Owns 22.6% of American Express. Is the Stock a Buy, Sell, or Hold After a 17% Drop in 2026?",
-     "link": "https://www.fool.com/investing/2026/11/23/berkshire-hathaway-owns-22-6-of-american-express-is-the-stock-a-buy-sell-or-hold-after-a-17-drop-in-2026/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T15:05:02+00:00",
-     "score": -1
-    },
-    {
-     "title": "Take the Zacks Approach to Beat the Markets: BRK.B, VRA & ULTA",
-     "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-approach-beat-markets-brk-143300578.html",
-     "source": "Zacks",
-     "published": "2026-11-23T14:33:00+00:00",
-     "score": 1
-    },
-    {
-     "title": "Stock Market Sell-Off: Warren Buffett’s “Be Greedy” Rule Has a Catch Most Investors Forget",
-     "link": "https://www.fool.com/investing/2026/11/23/stock-market-sell-off-warren-buffett-s-be-greedy-rule-has-a-catch-most-investors-forget/",
-     "source": "Motley Fool",
-     "published": "2026-11-23T14:11:01+00:00",
-     "score": 0
-    }
-   ],
-   "pe_ref": 10.8,
-   "sub": {
-    "valor": 0,
-    "analistas": 5.2,
-    "calidad": 2.3,
-    "momento": 10.5,
-    "noticias": 9.5
-   },
-   "score": 27,
-   "why": []
   },
   {
    "symbol": "FER.MC",
@@ -4911,22 +4745,22 @@
    "name": "FERROVIAL N.V.",
    "sector": "Industrials",
    "currency": "EUR",
-   "price": 52.8,
-   "chg1m": 21.86,
-   "chg3m": -0.83,
-   "from_high": -14.23,
-   "rsi": 56.7,
+   "price": 53.82,
+   "chg1m": 21.43,
+   "chg3m": 7.95,
+   "from_high": -12.57,
+   "rsi": 60.3,
    "above_sma200": false,
-   "pe": 34.62821,
-   "fpe": 46.478016,
+   "pe": 34.5,
+   "fpe": 46.30594,
    "peg": 8.2863,
-   "pb": 6.806956,
-   "div": 3.69,
+   "pb": 6.781754,
+   "div": 3.6,
    "roe": 0.11615,
    "eps_growth": -0.52,
    "rev_growth": 0.052,
    "target": 59.8975,
-   "upside": 13.44,
+   "upside": 11.29,
    "rec": 2.25,
    "analysts": 20,
    "earnings": "2026-10-27",
@@ -4976,18 +4810,182 @@
      "score": 0
     }
    ],
-   "pe_ref": 17.1,
+   "pe_ref": 16.9,
    "sub": {
     "valor": 0,
-    "analistas": 14.3,
+    "analistas": 13.3,
     "calidad": 2.8,
-    "momento": 0.7,
+    "momento": 3.6,
     "noticias": 7.9
    },
-   "score": 26,
+   "score": 28,
+   "why": []
+  },
+  {
+   "symbol": "TSLA",
+   "market": "EE. UU.",
+   "name": "Tesla, Inc.",
+   "sector": "Consumer Cyclical",
+   "currency": "USD",
+   "price": 379.84,
+   "chg1m": -3.01,
+   "chg3m": 9.84,
+   "from_high": -22.46,
+   "rsi": 50.3,
+   "above_sma200": false,
+   "pe": 416.92966,
+   "fpe": 175.71439,
+   "peg": 4.0329,
+   "pb": 16.796795,
+   "div": 0.0,
+   "roe": 0.03844,
+   "eps_growth": -0.436,
+   "rev_growth": -0.002,
+   "target": 417.52625,
+   "upside": 9.92,
+   "rec": 2.25,
+   "analysts": 40,
+   "earnings": "2027-01-27",
+   "news7d": 10,
+   "news_tone": 1,
+   "news": [
+    {
+     "title": "Have robotaxis hit a tipping point? Wall Street and experts are split.",
+     "link": "https://finance.yahoo.com/markets/stocks/article/have-robotaxis-hit-a-tipping-point-wall-street-and-experts-are-split-150000412.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T15:00:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Tesla and SpaceX assemble deal teams for a merger that could give Musk majority control",
+     "link": "https://finance.yahoo.com/technology/article/tesla-and-spacex-assemble-deal-teams-for-a-merger-that-could-give-musk-majority-control-144555932.html",
+     "source": "Yahoo Finance",
+     "published": "2026-11-24T14:45:55+00:00",
+     "score": 0
+    },
+    {
+     "title": "Tesla, SpaceX Reportedly Pick Board Members To Negotiate Elon Musk's Mega Merger",
+     "link": "https://www.investors.com/news/tesla-spacex-board-members-elon-musk-merger/?src=A00220&yptr=yahoo",
+     "source": "Investor's Business Daily",
+     "published": "2026-11-24T15:26:47+00:00",
+     "score": 0
+    },
+    {
+     "title": "Lucid, Uber Edge Closer To Taking On Tesla’s Robotaxis – Public Launch Targeted For Q1 2027",
+     "link": "https://stocktwits.com/news-articles/markets/equity/lucid-uber-edge-closer-to-taking-on-tesla-s-robotaxis-public-launch-targeted-for-q1-2027/cNbsfJiR9kp",
+     "source": "Stocktwits",
+     "published": "2026-11-24T15:10:37+00:00",
+     "score": -1
+    },
+    {
+     "title": "Tesla’s Europe Sales Soar 84%",
+     "link": "https://247wallst.com/investing/2026/11/24/teslas-europe-sales-soar-84/",
+     "source": "24/7 Wall St.",
+     "published": "2026-11-24T14:56:52+00:00",
+     "score": 1
+    },
+    {
+     "title": "Micron downgraded, GameStop initiated: Wall Street's top analyst calls",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/snap-upgraded-pinterest-downgrade-wall-135144855.html",
+     "source": "The Fly",
+     "published": "2026-11-24T14:48:15+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 23.9,
+   "sub": {
+    "valor": 0,
+    "analistas": 12.6,
+    "calidad": 0,
+    "momento": 4.3,
+    "noticias": 11.0
+   },
+   "score": 28,
+   "why": []
+  },
+  {
+   "symbol": "BRK-B",
+   "market": "EE. UU.",
+   "name": "Berkshire Hathaway Inc. New",
+   "sector": "Financial Services",
+   "currency": "USD",
+   "price": 578.18,
+   "chg1m": 5.4,
+   "chg3m": 14.51,
+   "from_high": -2.49,
+   "rsi": 62.0,
+   "above_sma200": true,
+   "pe": 16.18182,
+   "fpe": 25.340141,
+   "peg": 10.06,
+   "pb": 0.0010778568,
+   "div": 0.0,
+   "roe": 0.10574,
+   "eps_growth": -0.276,
+   "rev_growth": 0.112,
+   "target": 564.6667,
+   "upside": -2.34,
+   "rec": 2.75,
+   "analysts": 3,
+   "earnings": "2026-11-09",
+   "news7d": 10,
+   "news_tone": 0,
+   "news": [
+    {
+     "title": "Intuit delivers solid earnings but faces troubling growth question",
+     "link": "https://www.thestreet.com/investing/stocks/intu-intuit-credit-karma-concern-question-amid-mailchimp-sale-to-bending-spoons",
+     "source": "TheStreet",
+     "published": "2026-11-24T14:03:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Warren Buffett gave $1.3B to family foundations at 95 because his kids, 68 to 73, may not age as slowly as he has",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/warren-buffett-gave-1-3b-114000975.html",
+     "source": "Moneywise",
+     "published": "2026-11-24T11:40:00+00:00",
+     "score": 0
+    },
+    {
+     "title": "Warren Buffett’s Record Cash Pile Is Sending Investors a Message About AI Stocks",
+     "link": "https://www.fool.com/investing/2026/11/24/warren-buffetts-record-cash-pile-is-sending-investors-a-message-about-ai-stocks/",
+     "source": "Motley Fool",
+     "published": "2026-11-24T11:20:02+00:00",
+     "score": 1
+    },
+    {
+     "title": "What State Street Fin Select Sector SPDR (XLF) Bought: Berkshire Leads on Nov. 20",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/state-street-fin-select-sector-110322872.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:03:22+00:00",
+     "score": 0
+    },
+    {
+     "title": "ETFs Are Buying Berkshire Hathaway (BRK.B) on Friday",
+     "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-buying-berkshire-hathaway-brk-110132555.html",
+     "source": "GuruFocus.com",
+     "published": "2026-11-24T11:01:32+00:00",
+     "score": 0
+    },
+    {
+     "title": "David Tepper, Seth Klarman and 5 Other Famous Investors Own Alphabet. Here’s Who Sold Recently",
+     "link": "https://www.tikr.com/blog/david-tepper-seth-klarman-and-5-other-famous-investors-own-alphabet-heres-who-sold-recently?ref=yahoofinance&tlnk=yf-261124-w59872fw",
+     "source": "TIKR",
+     "published": "2026-11-24T08:04:51+00:00",
+     "score": 0
+    }
+   ],
+   "pe_ref": 10.6,
+   "sub": {
+    "valor": 0,
+    "analistas": 4.7,
+    "calidad": 2.3,
+    "momento": 10.8,
+    "noticias": 9.5
+   },
+   "score": 27,
    "why": []
   }
  ],
- "updated": "2026-11-24T02:51:25+00:00",
+ "updated": "2026-11-24T15:41:47+00:00",
  "sample": false
 }
