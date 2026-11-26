@@ -1,32 +1,32 @@
 {
- "updated": "2026-11-26T00:20:22Z",
+ "updated": "2026-11-26T13:55:04Z",
  "sim": {
   "media50": {
-   "coins": 76,
-   "coins_pos": 47,
-   "n": 3060,
-   "closed": 3051,
-   "win": 17.9,
-   "eur": 82746.42,
-   "per_trade": 27.04
+   "coins": 71,
+   "coins_pos": 45,
+   "n": 2835,
+   "closed": 2827,
+   "win": 18.0,
+   "eur": 86134.08,
+   "per_trade": 30.38
   },
   "rupturas": {
-   "coins": 76,
-   "coins_pos": 42,
-   "n": 2889,
-   "closed": 2872,
-   "win": 34.1,
-   "eur": 51489.54,
-   "per_trade": 17.82
+   "coins": 71,
+   "coins_pos": 40,
+   "n": 2715,
+   "closed": 2699,
+   "win": 34.4,
+   "eur": 51989.69,
+   "per_trade": 19.15
   },
   "zona4h": {
-   "coins": 76,
-   "coins_pos": 18,
-   "n": 3098,
-   "closed": 3096,
-   "win": 34.5,
-   "eur": -13701.66,
-   "per_trade": -4.42
+   "coins": 71,
+   "coins_pos": 15,
+   "n": 2962,
+   "closed": 2959,
+   "win": 34.2,
+   "eur": -16135.33,
+   "per_trade": -5.45
   }
  },
  "go_live": "2026-11-10T10:40:18Z",
@@ -47,7 +47,7 @@
   {
    "symbol": "BTC",
    "pair": "BTCUSDT",
-   "price": 60892.44,
+   "price": 60953.74,
    "close": 60458.01,
    "close_date": "2026-11-25",
    "sma50": 75236.30500000007,
@@ -128,7 +128,7 @@
   {
    "symbol": "ETH",
    "pair": "ETHUSDT",
-   "price": 1704.54,
+   "price": 1705.35,
    "close": 1692.65,
    "close_date": "2026-11-25",
    "sma50": 2187.5750000000003,
@@ -207,90 +207,9 @@
    }
   },
   {
-   "symbol": "SOL",
-   "pair": "SOLUSDT",
-   "price": 71.03,
-   "close": 70.47,
-   "close_date": "2026-11-25",
-   "sma50": 92.29539999999983,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 90.13,
-      "level_out": 68.88
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 121.6,
-      "level_out": 68.88
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 122.15,
-      "level_out": 68.88
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 51,
-     "closed": 51,
-     "wins": 12,
-     "eur": 8512.01,
-     "stake": 51000.0
-    },
-    "rupturas": {
-     "n": 61,
-     "closed": 61,
-     "wins": 30,
-     "eur": 5431.52,
-     "stake": 20333.33
-    },
-    "zona4h": {
-     "n": 42,
-     "closed": 42,
-     "wins": 17,
-     "eur": 159.73,
-     "stake": 42000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.41,
-    "media50": {
-     "mult": 4.94,
-     "dd": -59.9
-    },
-    "rupturas": {
-     "mult": 3.31,
-     "dd": -54.8
-    },
-    "zona4h": {
-     "n": 42,
-     "win": 40,
-     "avgR": 0.09,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "ZEC",
    "pair": "ZECUSDT",
-   "price": 776.24,
+   "price": 725.92,
    "close": 771.41,
    "close_date": "2026-11-25",
    "sma50": 1112.9167999999997,
@@ -369,9 +288,90 @@
    }
   },
   {
+   "symbol": "SOL",
+   "pair": "SOLUSDT",
+   "price": 71.15,
+   "close": 70.47,
+   "close_date": "2026-11-25",
+   "sma50": 92.29539999999983,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 90.13,
+      "level_out": 68.88
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 121.6,
+      "level_out": 68.88
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 122.15,
+      "level_out": 68.88
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 51,
+     "closed": 51,
+     "wins": 12,
+     "eur": 8512.01,
+     "stake": 51000.0
+    },
+    "rupturas": {
+     "n": 61,
+     "closed": 61,
+     "wins": 30,
+     "eur": 5431.52,
+     "stake": 20333.33
+    },
+    "zona4h": {
+     "n": 42,
+     "closed": 42,
+     "wins": 17,
+     "eur": 159.73,
+     "stake": 42000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.41,
+    "media50": {
+     "mult": 4.94,
+     "dd": -59.9
+    },
+    "rupturas": {
+     "mult": 3.31,
+     "dd": -54.8
+    },
+    "zona4h": {
+     "n": 42,
+     "win": 40,
+     "avgR": 0.09,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
    "symbol": "XRP",
    "pair": "XRPUSDT",
-   "price": 0.9431,
+   "price": 0.9522,
    "close": 0.9379,
    "close_date": "2026-11-25",
    "sma50": 1.1910760000000047,
@@ -452,7 +452,7 @@
   {
    "symbol": "NEAR",
    "pair": "NEARUSDT",
-   "price": 3.087,
+   "price": 3.084,
    "close": 3.055,
    "close_date": "2026-11-25",
    "sma50": 4.13862,
@@ -533,7 +533,7 @@
   {
    "symbol": "BNB",
    "pair": "BNBUSDT",
-   "price": 557.71,
+   "price": 553.61,
    "close": 554.03,
    "close_date": "2026-11-25",
    "sma50": 682.9971999999993,
@@ -614,7 +614,7 @@
   {
    "symbol": "PEPE",
    "pair": "PEPEUSDT",
-   "price": 3.52e-06,
+   "price": 3.53e-06,
    "close": 3.49e-06,
    "close_date": "2026-11-25",
    "sma50": 4.293199999999963e-06,
@@ -693,12 +693,124 @@
    }
   },
   {
-   "symbol": "DOGE",
-   "pair": "DOGEUSDT",
-   "price": 0.05647,
-   "close": 0.05605,
+   "symbol": "MMT",
+   "pair": "MMTUSDT",
+   "price": 0.2304,
+   "close": 0.3215,
    "close_date": "2026-11-25",
-   "sma50": 0.07257220000000036,
+   "sma50": 0.1542579999999998,
+   "media50": {
+    "on": true,
+    "since": "2026-11-18T00:00:00Z"
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": true,
+      "level_in": 0.3215,
+      "level_out": 0.1122
+     },
+     {
+      "n": 55,
+      "on": true,
+      "level_in": 0.3215,
+      "level_out": 0.0983
+     },
+     {
+      "n": 100,
+      "on": true,
+      "level_in": 0.3215,
+      "level_out": 0.0983
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [
+     {
+      "zone_ts": "2026-11-24T00:00:00Z",
+      "top": 0.2071,
+      "bot": 0.2039,
+      "mid": 0.20550000000000002,
+      "target": 0.21190000000000003,
+      "width": 1.57
+     }
+    ],
+    "open": [
+     {
+      "zone_ts": "2026-11-18T08:00:00Z",
+      "top": 0.2283,
+      "bot": 0.1576,
+      "mid": 0.19295,
+      "target": 0.33435000000000004,
+      "width": 44.86,
+      "kind": "zona4h",
+      "signal_ts": "2026-11-18T16:00:00Z",
+      "entry_ts": "2026-11-19T04:00:00Z",
+      "entry": 0.19295,
+      "stop": 0.1576,
+      "weight": 1.0,
+      "open": true,
+      "symbol": "MMT",
+      "pair": "MMTUSDT",
+      "id": "zona4h|MMT|2026-11-18T08:00:00Z|2026-11-19T04:00:00Z",
+      "ret": 19.31,
+      "eur": 193.09,
+      "R": 1.05
+     }
+    ]
+   },
+   "sim": {
+    "media50": {
+     "n": 12,
+     "closed": 11,
+     "wins": 1,
+     "eur": 96.65,
+     "stake": 12000.0
+    },
+    "rupturas": {
+     "n": 12,
+     "closed": 9,
+     "wins": 2,
+     "eur": -95.83,
+     "stake": 4000.0
+    },
+    "zona4h": {
+     "n": 49,
+     "closed": 48,
+     "wins": 15,
+     "eur": -927.61,
+     "stake": 49000.0
+    }
+   },
+   "bt": {
+    "from": "2026-02-12",
+    "days": 387,
+    "bh": 1.72,
+    "media50": {
+     "mult": 1.07,
+     "dd": -57.6
+    },
+    "rupturas": {
+     "mult": 0.87,
+     "dd": -39.2
+    },
+    "zona4h": {
+     "n": 48,
+     "win": 31,
+     "avgR": -1.55,
+     "from": "2025-11-04"
+    }
+   }
+  },
+  {
+   "symbol": "SUI",
+   "pair": "SUIUSDT",
+   "price": 0.6681,
+   "close": 0.6675,
+   "close_date": "2026-11-25",
+   "sma50": 0.8857580000000032,
    "media50": {
     "on": false,
     "since": null
@@ -708,20 +820,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.07243,
-      "level_out": 0.05439
+      "level_in": 0.8691,
+      "level_out": 0.6485
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.09591,
-      "level_out": 0.05439
+      "level_in": 1.2138,
+      "level_out": 0.6485
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.10044,
-      "level_out": 0.05439
+      "level_in": 1.264,
+      "level_out": 0.6485
      }
     ]
    },
@@ -732,43 +844,43 @@
    },
    "sim": {
     "media50": {
-     "n": 56,
-     "closed": 56,
-     "wins": 13,
-     "eur": 1271.75,
-     "stake": 56000.0
+     "n": 35,
+     "closed": 35,
+     "wins": 6,
+     "eur": 5860.59,
+     "stake": 35000.0
     },
     "rupturas": {
-     "n": 52,
-     "closed": 52,
-     "wins": 21,
-     "eur": 1430.68,
-     "stake": 17333.33
+     "n": 38,
+     "closed": 38,
+     "wins": 17,
+     "eur": 2537.75,
+     "stake": 12666.67
     },
     "zona4h": {
-     "n": 39,
-     "closed": 39,
-     "wins": 19,
-     "eur": 388.4,
-     "stake": 39000.0
+     "n": 37,
+     "closed": 37,
+     "wins": 10,
+     "eur": -208.69,
+     "stake": 37000.0
     }
    },
    "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.23,
+    "from": "2023-08-11",
+    "days": 1303,
+    "bh": 1.07,
     "media50": {
-     "mult": 1.0,
-     "dd": -74.9
+     "mult": 8.47,
+     "dd": -58.5
     },
     "rupturas": {
-     "mult": 1.84,
-     "dd": -50.9
+     "mult": 3.38,
+     "dd": -61.0
     },
     "zona4h": {
-     "n": 39,
-     "win": 49,
-     "avgR": 0.62,
+     "n": 37,
+     "win": 27,
+     "avgR": -0.4,
      "from": "2025-07-14"
     }
    }
@@ -857,7 +969,7 @@
   {
    "symbol": "UNI",
    "pair": "UNIUSDT",
-   "price": 4.795,
+   "price": 4.73,
    "close": 4.749,
    "close_date": "2026-11-25",
    "sma50": 6.564879999999991,
@@ -936,12 +1048,12 @@
    }
   },
   {
-   "symbol": "SUI",
-   "pair": "SUIUSDT",
-   "price": 0.6755,
-   "close": 0.6675,
+   "symbol": "DOGE",
+   "pair": "DOGEUSDT",
+   "price": 0.05692,
+   "close": 0.05605,
    "close_date": "2026-11-25",
-   "sma50": 0.8857580000000032,
+   "sma50": 0.07257220000000036,
    "media50": {
     "on": false,
     "since": null
@@ -951,20 +1063,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.8691,
-      "level_out": 0.6485
+      "level_in": 0.07243,
+      "level_out": 0.05439
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 1.2138,
-      "level_out": 0.6485
+      "level_in": 0.09591,
+      "level_out": 0.05439
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 1.264,
-      "level_out": 0.6485
+      "level_in": 0.10044,
+      "level_out": 0.05439
      }
     ]
    },
@@ -975,179 +1087,51 @@
    },
    "sim": {
     "media50": {
-     "n": 35,
-     "closed": 35,
-     "wins": 6,
-     "eur": 5860.59,
-     "stake": 35000.0
+     "n": 56,
+     "closed": 56,
+     "wins": 13,
+     "eur": 1271.75,
+     "stake": 56000.0
     },
     "rupturas": {
-     "n": 38,
-     "closed": 38,
-     "wins": 17,
-     "eur": 2537.75,
-     "stake": 12666.67
+     "n": 52,
+     "closed": 52,
+     "wins": 21,
+     "eur": 1430.68,
+     "stake": 17333.33
     },
     "zona4h": {
-     "n": 37,
-     "closed": 37,
-     "wins": 10,
-     "eur": -208.69,
-     "stake": 37000.0
+     "n": 39,
+     "closed": 39,
+     "wins": 19,
+     "eur": 388.4,
+     "stake": 39000.0
     }
    },
    "bt": {
-    "from": "2023-08-11",
-    "days": 1303,
-    "bh": 1.07,
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.23,
     "media50": {
-     "mult": 8.47,
-     "dd": -58.5
+     "mult": 1.0,
+     "dd": -74.9
     },
     "rupturas": {
-     "mult": 3.38,
-     "dd": -61.0
+     "mult": 1.84,
+     "dd": -50.9
     },
     "zona4h": {
-     "n": 37,
-     "win": 27,
-     "avgR": -0.4,
+     "n": 39,
+     "win": 49,
+     "avgR": 0.62,
      "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "MMT",
-   "pair": "MMTUSDT",
-   "price": 0.3149,
-   "close": 0.3215,
-   "close_date": "2026-11-25",
-   "sma50": 0.1542579999999998,
-   "media50": {
-    "on": true,
-    "since": "2026-11-18T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 0.3215,
-      "level_out": 0.1122
-     },
-     {
-      "n": 55,
-      "on": true,
-      "level_in": 0.3215,
-      "level_out": 0.0983
-     },
-     {
-      "n": 100,
-      "on": true,
-      "level_in": 0.3215,
-      "level_out": 0.0983
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [
-     {
-      "zone_ts": "2026-11-24T00:00:00Z",
-      "top": 0.2071,
-      "bot": 0.2039,
-      "mid": 0.20550000000000002,
-      "target": 0.21190000000000003,
-      "width": 1.57
-     },
-     {
-      "zone_ts": "2026-11-25T12:00:00Z",
-      "top": 0.2506,
-      "bot": 0.2365,
-      "mid": 0.24355,
-      "target": 0.27175,
-      "width": 5.96
-     },
-     {
-      "zone_ts": "2026-11-25T16:00:00Z",
-      "top": 0.2797,
-      "bot": 0.2697,
-      "mid": 0.2747,
-      "target": 0.2947,
-      "width": 3.71
-     }
-    ],
-    "open": [
-     {
-      "zone_ts": "2026-11-18T08:00:00Z",
-      "top": 0.2283,
-      "bot": 0.1576,
-      "mid": 0.19295,
-      "target": 0.33435000000000004,
-      "width": 44.86,
-      "kind": "zona4h",
-      "signal_ts": "2026-11-18T16:00:00Z",
-      "entry_ts": "2026-11-19T04:00:00Z",
-      "entry": 0.19295,
-      "stop": 0.1576,
-      "weight": 1.0,
-      "open": true,
-      "symbol": "MMT",
-      "pair": "MMTUSDT",
-      "id": "zona4h|MMT|2026-11-18T08:00:00Z|2026-11-19T04:00:00Z",
-      "ret": 63.1,
-      "eur": 631.03,
-      "R": 3.44
-     }
-    ]
-   },
-   "sim": {
-    "media50": {
-     "n": 12,
-     "closed": 11,
-     "wins": 1,
-     "eur": 678.21,
-     "stake": 12000.0
-    },
-    "rupturas": {
-     "n": 12,
-     "closed": 9,
-     "wins": 2,
-     "eur": 344.03,
-     "stake": 4000.0
-    },
-    "zona4h": {
-     "n": 46,
-     "closed": 45,
-     "wins": 15,
-     "eur": -115.73,
-     "stake": 46000.0
-    }
-   },
-   "bt": {
-    "from": "2026-02-12",
-    "days": 387,
-    "bh": 1.72,
-    "media50": {
-     "mult": 1.07,
-     "dd": -57.6
-    },
-    "rupturas": {
-     "mult": 0.87,
-     "dd": -39.2
-    },
-    "zona4h": {
-     "n": 45,
-     "win": 33,
-     "avgR": -1.09,
-     "from": "2025-11-04"
     }
    }
   },
   {
    "symbol": "ADA",
    "pair": "ADAUSDT",
-   "price": 0.1469,
+   "price": 0.1492,
    "close": 0.1459,
    "close_date": "2026-11-25",
    "sma50": 0.19349600000000045,
@@ -1226,171 +1210,9 @@
    }
   },
   {
-   "symbol": "LINK",
-   "pair": "LINKUSDT",
-   "price": 9.14,
-   "close": 9.056,
-   "close_date": "2026-11-25",
-   "sma50": 11.017860000000017,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 10.86,
-      "level_out": 8.545
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 14.278,
-      "level_out": 8.545
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 15.452,
-      "level_out": 8.545
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 67,
-     "closed": 67,
-     "wins": 13,
-     "eur": 880.11,
-     "stake": 67000.0
-    },
-    "rupturas": {
-     "n": 69,
-     "closed": 69,
-     "wins": 21,
-     "eur": 164.16,
-     "stake": 23000.0
-    },
-    "zona4h": {
-     "n": 44,
-     "closed": 44,
-     "wins": 19,
-     "eur": 61.1,
-     "stake": 44000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.33,
-    "media50": {
-     "mult": 0.69,
-     "dd": -80.9
-    },
-    "rupturas": {
-     "mult": 0.88,
-     "dd": -55.2
-    },
-    "zona4h": {
-     "n": 44,
-     "win": 43,
-     "avgR": 0.32,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ENA",
-   "pair": "ENAUSDT",
-   "price": 0.1019,
-   "close": 0.1009,
-   "close_date": "2026-11-25",
-   "sma50": 0.16856400000000007,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.1637,
-      "level_out": 0.0983
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.2494,
-      "level_out": 0.0983
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.2725,
-      "level_out": 0.0983
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 24,
-     "closed": 24,
-     "wins": 4,
-     "eur": 2331.21,
-     "stake": 24000.0
-    },
-    "rupturas": {
-     "n": 28,
-     "closed": 28,
-     "wins": 12,
-     "eur": 1130.75,
-     "stake": 9333.33
-    },
-    "zona4h": {
-     "n": 62,
-     "closed": 62,
-     "wins": 23,
-     "eur": -306.12,
-     "stake": 62000.0
-    }
-   },
-   "bt": {
-    "from": "2024-07-11",
-    "days": 968,
-    "bh": 0.24,
-    "media50": {
-     "mult": 2.86,
-     "dd": -52.7
-    },
-    "rupturas": {
-     "mult": 1.96,
-     "dd": -51.6
-    },
-    "zona4h": {
-     "n": 62,
-     "win": 37,
-     "avgR": -0.4,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "MANTRA",
    "pair": "MANTRAUSDT",
-   "price": 0.00319,
+   "price": 0.00245,
    "close": 0.00321,
    "close_date": "2026-11-25",
    "sma50": 0.003297800000000004,
@@ -1471,7 +1293,7 @@
   {
    "symbol": "LTC",
    "pair": "LTCUSDT",
-   "price": 43.15,
+   "price": 43.7,
    "close": 42.79,
    "close_date": "2026-11-25",
    "sma50": 53.70040000000003,
@@ -1550,9 +1372,171 @@
    }
   },
   {
+   "symbol": "LINK",
+   "pair": "LINKUSDT",
+   "price": 9.244,
+   "close": 9.056,
+   "close_date": "2026-11-25",
+   "sma50": 11.017860000000017,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 10.86,
+      "level_out": 8.545
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 14.278,
+      "level_out": 8.545
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 15.452,
+      "level_out": 8.545
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 67,
+     "closed": 67,
+     "wins": 13,
+     "eur": 880.11,
+     "stake": 67000.0
+    },
+    "rupturas": {
+     "n": 69,
+     "closed": 69,
+     "wins": 21,
+     "eur": 164.16,
+     "stake": 23000.0
+    },
+    "zona4h": {
+     "n": 44,
+     "closed": 44,
+     "wins": 19,
+     "eur": 61.1,
+     "stake": 44000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.33,
+    "media50": {
+     "mult": 0.69,
+     "dd": -80.9
+    },
+    "rupturas": {
+     "mult": 0.88,
+     "dd": -55.2
+    },
+    "zona4h": {
+     "n": 44,
+     "win": 43,
+     "avgR": 0.32,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ENA",
+   "pair": "ENAUSDT",
+   "price": 0.1024,
+   "close": 0.1009,
+   "close_date": "2026-11-25",
+   "sma50": 0.16856400000000007,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.1637,
+      "level_out": 0.0983
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.2494,
+      "level_out": 0.0983
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.2725,
+      "level_out": 0.0983
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 24,
+     "closed": 24,
+     "wins": 4,
+     "eur": 2331.21,
+     "stake": 24000.0
+    },
+    "rupturas": {
+     "n": 28,
+     "closed": 28,
+     "wins": 12,
+     "eur": 1130.75,
+     "stake": 9333.33
+    },
+    "zona4h": {
+     "n": 62,
+     "closed": 62,
+     "wins": 23,
+     "eur": -306.12,
+     "stake": 62000.0
+    }
+   },
+   "bt": {
+    "from": "2024-07-11",
+    "days": 968,
+    "bh": 0.24,
+    "media50": {
+     "mult": 2.86,
+     "dd": -52.7
+    },
+    "rupturas": {
+     "mult": 1.96,
+     "dd": -51.6
+    },
+    "zona4h": {
+     "n": 62,
+     "win": 37,
+     "avgR": -0.4,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
    "symbol": "TAO",
    "pair": "TAOUSDT",
-   "price": 183.5,
+   "price": 183.2,
    "close": 181.9,
    "close_date": "2026-11-25",
    "sma50": 235.6559999999996,
@@ -1633,7 +1617,7 @@
   {
    "symbol": "WLD",
    "pair": "WLDUSDT",
-   "price": 0.2421,
+   "price": 0.2453,
    "close": 0.24,
    "close_date": "2026-11-25",
    "sma50": 0.3932920000000027,
@@ -1712,9 +1696,925 @@
    }
   },
   {
+   "symbol": "AAVE",
+   "pair": "AAVEUSDT",
+   "price": 95.26,
+   "close": 95.41,
+   "close_date": "2026-11-25",
+   "sma50": 132.25059999999993,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 131.71,
+      "level_out": 94.07
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 184.08,
+      "level_out": 94.07
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 184.08,
+      "level_out": 94.07
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 59,
+     "closed": 59,
+     "wins": 18,
+     "eur": 1472.7,
+     "stake": 59000.0
+    },
+    "rupturas": {
+     "n": 68,
+     "closed": 68,
+     "wins": 25,
+     "eur": -57.3,
+     "stake": 22666.67
+    },
+    "zona4h": {
+     "n": 35,
+     "closed": 35,
+     "wins": 10,
+     "eur": -257.51,
+     "stake": 35000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.28,
+    "media50": {
+     "mult": 1.88,
+     "dd": -55.3
+    },
+    "rupturas": {
+     "mult": 0.8,
+     "dd": -59.9
+    },
+    "zona4h": {
+     "n": 35,
+     "win": 29,
+     "avgR": -0.55,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "INIT",
+   "pair": "INITUSDT",
+   "price": 0.1315,
+   "close": 0.08524,
+   "close_date": "2026-11-25",
+   "sma50": 0.13257219999999936,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.27484,
+      "level_out": 0.08125
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.27484,
+      "level_out": 0.08125
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.27484,
+      "level_out": 0.08125
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 17,
+     "closed": 17,
+     "wins": 2,
+     "eur": 25.88,
+     "stake": 17000.0
+    },
+    "rupturas": {
+     "n": 16,
+     "closed": 16,
+     "wins": 4,
+     "eur": -61.07,
+     "stake": 5333.33
+    },
+    "zona4h": {
+     "n": 47,
+     "closed": 47,
+     "wins": 14,
+     "eur": -765.41,
+     "stake": 47000.0
+    }
+   },
+   "bt": {
+    "from": "2025-08-02",
+    "days": 581,
+    "bh": 0.23,
+    "media50": {
+     "mult": 0.59,
+     "dd": -65.6
+    },
+    "rupturas": {
+     "mult": 0.61,
+     "dd": -69.4
+    },
+    "zona4h": {
+     "n": 47,
+     "win": 30,
+     "avgR": -0.77,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "PUMP",
+   "pair": "PUMPUSDT",
+   "price": 0.002642,
+   "close": 0.002579,
+   "close_date": "2026-11-25",
+   "sma50": 0.00398316,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.003917,
+      "level_out": 0.002354
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.006521,
+      "level_out": 0.002354
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.006521,
+      "level_out": 0.002354
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 13,
+     "closed": 13,
+     "wins": 1,
+     "eur": 841.08,
+     "stake": 13000.0
+    },
+    "rupturas": {
+     "n": 11,
+     "closed": 11,
+     "wins": 4,
+     "eur": 682.73,
+     "stake": 3666.67
+    },
+    "zona4h": {
+     "n": 39,
+     "closed": 39,
+     "wins": 15,
+     "eur": -83.75,
+     "stake": 39000.0
+    }
+   },
+   "bt": {
+    "from": "2025-12-20",
+    "days": 441,
+    "bh": 1.23,
+    "media50": {
+     "mult": 1.11,
+     "dd": -57.1
+    },
+    "rupturas": {
+     "mult": 1.35,
+     "dd": -43.8
+    },
+    "zona4h": {
+     "n": 39,
+     "win": 38,
+     "avgR": -0.38,
+     "from": "2025-09-11"
+    }
+   }
+  },
+  {
+   "symbol": "INJ",
+   "pair": "INJUSDT",
+   "price": 6.189,
+   "close": 5.953,
+   "close_date": "2026-11-25",
+   "sma50": 7.557040000000033,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 8.297,
+      "level_out": 5.859
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 8.948,
+      "level_out": 5.859
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 8.948,
+      "level_out": 5.859
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 78,
+     "closed": 78,
+     "wins": 13,
+     "eur": 3372.57,
+     "stake": 78000.0
+    },
+    "rupturas": {
+     "n": 67,
+     "closed": 67,
+     "wins": 25,
+     "eur": 2187.34,
+     "stake": 22333.33
+    },
+    "zona4h": {
+     "n": 65,
+     "closed": 65,
+     "wins": 23,
+     "eur": 204.68,
+     "stake": 65000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.55,
+    "media50": {
+     "mult": 0.88,
+     "dd": -84.6
+    },
+    "rupturas": {
+     "mult": 1.85,
+     "dd": -70.0
+    },
+    "zona4h": {
+     "n": 65,
+     "win": 35,
+     "avgR": -0.38,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "AVAX",
+   "pair": "AVAXUSDT",
+   "price": 6.643,
+   "close": 6.632,
+   "close_date": "2026-11-25",
+   "sma50": 8.642799999999983,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 8.656,
+      "level_out": 6.521
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 11.608,
+      "level_out": 6.521
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 11.608,
+      "level_out": 6.521
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 69,
+     "closed": 69,
+     "wins": 15,
+     "eur": 5570.41,
+     "stake": 69000.0
+    },
+    "rupturas": {
+     "n": 55,
+     "closed": 55,
+     "wins": 21,
+     "eur": 3388.3,
+     "stake": 18333.33
+    },
+    "zona4h": {
+     "n": 39,
+     "closed": 39,
+     "wins": 12,
+     "eur": -53.98,
+     "stake": 39000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.12,
+    "media50": {
+     "mult": 1.31,
+     "dd": -77.2
+    },
+    "rupturas": {
+     "mult": 2.55,
+     "dd": -57.4
+    },
+    "zona4h": {
+     "n": 39,
+     "win": 31,
+     "avgR": -0.41,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "SSV",
+   "pair": "SSVUSDT",
+   "price": 2.664,
+   "close": 2.318,
+   "close_date": "2026-11-25",
+   "sma50": 2.289439999999978,
+   "media50": {
+    "on": true,
+    "since": "2026-11-26T00:00:00Z"
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": true,
+      "level_in": 2.318,
+      "level_out": 1.542
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 3.14,
+      "level_out": 1.542
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 3.322,
+      "level_out": 1.542
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [
+     {
+      "zone_ts": "2026-11-25T12:00:00Z",
+      "top": 1.806,
+      "bot": 1.629,
+      "mid": 1.7175,
+      "target": 2.0715000000000003,
+      "width": 10.87
+     },
+     {
+      "zone_ts": "2026-11-25T16:00:00Z",
+      "top": 1.938,
+      "bot": 1.891,
+      "mid": 1.9144999999999999,
+      "target": 2.0084999999999997,
+      "width": 2.49
+     },
+     {
+      "zone_ts": "2026-11-25T20:00:00Z",
+      "top": 2.175,
+      "bot": 1.994,
+      "mid": 2.0845,
+      "target": 2.4464999999999995,
+      "width": 9.08
+     }
+    ],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 41,
+     "closed": 40,
+     "wins": 6,
+     "eur": -467.6,
+     "stake": 41000.0
+    },
+    "rupturas": {
+     "n": 38,
+     "closed": 37,
+     "wins": 15,
+     "eur": -19.91,
+     "stake": 12666.67
+    },
+    "zona4h": {
+     "n": 57,
+     "closed": 57,
+     "wins": 15,
+     "eur": -538.66,
+     "stake": 57000.0
+    }
+   },
+   "bt": {
+    "from": "2023-06-04",
+    "days": 1371,
+    "bh": 0.07,
+    "media50": {
+     "mult": 0.41,
+     "dd": -87.5
+    },
+    "rupturas": {
+     "mult": 0.92,
+     "dd": -67.5
+    },
+    "zona4h": {
+     "n": 57,
+     "win": 26,
+     "avgR": -1.04,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "QNT",
+   "pair": "QNTUSDT",
+   "price": 152.17,
+   "close": 145.3,
+   "close_date": "2026-11-25",
+   "sma50": 187.7839999999999,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 196.17,
+      "level_out": 139.09
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 265.52,
+      "level_out": 139.09
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 287.15,
+      "level_out": 139.09
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 65,
+     "closed": 65,
+     "wins": 11,
+     "eur": 1679.23,
+     "stake": 65000.0
+    },
+    "rupturas": {
+     "n": 56,
+     "closed": 56,
+     "wins": 21,
+     "eur": 1770.6,
+     "stake": 18666.67
+    },
+    "zona4h": {
+     "n": 42,
+     "closed": 42,
+     "wins": 16,
+     "eur": 325.34,
+     "stake": 42000.0
+    }
+   },
+   "bt": {
+    "from": "2021-11-06",
+    "days": 1946,
+    "bh": 0.57,
+    "media50": {
+     "mult": 2.09,
+     "dd": -70.4
+    },
+    "rupturas": {
+     "mult": 2.31,
+     "dd": -53.4
+    },
+    "zona4h": {
+     "n": 42,
+     "win": 38,
+     "avgR": -0.1,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "MOVE",
+   "pair": "MOVEUSDT",
+   "price": 0.006156,
+   "close": 0.005024,
+   "close_date": "2026-11-25",
+   "sma50": 0.006473520000000992,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.005955,
+      "level_out": 0.004529
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.010171,
+      "level_out": 0.004529
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.010171,
+      "level_out": 0.004529
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 13,
+     "closed": 13,
+     "wins": 1,
+     "eur": -888.01,
+     "stake": 13000.0
+    },
+    "rupturas": {
+     "n": 13,
+     "closed": 13,
+     "wins": 0,
+     "eur": -619.44,
+     "stake": 4333.33
+    },
+    "zona4h": {
+     "n": 21,
+     "closed": 21,
+     "wins": 9,
+     "eur": -56.39,
+     "stake": 21000.0
+    }
+   },
+   "bt": {
+    "from": "2025-03-19",
+    "days": 717,
+    "bh": 0.01,
+    "media50": {
+     "mult": 0.39,
+     "dd": -64.6
+    },
+    "rupturas": {
+     "mult": 0.52,
+     "dd": -48.2
+    },
+    "zona4h": {
+     "n": 21,
+     "win": 43,
+     "avgR": -0.09,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ZRO",
+   "pair": "ZROUSDT",
+   "price": 1.109,
+   "close": 1.025,
+   "close_date": "2026-11-25",
+   "sma50": 1.6723000000000041,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 1.647,
+      "level_out": 1.025
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 2.253,
+      "level_out": 1.025
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 2.253,
+      "level_out": 1.025
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 41,
+     "closed": 41,
+     "wins": 5,
+     "eur": -858.78,
+     "stake": 41000.0
+    },
+    "rupturas": {
+     "n": 26,
+     "closed": 26,
+     "wins": 8,
+     "eur": -405.36,
+     "stake": 8666.67
+    },
+    "zona4h": {
+     "n": 62,
+     "closed": 62,
+     "wins": 21,
+     "eur": -799.97,
+     "stake": 62000.0
+    }
+   },
+   "bt": {
+    "from": "2024-09-28",
+    "days": 889,
+    "bh": 0.21,
+    "media50": {
+     "mult": 0.29,
+     "dd": -84.0
+    },
+    "rupturas": {
+     "mult": 0.62,
+     "dd": -66.0
+    },
+    "zona4h": {
+     "n": 62,
+     "win": 34,
+     "avgR": -0.92,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "BCH",
+   "pair": "BCHUSDT",
+   "price": 208.0,
+   "close": 205.8,
+   "close_date": "2026-11-25",
+   "sma50": 254.96399999999986,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 263.9,
+      "level_out": 194.8
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 319.7,
+      "level_out": 194.8
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 345.1,
+      "level_out": 194.8
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 89,
+     "closed": 89,
+     "wins": 11,
+     "eur": -389.55,
+     "stake": 89000.0
+    },
+    "rupturas": {
+     "n": 63,
+     "closed": 63,
+     "wins": 22,
+     "eur": 512.31,
+     "stake": 21000.0
+    },
+    "zona4h": {
+     "n": 42,
+     "closed": 42,
+     "wins": 11,
+     "eur": -473.2,
+     "stake": 42000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.32,
+    "media50": {
+     "mult": 0.28,
+     "dd": -72.1
+    },
+    "rupturas": {
+     "mult": 1.2,
+     "dd": -48.8
+    },
+    "zona4h": {
+     "n": 42,
+     "win": 26,
+     "avgR": -0.9,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "TRUMP",
+   "pair": "TRUMPUSDT",
+   "price": 0.876,
+   "close": 0.89,
+   "close_date": "2026-11-25",
+   "sma50": 1.4334199999999995,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 1.204,
+      "level_out": 0.838
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 2.115,
+      "level_out": 0.838
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 2.736,
+      "level_out": 0.838
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 14,
+     "closed": 14,
+     "wins": 1,
+     "eur": -856.66,
+     "stake": 14000.0
+    },
+    "rupturas": {
+     "n": 12,
+     "closed": 12,
+     "wins": 2,
+     "eur": -454.08,
+     "stake": 4000.0
+    },
+    "zona4h": {
+     "n": 27,
+     "closed": 27,
+     "wins": 8,
+     "eur": -252.26,
+     "stake": 27000.0
+    }
+   },
+   "bt": {
+    "from": "2025-04-29",
+    "days": 676,
+    "bh": 0.06,
+    "media50": {
+     "mult": 0.36,
+     "dd": -68.1
+    },
+    "rupturas": {
+     "mult": 0.6,
+     "dd": -39.9
+    },
+    "zona4h": {
+     "n": 27,
+     "win": 30,
+     "avgR": -0.42,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
    "symbol": "BIGTIME",
    "pair": "BIGTIMEUSDT",
-   "price": 0.00625,
+   "price": 0.00579,
    "close": 0.00667,
    "close_date": "2026-11-25",
    "sma50": 0.006185799999999999,
@@ -1810,576 +2710,9 @@
    }
   },
   {
-   "symbol": "AVAX",
-   "pair": "AVAXUSDT",
-   "price": 6.675,
-   "close": 6.632,
-   "close_date": "2026-11-25",
-   "sma50": 8.642799999999983,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 8.656,
-      "level_out": 6.521
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 11.608,
-      "level_out": 6.521
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 11.608,
-      "level_out": 6.521
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 69,
-     "closed": 69,
-     "wins": 15,
-     "eur": 5570.41,
-     "stake": 69000.0
-    },
-    "rupturas": {
-     "n": 55,
-     "closed": 55,
-     "wins": 21,
-     "eur": 3388.3,
-     "stake": 18333.33
-    },
-    "zona4h": {
-     "n": 39,
-     "closed": 39,
-     "wins": 12,
-     "eur": -53.98,
-     "stake": 39000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.12,
-    "media50": {
-     "mult": 1.31,
-     "dd": -77.2
-    },
-    "rupturas": {
-     "mult": 2.55,
-     "dd": -57.4
-    },
-    "zona4h": {
-     "n": 39,
-     "win": 31,
-     "avgR": -0.41,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ZRO",
-   "pair": "ZROUSDT",
-   "price": 1.031,
-   "close": 1.025,
-   "close_date": "2026-11-25",
-   "sma50": 1.6723000000000041,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 1.647,
-      "level_out": 1.025
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 2.253,
-      "level_out": 1.025
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 2.253,
-      "level_out": 1.025
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 41,
-     "closed": 41,
-     "wins": 5,
-     "eur": -858.78,
-     "stake": 41000.0
-    },
-    "rupturas": {
-     "n": 26,
-     "closed": 26,
-     "wins": 8,
-     "eur": -405.36,
-     "stake": 8666.67
-    },
-    "zona4h": {
-     "n": 62,
-     "closed": 62,
-     "wins": 21,
-     "eur": -799.97,
-     "stake": 62000.0
-    }
-   },
-   "bt": {
-    "from": "2024-09-28",
-    "days": 889,
-    "bh": 0.21,
-    "media50": {
-     "mult": 0.29,
-     "dd": -84.0
-    },
-    "rupturas": {
-     "mult": 0.62,
-     "dd": -66.0
-    },
-    "zona4h": {
-     "n": 62,
-     "win": 34,
-     "avgR": -0.92,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "PUMP",
-   "pair": "PUMPUSDT",
-   "price": 0.002609,
-   "close": 0.002579,
-   "close_date": "2026-11-25",
-   "sma50": 0.00398316,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.003917,
-      "level_out": 0.002354
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.006521,
-      "level_out": 0.002354
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.006521,
-      "level_out": 0.002354
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 13,
-     "closed": 13,
-     "wins": 1,
-     "eur": 841.08,
-     "stake": 13000.0
-    },
-    "rupturas": {
-     "n": 11,
-     "closed": 11,
-     "wins": 4,
-     "eur": 682.73,
-     "stake": 3666.67
-    },
-    "zona4h": {
-     "n": 39,
-     "closed": 39,
-     "wins": 15,
-     "eur": -83.75,
-     "stake": 39000.0
-    }
-   },
-   "bt": {
-    "from": "2025-12-20",
-    "days": 441,
-    "bh": 1.23,
-    "media50": {
-     "mult": 1.11,
-     "dd": -57.1
-    },
-    "rupturas": {
-     "mult": 1.35,
-     "dd": -43.8
-    },
-    "zona4h": {
-     "n": 39,
-     "win": 38,
-     "avgR": -0.38,
-     "from": "2025-09-11"
-    }
-   }
-  },
-  {
-   "symbol": "AAVE",
-   "pair": "AAVEUSDT",
-   "price": 96.47,
-   "close": 95.41,
-   "close_date": "2026-11-25",
-   "sma50": 132.25059999999993,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 131.71,
-      "level_out": 94.07
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 184.08,
-      "level_out": 94.07
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 184.08,
-      "level_out": 94.07
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 59,
-     "closed": 59,
-     "wins": 18,
-     "eur": 1472.7,
-     "stake": 59000.0
-    },
-    "rupturas": {
-     "n": 68,
-     "closed": 68,
-     "wins": 25,
-     "eur": -57.3,
-     "stake": 22666.67
-    },
-    "zona4h": {
-     "n": 35,
-     "closed": 35,
-     "wins": 10,
-     "eur": -257.51,
-     "stake": 35000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.28,
-    "media50": {
-     "mult": 1.88,
-     "dd": -55.3
-    },
-    "rupturas": {
-     "mult": 0.8,
-     "dd": -59.9
-    },
-    "zona4h": {
-     "n": 35,
-     "win": 29,
-     "avgR": -0.55,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "QNT",
-   "pair": "QNTUSDT",
-   "price": 145.64,
-   "close": 145.3,
-   "close_date": "2026-11-25",
-   "sma50": 187.7839999999999,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 196.17,
-      "level_out": 139.09
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 265.52,
-      "level_out": 139.09
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 287.15,
-      "level_out": 139.09
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 65,
-     "closed": 65,
-     "wins": 11,
-     "eur": 1679.23,
-     "stake": 65000.0
-    },
-    "rupturas": {
-     "n": 56,
-     "closed": 56,
-     "wins": 21,
-     "eur": 1770.6,
-     "stake": 18666.67
-    },
-    "zona4h": {
-     "n": 42,
-     "closed": 42,
-     "wins": 16,
-     "eur": 325.34,
-     "stake": 42000.0
-    }
-   },
-   "bt": {
-    "from": "2021-11-06",
-    "days": 1946,
-    "bh": 0.57,
-    "media50": {
-     "mult": 2.09,
-     "dd": -70.4
-    },
-    "rupturas": {
-     "mult": 2.31,
-     "dd": -53.4
-    },
-    "zona4h": {
-     "n": 42,
-     "win": 38,
-     "avgR": -0.1,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ASTER",
-   "pair": "ASTERUSDT",
-   "price": 0.4959,
-   "close": 0.4939,
-   "close_date": "2026-11-25",
-   "sma50": 0.6507979999999999,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.6838,
-      "level_out": 0.4813
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.7367,
-      "level_out": 0.4813
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.787,
-      "level_out": 0.4813
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 11,
-     "closed": 11,
-     "wins": 1,
-     "eur": -280.24,
-     "stake": 11000.0
-    },
-    "rupturas": {
-     "n": 12,
-     "closed": 12,
-     "wins": 3,
-     "eur": -287.22,
-     "stake": 4000.0
-    },
-    "zona4h": {
-     "n": 19,
-     "closed": 19,
-     "wins": 6,
-     "eur": -87.75,
-     "stake": 19000.0
-    }
-   },
-   "bt": {
-    "from": "2026-01-14",
-    "days": 416,
-    "bh": 0.66,
-    "media50": {
-     "mult": 0.74,
-     "dd": -40.3
-    },
-    "rupturas": {
-     "mult": 0.82,
-     "dd": -20.5
-    },
-    "zona4h": {
-     "n": 19,
-     "win": 32,
-     "avgR": -0.48,
-     "from": "2025-10-06"
-    }
-   }
-  },
-  {
-   "symbol": "INJ",
-   "pair": "INJUSDT",
-   "price": 6.007,
-   "close": 5.953,
-   "close_date": "2026-11-25",
-   "sma50": 7.557040000000033,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 8.297,
-      "level_out": 5.859
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 8.948,
-      "level_out": 5.859
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 8.948,
-      "level_out": 5.859
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 78,
-     "closed": 78,
-     "wins": 13,
-     "eur": 3372.57,
-     "stake": 78000.0
-    },
-    "rupturas": {
-     "n": 67,
-     "closed": 67,
-     "wins": 25,
-     "eur": 2187.34,
-     "stake": 22333.33
-    },
-    "zona4h": {
-     "n": 65,
-     "closed": 65,
-     "wins": 23,
-     "eur": 204.68,
-     "stake": 65000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.55,
-    "media50": {
-     "mult": 0.88,
-     "dd": -84.6
-    },
-    "rupturas": {
-     "mult": 1.85,
-     "dd": -70.0
-    },
-    "zona4h": {
-     "n": 65,
-     "win": 35,
-     "avgR": -0.38,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "PROM",
    "pair": "PROMUSDT",
-   "price": 5.275,
+   "price": 4.933,
    "close": 5.238,
    "close_date": "2026-11-25",
    "sma50": 5.250399999999992,
@@ -2458,294 +2791,9 @@
    }
   },
   {
-   "symbol": "BLUR",
-   "pair": "BLURUSDT",
-   "price": 0.01091,
-   "close": 0.0109,
-   "close_date": "2026-11-25",
-   "sma50": 0.009191000000000425,
-   "media50": {
-    "on": true,
-    "since": "2026-11-26T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 0.0109,
-      "level_out": 0.00599
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.02182,
-      "level_out": 0.00589
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.02182,
-      "level_out": 0.00589
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [
-     {
-      "zone_ts": "2026-11-22T16:00:00Z",
-      "top": 0.00716,
-      "bot": 0.00702,
-      "mid": 0.00709,
-      "target": 0.007369999999999999,
-      "width": 1.99
-     },
-     {
-      "zone_ts": "2026-11-23T04:00:00Z",
-      "top": 0.00756,
-      "bot": 0.00742,
-      "mid": 0.00749,
-      "target": 0.007769999999999999,
-      "width": 1.89
-     },
-     {
-      "zone_ts": "2026-11-25T00:00:00Z",
-      "top": 0.00854,
-      "bot": 0.0082,
-      "mid": 0.00837,
-      "target": 0.00905,
-      "width": 4.15
-     }
-    ],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 24,
-     "closed": 23,
-     "wins": 4,
-     "eur": -548.88,
-     "stake": 24000.0
-    },
-    "rupturas": {
-     "n": 31,
-     "closed": 30,
-     "wins": 9,
-     "eur": -641.48,
-     "stake": 10333.33
-    },
-    "zona4h": {
-     "n": 41,
-     "closed": 41,
-     "wins": 19,
-     "eur": 334.05,
-     "stake": 41000.0
-    }
-   },
-   "bt": {
-    "from": "2024-03-03",
-    "days": 1098,
-    "bh": 0.01,
-    "media50": {
-     "mult": 0.39,
-     "dd": -73.3
-    },
-    "rupturas": {
-     "mult": 0.47,
-     "dd": -65.5
-    },
-    "zona4h": {
-     "n": 41,
-     "win": 46,
-     "avgR": -0.17,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "XPL",
-   "pair": "XPLUSDT",
-   "price": 0.04784,
-   "close": 0.04746,
-   "close_date": "2026-11-25",
-   "sma50": 0.06571919999999962,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.05768,
-      "level_out": 0.04416
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.09629,
-      "level_out": 0.04353
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.11467,
-      "level_out": 0.04353
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 14,
-     "closed": 14,
-     "wins": 2,
-     "eur": -698.49,
-     "stake": 14000.0
-    },
-    "rupturas": {
-     "n": 12,
-     "closed": 12,
-     "wins": 1,
-     "eur": -754.96,
-     "stake": 4000.0
-    },
-    "zona4h": {
-     "n": 27,
-     "closed": 27,
-     "wins": 12,
-     "eur": -82.95,
-     "stake": 27000.0
-    }
-   },
-   "bt": {
-    "from": "2026-01-03",
-    "days": 427,
-    "bh": 0.23,
-    "media50": {
-     "mult": 0.48,
-     "dd": -56.4
-    },
-    "rupturas": {
-     "mult": 0.42,
-     "dd": -58.6
-    },
-    "zona4h": {
-     "n": 27,
-     "win": 44,
-     "avgR": 0.46,
-     "from": "2025-09-25"
-    }
-   }
-  },
-  {
-   "symbol": "SSV",
-   "pair": "SSVUSDT",
-   "price": 2.316,
-   "close": 2.318,
-   "close_date": "2026-11-25",
-   "sma50": 2.289439999999978,
-   "media50": {
-    "on": true,
-    "since": "2026-11-26T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 2.318,
-      "level_out": 1.542
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 3.14,
-      "level_out": 1.542
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 3.322,
-      "level_out": 1.542
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [
-     {
-      "zone_ts": "2026-11-25T12:00:00Z",
-      "top": 1.806,
-      "bot": 1.629,
-      "mid": 1.7175,
-      "target": 2.0715000000000003,
-      "width": 10.87
-     },
-     {
-      "zone_ts": "2026-11-25T16:00:00Z",
-      "top": 1.938,
-      "bot": 1.891,
-      "mid": 1.9144999999999999,
-      "target": 2.0084999999999997,
-      "width": 2.49
-     }
-    ],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 41,
-     "closed": 40,
-     "wins": 6,
-     "eur": -467.6,
-     "stake": 41000.0
-    },
-    "rupturas": {
-     "n": 38,
-     "closed": 37,
-     "wins": 15,
-     "eur": -19.91,
-     "stake": 12666.67
-    },
-    "zona4h": {
-     "n": 57,
-     "closed": 57,
-     "wins": 15,
-     "eur": -538.66,
-     "stake": 57000.0
-    }
-   },
-   "bt": {
-    "from": "2023-06-04",
-    "days": 1371,
-    "bh": 0.07,
-    "media50": {
-     "mult": 0.41,
-     "dd": -87.5
-    },
-    "rupturas": {
-     "mult": 0.92,
-     "dd": -67.5
-    },
-    "zona4h": {
-     "n": 57,
-     "win": 26,
-     "avgR": -1.04,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "XLM",
    "pair": "XLMUSDT",
-   "price": 0.1294,
+   "price": 0.1276,
    "close": 0.1281,
    "close_date": "2026-11-25",
    "sma50": 0.1622139999999998,
@@ -2824,342 +2872,9 @@
    }
   },
   {
-   "symbol": "WLFI",
-   "pair": "WLFIUSDT",
-   "price": 0.0427,
-   "close": 0.0426,
-   "close_date": "2026-11-25",
-   "sma50": 0.05045000000000001,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.0478,
-      "level_out": 0.0401
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.0573,
-      "level_out": 0.0401
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.0625,
-      "level_out": 0.0401
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 12,
-     "closed": 12,
-     "wins": 1,
-     "eur": -256.84,
-     "stake": 12000.0
-    },
-    "rupturas": {
-     "n": 9,
-     "closed": 9,
-     "wins": 1,
-     "eur": -224.73,
-     "stake": 3000.0
-    },
-    "zona4h": {
-     "n": 18,
-     "closed": 18,
-     "wins": 12,
-     "eur": 268.62,
-     "stake": 18000.0
-    }
-   },
-   "bt": {
-    "from": "2025-12-10",
-    "days": 451,
-    "bh": 0.26,
-    "media50": {
-     "mult": 0.74,
-     "dd": -35.4
-    },
-    "rupturas": {
-     "mult": 0.92,
-     "dd": -15.7
-    },
-    "zona4h": {
-     "n": 18,
-     "win": 67,
-     "avgR": 1.82,
-     "from": "2025-09-01"
-    }
-   }
-  },
-  {
-   "symbol": "BCH",
-   "pair": "BCHUSDT",
-   "price": 207.8,
-   "close": 205.8,
-   "close_date": "2026-11-25",
-   "sma50": 254.96399999999986,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 263.9,
-      "level_out": 194.8
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 319.7,
-      "level_out": 194.8
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 345.1,
-      "level_out": 194.8
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 89,
-     "closed": 89,
-     "wins": 11,
-     "eur": -389.55,
-     "stake": 89000.0
-    },
-    "rupturas": {
-     "n": 63,
-     "closed": 63,
-     "wins": 22,
-     "eur": 512.31,
-     "stake": 21000.0
-    },
-    "zona4h": {
-     "n": 42,
-     "closed": 42,
-     "wins": 11,
-     "eur": -473.2,
-     "stake": 42000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.32,
-    "media50": {
-     "mult": 0.28,
-     "dd": -72.1
-    },
-    "rupturas": {
-     "mult": 1.2,
-     "dd": -48.8
-    },
-    "zona4h": {
-     "n": 42,
-     "win": 26,
-     "avgR": -0.9,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "TRUMP",
-   "pair": "TRUMPUSDT",
-   "price": 0.895,
-   "close": 0.89,
-   "close_date": "2026-11-25",
-   "sma50": 1.4334199999999995,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 1.204,
-      "level_out": 0.838
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 2.115,
-      "level_out": 0.838
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 2.736,
-      "level_out": 0.838
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 14,
-     "closed": 14,
-     "wins": 1,
-     "eur": -856.66,
-     "stake": 14000.0
-    },
-    "rupturas": {
-     "n": 12,
-     "closed": 12,
-     "wins": 2,
-     "eur": -454.08,
-     "stake": 4000.0
-    },
-    "zona4h": {
-     "n": 27,
-     "closed": 27,
-     "wins": 8,
-     "eur": -252.26,
-     "stake": 27000.0
-    }
-   },
-   "bt": {
-    "from": "2025-04-29",
-    "days": 676,
-    "bh": 0.06,
-    "media50": {
-     "mult": 0.36,
-     "dd": -68.1
-    },
-    "rupturas": {
-     "mult": 0.6,
-     "dd": -39.9
-    },
-    "zona4h": {
-     "n": 27,
-     "win": 30,
-     "avgR": -0.42,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "LISTA",
-   "pair": "LISTAUSDT",
-   "price": 0.1035,
-   "close": 0.1041,
-   "close_date": "2026-11-25",
-   "sma50": 0.07726599999999985,
-   "media50": {
-    "on": true,
-    "since": "2026-11-23T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 0.1102,
-      "level_out": 0.0665
-     },
-     {
-      "n": 55,
-      "on": true,
-      "level_in": 0.1102,
-      "level_out": 0.0665
-     },
-     {
-      "n": 100,
-      "on": true,
-      "level_in": 0.1102,
-      "level_out": 0.0665
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [
-     {
-      "zone_ts": "2026-11-22T12:00:00Z",
-      "top": 0.0692,
-      "bot": 0.0679,
-      "mid": 0.06855,
-      "target": 0.07114999999999999,
-      "width": 1.91
-     }
-    ],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 36,
-     "closed": 35,
-     "wins": 5,
-     "eur": -1012.98,
-     "stake": 36000.0
-    },
-    "rupturas": {
-     "n": 30,
-     "closed": 27,
-     "wins": 7,
-     "eur": -759.32,
-     "stake": 10000.0
-    },
-    "zona4h": {
-     "n": 62,
-     "closed": 62,
-     "wins": 23,
-     "eur": -164.73,
-     "stake": 62000.0
-    }
-   },
-   "bt": {
-    "from": "2024-09-28",
-    "days": 889,
-    "bh": 0.26,
-    "media50": {
-     "mult": 0.26,
-     "dd": -86.2
-    },
-    "rupturas": {
-     "mult": 0.53,
-     "dd": -68.2
-    },
-    "zona4h": {
-     "n": 62,
-     "win": 37,
-     "avgR": -0.35,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "FET",
    "pair": "FETUSDT",
-   "price": 0.1096,
+   "price": 0.1154,
    "close": 0.1086,
    "close_date": "2026-11-25",
    "sma50": 0.16496400000000253,
@@ -3238,90 +2953,9 @@
    }
   },
   {
-   "symbol": "AT",
-   "pair": "ATUSDT",
-   "price": 0.0619,
-   "close": 0.0639,
-   "close_date": "2026-11-25",
-   "sma50": 0.11373400000000013,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.1003,
-      "level_out": 0.0532
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.1527,
-      "level_out": 0.0532
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.1648,
-      "level_out": 0.0532
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 19,
-     "closed": 19,
-     "wins": 0,
-     "eur": -1145.73,
-     "stake": 19000.0
-    },
-    "rupturas": {
-     "n": 12,
-     "closed": 12,
-     "wins": 0,
-     "eur": -610.18,
-     "stake": 4000.0
-    },
-    "zona4h": {
-     "n": 29,
-     "closed": 29,
-     "wins": 7,
-     "eur": -293.64,
-     "stake": 29000.0
-    }
-   },
-   "bt": {
-    "from": "2026-03-07",
-    "days": 364,
-    "bh": 0.35,
-    "media50": {
-     "mult": 0.35,
-     "dd": -65.3
-    },
-    "rupturas": {
-     "mult": 0.57,
-     "dd": -45.2
-    },
-    "zona4h": {
-     "n": 29,
-     "win": 24,
-     "avgR": -0.96,
-     "from": "2025-11-27"
-    }
-   }
-  },
-  {
    "symbol": "HBAR",
    "pair": "HBARUSDT",
-   "price": 0.05276,
+   "price": 0.05361,
    "close": 0.05216,
    "close_date": "2026-11-25",
    "sma50": 0.0718318000000004,
@@ -3400,12 +3034,12 @@
    }
   },
   {
-   "symbol": "ARB",
-   "pair": "ARBUSDT",
-   "price": 0.1145,
-   "close": 0.1132,
+   "symbol": "AT",
+   "pair": "ATUSDT",
+   "price": 0.0548,
+   "close": 0.0639,
    "close_date": "2026-11-25",
-   "sma50": 0.1605359999999998,
+   "sma50": 0.11373400000000013,
    "media50": {
     "on": false,
     "since": null
@@ -3415,101 +3049,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.1749,
-      "level_out": 0.1104
+      "level_in": 0.1003,
+      "level_out": 0.0532
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.2079,
-      "level_out": 0.1104
+      "level_in": 0.1527,
+      "level_out": 0.0532
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.2353,
-      "level_out": 0.1104
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 35,
-     "closed": 35,
-     "wins": 8,
-     "eur": 1027.6,
-     "stake": 35000.0
-    },
-    "rupturas": {
-     "n": 39,
-     "closed": 39,
-     "wins": 12,
-     "eur": 494.79,
-     "stake": 13000.0
-    },
-    "zona4h": {
-     "n": 44,
-     "closed": 44,
-     "wins": 6,
-     "eur": -1088.41,
-     "stake": 44000.0
-    }
-   },
-   "bt": {
-    "from": "2023-07-01",
-    "days": 1344,
-    "bh": 0.09,
-    "media50": {
-     "mult": 1.94,
-     "dd": -52.9
-    },
-    "rupturas": {
-     "mult": 1.38,
-     "dd": -55.4
-    },
-    "zona4h": {
-     "n": 44,
-     "win": 14,
-     "avgR": -1.86,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ONDO",
-   "pair": "ONDOUSDT",
-   "price": 0.2849,
-   "close": 0.2828,
-   "close_date": "2026-11-25",
-   "sma50": 0.389206000000001,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.3742,
-      "level_out": 0.2784
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.5218,
-      "level_out": 0.2784
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.5877,
-      "level_out": 0.2784
+      "level_in": 0.1648,
+      "level_out": 0.0532
      }
     ]
    },
@@ -3522,49 +3075,49 @@
     "media50": {
      "n": 19,
      "closed": 19,
-     "wins": 3,
-     "eur": -222.02,
+     "wins": 0,
+     "eur": -1145.73,
      "stake": 19000.0
     },
     "rupturas": {
-     "n": 17,
-     "closed": 17,
-     "wins": 6,
-     "eur": -220.13,
-     "stake": 5666.67
+     "n": 12,
+     "closed": 12,
+     "wins": 0,
+     "eur": -610.18,
+     "stake": 4000.0
     },
     "zona4h": {
-     "n": 51,
-     "closed": 51,
-     "wins": 13,
-     "eur": -377.1,
-     "stake": 51000.0
+     "n": 29,
+     "closed": 29,
+     "wins": 7,
+     "eur": -293.64,
+     "stake": 29000.0
     }
    },
    "bt": {
-    "from": "2025-07-20",
-    "days": 594,
-    "bh": 0.27,
+    "from": "2026-03-07",
+    "days": 364,
+    "bh": 0.35,
     "media50": {
-     "mult": 0.61,
-     "dd": -54.0
+     "mult": 0.35,
+     "dd": -65.3
     },
     "rupturas": {
-     "mult": 0.74,
-     "dd": -33.9
+     "mult": 0.57,
+     "dd": -45.2
     },
     "zona4h": {
-     "n": 51,
-     "win": 25,
-     "avgR": -1.19,
-     "from": "2025-07-14"
+     "n": 29,
+     "win": 24,
+     "avgR": -0.96,
+     "from": "2025-11-27"
     }
    }
   },
   {
    "symbol": "NIGHT",
    "pair": "NIGHTUSDT",
-   "price": 0.04929,
+   "price": 0.04778,
    "close": 0.04915,
    "close_date": "2026-11-25",
    "sma50": 0.043105400000000016,
@@ -3605,6 +3158,16 @@
       "width": 2.43,
       "touch_ts": "2026-11-22T04:00:00Z",
       "expires_ts": "2026-12-08T20:00:00Z"
+     },
+     {
+      "zone_ts": "2026-11-25T20:00:00Z",
+      "top": 0.04815,
+      "bot": 0.04714,
+      "mid": 0.047645,
+      "target": 0.049664999999999994,
+      "width": 2.14,
+      "touch_ts": "2026-11-26T04:00:00Z",
+      "expires_ts": "2026-12-12T20:00:00Z"
      }
     ],
     "watch": [
@@ -3624,14 +3187,14 @@
      "n": 6,
      "closed": 5,
      "wins": 1,
-     "eur": 795.15,
+     "eur": 761.09,
      "stake": 6000.0
     },
     "rupturas": {
      "n": 8,
      "closed": 6,
      "wins": 2,
-     "eur": 393.98,
+     "eur": 369.54,
      "stake": 2666.67
     },
     "zona4h": {
@@ -3663,12 +3226,12 @@
    }
   },
   {
-   "symbol": "LAYER",
-   "pair": "LAYERUSDT",
-   "price": 0.0461,
-   "close": 0.0453,
+   "symbol": "ME",
+   "pair": "MEUSDT",
+   "price": 0.0419,
+   "close": 0.03722,
    "close_date": "2026-11-25",
-   "sma50": 0.05797399999999944,
+   "sma50": 0.052996599999999124,
    "media50": {
     "on": false,
     "since": null
@@ -3678,20 +3241,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.054,
-      "level_out": 0.0417
+      "level_in": 0.04756,
+      "level_out": 0.03555
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.0786,
-      "level_out": 0.0417
+      "level_in": 0.07843,
+      "level_out": 0.03555
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.0847,
-      "level_out": 0.0417
+      "level_in": 0.07986,
+      "level_out": 0.03555
      }
     ]
    },
@@ -3702,51 +3265,375 @@
    },
    "sim": {
     "media50": {
-     "n": 13,
-     "closed": 13,
-     "wins": 3,
-     "eur": -59.57,
-     "stake": 13000.0
+     "n": 20,
+     "closed": 20,
+     "wins": 1,
+     "eur": -1045.71,
+     "stake": 20000.0
     },
     "rupturas": {
-     "n": 14,
-     "closed": 14,
+     "n": 17,
+     "closed": 17,
      "wins": 2,
-     "eur": -144.8,
-     "stake": 4666.67
+     "eur": -575.41,
+     "stake": 5666.67
     },
     "zona4h": {
      "n": 24,
      "closed": 24,
-     "wins": 9,
-     "eur": -195.45,
+     "wins": 8,
+     "eur": -154.73,
      "stake": 24000.0
     }
    },
    "bt": {
-    "from": "2025-05-22",
-    "days": 653,
-    "bh": 0.04,
+    "from": "2025-03-20",
+    "days": 716,
+    "bh": 0.03,
     "media50": {
-     "mult": 0.79,
-     "dd": -38.8
+     "mult": 0.34,
+     "dd": -70.5
     },
     "rupturas": {
-     "mult": 0.65,
-     "dd": -41.4
+     "mult": 0.55,
+     "dd": -45.0
     },
     "zona4h": {
      "n": 24,
-     "win": 38,
-     "avgR": -0.12,
+     "win": 33,
+     "avgR": -0.06,
      "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "TIA",
+   "pair": "TIAUSDT",
+   "price": 0.3439,
+   "close": 0.3362,
+   "close_date": "2026-11-25",
+   "sma50": 0.4725659999999939,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.4424,
+      "level_out": 0.3232
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.6885,
+      "level_out": 0.3232
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.6885,
+      "level_out": 0.3232
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 40,
+     "closed": 40,
+     "wins": 4,
+     "eur": -1431.18,
+     "stake": 40000.0
+    },
+    "rupturas": {
+     "n": 34,
+     "closed": 34,
+     "wins": 4,
+     "eur": -1253.85,
+     "stake": 11333.33
+    },
+    "zona4h": {
+     "n": 49,
+     "closed": 49,
+     "wins": 14,
+     "eur": -322.27,
+     "stake": 49000.0
+    }
+   },
+   "bt": {
+    "from": "2024-02-08",
+    "days": 1122,
+    "bh": 0.02,
+    "media50": {
+     "mult": 0.11,
+     "dd": -92.3
+    },
+    "rupturas": {
+     "mult": 0.19,
+     "dd": -83.1
+    },
+    "zona4h": {
+     "n": 49,
+     "win": 29,
+     "avgR": -0.64,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "XPL",
+   "pair": "XPLUSDT",
+   "price": 0.04828,
+   "close": 0.04746,
+   "close_date": "2026-11-25",
+   "sma50": 0.06571919999999962,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.05768,
+      "level_out": 0.04416
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.09629,
+      "level_out": 0.04353
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.11467,
+      "level_out": 0.04353
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 14,
+     "closed": 14,
+     "wins": 2,
+     "eur": -698.49,
+     "stake": 14000.0
+    },
+    "rupturas": {
+     "n": 12,
+     "closed": 12,
+     "wins": 1,
+     "eur": -754.96,
+     "stake": 4000.0
+    },
+    "zona4h": {
+     "n": 27,
+     "closed": 27,
+     "wins": 12,
+     "eur": -82.95,
+     "stake": 27000.0
+    }
+   },
+   "bt": {
+    "from": "2026-01-03",
+    "days": 427,
+    "bh": 0.23,
+    "media50": {
+     "mult": 0.48,
+     "dd": -56.4
+    },
+    "rupturas": {
+     "mult": 0.42,
+     "dd": -58.6
+    },
+    "zona4h": {
+     "n": 27,
+     "win": 44,
+     "avgR": 0.46,
+     "from": "2025-09-25"
+    }
+   }
+  },
+  {
+   "symbol": "SEI",
+   "pair": "SEIUSDT",
+   "price": 0.03653,
+   "close": 0.03328,
+   "close_date": "2026-11-25",
+   "sma50": 0.050387200000001,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.04685,
+      "level_out": 0.03283
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.074,
+      "level_out": 0.03283
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.07903,
+      "level_out": 0.03283
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 27,
+     "closed": 27,
+     "wins": 9,
+     "eur": 4164.91,
+     "stake": 27000.0
+    },
+    "rupturas": {
+     "n": 35,
+     "closed": 35,
+     "wins": 13,
+     "eur": 1983.05,
+     "stake": 11666.67
+    },
+    "zona4h": {
+     "n": 42,
+     "closed": 42,
+     "wins": 10,
+     "eur": -494.24,
+     "stake": 42000.0
+    }
+   },
+   "bt": {
+    "from": "2023-11-23",
+    "days": 1199,
+    "bh": 0.19,
+    "media50": {
+     "mult": 3.02,
+     "dd": -57.9
+    },
+    "rupturas": {
+     "mult": 1.81,
+     "dd": -57.2
+    },
+    "zona4h": {
+     "n": 42,
+     "win": 24,
+     "avgR": -0.99,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ASTER",
+   "pair": "ASTERUSDT",
+   "price": 0.4963,
+   "close": 0.4939,
+   "close_date": "2026-11-25",
+   "sma50": 0.6507979999999999,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.6838,
+      "level_out": 0.4813
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.7367,
+      "level_out": 0.4813
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.787,
+      "level_out": 0.4813
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 11,
+     "closed": 11,
+     "wins": 1,
+     "eur": -280.24,
+     "stake": 11000.0
+    },
+    "rupturas": {
+     "n": 12,
+     "closed": 12,
+     "wins": 3,
+     "eur": -287.22,
+     "stake": 4000.0
+    },
+    "zona4h": {
+     "n": 19,
+     "closed": 19,
+     "wins": 6,
+     "eur": -87.75,
+     "stake": 19000.0
+    }
+   },
+   "bt": {
+    "from": "2026-01-14",
+    "days": 416,
+    "bh": 0.66,
+    "media50": {
+     "mult": 0.74,
+     "dd": -40.3
+    },
+    "rupturas": {
+     "mult": 0.82,
+     "dd": -20.5
+    },
+    "zona4h": {
+     "n": 19,
+     "win": 32,
+     "avgR": -0.48,
+     "from": "2025-10-06"
     }
    }
   },
   {
    "symbol": "FIL",
    "pair": "FILUSDT",
-   "price": 0.5521,
+   "price": 0.5467,
    "close": 0.5486,
    "close_date": "2026-11-25",
    "sma50": 0.8541700000000234,
@@ -3825,174 +3712,140 @@
    }
   },
   {
-   "symbol": "INIT",
-   "pair": "INITUSDT",
-   "price": 0.08521,
-   "close": 0.08524,
+   "symbol": "BLUR",
+   "pair": "BLURUSDT",
+   "price": 0.0097,
+   "close": 0.0109,
    "close_date": "2026-11-25",
-   "sma50": 0.13257219999999936,
+   "sma50": 0.009191000000000425,
    "media50": {
-    "on": false,
-    "since": null
+    "on": true,
+    "since": "2026-11-26T00:00:00Z"
    },
    "rupturas": {
     "tramos": [
      {
       "n": 20,
-      "on": false,
-      "level_in": 0.27484,
-      "level_out": 0.08125
+      "on": true,
+      "level_in": 0.0109,
+      "level_out": 0.00599
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.27484,
-      "level_out": 0.08125
+      "level_in": 0.02182,
+      "level_out": 0.00589
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.27484,
-      "level_out": 0.08125
+      "level_in": 0.02182,
+      "level_out": 0.00589
      }
     ]
    },
    "zona4h": {
     "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 17,
-     "closed": 17,
-     "wins": 2,
-     "eur": 25.88,
-     "stake": 17000.0
-    },
-    "rupturas": {
-     "n": 16,
-     "closed": 16,
-     "wins": 4,
-     "eur": -61.07,
-     "stake": 5333.33
-    },
-    "zona4h": {
-     "n": 47,
-     "closed": 47,
-     "wins": 14,
-     "eur": -765.41,
-     "stake": 47000.0
-    }
-   },
-   "bt": {
-    "from": "2025-08-02",
-    "days": 581,
-    "bh": 0.23,
-    "media50": {
-     "mult": 0.59,
-     "dd": -65.6
-    },
-    "rupturas": {
-     "mult": 0.61,
-     "dd": -69.4
-    },
-    "zona4h": {
-     "n": 47,
-     "win": 30,
-     "avgR": -0.77,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "BABY",
-   "pair": "BABYUSDT",
-   "price": 0.00874,
-   "close": 0.00872,
-   "close_date": "2026-11-25",
-   "sma50": 0.01123919999999997,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
+    "watch": [
      {
-      "n": 20,
-      "on": false,
-      "level_in": 0.01137,
-      "level_out": 0.0075
+      "zone_ts": "2026-11-22T16:00:00Z",
+      "top": 0.00716,
+      "bot": 0.00702,
+      "mid": 0.00709,
+      "target": 0.007369999999999999,
+      "width": 1.99
      },
      {
-      "n": 55,
-      "on": false,
-      "level_in": 0.01451,
-      "level_out": 0.0075
+      "zone_ts": "2026-11-23T04:00:00Z",
+      "top": 0.00756,
+      "bot": 0.00742,
+      "mid": 0.00749,
+      "target": 0.007769999999999999,
+      "width": 1.89
      },
      {
-      "n": 100,
-      "on": false,
-      "level_in": 0.01451,
-      "level_out": 0.0075
+      "zone_ts": "2026-11-25T00:00:00Z",
+      "top": 0.00854,
+      "bot": 0.0082,
+      "mid": 0.00837,
+      "target": 0.00905,
+      "width": 4.15
+     }
+    ],
+    "open": [
+     {
+      "zone_ts": "2026-11-25T20:00:00Z",
+      "top": 0.01038,
+      "bot": 0.00987,
+      "mid": 0.010125,
+      "target": 0.011145,
+      "width": 5.17,
+      "kind": "zona4h",
+      "signal_ts": "2026-11-26T08:00:00Z",
+      "entry_ts": "2026-11-26T08:00:00Z",
+      "entry": 0.010125,
+      "stop": 0.00987,
+      "weight": 1.0,
+      "open": true,
+      "symbol": "BLUR",
+      "pair": "BLURUSDT",
+      "id": "zona4h|BLUR|2026-11-25T20:00:00Z|2026-11-26T08:00:00Z",
+      "ret": -4.3,
+      "eur": -42.98,
+      "R": -1.71
      }
     ]
    },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
    "sim": {
     "media50": {
-     "n": 23,
+     "n": 24,
      "closed": 23,
-     "wins": 2,
-     "eur": -1529.27,
-     "stake": 23000.0
+     "wins": 4,
+     "eur": -548.88,
+     "stake": 24000.0
     },
     "rupturas": {
-     "n": 18,
-     "closed": 18,
-     "wins": 2,
-     "eur": -858.55,
-     "stake": 6000.0
+     "n": 31,
+     "closed": 30,
+     "wins": 9,
+     "eur": -692.28,
+     "stake": 10333.33
     },
     "zona4h": {
-     "n": 49,
-     "closed": 49,
-     "wins": 15,
-     "eur": -485.57,
-     "stake": 49000.0
+     "n": 42,
+     "closed": 41,
+     "wins": 19,
+     "eur": 291.07,
+     "stake": 42000.0
     }
    },
    "bt": {
-    "from": "2025-07-19",
-    "days": 595,
-    "bh": 0.17,
+    "from": "2024-03-03",
+    "days": 1098,
+    "bh": 0.01,
     "media50": {
-     "mult": 0.19,
-     "dd": -81.7
+     "mult": 0.39,
+     "dd": -73.3
     },
     "rupturas": {
      "mult": 0.47,
-     "dd": -58.3
+     "dd": -65.5
     },
     "zona4h": {
-     "n": 49,
-     "win": 31,
-     "avgR": -0.87,
+     "n": 41,
+     "win": 46,
+     "avgR": -0.17,
      "from": "2025-07-14"
     }
    }
   },
   {
-   "symbol": "POL",
-   "pair": "POLUSDT",
-   "price": 0.07679,
-   "close": 0.07635,
+   "symbol": "ARB",
+   "pair": "ARBUSDT",
+   "price": 0.113,
+   "close": 0.1132,
    "close_date": "2026-11-25",
-   "sma50": 0.08961340000000023,
+   "sma50": 0.1605359999999998,
    "media50": {
     "on": false,
     "since": null
@@ -4002,20 +3855,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.09275,
-      "level_out": 0.07554
+      "level_in": 0.1749,
+      "level_out": 0.1104
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.1102,
-      "level_out": 0.07554
+      "level_in": 0.2079,
+      "level_out": 0.1104
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.12255,
-      "level_out": 0.07554
+      "level_in": 0.2353,
+      "level_out": 0.1104
      }
     ]
    },
@@ -4026,51 +3879,465 @@
    },
    "sim": {
     "media50": {
-     "n": 16,
-     "closed": 16,
-     "wins": 4,
-     "eur": 305.85,
-     "stake": 16000.0
+     "n": 35,
+     "closed": 35,
+     "wins": 8,
+     "eur": 1027.6,
+     "stake": 35000.0
     },
     "rupturas": {
-     "n": 21,
-     "closed": 21,
-     "wins": 8,
-     "eur": -172.14,
-     "stake": 7000.0
+     "n": 39,
+     "closed": 39,
+     "wins": 12,
+     "eur": 494.79,
+     "stake": 13000.0
     },
     "zona4h": {
-     "n": 27,
-     "closed": 27,
-     "wins": 12,
-     "eur": 141.06,
-     "stake": 27000.0
+     "n": 44,
+     "closed": 44,
+     "wins": 6,
+     "eur": -1088.41,
+     "stake": 44000.0
     }
    },
    "bt": {
-    "from": "2024-12-22",
-    "days": 804,
-    "bh": 0.16,
+    "from": "2023-07-01",
+    "days": 1344,
+    "bh": 0.09,
     "media50": {
-     "mult": 1.06,
-     "dd": -50.5
+     "mult": 1.94,
+     "dd": -52.9
     },
     "rupturas": {
-     "mult": 0.7,
-     "dd": -35.4
+     "mult": 1.38,
+     "dd": -55.4
     },
     "zona4h": {
-     "n": 27,
-     "win": 44,
-     "avgR": 0.42,
+     "n": 44,
+     "win": 14,
+     "avgR": -1.86,
      "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ETHFI",
+   "pair": "ETHFIUSDT",
+   "price": 0.4384,
+   "close": 0.4481,
+   "close_date": "2026-11-25",
+   "sma50": 0.6042640000000024,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.6382,
+      "level_out": 0.4426
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.78,
+      "level_out": 0.4426
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.7853,
+      "level_out": 0.4426
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 30,
+     "closed": 30,
+     "wins": 5,
+     "eur": -888.71,
+     "stake": 30000.0
+    },
+    "rupturas": {
+     "n": 25,
+     "closed": 25,
+     "wins": 13,
+     "eur": 265.35,
+     "stake": 8333.33
+    },
+    "zona4h": {
+     "n": 59,
+     "closed": 59,
+     "wins": 22,
+     "eur": -153.94,
+     "stake": 59000.0
+    }
+   },
+   "bt": {
+    "from": "2024-06-26",
+    "days": 983,
+    "bh": 0.14,
+    "media50": {
+     "mult": 0.42,
+     "dd": -74.9
+    },
+    "rupturas": {
+     "mult": 1.2,
+     "dd": -45.1
+    },
+    "zona4h": {
+     "n": 59,
+     "win": 37,
+     "avgR": -0.27,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ONDO",
+   "pair": "ONDOUSDT",
+   "price": 0.2867,
+   "close": 0.2828,
+   "close_date": "2026-11-25",
+   "sma50": 0.389206000000001,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.3742,
+      "level_out": 0.2784
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.5218,
+      "level_out": 0.2784
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.5877,
+      "level_out": 0.2784
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 19,
+     "closed": 19,
+     "wins": 3,
+     "eur": -222.02,
+     "stake": 19000.0
+    },
+    "rupturas": {
+     "n": 17,
+     "closed": 17,
+     "wins": 6,
+     "eur": -220.13,
+     "stake": 5666.67
+    },
+    "zona4h": {
+     "n": 51,
+     "closed": 51,
+     "wins": 13,
+     "eur": -377.1,
+     "stake": 51000.0
+    }
+   },
+   "bt": {
+    "from": "2025-07-20",
+    "days": 594,
+    "bh": 0.27,
+    "media50": {
+     "mult": 0.61,
+     "dd": -54.0
+    },
+    "rupturas": {
+     "mult": 0.74,
+     "dd": -33.9
+    },
+    "zona4h": {
+     "n": 51,
+     "win": 25,
+     "avgR": -1.19,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "LISTA",
+   "pair": "LISTAUSDT",
+   "price": 0.0877,
+   "close": 0.1041,
+   "close_date": "2026-11-25",
+   "sma50": 0.07726599999999985,
+   "media50": {
+    "on": true,
+    "since": "2026-11-23T00:00:00Z"
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": true,
+      "level_in": 0.1102,
+      "level_out": 0.0665
+     },
+     {
+      "n": 55,
+      "on": true,
+      "level_in": 0.1102,
+      "level_out": 0.0665
+     },
+     {
+      "n": 100,
+      "on": true,
+      "level_in": 0.1102,
+      "level_out": 0.0665
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [
+     {
+      "zone_ts": "2026-11-22T12:00:00Z",
+      "top": 0.0692,
+      "bot": 0.0679,
+      "mid": 0.06855,
+      "target": 0.07114999999999999,
+      "width": 1.91
+     }
+    ],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 36,
+     "closed": 35,
+     "wins": 5,
+     "eur": -1219.51,
+     "stake": 36000.0
+    },
+    "rupturas": {
+     "n": 30,
+     "closed": 27,
+     "wins": 7,
+     "eur": -927.2,
+     "stake": 10000.0
+    },
+    "zona4h": {
+     "n": 62,
+     "closed": 62,
+     "wins": 23,
+     "eur": -164.73,
+     "stake": 62000.0
+    }
+   },
+   "bt": {
+    "from": "2024-09-28",
+    "days": 889,
+    "bh": 0.26,
+    "media50": {
+     "mult": 0.26,
+     "dd": -86.2
+    },
+    "rupturas": {
+     "mult": 0.53,
+     "dd": -68.2
+    },
+    "zona4h": {
+     "n": 62,
+     "win": 37,
+     "avgR": -0.35,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "WLFI",
+   "pair": "WLFIUSDT",
+   "price": 0.0422,
+   "close": 0.0426,
+   "close_date": "2026-11-25",
+   "sma50": 0.05045000000000001,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.0478,
+      "level_out": 0.0401
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.0573,
+      "level_out": 0.0401
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.0625,
+      "level_out": 0.0401
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 12,
+     "closed": 12,
+     "wins": 1,
+     "eur": -256.84,
+     "stake": 12000.0
+    },
+    "rupturas": {
+     "n": 9,
+     "closed": 9,
+     "wins": 1,
+     "eur": -224.73,
+     "stake": 3000.0
+    },
+    "zona4h": {
+     "n": 18,
+     "closed": 18,
+     "wins": 12,
+     "eur": 268.62,
+     "stake": 18000.0
+    }
+   },
+   "bt": {
+    "from": "2025-12-10",
+    "days": 451,
+    "bh": 0.26,
+    "media50": {
+     "mult": 0.74,
+     "dd": -35.4
+    },
+    "rupturas": {
+     "mult": 0.92,
+     "dd": -15.7
+    },
+    "zona4h": {
+     "n": 18,
+     "win": 67,
+     "avgR": 1.82,
+     "from": "2025-09-01"
+    }
+   }
+  },
+  {
+   "symbol": "SKY",
+   "pair": "SKYUSDT",
+   "price": 0.04758,
+   "close": 0.04192,
+   "close_date": "2026-11-25",
+   "sma50": 0.06365760000000001,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.06503,
+      "level_out": 0.04038
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.09775,
+      "level_out": 0.04038
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.09775,
+      "level_out": 0.04038
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 18,
+     "closed": 18,
+     "wins": 5,
+     "eur": -292.19,
+     "stake": 18000.0
+    },
+    "rupturas": {
+     "n": 15,
+     "closed": 15,
+     "wins": 6,
+     "eur": -103.2,
+     "stake": 5000.0
+    },
+    "zona4h": {
+     "n": 64,
+     "closed": 64,
+     "wins": 19,
+     "eur": -384.83,
+     "stake": 64000.0
+    }
+   },
+   "bt": {
+    "from": "2025-12-26",
+    "days": 435,
+    "bh": 0.6,
+    "media50": {
+     "mult": 0.65,
+     "dd": -34.6
+    },
+    "rupturas": {
+     "mult": 0.81,
+     "dd": -29.3
+    },
+    "zona4h": {
+     "n": 64,
+     "win": 30,
+     "avgR": -0.61,
+     "from": "2025-09-17"
     }
    }
   },
   {
    "symbol": "ICP",
    "pair": "ICPUSDT",
-   "price": 2.024,
+   "price": 2.003,
    "close": 2.017,
    "close_date": "2026-11-25",
    "sma50": 2.59202000000003,
@@ -4149,9 +4416,657 @@
    }
   },
   {
+   "symbol": "CFG",
+   "pair": "CFGUSDT",
+   "price": 0.0501,
+   "close": 0.0523,
+   "close_date": "2026-11-25",
+   "sma50": 0.09814599999999989,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.0971,
+      "level_out": 0.0453
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.1552,
+      "level_out": 0.0453
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.1686,
+      "level_out": 0.0453
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 3,
+     "closed": 3,
+     "wins": 1,
+     "eur": -78.33,
+     "stake": 3000.0
+    },
+    "rupturas": {
+     "n": 5,
+     "closed": 5,
+     "wins": 2,
+     "eur": -41.42,
+     "stake": 1666.67
+    },
+    "zona4h": {
+     "n": 16,
+     "closed": 16,
+     "wins": 5,
+     "eur": -117.93,
+     "stake": 16000.0
+    }
+   },
+   "bt": {
+    "from": "2026-06-24",
+    "days": 255,
+    "bh": 0.21,
+    "media50": {
+     "mult": 0.88,
+     "dd": -23.9
+    },
+    "rupturas": {
+     "mult": 1.05,
+     "dd": -5.7
+    },
+    "zona4h": {
+     "n": 16,
+     "win": 31,
+     "avgR": -0.56,
+     "from": "2026-03-16"
+    }
+   }
+  },
+  {
+   "symbol": "STO",
+   "pair": "STOUSDT",
+   "price": 0.0218,
+   "close": 0.0225,
+   "close_date": "2026-11-25",
+   "sma50": 0.029823999999999993,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.0276,
+      "level_out": 0.0197
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.0421,
+      "level_out": 0.0197
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.0464,
+      "level_out": 0.0197
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 16,
+     "closed": 16,
+     "wins": 4,
+     "eur": -296.28,
+     "stake": 16000.0
+    },
+    "rupturas": {
+     "n": 16,
+     "closed": 16,
+     "wins": 3,
+     "eur": -233.64,
+     "stake": 5333.33
+    },
+    "zona4h": {
+     "n": 42,
+     "closed": 42,
+     "wins": 17,
+     "eur": -1051.27,
+     "stake": 42000.0
+    }
+   },
+   "bt": {
+    "from": "2025-08-10",
+    "days": 573,
+    "bh": 0.2,
+    "media50": {
+     "mult": 0.61,
+     "dd": -82.9
+    },
+    "rupturas": {
+     "mult": 0.65,
+     "dd": -80.3
+    },
+    "zona4h": {
+     "n": 42,
+     "win": 40,
+     "avgR": -0.49,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "ONE",
+   "pair": "ONEUSDT",
+   "price": 0.001024,
+   "close": 0.000951,
+   "close_date": "2026-11-25",
+   "sma50": 0.001420140000000098,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.002099,
+      "level_out": 0.000935
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.002584,
+      "level_out": 0.000935
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.004263,
+      "level_out": 0.000935
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 65,
+     "closed": 65,
+     "wins": 9,
+     "eur": 1084.52,
+     "stake": 65000.0
+    },
+    "rupturas": {
+     "n": 57,
+     "closed": 57,
+     "wins": 17,
+     "eur": 676.57,
+     "stake": 19000.0
+    },
+    "zona4h": {
+     "n": 40,
+     "closed": 40,
+     "wins": 13,
+     "eur": 184.09,
+     "stake": 40000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.01,
+    "media50": {
+     "mult": 0.32,
+     "dd": -84.5
+    },
+    "rupturas": {
+     "mult": 0.56,
+     "dd": -72.2
+    },
+    "zona4h": {
+     "n": 40,
+     "win": 32,
+     "avgR": -0.08,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "BABY",
+   "pair": "BABYUSDT",
+   "price": 0.00917,
+   "close": 0.00872,
+   "close_date": "2026-11-25",
+   "sma50": 0.01123919999999997,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.01137,
+      "level_out": 0.0075
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.01451,
+      "level_out": 0.0075
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.01451,
+      "level_out": 0.0075
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 23,
+     "closed": 23,
+     "wins": 2,
+     "eur": -1529.27,
+     "stake": 23000.0
+    },
+    "rupturas": {
+     "n": 18,
+     "closed": 18,
+     "wins": 2,
+     "eur": -858.55,
+     "stake": 6000.0
+    },
+    "zona4h": {
+     "n": 49,
+     "closed": 49,
+     "wins": 15,
+     "eur": -485.57,
+     "stake": 49000.0
+    }
+   },
+   "bt": {
+    "from": "2025-07-19",
+    "days": 595,
+    "bh": 0.17,
+    "media50": {
+     "mult": 0.19,
+     "dd": -81.7
+    },
+    "rupturas": {
+     "mult": 0.47,
+     "dd": -58.3
+    },
+    "zona4h": {
+     "n": 49,
+     "win": 31,
+     "avgR": -0.87,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "DASH",
+   "pair": "DASHUSDT",
+   "price": 36.11,
+   "close": 35.92,
+   "close_date": "2026-11-25",
+   "sma50": 45.87539999999983,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 47.27,
+      "level_out": 33.2
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 59.73,
+      "level_out": 33.2
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 71.84,
+      "level_out": 33.2
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 61,
+     "closed": 61,
+     "wins": 11,
+     "eur": 275.99,
+     "stake": 61000.0
+    },
+    "rupturas": {
+     "n": 65,
+     "closed": 65,
+     "wins": 20,
+     "eur": 43.11,
+     "stake": 21666.67
+    },
+    "zona4h": {
+     "n": 61,
+     "closed": 61,
+     "wins": 24,
+     "eur": 377.69,
+     "stake": 61000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.18,
+    "media50": {
+     "mult": 0.49,
+     "dd": -76.6
+    },
+    "rupturas": {
+     "mult": 0.68,
+     "dd": -71.6
+    },
+    "zona4h": {
+     "n": 61,
+     "win": 39,
+     "avgR": 0.08,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "RAY",
+   "pair": "RAYUSDT",
+   "price": 1.3162,
+   "close": 1.3211,
+   "close_date": "2026-11-25",
+   "sma50": 1.7281399999999925,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 1.8255,
+      "level_out": 1.2351
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 2.4678,
+      "level_out": 1.2351
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 2.4678,
+      "level_out": 1.2351
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 52,
+     "closed": 52,
+     "wins": 11,
+     "eur": 7562.45,
+     "stake": 52000.0
+    },
+    "rupturas": {
+     "n": 48,
+     "closed": 48,
+     "wins": 23,
+     "eur": 5217.72,
+     "stake": 16000.0
+    },
+    "zona4h": {
+     "n": 57,
+     "closed": 57,
+     "wins": 21,
+     "eur": -86.18,
+     "stake": 57000.0
+    }
+   },
+   "bt": {
+    "from": "2021-11-18",
+    "days": 1934,
+    "bh": 0.12,
+    "media50": {
+     "mult": 13.91,
+     "dd": -69.5
+    },
+    "rupturas": {
+     "mult": 13.83,
+     "dd": -55.4
+    },
+    "zona4h": {
+     "n": 57,
+     "win": 37,
+     "avgR": -0.55,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "LAYER",
+   "pair": "LAYERUSDT",
+   "price": 0.0459,
+   "close": 0.0453,
+   "close_date": "2026-11-25",
+   "sma50": 0.05797399999999944,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.054,
+      "level_out": 0.0417
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.0786,
+      "level_out": 0.0417
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.0847,
+      "level_out": 0.0417
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 13,
+     "closed": 13,
+     "wins": 3,
+     "eur": -59.57,
+     "stake": 13000.0
+    },
+    "rupturas": {
+     "n": 14,
+     "closed": 14,
+     "wins": 2,
+     "eur": -144.8,
+     "stake": 4666.67
+    },
+    "zona4h": {
+     "n": 24,
+     "closed": 24,
+     "wins": 9,
+     "eur": -195.45,
+     "stake": 24000.0
+    }
+   },
+   "bt": {
+    "from": "2025-05-22",
+    "days": 653,
+    "bh": 0.04,
+    "media50": {
+     "mult": 0.79,
+     "dd": -38.8
+    },
+    "rupturas": {
+     "mult": 0.65,
+     "dd": -41.4
+    },
+    "zona4h": {
+     "n": 24,
+     "win": 38,
+     "avgR": -0.12,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "POL",
+   "pair": "POLUSDT",
+   "price": 0.07676,
+   "close": 0.07635,
+   "close_date": "2026-11-25",
+   "sma50": 0.08961340000000023,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.09275,
+      "level_out": 0.07554
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 0.1102,
+      "level_out": 0.07554
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 0.12255,
+      "level_out": 0.07554
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 16,
+     "closed": 16,
+     "wins": 4,
+     "eur": 305.85,
+     "stake": 16000.0
+    },
+    "rupturas": {
+     "n": 21,
+     "closed": 21,
+     "wins": 8,
+     "eur": -172.14,
+     "stake": 7000.0
+    },
+    "zona4h": {
+     "n": 27,
+     "closed": 27,
+     "wins": 12,
+     "eur": 141.06,
+     "stake": 27000.0
+    }
+   },
+   "bt": {
+    "from": "2024-12-22",
+    "days": 804,
+    "bh": 0.16,
+    "media50": {
+     "mult": 1.06,
+     "dd": -50.5
+    },
+    "rupturas": {
+     "mult": 0.7,
+     "dd": -35.4
+    },
+    "zona4h": {
+     "n": 27,
+     "win": 44,
+     "avgR": 0.42,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
    "symbol": "RENDER",
    "pair": "RENDERUSDT",
-   "price": 1.314,
+   "price": 1.331,
    "close": 1.296,
    "close_date": "2026-11-25",
    "sma50": 1.6393999999999969,
@@ -4232,7 +5147,7 @@
   {
    "symbol": "KITE",
    "pair": "KITEUSDT",
-   "price": 0.1433,
+   "price": 0.1414,
    "close": 0.1437,
    "close_date": "2026-11-25",
    "sma50": 0.12348800000000008,
@@ -4265,29 +5180,51 @@
    "zona4h": {
     "pending": [],
     "watch": [],
-    "open": []
+    "open": [
+     {
+      "zone_ts": "2026-11-25T20:00:00Z",
+      "top": 0.1434,
+      "bot": 0.1416,
+      "mid": 0.14250000000000002,
+      "target": 0.1461,
+      "width": 1.27,
+      "kind": "zona4h",
+      "signal_ts": "2026-11-26T04:00:00Z",
+      "entry_ts": "2026-11-26T04:00:00Z",
+      "entry": 0.14250000000000002,
+      "stop": 0.1416,
+      "weight": 1.0,
+      "open": true,
+      "symbol": "KITE",
+      "pair": "KITEUSDT",
+      "id": "zona4h|KITE|2026-11-25T20:00:00Z|2026-11-26T04:00:00Z",
+      "ret": -0.87,
+      "eur": -8.72,
+      "R": -1.38
+     }
+    ]
    },
    "sim": {
     "media50": {
      "n": 15,
      "closed": 14,
      "wins": 3,
-     "eur": 1034.6,
+     "eur": 1019.52,
      "stake": 15000.0
     },
     "rupturas": {
      "n": 11,
      "closed": 10,
      "wins": 4,
-     "eur": 552.28,
+     "eur": 547.26,
      "stake": 3666.67
     },
     "zona4h": {
-     "n": 53,
+     "n": 54,
      "closed": 53,
      "wins": 22,
-     "eur": 36.49,
-     "stake": 53000.0
+     "eur": 27.77,
+     "stake": 54000.0
     }
    },
    "bt": {
@@ -4311,679 +5248,9 @@
    }
   },
   {
-   "symbol": "CFG",
-   "pair": "CFGUSDT",
-   "price": 0.0522,
-   "close": 0.0523,
-   "close_date": "2026-11-25",
-   "sma50": 0.09814599999999989,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.0971,
-      "level_out": 0.0453
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.1552,
-      "level_out": 0.0453
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.1686,
-      "level_out": 0.0453
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 3,
-     "closed": 3,
-     "wins": 1,
-     "eur": -78.33,
-     "stake": 3000.0
-    },
-    "rupturas": {
-     "n": 5,
-     "closed": 5,
-     "wins": 2,
-     "eur": -41.42,
-     "stake": 1666.67
-    },
-    "zona4h": {
-     "n": 16,
-     "closed": 16,
-     "wins": 5,
-     "eur": -117.93,
-     "stake": 16000.0
-    }
-   },
-   "bt": {
-    "from": "2026-06-24",
-    "days": 255,
-    "bh": 0.21,
-    "media50": {
-     "mult": 0.88,
-     "dd": -23.9
-    },
-    "rupturas": {
-     "mult": 1.05,
-     "dd": -5.7
-    },
-    "zona4h": {
-     "n": 16,
-     "win": 31,
-     "avgR": -0.56,
-     "from": "2026-03-16"
-    }
-   }
-  },
-  {
-   "symbol": "WAXP",
-   "pair": "WAXPUSDT",
-   "price": 0.00383,
-   "close": 0.00361,
-   "close_date": "2026-11-25",
-   "sma50": 0.0043227999999994856,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.00399,
-      "level_out": 0.00327
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.00639,
-      "level_out": 0.00327
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.00665,
-      "level_out": 0.00327
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 47,
-     "closed": 47,
-     "wins": 7,
-     "eur": 85.59,
-     "stake": 47000.0
-    },
-    "rupturas": {
-     "n": 50,
-     "closed": 50,
-     "wins": 13,
-     "eur": -87.45,
-     "stake": 16666.67
-    },
-    "zona4h": {
-     "n": 24,
-     "closed": 24,
-     "wins": 8,
-     "eur": -259.95,
-     "stake": 24000.0
-    }
-   },
-   "bt": {
-    "from": "2021-12-01",
-    "days": 1921,
-    "bh": 0.0,
-    "media50": {
-     "mult": 0.26,
-     "dd": -84.1
-    },
-    "rupturas": {
-     "mult": 0.46,
-     "dd": -61.7
-    },
-    "zona4h": {
-     "n": 24,
-     "win": 33,
-     "avgR": -0.01,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "SKY",
-   "pair": "SKYUSDT",
-   "price": 0.04217,
-   "close": 0.04192,
-   "close_date": "2026-11-25",
-   "sma50": 0.06365760000000001,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.06503,
-      "level_out": 0.04038
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.09775,
-      "level_out": 0.04038
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.09775,
-      "level_out": 0.04038
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 18,
-     "closed": 18,
-     "wins": 5,
-     "eur": -292.19,
-     "stake": 18000.0
-    },
-    "rupturas": {
-     "n": 15,
-     "closed": 15,
-     "wins": 6,
-     "eur": -103.2,
-     "stake": 5000.0
-    },
-    "zona4h": {
-     "n": 64,
-     "closed": 64,
-     "wins": 19,
-     "eur": -384.83,
-     "stake": 64000.0
-    }
-   },
-   "bt": {
-    "from": "2025-12-26",
-    "days": 435,
-    "bh": 0.6,
-    "media50": {
-     "mult": 0.65,
-     "dd": -34.6
-    },
-    "rupturas": {
-     "mult": 0.81,
-     "dd": -29.3
-    },
-    "zona4h": {
-     "n": 64,
-     "win": 30,
-     "avgR": -0.61,
-     "from": "2025-09-17"
-    }
-   }
-  },
-  {
-   "symbol": "DOT",
-   "pair": "DOTUSDT",
-   "price": 0.665,
-   "close": 0.66,
-   "close_date": "2026-11-25",
-   "sma50": 0.9493399999999551,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.913,
-      "level_out": 0.653
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 1.259,
-      "level_out": 0.653
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 1.268,
-      "level_out": 0.653
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 53,
-     "closed": 53,
-     "wins": 7,
-     "eur": 256.58,
-     "stake": 53000.0
-    },
-    "rupturas": {
-     "n": 56,
-     "closed": 56,
-     "wins": 19,
-     "eur": 71.87,
-     "stake": 18666.67
-    },
-    "zona4h": {
-     "n": 40,
-     "closed": 40,
-     "wins": 13,
-     "eur": -116.36,
-     "stake": 40000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.02,
-    "media50": {
-     "mult": 0.33,
-     "dd": -83.8
-    },
-    "rupturas": {
-     "mult": 0.54,
-     "dd": -62.9
-    },
-    "zona4h": {
-     "n": 40,
-     "win": 32,
-     "avgR": -0.25,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "APT",
-   "pair": "APTUSDT",
-   "price": 0.3759,
-   "close": 0.3738,
-   "close_date": "2026-11-25",
-   "sma50": 0.6341659999999808,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.605,
-      "level_out": 0.3648
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.9012,
-      "level_out": 0.3648
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.9012,
-      "level_out": 0.3648
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 52,
-     "closed": 52,
-     "wins": 8,
-     "eur": 665.95,
-     "stake": 52000.0
-    },
-    "rupturas": {
-     "n": 46,
-     "closed": 46,
-     "wins": 14,
-     "eur": 699.33,
-     "stake": 15333.33
-    },
-    "zona4h": {
-     "n": 38,
-     "closed": 38,
-     "wins": 10,
-     "eur": -729.81,
-     "stake": 38000.0
-    }
-   },
-   "bt": {
-    "from": "2023-01-27",
-    "days": 1499,
-    "bh": 0.02,
-    "media50": {
-     "mult": 0.23,
-     "dd": -83.0
-    },
-    "rupturas": {
-     "mult": 0.36,
-     "dd": -76.6
-    },
-    "zona4h": {
-     "n": 38,
-     "win": 26,
-     "avgR": -2.53,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ATM",
-   "pair": "ATMUSDT",
-   "price": 0.839,
-   "close": 0.843,
-   "close_date": "2026-11-25",
-   "sma50": 0.8748199999999958,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 0.974,
-      "level_out": 0.67
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 1.068,
-      "level_out": 0.663
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 1.393,
-      "level_out": 0.663
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": [
-     {
-      "zone_ts": "2026-11-24T12:00:00Z",
-      "top": 0.926,
-      "bot": 0.773,
-      "mid": 0.8495,
-      "target": 1.1555,
-      "width": 19.79,
-      "kind": "zona4h",
-      "signal_ts": "2026-11-25T04:00:00Z",
-      "entry_ts": "2026-11-25T08:00:00Z",
-      "entry": 0.8495,
-      "stop": 0.773,
-      "weight": 1.0,
-      "open": true,
-      "symbol": "ATM",
-      "pair": "ATMUSDT",
-      "id": "zona4h|ATM|2026-11-24T12:00:00Z|2026-11-25T08:00:00Z",
-      "ret": -1.34,
-      "eur": -13.36,
-      "R": -0.15
-     }
-    ]
-   },
-   "sim": {
-    "media50": {
-     "n": 54,
-     "closed": 54,
-     "wins": 10,
-     "eur": -632.69,
-     "stake": 54000.0
-    },
-    "rupturas": {
-     "n": 55,
-     "closed": 54,
-     "wins": 17,
-     "eur": -221.49,
-     "stake": 18333.33
-    },
-    "zona4h": {
-     "n": 32,
-     "closed": 31,
-     "wins": 17,
-     "eur": 590.99,
-     "stake": 32000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.06,
-    "media50": {
-     "mult": 0.41,
-     "dd": -81.5
-    },
-    "rupturas": {
-     "mult": 0.56,
-     "dd": -70.6
-    },
-    "zona4h": {
-     "n": 31,
-     "win": 55,
-     "avgR": 0.27,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ALICE",
-   "pair": "ALICEUSDT",
-   "price": 0.099,
-   "close": 0.0982,
-   "close_date": "2026-11-25",
-   "sma50": 0.13047000000000117,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.1225,
-      "level_out": 0.0941
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.1889,
-      "level_out": 0.0941
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.2114,
-      "level_out": 0.0941
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 64,
-     "closed": 64,
-     "wins": 8,
-     "eur": -1996.64,
-     "stake": 64000.0
-    },
-    "rupturas": {
-     "n": 62,
-     "closed": 62,
-     "wins": 16,
-     "eur": -2398.21,
-     "stake": 20666.67
-    },
-    "zona4h": {
-     "n": 41,
-     "closed": 41,
-     "wins": 10,
-     "eur": -839.79,
-     "stake": 41000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.01,
-    "media50": {
-     "mult": 0.07,
-     "dd": -96.3
-    },
-    "rupturas": {
-     "mult": 0.05,
-     "dd": -96.4
-    },
-    "zona4h": {
-     "n": 41,
-     "win": 24,
-     "avgR": -1.44,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ETHFI",
-   "pair": "ETHFIUSDT",
-   "price": 0.4519,
-   "close": 0.4481,
-   "close_date": "2026-11-25",
-   "sma50": 0.6042640000000024,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.6382,
-      "level_out": 0.4426
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.78,
-      "level_out": 0.4426
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.7853,
-      "level_out": 0.4426
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 30,
-     "closed": 30,
-     "wins": 5,
-     "eur": -888.71,
-     "stake": 30000.0
-    },
-    "rupturas": {
-     "n": 25,
-     "closed": 25,
-     "wins": 13,
-     "eur": 265.35,
-     "stake": 8333.33
-    },
-    "zona4h": {
-     "n": 59,
-     "closed": 59,
-     "wins": 22,
-     "eur": -153.94,
-     "stake": 59000.0
-    }
-   },
-   "bt": {
-    "from": "2024-06-26",
-    "days": 983,
-    "bh": 0.14,
-    "media50": {
-     "mult": 0.42,
-     "dd": -74.9
-    },
-    "rupturas": {
-     "mult": 1.2,
-     "dd": -45.1
-    },
-    "zona4h": {
-     "n": 59,
-     "win": 37,
-     "avgR": -0.27,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "PENGU",
    "pair": "PENGUUSDT",
-   "price": 0.004376,
+   "price": 0.00445,
    "close": 0.004348,
    "close_date": "2026-11-25",
    "sma50": 0.006684219999999984,
@@ -5062,252 +5329,9 @@
    }
   },
   {
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "price": 0.04206,
-   "close": 0.04203,
-   "close_date": "2026-11-25",
-   "sma50": 0.046400799999999985,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.05827,
-      "level_out": 0.04203
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.05827,
-      "level_out": 0.04203
-     },
-     {
-      "n": 100,
-      "on": true,
-      "level_in": 0.05827,
-      "level_out": 0.04105
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 9,
-     "closed": 9,
-     "wins": 2,
-     "eur": -332.23,
-     "stake": 9000.0
-    },
-    "rupturas": {
-     "n": 7,
-     "closed": 6,
-     "wins": 0,
-     "eur": -214.86,
-     "stake": 2333.33
-    },
-    "zona4h": {
-     "n": 16,
-     "closed": 16,
-     "wins": 5,
-     "eur": -192.57,
-     "stake": 16000.0
-    }
-   },
-   "bt": {
-    "from": "2026-08-08",
-    "days": 210,
-    "bh": 1.2,
-    "media50": {
-     "mult": 0.71,
-     "dd": -29.5
-    },
-    "rupturas": {
-     "mult": 0.81,
-     "dd": -27.4
-    },
-    "zona4h": {
-     "n": 16,
-     "win": 31,
-     "avgR": -0.45,
-     "from": "2026-04-30"
-    }
-   }
-  },
-  {
-   "symbol": "ATOM",
-   "pair": "ATOMUSDT",
-   "price": 1.238,
-   "close": 1.237,
-   "close_date": "2026-11-25",
-   "sma50": 1.52996000000003,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 1.435,
-      "level_out": 1.172
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 2.066,
-      "level_out": 1.172
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 2.066,
-      "level_out": 1.172
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 67,
-     "closed": 67,
-     "wins": 11,
-     "eur": 1288.09,
-     "stake": 67000.0
-    },
-    "rupturas": {
-     "n": 59,
-     "closed": 59,
-     "wins": 21,
-     "eur": -85.84,
-     "stake": 19666.67
-    },
-    "zona4h": {
-     "n": 33,
-     "closed": 33,
-     "wins": 6,
-     "eur": -369.95,
-     "stake": 33000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.03,
-    "media50": {
-     "mult": 0.42,
-     "dd": -71.0
-    },
-    "rupturas": {
-     "mult": 0.42,
-     "dd": -66.0
-    },
-    "zona4h": {
-     "n": 33,
-     "win": 18,
-     "avgR": -1.22,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "USUAL",
-   "pair": "USUALUSDT",
-   "price": 0.01133,
-   "close": 0.01134,
-   "close_date": "2026-11-25",
-   "sma50": 0.010785199999999917,
-   "media50": {
-    "on": true,
-    "since": "2026-11-21T00:00:00Z"
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": true,
-      "level_in": 0.01179,
-      "level_out": 0.00996
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.01343,
-      "level_out": 0.00971
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.01524,
-      "level_out": 0.00961
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 20,
-     "closed": 19,
-     "wins": 1,
-     "eur": -1364.05,
-     "stake": 20000.0
-    },
-    "rupturas": {
-     "n": 15,
-     "closed": 14,
-     "wins": 6,
-     "eur": -40.12,
-     "stake": 5000.0
-    },
-    "zona4h": {
-     "n": 36,
-     "closed": 36,
-     "wins": 13,
-     "eur": -155.26,
-     "stake": 36000.0
-    }
-   },
-   "bt": {
-    "from": "2025-02-27",
-    "days": 737,
-    "bh": 0.05,
-    "media50": {
-     "mult": 0.25,
-     "dd": -81.6
-    },
-    "rupturas": {
-     "mult": 0.75,
-     "dd": -34.8
-    },
-    "zona4h": {
-     "n": 36,
-     "win": 36,
-     "avgR": -1.13,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
    "symbol": "CHIP",
    "pair": "CHIPUSDT",
-   "price": 0.02751,
+   "price": 0.02744,
    "close": 0.02733,
    "close_date": "2026-11-25",
    "sma50": 0.040624400000000026,
@@ -5386,12 +5410,12 @@
    }
   },
   {
-   "symbol": "TIA",
-   "pair": "TIAUSDT",
-   "price": 0.3418,
-   "close": 0.3362,
+   "symbol": "APT",
+   "pair": "APTUSDT",
+   "price": 0.3848,
+   "close": 0.3738,
    "close_date": "2026-11-25",
-   "sma50": 0.4725659999999939,
+   "sma50": 0.6341659999999808,
    "media50": {
     "on": false,
     "since": null
@@ -5401,182 +5425,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.4424,
-      "level_out": 0.3232
+      "level_in": 0.605,
+      "level_out": 0.3648
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.6885,
-      "level_out": 0.3232
+      "level_in": 0.9012,
+      "level_out": 0.3648
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.6885,
-      "level_out": 0.3232
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 40,
-     "closed": 40,
-     "wins": 4,
-     "eur": -1431.18,
-     "stake": 40000.0
-    },
-    "rupturas": {
-     "n": 34,
-     "closed": 34,
-     "wins": 4,
-     "eur": -1253.85,
-     "stake": 11333.33
-    },
-    "zona4h": {
-     "n": 49,
-     "closed": 49,
-     "wins": 14,
-     "eur": -322.27,
-     "stake": 49000.0
-    }
-   },
-   "bt": {
-    "from": "2024-02-08",
-    "days": 1122,
-    "bh": 0.02,
-    "media50": {
-     "mult": 0.11,
-     "dd": -92.3
-    },
-    "rupturas": {
-     "mult": 0.19,
-     "dd": -83.1
-    },
-    "zona4h": {
-     "n": 49,
-     "win": 29,
-     "avgR": -0.64,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "MOVE",
-   "pair": "MOVEUSDT",
-   "price": 0.006784,
-   "close": 0.005024,
-   "close_date": "2026-11-25",
-   "sma50": 0.006473520000000992,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.005955,
-      "level_out": 0.004529
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.010171,
-      "level_out": 0.004529
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.010171,
-      "level_out": 0.004529
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 13,
-     "closed": 13,
-     "wins": 1,
-     "eur": -888.01,
-     "stake": 13000.0
-    },
-    "rupturas": {
-     "n": 13,
-     "closed": 13,
-     "wins": 0,
-     "eur": -619.44,
-     "stake": 4333.33
-    },
-    "zona4h": {
-     "n": 21,
-     "closed": 21,
-     "wins": 9,
-     "eur": -56.39,
-     "stake": 21000.0
-    }
-   },
-   "bt": {
-    "from": "2025-03-19",
-    "days": 717,
-    "bh": 0.01,
-    "media50": {
-     "mult": 0.39,
-     "dd": -64.6
-    },
-    "rupturas": {
-     "mult": 0.52,
-     "dd": -48.2
-    },
-    "zona4h": {
-     "n": 21,
-     "win": 43,
-     "avgR": -0.09,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "RAY",
-   "pair": "RAYUSDT",
-   "price": 1.3315,
-   "close": 1.3211,
-   "close_date": "2026-11-25",
-   "sma50": 1.7281399999999925,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 1.8255,
-      "level_out": 1.2351
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 2.4678,
-      "level_out": 1.2351
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 2.4678,
-      "level_out": 1.2351
+      "level_in": 0.9012,
+      "level_out": 0.3648
      }
     ]
    },
@@ -5589,150 +5451,225 @@
     "media50": {
      "n": 52,
      "closed": 52,
-     "wins": 11,
-     "eur": 7562.45,
+     "wins": 8,
+     "eur": 665.95,
      "stake": 52000.0
     },
     "rupturas": {
-     "n": 48,
-     "closed": 48,
-     "wins": 23,
-     "eur": 5217.72,
-     "stake": 16000.0
+     "n": 46,
+     "closed": 46,
+     "wins": 14,
+     "eur": 699.33,
+     "stake": 15333.33
     },
     "zona4h": {
-     "n": 57,
-     "closed": 57,
-     "wins": 21,
-     "eur": -86.18,
-     "stake": 57000.0
+     "n": 38,
+     "closed": 38,
+     "wins": 10,
+     "eur": -729.81,
+     "stake": 38000.0
     }
    },
    "bt": {
-    "from": "2021-11-18",
-    "days": 1934,
-    "bh": 0.12,
+    "from": "2023-01-27",
+    "days": 1499,
+    "bh": 0.02,
     "media50": {
-     "mult": 13.91,
-     "dd": -69.5
+     "mult": 0.23,
+     "dd": -83.0
     },
     "rupturas": {
-     "mult": 13.83,
-     "dd": -55.4
+     "mult": 0.36,
+     "dd": -76.6
     },
     "zona4h": {
-     "n": 57,
-     "win": 37,
-     "avgR": -0.55,
+     "n": 38,
+     "win": 26,
+     "avgR": -2.53,
      "from": "2025-07-14"
     }
    }
   },
   {
-   "symbol": "LUNC",
-   "pair": "LUNCUSDT",
-   "price": 4.525e-05,
-   "close": 4.5e-05,
+   "symbol": "DOT",
+   "pair": "DOTUSDT",
+   "price": 0.672,
+   "close": 0.66,
    "close_date": "2026-11-25",
-   "sma50": 4.3729600000000436e-05,
+   "sma50": 0.9493399999999551,
+   "media50": {
+    "on": false,
+    "since": null
+   },
+   "rupturas": {
+    "tramos": [
+     {
+      "n": 20,
+      "on": false,
+      "level_in": 0.913,
+      "level_out": 0.653
+     },
+     {
+      "n": 55,
+      "on": false,
+      "level_in": 1.259,
+      "level_out": 0.653
+     },
+     {
+      "n": 100,
+      "on": false,
+      "level_in": 1.268,
+      "level_out": 0.653
+     }
+    ]
+   },
+   "zona4h": {
+    "pending": [],
+    "watch": [],
+    "open": []
+   },
+   "sim": {
+    "media50": {
+     "n": 53,
+     "closed": 53,
+     "wins": 7,
+     "eur": 256.58,
+     "stake": 53000.0
+    },
+    "rupturas": {
+     "n": 56,
+     "closed": 56,
+     "wins": 19,
+     "eur": 71.87,
+     "stake": 18666.67
+    },
+    "zona4h": {
+     "n": 40,
+     "closed": 40,
+     "wins": 13,
+     "eur": -116.36,
+     "stake": 40000.0
+    }
+   },
+   "bt": {
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 0.02,
+    "media50": {
+     "mult": 0.33,
+     "dd": -83.8
+    },
+    "rupturas": {
+     "mult": 0.54,
+     "dd": -62.9
+    },
+    "zona4h": {
+     "n": 40,
+     "win": 32,
+     "avgR": -0.25,
+     "from": "2025-07-14"
+    }
+   }
+  },
+  {
+   "symbol": "JST",
+   "pair": "JSTUSDT",
+   "price": 0.14485,
+   "close": 0.14826,
+   "close_date": "2026-11-25",
+   "sma50": 0.14147,
    "media50": {
     "on": true,
-    "since": "2026-11-26T00:00:00Z"
+    "since": "2026-09-02T00:00:00Z"
    },
    "rupturas": {
     "tramos": [
      {
       "n": 20,
       "on": true,
-      "level_in": 4.718e-05,
-      "level_out": 3.669e-05
+      "level_in": 0.14826,
+      "level_out": 0.14092
      },
      {
       "n": 55,
-      "on": false,
-      "level_in": 5.312e-05,
-      "level_out": 3.389e-05
+      "on": true,
+      "level_in": 0.14826,
+      "level_out": 0.13546
      },
      {
       "n": 100,
-      "on": false,
-      "level_in": 5.931e-05,
-      "level_out": 3.389e-05
+      "on": true,
+      "level_in": 0.14826,
+      "level_out": 0.13163
      }
     ]
    },
    "zona4h": {
-    "pending": [],
-    "watch": [
+    "pending": [
      {
-      "zone_ts": "2026-11-16T16:00:00Z",
-      "top": 3.551e-05,
-      "bot": 3.51e-05,
-      "mid": 3.5305e-05,
-      "target": 3.6125e-05,
-      "width": 1.17
-     },
-     {
-      "zone_ts": "2026-11-23T08:00:00Z",
-      "top": 3.992e-05,
-      "bot": 3.943e-05,
-      "mid": 3.9675e-05,
-      "target": 4.0654999999999996e-05,
-      "width": 1.24
+      "zone_ts": "2026-11-21T16:00:00Z",
+      "top": 0.14412,
+      "bot": 0.14101,
+      "mid": 0.142565,
+      "target": 0.148785,
+      "width": 2.21,
+      "touch_ts": "2026-11-24T00:00:00Z",
+      "expires_ts": "2026-12-10T16:00:00Z"
      }
     ],
+    "watch": [],
     "open": []
    },
    "sim": {
     "media50": {
+     "n": 66,
+     "closed": 65,
+     "wins": 12,
+     "eur": 601.84,
+     "stake": 66000.0
+    },
+    "rupturas": {
+     "n": 71,
+     "closed": 68,
+     "wins": 27,
+     "eur": 649.0,
+     "stake": 23666.67
+    },
+    "zona4h": {
      "n": 54,
-     "closed": 53,
-     "wins": 9,
-     "eur": 145.08,
+     "closed": 54,
+     "wins": 24,
+     "eur": -48.9,
      "stake": 54000.0
-    },
-    "rupturas": {
-     "n": 41,
-     "closed": 40,
-     "wins": 13,
-     "eur": 422.84,
-     "stake": 13666.67
-    },
-    "zona4h": {
-     "n": 38,
-     "closed": 38,
-     "wins": 18,
-     "eur": 280.07,
-     "stake": 38000.0
     }
    },
    "bt": {
-    "from": "2022-12-18",
-    "days": 1539,
-    "bh": 0.3,
+    "from": "2021-09-14",
+    "days": 1999,
+    "bh": 1.78,
     "media50": {
-     "mult": 0.5,
-     "dd": -80.0
+     "mult": 0.61,
+     "dd": -81.9
     },
     "rupturas": {
-     "mult": 1.01,
-     "dd": -75.5
+     "mult": 0.94,
+     "dd": -68.2
     },
     "zona4h": {
-     "n": 38,
-     "win": 47,
-     "avgR": 0.2,
+     "n": 54,
+     "win": 44,
+     "avgR": -0.01,
      "from": "2025-07-14"
     }
    }
   },
   {
-   "symbol": "STRK",
-   "pair": "STRKUSDT",
-   "price": 0.03129,
-   "close": 0.03112,
+   "symbol": "ATOM",
+   "pair": "ATOMUSDT",
+   "price": 1.208,
+   "close": 1.237,
    "close_date": "2026-11-25",
-   "sma50": 0.049508600000000146,
+   "sma50": 1.52996000000003,
    "media50": {
     "on": false,
     "since": null
@@ -5742,20 +5679,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 0.04083,
-      "level_out": 0.02993
+      "level_in": 1.435,
+      "level_out": 1.172
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 0.12316,
-      "level_out": 0.02993
+      "level_in": 2.066,
+      "level_out": 1.172
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 0.12316,
-      "level_out": 0.02993
+      "level_in": 2.066,
+      "level_out": 1.172
      }
     ]
    },
@@ -5766,124 +5703,43 @@
    },
    "sim": {
     "media50": {
-     "n": 26,
-     "closed": 26,
-     "wins": 4,
-     "eur": -444.24,
-     "stake": 26000.0
+     "n": 67,
+     "closed": 67,
+     "wins": 11,
+     "eur": 1288.09,
+     "stake": 67000.0
     },
     "rupturas": {
-     "n": 28,
-     "closed": 28,
-     "wins": 4,
-     "eur": -1118.6,
-     "stake": 9333.33
-    },
-    "zona4h": {
-     "n": 56,
-     "closed": 56,
-     "wins": 20,
-     "eur": -593.29,
-     "stake": 56000.0
-    }
-   },
-   "bt": {
-    "from": "2024-05-30",
-    "days": 1010,
-    "bh": 0.02,
-    "media50": {
-     "mult": 0.54,
-     "dd": -78.9
-    },
-    "rupturas": {
-     "mult": 0.31,
-     "dd": -79.8
-    },
-    "zona4h": {
-     "n": 56,
-     "win": 36,
-     "avgR": -0.6,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "SHIB",
-   "pair": "SHIBUSDT",
-   "price": 3.61e-06,
-   "close": 3.6e-06,
-   "close_date": "2026-11-25",
-   "sma50": 4.597200000000003e-06,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 4.54e-06,
-      "level_out": 3.54e-06
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 5.91e-06,
-      "level_out": 3.54e-06
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 6.11e-06,
-      "level_out": 3.54e-06
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 64,
-     "closed": 64,
-     "wins": 10,
-     "eur": 4693.18,
-     "stake": 64000.0
-    },
-    "rupturas": {
-     "n": 53,
-     "closed": 53,
-     "wins": 17,
-     "eur": 3501.4,
-     "stake": 17666.67
+     "n": 59,
+     "closed": 59,
+     "wins": 21,
+     "eur": -85.84,
+     "stake": 19666.67
     },
     "zona4h": {
      "n": 33,
      "closed": 33,
-     "wins": 10,
-     "eur": -1.5,
+     "wins": 6,
+     "eur": -369.95,
      "stake": 33000.0
     }
    },
    "bt": {
     "from": "2021-09-14",
     "days": 1999,
-    "bh": 0.55,
+    "bh": 0.03,
     "media50": {
-     "mult": 3.83,
-     "dd": -81.1
+     "mult": 0.42,
+     "dd": -71.0
     },
     "rupturas": {
-     "mult": 4.82,
-     "dd": -64.4
+     "mult": 0.42,
+     "dd": -66.0
     },
     "zona4h": {
      "n": 33,
-     "win": 30,
-     "avgR": -0.45,
+     "win": 18,
+     "avgR": -1.22,
      "from": "2025-07-14"
     }
    }
@@ -5891,7 +5747,7 @@
   {
    "symbol": "CRV",
    "pair": "CRVUSDT",
-   "price": 0.173,
+   "price": 0.1763,
    "close": 0.1716,
    "close_date": "2026-11-25",
    "sma50": 0.28677400000000197,
@@ -5970,12 +5826,12 @@
    }
   },
   {
-   "symbol": "DASH",
-   "pair": "DASHUSDT",
-   "price": 36.2,
-   "close": 35.92,
+   "symbol": "STRK",
+   "pair": "STRKUSDT",
+   "price": 0.03047,
+   "close": 0.03112,
    "close_date": "2026-11-25",
-   "sma50": 45.87539999999983,
+   "sma50": 0.049508600000000146,
    "media50": {
     "on": false,
     "since": null
@@ -5985,20 +5841,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 47.27,
-      "level_out": 33.2
+      "level_in": 0.04083,
+      "level_out": 0.02993
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 59.73,
-      "level_out": 33.2
+      "level_in": 0.12316,
+      "level_out": 0.02993
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 71.84,
-      "level_out": 33.2
+      "level_in": 0.12316,
+      "level_out": 0.02993
      }
     ]
    },
@@ -6009,297 +5865,54 @@
    },
    "sim": {
     "media50": {
-     "n": 61,
-     "closed": 61,
-     "wins": 11,
-     "eur": 275.99,
-     "stake": 61000.0
-    },
-    "rupturas": {
-     "n": 65,
-     "closed": 65,
-     "wins": 20,
-     "eur": 43.11,
-     "stake": 21666.67
-    },
-    "zona4h": {
-     "n": 61,
-     "closed": 61,
-     "wins": 24,
-     "eur": 377.69,
-     "stake": 61000.0
-    }
-   },
-   "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.18,
-    "media50": {
-     "mult": 0.49,
-     "dd": -76.6
-    },
-    "rupturas": {
-     "mult": 0.68,
-     "dd": -71.6
-    },
-    "zona4h": {
-     "n": 61,
-     "win": 39,
-     "avgR": 0.08,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "SAHARA",
-   "pair": "SAHARAUSDT",
-   "price": 0.00524,
-   "close": 0.00525,
-   "close_date": "2026-11-25",
-   "sma50": 0.006965999999999899,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.00656,
-      "level_out": 0.00499
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.00935,
-      "level_out": 0.00499
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.01042,
-      "level_out": 0.00499
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 23,
-     "closed": 23,
-     "wins": 2,
-     "eur": -1209.43,
-     "stake": 23000.0
-    },
-    "rupturas": {
-     "n": 13,
-     "closed": 13,
-     "wins": 2,
-     "eur": -623.5,
-     "stake": 4333.33
-    },
-    "zona4h": {
-     "n": 40,
-     "closed": 40,
-     "wins": 23,
-     "eur": 384.72,
-     "stake": 40000.0
-    }
-   },
-   "bt": {
-    "from": "2025-10-04",
-    "days": 518,
-    "bh": 0.07,
-    "media50": {
-     "mult": 0.38,
-     "dd": -65.9
-    },
-    "rupturas": {
-     "mult": 0.49,
-     "dd": -62.2
-    },
-    "zona4h": {
-     "n": 40,
-     "win": 58,
-     "avgR": 0.44,
-     "from": "2025-07-14"
-    }
-   }
-  },
-  {
-   "symbol": "ZAMA",
-   "pair": "ZAMAUSDT",
-   "price": 0.05692,
-   "close": 0.0564,
-   "close_date": "2026-11-25",
-   "sma50": 0.06777580000000004,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.06975,
-      "level_out": 0.05528
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.08855,
-      "level_out": 0.05374
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.1017,
-      "level_out": 0.05374
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 14,
-     "closed": 14,
-     "wins": 6,
-     "eur": 491.81,
-     "stake": 14000.0
-    },
-    "rupturas": {
-     "n": 8,
-     "closed": 8,
+     "n": 26,
+     "closed": 26,
      "wins": 4,
-     "eur": 918.99,
-     "stake": 2666.67
-    },
-    "zona4h": {
-     "n": 59,
-     "closed": 59,
-     "wins": 20,
-     "eur": -117.85,
-     "stake": 59000.0
-    }
-   },
-   "bt": {
-    "from": "2026-05-13",
-    "days": 297,
-    "bh": 1.95,
-    "media50": {
-     "mult": 1.26,
-     "dd": -40.8
+     "eur": -444.24,
+     "stake": 26000.0
     },
     "rupturas": {
-     "mult": 1.98,
-     "dd": -32.0
-    },
-    "zona4h": {
-     "n": 59,
-     "win": 34,
-     "avgR": -0.42,
-     "from": "2026-02-02"
-    }
-   }
-  },
-  {
-   "symbol": "ACE",
-   "pair": "ACEUSDT",
-   "price": 0.0746,
-   "close": 0.074,
-   "close_date": "2026-11-25",
-   "sma50": 0.1333479999999985,
-   "media50": {
-    "on": false,
-    "since": null
-   },
-   "rupturas": {
-    "tramos": [
-     {
-      "n": 20,
-      "on": false,
-      "level_in": 0.13,
-      "level_out": 0.074
-     },
-     {
-      "n": 55,
-      "on": false,
-      "level_in": 0.1958,
-      "level_out": 0.074
-     },
-     {
-      "n": 100,
-      "on": false,
-      "level_in": 0.2514,
-      "level_out": 0.074
-     }
-    ]
-   },
-   "zona4h": {
-    "pending": [],
-    "watch": [],
-    "open": []
-   },
-   "sim": {
-    "media50": {
-     "n": 33,
-     "closed": 33,
+     "n": 28,
+     "closed": 28,
      "wins": 4,
-     "eur": -1599.99,
-     "stake": 33000.0
-    },
-    "rupturas": {
-     "n": 27,
-     "closed": 27,
-     "wins": 5,
-     "eur": -1192.2,
-     "stake": 9000.0
+     "eur": -1118.6,
+     "stake": 9333.33
     },
     "zona4h": {
-     "n": 45,
-     "closed": 45,
-     "wins": 14,
-     "eur": 242.62,
-     "stake": 45000.0
+     "n": 56,
+     "closed": 56,
+     "wins": 20,
+     "eur": -593.29,
+     "stake": 56000.0
     }
    },
    "bt": {
-    "from": "2024-03-27",
-    "days": 1074,
-    "bh": 0.01,
+    "from": "2024-05-30",
+    "days": 1010,
+    "bh": 0.02,
     "media50": {
-     "mult": 0.16,
-     "dd": -86.6
+     "mult": 0.54,
+     "dd": -78.9
     },
     "rupturas": {
      "mult": 0.31,
-     "dd": -80.5
+     "dd": -79.8
     },
     "zona4h": {
-     "n": 45,
-     "win": 31,
-     "avgR": -0.87,
+     "n": 56,
+     "win": 36,
+     "avgR": -0.6,
      "from": "2025-07-14"
     }
    }
   },
   {
-   "symbol": "CAKE",
-   "pair": "CAKEUSDT",
-   "price": 1.574,
-   "close": 1.562,
+   "symbol": "HUMA",
+   "pair": "HUMAUSDT",
+   "price": 0.00729,
+   "close": 0.00751,
    "close_date": "2026-11-25",
-   "sma50": 1.9390000000000274,
+   "sma50": 0.020107199999999978,
    "media50": {
     "on": false,
     "since": null
@@ -6309,20 +5922,20 @@
      {
       "n": 20,
       "on": false,
-      "level_in": 1.921,
-      "level_out": 1.481
+      "level_in": 0.01291,
+      "level_out": 0.00744
      },
      {
       "n": 55,
       "on": false,
-      "level_in": 2.527,
-      "level_out": 1.481
+      "level_in": 0.03556,
+      "level_out": 0.00656
      },
      {
       "n": 100,
       "on": false,
-      "level_in": 2.831,
-      "level_out": 1.481
+      "level_in": 0.03556,
+      "level_out": 0.00656
      }
     ]
    },
@@ -6333,49 +5946,160 @@
    },
    "sim": {
     "media50": {
-     "n": 67,
-     "closed": 67,
-     "wins": 16,
-     "eur": 222.89,
-     "stake": 67000.0
+     "n": 30,
+     "closed": 30,
+     "wins": 3,
+     "eur": -1780.87,
+     "stake": 30000.0
     },
     "rupturas": {
-     "n": 53,
-     "closed": 53,
-     "wins": 21,
-     "eur": 870.17,
-     "stake": 17666.67
+     "n": 14,
+     "closed": 14,
+     "wins": 3,
+     "eur": -375.85,
+     "stake": 4666.67
     },
     "zona4h": {
-     "n": 47,
-     "closed": 47,
-     "wins": 16,
-     "eur": -272.16,
-     "stake": 47000.0
+     "n": 68,
+     "closed": 68,
+     "wins": 27,
+     "eur": -345.72,
+     "stake": 68000.0
     }
    },
    "bt": {
-    "from": "2021-09-14",
-    "days": 1999,
-    "bh": 0.08,
+    "from": "2025-09-03",
+    "days": 549,
+    "bh": 0.33,
     "media50": {
-     "mult": 0.53,
-     "dd": -84.6
+     "mult": 0.21,
+     "dd": -84.1
     },
     "rupturas": {
-     "mult": 1.46,
-     "dd": -65.5
+     "mult": 0.79,
+     "dd": -33.5
     },
     "zona4h": {
-     "n": 47,
-     "win": 34,
-     "avgR": -0.3,
+     "n": 68,
+     "win": 40,
+     "avgR": -0.46,
      "from": "2025-07-14"
     }
    }
   }
  ],
  "log": [
+  {
+   "zone_ts": "2026-11-25T20:00:00Z",
+   "top": 0.01038,
+   "bot": 0.00987,
+   "mid": 0.010125,
+   "target": 0.011145,
+   "width": 5.17,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-26T08:00:00Z",
+   "entry_ts": "2026-11-26T08:00:00Z",
+   "entry": 0.010125,
+   "stop": 0.00987,
+   "weight": 1.0,
+   "open": true,
+   "symbol": "BLUR",
+   "pair": "BLURUSDT",
+   "id": "zona4h|BLUR|2026-11-25T20:00:00Z|2026-11-26T08:00:00Z",
+   "ret": -4.3,
+   "eur": -42.98,
+   "R": -1.71
+  },
+  {
+   "zone_ts": "2026-11-25T12:00:00Z",
+   "top": 0.2506,
+   "bot": 0.2365,
+   "mid": 0.24355,
+   "target": 0.27175,
+   "width": 5.96,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-26T04:00:00Z",
+   "entry_ts": "2026-11-26T04:00:00Z",
+   "entry": 0.24355,
+   "stop": 0.2365,
+   "weight": 1.0,
+   "exit_ts": "2026-11-26T12:00:00Z",
+   "exit": 0.2345,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "MMT",
+   "pair": "MMTUSDT",
+   "id": "zona4h|MMT|2026-11-25T12:00:00Z|2026-11-26T04:00:00Z",
+   "ret": -3.92,
+   "eur": -39.16,
+   "R": -1.35
+  },
+  {
+   "zone_ts": "2026-11-25T16:00:00Z",
+   "top": 0.2797,
+   "bot": 0.2697,
+   "mid": 0.2747,
+   "target": 0.2947,
+   "width": 3.71,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-26T04:00:00Z",
+   "entry_ts": "2026-11-26T04:00:00Z",
+   "entry": 0.2747,
+   "stop": 0.2697,
+   "weight": 1.0,
+   "exit_ts": "2026-11-26T08:00:00Z",
+   "exit": 0.2366,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "MMT",
+   "pair": "MMTUSDT",
+   "id": "zona4h|MMT|2026-11-25T16:00:00Z|2026-11-26T04:00:00Z",
+   "ret": -14.07,
+   "eur": -140.7,
+   "R": -7.73
+  },
+  {
+   "zone_ts": "2026-11-25T20:00:00Z",
+   "top": 0.2964,
+   "bot": 0.2893,
+   "mid": 0.29285,
+   "target": 0.30705,
+   "width": 2.45,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-26T04:00:00Z",
+   "entry_ts": "2026-11-26T04:00:00Z",
+   "entry": 0.29285,
+   "stop": 0.2893,
+   "weight": 1.0,
+   "exit_ts": "2026-11-26T08:00:00Z",
+   "exit": 0.2366,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "MMT",
+   "pair": "MMTUSDT",
+   "id": "zona4h|MMT|2026-11-25T20:00:00Z|2026-11-26T04:00:00Z",
+   "ret": -19.41,
+   "eur": -194.08,
+   "R": -16.01
+  },
+  {
+   "zone_ts": "2026-11-25T20:00:00Z",
+   "top": 0.1434,
+   "bot": 0.1416,
+   "mid": 0.14250000000000002,
+   "target": 0.1461,
+   "width": 1.27,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-26T04:00:00Z",
+   "entry_ts": "2026-11-26T04:00:00Z",
+   "entry": 0.14250000000000002,
+   "stop": 0.1416,
+   "weight": 1.0,
+   "open": true,
+   "symbol": "KITE",
+   "pair": "KITEUSDT",
+   "id": "zona4h|KITE|2026-11-25T20:00:00Z|2026-11-26T04:00:00Z",
+   "ret": -0.87,
+   "eur": -8.72,
+   "R": -1.38
+  },
   {
    "kind": "rupturas",
    "signal_ts": "2026-11-26T00:00:00Z",
@@ -6388,51 +6112,8 @@
    "symbol": "MANTRA",
    "pair": "MANTRAUSDT",
    "id": "rupturas|MANTRA|20|2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -0.33
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-26T00:00:00Z",
-   "entry_ts": "2026-11-26T00:00:00Z",
-   "entry": 0.00625,
-   "weight": 1.0,
-   "open": true,
-   "entry_now": true,
-   "symbol": "BIGTIME",
-   "pair": "BIGTIMEUSDT",
-   "id": "media50|BIGTIME||2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -1.0
-  },
-  {
-   "kind": "rupturas",
-   "signal_ts": "2026-11-26T00:00:00Z",
-   "entry_ts": "2026-11-26T00:00:00Z",
-   "entry": 0.00625,
-   "weight": 0.3333333333333333,
-   "tramo": 20,
-   "open": true,
-   "entry_now": true,
-   "symbol": "BIGTIME",
-   "pair": "BIGTIMEUSDT",
-   "id": "rupturas|BIGTIME|20|2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -0.33
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-26T00:00:00Z",
-   "entry_ts": "2026-11-26T00:00:00Z",
-   "entry": 0.01091,
-   "weight": 1.0,
-   "open": true,
-   "entry_now": true,
-   "symbol": "BLUR",
-   "pair": "BLURUSDT",
-   "id": "media50|BLUR||2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -1.0
+   "ret": -23.3,
+   "eur": -77.66
   },
   {
    "kind": "media50",
@@ -6445,8 +6126,8 @@
    "symbol": "SSV",
    "pair": "SSVUSDT",
    "id": "media50|SSV||2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -1.0
+   "ret": 14.93,
+   "eur": 149.26
   },
   {
    "kind": "rupturas",
@@ -6460,22 +6141,51 @@
    "symbol": "SSV",
    "pair": "SSVUSDT",
    "id": "rupturas|SSV|20|2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -0.33
+   "ret": 14.93,
+   "eur": 49.75
   },
   {
    "kind": "media50",
    "signal_ts": "2026-11-26T00:00:00Z",
    "entry_ts": "2026-11-26T00:00:00Z",
-   "entry": 4.525e-05,
+   "entry": 0.00625,
    "weight": 1.0,
    "open": true,
    "entry_now": true,
-   "symbol": "LUNC",
-   "pair": "LUNCUSDT",
-   "id": "media50|LUNC||2026-11-26T00:00:00Z",
-   "ret": -0.1,
-   "eur": -1.0
+   "symbol": "BIGTIME",
+   "pair": "BIGTIMEUSDT",
+   "id": "media50|BIGTIME||2026-11-26T00:00:00Z",
+   "ret": -7.46,
+   "eur": -74.6
+  },
+  {
+   "kind": "rupturas",
+   "signal_ts": "2026-11-26T00:00:00Z",
+   "entry_ts": "2026-11-26T00:00:00Z",
+   "entry": 0.00625,
+   "weight": 0.3333333333333333,
+   "tramo": 20,
+   "open": true,
+   "entry_now": true,
+   "symbol": "BIGTIME",
+   "pair": "BIGTIMEUSDT",
+   "id": "rupturas|BIGTIME|20|2026-11-26T00:00:00Z",
+   "ret": -7.46,
+   "eur": -24.87
+  },
+  {
+   "kind": "media50",
+   "signal_ts": "2026-11-26T00:00:00Z",
+   "entry_ts": "2026-11-26T00:00:00Z",
+   "entry": 0.01091,
+   "weight": 1.0,
+   "open": true,
+   "entry_now": true,
+   "symbol": "BLUR",
+   "pair": "BLURUSDT",
+   "id": "media50|BLUR||2026-11-26T00:00:00Z",
+   "ret": -11.19,
+   "eur": -111.91
   },
   {
    "zone_ts": "2026-11-22T12:00:00Z",
@@ -6524,56 +6234,18 @@
    "R": -2.52
   },
   {
-   "zone_ts": "2026-11-24T12:00:00Z",
-   "top": 0.926,
-   "bot": 0.773,
-   "mid": 0.8495,
-   "target": 1.1555,
-   "width": 19.79,
-   "kind": "zona4h",
-   "signal_ts": "2026-11-25T04:00:00Z",
-   "entry_ts": "2026-11-25T08:00:00Z",
-   "entry": 0.8495,
-   "stop": 0.773,
-   "weight": 1.0,
-   "open": true,
-   "symbol": "ATM",
-   "pair": "ATMUSDT",
-   "id": "zona4h|ATM|2026-11-24T12:00:00Z|2026-11-25T08:00:00Z",
-   "ret": -1.34,
-   "eur": -13.36,
-   "R": -0.15
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-25T00:00:00Z",
-   "entry_ts": "2026-11-25T00:00:00Z",
-   "entry": 0.984,
-   "weight": 1.0,
-   "exit_ts": "2026-11-26T00:00:00Z",
-   "exit": 0.839,
-   "reason": "señal de salida",
-   "symbol": "ATM",
-   "pair": "ATMUSDT",
-   "id": "media50|ATM||2026-11-25T00:00:00Z",
-   "ret": -14.94,
-   "eur": -149.36,
-   "entry_now": true
-  },
-  {
    "kind": "rupturas",
    "signal_ts": "2026-11-25T00:00:00Z",
    "entry_ts": "2026-11-25T00:00:00Z",
-   "entry": 0.984,
+   "entry": 0.1474,
    "weight": 0.3333333333333333,
    "tramo": 20,
    "open": true,
-   "symbol": "ATM",
-   "pair": "ATMUSDT",
-   "id": "rupturas|ATM|20|2026-11-25T00:00:00Z",
-   "ret": -14.84,
-   "eur": -49.45,
-   "entry_now": true
+   "symbol": "JST",
+   "pair": "JSTUSDT",
+   "id": "rupturas|JST|20|2026-11-25T00:00:00Z",
+   "ret": -1.83,
+   "eur": -6.1
   },
   {
    "zone_ts": "2026-11-24T04:00:00Z",
@@ -6609,8 +6281,8 @@
    "symbol": "BLUR",
    "pair": "BLURUSDT",
    "id": "rupturas|BLUR|20|2026-11-24T00:00:00Z",
-   "ret": 37.31,
-   "eur": 124.35
+   "ret": 22.07,
+   "eur": 73.55
   },
   {
    "kind": "rupturas",
@@ -6623,8 +6295,8 @@
    "symbol": "LISTA",
    "pair": "LISTAUSDT",
    "id": "rupturas|LISTA|20|2026-11-24T00:00:00Z",
-   "ret": 7.94,
-   "eur": 26.46,
+   "ret": -8.56,
+   "eur": -28.52,
    "entry_now": true
   },
   {
@@ -6638,8 +6310,8 @@
    "symbol": "LISTA",
    "pair": "LISTAUSDT",
    "id": "rupturas|LISTA|55|2026-11-24T00:00:00Z",
-   "ret": 7.94,
-   "eur": 26.46,
+   "ret": -8.56,
+   "eur": -28.52,
    "entry_now": true
   },
   {
@@ -6653,8 +6325,8 @@
    "symbol": "LISTA",
    "pair": "LISTAUSDT",
    "id": "rupturas|LISTA|100|2026-11-24T00:00:00Z",
-   "ret": 7.94,
-   "eur": 26.46,
+   "ret": -8.56,
+   "eur": -28.52,
    "entry_now": true
   },
   {
@@ -6667,8 +6339,8 @@
    "symbol": "LISTA",
    "pair": "LISTAUSDT",
    "id": "media50|LISTA||2026-11-23T00:00:00Z",
-   "ret": 33.45,
-   "eur": 334.48,
+   "ret": 13.06,
+   "eur": 130.61,
    "entry_now": true
   },
   {
@@ -6681,8 +6353,8 @@
    "symbol": "NIGHT",
    "pair": "NIGHTUSDT",
    "id": "media50|NIGHT||2026-11-22T00:00:00Z",
-   "ret": 10.34,
-   "eur": 103.41,
+   "ret": 6.96,
+   "eur": 69.58,
    "entry_now": true
   },
   {
@@ -6707,42 +6379,6 @@
    "ret": 3.78,
    "eur": 37.76,
    "R": 3.8
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-21T00:00:00Z",
-   "entry_ts": "2026-11-21T00:00:00Z",
-   "entry": 0.01104,
-   "weight": 1.0,
-   "open": true,
-   "symbol": "USUAL",
-   "pair": "USUALUSDT",
-   "id": "media50|USUAL||2026-11-21T00:00:00Z",
-   "ret": 2.53,
-   "eur": 25.27
-  },
-  {
-   "zone_ts": "2026-11-19T00:00:00Z",
-   "top": 4.196e-05,
-   "bot": 3.986e-05,
-   "mid": 4.091e-05,
-   "target": 4.510999999999999e-05,
-   "width": 5.27,
-   "kind": "zona4h",
-   "signal_ts": "2026-11-20T16:00:00Z",
-   "entry_ts": "2026-11-21T00:00:00Z",
-   "entry": 4.091e-05,
-   "stop": 3.986e-05,
-   "weight": 1.0,
-   "exit_ts": "2026-11-22T00:00:00Z",
-   "exit": 3.98e-05,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "LUNC",
-   "pair": "LUNCUSDT",
-   "id": "zona4h|LUNC|2026-11-19T00:00:00Z|2026-11-21T00:00:00Z",
-   "ret": -2.91,
-   "eur": -29.13,
-   "R": -1.14
   },
   {
    "zone_ts": "2026-11-15T16:00:00Z",
@@ -6791,58 +6427,6 @@
    "R": -1.1
   },
   {
-   "zone_ts": "2026-11-19T00:00:00Z",
-   "top": 0.05555,
-   "bot": 0.05462,
-   "mid": 0.055085,
-   "target": 0.056945,
-   "width": 1.7,
-   "kind": "zona4h",
-   "signal_ts": "2026-11-20T00:00:00Z",
-   "entry_ts": "2026-11-20T00:00:00Z",
-   "entry": 0.055085,
-   "stop": 0.05462,
-   "weight": 1.0,
-   "exit_ts": "2026-11-20T04:00:00Z",
-   "exit": 0.05179,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "zona4h|MEGA|2026-11-19T00:00:00Z|2026-11-20T00:00:00Z",
-   "ret": -6.18,
-   "eur": -61.82,
-   "R": -7.32
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-20T00:00:00Z",
-   "entry_ts": "2026-11-20T00:00:00Z",
-   "entry": 4.714e-05,
-   "weight": 1.0,
-   "exit_ts": "2026-11-21T00:00:00Z",
-   "exit": 4.393e-05,
-   "reason": "señal de salida",
-   "symbol": "LUNC",
-   "pair": "LUNCUSDT",
-   "id": "media50|LUNC||2026-11-20T00:00:00Z",
-   "ret": -7.01,
-   "eur": -70.1
-  },
-  {
-   "kind": "rupturas",
-   "signal_ts": "2026-11-20T00:00:00Z",
-   "entry_ts": "2026-11-20T00:00:00Z",
-   "entry": 4.714e-05,
-   "weight": 0.3333333333333333,
-   "tramo": 20,
-   "open": true,
-   "symbol": "LUNC",
-   "pair": "LUNCUSDT",
-   "id": "rupturas|LUNC|20|2026-11-20T00:00:00Z",
-   "ret": -4.11,
-   "eur": -13.7
-  },
-  {
    "zone_ts": "2026-11-18T08:00:00Z",
    "top": 0.2283,
    "bot": 0.1576,
@@ -6859,9 +6443,9 @@
    "symbol": "MMT",
    "pair": "MMTUSDT",
    "id": "zona4h|MMT|2026-11-18T08:00:00Z|2026-11-19T04:00:00Z",
-   "ret": 63.1,
-   "eur": 631.03,
-   "R": 3.44
+   "ret": 19.31,
+   "eur": 193.09,
+   "R": 1.05
   },
   {
    "kind": "rupturas",
@@ -6874,8 +6458,8 @@
    "symbol": "MMT",
    "pair": "MMTUSDT",
    "id": "rupturas|MMT|55|2026-11-19T00:00:00Z",
-   "ret": 43.62,
-   "eur": 145.41,
+   "ret": 5.06,
+   "eur": 16.86,
    "entry_now": true
   },
   {
@@ -6889,8 +6473,8 @@
    "symbol": "MMT",
    "pair": "MMTUSDT",
    "id": "rupturas|MMT|100|2026-11-19T00:00:00Z",
-   "ret": 43.62,
-   "eur": 145.41,
+   "ret": 5.06,
+   "eur": 16.86,
    "entry_now": true
   },
   {
@@ -6903,8 +6487,8 @@
    "symbol": "MMT",
    "pair": "MMTUSDT",
    "id": "media50|MMT||2026-11-18T00:00:00Z",
-   "ret": 39.79,
-   "eur": 397.93,
+   "ret": 2.25,
+   "eur": 22.55,
    "entry_now": true
   },
   {
@@ -6918,8 +6502,8 @@
    "symbol": "MMT",
    "pair": "MMTUSDT",
    "id": "rupturas|MMT|20|2026-11-18T00:00:00Z",
-   "ret": 39.79,
-   "eur": 132.64,
+   "ret": 2.25,
+   "eur": 7.52,
    "entry_now": true
   },
   {
@@ -6936,22 +6520,6 @@
    "id": "media50|PROM||2026-11-18T00:00:00Z",
    "ret": -17.86,
    "eur": -178.59
-  },
-  {
-   "kind": "rupturas",
-   "signal_ts": "2026-11-18T00:00:00Z",
-   "entry_ts": "2026-11-18T00:00:00Z",
-   "entry": 0.05171,
-   "weight": 0.3333333333333333,
-   "tramo": 20,
-   "exit_ts": "2026-11-25T00:00:00Z",
-   "exit": 0.04229,
-   "reason": "señal de salida",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "rupturas|MEGA|20|2026-11-18T00:00:00Z",
-   "ret": -18.42,
-   "eur": -61.39
   },
   {
    "zone_ts": "2026-11-17T04:00:00Z",
@@ -6998,21 +6566,6 @@
    "ret": -1.85,
    "eur": -18.54,
    "R": -1.23
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-16T00:00:00Z",
-   "entry_ts": "2026-11-16T00:00:00Z",
-   "entry": 0.04986,
-   "weight": 1.0,
-   "exit_ts": "2026-11-23T00:00:00Z",
-   "exit": 0.0452,
-   "reason": "señal de salida",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "media50|MEGA||2026-11-16T00:00:00Z",
-   "ret": -9.55,
-   "eur": -95.46
   },
   {
    "zone_ts": "2026-11-13T12:00:00Z",
@@ -7086,8 +6639,8 @@
    "symbol": "KITE",
    "pair": "KITEUSDT",
    "id": "media50|KITE||2026-11-13T00:00:00Z",
-   "ret": 13.63,
-   "eur": 136.3
+   "ret": 12.12,
+   "eur": 121.22
   },
   {
    "kind": "rupturas",
@@ -7100,23 +6653,8 @@
    "symbol": "KITE",
    "pair": "KITEUSDT",
    "id": "rupturas|KITE|20|2026-11-13T00:00:00Z",
-   "ret": 13.63,
-   "eur": 45.43
-  },
-  {
-   "kind": "media50",
-   "signal_ts": "2026-11-13T00:00:00Z",
-   "entry_ts": "2026-11-13T00:00:00Z",
-   "entry": 0.04663,
-   "weight": 1.0,
-   "exit_ts": "2026-11-14T00:00:00Z",
-   "exit": 0.04481,
-   "reason": "señal de salida",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "media50|MEGA||2026-11-13T00:00:00Z",
-   "ret": -4.1,
-   "eur": -41.03
+   "ret": 12.12,
+   "eur": 40.41
   },
   {
    "zone_ts": "2026-11-11T16:00:00Z",
@@ -7188,27 +6726,50 @@
    "R": -1.28
   },
   {
-   "zone_ts": "2026-11-06T08:00:00Z",
-   "top": 0.04755,
-   "bot": 0.0465,
-   "mid": 0.047025,
-   "target": 0.049125,
-   "width": 2.26,
+   "zone_ts": "2026-11-10T08:00:00Z",
+   "top": 0.001591,
+   "bot": 0.001463,
+   "mid": 0.0015270000000000001,
+   "target": 0.0017829999999999999,
+   "width": 8.75,
    "kind": "zona4h",
-   "signal_ts": "2026-11-07T00:00:00Z",
-   "entry_ts": "2026-11-11T08:00:00Z",
-   "entry": 0.047025,
-   "stop": 0.0465,
+   "signal_ts": "2026-11-11T08:00:00Z",
+   "entry_ts": "2026-11-11T12:00:00Z",
+   "entry": 0.0015270000000000001,
+   "stop": 0.001463,
    "weight": 1.0,
-   "exit_ts": "2026-11-11T12:00:00Z",
-   "exit": 0.04621,
+   "exit_ts": "2026-11-12T04:00:00Z",
+   "exit": 0.001449,
    "reason": "stop (cierre bajo la zona)",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "zona4h|MEGA|2026-11-06T08:00:00Z|2026-11-11T08:00:00Z",
-   "ret": -1.93,
-   "eur": -19.33,
-   "R": -1.73
+   "symbol": "ONE",
+   "pair": "ONEUSDT",
+   "id": "zona4h|ONE|2026-11-10T08:00:00Z|2026-11-11T12:00:00Z",
+   "ret": -5.31,
+   "eur": -53.08,
+   "R": -1.27
+  },
+  {
+   "zone_ts": "2026-11-10T12:00:00Z",
+   "top": 0.001699,
+   "bot": 0.001647,
+   "mid": 0.001673,
+   "target": 0.001777,
+   "width": 3.16,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-11T04:00:00Z",
+   "entry_ts": "2026-11-11T04:00:00Z",
+   "entry": 0.001673,
+   "stop": 0.001647,
+   "weight": 1.0,
+   "exit_ts": "2026-11-11T08:00:00Z",
+   "exit": 0.001631,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "ONE",
+   "pair": "ONEUSDT",
+   "id": "zona4h|ONE|2026-11-10T12:00:00Z|2026-11-11T04:00:00Z",
+   "ret": -2.71,
+   "eur": -27.1,
+   "R": -1.74
   },
   {
    "kind": "rupturas",
@@ -7266,18 +6827,19 @@
    "R": -1.67
   },
   {
-   "kind": "rupturas",
+   "kind": "media50",
    "signal_ts": "2026-11-11T00:00:00Z",
    "entry_ts": "2026-11-11T00:00:00Z",
-   "entry": 0.01101,
-   "weight": 0.3333333333333333,
-   "tramo": 20,
-   "open": true,
-   "symbol": "USUAL",
-   "pair": "USUALUSDT",
-   "id": "rupturas|USUAL|20|2026-11-11T00:00:00Z",
-   "ret": 2.81,
-   "eur": 9.35
+   "entry": 0.001846,
+   "weight": 1.0,
+   "exit_ts": "2026-11-12T00:00:00Z",
+   "exit": 0.001471,
+   "reason": "señal de salida",
+   "symbol": "ONE",
+   "pair": "ONEUSDT",
+   "id": "media50|ONE||2026-11-11T00:00:00Z",
+   "ret": -20.51,
+   "eur": -205.14
   },
   {
    "zone_ts": "2026-11-10T08:00:00Z",
@@ -7347,6 +6909,29 @@
    "ret": 3.93,
    "eur": 39.28,
    "R": 3.81
+  },
+  {
+   "zone_ts": "2026-11-09T12:00:00Z",
+   "top": 0.14452,
+   "bot": 0.1418,
+   "mid": 0.14316,
+   "target": 0.1486,
+   "width": 1.92,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-10T00:00:00Z",
+   "entry_ts": "2026-11-10T12:00:00Z",
+   "entry": 0.14316,
+   "stop": 0.1418,
+   "weight": 1.0,
+   "exit_ts": "2026-11-16T20:00:00Z",
+   "exit": 0.13967,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "JST",
+   "pair": "JSTUSDT",
+   "id": "zona4h|JST|2026-11-09T12:00:00Z|2026-11-10T12:00:00Z",
+   "ret": -2.64,
+   "eur": -26.38,
+   "R": -2.78
   }
  ],
  "history": [
@@ -7395,29 +6980,6 @@
    "ret": -1.85,
    "eur": -18.52,
    "R": -1.69
-  },
-  {
-   "zone_ts": "2026-11-06T12:00:00Z",
-   "top": 0.04847,
-   "bot": 0.04759,
-   "mid": 0.04803,
-   "target": 0.04979,
-   "width": 1.85,
-   "kind": "zona4h",
-   "signal_ts": "2026-11-06T20:00:00Z",
-   "entry_ts": "2026-11-06T20:00:00Z",
-   "entry": 0.04803,
-   "stop": 0.04759,
-   "weight": 1.0,
-   "exit_ts": "2026-11-07T08:00:00Z",
-   "exit": 0.04979,
-   "reason": "objetivo",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "zona4h|MEGA|2026-11-06T12:00:00Z|2026-11-06T20:00:00Z",
-   "ret": 3.46,
-   "eur": 34.64,
-   "R": 3.78
   },
   {
    "zone_ts": "2026-11-03T12:00:00Z",
@@ -7556,6 +7118,29 @@
    "ret": 2.21,
    "eur": 22.07,
    "R": 3.67
+  },
+  {
+   "zone_ts": "2026-11-01T08:00:00Z",
+   "top": 0.02906,
+   "bot": 0.0286,
+   "mid": 0.02883,
+   "target": 0.02975,
+   "width": 1.61,
+   "kind": "zona4h",
+   "signal_ts": "2026-11-01T16:00:00Z",
+   "entry_ts": "2026-11-01T16:00:00Z",
+   "entry": 0.02883,
+   "stop": 0.0286,
+   "weight": 1.0,
+   "exit_ts": "2026-11-01T20:00:00Z",
+   "exit": 0.02763,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "HUMA",
+   "pair": "HUMAUSDT",
+   "id": "zona4h|HUMA|2026-11-01T08:00:00Z|2026-11-01T16:00:00Z",
+   "ret": -4.36,
+   "eur": -43.62,
+   "R": -5.47
   },
   {
    "zone_ts": "2026-10-31T16:00:00Z",
@@ -7742,6 +7327,29 @@
    "R": -2.54
   },
   {
+   "zone_ts": "2026-10-29T12:00:00Z",
+   "top": 7.85,
+   "bot": 7.72,
+   "mid": 7.785,
+   "target": 8.045,
+   "width": 1.68,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-29T20:00:00Z",
+   "entry_ts": "2026-10-29T20:00:00Z",
+   "entry": 7.785,
+   "stop": 7.72,
+   "weight": 1.0,
+   "exit_ts": "2026-10-30T00:00:00Z",
+   "exit": 7.337,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "INJ",
+   "pair": "INJUSDT",
+   "id": "zona4h|INJ|2026-10-29T12:00:00Z|2026-10-29T20:00:00Z",
+   "ret": -5.95,
+   "eur": -59.55,
+   "R": -7.13
+  },
+  {
    "zone_ts": "2026-10-25T04:00:00Z",
    "top": 182.05,
    "bot": 179.77,
@@ -7786,29 +7394,6 @@
    "ret": -1.15,
    "eur": -11.53,
    "R": -1.88
-  },
-  {
-   "zone_ts": "2026-10-29T12:00:00Z",
-   "top": 7.85,
-   "bot": 7.72,
-   "mid": 7.785,
-   "target": 8.045,
-   "width": 1.68,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-29T20:00:00Z",
-   "entry_ts": "2026-10-29T20:00:00Z",
-   "entry": 7.785,
-   "stop": 7.72,
-   "weight": 1.0,
-   "exit_ts": "2026-10-30T00:00:00Z",
-   "exit": 7.337,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "INJ",
-   "pair": "INJUSDT",
-   "id": "zona4h|INJ|2026-10-29T12:00:00Z|2026-10-29T20:00:00Z",
-   "ret": -5.95,
-   "eur": -59.55,
-   "R": -7.13
   },
   {
    "zone_ts": "2026-10-26T12:00:00Z",
@@ -7857,29 +7442,6 @@
    "R": -1.41
   },
   {
-   "zone_ts": "2026-10-27T16:00:00Z",
-   "top": 0.04763,
-   "bot": 0.04556,
-   "mid": 0.046595,
-   "target": 0.05073499999999999,
-   "width": 4.54,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-29T04:00:00Z",
-   "entry_ts": "2026-10-29T16:00:00Z",
-   "entry": 0.046595,
-   "stop": 0.04556,
-   "weight": 1.0,
-   "exit_ts": "2026-10-30T16:00:00Z",
-   "exit": 0.04527,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "zona4h|MEGA|2026-10-27T16:00:00Z|2026-10-29T16:00:00Z",
-   "ret": -3.04,
-   "eur": -30.44,
-   "R": -1.37
-  },
-  {
    "zone_ts": "2026-10-26T16:00:00Z",
    "top": 0.03948,
    "bot": 0.03791,
@@ -7924,29 +7486,6 @@
    "ret": -4.73,
    "eur": -47.3,
    "R": -7.47
-  },
-  {
-   "zone_ts": "2026-10-27T16:00:00Z",
-   "top": 0.07526,
-   "bot": 0.07285,
-   "mid": 0.074055,
-   "target": 0.07887499999999999,
-   "width": 3.31,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-28T12:00:00Z",
-   "entry_ts": "2026-10-29T00:00:00Z",
-   "entry": 0.074055,
-   "stop": 0.07285,
-   "weight": 1.0,
-   "exit_ts": "2026-10-29T08:00:00Z",
-   "exit": 0.07266,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "ZAMA",
-   "pair": "ZAMAUSDT",
-   "id": "zona4h|ZAMA|2026-10-27T16:00:00Z|2026-10-29T00:00:00Z",
-   "ret": -2.08,
-   "eur": -20.84,
-   "R": -1.28
   },
   {
    "zone_ts": "2026-10-27T16:00:00Z",
@@ -8041,6 +7580,29 @@
    "R": -1.93
   },
   {
+   "zone_ts": "2026-10-27T12:00:00Z",
+   "top": 0.15841,
+   "bot": 0.15621,
+   "mid": 0.15731,
+   "target": 0.16171000000000002,
+   "width": 1.41,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-28T00:00:00Z",
+   "entry_ts": "2026-10-28T00:00:00Z",
+   "entry": 0.15731,
+   "stop": 0.15621,
+   "weight": 1.0,
+   "exit_ts": "2026-10-28T04:00:00Z",
+   "exit": 0.16171000000000002,
+   "reason": "objetivo",
+   "symbol": "INIT",
+   "pair": "INITUSDT",
+   "id": "zona4h|INIT|2026-10-27T12:00:00Z|2026-10-28T00:00:00Z",
+   "ret": 2.6,
+   "eur": 25.97,
+   "R": 3.71
+  },
+  {
    "zone_ts": "2026-10-27T16:00:00Z",
    "top": 8.015,
    "bot": 7.933,
@@ -8085,29 +7647,6 @@
    "ret": 2.88,
    "eur": 28.84,
    "R": 3.74
-  },
-  {
-   "zone_ts": "2026-10-27T12:00:00Z",
-   "top": 0.15841,
-   "bot": 0.15621,
-   "mid": 0.15731,
-   "target": 0.16171000000000002,
-   "width": 1.41,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-28T00:00:00Z",
-   "entry_ts": "2026-10-28T00:00:00Z",
-   "entry": 0.15731,
-   "stop": 0.15621,
-   "weight": 1.0,
-   "exit_ts": "2026-10-28T04:00:00Z",
-   "exit": 0.16171000000000002,
-   "reason": "objetivo",
-   "symbol": "INIT",
-   "pair": "INITUSDT",
-   "id": "zona4h|INIT|2026-10-27T12:00:00Z|2026-10-28T00:00:00Z",
-   "ret": 2.6,
-   "eur": 25.97,
-   "R": 3.71
   },
   {
    "zone_ts": "2026-10-25T16:00:00Z",
@@ -8432,6 +7971,29 @@
    "R": -1.06
   },
   {
+   "zone_ts": "2026-10-15T16:00:00Z",
+   "top": 0.6409,
+   "bot": 0.619,
+   "mid": 0.62995,
+   "target": 0.6737500000000001,
+   "width": 3.54,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-18T12:00:00Z",
+   "entry_ts": "2026-10-23T20:00:00Z",
+   "entry": 0.62995,
+   "stop": 0.619,
+   "weight": 1.0,
+   "exit_ts": "2026-10-24T16:00:00Z",
+   "exit": 0.6111,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "ETHFI",
+   "pair": "ETHFIUSDT",
+   "id": "zona4h|ETHFI|2026-10-15T16:00:00Z|2026-10-23T20:00:00Z",
+   "ret": -3.19,
+   "eur": -31.92,
+   "R": -1.84
+  },
+  {
    "zone_ts": "2026-10-23T08:00:00Z",
    "top": 0.01325,
    "bot": 0.01307,
@@ -8478,75 +8040,6 @@
    "R": -2.48
   },
   {
-   "zone_ts": "2026-10-15T16:00:00Z",
-   "top": 0.6409,
-   "bot": 0.619,
-   "mid": 0.62995,
-   "target": 0.6737500000000001,
-   "width": 3.54,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-18T12:00:00Z",
-   "entry_ts": "2026-10-23T20:00:00Z",
-   "entry": 0.62995,
-   "stop": 0.619,
-   "weight": 1.0,
-   "exit_ts": "2026-10-24T16:00:00Z",
-   "exit": 0.6111,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "ETHFI",
-   "pair": "ETHFIUSDT",
-   "id": "zona4h|ETHFI|2026-10-15T16:00:00Z|2026-10-23T20:00:00Z",
-   "ret": -3.19,
-   "eur": -31.92,
-   "R": -1.84
-  },
-  {
-   "zone_ts": "2026-10-23T04:00:00Z",
-   "top": 0.04449,
-   "bot": 0.0438,
-   "mid": 0.044145000000000004,
-   "target": 0.04552500000000001,
-   "width": 1.58,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-23T20:00:00Z",
-   "entry_ts": "2026-10-23T20:00:00Z",
-   "entry": 0.044145000000000004,
-   "stop": 0.0438,
-   "weight": 1.0,
-   "exit_ts": "2026-10-24T00:00:00Z",
-   "exit": 0.04552500000000001,
-   "reason": "objetivo",
-   "symbol": "MEGA",
-   "pair": "MEGAUSDT",
-   "id": "zona4h|MEGA|2026-10-23T04:00:00Z|2026-10-23T20:00:00Z",
-   "ret": 2.93,
-   "eur": 29.26,
-   "R": 3.74
-  },
-  {
-   "zone_ts": "2026-10-23T04:00:00Z",
-   "top": 0.07478,
-   "bot": 0.07396,
-   "mid": 0.07436999999999999,
-   "target": 0.07601,
-   "width": 1.11,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-23T12:00:00Z",
-   "entry_ts": "2026-10-23T12:00:00Z",
-   "entry": 0.07436999999999999,
-   "stop": 0.07396,
-   "weight": 1.0,
-   "exit_ts": "2026-10-23T16:00:00Z",
-   "exit": 0.07601,
-   "reason": "objetivo",
-   "symbol": "ZAMA",
-   "pair": "ZAMAUSDT",
-   "id": "zona4h|ZAMA|2026-10-23T04:00:00Z|2026-10-23T12:00:00Z",
-   "ret": 2.01,
-   "eur": 20.05,
-   "R": 3.64
-  },
-  {
    "zone_ts": "2026-10-20T16:00:00Z",
    "top": 4.48e-06,
    "bot": 4.23e-06,
@@ -8570,29 +8063,6 @@
    "R": 3.93
   },
   {
-   "zone_ts": "2026-10-20T16:00:00Z",
-   "top": 0.07396,
-   "bot": 0.07219,
-   "mid": 0.073075,
-   "target": 0.07661499999999999,
-   "width": 2.45,
-   "kind": "zona4h",
-   "signal_ts": "2026-10-22T16:00:00Z",
-   "entry_ts": "2026-10-22T16:00:00Z",
-   "entry": 0.073075,
-   "stop": 0.07219,
-   "weight": 1.0,
-   "exit_ts": "2026-10-24T00:00:00Z",
-   "exit": 0.07135,
-   "reason": "stop (cierre bajo la zona)",
-   "symbol": "SKY",
-   "pair": "SKYUSDT",
-   "id": "zona4h|SKY|2026-10-20T16:00:00Z|2026-10-22T16:00:00Z",
-   "ret": -2.56,
-   "eur": -25.61,
-   "R": -2.11
-  },
-  {
    "zone_ts": "2026-10-15T16:00:00Z",
    "top": 0.58,
    "bot": 0.5432,
@@ -8614,6 +8084,29 @@
    "ret": -3.71,
    "eur": -37.08,
    "R": -1.13
+  },
+  {
+   "zone_ts": "2026-10-20T16:00:00Z",
+   "top": 0.07396,
+   "bot": 0.07219,
+   "mid": 0.073075,
+   "target": 0.07661499999999999,
+   "width": 2.45,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-22T16:00:00Z",
+   "entry_ts": "2026-10-22T16:00:00Z",
+   "entry": 0.073075,
+   "stop": 0.07219,
+   "weight": 1.0,
+   "exit_ts": "2026-10-24T00:00:00Z",
+   "exit": 0.07135,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "SKY",
+   "pair": "SKYUSDT",
+   "id": "zona4h|SKY|2026-10-20T16:00:00Z|2026-10-22T16:00:00Z",
+   "ret": -2.56,
+   "eur": -25.61,
+   "R": -2.11
   },
   {
    "zone_ts": "2026-10-19T04:00:00Z",
@@ -8685,6 +8178,52 @@
    "R": -1.68
   },
   {
+   "zone_ts": "2026-10-19T00:00:00Z",
+   "top": 0.6766,
+   "bot": 0.6572,
+   "mid": 0.6669,
+   "target": 0.7057,
+   "width": 2.95,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-19T16:00:00Z",
+   "entry_ts": "2026-10-22T08:00:00Z",
+   "entry": 0.6669,
+   "stop": 0.6572,
+   "weight": 1.0,
+   "exit_ts": "2026-10-22T20:00:00Z",
+   "exit": 0.6561,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "ETHFI",
+   "pair": "ETHFIUSDT",
+   "id": "zona4h|ETHFI|2026-10-19T00:00:00Z|2026-10-22T08:00:00Z",
+   "ret": -1.82,
+   "eur": -18.19,
+   "R": -1.25
+  },
+  {
+   "zone_ts": "2026-10-20T16:00:00Z",
+   "top": 0.4418,
+   "bot": 0.4358,
+   "mid": 0.4388,
+   "target": 0.45080000000000003,
+   "width": 1.38,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-22T04:00:00Z",
+   "entry_ts": "2026-10-22T08:00:00Z",
+   "entry": 0.4388,
+   "stop": 0.4358,
+   "weight": 1.0,
+   "exit_ts": "2026-10-22T16:00:00Z",
+   "exit": 0.4314,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "ONDO",
+   "pair": "ONDOUSDT",
+   "id": "zona4h|ONDO|2026-10-20T16:00:00Z|2026-10-22T08:00:00Z",
+   "ret": -1.89,
+   "eur": -18.86,
+   "R": -2.76
+  },
+  {
    "zone_ts": "2026-10-21T12:00:00Z",
    "top": 0.0791,
    "bot": 0.078,
@@ -8709,26 +8248,72 @@
   },
   {
    "zone_ts": "2026-10-20T16:00:00Z",
-   "top": 0.4418,
-   "bot": 0.4358,
-   "mid": 0.4388,
-   "target": 0.45080000000000003,
-   "width": 1.38,
+   "top": 1.829,
+   "bot": 1.81,
+   "mid": 1.8195000000000001,
+   "target": 1.8575,
+   "width": 1.05,
    "kind": "zona4h",
    "signal_ts": "2026-10-22T04:00:00Z",
    "entry_ts": "2026-10-22T08:00:00Z",
-   "entry": 0.4388,
-   "stop": 0.4358,
+   "entry": 1.8195000000000001,
+   "stop": 1.81,
    "weight": 1.0,
-   "exit_ts": "2026-10-22T16:00:00Z",
-   "exit": 0.4314,
+   "exit_ts": "2026-10-22T20:00:00Z",
+   "exit": 1.772,
    "reason": "stop (cierre bajo la zona)",
-   "symbol": "ONDO",
-   "pair": "ONDOUSDT",
-   "id": "zona4h|ONDO|2026-10-20T16:00:00Z|2026-10-22T08:00:00Z",
-   "ret": -1.89,
-   "eur": -18.86,
-   "R": -2.76
+   "symbol": "RENDER",
+   "pair": "RENDERUSDT",
+   "id": "zona4h|RENDER|2026-10-20T16:00:00Z|2026-10-22T08:00:00Z",
+   "ret": -2.81,
+   "eur": -28.11,
+   "R": -5.38
+  },
+  {
+   "zone_ts": "2026-10-20T16:00:00Z",
+   "top": 0.556,
+   "bot": 0.5451,
+   "mid": 0.5505500000000001,
+   "target": 0.5723500000000001,
+   "width": 2.0,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-22T04:00:00Z",
+   "entry_ts": "2026-10-22T04:00:00Z",
+   "entry": 0.5505500000000001,
+   "stop": 0.5451,
+   "weight": 1.0,
+   "exit_ts": "2026-10-22T08:00:00Z",
+   "exit": 0.5403,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "WLD",
+   "pair": "WLDUSDT",
+   "id": "zona4h|WLD|2026-10-20T16:00:00Z|2026-10-22T04:00:00Z",
+   "ret": -2.06,
+   "eur": -20.62,
+   "R": -2.08
+  },
+  {
+   "zone_ts": "2026-10-21T20:00:00Z",
+   "top": 204.26,
+   "bot": 200.09,
+   "mid": 202.175,
+   "target": 210.515,
+   "width": 2.08,
+   "kind": "zona4h",
+   "signal_ts": "2026-10-22T04:00:00Z",
+   "entry_ts": "2026-10-22T04:00:00Z",
+   "entry": 202.175,
+   "stop": 200.09,
+   "weight": 1.0,
+   "exit_ts": "2026-10-22T08:00:00Z",
+   "exit": 195.33,
+   "reason": "stop (cierre bajo la zona)",
+   "symbol": "QNT",
+   "pair": "QNTUSDT",
+   "id": "zona4h|QNT|2026-10-21T20:00:00Z|2026-10-22T04:00:00Z",
+   "ret": -3.59,
+   "eur": -35.86,
+   "R": -3.48
   }
  ]
 }
