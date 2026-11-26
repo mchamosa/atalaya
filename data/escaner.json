@@ -11887,7 +11887,7 @@
    }
   ]
  },
- "updated": "2026-11-26T13:15:10Z",
+ "updated": "2026-11-26T14:57:19Z",
  "orb": {
   "created_by": "trader-scanner",
   "created_at": "2026-11-25T14:56:27Z",
@@ -13763,14 +13763,16 @@
   "earnings_source": "calendario Nasdaq"
  },
  "fundamentals_note": "Para ver ingresos, beneficios y márgenes de la SEC hay que añadir el secreto SEC_USER_AGENT (nombre y correo) en GitHub.",
- "status": {},
+ "status": {
+  "orb": "scan.py: No session on Thu 2026-11-26 (NYSE holiday: Thanksgiving Day): the market is closed. Run orb on a trading day after the opening range, or replay a past day with --offline."
+ },
  "regime": {
   "name": "bajista",
   "spy": 716.7,
   "ma50": 757.89,
   "ma200": 733.16,
   "ma50_slope_pct": -1.27,
-  "at": "2026-11-26T13:07:19Z"
+  "at": "2026-11-26T14:56:18Z"
  },
  "earnings_next": {
   "CPRT": {
