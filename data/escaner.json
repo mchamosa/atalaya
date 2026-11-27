@@ -2,10 +2,10 @@
  "source": "day-trader-skill (Jake Schincariol, MIT) con datos gratuitos de Yahoo Finance, SEC EDGAR y House Clerk",
  "daily": {
   "created_by": "trader-scanner",
-  "created_at": "2026-11-26T13:07:19Z",
+  "created_at": "2026-11-27T13:07:53Z",
   "mode": "daily",
   "as_of": "2026-11-25 close",
-  "universe": 5924,
+  "universe": 5922,
   "scanned": 1466,
   "failed": 0,
   "source": "yahoo",
@@ -4492,15 +4492,15 @@
    }
   ],
   "counts": {
-   "requested": 5924,
-   "fetched": 5924,
-   "illiquid": 4457,
+   "requested": 5922,
+   "fetched": 5922,
+   "illiquid": 4455,
    "short": 1,
    "scanned": 1466,
    "hits": 384
   },
-  "seconds": 134.6,
-  "run_at": "2026-11-26T13:09:34Z",
+  "seconds": 161.5,
+  "run_at": "2026-11-27T13:10:34Z",
   "filtered_illiquid": [
    "FCUV",
    "GRPN",
@@ -4596,59 +4596,34 @@
   },
   "earnings": [
    "AAME",
-   "ADXN",
-   "ALAR",
+   "AIV",
    "AREC",
-   "BMA",
-   "BNR",
-   "BZ",
-   "BZAI",
+   "BOSC",
+   "CBAT",
    "CELU",
-   "CMCM",
-   "DE",
-   "DOYU",
-   "DSX",
-   "DTSS",
-   "EH",
+   "CHA",
+   "CURR",
    "ENLV",
-   "EOCN",
-   "FINV",
-   "FORTY",
-   "GASS",
-   "GDS",
-   "GOTU",
-   "HDL",
-   "HUBG",
-   "ICG",
-   "IMKTA",
-   "ITP",
+   "GDC",
+   "GDEV",
+   "HMR",
+   "HTT",
+   "IPST",
    "KT",
    "LEDS",
-   "LEE",
-   "LI",
-   "MAGN",
-   "MTR",
+   "LOT",
    "NAT",
-   "NNOX",
    "NORD",
-   "OPHI",
-   "PRT",
    "PVL",
-   "QUIT",
-   "RBNE",
+   "PWRL",
    "SCLX",
-   "SEGG",
-   "SHPH",
    "SIDU",
-   "SJ",
-   "TPCS",
-   "XYF",
-   "YSG"
+   "XYF"
   ],
   "earnings_source": "calendario Nasdaq"
  },
  "news": {
-  "run_at": "2026-11-26T13:13:26Z",
+  "run_at": "2026-11-27T13:13:36Z",
   "tickers": [
    "SNDK",
    "INSM",
@@ -5018,6 +4993,1180 @@
    {
     "source": "Yahoo Finance",
     "kind": "headline",
+    "ticker": "INTU",
+    "title": "Which Line In Intuit's Quarter Did The Market Sell?",
+    "link": "https://www.trefis.com/stock/intu/articles/629369/which-line-in-intuit-s-quarter-did-the-market-sell/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:49:41+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "T",
+    "title": "Berenberg Just Cut Its AST SpaceMobile Target From $92 to $30",
+    "link": "https://www.tikr.com/blog/berenberg-just-cut-its-ast-spacemobile-target-from-92-to-30?ref=yahoofinance&tlnk=yf-261127-gqgjmqwj&.tsrc=rss",
+    "time": "2026-11-27T12:45:49+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "QCOM",
+    "title": "Does Qualcomm Stock Have A Future?",
+    "link": "https://www.trefis.com/stock/qcom/articles/629363/does-qualcomm-stock-have-a-future/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:45:29+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Disney Is Up 10% in 2026 and Just Hit a 52-Week High: Take Profits, or Buy More?",
+    "link": "https://www.tikr.com/blog/disney-is-up-10-in-2026-and-just-hit-a-52-week-high-take-profits-or-buy-more?ref=yahoofinance&tlnk=yf-261127-99h64frf&.tsrc=rss",
+    "time": "2026-11-27T12:44:34+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "What Should McDonald's Stock Holders Watch Now?",
+    "link": "https://www.trefis.com/stock/mcd/articles/629362/what-should-mcdonald-s-stock-holders-watch-now/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:43:24+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AXON",
+    "title": "Is Axon Stock Priced Right Against Its Peers?",
+    "link": "https://www.trefis.com/stock/axon/articles/629349/is-axon-stock-priced-right-against-its-peers/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:30:46+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VZ",
+    "title": "Should You Buy Verizon Stock For Its Cash?",
+    "link": "https://www.trefis.com/stock/vz/articles/629343/should-you-buy-verizon-stock-for-its-cash/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:24:27+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "Vertex (VRTX) Stock Falls 7.3% Premarket Without Company News",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/vertex-vrtx-stock-falls-7-121533478.html?.tsrc=rss",
+    "time": "2026-11-27T12:15:33+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SBUX",
+    "title": "3 ETFs For Owning Starbucks Without The Same Surrounding Risks",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/3-etfs-owning-starbucks-without-121102107.html?.tsrc=rss",
+    "time": "2026-11-27T12:11:02+00:00",
+    "tags": [
+     "earnings",
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "What Is Visa (V) Doing With Stablecoin Payments In Europe And Asia?",
+    "link": "https://finance.yahoo.com/markets/crypto/articles/visa-v-doing-stablecoin-payments-120939492.html?.tsrc=rss",
+    "time": "2026-11-27T12:09:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MSTR",
+    "title": "Crypto Stocks Gain After Bitcoin Tops $61K In Tech Rebound, But Analysts Want A Move Above $62K",
+    "link": "https://stocktwits.com/news-articles/markets/cryptocurrency/crypto-stocks-gain-after-bitcoin-tops-61-k-in-tech-rebound-but-analysts-want-a-move-above-62-k/cNbCsYgR9Ns?.tsrc=rss",
+    "time": "2026-11-27T12:03:37+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "The Dates That Matter Most For Procter & Gamble Stock",
+    "link": "https://www.trefis.com/stock/pg/articles/629330/the-dates-that-matter-most-for-procter-gamble-stock/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T12:03:26+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NU",
+    "title": "Nu Holdings (NU) Stock Jumps 8.3% Premarket Without Company News",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/nu-holdings-nu-stock-jumps-120019786.html?.tsrc=rss",
+    "time": "2026-11-27T12:00:19+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "HD",
+    "title": "Black Friday Deals, Record Online Sales Put These ETFs in Focus",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/black-friday-deals-record-online-120000267.html?.tsrc=rss",
+    "time": "2026-11-27T12:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "He was right about AI and still lost $35 billion",
+    "link": "https://finance.yahoo.com/video/ai-still-lost-35-billion-120000023.html?.tsrc=rss",
+    "time": "2026-11-27T12:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Dexcom Or Abbott: Which Sensor Stock Is Better?",
+    "link": "https://www.trefis.com/stock/dxcm/articles/629445/the-sensor-that-shows-what-breakfast-does-to-your-blood-sugar-dexcom-grows-11-abbott-8/2026-11-27?.tsrc=rss",
+    "time": "2026-11-27T11:54:57+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "QCOM",
+    "title": "Why Is Qualcomm Stock Rallying Today?",
+    "link": "https://investorshub.advfn.com/market-news/article/40788/why-is-qualcomm-stock-rallying-today?.tsrc=rss",
+    "time": "2026-11-27T11:50:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Brian Armstrong Says Coinbase Uses AI to Scan Every Line of Code Amid Rising Cyber Threats: ‘Trust Matters More Now Than Ever’",
+    "link": "https://finance.yahoo.com/markets/crypto/articles/brian-armstrong-says-coinbase-uses-114505264.html?.tsrc=rss",
+    "time": "2026-11-27T11:45:05+00:00",
+    "tags": [
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "Why Is Vertex Pharmaceuticals Stock Falling Today?",
+    "link": "https://investorshub.advfn.com/market-news/article/40779/why-is-vertex-pharmaceuticals-stock-falling-today?.tsrc=rss",
+    "time": "2026-11-27T11:43:09+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INSM",
+    "title": "Sanofi Stock Surges 26% as $41 Billion Insmed Deal Boosts Confidence",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/sanofi-stock-surges-26-41-113324950.html?.tsrc=rss",
+    "time": "2026-11-27T11:33:24+00:00",
+    "tags": [
+     "deal",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Circle's Arc Gains Traction: Can It Fuel Revenue Growth?",
+    "link": "https://finance.yahoo.com/markets/crypto/articles/circles-arc-gains-traction-fuel-112200287.html?.tsrc=rss",
+    "time": "2026-11-27T11:22:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "Micron vs. SanDisk: Which Is the Better AI Stock to Buy for 2027?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/micron-vs-sandisk-better-ai-111815853.html?.tsrc=rss",
+    "time": "2026-11-27T11:18:15+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PSX",
+    "title": "PBF Energy vs. Phillips 66: Which Refining Stock Holds the Edge?",
+    "link": "https://finance.yahoo.com/energy/articles/pbf-energy-vs-phillips-66-111200718.html?.tsrc=rss",
+    "time": "2026-11-27T11:12:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AJG",
+    "title": "Did Financial Wellbeing Launch Just Shift Gallagher's (AJG) Investment Narrative?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/did-financial-wellbeing-launch-just-111112996.html?.tsrc=rss",
+    "time": "2026-11-27T11:11:12+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "Can BROS' 100-Basis-Point SG&A Leverage Support 2026 Earnings Growth?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/bros-100-basis-point-sg-110900892.html?.tsrc=rss",
+    "time": "2026-11-27T11:09:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "iShares U.S. Medical Devices (IHI) Buys $18.6 Million More ABT on Nov. 25",
+    "link": "https://finance.yahoo.com/healthcare/articles/ishares-u-medical-devices-ihi-110500808.html?.tsrc=rss",
+    "time": "2026-11-27T11:05:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "iShares Biotechnology ETF (IBB) Adds Gilead and Amgen on Nov. 25",
+    "link": "https://finance.yahoo.com/healthcare/articles/ishares-biotechnology-etf-ibb-adds-110451996.html?.tsrc=rss",
+    "time": "2026-11-27T11:04:51+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "FCX",
+    "title": "ETFs Are Net Sellers of Freeport-McMoRan (FCX) on Nov. 25",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-freeport-mcmoran-110310046.html?.tsrc=rss",
+    "time": "2026-11-27T11:03:10+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AJG",
+    "title": "ETFs Are Net Sellers of Arthur J. Gallagher (AJG) on Nov. 25",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-arthur-j-110239029.html?.tsrc=rss",
+    "time": "2026-11-27T11:02:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MSI",
+    "title": "ETFs Are Net Sellers of Motorola Solutions (MSI) on Wednesday",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-motorola-solutions-110219807.html?.tsrc=rss",
+    "time": "2026-11-27T11:02:19+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "The Anatomy of an AI Rally: Anthropic Stock Quickly Finds Its Place",
+    "link": "https://finance.yahoo.com/m/eac9c281-033c-3c73-8b9a-a27703a8cdc9/the-anatomy-of-an-ai-rally%3A.html?.tsrc=rss",
+    "time": "2026-11-27T11:01:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "Micron's Higher FY27 CapEx: Can Supply Security Boost Its Growth Further?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/microns-higher-fy27-capex-supply-105500633.html?.tsrc=rss",
+    "time": "2026-11-27T10:55:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "IonQ's QKD Systems Pass IDEMIA Validation for Critical Communications",
+    "link": "https://finance.yahoo.com/technology/ai/articles/ionqs-qkd-systems-pass-idemia-104600717.html?.tsrc=rss",
+    "time": "2026-11-27T10:46:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "Sandisk, Bloom, Marvell, AMD, Nvidia, HP, and More Stocks That Explain Today’s Market",
+    "link": "https://finance.yahoo.com/m/977de44c-fcf5-3369-bcdd-0c3ddc7cfec9/sandisk%2C-bloom%2C-marvell%2C-amd%2C.html?.tsrc=rss",
+    "time": "2026-11-27T10:22:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "1 No-Brainer Stock to Buy and Hold for 10 Years",
+    "link": "https://www.fool.com/investing/2026/11/27/1-no-brainer-stock-to-buy-on-the-dip-and-hold-for-10-years/?.tsrc=rss",
+    "time": "2026-11-27T10:13:02+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "Kyndryl and Hermes International have been highlighted as Zacks Bull and Bear of the Day",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/kyndryl-hermes-international-highlighted-zacks-070900516.html?.tsrc=rss",
+    "time": "2026-11-27T07:09:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LMT",
+    "title": "The Zacks Analyst Blog Highlights CrowdStrike, Lockheed Martin, S&P Global, The Eastern and AmeriServ Financial",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-crowdstrike-064800574.html?.tsrc=rss",
+    "time": "2026-11-27T06:48:00+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MDT",
+    "title": "Minimally Invasive Surgery Market to Reach USD 217.3 Billion by 2031, Growing at 15.2% CAGR as Robotic Rivals Challenge Intuitive's Lead: Wissen Research",
+    "link": "https://finance.yahoo.com/healthcare/articles/minimally-invasive-surgery-market-reach-064800524.html?.tsrc=rss",
+    "time": "2026-11-27T06:48:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "Visa and NBX plan stablecoin-linked payment card",
+    "link": "https://www.electronicpaymentsinternational.com/news/visa-and-nbx-plan-stablecoin-linked-payment-card/?.tsrc=rss",
+    "time": "2026-11-27T06:45:57+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INSM",
+    "title": "The Zacks Analyst Blog Highlights Vera Therapeutics, BridgeBio Pharma, Revolution Medicines, Agios Pharmaceuticals and Stoke Therapeutics",
+    "link": "https://finance.yahoo.com/healthcare/articles/zacks-analyst-blog-highlights-vera-064400990.html?.tsrc=rss",
+    "time": "2026-11-27T06:44:00+00:00",
+    "tags": [
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "5 Best Quantum Computing Stocks To Buy for 2027",
+    "link": "https://finance.yahoo.com/technology/articles/5-best-quantum-computing-stocks-032149616.html?.tsrc=rss",
+    "time": "2026-11-27T03:21:49+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "QCOM",
+    "title": "SoftBank’s “Worst Sell-Off” Since ’08 Is Bad News for Arm. Here’s the Number That Matters",
+    "link": "https://www.tikr.com/blog/softbanks-worst-sell-off-since-08-is-bad-news-for-arm-heres-the-number-that-matters?ref=yahoofinance&tlnk=yf-261127-3ggwv4gr&.tsrc=rss",
+    "time": "2026-11-27T03:08:55+00:00",
+    "tags": [
+     "risk"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "IBM (IBM) Is A Key Supplier In Smart Hospitals And Data Centres",
+    "link": "https://finance.yahoo.com/technology/articles/ibm-ibm-key-supplier-smart-021259557.html?.tsrc=rss",
+    "time": "2026-11-27T02:12:59+00:00",
+    "tags": [
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Coinbase (COIN) Stock Sees Modest Fair Value Cut As Analyst Views Stay Split",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/coinbase-coin-stock-sees-modest-012524546.html?.tsrc=rss",
+    "time": "2026-11-27T01:25:24+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "HD",
+    "title": "Home Depot shoppers can now dodge a classic cart disaster",
+    "link": "https://www.thestreet.com/investing/stocks/home-depot-shoppers-can-now-dodge-a-classic-cart-disaster?.tsrc=rss",
+    "time": "2026-11-27T00:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "2 Dividend Stocks to Buy in November and 1 to Leave on the Shelf",
+    "link": "https://www.fool.com/investing/2026/11/26/2-dividend-stocks-to-buy-in-november-and-1-to-leave-on-the-shelf/?.tsrc=rss",
+    "time": "2026-11-26T23:45:02+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ORLY",
+    "title": "O’Reilly’s Sales to Professional Mechanics Jumped 12.7% Last Quarter. Here’s Why That’s the Clearest Sign of Its Moat.",
+    "link": "https://www.fool.com/investing/2026/11/26/oreilly-sales-professional-mechanics-jumped-last-quarter-why-that-s-the-clearest-sign-of-its-moat/?.tsrc=rss",
+    "time": "2026-11-26T21:50:02+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "The Nasdaq Composite Is in a Correction, but These 3 Dividend Stocks Are Near 52-Week Highs. Here's Why They're Still Worth Buying Right Now.",
+    "link": "https://www.fool.com/investing/2026/11/26/the-nasdaq-composite-is-in-a-correction-but-these-3-dividend-stocks-are-near-52-week-highs-here-s-why-they-re-still-worth-buying-right-now/?.tsrc=rss",
+    "time": "2026-11-26T21:33:02+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Take-Two’s (TTWO) GTA 6 Could Be a Cash Cow for the Next Decade",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/two-ttwo-gta-6-could-213300568.html?.tsrc=rss",
+    "time": "2026-11-26T21:33:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Disney Stock Just Closed at Its Highest Level Since April 2022",
+    "link": "https://247wallst.com/investing/2026/11/26/disney-stock-just-closed-at-its-highest-level-since-april-2022/?.tsrc=rss",
+    "time": "2026-11-26T21:22:24+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "Sandisk’s 8-for-1 Split Is Done. Here’s What Investors Should Do Next.",
+    "link": "https://www.fool.com/investing/2026/11/26/sandisks-8-for-1-split-is-done-heres-what-investors-should-do-next/?.tsrc=rss",
+    "time": "2026-11-26T21:20:02+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "TJX",
+    "title": "3 Dividend Stocks That Could Benefit From the Black Friday Shopping Rush",
+    "link": "https://247wallst.com/investing/2026/11/26/3-dividend-stocks-that-could-benefit-from-the-black-friday-shopping-rush/?.tsrc=rss",
+    "time": "2026-11-26T21:07:19+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "Billionaire Chris Hohn’s TCI Has 30% of Its $49.6 Billion Stock Portfolio in GE Aerospace",
+    "link": "https://247wallst.com/investing/2026/11/26/billionaire-chris-hohns-tci-has-30-of-its-49-6-billion-stock-portfolio-in-ge-aerospace/?.tsrc=rss",
+    "time": "2026-11-26T20:46:58+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "Vertex Pharmaceuticals Incorporated (VRTX) CF Dominance and Pipeline Strengthen Investment Outlook",
+    "link": "https://finance.yahoo.com/healthcare/articles/vertex-pharmaceuticals-incorporated-vrtx-cf-203631967.html?.tsrc=rss",
+    "time": "2026-11-26T20:36:31+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Abbott Laboratories (ABT) Offers Diversified Healthcare Exposure and Long-Term Growth Potential",
+    "link": "https://finance.yahoo.com/healthcare/articles/abbott-laboratories-abt-offers-diversified-203603126.html?.tsrc=rss",
+    "time": "2026-11-26T20:36:03+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "Here’s How Many Shares of Procter & Gamble You’d Need to Own to Collect $1,000 in Annual Dividends",
+    "link": "https://www.fool.com/investing/2026/11/26/here-s-how-many-shares-of-procter-and-gamble-you-d-need-to-own-to-collect-usd1-000-in-annual-dividends/?.tsrc=rss",
+    "time": "2026-11-26T20:29:02+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Freenome: 3 Key Takeaways for Long-Term Investors",
+    "link": "https://www.fool.com/earnings/takeaways/2026/11/26/freenome-3-key-takeaways-for-long-term-investors/?.tsrc=rss",
+    "time": "2026-11-26T20:21:36+00:00",
+    "tags": [
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Walt Disney (DIS) Lifts Dividend On Strong Earnings, Is The Stock Still Cheap?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/walt-disney-dis-lifts-dividend-200909244.html?.tsrc=rss",
+    "time": "2026-11-26T20:09:09+00:00",
+    "tags": [
+     "earnings",
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Altria, AbbVie and Enterprise Products Partners Are Paying Investors More Heading Into 2027",
+    "link": "https://247wallst.com/investing/2026/11/26/altria-abbvie-and-enterprise-products-partners-are-paying-investors-more-heading-into-2027/?.tsrc=rss",
+    "time": "2026-11-26T20:07:16+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "HPQ",
+    "title": "HP Stock Just Had Its Best Day Since May and Blew Past Wall Street’s Price Target",
+    "link": "https://247wallst.com/investing/2026/11/26/hp-stock-just-had-its-best-day-since-may-and-blew-past-wall-streets-price-target/?.tsrc=rss",
+    "time": "2026-11-26T20:02:17+00:00",
+    "tags": [
+     "earnings",
+     "analyst",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "Sandisk Trades at Under 3x Earnings After an 8-for-1 Split and a 70% Crash. Why SNDK Stock Isn’t Doomed Despite NAND Price Warnings.",
+    "link": "https://www.barchart.com/story/news/9022920/sandisk-trades-at-under-3x-earnings-after-an-8-for-1-split-and-a-70-crash-why-sndk-stock-isnt-doomed-despite-nand-price-warnings?.tsrc=rss",
+    "time": "2026-11-26T19:30:03+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "The Buffett Indicator Is Flashing Red. These 2 Dividend Stocks Could Be Safe Havens.",
+    "link": "https://www.fool.com/investing/2026/11/26/the-buffett-indicator-is-flashing-red-these-2-dividend-stocks-could-be-safe-havens/?.tsrc=rss",
+    "time": "2026-11-26T19:25:02+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LMT",
+    "title": "Better Defense Stock to Own in 2027: Lockheed Martin vs. L3Harris Technologies",
+    "link": "https://www.fool.com/investing/2026/11/26/better-defense-stock-to-own-in-2027-lockheed-martin-vs-l3harris-technologies/?.tsrc=rss",
+    "time": "2026-11-26T18:52:02+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "Costco sells something consumers want even if they don't need it",
+    "link": "https://www.thestreet.com/retail/costco-borrows-a-starbucks-trick-as-shoppers-cut-back?.tsrc=rss",
+    "time": "2026-11-26T18:47:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "IBM Stocks Climb 3.33% as Wedbush Starts Coverage at Outperform With $276 Target",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/ibm-stocks-climb-3-33-184634000.html?.tsrc=rss",
+    "time": "2026-11-26T18:46:34+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AXON",
+    "title": "Ken Fisher and 5 Other Big Funds Sold Axon Enterprise Last Quarter, While 9 Bought. Who’s Right?",
+    "link": "https://www.tikr.com/blog/ken-fisher-and-5-other-big-funds-sold-axon-enterprise-last-quarter-while-9-bought-whos-right?ref=yahoofinance&tlnk=yf-261126-3rxw8h4v&.tsrc=rss",
+    "time": "2026-11-26T18:41:47+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "Mastercard Stocks Rise 1.94% as Payment Networks Gain in AI Selloff Rotation",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/mastercard-stocks-rise-1-94-183721566.html?.tsrc=rss",
+    "time": "2026-11-26T18:37:21+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AXON",
+    "title": "2 Growth Stocks That Lagged the S&P 500 in 2026 and Could Lead in 2027",
+    "link": "https://www.fool.com/investing/2026/11/26/2-growth-stocks-that-lagged-the-sp-500-in-2026-and-could-lead-in-2027/?.tsrc=rss",
+    "time": "2026-11-26T18:31:19+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VZ",
+    "title": "An $850,000 Portfolio in Park Hotels & Resorts, Healthpeak and Verizon Pays $51,477 a Year in Dividends. Here’s What Happens if One Cuts",
+    "link": "https://www.tikr.com/blog/an-850000-portfolio-in-park-hotels-resorts-healthpeak-and-verizon-pays-52056-a-year-in-dividends-heres-what-happens-if-one-cuts?ref=yahoofinancedividend&tlnk=yf-261126-rg7ghxjj&.tsrc=rss",
+    "time": "2026-11-26T18:20:24+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "Stanley Druckenmiller and 10 Other Big Funds Bought Newmont Last Quarter. Ken Fisher and 5 Others Sold. Who’s Right?",
+    "link": "https://www.tikr.com/blog/stanley-druckenmiller-and-10-other-big-funds-bought-newmont-last-quarter-ken-fisher-and-5-others-sold-whos-right?ref=yahoofinance&tlnk=yf-261126-5xvcrmf7&.tsrc=rss",
+    "time": "2026-11-26T18:15:05+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LMT",
+    "title": "Invest in the Fighter Jets, Submarines and Stealth Bombers for Passive Income: $90,000 Across These 3 Defense Contractors Pays More Than $1,700 a Year",
+    "link": "https://247wallst.com/investing/2026/11/26/invest-in-the-fighter-jets-submarines-and-stealth-bombers-for-passive-income-90000-across-these-3-defense-contractors-pays-more-than-1700-a-year/?.tsrc=rss",
+    "time": "2026-11-26T17:57:52+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MSTR",
+    "title": "Why Strategy Can Rebound to $175 in 2027 Even If Bitcoin Stays Below Peak",
+    "link": "https://247wallst.com/investing/2026/11/26/why-strategy-can-rebound-to-175-in-2027-even-if-bitcoin-stays-below-peak/?.tsrc=rss",
+    "time": "2026-11-26T17:45:54+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "NFL's Thanksgiving Boom Raises Stakes for Disney, Netflix",
+    "link": "https://finance.yahoo.com/media-advertising/articles/nfls-thanksgiving-boom-raises-stakes-174228885.html?.tsrc=rss",
+    "time": "2026-11-26T17:42:28+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "QCOM",
+    "title": "What Is Qualcomm (QCOM) Worth Watching In Automotive AI Right Now?",
+    "link": "https://finance.yahoo.com/technology/ai/articles/qualcomm-qcom-worth-watching-automotive-171007378.html?.tsrc=rss",
+    "time": "2026-11-26T17:10:07+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NU",
+    "title": "Nu Holdings (NU): Why Investors Gave the Stock a Mixed Reception Despite Strong Results?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/nu-holdings-nu-why-investors-170952971.html?.tsrc=rss",
+    "time": "2026-11-26T17:09:52+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LOW",
+    "title": "Apple, Exxon and Lowe’s Are Rewarding Shareholders Beyond Their Regular Dividends",
+    "link": "https://247wallst.com/investing/2026/11/26/apple-exxon-and-lowes-are-rewarding-shareholders-beyond-their-regular-dividends/?.tsrc=rss",
+    "time": "2026-11-26T17:07:34+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SNDK",
+    "title": "This AI Investing Prodigy Lost 65% in a Single Quarter and Is Still Up 88.5% in 2026. Here’s the Lesson for Investors.",
+    "link": "https://247wallst.com/investing/2026/11/26/this-ai-investing-prodigy-lost-65-in-a-single-quarter-and-is-still-up-88-5-in-2026-heres-the-lesson-for-investors/?.tsrc=rss",
+    "time": "2026-11-26T16:55:13+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AXON",
+    "title": "Can Axon's Expanding Dedrone Platform Sustain Its Growth Momentum?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/axons-expanding-dedrone-platform-sustain-165100620.html?.tsrc=rss",
+    "time": "2026-11-26T16:51:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "5 Stocks Poised to Benefit as Prediction Markets Gain Traction",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/5-stocks-poised-benefit-prediction-164800920.html?.tsrc=rss",
+    "time": "2026-11-26T16:48:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Netflix Stock Is Down 36% in 2026. Can Its Disney Partnership Make It a Buy Again?",
+    "link": "https://247wallst.com/investing/2026/11/26/netflix-stock-is-down-36-in-2026-can-its-disney-partnership-make-it-a-buy-again/?.tsrc=rss",
+    "time": "2026-11-26T16:38:57+00:00",
+    "tags": [
+     "deal"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SBUX",
+    "title": "Tim Hortons Could Follow Starbucks With Major China Move",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/tim-hortons-could-starbucks-major-163132268.html?.tsrc=rss",
+    "time": "2026-11-26T16:31:32+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "Standard Chartered unit reports customer data breach",
+    "link": "https://www.thestreet.com/crypto/markets/standard-chartered-unit-reports-customer-data-breach?.tsrc=rss",
+    "time": "2026-11-26T16:30:00+00:00",
+    "tags": [
+     "risk"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Fidelity Files For Spot Chainlink ETF On Nasdaq",
+    "link": "https://www.cryptoprowl.com/releases/fidelity-files-for-spot-chainlink-etf-on-nasdaq-8090?.tsrc=rss",
+    "time": "2026-11-26T16:25:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NTNX",
+    "title": "Nutanix downgrade puts CEO succession in focus",
+    "link": "https://www.proactiveinvestors.com/companies/news/1102540/nutanix-downgrade-puts-ceo-succession-in-focus-1102540.html?.tsrc=rss",
+    "time": "2026-11-26T16:16:00+00:00",
+    "tags": [
+     "analyst",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Coinbase (COIN) Stock May Already Trade At A Premium Despite Loan Expansion",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/coinbase-coin-stock-may-already-161118302.html?.tsrc=rss",
+    "time": "2026-11-26T16:11:18+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "T",
+    "title": "The Portfolio Blueprint for $11,100 a Month in Dividend Income Without Selling a Single Share",
+    "link": "https://247wallst.com/personal-finance/2026/11/26/the-portfolio-blueprint-for-11100-a-month-in-dividend-income-without-selling-a-single-share/?.tsrc=rss",
+    "time": "2026-11-26T16:01:50+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "‘I’d Be Having My Thanksgiving Dinner at McDonald’s’: Warren Buffett Credited ‘Uncle Sam’ for Saving His Holiday — And the U.S. Economy",
+    "link": "https://www.barchart.com/story/news/9021069/id-be-having-my-thanksgiving-dinner-at-mcdonalds-warren-buffett-credited-uncle-sam-for-saving-his-holiday-and-the-u-s-economy?.tsrc=rss",
+    "time": "2026-11-26T16:00:02+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ADP",
+    "title": "Can NSP's Margin Recovery Plan Fuel a Sustainable Earnings Turnaround?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/nsps-margin-recovery-plan-fuel-155900269.html?.tsrc=rss",
+    "time": "2026-11-26T15:59:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NEE",
+    "title": "NEE or CEG: Which Clean Energy Stock Is Better Positioned for Growth?",
+    "link": "https://finance.yahoo.com/energy/articles/nee-ceg-clean-energy-stock-154500861.html?.tsrc=rss",
+    "time": "2026-11-26T15:45:00+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MDT",
+    "title": "Global Electromyography Devices Market Size and Trends Analysis Report 2026-2033 Featuring Natus Medical (ArchiMed), NIHON KOHDEN, Cadwell Industries, Medtronic, Neurosoft, Noraxon and More",
+    "link": "https://finance.yahoo.com/healthcare/articles/global-electromyography-devices-market-size-154100380.html?.tsrc=rss",
+    "time": "2026-11-26T15:41:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "FCX",
+    "title": "Will Southern Copper Deliver Further Adjusted EBITDA Growth?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/southern-copper-deliver-further-adjusted-153400328.html?.tsrc=rss",
+    "time": "2026-11-26T15:34:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "V",
+    "title": "Visa (V) Up 5.9% Since Last Earnings Report: Can It Continue?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/visa-v-5-9-since-153019522.html?.tsrc=rss",
+    "time": "2026-11-26T15:30:19+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "FCX",
+    "title": "Why Is Freeport-McMoRan (FCX) Down 27.1% Since Last Earnings Report?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/why-freeport-mcmoran-fcx-down-153011882.html?.tsrc=rss",
+    "time": "2026-11-26T15:30:11+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NEE",
+    "title": "Why Is CMS Energy (CMS) Up 5% Since Last Earnings Report?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/why-cms-energy-cms-5-153008649.html?.tsrc=rss",
+    "time": "2026-11-26T15:30:08+00:00",
+    "tags": [
+     "earnings"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "T",
+    "title": "Can VZ's New Apple Deals and Loyalty Benefits Drive Subscriber Growth?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/vzs-apple-deals-loyalty-benefits-152600217.html?.tsrc=rss",
+    "time": "2026-11-26T15:26:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LMT",
+    "title": "Global Aircraft Structural Repair and Overhaul Services Market Report 2026-2035 | $80 Billion Opportunity Fueled by AI, Aging Fleets, and Rising MRO Demand",
+    "link": "https://finance.yahoo.com/technology/articles/global-aircraft-structural-repair-overhaul-152500786.html?.tsrc=rss",
+    "time": "2026-11-26T15:25:00+00:00",
+    "tags": [
+     "earnings",
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "Why A Fixed Cheque Shrinks While P&G's Dividend Grew",
+    "link": "https://www.trefis.com/stock/pg/articles/629263/why-a-fixed-cheque-shrinks-while-p-g-s-dividend-grew/2026-11-26?.tsrc=rss",
+    "time": "2026-11-26T15:15:26+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Is Abbott Laboratories (ABT) Fairly Valued As Its Encantor TAVI Trial Begins?",
+    "link": "https://finance.yahoo.com/healthcare/articles/abbott-laboratories-abt-fairly-valued-151034827.html?.tsrc=rss",
+    "time": "2026-11-26T15:10:34+00:00",
+    "tags": [
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "Europe Cloud Computing Market Surges to $ 550.42 billion at a CAGR 11.0% by 2030 | Report by MarketsandMarkets™",
+    "link": "https://finance.yahoo.com/technology/articles/europe-cloud-computing-market-surges-150000346.html?.tsrc=rss",
+    "time": "2026-11-26T15:00:00+00:00",
+    "tags": [
+     "analyst"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VLO",
+    "title": "POET, Valero, ADM, Raízen and Green Plains Lead the Bioethanol Market as It Grows to USD 192.57 Billion by 2035",
+    "link": "https://finance.yahoo.com/energy/articles/poet-valero-adm-ra-zen-150000029.html?.tsrc=rss",
+    "time": "2026-11-26T15:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "Global Hospital Asset Management Market to Reach $180.8 Billion by 2032; Benchmark IBM, Zebra Technologies, Ascom, and TeleTracking",
+    "link": "https://finance.yahoo.com/healthcare/articles/global-hospital-asset-management-market-145500621.html?.tsrc=rss",
+    "time": "2026-11-26T14:55:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "IBM",
+    "title": "Smart Hospitals - Global Strategic Business Report: Capitalize on a US$280.5 Billion Market by 2030 as IBM, Huawei, Honeywell, GE Healthcare and Cerner Disrupt Care at 22.9% CAGR",
+    "link": "https://finance.yahoo.com/healthcare/articles/smart-hospitals-global-strategic-business-145300083.html?.tsrc=rss",
+    "time": "2026-11-26T14:53:00+00:00",
+    "tags": [
+     "capital",
+     "macro"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MDT",
+    "title": "ECG Patches and Holter Monitors - Global Strategic Business Report 2026: Capitalize on 20% CAGR as Market Hits $6B by 2032; Benchmark iRhythm, Medtronic, GE Healthcare, Philips, AliveCor",
+    "link": "https://finance.yahoo.com/healthcare/articles/ecg-patches-holter-monitors-global-144900769.html?.tsrc=rss",
+    "time": "2026-11-26T14:49:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MSTR",
+    "title": "Why Is Bitcoin Dropping So Much? 5 Reasons Behind Its Worst Month Since 2022",
+    "link": "https://247wallst.com/investing/cryptocurrency/2026/11/26/why-is-bitcoin-dropping-so-much-5-reasons-behind-its-worst-month-since-2022/?.tsrc=rss",
+    "time": "2026-11-26T14:43:12+00:00",
+    "tags": [
+     "macro"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "LMT",
+    "title": "Military Reconnaissance Market Report 2026 | Capitalize on AI, Autonomous ISR and Space-Based Surveillance as Lockheed Martin, RTX, Northrop Grumman and Airbus Drive 8.7% CAGR",
+    "link": "https://finance.yahoo.com/technology/ai/articles/military-reconnaissance-market-report-2026-144100121.html?.tsrc=rss",
+    "time": "2026-11-26T14:41:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "MCD's Entry-Level Value Push: A Key Catalyst for Its 2027 Outlook?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/mcds-entry-level-value-push-143800328.html?.tsrc=rss",
+    "time": "2026-11-26T14:38:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "SBUX",
+    "title": "Starbucks selects banks to sale Japanese business – report",
+    "link": "https://www.verdictfoodservice.com/news/starbucks-selects-banks-to-sale-japanese-business-report/?.tsrc=rss",
+    "time": "2026-11-26T14:27:39+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MDT",
+    "title": "Minimally Invasive Medical Robots Global Market Report 2026 | Capitalize on AI Surgery as Market Hits $65.25B by 2030: Intuitive Surgical, Johnson & Johnson, Medtronic, Stryker",
+    "link": "https://finance.yahoo.com/healthcare/articles/minimally-invasive-medical-robots-global-142300983.html?.tsrc=rss",
+    "time": "2026-11-26T14:23:00+00:00",
+    "tags": [
+     "capital",
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "Global Wearable Healthcare Devices Market Report 2026 | Capitalize on 24.9% CAGR Through 2030 as Apple, Abbott, Medtronic and Dexcom Scale AI and Remote Monitoring",
+    "link": "https://finance.yahoo.com/healthcare/articles/global-wearable-healthcare-devices-market-141800552.html?.tsrc=rss",
+    "time": "2026-11-26T14:18:00+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "VRTX",
+    "title": "VRTX Down as FDA Extends Review Timeline for Povetacicept BLA",
+    "link": "https://finance.yahoo.com/healthcare/articles/vrtx-down-fda-extends-review-141500196.html?.tsrc=rss",
+    "time": "2026-11-26T14:15:00+00:00",
+    "tags": [
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Will Bank of America's Swiss Expansion Fuel Further Fee Income Growth?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/bank-americas-swiss-expansion-fuel-141100657.html?.tsrc=rss",
+    "time": "2026-11-26T14:11:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "DIS",
+    "title": "Netflix Stock and Higher Content Spend: Can Margins Hold Firm in 2027?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/netflix-stock-higher-content-spend-141100397.html?.tsrc=rss",
+    "time": "2026-11-26T14:11:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "MCD",
+    "title": "McDonald’s, Dunkin’ restaurants are open on Thanksgiving with a twist",
+    "link": "https://www.thestreet.com/restaurants/thanksgiving-restaurant-hours-2026-mcdonalds-dunkin-starbucks?.tsrc=rss",
+    "time": "2026-11-26T14:07:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "COIN",
+    "title": "Polygon Brings Its Cross-Border Payments Stack to Coinbase’s Base",
+    "link": "https://decrypt.co/384023/polygon-cross-border-payments-stack-coinbase-base?.tsrc=rss",
+    "time": "2026-11-26T14:01:02+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "AJG",
+    "title": "Arthur J. Gallagher Stock: Analyst Estimates & Ratings",
+    "link": "https://www.barchart.com/story/news/9019260/arthur-j-gallagher-stock-analyst-estimates-ratings?.tsrc=rss",
+    "time": "2026-11-26T13:43:46+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "3 Dividend Kings Retirees Can Own for the Rest of Their Lives",
+    "link": "https://247wallst.com/investing/2026/11/26/3-dividend-kings-retirees-can-own-for-the-rest-of-their-lives/?.tsrc=rss",
+    "time": "2026-11-26T13:32:56+00:00",
+    "tags": [
+     "capital"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "NTNX",
+    "title": "Nutanix (NTNX) Says Rajiv Ramaswami Will Step Down By April 2027",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/nutanix-ntnx-says-rajiv-ramaswami-131447838.html?.tsrc=rss",
+    "time": "2026-11-26T13:14:47+00:00",
+    "tags": [
+     "earnings",
+     "people"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "Procter & Gamble (PG) Stock Looks Undervalued After A 35% Run",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/procter-gamble-pg-stock-looks-131006185.html?.tsrc=rss",
+    "time": "2026-11-26T13:10:06+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
     "ticker": "MCD",
     "title": "Big Yields Are Easy to Find. These 4 Dividend Stocks Cover Theirs With Cash to Spare",
     "link": "https://247wallst.com/investing/2026/11/26/big-yields-are-easy-to-find-these-4-dividend-stocks-cover-theirs-with-cash-to-spare/?.tsrc=rss",
@@ -5029,10 +6178,67 @@
    {
     "source": "Yahoo Finance",
     "kind": "headline",
+    "ticker": "AXON",
+    "title": "Is Trending Stock Axon Enterprise, Inc (AXON) a Buy Now?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/trending-stock-axon-enterprise-inc-130005160.html?.tsrc=rss",
+    "time": "2026-11-26T13:00:05+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "TJX",
+    "title": "The TJX Companies, Inc. (TJX) Is a Trending Stock: Facts to Know Before Betting on It",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/tjx-companies-inc-tjx-trending-130004449.html?.tsrc=rss",
+    "time": "2026-11-26T13:00:04+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "INTU",
+    "title": "Investors Heavily Search Intuit Inc. (INTU): Here is What You Need to Know",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-intuit-inc-130003323.html?.tsrc=rss",
+    "time": "2026-11-26T13:00:03+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
     "ticker": "TJX",
     "title": "3 big reasons why Black Friday will probably exceed retailer expectations",
     "link": "https://finance.yahoo.com/video/3-big-reasons-why-black-130000004.html?.tsrc=rss",
     "time": "2026-11-26T13:00:00+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ADP",
+    "title": "Here's How Much a $1000 Investment in Automatic Data Processing Made 10 Years Ago Would Be Worth Today",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/heres-much-1000-investment-automatic-123001059.html?.tsrc=rss",
+    "time": "2026-11-26T12:30:01+00:00",
+    "tags": []
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "ABT",
+    "title": "ABT vs. TMO: Which Clinical Diagnostics Stock Is the Better Bet Now?",
+    "link": "https://finance.yahoo.com/healthcare/articles/abt-vs-tmo-clinical-diagnostics-123000177.html?.tsrc=rss",
+    "time": "2026-11-26T12:30:00+00:00",
+    "tags": [
+     "earnings",
+     "regulatory"
+    ]
+   },
+   {
+    "source": "Yahoo Finance",
+    "kind": "headline",
+    "ticker": "PG",
+    "title": "Procter & Gamble Hits 52-Week High: Should You Buy Now or Wait?",
+    "link": "https://finance.yahoo.com/markets/stocks/articles/procter-gamble-hits-52-week-122300621.html?.tsrc=rss",
+    "time": "2026-11-26T12:23:00+00:00",
     "tags": []
    },
    {
@@ -5263,1227 +6469,12 @@
     "link": "https://finance.yahoo.com/video/ja-rule-invests-warren-buffett-110000964.html?.tsrc=rss",
     "time": "2026-11-26T11:00:00+00:00",
     "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "4 Memory and Storage Stocks Cut by More Than 30% That I'd Buy Now and Hold for the Next Decade",
-    "link": "https://www.fool.com/investing/2026/11/26/4-memory-and-storage-stocks-cut-by-more-than-30-that-i-d-buy-now-and-hold-for-the-next-decade/?.tsrc=rss",
-    "time": "2026-11-26T10:01:02+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MPC",
-    "title": "Marathon Petroleum (MPC) Stock Looks Reasonable Following Strong Q3 Results",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/marathon-petroleum-mpc-stock-looks-091440489.html?.tsrc=rss",
-    "time": "2026-11-26T09:14:40+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "Nvidia Wins Back Wall Street Backing As Jensen Huang Returns; CRWD, LI Stocks Score Upgrades While DKNG, AMBA Face Pressure",
-    "link": "https://stocktwits.com/news-articles/markets/equity/nvda-jensen-huang-return-stock-upgrades-crwd-li-amba-dkng/cNbxi4aR9ZF?.tsrc=rss",
-    "time": "2026-11-26T08:43:12+00:00",
-    "tags": [
-     "earnings",
-     "analyst"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "T",
-    "title": "AT&T Is Up 10% in a Month. Steve Eisman Calls the Big Three Carriers “Uninvestable.” Who’s Right?",
-    "link": "https://www.tikr.com/blog/att-is-up-10-in-a-month-steve-eisman-calls-the-big-three-carriers-uninvestable-whos-right?ref=yahoofinance&tlnk=yf-261126-82p43rqx&.tsrc=rss",
-    "time": "2026-11-26T08:24:45+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "TJX",
-    "title": "‘Businesses hate chaos’: $166 billion in tariff refunds are flowing to companies, not the customers who paid",
-    "link": "https://finance.yahoo.com/economy/policy/articles/businesses-hate-chaos-166-billion-080300793.html?.tsrc=rss",
-    "time": "2026-11-26T08:03:00+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "IBM",
-    "title": "Bull of the Day: Kyndryl Holdings (KD)",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/bull-day-kyndryl-holdings-kd-080000034.html?.tsrc=rss",
-    "time": "2026-11-26T08:00:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HP (HPQ) Brings Marketplace Intelligence Into Multi Jet Fusion Software",
-    "link": "https://finance.yahoo.com/technology/articles/hp-hpq-brings-marketplace-intelligence-071608618.html?.tsrc=rss",
-    "time": "2026-11-26T07:16:08+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "MU, SNDK, SKHY Jump As Nvidia Tests Kioxia Memory Fix — Analyst Presses Memory Giants For ‘Massive’ Buybacks",
-    "link": "https://stocktwits.com/news-articles/markets/equity/mu-sndk-skhy-nvidia-kioxia-memory-fix-analyst-memory-giants-buybacks/cNbxQFgR9ZK?.tsrc=rss",
-    "time": "2026-11-26T06:30:51+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "122% Upside for Seagate? Citi Thinks So, and Here’s How",
-    "link": "https://www.tikr.com/blog/122-upside-for-seagate-citi-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261126-gh5j3p5x&.tsrc=rss",
-    "time": "2026-11-26T06:19:45+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HP Inc. (HPQ) Explodes After Delivering This Double Dose of Good News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/hp-inc-hpq-explodes-delivering-061805487.html?.tsrc=rss",
-    "time": "2026-11-26T06:18:05+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "NU",
-    "title": "Nu Holdings (NU) Posts Strong Third Quarter Results, Is It Still A Bargain?",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/nu-holdings-nu-posts-strong-051641801.html?.tsrc=rss",
-    "time": "2026-11-26T05:16:41+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HD",
-    "title": "Home Depot (HD) Stock Looks Fully Valued On Future Cash Flow",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/home-depot-hd-stock-looks-051458550.html?.tsrc=rss",
-    "time": "2026-11-26T05:14:58+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HP: 3 Key Takeaways for Long-Term Investors",
-    "link": "https://www.fool.com/earnings/takeaways/2026/11/25/hp-3-key-takeaways-for-long-term-investors/?.tsrc=rss",
-    "time": "2026-11-26T04:30:06+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "DIS",
-    "title": "DIS Stock Breaks Above $125 For First Time Since 2022: Disney Retail Bulls Are Talking About A ‘Santa Claus Rally’",
-    "link": "https://stocktwits.com/news-articles/markets/equity/dis-stock-breaks-above-125-for-first-time-since-2022-disney-retail-bulls-are-talking-about-a-santa-claus-rally/cNbxeCdR9ZI?.tsrc=rss",
-    "time": "2026-11-26T03:35:24+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VRTX",
-    "title": "Dow, S&P 500, Nasdaq Futures Edge Higher As Tech Rebounds After Selloff: DIS, VRTX, DE, CHTR In Focus",
-    "link": "https://stocktwits.com/news-articles/markets/equity/dow-s-and-p-500-nasdaq-futures-edge-higher-as-tech-rebounds-after-selloff-dis-vrtx-de-chtr-in-focus/cNbxeL0R9ZE?.tsrc=rss",
-    "time": "2026-11-26T03:14:36+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "Coinbase CEO on the Anthropic and SpaceX IPOs: Who Actually Made the Money?",
-    "link": "https://beincrypto.com/coinbase-ceo-anthropic-spacex-ipo-money/?.tsrc=rss",
-    "time": "2026-11-26T02:10:04+00:00",
-    "tags": [
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "AXON",
-    "title": "Axon Is Down 47% From Its High. TD Cowen Still Sees $650",
-    "link": "https://www.tikr.com/blog/axon-is-down-47-from-its-high-td-cowen-still-sees-650?ref=yahoofinance&tlnk=yf-261126-pjvp3w42&.tsrc=rss",
-    "time": "2026-11-26T02:01:54+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "Insmed (INSM) Boards Back $39.1 Billion All Cash Deal and Set 2027 Timeline",
-    "link": "https://finance.yahoo.com/healthcare/articles/insmed-insm-boards-back-39-011732940.html?.tsrc=rss",
-    "time": "2026-11-26T01:17:32+00:00",
-    "tags": [
-     "deal"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VRTX",
-    "title": "Vertex Pharmaceuticals Has Turned $10,000 Into $61,660 Over 10 Years. Here's What Could Come Next",
-    "link": "https://www.fool.com/investing/2026/11/25/vertex-pharmaceuticals-has-turned-10000-into-x-ove/?.tsrc=rss",
-    "time": "2026-11-26T00:32:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Is Micron Cheap Only If Its Record Margin Lasts?",
-    "link": "https://www.trefis.com/stock/mu/articles/628939/is-micron-cheap-only-if-its-record-margin-lasts/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T23:43:07+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "Circle Is Down 13% in a Week and Just Hit a New 52-Week Low. Is the Selling Overdone?",
-    "link": "https://www.tikr.com/blog/circle-is-down-13-in-a-week-and-just-hit-a-new-52-week-low-is-the-selling-overdone?ref=yahoofinance&tlnk=yf-261125-4j456v2q&.tsrc=rss",
-    "time": "2026-11-25T23:34:49+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "223% Upside for Sandisk? Mizuho Thinks So, and Here’s How",
-    "link": "https://www.tikr.com/blog/223-upside-for-sandisk-mizuho-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261126-pxqf849m&.tsrc=rss",
-    "time": "2026-11-25T23:33:51+00:00",
-    "tags": [
-     "analyst"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "What Sent Coinbase Stock Lower?",
-    "link": "https://www.trefis.com/stock/coin/articles/629018/what-sent-coinbase-stock-lower/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T23:13:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VRTX",
-    "title": "VRTX Tumbles After-Hours As FDA Delays Kidney Drug Decision; Rival VERA Surges",
-    "link": "https://stocktwits.com/news-articles/markets/equity/vrtx-tumbles-after-hours-as-fda-delays-kidney-drug-decision-rival-vera-surges/cNbHueUR9mU?.tsrc=rss",
-    "time": "2026-11-25T22:34:19+00:00",
-    "tags": [
-     "regulatory"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Stock Market Today, Nov. 25: Dow Erases 1,100-Point Loss as Wall Street Stages Dramatic Late-Day Comeback",
-    "link": "https://www.fool.com/coverage/stock-market-today/2026/11/25/stock-market-today-nov-25-dow-erases-1-100-point-loss-as-wall-street-stages-dramatic-late-day-comeback/?.tsrc=rss",
-    "time": "2026-11-25T22:17:45+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "TJX",
-    "title": "Is TJX Companies (TJX) Priced At A Premium To Its Cash Flow?",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/tjx-companies-tjx-priced-premium-221110904.html?.tsrc=rss",
-    "time": "2026-11-25T22:11:10+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Why Has Strategy Stock Trailed Dropbox?",
-    "link": "https://www.trefis.com/stock/mstr/articles/628944/why-has-strategy-stock-trailed-dropbox/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T22:10:42+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "NTNX",
-    "title": "Stock Market Today: Dow Swings Into A Win; Anthropic Almost Retakes Its IPO Price",
-    "link": "https://finance.yahoo.com/m/90407e46-3b17-34e8-8c82-527bf00b63e4/stock-market-today%3A-dow.html?.tsrc=rss",
-    "time": "2026-11-25T21:51:14+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Anthropic, Nvidia, Micron, HP Inc., Dell, Deere, and More Stocks That Explain Today’s Market",
-    "link": "https://finance.yahoo.com/m/18e72c51-c6d7-33b1-aa90-ccce17a9b32f/anthropic%2C-nvidia%2C-micron%2C-hp.html?.tsrc=rss",
-    "time": "2026-11-25T21:41:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "The Biggest Earnings Winners Grind Sandisk And Dell Into The Dust",
-    "link": "https://finance.yahoo.com/m/e45ffa23-8286-379b-b6e0-081e46a83f75/the-biggest-earnings-winners.html?.tsrc=rss",
-    "time": "2026-11-25T21:27:31+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "The Best Dividend Stocks to Buy With $5,000 in November",
-    "link": "https://www.fool.com/investing/2026/11/25/the-best-dividend-stocks-to-buy-with-5000-in-november/?.tsrc=rss",
-    "time": "2026-11-25T21:21:02+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "Sanofi Rallies Again. Why Insmed, At $41 Billion, Is Sorely Needed.",
-    "link": "https://finance.yahoo.com/m/04f0564c-3ce5-3ac5-8e93-b7f3dc69a63c/sanofi-rallies-again.-why.html?.tsrc=rss",
-    "time": "2026-11-25T21:20:32+00:00",
-    "tags": [
-     "analyst",
-     "deal"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "Qualcomm vs. Sandisk: Which Technology Stock Is a Better Buy for 2027?",
-    "link": "https://www.fool.com/coverage/better-buy/2026/11/25/qualcomm-vs-sandisk-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
-    "time": "2026-11-25T21:20:02+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Stocks Rally Off Lows Despite Inflation and AI Gloom: Stock Market Today",
-    "link": "https://www.kiplinger.com/investing/stocks/stocks-rally-off-lows-despite-inflation-and-ai-gloom-stock-market-today?.tsrc=rss",
-    "time": "2026-11-25T21:08:14+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MDLZ",
-    "title": "No Baking, No Stress, All Magic: The OREO® Brand and Ciara Invite Moms to Dunk Into the Holidays",
-    "link": "https://finance.yahoo.com/media-advertising/articles/no-baking-no-stress-magic-210500682.html?.tsrc=rss",
-    "time": "2026-11-25T21:05:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VRTX",
-    "title": "Vertex Announces Extension of PDUFA Target Action Date by up to Three Months as FDA Completes Review of the Biologics License Application for Povetacicept in IgA Nephropathy",
-    "link": "https://finance.yahoo.com/healthcare/articles/vertex-announces-extension-pdufa-target-210200500.html?.tsrc=rss",
-    "time": "2026-11-25T21:02:00+00:00",
-    "tags": [
-     "regulatory"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "TJX",
-    "title": "Jensen Huang's return, neocloud risk, and a holiday retail rally",
-    "link": "https://finance.yahoo.com/video/jensen-huangs-return-neocloud-risk-and-a-holiday-retail-rally-222042649.html?.tsrc=rss",
-    "time": "2026-11-25T21:00:00+00:00",
-    "tags": [
-     "legal",
-     "people",
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HPQ earnings analysis: questions answered and next catalysts",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/hpq-earnings-analysis-questions-answered-205027854.html?.tsrc=rss",
-    "time": "2026-11-25T20:50:27+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Chips and iPhones Are Safe From New Tariffs. Here’s What Isn’t.",
-    "link": "https://finance.yahoo.com/m/fed0ba1a-1835-3234-b475-4ad6bcc3e25d/chips-and-iphones-are-safe.html?.tsrc=rss",
-    "time": "2026-11-25T20:47:00+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "Stoke (STOK) Stock Is Up 8.3% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/stoke-stok-stock-8-3-204525381.html?.tsrc=rss",
-    "time": "2026-11-25T20:45:25+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ABT",
-    "title": "Mobia Medical (MOBI) Stock Is Up 11.1% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/mobia-medical-mobi-stock-11-204514191.html?.tsrc=rss",
-    "time": "2026-11-25T20:45:14+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VRTX",
-    "title": "Why Did Alnylam Stock Move?",
-    "link": "https://www.trefis.com/stock/alny/articles/628630/why-did-alnylam-stock-move/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T20:32:02+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "How to Play Coinbase Stock Ahead of Its Prediction Markets Launch",
-    "link": "https://www.barchart.com/story/news/9009607/how-to-play-coinbase-stock-ahead-of-its-prediction-markets-launch?.tsrc=rss",
-    "time": "2026-11-25T20:31:08+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "With bitcoin crashing, is Strategy (MSTR) in trouble?",
-    "link": "https://blockspace.media/short/with-bitcoin-crashing-is-strategy-mstr-in-trouble/?.tsrc=rss",
-    "time": "2026-11-25T20:28:09+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "LMT",
-    "title": "Top Research Reports for CrowdStrike, Lockheed Martin & S&P",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/top-research-reports-crowdstrike-lockheed-202700539.html?.tsrc=rss",
-    "time": "2026-11-25T20:27:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "What Sent Qualcomm Stock Higher?",
-    "link": "https://www.trefis.com/stock/qcom/articles/628621/what-sent-qualcomm-stock-higher/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T20:23:30+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "Billionaire Brad Gerstner’s Altimeter Opened a $680 Million Tesla Stake and Exited Qualcomm and Applied Materials",
-    "link": "https://247wallst.com/investing/2026/11/25/billionaire-brad-gerstners-altimeter-opened-a-680-million-tesla-stake-and-exited-qualcomm-and-applied-materials/?.tsrc=rss",
-    "time": "2026-11-25T20:22:01+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ADP",
-    "title": "How Much You’d Need in Dividend Stocks to Generate $5,000 a Month in Passive Income",
-    "link": "https://247wallst.com/investing/2026/11/25/how-much-youd-need-in-dividend-stocks-to-generate-5000-a-month-in-passive-income/?.tsrc=rss",
-    "time": "2026-11-25T20:17:45+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MPC",
-    "title": "Arko Petroleum (APC) Stock Is Up 5.3% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/arko-petroleum-apc-stock-5-201515767.html?.tsrc=rss",
-    "time": "2026-11-25T20:15:15+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MCD",
-    "title": "Here's How Much a $10,000 Investment in McDonald's Pays You Every Single Year",
-    "link": "https://www.fool.com/investing/2026/11/25/heres-how-much-a-10000-investment-in-mcdonalds-pays-you-every-single-year/?.tsrc=rss",
-    "time": "2026-11-25T20:13:02+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "Coinbase Is Buying Back COIN Again as Shares Slide",
-    "link": "https://www.bankless.com/read/news/coinbase-is-buying-back-coin-again-as-shares-slide?.tsrc=rss",
-    "time": "2026-11-25T20:07:38+00:00",
-    "tags": [
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "What's Behind Dell Stock's Fall?",
-    "link": "https://www.trefis.com/stock/dell/articles/628977/what-s-behind-dell-stock-s-fall/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T20:06:53+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MCD",
-    "title": "Invest in Big Macs, Whoppers and Olive Garden Breadsticks for Passive Income: $90,000 Across These 3 Restaurant Stocks Pays More Than $2,600 a Year",
-    "link": "https://247wallst.com/investing/2026/11/25/invest-in-big-macs-whoppers-and-olive-garden-breadsticks-for-passive-income-90000-across-these-3-restaurant-stocks-pays-more-than-2600-a-year/?.tsrc=rss",
-    "time": "2026-11-25T20:03:16+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "SpaceX Slashes GPU Pricing? Plus, IREN’s Selloff and CoreWeave’s Distressed Bonds",
-    "link": "https://blockspace.media/podcast/spacex-slashes-gpu-pricing-plus-irens-selloff-and-coreweaves-distressed-bonds/?.tsrc=rss",
-    "time": "2026-11-25T19:57:56+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "FCX",
-    "title": "Copper Miners ETF Is on a 13-Week Losing Streak. When to Buy.",
-    "link": "https://finance.yahoo.com/m/604ae210-761b-3cce-9765-7e6c7a677583/copper-miners-etf-is-on-a.html?.tsrc=rss",
-    "time": "2026-11-25T19:55:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "DIS",
-    "title": "Disney Stock Offers A Sizable Dividend. Ramp It Up With A Covered-Call Trade.",
-    "link": "https://finance.yahoo.com/m/22f44b26-f8a3-3ba4-8c88-1c18b8115fc7/disney-stock-offers-a-sizable.html?.tsrc=rss",
-    "time": "2026-11-25T19:53:23+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ADP",
-    "title": "Leaving a Roth IRA to Your Kids? Why Dividend Stocks Make the 10-Year Rule Work for Them",
-    "link": "https://247wallst.com/investing/2026/11/25/leaving-a-roth-ira-to-your-kids-why-dividend-stocks-make-the-10-year-rule-work-for-them/?.tsrc=rss",
-    "time": "2026-11-25T19:47:05+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "DIS",
-    "title": "Nvidia is cheap on paper, so why won't the market buy it?",
-    "link": "https://finance.yahoo.com/video/nvidia-is-cheap-on-paper-so-why-wont-the-market-buy-it-192215326.html?.tsrc=rss",
-    "time": "2026-11-25T19:22:15+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "Kraken's new credit cards offer up to 4% bitcoin rewards",
-    "link": "https://finance.yahoo.com/video/krakens-new-credit-cards-offer-up-to-4-bitcoin-rewards-222047369.html?.tsrc=rss",
-    "time": "2026-11-25T19:21:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "PG",
-    "title": "Corporate Bonds vs. Dividend Stocks: Which Pays a Retiree More Reliably?",
-    "link": "https://247wallst.com/investing/2026/11/25/corporate-bonds-vs-dividend-stocks-which-pays-a-retiree-more-reliably/?.tsrc=rss",
-    "time": "2026-11-25T19:17:04+00:00",
-    "tags": [
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "BioMarin (BMRN) Stock Is Up 4.8% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/biomarin-bmrn-stock-4-8-191517739.html?.tsrc=rss",
-    "time": "2026-11-25T19:15:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "Why Did Nvidia Stock Jump So Much?",
-    "link": "https://www.trefis.com/stock/nvda/articles/628615/why-did-nvidia-stock-jump-so-much/2026-11-25?.tsrc=rss",
-    "time": "2026-11-25T19:07:03+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "LMT",
-    "title": "Loar Holdings (LOAR) Stock Is Up 5.6% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/loar-holdings-loar-stock-5-190017136.html?.tsrc=rss",
-    "time": "2026-11-25T19:00:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SBUX",
-    "title": "Dan Ives Says Nvidia’s Jensen Huang Worth At Least $8 Trillion To US Economy, Calls Sell-Off A ‘Gut Check Moment’",
-    "link": "https://stocktwits.com/news-articles/markets/equity/dan-ives-says-nvidia-s-jensen-huang-worth-at-least-8-trillion-to-us-economy-calls-sell-off-a-gut-check-moment/cNbH8KYR9mH?.tsrc=rss",
-    "time": "2026-11-25T18:59:57+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "CRCL",
-    "title": "A Token Presale Drove Circle’s Revenue Growth. Can Payments Make Up for Falling Reserve Income?",
-    "link": "https://finance.yahoo.com/markets/crypto/articles/token-presale-drove-circle-revenue-185519630.html?.tsrc=rss",
-    "time": "2026-11-25T18:55:19+00:00",
-    "tags": [
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MCD",
-    "title": "How Nvidia's Jensen Huang Survived the Kind of Scandal That Ends CEO Careers",
-    "link": "https://www.benzinga.com/markets/prediction-markets/26/11/63647697/jensen-huang-sex-scandal-ceo?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
-    "time": "2026-11-25T18:55:08+00:00",
-    "tags": [
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HD",
-    "title": "Why Home Depot’s Earnings Made Jim Cramer More Bullish on the Stock",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/why-home-depot-earnings-made-185010833.html?.tsrc=rss",
-    "time": "2026-11-25T18:50:10+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "NTNX",
-    "title": "Why Nutanix Plunged Today",
-    "link": "https://www.fool.com/investing/2026/11/25/why-nutanix-plunged-today/?.tsrc=rss",
-    "time": "2026-11-25T18:48:24+00:00",
-    "tags": [
-     "earnings",
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INSM",
-    "title": "Sanofi Bets $41 Billion on Insmed and Its Lung Drug Brinsupri",
-    "link": "https://247wallst.com/investing/2026/11/25/sanofi-bets-41-billion-on-insmed-and-its-lung-drug-brinsupri/?.tsrc=rss",
-    "time": "2026-11-25T18:38:01+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SBUX",
-    "title": "This Is One Of Starbucks' Biggest Markets. So Why's It Up For Sale?",
-    "link": "https://finance.yahoo.com/m/e9baf2f4-aaa1-338f-8a8a-282ed072706c/this-is-one-of-starbucks%27.html?.tsrc=rss",
-    "time": "2026-11-25T18:27:47+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Why HP Inc. Stock Jumped Nearly 15% Today",
-    "link": "https://www.fool.com/investing/2026/11/25/why-hp-inc-stock-jumped-nearly-15-today/?.tsrc=rss",
-    "time": "2026-11-25T18:26:03+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HD",
-    "title": "11 Big Funds Bought Home Depot Last Quarter, While 13 Sold. Who’s Right?",
-    "link": "https://www.tikr.com/blog/11-big-funds-bought-home-depot-last-quarter-while-13-sold-whos-right?ref=yahoofinance&tlnk=yf-261125-vm4cw6p7&.tsrc=rss",
-    "time": "2026-11-25T18:22:43+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ABT",
-    "title": "17 Big Funds Bought Boston Scientific Last Quarter, While 18 Sold. Who’s Right?",
-    "link": "https://www.tikr.com/blog/17-big-funds-bought-boston-scientific-last-quarter-while-18-sold-whos-right?ref=yahoofinance&tlnk=yf-261125-hg4h55px&.tsrc=rss",
-    "time": "2026-11-25T18:17:43+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SBUX",
-    "title": "Starbucks (SBUX) Could Be 6% Overvalued Following Fresh ETF Selling",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/starbucks-sbux-could-6-overvalued-181201830.html?.tsrc=rss",
-    "time": "2026-11-25T18:12:01+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "TJX",
-    "title": "What Just Happened With TJX Companies (TJX)?",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/just-happened-tjx-companies-tjx-181154456.html?.tsrc=rss",
-    "time": "2026-11-25T18:11:54+00:00",
-    "tags": [
-     "earnings",
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "LMT",
-    "title": "Lockheed Martin (LMT) Joins Pentagon Push To Scale Military Drone Production",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/lockheed-martin-lmt-joins-pentagon-180953888.html?.tsrc=rss",
-    "time": "2026-11-25T18:09:53+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Sandisk Stock Plunges 12% as AI Memory Fears Deepen",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/sandisk-stock-plunges-12-ai-180419895.html?.tsrc=rss",
-    "time": "2026-11-25T18:04:19+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Seagate Technology Stocks Fall 7.64%, Still Nearly Double GF Value",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/seagate-technology-stocks-fall-7-180057704.html?.tsrc=rss",
-    "time": "2026-11-25T18:00:57+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "T",
-    "title": "Charter Communications (CHTR) Stock Is Up 7.4% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/charter-communications-chtr-stock-7-180017476.html?.tsrc=rss",
-    "time": "2026-11-25T18:00:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Michael Saylor reveals a Bitcoin plan that could shock investors",
-    "link": "https://www.thestreet.com/crypto/markets/michael-saylor-reveals-a-bitcoin-plan-that-could-shock-investors?.tsrc=rss",
-    "time": "2026-11-25T18:00:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MPC",
-    "title": "Marathon Petroleum Corp. (MPC) Drives Strong Quarterly Gains for Energy Basket",
-    "link": "https://finance.yahoo.com/energy/articles/marathon-petroleum-corp-mpc-drives-175905526.html?.tsrc=rss",
-    "time": "2026-11-25T17:59:05+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "VLO",
-    "title": "Energy Stocks Benefit From Supply Disruptions: Can Momentum Last?",
-    "link": "https://finance.yahoo.com/energy/articles/energy-stocks-benefit-supply-disruptions-175400730.html?.tsrc=rss",
-    "time": "2026-11-25T17:54:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MPC",
-    "title": "Petrobras Eyes Corn Ethanol Expansion: Can It Unlock New Value?",
-    "link": "https://finance.yahoo.com/energy/articles/petrobras-eyes-corn-ethanol-expansion-175100168.html?.tsrc=rss",
-    "time": "2026-11-25T17:51:00+00:00",
-    "tags": [
-     "deal"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "The Rich Got Into SpaceX Early. Brian Armstrong Wants to Change That",
-    "link": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63643086/brian-armstrong-private-market-access?utm_source=yahooFinance&utm_campaign=partner_feed&utm_medium=referral&.tsrc=rss",
-    "time": "2026-11-25T17:49:19+00:00",
-    "tags": [
-     "people"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SBUX",
-    "title": "Starbucks explores sale in Japan, its fourth-largest market",
-    "link": "https://www.proactiveinvestors.com/companies/news/1102459/starbucks-explores-sale-in-japan-its-fourth-largest-market-1102459.html?.tsrc=rss",
-    "time": "2026-11-25T17:48:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "SK hynix Falls 5%, Sandisk Down 10% as Asian Chip Stocks Give Back the Huang Rally",
-    "link": "https://www.tikr.com/blog/sk-hynix-falls-5-sandisk-down-10-as-asian-chip-stocks-give-back-the-huang-rally?ref=yahoofinance&tlnk=yf-261125-7hm5f9h6&.tsrc=rss",
-    "time": "2026-11-25T17:46:26+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Micron Stock and Other Memory Plays Will Bear the Brunt of This AI Pain",
-    "link": "https://finance.yahoo.com/m/c60b7c01-7f3d-3700-ad68-951e994a6d38/micron-stock-and-other-memory.html?.tsrc=rss",
-    "time": "2026-11-25T17:46:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "Bitcoin Falls Toward 2-Year Low. Rising Inflation and Higher Interest Rates Are Its Threats.",
-    "link": "https://finance.yahoo.com/m/97d03772-405d-3c1c-8799-6a8d3e16a343/bitcoin-falls-toward-2-year.html?.tsrc=rss",
-    "time": "2026-11-25T17:44:00+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Boot Barn Holdings (BOOT) Shares Fall Despite Beat-and-Raise Fiscal Q1 2027 Earnings",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/boot-barn-holdings-boot-shares-173926055.html?.tsrc=rss",
-    "time": "2026-11-25T17:39:26+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "The challenge banks face in drawing consumers to AI payments",
-    "link": "https://www.americanbanker.com/payments/news/the-challenge-banks-face-in-drawing-consumers-to-ai-payments?.tsrc=rss",
-    "time": "2026-11-25T17:38:10+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "Stock Market Midday, Nov. 25: Nasdaq Plunges 4% as AI Sell-Off Deepens and Inflation Remains Stubborn",
-    "link": "https://www.fool.com/coverage/stock-market-today/2026/11/25/stock-market-midday-nov-25-nasdaq-plunges-4-as-ai-sell-off-deepens-and-inflation-remains-stubborn/?.tsrc=rss",
-    "time": "2026-11-25T17:37:05+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Strategy Is Worth $4 Billion Less Than Its Bitcoin Amid Liquidity Squeeze",
-    "link": "https://finance.yahoo.com/m/02ba3534-33d6-31a7-8856-8ec31c96c8e5/strategy-is-worth-%244-billion.html?.tsrc=rss",
-    "time": "2026-11-25T17:36:26+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Extreme Networks (EXTR) Shares Slide as Subscription Growth Slows",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/extreme-networks-extr-shares-slide-173534470.html?.tsrc=rss",
-    "time": "2026-11-25T17:35:34+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HP shares jump as earnings beat offsets cautious fiscal 2027 outlook",
-    "link": "https://www.proactiveinvestors.com/companies/news/1102458/hp-shares-jump-as-earnings-beat-offsets-cautious-fiscal-2027-outlook-1102458.html?.tsrc=rss",
-    "time": "2026-11-25T17:33:00+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Generac Holdings’ (GNRC) Data Center Backlog Offsets Softer Home Demand",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/generac-holdings-gnrc-data-center-173200629.html?.tsrc=rss",
-    "time": "2026-11-25T17:32:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ADP",
-    "title": "BlackLine (BL) Stock Is Up 7.1% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/blackline-bl-stock-7-1-173017885.html?.tsrc=rss",
-    "time": "2026-11-25T17:30:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Western Digital Stocks Sink 7.42%, Trading 139% Above GF Value",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/western-digital-stocks-sink-7-172258485.html?.tsrc=rss",
-    "time": "2026-11-25T17:22:58+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Sandisk vs. Western Digital: Which Computer Drive Stock Is a Better Buy for 2027?",
-    "link": "https://www.fool.com/coverage/better-buy/2026/11/25/sandisk-vs-western-digital-which-computer-drive-stock-is-a-better-buy-for-2027/?.tsrc=rss",
-    "time": "2026-11-25T17:19:02+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ADP",
-    "title": "Can Automatic Data Processing (ADP) Stay Cheap After 50% Gains?",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/automatic-data-processing-adp-stay-171549020.html?.tsrc=rss",
-    "time": "2026-11-25T17:15:49+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "DDOG",
-    "title": "Why Datadog (DDOG) Stock Is Down Today: Software Selloff on AI Fears",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/why-datadog-ddog-stock-down-171521066.html?.tsrc=rss",
-    "time": "2026-11-25T17:15:21+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ABT",
-    "title": "Cytek Biosciences (CTKB) Stock Is Down 8.1% Today Without Company News",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/cytek-biosciences-ctkb-stock-down-171517157.html?.tsrc=rss",
-    "time": "2026-11-25T17:15:17+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HP Earnings: Memory Went From 15% to 40% of a PC’s Parts Cost in a Year",
-    "link": "https://247wallst.com/investing/2026/11/25/hp-earnings-memory-went-from-15-to-40-of-a-pcs-parts-cost-in-a-year/?.tsrc=rss",
-    "time": "2026-11-25T17:07:04+00:00",
-    "tags": [
-     "earnings",
-     "capital"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Here’s What Makes Kadant (KAI) a Compelling Investment?",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/makes-kadant-kai-compelling-investment-170314299.html?.tsrc=rss",
-    "time": "2026-11-25T17:03:14+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "Mobileye faces new competition as cars get smarter",
-    "link": "https://www.axios.com/2026/11/25/mobileye-faces-new-competition-as-cars-get-smarter#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
-    "time": "2026-11-25T17:00:11+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "LMT",
-    "title": "Latecoere: Extension of the Maturity of the PGE Loans",
-    "link": "https://finance.yahoo.com/economy/policy/articles/latecoere-extension-maturity-pge-loans-170000496.html?.tsrc=rss",
-    "time": "2026-11-25T17:00:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "Japan's biggest banks pick Solana as Fidelity adds DeFi tokens",
-    "link": "https://finance.yahoo.com/video/japans-biggest-banks-pick-solana-as-fidelity-adds-defi-tokens-222056705.html?.tsrc=rss",
-    "time": "2026-11-25T17:00:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "Mastercard Is Up 20% in a Year. Wedbush Sees Another 16%",
-    "link": "https://www.tikr.com/blog/mastercard-is-up-20-in-a-year-wedbush-sees-another-16?ref=yahoofinance&tlnk=yf-261125-pwx6mxrp&.tsrc=rss",
-    "time": "2026-11-25T16:57:16+00:00",
-    "tags": [
-     "analyst"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "IBM",
-    "title": "Nebius Plunges 12%, Oracle Sinks 8% as AI Cloud Selloff Deepens; IBM Rises 2%: Is IBM a Safer AI Play?",
-    "link": "https://247wallst.com/investing/2026/11/25/nebius-plunges-12-oracle-sinks-8-as-ai-cloud-selloff-deepens-ibm-rises-2-is-ibm-a-safer-ai-play/?.tsrc=rss",
-    "time": "2026-11-25T16:56:01+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "THOR Industries’ (THO) Capital Discipline Concerns Prompt an Exit",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/thor-industries-tho-capital-discipline-165449275.html?.tsrc=rss",
-    "time": "2026-11-25T16:54:49+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "QCOM",
-    "title": "Broadcom vs. Qualcomm: Which Technology Stock Is a Better Buy for 2027?",
-    "link": "https://www.fool.com/coverage/better-buy/2026/11/25/broadcom-vs-qualcomm-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
-    "time": "2026-11-25T16:52:01+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "Robinhood Is Down 56% From Its High. Wall Street Still Sees $126",
-    "link": "https://www.tikr.com/blog/robinhood-is-down-56-from-its-high-wall-street-still-sees-126?ref=yahoofinance&tlnk=yf-261125-jg5prpv5&.tsrc=rss",
-    "time": "2026-11-25T16:51:27+00:00",
-    "tags": [
-     "analyst"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "Darling Ingredients (DAR) Surged as Its Renewable Diesel Margins Rebounded Sharply",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/darling-ingredients-dar-surged-renewable-165018086.html?.tsrc=rss",
-    "time": "2026-11-25T16:50:18+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "LOW",
-    "title": "Highnote files for national bank charter",
-    "link": "https://www.bankingdive.com/news/highnote-applies-national-bank-charter-occ-fdic/875785/?.tsrc=rss",
-    "time": "2026-11-25T16:50:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Chip stocks tumble as Nvidia-led AI rally unravels, tariff fears weigh",
-    "link": "https://www.proactiveinvestors.com/companies/news/1102454/chip-stocks-tumble-as-nvidia-led-ai-rally-unravels-tariff-fears-weigh-1102454.html?.tsrc=rss",
-    "time": "2026-11-25T16:49:00+00:00",
-    "tags": [
-     "macro"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "COIN",
-    "title": "CME Group Eyes Growth as Prediction Markets Gain Strong Momentum",
-    "link": "https://finance.yahoo.com/markets/options/articles/cme-group-eyes-growth-prediction-164700059.html?.tsrc=rss",
-    "time": "2026-11-25T16:47:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "MSTR",
-    "title": "U.S. Physical Therapy’s (USPH) Rally Driven by Record Q2 Results and Hospital Alliances",
-    "link": "https://finance.yahoo.com/healthcare/articles/u-physical-therapy-usph-rally-164634544.html?.tsrc=rss",
-    "time": "2026-11-25T16:46:34+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "PG",
-    "title": "Nestle, Procter & Gamble, Unilever, L'Oreal and Danone Lead a Highly Fragmented Health and Wellness Market Worth USD 7.76 Trillion by 2035",
-    "link": "https://finance.yahoo.com/healthcare/articles/nestle-procter-gamble-unilever-loreal-164600924.html?.tsrc=rss",
-    "time": "2026-11-25T16:46:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "HPQ",
-    "title": "HPQ Q4 Earnings Call Maps Out a PC Margin Recovery",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/hpq-q4-earnings-call-maps-164200673.html?.tsrc=rss",
-    "time": "2026-11-25T16:42:00+00:00",
-    "tags": [
-     "earnings"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "ADP",
-    "title": "Wedbush starts Robinhood, Coinbase at Outperform in fintech coverage launch",
-    "link": "https://finance.yahoo.com/markets/stocks/articles/wedbush-starts-robinhood-coinbase-outperform-163557118.html?.tsrc=rss",
-    "time": "2026-11-25T16:35:57+00:00",
-    "tags": [
-     "analyst"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "Klarna Announces Major Canada Expansion With Launch of Flexible Virtual Card",
-    "link": "https://finance.yahoo.com/small-business/articles/klarna-announces-major-canada-expansion-163500879.html?.tsrc=rss",
-    "time": "2026-11-25T16:35:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "INTU",
-    "title": "How 2 Quick Calls Sealed Berkshire Hathaway’s $930M Bending Spoons Investment",
-    "link": "https://finance.yahoo.com/m/c0f5187b-4c48-3bdf-bace-f60bd53791d7/how-2-quick-calls-sealed.html?.tsrc=rss",
-    "time": "2026-11-25T16:33:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "T",
-    "title": "T-Mobile customers are in line for a significant network boost",
-    "link": "https://www.thestreet.com/retail/t-mobile-buying-600-mhz-spectrum-from-bluewater-wireless?.tsrc=rss",
-    "time": "2026-11-25T16:33:00+00:00",
-    "tags": []
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "SNDK",
-    "title": "Tesla Sinks 5%, Sandisk Down 13% as AI Selloff Deepens and EU Stalls FSD Approval",
-    "link": "https://www.tikr.com/blog/tesla-sinks-5-sandisk-down-13-as-ai-selloff-deepens-and-eu-stalls-fsd-approval?ref=yahoofinance&tlnk=yf-261125-3jjqvxp5&.tsrc=rss",
-    "time": "2026-11-25T16:31:41+00:00",
-    "tags": [
-     "regulatory"
-    ]
-   },
-   {
-    "source": "Yahoo Finance",
-    "kind": "headline",
-    "ticker": "V",
-    "title": "Visa Paid About $335 per Share to Buy Back $20.5 Billion of Its Stock Last Year. Would You Pay $400?",
-    "link": "https://www.fool.com/investing/2026/11/25/visa-paid-about-usd335-per-share-to-buy-back-usd20-5-billion-of-its-stock-last-year-would-you-pay-usd400/?.tsrc=rss",
-    "time": "2026-11-25T16:28:02+00:00",
-    "tags": []
    }
   ]
  },
  "congress": {
-  "run_at": "2026-11-26T13:14:07Z",
-  "since": "2026-10-12",
+  "run_at": "2026-11-27T13:14:09Z",
+  "since": "2026-10-13",
   "filings": [
    {
     "doc_id": "20036908",
@@ -11887,7 +11878,7 @@
    }
   ]
  },
- "updated": "2026-11-27T03:38:40Z",
+ "updated": "2026-11-27T13:15:23Z",
  "orb": {
   "created_by": "trader-scanner",
   "created_at": "2026-11-25T14:56:27Z",
@@ -13772,7 +13763,7 @@
   "ma50": 757.89,
   "ma200": 733.16,
   "ma50_slope_pct": -1.27,
-  "at": "2026-11-26T14:56:18Z"
+  "at": "2026-11-27T13:07:53Z"
  },
  "earnings_next": {
   "CPRT": {
